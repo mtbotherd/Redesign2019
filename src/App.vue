@@ -8,8 +8,7 @@
 
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="images/t_logo_black.png" width="35" height="35" class="d-inline-block aling-top" alt="Metro Transit T logo" />
-                    <span class="align-middle">Metro Transit</span>
+                    <img src="./assets/img/MetroTransitLogo.svg" width="225" height="53" class="d-inline-block aling-top" alt="Metro Transit T logo" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -118,7 +117,7 @@
                             <input class="form-control" type="text" placeholder="Search" aria-label="Search">
                             <div class="input-group-append">
                                 <button class="btn btn-secondary" type="button">
-                                    <i class="fa fa-search"></i>
+                                    <i class="fas fa-search"></i>
                                 </button>
                             </div>
                         </div>
