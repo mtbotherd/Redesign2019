@@ -1,6 +1,6 @@
 <template>
-  <div class="trip-planner">
-    <h1>Trip Planner</h1>
+  <div class="maps-schedules">
+    <h1>Maps &amp; Schedules</h1>
   </div>
 </template>
 

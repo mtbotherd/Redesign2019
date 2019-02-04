@@ -14,19 +14,29 @@
           </b-navbar-brand>
           <b-collapse is-nav id="mainNav">
             <b-navbar-nav>
-              <b-nav-item to="/">Link 1</b-nav-item>
               <b-nav-item-dropdown text="Trip Tools">
-                <b-dropdown-item to="#">Link 2.1</b-dropdown-item>
-                <b-dropdown-item to="#">Link 2.2</b-dropdown-item>
-                <b-dropdown-item to="#">Link 2.3</b-dropdown-item>
+                <b-dropdown-item :to="{ name: 'trip-planner' }">Trip Planner</b-dropdown-item>
+                <b-dropdown-item :to="{ name: 'nextrip' }">NexTrip</b-dropdown-item>
+                <b-dropdown-item :to="{ name: 'find-stops' }">Find Stops</b-dropdown-item>
+                <b-dropdown-item :to="{ name: 'alerts' }">Alerts</b-dropdown-item>
               </b-nav-item-dropdown>
+              <b-nav-item :to="{ name: 'maps-schedules' }">Maps &amp; Schedules</b-nav-item>
+              <b-nav-item-dropdown text="Fares">
+                <b-dropdown-item :to="{ name: 'ride-costs' }">Ride Costs</b-dropdown-item>
+                <b-dropdown-item :to="{ name: 'goto-card' }">Go-To Card</b-dropdown-item>
+                <b-nav-item-dropdown text="Discount Passes">
+                  <b-dropdown-item :to="{ name: 'tap' }">Transit Assistance Program</b-dropdown-item>
+                </b-nav-item-dropdown>
+              </b-nav-item-dropdown>
+              <b-nav-toggle target="mainNav"></b-nav-toggle>
             </b-navbar-nav>
           </b-collapse>
-          <b-nav-toggle target="mainNav"></b-nav-toggle>
         </div>
       </b-navbar>
     </header>
-    <!-- <router-view/> -->
+    <div class="container">
+      <router-view/>
+    </div>
   </div>
 </template>
 

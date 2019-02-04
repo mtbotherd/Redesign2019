@@ -1,6 +1,6 @@
 <template>
-  <div class="trip-planner">
-    <h1>Trip Planner</h1>
+  <div class="tap">
+    <h1>Transit Assistance Program (TAP)</h1>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
-  <div class="trip-planner">
-    <h1>Trip Planner</h1>
+  <div class="nextrip">
+    <h1>NexTrip</h1>
   </div>
 </template>
 

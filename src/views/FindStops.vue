@@ -1,6 +1,6 @@
 <template>
-  <div class="trip-planner">
-    <h1>Trip Planner</h1>
+  <div class="find-stops">
+    <h1>Find Stops</h1>
   </div>
 </template>
 

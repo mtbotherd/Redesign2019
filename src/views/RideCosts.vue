@@ -1,6 +1,6 @@
 <template>
-  <div class="trip-planner">
-    <h1>Trip Planner</h1>
+  <div class="ride-costs">
+    <h1>Ride Costs</h1>
   </div>
 </template>
 
