@@ -1,12 +1,11 @@
 <template>
-  <div class="goto-card">
-    <h1>Go-To Card</h1>
-  </div>
+	<div class="goto-card">
+		<h1>Go-To Card</h1>
+	</div>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

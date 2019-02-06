@@ -1,12 +1,11 @@
 <template>
-  <div class="maps-schedules">
-    <h1>Maps &amp; Schedules</h1>
-  </div>
+	<div class="maps-schedules">
+		<h1>Maps &amp; Schedules</h1>
+	</div>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

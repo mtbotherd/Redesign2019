@@ -1,139 +1,59 @@
 <template>
-  <!-- Top NavBar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarTogglerDemo01"
-      aria-controls="navbarTogglerDemo01"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">Hidden brand</a>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">
-            Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="http://example.com"
-            id="navbarDropdownMenuLink"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >Dropdown link</a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li>
-              <a class="dropdown-item" href="#">Action</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Another action</a>
-            </li>
-            <li class="dropdown-submenu">
-              <a class="dropdown-item dropdown-toggle" href="#">Submenu</a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="#">Submenu action</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Another submenu action</a>
-                </li>
-
-                <li class="dropdown-submenu">
-                  <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="#">Subsubmenu action</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">Another subsubmenu action</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="dropdown-submenu">
-                  <a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="#">Subsubmenu action</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">Another subsubmenu action</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
+	<div>
+		<b-navbar type="light" toggleable="lg">
+			<div class="container">
+				<b-navbar-brand :to="{ name: 'home' }">
+					<img
+						src="../assets/img/MetroTransitLogo.svg"
+						width="225"
+						height="53"
+						class="img-fluid d-inline-block aling-top"
+						alt="Metro Transit T logo"
+					/>
+					<span class="sr-only">Metro Transit</span>
+				</b-navbar-brand>
+				<b-collapse id="mainNav" is-nav>
+					<b-navbar-nav>
+						<b-nav-item-dropdown text="Trip Tools">
+							<b-dropdown-item :to="{ name: 'trip-planner' }"
+								>Trip Planner</b-dropdown-item
+							>
+							<b-dropdown-item :to="{ name: 'nextrip' }"
+								>NexTrip</b-dropdown-item
+							>
+							<b-dropdown-item :to="{ name: 'find-stops' }"
+								>Find Stops</b-dropdown-item
+							>
+							<b-dropdown-item :to="{ name: 'alerts' }"
+								>Alerts</b-dropdown-item
+							>
+						</b-nav-item-dropdown>
+						<b-nav-item :to="{ name: 'maps-schedules' }"
+							>Maps &amp; Schedules</b-nav-item
+						>
+						<b-nav-item-dropdown text="Fares">
+							<b-dropdown-item :to="{ name: 'ride-costs' }"
+								>Ride Costs</b-dropdown-item
+							>
+							<b-dropdown-item :to="{ name: 'goto-card' }"
+								>Go-To Card</b-dropdown-item
+							>
+							<b-nav-item-dropdown text="Discount Passes">
+								<b-dropdown-item :to="{ name: 'tap' }"
+									>Transit Assistance Program</b-dropdown-item
+								>
+							</b-nav-item-dropdown>
+						</b-nav-item-dropdown>
+						<b-nav-toggle target="mainNav"></b-nav-toggle>
+					</b-navbar-nav>
+				</b-collapse>
+			</div>
+		</b-navbar>
+	</div>
 </template>
 
 <script>
-export default {};
-const $ = require("jquery");
-window.$ = $;
-
-$(".dropdown-menu a.dropdown-toggle").on("click", function(e) {
-  if (
-    !$(this)
-      .next()
-      .hasClass("show")
-  ) {
-    $(this)
-      .parents(".dropdown-menu")
-      .first()
-      .find(".show")
-      .removeClass("show");
-  }
-  var $subMenu = $(this).next(".dropdown-menu");
-  $subMenu.toggleClass("show");
-
-  $(this)
-    .parents("li.nav-item.dropdown.show")
-    .on("hidden.bs.dropdown", function(e) {
-      $(".dropdown-submenu .show").removeClass("show");
-    });
-
-  return false;
-});
+export default {}
 </script>
 
-<style scoped>
-.dropdown-submenu {
-  position: relative;
-}
-
-.dropdown-submenu a::after {
-  transform: rotate(-90deg);
-  position: absolute;
-  right: 6px;
-  top: 0.8em;
-}
-
-.dropdown-submenu .dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-left: 0.1rem;
-  margin-right: 0.1rem;
-}
-</style>
+<style scoped></style>

@@ -1,12 +1,11 @@
 <template>
-  <div class="ride-costs">
-    <h1>Ride Costs</h1>
-  </div>
+	<div class="ride-costs">
+		<h1>Ride Costs</h1>
+	</div>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

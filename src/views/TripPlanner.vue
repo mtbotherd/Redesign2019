@@ -1,12 +1,11 @@
 <template>
-  <div class="trip-planner">
-    <h1>Trip Planner</h1>
-  </div>
+	<div class="trip-planner">
+		<h1>Trip Planner</h1>
+	</div>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

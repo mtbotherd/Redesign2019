@@ -1,12 +1,11 @@
 <template>
-  <div class="tap">
-    <h1>Transit Assistance Program (TAP)</h1>
-  </div>
+	<div class="tap">
+		<h1>Transit Assistance Program (TAP)</h1>
+	</div>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

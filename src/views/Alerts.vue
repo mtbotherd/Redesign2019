@@ -1,12 +1,11 @@
 <template>
-  <div class="alerts">
-    <h1>Alerts</h1>
-  </div>
+	<div class="alerts">
+		<h1>Alerts</h1>
+	</div>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
