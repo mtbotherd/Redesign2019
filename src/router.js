@@ -4,11 +4,14 @@ import Home from './views/Home.vue'
 import TripPlanner from './views/TripPlanner.vue'
 import NexTrip from './views/NexTrip.vue'
 import FindStops from './views/FindStops.vue'
-import Alerts from './views/Alerts.vue'
 import MapsSchedules from './views/MapsSchedules.vue'
 import RideCosts from './views/RideCosts.vue'
 import GoToCard from './views/GoToCard.vue'
-import TransitAssistanceProgram from './views/TransitAssistanceProgram.vue'
+import DiscountPrograms from './views/DiscountPrograms.vue'
+import ContactUs from './views/ContactUs.vue'
+import TransitPolice from './views/TransitPolice.vue'
+import HowToRideGuide from './views/HowToRideGuide.vue'
+import More from './views/More.vue'
 
 Vue.use(Router)
 
@@ -36,11 +39,6 @@ export default new Router({
 			component: FindStops
 		},
 		{
-			path: '/alerts',
-			name: 'alerts',
-			component: Alerts
-		},
-		{
 			path: '/maps-schedules',
 			name: 'maps-schedules',
 			component: MapsSchedules
@@ -56,10 +54,29 @@ export default new Router({
 			component: GoToCard
 		},
 		{
-			path: '/transit-assistance-program',
-			name: 'tap',
-			component: TransitAssistanceProgram,
-			alias: ['/tap', '/pta'] // Creates an alias for the path.
+			path: '/discount-programs',
+			name: 'discount-programs',
+			component: DiscountPrograms
+		},
+		{
+			path: '/contact-us',
+			name: 'contact-us',
+			component: ContactUs
+		},
+		{
+			path: '/transit-police',
+			name: 'transit-police',
+			component: TransitPolice
+		},
+		{
+			path: '/how-to-ride-guide',
+			name: 'how-to-ride-guide',
+			component: HowToRideGuide
+		},
+		{
+			path: '/more',
+			name: 'more',
+			component: More
 		}
 	]
 })

@@ -1,6 +1,6 @@
 <template>
-	<div class="home">
-		<h1>Home</h1>
+	<div class="how-to-ride-guide">
+		<h1>How to Ride Guide</h1>
 	</div>
 </template>
 

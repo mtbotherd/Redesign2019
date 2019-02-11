@@ -1,6 +1,6 @@
 <template>
-	<div class="home">
-		<h1>Home</h1>
+	<div class="transit-police">
+		<h1>Transit Police</h1>
 	</div>
 </template>
 

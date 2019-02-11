@@ -1,6 +1,6 @@
 <template>
-	<div class="tap">
-		<h1>Transit Assistance Program (TAP)</h1>
+	<div class="contact-us">
+		<h1>Contact Us</h1>
 	</div>
 </template>
 

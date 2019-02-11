@@ -1,6 +1,6 @@
 <template>
-	<div class="alerts">
-		<h1>Alerts</h1>
+	<div class="more">
+		<h1>More</h1>
 	</div>
 </template>
 
