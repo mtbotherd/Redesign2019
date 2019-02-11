@@ -21,7 +21,45 @@
 					id="navbarCollapse"
 				>
 					<form class="form-inline ml-auto">
-						<div class="input-group input-group-sm mb-3">
+						<ul class="navbar-nav">
+							<li class="nav-item dropdown">
+								<a
+									class="nav-link dropdown-toggle"
+									href="#"
+									id="language"
+									role="button"
+									data-toggle="dropdown"
+									aria-haspopup="true"
+									aria-expanded="false"
+								>
+									<font-awesome-icon icon="globe-americas" />
+									Language
+								</a>
+								<div
+									class="dropdown-menu"
+									aria-labelledby="language"
+								>
+									<a class="dropdown-item" href="#">Hmong</a>
+									<a class="dropdown-item" href="#">Karen</a>
+									<a class="dropdown-item" href="#">Somali</a>
+									<a class="dropdown-item" href="#">
+										Spanish
+									</a>
+									<a class="dropdown-item" href="#">
+										Vietnamese
+									</a>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/alerts">
+									<font-awesome-icon
+										icon="exclamation-triangle"
+									/>
+									Alerts
+								</a>
+							</li>
+						</ul>
+						<div class="input-group input-group-sm">
 							<input
 								type="text"
 								class="form-control"
@@ -29,15 +67,15 @@
 								aria-label="Search"
 								aria-describedby="search-button"
 							/>
-							<span class="input-group-append">
-								<button
-									class="btn btn-outline-secondary"
-									type="button"
-									id="seach-button"
-								>
-									Button
-								</button>
-							</span>
+							<!-- <span class="input-group-append"> -->
+							<button
+								class="btn btn-outline-secondary"
+								type="button"
+								id="seach-button"
+							>
+								<font-awesome-icon icon="search" />
+							</button>
+							<!-- </span> -->
 						</div>
 					</form>
 					<ul class="navbar-nav ml-auto">

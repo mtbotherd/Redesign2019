@@ -5,10 +5,12 @@ import store from './store'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons'
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faCoffee)
+library.add([faGlobeAmericas, faExclamationTriangle, faSearch])
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
