@@ -50,8 +50,9 @@
 								data-toggle="dropdown"
 								aria-haspopup="true"
 								aria-expanded="false"
-								>Trip Tools</a
 							>
+								Trip Tools
+							</a>
 							<div
 								class="dropdown-menu"
 								aria-labelledby="tripToolsDropdown"
@@ -59,26 +60,30 @@
 								<router-link
 									class="dropdown-item"
 									:to="{ name: 'trip-planner' }"
-									>Trip Planner</router-link
 								>
+									Trip Planner
+								</router-link>
 								<router-link
 									class="dropdown-item"
 									:to="{ name: 'nextrip' }"
-									>NexTrip</router-link
 								>
+									NexTrip
+								</router-link>
 								<router-link
 									class="dropdown-item"
 									:to="{ name: 'find-stops' }"
-									>Find Stops</router-link
 								>
+									Find Stops
+								</router-link>
 							</div>
 						</li>
 						<li class="nav-item">
 							<router-link
 								class="nav-link"
 								:to="{ name: 'maps-schedules' }"
-								>Maps &amp; Schedules</router-link
 							>
+								Maps &amp; Schedules
+							</router-link>
 						</li>
 						<li class="nav-item dropdown">
 							<a
@@ -89,8 +94,9 @@
 								data-toggle="dropdown"
 								aria-haspopup="true"
 								aria-expanded="false"
-								>Fares</a
 							>
+								Fares
+							</a>
 							<div
 								class="dropdown-menu"
 								aria-labelledby="faresDropdown"
@@ -98,18 +104,21 @@
 								<router-link
 									class="dropdown-item"
 									:to="{ name: 'ride-costs' }"
-									>Ride Costs</router-link
 								>
+									Ride Costs
+								</router-link>
 								<router-link
 									class="dropdown-item"
 									:to="{ name: 'goto-card' }"
-									>Go-To Card</router-link
 								>
+									Go-To Card
+								</router-link>
 								<router-link
 									class="dropdown-item"
 									:to="{ name: 'discount-programs' }"
-									>Discount Programs</router-link
 								>
+									Discount Programs
+								</router-link>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
@@ -121,8 +130,9 @@
 								data-toggle="dropdown"
 								aria-haspopup="true"
 								aria-expanded="false"
-								>Help</a
 							>
+								Help
+							</a>
 							<div
 								class="dropdown-menu"
 								aria-labelledby="helpDropdown"
@@ -130,24 +140,30 @@
 								<router-link
 									class="dropdown-item"
 									:to="{ name: 'contact-us' }"
-									>Contact Us</router-link
 								>
+									Contact Us
+								</router-link>
 								<router-link
 									class="dropdown-item"
 									:to="{ name: 'transit-police' }"
-									>Transit Police</router-link
 								>
+									Transit Police
+								</router-link>
 								<router-link
 									class="dropdown-item"
 									:to="{ name: 'how-to-ride-guide' }"
-									>How to Ride Guide</router-link
 								>
+									How to Ride Guide
+								</router-link>
 							</div>
 						</li>
 						<li class="nav-item">
-							<router-link class="nav-link" :to="{ name: 'more' }"
-								>More...</router-link
+							<router-link
+								class="nav-link"
+								:to="{ name: 'more' }"
 							>
+								More...
+							</router-link>
 						</li>
 					</ul>
 				</div>
