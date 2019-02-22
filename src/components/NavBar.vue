@@ -1,6 +1,6 @@
 <template>
 	<header>
-		<nav class="navbar navbar-expand-sm navbar-light border-bottom">
+		<nav class="navbar navbar-expand-lg navbar-light border-bottom">
 			<div class="container">
 				<router-link class="navbar-brand" :to="{ name: 'home' }">
 					<img
@@ -21,8 +21,9 @@
 					id="navbarCollapse"
 				>
 					<form class="form-inline ml-auto">
-						<ul class="navbar-nav">
-							<li class="nav-item dropdown">
+						<ul class="navbar-nav utilities">
+							<li class="nav-item dropdown mr-4">
+								<font-awesome-icon icon="globe-americas" />
 								<a
 									class="nav-link dropdown-toggle"
 									href="#"
@@ -32,7 +33,6 @@
 									aria-haspopup="true"
 									aria-expanded="false"
 								>
-									<font-awesome-icon icon="globe-americas" />
 									Language
 								</a>
 								<div
@@ -50,13 +50,11 @@
 									</a>
 								</div>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="/alerts">
-									<font-awesome-icon
-										icon="exclamation-triangle"
-									/>
-									Alerts
-								</a>
+							<li class="nav-item mr-4">
+								<font-awesome-icon
+									icon="exclamation-triangle"
+								/>
+								<a class="nav-link" href="/alerts">Alerts</a>
 							</li>
 						</ul>
 						<div class="input-group input-group-sm">
@@ -67,15 +65,11 @@
 								aria-label="Search"
 								aria-describedby="search-button"
 							/>
-							<!-- <span class="input-group-append"> -->
-							<button
-								class="btn btn-outline-secondary"
-								type="button"
-								id="seach-button"
-							>
-								<font-awesome-icon icon="search" />
-							</button>
-							<!-- </span> -->
+							<div class="input-group-append">
+								<span class="input-group-text bg-transparent">
+									<font-awesome-icon icon="search" />
+								</span>
+							</div>
 						</div>
 					</form>
 					<ul class="navbar-nav ml-auto">
