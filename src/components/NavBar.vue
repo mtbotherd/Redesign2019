@@ -21,7 +21,7 @@
 					id="navbarCollapse"
 				>
 					<form class="form-inline ml-auto">
-						<ul class="navbar-nav">
+						<ul class="navbar-nav utilities">
 							<li class="nav-item dropdown">
 								<a
 									class="nav-link dropdown-toggle"
@@ -33,7 +33,7 @@
 									aria-expanded="false"
 								>
 									<font-awesome-icon icon="globe-americas" />
-									Language
+									<span class="small p-1">Language</span>
 								</a>
 								<div
 									class="dropdown-menu"
@@ -55,21 +55,21 @@
 									<font-awesome-icon
 										icon="exclamation-triangle"
 									/>
-									Alerts
+									<span class="small p-1">Alerts</span>
 								</a>
 							</li>
 						</ul>
 						<div class="input-group input-group-sm">
 							<input
 								type="text"
-								class="form-control"
+								class="form-control ml-5"
 								placeholder="Search"
 								aria-label="Search"
 								aria-describedby="search-button"
 							/>
 							<!-- <span class="input-group-append"> -->
 							<button
-								class="btn btn-outline-secondary"
+								class="btn btn-search"
 								type="button"
 								id="seach-button"
 							>
