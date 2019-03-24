@@ -27,3 +27,15 @@ a.skip-to-content {
 		padding: 0.25rem;
 	}
 }
+
+// Utilities (ie. Language, Alerts, Search
+ul.utilities {
+	// li {
+	// 	margin-right: 1rem;
+	// }
+	.nav-link {
+		display: inline-block;
+		padding-right: 0.5rem;
+		padding-left: 0.5rem;
+	}
+}

@@ -1,6 +1,6 @@
 <template>
 	<header>
-		<nav class="navbar navbar-expand-sm navbar-light border-bottom">
+		<nav class="navbar navbar-expand-lg navbar-light border-bottom">
 			<div class="container">
 				<router-link class="navbar-brand" :to="{ name: 'home' }">
 					<img
@@ -22,7 +22,12 @@
 				>
 					<form class="form-inline ml-auto">
 						<ul class="navbar-nav utilities">
+<<<<<<< HEAD
 							<li class="nav-item dropdown">
+=======
+							<li class="nav-item dropdown mr-4">
+								<font-awesome-icon icon="globe-americas" />
+>>>>>>> e9496d891c8d346c781b503a36fae2aeac78c587
 								<a
 									class="nav-link dropdown-toggle"
 									href="#"
@@ -32,8 +37,12 @@
 									aria-haspopup="true"
 									aria-expanded="false"
 								>
+<<<<<<< HEAD
 									<font-awesome-icon icon="globe-americas" />
 									<span class="small p-1">Language</span>
+=======
+									Language
+>>>>>>> e9496d891c8d346c781b503a36fae2aeac78c587
 								</a>
 								<div
 									class="dropdown-menu"
@@ -50,6 +59,7 @@
 									</a>
 								</div>
 							</li>
+<<<<<<< HEAD
 							<li class="nav-item">
 								<a class="nav-link" href="/alerts">
 									<font-awesome-icon
@@ -57,6 +67,13 @@
 									/>
 									<span class="small p-1">Alerts</span>
 								</a>
+=======
+							<li class="nav-item mr-4">
+								<font-awesome-icon
+									icon="exclamation-triangle"
+								/>
+								<a class="nav-link" href="/alerts">Alerts</a>
+>>>>>>> e9496d891c8d346c781b503a36fae2aeac78c587
 							</li>
 						</ul>
 						<div class="input-group input-group-sm">
@@ -67,6 +84,7 @@
 								aria-label="Search"
 								aria-describedby="search-button"
 							/>
+<<<<<<< HEAD
 							<!-- <span class="input-group-append"> -->
 							<button
 								class="btn btn-search"
@@ -76,6 +94,13 @@
 								<font-awesome-icon icon="search" />
 							</button>
 							<!-- </span> -->
+=======
+							<div class="input-group-append">
+								<span class="input-group-text bg-transparent">
+									<font-awesome-icon icon="search" />
+								</span>
+							</div>
+>>>>>>> e9496d891c8d346c781b503a36fae2aeac78c587
 						</div>
 					</form>
 					<ul class="navbar-nav ml-auto">
