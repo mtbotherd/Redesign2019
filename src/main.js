@@ -2,8 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+
+// Bootstrap - This imports bootstrap.js.  Refer to app.scss for bootstrap styles import.
 import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.css'
 
 // Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -20,6 +21,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 // Automatic Global Registration of Components
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
+import { globalAgent } from 'http'
 
 const requireComponent = require.context(
 	'./components',
