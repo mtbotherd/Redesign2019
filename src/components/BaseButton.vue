@@ -1,14 +1,13 @@
 <template>
-    <div>
-        <button class="btn btn-primary"><slot>Submit</slot></button>
-    </div>
+	<div>
+		<button class="btn btn-primary">
+			<slot>Submit</slot>
+		</button>
+	</div>
 </template>
 
 <script>
-    export default {
-    }
+export default {}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
