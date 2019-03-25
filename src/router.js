@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+// Main Navigation
 import Home from './views/Home.vue'
 import TripPlanner from './views/TripPlanner.vue'
 import NexTrip from './views/NexTrip.vue'
@@ -13,11 +15,15 @@ import TransitPolice from './views/TransitPolice.vue'
 import HowToRideGuide from './views/HowToRideGuide.vue'
 import More from './views/More.vue'
 
+// Components
+import Buttons from './views/Buttons.vue'
+
 Vue.use(Router)
 
 export default new Router({
 	mode: 'history',
 	routes: [
+		// Main navigation
 		{
 			path: '/',
 			name: 'home',
@@ -77,6 +83,12 @@ export default new Router({
 			path: '/more',
 			name: 'more',
 			component: More
+		},
+		// Components
+		{
+			path: '/buttons',
+			name: 'buttons',
+			component: Buttons
 		}
 	]
 })
