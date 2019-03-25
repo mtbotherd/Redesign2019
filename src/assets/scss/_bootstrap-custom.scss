@@ -2,16 +2,21 @@
     Bootstrap Overrides
 ************************************************/
 // Colors
-$blue:   #0053a0;
-$red:    #ed1b2e;
+$blue: #0053a0;
+$red: #ed1b2e;
 $yellow: #ffd200;
-$white:  #ffffff;
+$white: #ffffff;
 
 // Link styles
 $link-decoration: underline;
 
 // Fonts
-$font-family-sans-serif:      "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-sans-serif: proxima-nova, -apple-system, BlinkMacSystemFont,
+	'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+	'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 // Breadcrumb separator
-$breadcrumb-divider: quote("»");
+$breadcrumb-divider: quote('»');
+
+// Components - Define common padding and border radius sizes and more.
+$border-radius: none;
