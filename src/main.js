@@ -6,6 +6,12 @@ import store from './store'
 // Bootstrap - This imports bootstrap.js.  Refer to app.scss for bootstrap styles import.
 import 'bootstrap'
 
+// Vue Nav Tabs (based on Bootstrap 4)
+// To install run: npm install --save vue-nav-tabs
+// import VueTabs from 'vue-nav-tabs'
+// import 'vue-nav-tabs/themes/vue-tabs.css'
+// Vue.use(VueTabs)
+
 // Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons'

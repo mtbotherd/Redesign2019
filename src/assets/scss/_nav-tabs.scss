@@ -1,0 +1,23 @@
+/***************************************************
+    Nav Tabs
+***************************************************/
+.nav-tabs {
+	.nav-link {
+		background-color: $blue;
+		color: $white;
+		text-decoration: none;
+
+		&.active {
+			background-color: $white;
+			color: $blue;
+			text-decoration: none;
+		}
+	}
+}
+
+// Icons
+#tripPlanner {
+	.b {
+		fill: #ed1b2e;
+	}
+}
