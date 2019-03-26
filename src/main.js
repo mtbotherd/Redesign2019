@@ -21,7 +21,6 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 // Automatic Global Registration of Components
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
-import { globalAgent } from 'http'
 
 const requireComponent = require.context(
 	'./components',

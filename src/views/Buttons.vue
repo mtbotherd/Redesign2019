@@ -1,7 +1,7 @@
 <template>
 	<div id="buttons">
 		<h1>Buttons</h1>
-		<BaseButton />
+		<BaseSubmit />
 		<BaseButton>Save</BaseButton>
 		<BaseButton>Update</BaseButton>
 	</div>

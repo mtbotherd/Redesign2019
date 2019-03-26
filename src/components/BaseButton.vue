@@ -1,9 +1,9 @@
 <template>
-	<div>
-		<button class="btn btn-primary">
-			<slot>Submit</slot>
-		</button>
-	</div>
+  <div class="d-inline-flex mr-2">
+    <button class="btn btn-primary">
+      <slot>Submit</slot>
+    </button>
+  </div>
 </template>
 
 <script>
