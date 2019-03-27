@@ -1,42 +1,35 @@
 <template>
 	<div class="icon-wrapper">
 		<svg class="icon" :width="width" :height="height">
-			<use v-bind="{ 'xlink:href': '/icon-sprite.svg#' + name }"></use>
+			<use v-bind="{ 'xlink:href': '/sample-sprite.svg#' + name }"></use>
 		</svg>
 	</div>
 </template>
 
 <script>
 export default {
-	name: 'Icon',
 	props: {
-		name: String, // name of the symbol to use
+		name: String,
 		width: {
 			type: [Number, String],
-			default: 43
+			default: 37
 		},
 		height: {
 			type: [Number, String],
-			default: 43
+			default: 37
 		}
 	}
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .icon-wrapper {
-	display: inline-flex;
-	align-items: center;
-	color: rgba(0, 0, 0, 0.4);
-	font-size: 1rem;
 	font-weight: 600;
+	position: absolute;
+	top: 0.4rem;
+	left: 3.5rem;
 
 	.icon {
-		stroke: currentColor;
-		stroke-width: 2;
-		stroke-linecap: round;
-		stroke-linejoin: round;
-		fill: none;
 		margin-right: 6px;
 	}
 }
