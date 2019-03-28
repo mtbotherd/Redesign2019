@@ -45,8 +45,8 @@ export default new Router({
 			component: FindStops
 		},
 		{
-			path: '/maps-schedules',
-			name: 'maps-schedules',
+			path: '/schedules-maps',
+			name: 'schedules-maps',
 			component: MapsSchedules
 		},
 		{

@@ -3,7 +3,7 @@
 		<header>
 			<NavBar />
 		</header>
-		<section>
+		<section id="mainContent">
 			<router-view />
 		</section>
 		<footer></footer>
