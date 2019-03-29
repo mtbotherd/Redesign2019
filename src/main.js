@@ -6,6 +6,10 @@ import store from './store'
 // Bootstrap - This imports bootstrap.js.  Refer to app.scss for bootstrap styles import.
 import 'bootstrap'
 
+// Icons
+import BaseIcon from '@/components/BaseIcon'
+Vue.component('BaseIcon', BaseIcon)
+
 // Vue Nav Tabs (based on Bootstrap 4)
 // To install run: npm install --save vue-nav-tabs
 // import VueTabs from 'vue-nav-tabs'

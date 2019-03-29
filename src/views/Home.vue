@@ -5,6 +5,7 @@
 			<ul class="nav nav-tabs nav-justified d-flex align-items-end">
 				<li class="nav-item mr-2">
 					<a class="nav-link align-middle active" href="#">
+						<BaseIcon name="icon-trip-planner" />
 						Trip Planner
 					</a>
 				</li>
@@ -26,17 +27,27 @@ export default {}
 <style lang="scss" scoped>
 .hero-bg {
 	background-image: url('../assets/img/lrt.png');
-	background-position: top center;
+	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
-	height: 300px;
+	height: 100px;
 }
-.nav-tabs {
-	.nav-link {
-		position: relative;
-		font-weight: 700;
-		font-size: 1.5rem;
+@media (min-width: 1200px) {
+	.hero-bg {
+		background-image: url('../assets/img/lrt.png');
+		background-position: top center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+		height: 300px;
+	}
+	.nav-tabs {
+		.nav-link {
+			position: relative;
+			font-weight: 700;
+			font-size: 1.5rem;
+		}
 	}
 }
 </style>
