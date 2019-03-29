@@ -16,10 +16,7 @@
 			>
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div
-				class="collapse navbar-collapse flex-md-column"
-				id="navbarCollapse"
-			>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav">
 					<li class="nav-item dropdown active">
 						<a
@@ -32,6 +29,7 @@
 							aria-expanded="false"
 						>
 							Trip Tools
+							<span class="chevron bottom"></span>
 						</a>
 						<div
 							class="dropdown-menu"
@@ -76,6 +74,7 @@
 							aria-expanded="false"
 						>
 							Fares &amp; Passes
+							<span class="chevron bottom"></span>
 						</a>
 						<div
 							class="dropdown-menu"
@@ -101,10 +100,42 @@
 							</router-link>
 						</div>
 					</li>
-					<li class="nav-item">
-						<router-link class="nav-link" :to="{ name: 'more' }">
+					<li class="nav-item dropdown">
+						<a
+							class="nav-link dropdown-toggle"
+							href="#"
+							id="moreDropdown"
+							role="button"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
 							More
-						</router-link>
+							<span class="chevron bottom"></span>
+						</a>
+						<div
+							class="dropdown-menu"
+							aria-labelledby="faresDropdown"
+						>
+							<router-link
+								class="dropdown-item"
+								:to="{ name: 'Link-name' }"
+							>
+								Link name
+							</router-link>
+							<router-link
+								class="dropdown-item"
+								:to="{ name: 'link-name' }"
+							>
+								Link name
+							</router-link>
+							<router-link
+								class="dropdown-item"
+								:to="{ name: 'link-name' }"
+							>
+								Link name
+							</router-link>
+						</div>
 					</li>
 					<li class="nav-item dropdown">
 						<a
@@ -173,13 +204,36 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-.navbar {
-	.nav-link {
-		text-decoration: none;
-	}
+@media (min-width: 1200px) {
+	.navbar {
+		.nav-link {
+			text-decoration: none;
+		}
 
-	.dropdown-toggle::after {
-		border: none;
+		.dropdown-toggle {
+			.chevron::before {
+				border-style: solid;
+				border-width: 0.05em 0.05em 0 0;
+				content: '';
+				display: inline-block;
+				height: 0.45em;
+				left: 0.15em;
+				position: relative;
+				top: 0.15em;
+				transform: rotate(-45deg);
+				vertical-align: top;
+				width: 0.45em;
+			}
+
+			.chevron.bottom:before {
+				top: 0;
+				transform: rotate(135deg);
+			}
+		}
+
+		.dropdown-toggle::after {
+			border: none;
+		}
 	}
 }
 </style>

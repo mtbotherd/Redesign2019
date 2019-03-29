@@ -13,7 +13,6 @@ import DiscountPrograms from './views/DiscountPrograms.vue'
 import ContactUs from './views/ContactUs.vue'
 import TransitPolice from './views/TransitPolice.vue'
 import HowToRideGuide from './views/HowToRideGuide.vue'
-import More from './views/More.vue'
 
 // Components
 import Buttons from './views/Buttons.vue'
@@ -78,11 +77,6 @@ export default new Router({
 			path: '/how-to-ride-guide',
 			name: 'how-to-ride-guide',
 			component: HowToRideGuide
-		},
-		{
-			path: '/more',
-			name: 'more',
-			component: More
 		},
 		// Components
 		{
