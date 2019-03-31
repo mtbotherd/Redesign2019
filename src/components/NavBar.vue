@@ -28,8 +28,13 @@
 							aria-haspopup="true"
 							aria-expanded="false"
 						>
-							Trip Tools
-							<span class="chevron bottom"></span>
+							Trip Tools&nbsp;
+							<BaseIcon
+								name="icon-xs-chevron-down-gray"
+								width="16"
+								height="16"
+								class="align-middle"
+							/>
 						</a>
 						<div
 							class="dropdown-menu"
@@ -58,7 +63,7 @@
 					<li class="nav-item">
 						<router-link
 							class="nav-link"
-							:to="{ name: 'maps-schedules' }"
+							:to="{ name: 'schedules-maps' }"
 						>
 							Schedules &amp; Maps
 						</router-link>
@@ -74,7 +79,12 @@
 							aria-expanded="false"
 						>
 							Fares &amp; Passes
-							<span class="chevron bottom"></span>
+							<BaseIcon
+								name="icon-xs-chevron-down-gray"
+								width="16"
+								height="16"
+								class="align-middle"
+							/>
 						</a>
 						<div
 							class="dropdown-menu"
@@ -111,7 +121,12 @@
 							aria-expanded="false"
 						>
 							More
-							<span class="chevron bottom"></span>
+							<BaseIcon
+								name="icon-xs-chevron-down-gray"
+								width="16"
+								height="16"
+								class="align-middle"
+							/>
 						</a>
 						<div
 							class="dropdown-menu"
@@ -119,7 +134,7 @@
 						>
 							<router-link
 								class="dropdown-item"
-								:to="{ name: 'Link-name' }"
+								:to="{ name: 'link-name' }"
 							>
 								Link name
 							</router-link>
@@ -148,6 +163,12 @@
 							aria-expanded="false"
 						>
 							Help
+							<BaseIcon
+								name="icon-xs-chevron-down-gray"
+								width="16"
+								height="16"
+								class="align-middle"
+							/>
 						</a>
 						<div
 							class="dropdown-menu"
@@ -183,7 +204,19 @@
 							aria-haspopup="true"
 							aria-expanded="false"
 						>
+							<BaseIcon
+								name="icon-xs-globe-gray"
+								width="16"
+								height="16"
+								class="align-middle"
+							/>
 							En
+							<BaseIcon
+								name="icon-xs-chevron-down-gray"
+								width="16"
+								height="16"
+								class="align-middle"
+							/>
 						</a>
 						<div class="dropdown-menu" aria-labelledby="language">
 							<a class="dropdown-item" href="#">Hmong</a>
@@ -192,6 +225,62 @@
 							<a class="dropdown-item" href="#">Spanish</a>
 							<a class="dropdown-item" href="#">Vietnamese</a>
 						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a
+							class="nav-link dropdown-toggle"
+							href="#"
+							id="search"
+							role="button"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="false"
+							title="Search"
+						>
+							<span class="sr-only">Search</span>
+							<BaseIcon
+								name="icon-xs-search-gray"
+								width="16"
+								height="16"
+								class="align-middle"
+							/>
+						</a>
+						<div
+							class="dropdown-menu"
+							aria-labelledby="searchDropdown"
+						>
+							<div class="form-group">
+								<label for="siteSearch" class="sr-only">
+									Search
+								</label>
+								<input
+									type="search"
+									id="siteSearch"
+									class="form-control form-control-sm"
+									placeholder="Enter search word or phrase"
+								/>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a
+							class="nav-link dropdown-toggle"
+							href="#"
+							id="profile"
+							role="button"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="false"
+							title="Profile"
+						>
+							<span class="sr-only">Your profile</span>
+							<BaseIcon
+								name="icon-xs-avatar-gray"
+								width="16"
+								height="16"
+								class="align-middle"
+							/>
+						</a>
 					</li>
 				</ul>
 			</div>
@@ -204,36 +293,13 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-@media (min-width: 1200px) {
-	.navbar {
-		.nav-link {
-			text-decoration: none;
-		}
-
-		.dropdown-toggle {
-			.chevron::before {
-				border-style: solid;
-				border-width: 0.05em 0.05em 0 0;
-				content: '';
-				display: inline-block;
-				height: 0.45em;
-				left: 0.15em;
-				position: relative;
-				top: 0.15em;
-				transform: rotate(-45deg);
-				vertical-align: top;
-				width: 0.45em;
-			}
-
-			.chevron.bottom:before {
-				top: 0;
-				transform: rotate(135deg);
-			}
-		}
-
-		.dropdown-toggle::after {
-			border: none;
-		}
+.icon-wrapper {
+	width: 1rem;
+	height: 1rem;
+}
+@media (min-width: 992px) {
+	.icon-xs-avatar-gray {
+		padding: 0.5rem;
 	}
 }
 </style>

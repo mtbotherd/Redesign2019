@@ -12,14 +12,14 @@ export default {
 		name: String,
 		width: {
 			type: [Number, String],
-			default: 24
+			default: '100%'
 		},
 		height: {
 			type: [Number, String],
-			default: 21
+			default: '100%'
 		}
 	}
 }
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

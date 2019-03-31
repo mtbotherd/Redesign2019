@@ -1,0 +1,36 @@
+[class^="icon-"], [class*=" icon-"] {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* ==========================================
+Single-colored icons can be modified like so:
+.icon-name {
+  font-size: 32px;
+  color: red;
+}
+========================================== */
+
+.icon-sm-triangle-exclamation-red {
+  width: 1.1103515625em;
+}
+
+.icon-sm-triangle-exclamation-white {
+  width: 1.1103515625em;
+}
+
+.icon-sm-chevron-up-white {
+  width: 1.8857421875em;
+}
+
+.icon-sm-radio-waves-bus-white {
+  width: 0.8740234375em;
+}
+
+.icon-sm-radio-waves-bus-gray {
+  width: 0.8740234375em;
+}

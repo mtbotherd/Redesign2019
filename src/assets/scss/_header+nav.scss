@@ -1,27 +1,35 @@
 /************************************************
     Header and Navigation Styles
 ************************************************/
-// @include media-breakpoint-up(xl) {
-// 	a.skip-to-content {
-// 		position: absolute;
-// 		top: -40px;
-// 		left: 0;
-// 		transition: top 1s ease-out;
+.skip-to-content {
+	display: none;
+}
+.navbar {
+	.nav-link {
+		text-decoration: none;
+	}
+	.icon-wrapper {
+		width: 1rem;
+		height: 1rem;
+	}
+}
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .active > .nav-link {
+	color: $gray-900;
+}
+.dropdown-toggle {
+	.icon-wrapper {
+		display: inline-flex;
+	}
+}
+.dropdown-toggle::after {
+	display: none;
+}
 
-// 		&:focus {
-// 			background-color: $red;
-// 			color: $white;
-// 			left: 0;
-// 			padding: 1rem;
-// 			text-decoration: underline;
-// 			top: 0;
-// 			transition: top 0.1s ease-in;
-// 		}
-// 	}
-// 	.navbar {
-// 		.logo {
-// 			width: 200px;
-// 			height: auto;
-// 		}
-// 	}
-// }
+// Media queries
+@media (min-width: 1200px) {
+	.navbar-expand-lg .navbar-nav .nav-link {
+		padding-right: 0.88rem;
+		padding-left: 0.88rem;
+	}
+}

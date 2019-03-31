@@ -64,6 +64,11 @@ export default new Router({
 			component: DiscountPrograms
 		},
 		{
+			path: '/link-name',
+			name: 'link-name',
+			component: Home
+		},
+		{
 			path: '/contact-us',
 			name: 'contact-us',
 			component: ContactUs

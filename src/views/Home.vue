@@ -5,7 +5,11 @@
 			<ul class="nav nav-tabs nav-justified d-flex align-items-end">
 				<li class="nav-item mr-2">
 					<a class="nav-link align-middle active" href="#">
-						<BaseIcon name="icon-trip-planner" />
+						<!-- <BaseIcon
+							name="icon-lg-direction-color"
+							width="16"
+							height="16"
+            />-->
 						Trip Planner
 					</a>
 				</li>
@@ -30,8 +34,8 @@ export default {}
 	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-size: cover;
-	height: 100px;
+	background-size: 100% 50%;
+	height: 86px;
 }
 @media (min-width: 1200px) {
 	.hero-bg {
@@ -39,7 +43,7 @@ export default {}
 		background-position: top center;
 		background-repeat: no-repeat;
 		background-attachment: fixed;
-		background-size: cover;
+		background-size: contain;
 		height: 300px;
 	}
 	.nav-tabs {
