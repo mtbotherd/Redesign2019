@@ -31,7 +31,7 @@ export default {}
 <style lang="scss" scoped>
 .hero-bg {
 	background-image: url('../assets/img/lrt.png');
-	background-position: center;
+	background-position: top center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 50%;
