@@ -9,7 +9,7 @@
 <script>
 export default {
 	props: {
-		name: String,
+		name: String, // ID of the symbol we want to use
 		width: {
 			type: [Number, String],
 			default: '100%'
@@ -22,4 +22,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.icon-wrapper {
+	display: inline-flex;
+}
+</style>

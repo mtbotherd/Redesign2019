@@ -7,8 +7,8 @@ import store from './store'
 import 'bootstrap'
 
 // Icons
-import IconSprite from '@/components/IconSprite'
-Vue.component('IconSprite', IconSprite)
+import IconSprite from '@/components/IconSprite' // Import component
+Vue.component('IconSprite', IconSprite) // Globally Register component
 
 // Font Awesome
 // import { library } from '@fortawesome/fontawesome-svg-core'

@@ -30,7 +30,7 @@
 						>
 							Trip Tools&nbsp;
 							<IconSprite
-								name="icon-xs-chevron-down-gray"
+								name="icon-sm-chevron-down-gray"
 								width="16"
 								height="16"
 								class="align-middle"
@@ -80,7 +80,7 @@
 						>
 							Fares &amp; Passes
 							<IconSprite
-								name="icon-xs-chevron-down-gray"
+								name="icon-sm-chevron-down-gray"
 								width="16"
 								height="16"
 								class="align-middle"
@@ -122,7 +122,7 @@
 						>
 							More
 							<IconSprite
-								name="icon-xs-chevron-down-gray"
+								name="icon-sm-chevron-down-gray"
 								width="16"
 								height="16"
 								class="align-middle"
@@ -164,7 +164,7 @@
 						>
 							Help
 							<IconSprite
-								name="icon-xs-chevron-down-gray"
+								name="icon-sm-chevron-down-gray"
 								width="16"
 								height="16"
 								class="align-middle"
@@ -205,14 +205,14 @@
 							aria-expanded="false"
 						>
 							<IconSprite
-								name="icon-xs-globe-gray"
+								name="icon-sm-globe-gray"
 								width="16"
 								height="16"
 								class="align-middle"
 							/>
 							En
 							<IconSprite
-								name="icon-xs-chevron-down-gray"
+								name="icon-sm-chevron-down-gray"
 								width="16"
 								height="16"
 								class="align-middle"
@@ -239,7 +239,7 @@
 						>
 							<span class="sr-only">Search</span>
 							<IconSprite
-								name="icon-xs-search-gray"
+								name="icon-sm-magnifying-glass-gray"
 								width="16"
 								height="16"
 								class="align-middle"
@@ -275,7 +275,7 @@
 						>
 							<span class="sr-only">Your profile</span>
 							<IconSprite
-								name="icon-xs-avatar-gray"
+								name="icon-sm-avatar-gray"
 								width="16"
 								height="16"
 								class="align-middle"
