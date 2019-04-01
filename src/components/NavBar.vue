@@ -29,7 +29,7 @@
 							aria-expanded="false"
 						>
 							Trip Tools&nbsp;
-							<BaseIcon
+							<IconSprite
 								name="icon-xs-chevron-down-gray"
 								width="16"
 								height="16"
@@ -79,7 +79,7 @@
 							aria-expanded="false"
 						>
 							Fares &amp; Passes
-							<BaseIcon
+							<IconSprite
 								name="icon-xs-chevron-down-gray"
 								width="16"
 								height="16"
@@ -121,7 +121,7 @@
 							aria-expanded="false"
 						>
 							More
-							<BaseIcon
+							<IconSprite
 								name="icon-xs-chevron-down-gray"
 								width="16"
 								height="16"
@@ -163,7 +163,7 @@
 							aria-expanded="false"
 						>
 							Help
-							<BaseIcon
+							<IconSprite
 								name="icon-xs-chevron-down-gray"
 								width="16"
 								height="16"
@@ -204,14 +204,14 @@
 							aria-haspopup="true"
 							aria-expanded="false"
 						>
-							<BaseIcon
+							<IconSprite
 								name="icon-xs-globe-gray"
 								width="16"
 								height="16"
 								class="align-middle"
 							/>
 							En
-							<BaseIcon
+							<IconSprite
 								name="icon-xs-chevron-down-gray"
 								width="16"
 								height="16"
@@ -238,7 +238,7 @@
 							title="Search"
 						>
 							<span class="sr-only">Search</span>
-							<BaseIcon
+							<IconSprite
 								name="icon-xs-search-gray"
 								width="16"
 								height="16"
@@ -274,7 +274,7 @@
 							title="Profile"
 						>
 							<span class="sr-only">Your profile</span>
-							<BaseIcon
+							<IconSprite
 								name="icon-xs-avatar-gray"
 								width="16"
 								height="16"

@@ -4,12 +4,15 @@
 			<h1 class="sr-only">Metro Transit home page</h1>
 			<ul class="nav nav-tabs nav-justified d-flex align-items-end">
 				<li class="nav-item mr-2">
-					<a class="nav-link align-middle active" href="#">
-						<!-- <BaseIcon
-							name="icon-lg-direction-color"
-							width="16"
-							height="16"
-            />-->
+					<IconSprite
+						name="icon-sm-circle-location-pin-color"
+						width="32"
+						height="32"
+					/>
+					<a
+						class="nav-link stretched-link align-middle active"
+						href="#"
+					>
 						Trip Planner
 					</a>
 				</li>
@@ -47,10 +50,35 @@ export default {}
 		height: 300px;
 	}
 	.nav-tabs {
+		.nav-item {
+			position: relative;
+			.icon-wrapper {
+				position: absolute;
+				top: 54px;
+				left: 30px;
+				width: 3rem;
+				height: 3rem;
+			}
+		}
 		.nav-link {
 			position: relative;
 			font-weight: 700;
 			font-size: 1.5rem;
+
+			// .trip-planner {
+			// 	position: absolute;
+			// 	top: 0;
+			// 	left: 0;
+			// 	width: 3.3rem;
+			// 	height: 3.3rem;
+			// }
+			// .nextrip {
+			// 	position: absolute;
+			// 	top: 0;
+			// 	left: 0;
+			// 	width: 32px;
+			// 	height: 32px;
+			// }
 		}
 	}
 }

@@ -7,14 +7,8 @@ import store from './store'
 import 'bootstrap'
 
 // Icons
-import BaseIcon from '@/components/BaseIcon'
-Vue.component('BaseIcon', BaseIcon)
-
-// Vue Nav Tabs (based on Bootstrap 4)
-// To install run: npm install --save vue-nav-tabs
-// import VueTabs from 'vue-nav-tabs'
-// import 'vue-nav-tabs/themes/vue-tabs.css'
-// Vue.use(VueTabs)
+import IconSprite from '@/components/IconSprite'
+Vue.component('IconSprite', IconSprite)
 
 // Font Awesome
 // import { library } from '@fortawesome/fontawesome-svg-core'
