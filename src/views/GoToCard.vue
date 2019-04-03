@@ -5,7 +5,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+	title: 'Metro Transit | Go-To Card'
+}
 </script>
 
 <style scoped></style>

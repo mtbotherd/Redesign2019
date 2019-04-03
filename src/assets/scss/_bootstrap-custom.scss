@@ -2,12 +2,25 @@
     Bootstrap Overrides
 ************************************************/
 // Color system
-$gray-900: #626462;
+$white: #fff;
+//$gray-100: #f8f9fa;
+//$gray-200: #e9ecef;
+//$gray-300: #dee2e6;
+$gray-400: #e3e3e0;
+//$gray-500: #adb5bd;
+//$gray-600: #6c757d;
+//$gray-700: #495057;
+//$gray-800: #343a40;
+//$gray-900: #626462;
+$black: #000;
 // Colors
 $blue: #0097d0;
 $red: #ed1b2e;
 $yellow: #ffd200;
 $cyan: #0097d0;
+
+// Buttons
+$primary: $yellow;
 
 // Link styles
 $link-decoration: underline;
@@ -20,9 +33,6 @@ $font-family-sans-serif: proxima-nova, -apple-system, BlinkMacSystemFont,
 // Breadcrumb separator
 $breadcrumb-divider: quote('»');
 
-// Components - Define common padding and border radius sizes and more.
-$border-radius: none;
-
 // Nav Tabs
 $nav-tabs-border-color: none;
 // $nav-tabs-border-width: $border-width !default;
@@ -31,3 +41,11 @@ $nav-tabs-border-color: none;
 $nav-tabs-link-active-color: $blue;
 //$nav-tabs-link-active-bg: $body-bg !default;
 $nav-tabs-link-active-border-color: none;
+
+// Border radius
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
+
+// border color
+$border-color: $gray-400;

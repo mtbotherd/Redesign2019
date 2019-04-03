@@ -5,7 +5,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+	title: 'Metro Transit | Ride Costs'
+}
 </script>
 
 <style scoped></style>

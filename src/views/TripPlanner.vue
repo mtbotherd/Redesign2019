@@ -5,7 +5,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+	title: 'Metro Transit | Trip Planner'
+}
 </script>
 
 <style scoped></style>
