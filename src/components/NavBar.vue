@@ -1,5 +1,5 @@
 <template>
-	<nav class="navbar navbar-expand-lg navbar-light border-bottom">
+	<nav class="navbar navbar-expand-xl navbar-light border-bottom">
 		<a class="skip-to-content" href="#mainContent">Skip to main content</a>
 		<div class="container">
 			<router-link class="navbar-brand" :to="{ name: 'home' }">
@@ -16,8 +16,11 @@
 			>
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarCollapse">
-				<ul class="navbar-nav">
+			<div
+				class="collapse navbar-toggleable-xl navbar-collapse"
+				id="navbarCollapse"
+			>
+				<ul class="navbar-nav pull-right-xl">
 					<li class="nav-item dropdown active">
 						<a
 							class="nav-link dropdown-toggle"
@@ -292,14 +295,4 @@
 export default {}
 </script>
 
-<style lang="scss" scoped>
-.icon-wrapper {
-	width: 1rem;
-	height: 1rem;
-}
-@media (min-width: 992px) {
-	.icon-xs-avatar-gray {
-		padding: 0.5rem;
-	}
-}
-</style>
+<style lang="scss" scoped></style>

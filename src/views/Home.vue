@@ -1,17 +1,40 @@
 <template>
-	<div id="home" class="hero-bg d-flex align-items-end">
-		<div class="container">
-			<h1 class="sr-only">Metro Transit home page</h1>
-			<ul class="nav nav-tabs nav-justified d-flex align-items-end">
-				<li class="nav-item active mr-2">
+	<div id="home">
+		<div class="hero-bg">
+			<form>
+				<div class="form-group">
+					<label for="schedulesByRoute" class="sr-only">
+						Find schedules by route
+					</label>
+					<input
+						type="search"
+						id="schedulesByRoute"
+						class="form-control"
+						placeholder="Find schedules by route"
+					/>
+				</div>
+			</form>
+		</div>
+		<div id="homeContent" class="container">
+			<ul
+				id="tripTools"
+				role="tablist"
+				class="nav nav-tabs nav-justified d-flex align-items-end"
+			>
+				<li class="nav-item mr-2 active">
 					<IconSprite
 						name="icon-lg-directions-color"
 						width="37"
 						height="32"
 					/>
 					<a
-						class="nav-link align-middle stretched-link active"
-						href="#"
+						id="trip-planner-tab"
+						class="nav-link align-middle pt-0 pt-lg-2 stretched-link active"
+						data-toggle="tab"
+						href="#trip-planner"
+						role="tab"
+						aria-controls="trip-planner"
+						aria-selected="true"
 					>
 						Trip Planner
 					</a>
@@ -22,21 +45,63 @@
 						width="32"
 						height="32"
 					/>
-					<a class="nav-link align-middle stretched-link" href="#">
+					<a
+						id="nextrip-tab"
+						class="nav-link align-middle pt-0 pt-lg-2 stretched-link"
+						data-toggle="tab"
+						href="#nextrip"
+						role="tab"
+						aria-controls="nextrip"
+						aria-selected="false"
+					>
 						NexTrip
 					</a>
 				</li>
 				<li class="nav-item">
 					<IconSprite
 						name="icon-lg-triangle-exclamation-white"
-						width="32"
+						width="34"
 						height="32"
 					/>
-					<a class="nav-link align-middle stretched-link" href="#">
+					<a
+						id="alerts-tab"
+						class="nav-link align-middl pt-0 pt-lg-2 stretched-link"
+						data-toggle="tab"
+						href="#alerts"
+						role="tab"
+						aria-controls="alerts"
+						aria-selected="false"
+					>
 						Alerts
 					</a>
 				</li>
 			</ul>
+			<div class="tab-content" id="tripToolsContent">
+				<div
+					class="tab-pane fade show active"
+					id="trip-planner"
+					role="tabpanel"
+					aria-labelledby="trip-planner-tab"
+				>
+					<h1>Trip Planner</h1>
+				</div>
+				<div
+					class="tab-pane fade"
+					id="nextrip"
+					role="tabpanel"
+					aria-labelledby="nextrip-tab"
+				>
+					<h1>NexTrip</h1>
+				</div>
+				<div
+					class="tab-pane fade"
+					id="alerts"
+					role="tabpanel"
+					aria-labelledby="alerts-tab"
+				>
+					<h1>Alerts</h1>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -45,50 +110,4 @@
 export default {}
 </script>
 
-<style lang="scss" scoped>
-.hero-bg {
-	background-image: url('../assets/img/lrt.png');
-	background-position: top center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: 100% 50%;
-	height: 86px;
-}
-
-.nav-tabs {
-	.nav-item {
-		background-color: #0097d0;
-	}
-	.nav-item.active {
-		background-color: #ffffff;
-	}
-}
-
-@media (min-width: 1200px) {
-	.hero-bg {
-		background-image: url('../assets/img/lrt.png');
-		background-position: top center;
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-size: contain;
-		height: 300px;
-	}
-	.nav-tabs {
-		.nav-item {
-			position: relative;
-			// .icon-wrapper {
-			// 	position: absolute;
-			// 	top: 54px;
-			// 	left: 30px;
-			// 	width: 3rem;
-			// 	height: 3rem;
-			// }
-		}
-		.nav-link {
-			position: relative;
-			font-weight: 700;
-			font-size: 1.5rem;
-		}
-	}
-}
-</style>
+<style lang="scss" scoped></style>

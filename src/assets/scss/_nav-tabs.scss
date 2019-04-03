@@ -1,19 +1,93 @@
 /***************************************************
     Nav Tabs
 ***************************************************/
+.hero-bg {
+	background-color: $black;
+	background-image: url('./assets/img/lrt.png');
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 102% 70%;
+	height: 130px;
+}
+
+#homeContent {
+	position: relative;
+	top: -75px;
+}
+
 .nav-tabs {
 	position: relative;
-	top: -1px;
+	top: 0;
 
-	.nav-link {
-		background-color: $blue;
-		color: $white;
-		text-decoration: none;
+	.nav-item {
+		background-color: $cyan;
+		margin-bottom: 0;
 
-		&.active {
-			background-color: $white;
-			color: $blue;
+		.icon-wrapper {
+			width: 38px;
+			height: 40px;
+			padding-top: 0.5rem;
+		}
+
+		.nav-link {
+			background-color: $cyan;
+			color: $white;
 			text-decoration: none;
+
+			&.active {
+				background-color: $white;
+				color: $cyan;
+				text-decoration: none;
+			}
+		}
+	}
+	.nav-item.active {
+		background-color: $white;
+	}
+}
+
+@media (min-width: 768px) {
+	.hero-bg {
+		background-size: 102% 90%;
+		height: 180px;
+	}
+	.nav-tabs {
+		top: -7px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.hero-bg {
+		background-size: 102% 60%;
+		height: 300px;
+	}
+
+	#homeContent {
+		top: -53px;
+	}
+
+	.nav-tabs {
+		.nav-item {
+			position: relative;
+			.icon-wrapper {
+				position: absolute;
+				top: 0.25rem;
+			}
+
+			&:nth-child(1) .icon-wrapper {
+				left: 62px;
+			}
+			&:nth-child(2) .icon-wrapper {
+				left: 95px;
+			}
+			&:nth-child(3) .icon-wrapper {
+				left: 103px;
+			}
+		}
+		.nav-link {
+			font-weight: 700;
+			font-size: 1.5rem;
 		}
 	}
 }

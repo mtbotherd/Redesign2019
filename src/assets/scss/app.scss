@@ -1,5 +1,7 @@
 @import './assets/scss/bootstrap-custom.scss';
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
 @import 'typography';
 @import 'header+nav';
+@import 'nav-tabs';
 @import 'styles';

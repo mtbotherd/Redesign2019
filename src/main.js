@@ -6,21 +6,14 @@ import store from './store'
 // Bootstrap - This imports bootstrap.js.  Refer to app.scss for bootstrap styles import.
 import 'bootstrap'
 
+// BootstrapVue - This import bootstrap-vue and styles.
+import BootstrapVue from 'bootstrap-vue'
+
+Vue.use(BootstrapVue)
+
 // Icons
 import IconSprite from '@/components/IconSprite' // Import component
 Vue.component('IconSprite', IconSprite) // Globally Register component
-
-// Font Awesome
-// import { library } from '@fortawesome/fontawesome-svg-core'
-// import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons'
-// import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
-// import { faSearch } from '@fortawesome/free-solid-svg-icons'
-// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-// library.add([faGlobeAmericas, faExclamationTriangle, faSearch])
-
-// Vue.component('font-awesome-icon', FontAwesomeIcon)
-// End Font Awesome
 
 // Automatic Global Registration of Components
 // import upperFirst from 'lodash/upperFirst'
