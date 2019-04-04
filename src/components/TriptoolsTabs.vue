@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="tripTools">
 		<ul
 			id="tripTools"
 			role="tablist"
@@ -58,8 +58,8 @@
 		</ul>
 		<div id="tripToolsContent" class="tab-content mt-3">
 			<div
-				class="tab-pane fade show active"
-				id="trip-planner"
+				class="tt-trip-planner tab-pane fade show active"
+				id="tripPlanner"
 				role="tabpanel"
 				aria-labelledby="trip-planner-tab"
 			>
@@ -93,18 +93,18 @@
 									Leave now
 								</label>
 								<select id="tpLeaveNow" class="custom-select">
-									<option value="optioin1">Option 1</option>
-									<option value="optioin2">Option 2</option>
-									<option value="optioin3">Option 3</option>
+									<option value="leave-now">Leave now</option>
+									<option value="depart-at">Depart at</option>
+									<option value="arrive-by">Arrive by</option>
 								</select>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<div class="tp-more-options" role="tablist">
+							<div class="more-options" role="tablist">
 								<b-card no-body class="mb-1">
 									<b-card-header
 										header-tag="header"
-										class="p-0"
+										class="d-flex p-0"
 										role="tab"
 									>
 										<b-button
@@ -115,7 +115,10 @@
 										>
 											More optioins
 										</b-button>
-										<IconSprite name="icon-sm-plus-blue" />
+										<IconSprite
+											name="icon-sm-plus-blue"
+											class="ml-auto m-2"
+										/>
 									</b-card-header>
 									<b-collapse
 										id="tpMoreOptions"
@@ -132,11 +135,17 @@
 							</div>
 						</div>
 					</div>
-					<b-btn variant="primary">Plan My Trip</b-btn>
+					<div class="row">
+						<div class="col-md-4 offset-md-4">
+							<b-btn type="Submit" variant="primary" block>
+								Plan My Trip
+							</b-btn>
+						</div>
+					</div>
 				</form>
 			</div>
 			<div
-				class="tab-pane fade"
+				class="tt-nextrip tab-pane fade"
 				id="nextrip"
 				role="tabpanel"
 				aria-labelledby="nextrip-tab"
@@ -144,7 +153,7 @@
 				<h1 class="sr-only">NexTrip</h1>
 			</div>
 			<div
-				class="tab-pane fade"
+				class="tt-alerts tab-pane fade"
 				id="alerts"
 				role="tabpanel"
 				aria-labelledby="alerts-tab"
@@ -165,30 +174,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.tp-more-options {
-	.card {
-		border: gray-400;
-
-		.card-header {
-			background-color: transparent;
-			border-bottom: 0;
-
-			a {
-				text-decoration: none;
-				color: #626462; // $gray-900
-			}
-
-			.btn {
-				padding: 0.32rem 0.75rem;
-			}
-
-			.icon-wrapper {
-				position: absolute;
-				top: 0.5rem;
-				right: 0.5rem;
-			}
-		}
-	}
-}
-</style>
+<style lang="scss" scoped></style>

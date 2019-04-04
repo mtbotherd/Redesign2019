@@ -3,19 +3,12 @@
 		<div class="hero-bg">
 			<div class="container">
 				<SearchSchedulesByRoute />
-				<div class="row">
-					<div class="col col-md-4 offset-md-4">
-						<div class="cta-link-white text-center">
-							<a href="#" class="btn btn-link stretched-link">
-								View all Schedules &amp; Maps
-							</a>
-							<IconSprite
-								name="icon-sm-right-arrow-white"
-								width="20"
-								height="15"
-								class="align-middle"
-							/>
-						</div>
+				<div class="pt-3 pt-md-0">
+					<div class="cta-link-white text-center">
+						<a href="#" class="btn btn-link stretched-link">
+							View all Schedules &amp; Maps
+						</a>
+						<IconSprite name="icon-sm-right-arrow-white" />
 					</div>
 				</div>
 			</div>
@@ -33,16 +26,58 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cta-link-white a {
-	color: white;
+.hero-bg {
+	background-color: #000000;
+	background-image: url('../assets/img/lrt.png');
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 102% 70%;
+	height: 10.143rem;
+
+	@media (min-width: 768px) {
+		background-size: 102% 60%;
+		height: 16.667rem;
+	}
 }
 
-@media (min-width: 1200px) {
-	.cta-link-white {
-		.icon-wrapper {
-			width: 20px;
-			height: 15px;
+.cta-link-white {
+	border: 1px solid #ffffff;
+	display: flex;
+
+	@media (min-width: 768px) {
+		border: 0;
+		display: block;
+	}
+
+	a {
+		color: white;
+		text-decoration: none;
+
+		@media (min-width: 768px) {
+			text-decoration: underline;
 		}
+	}
+
+	.icon-wrapper {
+		margin-left: auto;
+		position: relative;
+		top: 0.8rem;
+		right: 0.5rem;
+
+		@media (min-width: 768px) {
+			margin-left: 0.5rem;
+			top: 0.3rem;
+		}
+	}
+}
+
+#homeContent {
+	position: relative;
+	top: -75px;
+
+	@media (min-width: 1200px) {
+		top: -53px;
 	}
 }
 </style>

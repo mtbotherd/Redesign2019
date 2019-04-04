@@ -1,28 +1,40 @@
 /***************************************************
     Nav Tabs
 ***************************************************/
-.hero-bg {
-	background-color: $black;
-	background-image: url('./assets/img/lrt.png');
-	background-position: top center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: 102% 70%;
-	height: 130px;
-}
-
-#homeContent {
-	position: relative;
-	top: -75px;
-}
-
+// Tab styles
 .nav-tabs {
 	position: relative;
 	top: 0;
 
+	@include media-breakpoint-up(md) {
+		top: -6px;
+	}
+
+	@include media-breakpoint-up(xl) {
+		top: -7px;
+	}
+
 	.nav-item {
 		background-color: $cyan;
 		margin-bottom: 0;
+
+		@include media-breakpoint-up(xl) {
+			position: relative;
+			.icon-wrapper {
+				position: absolute;
+				top: 0.25rem;
+			}
+
+			&:nth-child(1) .icon-wrapper {
+				left: 62px;
+			}
+			&:nth-child(2) .icon-wrapper {
+				left: 95px;
+			}
+			&:nth-child(3) .icon-wrapper {
+				left: 103px;
+			}
+		}
 
 		.icon-wrapper {
 			width: 38px;
@@ -40,6 +52,11 @@
 				color: $cyan;
 				text-decoration: none;
 			}
+
+			@include media-breakpoint-up(xl) {
+				font-weight: 700;
+				font-size: 1.5rem;
+			}
 		}
 	}
 	.nav-item.active {
@@ -47,47 +64,38 @@
 	}
 }
 
-@media (min-width: 768px) {
-	.hero-bg {
-		background-size: 102% 90%;
-		height: 180px;
-	}
-	.nav-tabs {
-		top: -7px;
-	}
-}
+// Tabbed content
+#tripToolsContent {
+	// Trip Planner
+	.tt-trip-planner {
+		.more-options {
+			margin-bottom: 1rem;
+			.card {
+				border: gray-400;
 
-@media (min-width: 1200px) {
-	.hero-bg {
-		background-size: 102% 60%;
-		height: 300px;
-	}
+				.card-header {
+					background-color: transparent;
+					border-bottom: 0;
 
-	#homeContent {
-		top: -53px;
-	}
+					a {
+						text-decoration: none;
+						color: #626462; // $gray-900
+					}
 
-	.nav-tabs {
-		.nav-item {
-			position: relative;
-			.icon-wrapper {
-				position: absolute;
-				top: 0.25rem;
+					.btn {
+						padding: 0.32rem 0.75rem;
+					}
+				}
 			}
-
-			&:nth-child(1) .icon-wrapper {
-				left: 62px;
-			}
-			&:nth-child(2) .icon-wrapper {
-				left: 95px;
-			}
-			&:nth-child(3) .icon-wrapper {
-				left: 103px;
+			@include media-breakpoint-up(xl) {
+				margin-bottom: 1.5rem;
 			}
 		}
-		.nav-link {
-			font-weight: 700;
-			font-size: 1.5rem;
-		}
+	}
+	// NexTrip
+	.tt-nextrip {
+	}
+	// Alerts
+	.tt-alerts {
 	}
 }

@@ -5,6 +5,11 @@
 	display: none;
 }
 .navbar {
+	.nav-fill {
+		.nav-item {
+			text-align: left;
+		}
+	}
 	.nav-link {
 		text-decoration: none;
 	}
@@ -29,12 +34,12 @@
 	width: 1rem;
 	height: 1rem;
 }
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
 	.icon-xs-avatar-gray {
 		padding: 0.5rem;
 	}
 }
-@media (min-width: 1200px) {
+@include media-breakpoint-up(xl) {
 	.navbar-expand-lg .navbar-nav .nav-link {
 		padding-right: 0.88rem;
 		padding-left: 0.88rem;

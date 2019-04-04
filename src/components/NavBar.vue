@@ -20,7 +20,7 @@
 				class="collapse navbar-toggleable-xl navbar-collapse"
 				id="navbarCollapse"
 			>
-				<ul class="navbar-nav pull-right-xl">
+				<ul class="navbar-nav nav-fill w-100">
 					<li class="nav-item dropdown active">
 						<a
 							class="nav-link dropdown-toggle"
