@@ -1,13 +1,18 @@
 <template>
 	<div id="home">
-		<div class="hero-bg">
+		<div class="hero-bg pt-3 pt-md-0">
 			<div class="container">
 				<SearchSchedulesByRoute />
-				<div class="pt-3 pt-md-0">
-					<div class="cta-link-white text-center">
-						<a href="#" class="btn btn-link stretched-link">
+				<div class="row">
+					<div
+						class="col-md-6 offset-md-3 col-xl-4 offset-xl-4 position-relative cta-link-white text-center"
+					>
+						<router-link
+							class="d-inline-flex nav-link stretched-link"
+							:to="{ name: 'schedules-maps' }"
+						>
 							View all Schedules &amp; Maps
-						</a>
+						</router-link>
 						<IconSprite name="icon-sm-right-arrow-white" />
 					</div>
 				</div>
@@ -43,7 +48,6 @@ export default {
 
 .cta-link-white {
 	border: 1px solid #ffffff;
-	display: flex;
 
 	@media (min-width: 768px) {
 		border: 0;
