@@ -1,21 +1,23 @@
 <template>
-  <div id="home">
-    <div class="hero-bg pt-3 pt-md-0">
-      <div class="container">
-        <SearchSchedulesByRoute/>
-        <div class="position-relative cta-link-white text-center">
-          <router-link
-            class="d-inline-flex nav-link stretched-link"
-            :to="{ name: 'schedules-maps' }"
-          >View all Schedules &amp; Maps</router-link>
-          <IconSprite name="icon-sm-right-arrow-white"/>
-        </div>
-      </div>
-    </div>
-    <div id="homeContent" class="container">
-      <TriptoolsTabs/>
-    </div>
-  </div>
+	<div id="home">
+		<div class="hero-bg pt-3 pt-md-0">
+			<div class="container">
+				<SearchSchedulesByRoute />
+				<div class="position-relative cta-link-white text-center">
+					<router-link
+						class="d-inline-flex nav-link stretched-link"
+						:to="{ name: 'schedules-maps' }"
+					>
+						View all Schedules &amp; Maps
+					</router-link>
+					<IconSprite name="icon-sm-right-arrow-white" />
+				</div>
+			</div>
+		</div>
+		<div id="homeContent" class="container">
+			<TriptoolsTabs />
+		</div>
+	</div>
 </template>
 
 <script>
@@ -44,13 +46,13 @@ export default {
 	border: 1px solid #ffffff;
 
 	.nav-link {
-		font-size: 23px;
 		font-weight: 700;
 	}
 
 	@media (min-width: 768px) {
 		border: 0;
 		display: block;
+		font-size: 1.26rem;
 	}
 
 	a {
@@ -63,14 +65,16 @@ export default {
 	}
 
 	.icon-wrapper {
-		margin-left: auto;
+		//margin-left: auto;
 		position: relative;
 		top: 0.2rem;
 		right: 0.5rem;
 
 		@media (min-width: 768px) {
 			margin-left: 0.5rem;
-			top: 0.3rem;
+			width: 1.1112rem;
+			height: 0.834rem;
+			//top: 0.3rem;
 		}
 	}
 }
