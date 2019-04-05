@@ -6,7 +6,7 @@ import Home from './views/Home.vue'
 import TripPlanner from './views/TripPlanner.vue'
 import NexTrip from './views/NexTrip.vue'
 import FindStops from './views/FindStops.vue'
-import MapsSchedules from './views/MapsSchedules.vue'
+import SchedulesMaps from './views/SchedulesMaps.vue'
 import RideCosts from './views/RideCosts.vue'
 import GoToCard from './views/GoToCard.vue'
 import DiscountPrograms from './views/DiscountPrograms.vue'
@@ -15,7 +15,6 @@ import TransitPolice from './views/TransitPolice.vue'
 import HowToRideGuide from './views/HowToRideGuide.vue'
 
 // Components
-import Buttons from './views/Buttons.vue'
 
 Vue.use(Router)
 
@@ -46,7 +45,7 @@ export default new Router({
 		{
 			path: '/schedules-maps',
 			name: 'schedules-maps',
-			component: MapsSchedules
+			component: SchedulesMaps
 		},
 		{
 			path: '/ride-costs',
@@ -82,12 +81,6 @@ export default new Router({
 			path: '/how-to-ride-guide',
 			name: 'how-to-ride-guide',
 			component: HowToRideGuide
-		},
-		// Components
-		{
-			path: '/buttons',
-			name: 'buttons',
-			component: Buttons
 		}
 	]
 })
