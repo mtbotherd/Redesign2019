@@ -18,6 +18,24 @@
 		background-color: $cyan;
 		margin-bottom: 0;
 
+		@include media-breakpoint-up(lg) {
+			position: relative;
+			.icon-wrapper {
+				position: absolute;
+				top: 0.25rem;
+			}
+
+			&:nth-child(1) .icon-wrapper {
+				left: 31px;
+			}
+			&:nth-child(2) .icon-wrapper {
+				left: 65px;
+			}
+			&:nth-child(3) .icon-wrapper {
+				left: 71px;
+			}
+		}
+
 		@include media-breakpoint-up(xl) {
 			position: relative;
 			.icon-wrapper {
@@ -53,7 +71,7 @@
 				text-decoration: none;
 			}
 
-			@include media-breakpoint-up(xl) {
+			@include media-breakpoint-up(lg) {
 				font-weight: 700;
 				font-size: 1.5rem;
 			}

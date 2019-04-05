@@ -3,6 +3,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// Custom JS scripts
+const $ = require('jquery')
+window.$ = $
+require('jquery-confirm')
+
+//import './assets/js/scripts.js'
+
 // Bootstrap - This imports bootstrap.js.  Refer to app.scss for bootstrap styles import.
 import 'bootstrap'
 

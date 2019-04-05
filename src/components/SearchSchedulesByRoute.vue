@@ -10,7 +10,7 @@
 						<input
 							type="search"
 							id="schedulesByRoute"
-							class="form-control form-control-lg"
+							class="form-control"
 							placeholder="Find schedules by route"
 						/>
 					</div>
@@ -24,7 +24,7 @@
 export default {}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #searchSchedulesByRoute {
 	display: none;
 }
@@ -32,6 +32,11 @@ export default {}
 @media (min-width: 768px) {
 	#searchSchedulesByRoute {
 		display: block;
+
+		.form-control {
+			font-size: 1.22rem;
+			font-weight: 500;
+		}
 	}
 }
 </style>
