@@ -44,6 +44,9 @@ Vue.component('NexTrip', NexTrip)
 import Alerts from '@/components/Alerts'
 Vue.component('Alerts', Alerts)
 
+// JS
+//$(function() {})
+
 Vue.config.productionTip = false
 
 new Vue({

@@ -34,10 +34,14 @@ export default {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 102% 70%;
-	height: 14rem;
+	height: 10rem;
 
 	@media (min-width: 768px) {
 		background-size: 102% 90%;
+		height: 14rem;
+	}
+	@media (min-width: 992px) {
+		height: 16rem;
 	}
 	@media (min-width: 1200px) {
 		height: 17rem;
@@ -49,6 +53,11 @@ export default {
 
 	.nav-link {
 		font-weight: 700;
+		margin-right: 9.2rem;
+
+		@media (min-width: 768px) {
+			margin-right: 0;
+		}
 	}
 
 	@media (min-width: 768px) {
@@ -71,6 +80,7 @@ export default {
 		position: relative;
 		top: 0.2rem;
 		right: 0.5rem;
+		width: 1.143rem;
 
 		@media (min-width: 768px) {
 			margin-left: 0.5rem;
@@ -90,7 +100,7 @@ export default {
 	}
 
 	@media (min-width: 992px) {
-		top: -3.32rem;
+		top: -4.32rem;
 	}
 
 	@media (min-width: 1200px) {

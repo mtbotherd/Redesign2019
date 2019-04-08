@@ -1,8 +1,11 @@
-// .form-control,
-// .form-control-sm,
-// .form-control-md,
-// .form-control-lg,
-// .form-control-xl,
-// select {
-// 	border-radius: 0;
+/**********************************************
+    Form & form control styles
+**********************************************/
+// .custom-control-input:checked ~ .custom-control-label::before {
+// 	color: $primary;
+// 	background-size: 50%;
+// }
+
+// .custom-radio .custom-control-input:checked ~ .custom-control-label::after {
+// 	background-color: transparent;
 // }

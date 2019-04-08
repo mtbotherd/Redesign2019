@@ -1,6 +1,6 @@
 <template>
 	<div id="tripToolsTabs">
-		<b-card id="tripToolsTabs" no-body>
+		<b-card no-body>
 			<b-tabs>
 				<b-tab title-item-class="mr-2" title-link-class="p-md-3" active>
 					<template slot="title">
@@ -8,7 +8,7 @@
 							name="icon-lg-directions-color"
 							width="37"
 							height="32"
-							class="d-block d-md-inline-block ml-auto mr-auto"
+							class="d-block d-md-inline-block mx-auto"
 						/>
 						Trip Planner
 					</template>
@@ -105,15 +105,7 @@
 </template>
 
 <script>
-// Trip Planner
-//import TripPlanner from './components/TripPlanner'
-
-export default {
-	// components: 'TripToolsTabs',
-	// directives: {
-	// 	TripPlanner
-	// }
-}
+export default {}
 </script>
 
 <style lang="scss" scoped></style>
