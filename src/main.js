@@ -33,6 +33,17 @@ Vue.component('SearchSchedulesByRoute', SearchSchedulesByRoute)
 import TriptoolsTabs from '@/components/TriptoolsTabs'
 Vue.component('TriptoolsTabs', TriptoolsTabs)
 
+// Trip tools
+// Trip Planner
+import TripPlanner from '@/components/TripPlanner'
+Vue.component('TripPlanner', TripPlanner)
+// NexTrip
+import NexTrip from '@/components/NexTrip'
+Vue.component('NexTrip', NexTrip)
+// Alerts
+import Alerts from '@/components/Alerts'
+Vue.component('Alerts', Alerts)
+
 Vue.config.productionTip = false
 
 new Vue({

@@ -10,7 +10,7 @@
 	"dependencies": {
 		"babel-helper-vue-jsx-merge-props": "^2.0.3",
 		"bootstrap": "^4.2.1",
-		"core-js": "^3.0.0",
+		"core-js": "^3.0.1",
 		"jquery": "^3.3.1",
 		"jquery-confirm": "^3.3.4",
 		"lodash": "^4.17.11",

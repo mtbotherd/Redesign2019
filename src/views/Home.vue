@@ -34,11 +34,13 @@ export default {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 102% 70%;
-	height: 10.143rem;
+	height: 14rem;
 
 	@media (min-width: 768px) {
-		background-size: 102% 60%;
-		height: 16.667rem;
+		background-size: 102% 90%;
+	}
+	@media (min-width: 1200px) {
+		height: 17rem;
 	}
 }
 
@@ -81,14 +83,18 @@ export default {
 
 #homeContent {
 	position: relative;
-	top: -75px;
+	top: -5.53rem;
+
+	@media (min-width: 768px) {
+		top: -3.62rem;
+	}
 
 	@media (min-width: 992px) {
-		top: -54px;
+		top: -3.32rem;
 	}
 
 	@media (min-width: 1200px) {
-		top: -53px;
+		top: -4.33rem;
 	}
 }
 </style>

@@ -10,7 +10,7 @@
 						<input
 							type="search"
 							id="schedulesByRoute"
-							class="form-control"
+							class="form-control border-0"
 							placeholder="Find schedules by route"
 						/>
 					</div>

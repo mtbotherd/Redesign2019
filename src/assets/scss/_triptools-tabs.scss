@@ -2,118 +2,134 @@
     Nav Tabs
 ***************************************************/
 // Tab styles
-.nav-tabs {
-	position: relative;
-	top: 0;
-
-	@include media-breakpoint-up(md) {
-		top: -6px;
+#tripToolsTabs {
+	.card {
+		background-color: transparent;
+		border: 0;
 	}
+	.nav-tabs {
+		margin-bottom: 2rem;
 
-	@include media-breakpoint-up(xl) {
-		top: -7px;
-	}
-
-	.nav-item {
-		background-color: $cyan;
-		margin-bottom: 0;
-
-		@include media-breakpoint-up(lg) {
-			position: relative;
-			.icon-wrapper {
-				position: absolute;
-				top: 0.25rem;
-			}
-
-			&:nth-child(1) .icon-wrapper {
-				left: 31px;
-			}
-			&:nth-child(2) .icon-wrapper {
-				left: 65px;
-			}
-			&:nth-child(3) .icon-wrapper {
-				left: 71px;
-			}
-		}
-
-		@include media-breakpoint-up(xl) {
-			position: relative;
-			.icon-wrapper {
-				position: absolute;
-				top: 0.25rem;
-			}
-
-			&:nth-child(1) .icon-wrapper {
-				left: 62px;
-			}
-			&:nth-child(2) .icon-wrapper {
-				left: 95px;
-			}
-			&:nth-child(3) .icon-wrapper {
-				left: 103px;
-			}
-		}
-
-		.icon-wrapper {
-			width: 38px;
-			height: 40px;
-			padding-top: 0.5rem;
-		}
-
-		.nav-link {
+		.nav-item {
+			flex-basis: 0;
+			flex-grow: 1;
+			text-align: center;
 			background-color: $cyan;
-			color: $white;
-			text-decoration: none;
+			margin-bottom: 0;
 
-			&.active {
-				background-color: $white;
-				color: $cyan;
-				text-decoration: none;
+			@include media-breakpoint-up(md) {
+				position: relative;
+				.icon-wrapper {
+					position: absolute;
+					top: 0.25rem;
+				}
+
+				&:nth-child(1) .icon-wrapper {
+					left: 24px;
+				}
+				&:nth-child(2) .icon-wrapper {
+					left: 42px;
+				}
+				&:nth-child(3) .icon-wrapper {
+					left: 44px;
+				}
 			}
 
 			@include media-breakpoint-up(lg) {
-				font-weight: 700;
-				font-size: 1.5rem;
+				position: relative;
+				.icon-wrapper {
+					position: absolute;
+					top: 0.25rem;
+				}
+
+				&:nth-child(1) .icon-wrapper {
+					left: 31px;
+				}
+				&:nth-child(2) .icon-wrapper {
+					left: 65px;
+				}
+				&:nth-child(3) .icon-wrapper {
+					left: 71px;
+				}
+			}
+
+			@include media-breakpoint-up(xl) {
+				position: relative;
+				.icon-wrapper {
+					position: absolute;
+					top: 0.25rem;
+				}
+
+				&:nth-child(1) .icon-wrapper {
+					left: 62px;
+				}
+				&:nth-child(2) .icon-wrapper {
+					left: 95px;
+				}
+				&:nth-child(3) .icon-wrapper {
+					left: 103px;
+				}
+			}
+
+			.icon-wrapper {
+				width: 38px;
+				height: 40px;
+				padding-top: 0.5rem;
+			}
+
+			.nav-link {
+				background-color: $cyan;
+				color: $white;
+				text-decoration: none;
+
+				&.active {
+					background-color: $white;
+					color: $cyan;
+					text-decoration: none;
+				}
+
+				@include media-breakpoint-up(lg) {
+					font-weight: 700;
+					font-size: 1.5rem;
+				}
 			}
 		}
-	}
-	.nav-item.active {
-		background-color: $white;
+		.nav-item.active {
+			background-color: $white;
+		}
 	}
 }
 
 // Tabbed content
-#tripToolsContent {
-	// Trip Planner
-	.tt-trip-planner {
-		.more-options {
-			margin-bottom: 1rem;
-			.card {
-				border: gray-400;
+// Trip Planner
+.tt-trip-planner {
+	.more-options {
+		margin-bottom: 1rem;
+		.card {
+			border: gray-400;
 
-				.card-header {
-					background-color: transparent;
-					border-bottom: 0;
+			.card-header {
+				background-color: transparent;
+				border-bottom: 0;
 
-					a {
-						text-decoration: none;
-						color: #626462; // $gray-900
-					}
+				a {
+					text-decoration: none;
+					color: #626462; // $gray-900
+				}
 
-					.btn {
-						padding: 0.32rem 0.75rem;
-					}
+				.btn {
+					padding: 0.32rem 0.75rem;
 				}
 			}
-			@include media-breakpoint-up(xl) {
-				margin-bottom: 1.5rem;
-			}
+		}
+		@include media-breakpoint-up(xl) {
+			margin-bottom: 1.5rem;
 		}
 	}
-	// NexTrip
-	.tt-nextrip {
-	}
-	// Alerts
-	.tt-alerts {
-	}
+}
+// NexTrip
+.tt-nextrip {
+}
+// Alerts
+.tt-alerts {
 }
