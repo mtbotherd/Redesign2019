@@ -9,16 +9,31 @@
 		<h1 class="sr-only">Trip Planner</h1>
 		<form>
 			<div class="form-group mb-0">
-				<input id="tpFrom" type="text" class="form-control" />
+				<input
+					v-model="fromLocation"
+					id="tpFrom"
+					type="text"
+					class="form-control tp-from-location"
+					required
+				/>
 				<label for="tpFrom" class="form-control-placeholder">
 					From
 				</label>
 			</div>
 			<div class="text-right mt-1">
-				<IconSprite name="icon-sm-switch-blue" />
+				<IconSprite
+					name="icon-sm-switch-blue"
+					class="icon-sm-switch-blue"
+				/>
 			</div>
 			<div class="form-group">
-				<input id="tpTo" type="text" class="form-control" />
+				<input
+					v-model="toLocation"
+					id="tpTo"
+					type="text"
+					class="form-control tp-to-location"
+					required
+				/>
 				<label for="tpTo" class="form-control-placeholder">To</label>
 			</div>
 			<div class="row">
@@ -332,7 +347,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+	data() {
+		return {
+			fromLocation: '',
+			toLocation: ''
+		}
+	}
+}
 </script>
 
 <style lang="scss" scoped></style>
