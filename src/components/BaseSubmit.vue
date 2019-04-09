@@ -1,17 +1,13 @@
 <template>
-    <div class="d-inline-flex mr-2">
-        <slot>
-            <input type="submit" class="btn btn-primary" value="Submit"/>
-        </slot>
-    </div>
+	<div class="d-inline-flex mr-2">
+		<slot>
+			<input type="submit" class="btn btn-primary" value="Submit" />
+		</slot>
+	</div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

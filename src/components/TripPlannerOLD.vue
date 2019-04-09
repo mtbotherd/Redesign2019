@@ -9,17 +9,25 @@
 		<h1 class="sr-only">Trip Planner</h1>
 		<form>
 			<div class="form-group mb-0">
-				<input id="tpFrom" type="text" class="form-control" />
-				<label for="tpFrom" class="form-control-placeholder">
-					From
-				</label>
+				<label for="tpFrom" class="sr-only">From</label>
+				<input
+					id="tpFrom"
+					type="text"
+					class="form-control"
+					placeholder="From"
+				/>
 			</div>
-			<div class="text-right mt-1">
+			<div class="float-right mt-1">
 				<IconSprite name="icon-sm-switch-blue" />
 			</div>
 			<div class="form-group">
-				<input id="tpTo" type="text" class="form-control" />
-				<label for="tpTo" class="form-control-placeholder">To</label>
+				<label for="tpTo" class="sr-only">To</label>
+				<input
+					id="tpTo"
+					type="text"
+					class="form-control"
+					placeholder="To"
+				/>
 			</div>
 			<div class="row">
 				<div class="col-md-6">
