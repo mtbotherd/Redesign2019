@@ -10,9 +10,9 @@ $gray-400: #8a8b8a;
 $gray-500: #777777;
 $gray-600: #707070;
 $gray-700: #626462;
-// $gray-800: #343a40;
-// $gray-900: #626462;
-// $black: #000;
+$gray-800: #343a40;
+//$gray-900: #626462;
+$black: #000;
 // Colors
 $blue: #0097d0;
 $red: #ed1b2e;
@@ -21,6 +21,9 @@ $cyan: #0097d0;
 
 // Buttons
 $primary: $blue;
+
+// Body
+$body-color: $gray-700;
 
 // Link styles
 $link-decoration: underline;
@@ -52,5 +55,20 @@ $border-radius-sm: 0;
 $border-color: $gray-200;
 $input-border-color: $gray-200;
 
+// Navbar
+$navbar-light-color: rgba($gray-700, 0.7);
+$navbar-light-hover-color: rgba($gray-700, 0.9);
+$navbar-light-active-color: rgba($gray-700, 1);
+$navbar-light-disabled-color: rgba($gray-700, 0.3);
+
+// Dropdowns
+$dropdown-link-color: $gray-700;
+$dropdown-link-hover-color: darken($gray-700, 5%);
+// $dropdown-link-hover-bg: $gray-100 !default;
+$dropdown-link-active-color: $dropdown-link-hover-color;
+// $dropdown-link-active-bg: $component-active-bg !default;
+
+// $dropdown-link-disabled-color: $gray-600 !default;
+
 // Inputs
-$input-color: $gray-600;
+//$input-color: $gray-600;

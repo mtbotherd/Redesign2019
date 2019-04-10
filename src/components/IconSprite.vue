@@ -24,6 +24,8 @@ export default {
 
 <style lang="scss" scoped>
 .icon-wrapper {
+	width: 1rem;
+	height: 1rem;
 	display: inline-flex;
 }
 </style>

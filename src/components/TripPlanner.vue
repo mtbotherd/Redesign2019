@@ -6,342 +6,350 @@
 		role="tabpanel"
 		aria-labelledby="trip-planner-tab"
 	>
-		<h1 class="sr-only">Trip Planner</h1>
-		<form>
-			<div class="form-group mb-0">
-				<input
-					v-model="fromLocation"
-					id="tpFrom"
-					type="text"
-					class="form-control tp-from-location"
-					required
-				/>
-				<label for="tpFrom" class="form-control-placeholder">
-					From
-				</label>
-			</div>
-			<div class="text-right">
-				<IconSprite
-					name="icon-sm-location-switcher-blue"
-					class="icon-sm-location-switcher-blue p-2"
-				/>
-			</div>
-			<div class="form-group">
-				<input
-					v-model="toLocation"
-					id="tpTo"
-					type="text"
-					class="form-control tp-to-location"
-					required
-				/>
-				<label for="tpTo" class="form-control-placeholder">To</label>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="form-group">
-						<label for="tpLeaveNow" class="sr-only">
-							Leave now
-						</label>
-						<select id="tpSelectTime" class="custom-select">
-							<option value="tp-leave-now">Leave now</option>
-							<option value="tp-depart-at">Depart at</option>
-							<option value="tp-arrive-by">Arrive by</option>
-						</select>
-					</div>
-					<div class="row tp-time-elements">
-						<div class="col">
-							<div class="input-group mb-3">
-								<label for="tpTime" class="sr-only">
-									Depart/arrival time
-								</label>
-								<input
-									type="time"
-									class="form-control border-right-0"
-									aria-label="depart/arrive by time"
-									aria-describedby="tpTime"
-								/>
-								<div class="input-group-append border">
-									<IconSprite
-										name="icon-sm-clock-gray"
-										id="tpTime"
-										class="icon-clock mt-2 mr-2"
-									/>
-								</div>
-							</div>
-						</div>
-						<div class="col">
-							<div class="input-group mb-3">
-								<label for="tpDate" class="sr-only">
-									Depart/arrival date
-								</label>
-								<input
-									type="date"
-									class="form-control border-right-0"
-									aria-label="depart/arrive by time"
-									aria-describedby="tpDate"
-								/>
-								<div class="input-group-append border">
-									<IconSprite
-										name="icon-sm-calendar-gray"
-										id="tpDate"
-										class="icon-clock-gray mt-2 mr-2"
-									/>
-								</div>
-							</div>
-						</div>
-					</div>
+		<div class="card">
+			<h1 class="sr-only">Trip Planner</h1>
+			<form>
+				<div class="form-group mb-0">
+					<input
+						v-model="fromLocation"
+						id="tpFrom"
+						type="text"
+						class="form-control tp-from-location"
+						required
+					/>
+					<label for="tpFrom" class="form-control-placeholder">
+						From
+					</label>
 				</div>
-				<div class="col-md-6">
-					<div class="more-options" role="tablist">
-						<b-card no-body class="border mb-1">
-							<b-card-header
-								header-tag="header"
-								class="d-flex p-0"
-								role="tab"
-							>
-								<b-button
-									href="#"
-									v-b-toggle.tpMoreOptions
-									variant="link"
-									block
-									class="d-flex align-items-center text-left"
+				<div class="tp-location-toggler text-right">
+					<IconSprite
+						name="icon-sm-location-toggler-blue"
+						class="icon-sm-location-toggler-blue p-2"
+					/>
+				</div>
+				<div class="form-group">
+					<input
+						v-model="toLocation"
+						id="tpTo"
+						type="text"
+						class="form-control tp-to-location"
+						required
+					/>
+					<label for="tpTo" class="form-control-placeholder">
+						To
+					</label>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="tpLeaveNow" class="sr-only">
+								Leave now
+							</label>
+							<select id="tpSelectTime" class="custom-select">
+								<option value="tp-leave-now">Leave now</option>
+								<option value="tp-depart-at">Depart at</option>
+								<option value="tp-arrive-by">Arrive by</option>
+							</select>
+						</div>
+						<div class="row tp-time-elements">
+							<div class="col">
+								<div class="input-group mb-3">
+									<label for="tpTime" class="sr-only">
+										Depart/arrival time
+									</label>
+									<input
+										type="time"
+										class="form-control border-right-0"
+										aria-label="depart/arrive by time"
+										aria-describedby="tpTime"
+									/>
+									<div class="input-group-append border">
+										<IconSprite
+											name="icon-sm-clock-gray"
+											id="tpTime"
+											class="icon-clock mt-2 mr-2"
+										/>
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="input-group mb-3">
+									<label for="tpDate" class="sr-only">
+										Depart/arrival date
+									</label>
+									<input
+										type="date"
+										class="form-control border-right-0"
+										aria-label="depart/arrive by time"
+										aria-describedby="tpDate"
+									/>
+									<div class="input-group-append border">
+										<IconSprite
+											name="icon-sm-calendar-gray"
+											id="tpDate"
+											class="icon-clock-gray mt-2 mr-2"
+										/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="more-options" role="tablist">
+							<b-card no-body class="border mb-1">
+								<b-card-header
+									header-tag="header"
+									class="d-flex p-0"
+									role="tab"
 								>
-									More optioins
-									<IconSprite
-										name="icon-sm-plus-blue"
-										class="ml-auto"
-									/>
-								</b-button>
-							</b-card-header>
-							<b-collapse
-								id="tpMoreOptions"
-								accordion="tp-more-options"
-								role="tabpanel"
-							>
-								<b-card-body class="border-top">
-									<b-card-text>
-										<p class="m-0">I'm willing to walk:</p>
-										<div
-											class="custom-control custom-radio"
-										>
-											<input
-												type="radio"
-												id="tpQuarterMile"
-												name="tp-walking-distance"
-												class="custom-control-input"
-											/>
-											<label
-												class="custom-control-label"
-												for="quarterMile"
+									<b-button
+										href="#"
+										v-b-toggle.tpMoreOptions
+										variant="link"
+										block
+										class="d-flex align-items-center text-left"
+									>
+										More optioins
+										<IconSprite
+											name="icon-sm-plus-blue"
+											class="ml-auto"
+										/>
+									</b-button>
+								</b-card-header>
+								<b-collapse
+									id="tpMoreOptions"
+									accordion="tp-more-options"
+									role="tabpanel"
+								>
+									<b-card-body class="border-top">
+										<b-card-text>
+											<p class="m-0">
+												<strong>
+													I'm willing to walk:
+												</strong>
+											</p>
+											<div
+												class="custom-control custom-radio"
 											>
-												1/4 mile
-											</label>
-										</div>
-										<div
-											class="custom-control custom-radio"
-										>
-											<input
-												type="radio"
-												id="tpHalfMile"
-												name="tp-walking-distance"
-												class="custom-control-input"
-											/>
-											<label
-												class="custom-control-label"
-												for="halfMile"
+												<input
+													type="radio"
+													id="tpQuarterMile"
+													name="tp-walking-distance"
+													class="custom-control-input"
+												/>
+												<label
+													class="custom-control-label"
+													for="quarterMile"
+												>
+													1/4 mile
+												</label>
+											</div>
+											<div
+												class="custom-control custom-radio"
 											>
-												1/2 mile
-											</label>
-										</div>
-										<div
-											class="custom-control custom-radio"
-										>
-											<input
-												type="radio"
-												id="tpOneMile"
-												name="tp-walking-distance"
-												class="custom-control-input"
-											/>
-											<label
-												class="custom-control-label"
-												for="oneMile"
+												<input
+													type="radio"
+													id="tpHalfMile"
+													name="tp-walking-distance"
+													class="custom-control-input"
+												/>
+												<label
+													class="custom-control-label"
+													for="halfMile"
+												>
+													1/2 mile
+												</label>
+											</div>
+											<div
+												class="custom-control custom-radio"
 											>
-												1 mile
-											</label>
-										</div>
-										<hr />
+												<input
+													type="radio"
+													id="tpOneMile"
+													name="tp-walking-distance"
+													class="custom-control-input"
+												/>
+												<label
+													class="custom-control-label"
+													for="oneMile"
+												>
+													1 mile
+												</label>
+											</div>
+											<hr />
 
-										<div
-											class="custom-control custom-radio"
-										>
-											<input
-												type="radio"
-												id="tpAnyType"
-												name="tp-service-type"
-												class="custom-control-input"
-											/>
-											<label
-												class="custom-control-label"
-												for="tpAnyType"
+											<div
+												class="custom-control custom-radio"
 											>
-												Any service type
-											</label>
-										</div>
-										<div
-											class="custom-control custom-radio"
-										>
-											<input
-												type="radio"
-												id="tpRailOnly"
-												name="tp-service-type"
-												class="custom-control-input"
-											/>
-											<label
-												class="custom-control-label"
-												for="tpRailOnly"
+												<input
+													type="radio"
+													id="tpAnyType"
+													name="tp-service-type"
+													class="custom-control-input"
+												/>
+												<label
+													class="custom-control-label"
+													for="tpAnyType"
+												>
+													Any service type
+												</label>
+											</div>
+											<div
+												class="custom-control custom-radio"
 											>
-												Rail only
-											</label>
-										</div>
-										<div
-											class="custom-control custom-radio"
-										>
-											<input
-												type="radio"
-												id="tpBusOnly"
-												name="tp-service-type"
-												class="custom-control-input"
-											/>
-											<label
-												class="custom-control-label"
-												for="tpBusOnly"
+												<input
+													type="radio"
+													id="tpRailOnly"
+													name="tp-service-type"
+													class="custom-control-input"
+												/>
+												<label
+													class="custom-control-label"
+													for="tpRailOnly"
+												>
+													Rail only
+												</label>
+											</div>
+											<div
+												class="custom-control custom-radio"
 											>
-												Bus only
-											</label>
-										</div>
-										<div
-											class="custom-control custom-radio"
-										>
-											<input
-												type="radio"
-												id="tpNoExpress"
-												name="tp-service-type"
-												class="custom-control-input"
-											/>
-											<label
-												class="custom-control-label"
-												for="tpNoExpress"
+												<input
+													type="radio"
+													id="tpBusOnly"
+													name="tp-service-type"
+													class="custom-control-input"
+												/>
+												<label
+													class="custom-control-label"
+													for="tpBusOnly"
+												>
+													Bus only
+												</label>
+											</div>
+											<div
+												class="custom-control custom-radio"
 											>
-												No express
-											</label>
-										</div>
+												<input
+													type="radio"
+													id="tpNoExpress"
+													name="tp-service-type"
+													class="custom-control-input"
+												/>
+												<label
+													class="custom-control-label"
+													for="tpNoExpress"
+												>
+													No express
+												</label>
+											</div>
 
-										<hr />
+											<hr />
 
-										<div
-											class="custom-control custom-radio"
-										>
-											<input
-												type="radio"
-												id="tpFasterTrip"
-												name="tp-convenience"
-												class="custom-control-input"
-											/>
-											<label
-												class="custom-control-label"
-												for="tpFasterTrip"
+											<div
+												class="custom-control custom-radio"
 											>
-												Faster trip
-											</label>
-										</div>
-										<div
-											class="custom-control custom-radio"
-										>
-											<input
-												type="radio"
-												id="tpFewerTransfers"
-												name="tp-convenience"
-												class="custom-control-input"
-											/>
-											<label
-												class="custom-control-label"
-												for="tpFewerTransfers"
+												<input
+													type="radio"
+													id="tpFasterTrip"
+													name="tp-convenience"
+													class="custom-control-input"
+												/>
+												<label
+													class="custom-control-label"
+													for="tpFasterTrip"
+												>
+													Faster trip
+												</label>
+											</div>
+											<div
+												class="custom-control custom-radio"
 											>
-												Fewer transfers
-											</label>
-										</div>
-										<div
-											class="custom-control custom-radio"
-										>
-											<input
-												type="radio"
-												id="tpLessWalking"
-												name="tp-convenience"
-												class="custom-control-input"
-											/>
-											<label
-												class="custom-control-label"
-												for="tpLessWalking"
+												<input
+													type="radio"
+													id="tpFewerTransfers"
+													name="tp-convenience"
+													class="custom-control-input"
+												/>
+												<label
+													class="custom-control-label"
+													for="tpFewerTransfers"
+												>
+													Fewer transfers
+												</label>
+											</div>
+											<div
+												class="custom-control custom-radio"
 											>
-												Less walking
-											</label>
-										</div>
+												<input
+													type="radio"
+													id="tpLessWalking"
+													name="tp-convenience"
+													class="custom-control-input"
+												/>
+												<label
+													class="custom-control-label"
+													for="tpLessWalking"
+												>
+													Less walking
+												</label>
+											</div>
 
-										<hr />
+											<hr />
 
-										<p class="m-0">
-											<IconSprite
-												name="icon-sm-accessible-gray"
-											></IconSprite>
-											Accessible stops
-										</p>
-										<div
-											class="custom-control custom-radio custom-control-inline"
-										>
-											<input
-												type="radio"
-												id="tpAccessibleStopYes"
-												name="tp-accessible-stop"
-												class="custom-control-input"
-											/>
-											<label
-												class="custom-control-label"
-												for="tpAccessibleStopYes"
+											<p class="m-0">
+												<IconSprite
+													name="icon-sm-accessible-gray"
+												></IconSprite>
+												Accessible stops
+											</p>
+											<div
+												class="custom-control custom-radio custom-control-inline"
 											>
-												Yes
-											</label>
-										</div>
-										<div
-											class="custom-control custom-radio custom-control-inline"
-										>
-											<input
-												type="radio"
-												id="tpAccessibleStopNo"
-												name="tp-accessible-stop"
-												class="custom-control-input"
-											/>
-											<label
-												class="custom-control-label"
-												for="tpAccessibleStopNo"
+												<input
+													type="radio"
+													id="tpAccessibleStopYes"
+													name="tp-accessible-stop"
+													class="custom-control-input"
+												/>
+												<label
+													class="custom-control-label"
+													for="tpAccessibleStopYes"
+												>
+													Yes
+												</label>
+											</div>
+											<div
+												class="custom-control custom-radio custom-control-inline"
 											>
-												No
-											</label>
-										</div>
-									</b-card-text>
-								</b-card-body>
-							</b-collapse>
-						</b-card>
+												<input
+													type="radio"
+													id="tpAccessibleStopNo"
+													name="tp-accessible-stop"
+													class="custom-control-input"
+												/>
+												<label
+													class="custom-control-label"
+													for="tpAccessibleStopNo"
+												>
+													No
+												</label>
+											</div>
+										</b-card-text>
+									</b-card-body>
+								</b-collapse>
+							</b-card>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 offset-md-4">
-					<b-btn type="Submit" variant="warning" block>
-						Plan My Trip
-					</b-btn>
+				<div class="row">
+					<div class="col-md-4 offset-md-4">
+						<b-btn type="Submit" variant="warning" block>
+							Plan My Trip
+						</b-btn>
+					</div>
 				</div>
-			</div>
-		</form>
+			</form>
+		</div>
 	</div>
 	<!-- End Trip Planner -->
 </template>

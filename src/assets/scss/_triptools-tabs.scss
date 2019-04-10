@@ -124,47 +124,6 @@
 }
 
 // Tabbed content
-// Trip Planner
-.tt-trip-planner {
-	.more-options {
-		margin-bottom: 1rem;
-		.card {
-			border: gray-400;
-
-			.card-header {
-				background-color: transparent;
-				border-bottom: 0;
-
-				a {
-					text-decoration: none;
-					color: #626462; // $gray-900
-				}
-
-				.btn {
-					padding: 0.32rem 0.75rem;
-				}
-			}
-		}
-		@include media-breakpoint-up(xl) {
-			margin-bottom: 1.5rem;
-		}
-	}
-
-	.tp-time-elements {
-		display: none;
-	}
-
-	.icon-sm-location-switcher-blue {
-		width: 2rem;
-		height: 2rem;
-	}
-
-	.icon-clock-gray {
-		width: 1.25rem;
-		height: 1.25rem;
-	}
-}
-// NexTrip
-//.tt-nextrip {}
-// Alerts
-//.tt-alerts {}
+// Trip Planner - refer to src/assets/scss/trip-planner.scss
+// NexTrip - refer to src/assets/scss/nextrip.scss
+// Alerts - refer to src/assets/scss/alerts.scss

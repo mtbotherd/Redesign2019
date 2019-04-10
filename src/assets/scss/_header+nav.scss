@@ -4,7 +4,7 @@
 .skip-to-content {
 	display: none;
 }
-.navbar {
+nav.navbar {
 	.nav-fill {
 		.nav-item {
 			text-align: left;
@@ -14,26 +14,38 @@
 		text-decoration: none;
 	}
 	.icon-wrapper {
-		width: 1rem;
-		height: 1rem;
+		width: 0.75rem;
+		height: 0.75rem;
+
+		@include media-breakpoint-up(xl) {
+			width: 1rem;
+			height: 1rem;
+			vertical-align: middle;
+		}
+	}
+
+	.dropdown-toggle {
+		.icon-wrapper {
+			display: inline-flex;
+		}
+
+		&::after {
+			display: none;
+		}
+	}
+
+	.dropdown-menu {
+		.dropdown-item {
+			text-decoration: none;
+			//border-bottom: 1px solid $gray-700;
+		}
 	}
 }
-.navbar-light .navbar-nav .nav-link,
-.navbar-light .navbar-nav .active > .nav-link {
-	color: $gray-900;
-}
-.dropdown-toggle {
-	.icon-wrapper {
-		display: inline-flex;
-	}
-}
-.dropdown-toggle::after {
-	display: none;
-}
-.icon-wrapper {
-	width: 1rem;
-	height: 1rem;
-}
+// .navbar-light .navbar-nav .nav-link,
+// .navbar-light .navbar-nav .active > .nav-link {
+// 	color: $gray-600;
+// }
+
 @include media-breakpoint-up(lg) {
 	.icon-xs-avatar-gray {
 		padding: 0.5rem;

@@ -1,0 +1,40 @@
+/************************************************
+    Trip Planner Module Styles
+************************************************/
+.tt-trip-planner {
+	.tp-location-toggler .icon-wrapper {
+		width: 2rem;
+		height: 2rem;
+	}
+	.more-options {
+		margin-bottom: 1rem;
+		.card {
+			border: gray-400;
+
+			.card-header {
+				background-color: transparent;
+				border-bottom: 0;
+
+				a {
+					text-decoration: none;
+					color: #626462;
+				}
+
+				.btn {
+					padding: 0.32rem 0.75rem;
+				}
+			}
+
+			.card-body {
+				background-color: $gray-100;
+			}
+		}
+		@include media-breakpoint-up(xl) {
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	.tp-time-elements {
+		display: none;
+	}
+}

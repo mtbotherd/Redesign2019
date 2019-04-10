@@ -3,14 +3,24 @@
 		<div class="hero-bg pt-3 pt-md-0">
 			<div class="container">
 				<SearchSchedulesByRoute />
-				<div class="position-relative cta-link-white text-center">
+				<div class="cta-link-white">
 					<router-link
 						class="d-inline-flex nav-link stretched-link"
 						:to="{ name: 'schedules-maps' }"
 					>
 						View all Schedules &amp; Maps
 					</router-link>
-					<IconSprite name="icon-sm-right-arrow-white" />
+					<IconSprite
+						name="icon-sm-right-arrow-white"
+						class="flex-fill"
+					/>
+					<!-- <router-link
+								class="d-inline-flex nav-link mr-auto mr-md-0 stretched-link"
+								:to="{ name: 'schedules-maps' }"
+							>
+								View all Schedules &amp; Maps
+              </router-link>
+          <IconSprite name="icon-sm-right-arrow-white" />-->
 				</div>
 			</div>
 		</div>
@@ -49,44 +59,46 @@ export default {
 }
 
 .cta-link-white {
+	position: relative;
 	border: 1px solid #ffffff;
 
 	.nav-link {
+		color: white;
 		font-weight: 700;
-		margin-right: 9.2rem;
+		margin-right: auto;
+		text-decoration: none;
 
 		@media (min-width: 768px) {
 			margin-right: 0;
+			text-decoration: underline;
 		}
 	}
 
 	@media (min-width: 768px) {
 		border: 0;
 		display: block;
-		font-size: 1.26rem;
-	}
-
-	a {
-		color: white;
-		text-decoration: none;
-
-		@media (min-width: 768px) {
-			text-decoration: underline;
-		}
+		text-align: center;
 	}
 
 	.icon-wrapper {
-		//margin-left: auto;
-		position: relative;
-		top: 0.2rem;
-		right: 0.5rem;
-		width: 1.143rem;
+		position: absolute;
+		top: 0.7rem;
+		right: 0.75rem;
 
 		@media (min-width: 768px) {
-			margin-left: 0.5rem;
-			width: 1.1112rem;
-			height: 0.834rem;
-			//top: 0.3rem;
+			position: relative;
+			top: 0.25rem;
+			left: 0;
+		}
+
+		@media (min-width: 992px) {
+			width: 1rem;
+			height: 1rem;
+			padding: 0;
+		}
+
+		@media (min-width: 1200px) {
+			top: 0.25rem;
 		}
 	}
 }
