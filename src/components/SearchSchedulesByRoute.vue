@@ -4,15 +4,15 @@
 			<div class="row justify-content-md-center">
 				<div class="col col-md-8 col-lg-6">
 					<div class="form-group mt-2 mt-md-4 mt-lg-5">
-						<label for="schedulesByRoute" class="sr-only">
-							Find schedules by route
-						</label>
 						<input
 							type="search"
 							id="schedulesByRoute"
 							class="form-control border-0"
 							placeholder="Find schedules by route"
 						/>
+						<label for="schedulesByRoute" class="sr-only">
+							Find schedules by route
+						</label>
 					</div>
 				</div>
 			</div>

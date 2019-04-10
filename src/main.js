@@ -1,14 +1,15 @@
+//################################################
+//  Core Vue Framework
+//################################################
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 
-// Custom JS scripts
+// Include jQuerey
 const $ = require('jquery')
 window.$ = $
 require('jquery-confirm')
-
-//import './assets/js/scripts.js'
 
 // Bootstrap - This imports bootstrap.js.  Refer to app.scss for bootstrap styles import.
 import 'bootstrap'
@@ -17,46 +18,69 @@ import 'bootstrap'
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 
+// SASS Mixins
 // Change page title (mixin)
 import TitleMixin from './assets/js/TitleMixing'
 Vue.mixin(TitleMixin)
 
-// Icons
+//################################################
+//  Registered Components
+//################################################
+// SVG icons component
 import IconSprite from '@/components/IconSprite' // Import component
 Vue.component('IconSprite', IconSprite) // Globally Register component
 
-//  Search schedules by route
+//  Search schedules by route component
 import SearchSchedulesByRoute from '@/components/SearchSchedulesByRoute'
 Vue.component('SearchSchedulesByRoute', SearchSchedulesByRoute)
 
-// Trip tools tabs
+// Trip tools module
+// Trip tools tabs component
 import TriptoolsTabs from '@/components/TriptoolsTabs'
 Vue.component('TriptoolsTabs', TriptoolsTabs)
-
-// Trip tools
-// Trip Planner
+// Trip Planner component
 import TripPlanner from '@/components/TripPlanner'
 Vue.component('TripPlanner', TripPlanner)
-// NexTrip
+// NexTrip component
 import NexTrip from '@/components/NexTrip'
 Vue.component('NexTrip', NexTrip)
-// Alerts
+// Alerts component
 import Alerts from '@/components/Alerts'
 Vue.component('Alerts', Alerts)
 
-// JS
+//################################################
+//  Custom scripts (jQuery)
+//################################################
 $(function() {
+	// Trip Planner
+	// Location switcher
 	var inputs = $('.tp-from-location, .tp-to-location'),
 		tmp
-	$('.icon-sm-switch-blue').click(function() {
+	$('.icon-sm-location-switcher-blue').click(function() {
 		tmp = inputs[0].value
 		inputs[0].value = inputs[1].value
 		inputs[1].value = tmp
+	})
+
+	// Show time/date selectors
+	$('#tpSelectTime').change(function() {
+		if ($(this).val() == 'tp-depart-at') {
+			$('.tp-time-elements').css('display', 'flex')
+		}
+		if ($(this).val() == 'tp-arrive-by') {
+			$('.tp-time-elements').css('display', 'flex')
+		}
+		if ($(this).val() == 'tp-leave-now') {
+			$('.tp-time-elements').hide()
+		}
 	})
 })
 
 Vue.config.productionTip = false
 
+//################################################
+//  Vue instance - This MUST come last.
+//################################################
 new Vue({
 	router,
 	store,

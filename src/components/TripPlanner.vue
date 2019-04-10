@@ -20,10 +20,10 @@
 					From
 				</label>
 			</div>
-			<div class="text-right mt-1">
+			<div class="text-right">
 				<IconSprite
-					name="icon-sm-switch-blue"
-					class="icon-sm-switch-blue"
+					name="icon-sm-location-switcher-blue"
+					class="icon-sm-location-switcher-blue p-2"
 				/>
 			</div>
 			<div class="form-group">
@@ -42,13 +42,13 @@
 						<label for="tpLeaveNow" class="sr-only">
 							Leave now
 						</label>
-						<select id="tpLeaveNow" class="custom-select">
-							<option value="leave-now">Leave now</option>
-							<option value="depart-at">Depart at</option>
-							<option value="arrive-by">Arrive by</option>
+						<select id="tpSelectTime" class="custom-select">
+							<option value="tp-leave-now">Leave now</option>
+							<option value="tp-depart-at">Depart at</option>
+							<option value="tp-arrive-by">Arrive by</option>
 						</select>
 					</div>
-					<div class="row">
+					<div class="row tp-time-elements">
 						<div class="col">
 							<div class="input-group mb-3">
 								<label for="tpTime" class="sr-only">
@@ -84,7 +84,7 @@
 									<IconSprite
 										name="icon-sm-calendar-gray"
 										id="tpDate"
-										class="icon-clock mt-2 mr-2"
+										class="icon-clock-gray mt-2 mr-2"
 									/>
 								</div>
 							</div>

@@ -1,9 +1,8 @@
-$(document).ready(function() {
-	// $('.star-wars li').click(function() {
-	// 	$(this).toggleClass('strike')
-	// 	var icon = 'icon-'
-	// 	icon += !$(this).hasClass('strike') ? 'empire' : 'rebel'
-	// 	$('svg', this).attr('class', icon)
-	// 	$('svg use', this).attr('xlink:href', '#' + icon)
-	// })
+// Trip Planner
+var inputs = $('.tp-from-location, .tp-to-location'),
+	tmp
+$('.icon-sm-switch-blue').click(function() {
+	tmp = inputs[0].value
+	inputs[0].value = inputs[1].value
+	inputs[1].value = tmp
 })

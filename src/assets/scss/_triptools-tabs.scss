@@ -150,7 +150,16 @@
 		}
 	}
 
-	.icon-clock {
+	.tp-time-elements {
+		display: none;
+	}
+
+	.icon-sm-location-switcher-blue {
+		width: 2rem;
+		height: 2rem;
+	}
+
+	.icon-clock-gray {
 		width: 1.25rem;
 		height: 1.25rem;
 	}
