@@ -14,13 +14,6 @@
 						name="icon-sm-right-arrow-white"
 						class="flex-fill"
 					/>
-					<!-- <router-link
-								class="d-inline-flex nav-link mr-auto mr-md-0 stretched-link"
-								:to="{ name: 'schedules-maps' }"
-							>
-								View all Schedules &amp; Maps
-              </router-link>
-          <IconSprite name="icon-sm-right-arrow-white" />-->
 				</div>
 			</div>
 		</div>
@@ -37,6 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/mixins.scss';
 .hero-bg {
 	background-color: #000000;
 	background-image: url('../assets/img/lrt.png');
@@ -44,7 +38,7 @@ export default {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 102% 70%;
-	height: 10rem;
+	height: 9.5rem;
 
 	@media (min-width: 768px) {
 		background-size: 102% 90%;
@@ -64,11 +58,15 @@ export default {
 
 	.nav-link {
 		color: white;
+		@include fontSize(17);
+		//font-size: 17px;
 		font-weight: 700;
 		margin-right: auto;
 		text-decoration: none;
 
 		@media (min-width: 768px) {
+			@include fontSize(23);
+			//font-size: 23px;
 			margin-right: 0;
 			text-decoration: underline;
 		}
@@ -105,7 +103,7 @@ export default {
 
 #homeContent {
 	position: relative;
-	top: -5.53rem;
+	top: -4.92rem;
 
 	@media (min-width: 768px) {
 		top: -3.62rem;

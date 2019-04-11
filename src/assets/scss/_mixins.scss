@@ -1,3 +1,15 @@
 // /*************************************
 //     Mixins
 // *************************************/
+// Reset default font size for tablet and up
+@media (min-width: 768px) {
+	body {
+		font-size: 16px;
+	}
+}
+
+// mixin for font-size with base size of 16 pixels.
+@mixin fontSize($size: 16) {
+	font-size: $size + px;
+	font-size: ($size / 16) + rem;
+}

@@ -25,6 +25,7 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/mixins.scss';
 #searchSchedulesByRoute {
 	display: none;
 }
@@ -34,7 +35,7 @@ export default {}
 		display: block;
 
 		.form-control {
-			font-size: 1.22rem;
+			@include fontSize(24);
 			font-weight: 500;
 		}
 	}

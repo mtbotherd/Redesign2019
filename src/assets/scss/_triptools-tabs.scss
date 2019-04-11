@@ -111,9 +111,10 @@
 					}
 				}
 
-				@include media-breakpoint-up(lg) {
+				@include media-breakpoint-up(md) {
+					// @include fontSize(32);
 					font-weight: 700;
-					font-size: 1.5rem;
+					//font-size: 1.5rem;
 				}
 			}
 		}

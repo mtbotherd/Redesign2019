@@ -18,9 +18,12 @@ import 'bootstrap'
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 
-// SASS Mixins
+// SCSS - import mixins
+//import './assets/scss/mixin.scss'
+
+// JS Mixins
 // Change page title (mixin)
-import TitleMixin from './assets/js/TitleMixing'
+import TitleMixin from './assets/js/TitleMixin'
 Vue.mixin(TitleMixin)
 
 //################################################
@@ -56,7 +59,7 @@ $(function() {
 	// Location switcher
 	var inputs = $('.tp-from-location, .tp-to-location'),
 		tmp
-	$('.icon-sm-location-switcher-blue').click(function() {
+	$('.tp-location-toggler .icon-wrapper').click(function() {
 		tmp = inputs[0].value
 		inputs[0].value = inputs[1].value
 		inputs[1].value = tmp

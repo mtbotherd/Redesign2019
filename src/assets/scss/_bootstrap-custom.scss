@@ -19,6 +19,10 @@ $red: #ed1b2e;
 $yellow: #ffd200;
 $cyan: #0097d0;
 
+// Options
+// Quickly modify global styling by enabling or disabling optional features.
+$enable-responsive-font-sizes: true;
+
 // Buttons
 $primary: $blue;
 
@@ -33,6 +37,8 @@ $link-decoration: underline;
 $font-family-sans-serif: proxima-nova, -apple-system, BlinkMacSystemFont,
 	'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
 	'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+$font-size-base: 0.875rem; // Assumes the browser default, typically `16px`
 
 // Breadcrumb separator
 $breadcrumb-divider: quote('»');

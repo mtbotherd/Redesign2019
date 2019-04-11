@@ -24,7 +24,7 @@
 				<div class="tp-location-toggler text-right">
 					<IconSprite
 						name="icon-sm-location-toggler-blue"
-						class="icon-sm-location-toggler-blue p-2"
+						class="icon-sm-location-toggler-blue mb-2 pt-2 pr-2 pl-2"
 					/>
 				</div>
 				<div class="form-group">

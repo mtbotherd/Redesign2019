@@ -1,7 +1,9 @@
 @import './assets/scss/bootstrap-custom.scss';
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
-@import 'typography';
+@import 'mixins';
+//@import 'typography';
+//@import 'px-to-rem';
 @import 'header+nav';
 @import 'triptools-tabs';
 @import 'trip-planner';
