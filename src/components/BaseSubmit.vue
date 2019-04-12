@@ -1,8 +1,8 @@
 <template>
-	<div class="d-inline-flex mr-2">
-		<slot>
-			<input type="submit" class="btn btn-primary" value="Submit" />
-		</slot>
+	<div>
+		<b-button variant="warning" size="lg" type="submit">
+			<slot>Submit</slot>
+		</b-button>
 	</div>
 </template>
 

@@ -32,7 +32,7 @@
 							aria-expanded="false"
 						>
 							Trip Tools&nbsp;
-							<IconSprite name="icon-sm-chevron-down-gray" />
+							<BaseIconSprite name="icon-sm-chevron-down-gray" />
 						</a>
 						<div
 							class="dropdown-menu"
@@ -77,7 +77,7 @@
 							aria-expanded="false"
 						>
 							Fares &amp; Passes
-							<IconSprite name="icon-sm-chevron-down-gray" />
+							<BaseIconSprite name="icon-sm-chevron-down-gray" />
 						</a>
 						<div
 							class="dropdown-menu"
@@ -114,7 +114,7 @@
 							aria-expanded="false"
 						>
 							More
-							<IconSprite name="icon-sm-chevron-down-gray" />
+							<BaseIconSprite name="icon-sm-chevron-down-gray" />
 						</a>
 						<div
 							class="dropdown-menu"
@@ -151,7 +151,7 @@
 							aria-expanded="false"
 						>
 							Help
-							<IconSprite name="icon-sm-chevron-down-gray" />
+							<BaseIconSprite name="icon-sm-chevron-down-gray" />
 						</a>
 						<div
 							class="dropdown-menu"
@@ -187,9 +187,9 @@
 							aria-haspopup="true"
 							aria-expanded="false"
 						>
-							<IconSprite name="icon-sm-globe-gray" />
+							<BaseIconSprite name="icon-sm-globe-gray" />
 							En
-							<IconSprite name="icon-sm-chevron-down-gray" />
+							<BaseIconSprite name="icon-sm-chevron-down-gray" />
 						</a>
 						<div class="dropdown-menu" aria-labelledby="language">
 							<a class="dropdown-item" href="#">Hmong</a>
@@ -211,7 +211,9 @@
 							title="Search"
 						>
 							<span class="sr-only">Search</span>
-							<IconSprite name="icon-sm-magnifying-glass-gray" />
+							<BaseIconSprite
+								name="icon-sm-magnifying-glass-gray"
+							/>
 						</a>
 						<div
 							class="dropdown-menu"
@@ -242,7 +244,7 @@
 							title="Profile"
 						>
 							<span class="sr-only">Your profile</span>
-							<IconSprite name="icon-sm-avatar-gray" />
+							<BaseIconSprite name="icon-sm-avatar-gray" />
 						</a>
 					</li>
 				</ul>

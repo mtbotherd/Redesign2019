@@ -2,25 +2,43 @@
     Form styles
 **********************************************/
 // Floating labels
-// 1. Add the input element first. Make sure it is required and
-// 2.
+// 1. Add the input element first. Make sure it is required.
 // 2. Add the clase "form-control-placeholder" to the label element.
 .form-group {
 	position: relative;
 	//margin-bottom: 1.5rem;
 }
+
+.form-control-lg,
+.custom-select {
+	@include fontSize(17);
+	font-weight: $font-weight-medium;
+
+	@include media-breakpoint-up(md) {
+		@include fontSize(23);
+	}
+}
+
 .form-control-placeholder {
 	position: absolute;
 	top: 0;
-	padding: 7px 0 0 13px;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	padding-left: 1rem;
+	//padding: 7px 0 0 13px;
 	transition: all 200ms;
 	color: $input-color;
-	//opacity: 0.5;
+	@include fontSize(21);
+	font-weight: bold;
+
+	@include media-breakpoint-up(md) {
+		@include fontSize(23);
+	}
 }
 
 .form-control:focus + .form-control-placeholder,
 .form-control:valid + .form-control-placeholder {
-	font-size: 75%;
+	@include fontSize(14);
+	//font-size: 75%;
 	transform: translate3d(0, -100%, 0);
-	//opacity: 1;
 }

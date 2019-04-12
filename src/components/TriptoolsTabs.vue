@@ -8,13 +8,13 @@
 					active
 				>
 					<template slot="title">
-						<IconSprite
+						<BaseIconSprite
 							name="icon-lg-directions-color"
 							width="37"
 							height="32"
 							class="svg-active mx-auto"
 						/>
-						<IconSprite
+						<BaseIconSprite
 							name="icon-lg-directions-white"
 							width="37"
 							height="32"
@@ -26,13 +26,13 @@
 				</b-tab>
 				<b-tab title-item-class="mr-2" title-link-class="p-md-3">
 					<template slot="title">
-						<IconSprite
+						<BaseIconSprite
 							name="icon-lg-clock-color"
 							width="32"
 							height="32"
 							class="svg-active d-block d-md-inline-block ml-auto mr-auto"
 						/>
-						<IconSprite
+						<BaseIconSprite
 							name="icon-lg-clock-white"
 							width="32"
 							height="32"
@@ -44,13 +44,13 @@
 				</b-tab>
 				<b-tab title-link-class="p-md-3">
 					<template slot="title">
-						<IconSprite
+						<BaseIconSprite
 							name="icon-lg-triangle-exclamation-color"
 							width="37"
 							height="32"
 							class="svg-active d-block d-md-inline-block ml-auto mr-auto"
 						/>
-						<IconSprite
+						<BaseIconSprite
 							name="icon-lg-triangle-exclamation-white"
 							width="37"
 							height="32"

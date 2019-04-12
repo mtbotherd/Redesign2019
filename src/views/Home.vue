@@ -10,7 +10,7 @@
 					>
 						View all Schedules &amp; Maps
 					</router-link>
-					<IconSprite
+					<BaseIconSprite
 						name="icon-sm-right-arrow-white"
 						class="flex-fill"
 					/>
@@ -103,7 +103,7 @@ export default {
 
 #homeContent {
 	position: relative;
-	top: -4.92rem;
+	top: -4.93rem;
 
 	@media (min-width: 768px) {
 		top: -4.2rem;

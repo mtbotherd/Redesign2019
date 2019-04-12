@@ -1,27 +1,48 @@
 /************************************************
     Trip Planner Module Styles
 ************************************************/
-.tt-trip-planner {
+#tripPlanner {
 	.tp-location-toggler .icon-wrapper {
 		width: 2rem;
 		height: 2rem;
 	}
+
+	.tp-time-elements {
+		display: none;
+
+		.icon-wrapper {
+			width: 24px;
+			height: 24px;
+
+			@include media-breakpoint-up(md) {
+				margin-top: 0.75rem !important;
+			}
+		}
+	}
+
 	.more-options {
 		margin-bottom: 1rem;
 		.card {
-			border: gray-400;
-
 			.card-header {
 				background-color: transparent;
 				border-bottom: 0;
+				padding: 0.438rem 0.5rem 0.438rem 1rem;
 
-				a {
-					text-decoration: none;
-					color: #626462;
+				@include media-breakpoint-up(md) {
+					padding: 0.454rem 0.5rem 0.454rem 1rem;
 				}
 
 				.btn {
-					padding: 0.32rem 0.75rem;
+					text-decoration: none;
+					color: $body-color;
+					@include fontSize(17);
+					font-weight: 500;
+					padding: 0.016rem 0;
+
+					@include media-breakpoint-up(md) {
+						@include fontSize(23);
+						padding: 0;
+					}
 				}
 			}
 
@@ -32,9 +53,5 @@
 		@include media-breakpoint-up(xl) {
 			margin-bottom: 1.5rem;
 		}
-	}
-
-	.tp-time-elements {
-		display: none;
 	}
 }
