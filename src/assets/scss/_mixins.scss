@@ -1,7 +1,7 @@
 // /*************************************
 //     Mixins
 // *************************************/
-// Reset default font size for tablet and up
+// Reset default font size for tablet and up. Base default (mobile first) is set to 14px.
 @media (min-width: 768px) {
 	body {
 		font-size: 16px;

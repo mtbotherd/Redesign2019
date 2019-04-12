@@ -42,7 +42,7 @@ export default {
 
 	@media (min-width: 768px) {
 		background-size: 102% 90%;
-		height: 14rem;
+		height: 15rem;
 	}
 	@media (min-width: 992px) {
 		height: 16rem;
@@ -89,15 +89,15 @@ export default {
 			left: 0;
 		}
 
-		@media (min-width: 992px) {
-			width: 1rem;
-			height: 1rem;
-			padding: 0;
-		}
+		// @media (min-width: 992px) {
+		// 	width: 1rem;
+		// 	height: 1rem;
+		// 	padding: 0;
+		// }
 
-		@media (min-width: 1200px) {
-			top: 0.25rem;
-		}
+		// @media (min-width: 1200px) {
+		// 	top: 0.25rem;
+		// }
 	}
 }
 
@@ -106,15 +106,11 @@ export default {
 	top: -4.92rem;
 
 	@media (min-width: 768px) {
-		top: -3.62rem;
-	}
-
-	@media (min-width: 992px) {
-		top: -4.32rem;
+		top: -4.2rem;
 	}
 
 	@media (min-width: 1200px) {
-		top: -4.33rem;
+		top: -5.12rem;
 	}
 }
 </style>

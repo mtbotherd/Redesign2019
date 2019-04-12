@@ -25,13 +25,13 @@
 				}
 
 				&:nth-child(1) .icon-wrapper {
-					left: 23px;
+					left: 10px;
 				}
 				&:nth-child(2) .icon-wrapper {
-					left: 42px;
+					left: 35px;
 				}
 				&:nth-child(3) .icon-wrapper {
-					left: 44px;
+					left: 40px;
 				}
 			}
 
@@ -43,13 +43,13 @@
 				}
 
 				&:nth-child(1) .icon-wrapper {
-					left: 31px;
+					left: 41px;
 				}
 				&:nth-child(2) .icon-wrapper {
-					left: 62px;
+					left: 66px;
 				}
 				&:nth-child(3) .icon-wrapper {
-					left: 68px;
+					left: 71px;
 				}
 			}
 
@@ -61,26 +61,13 @@
 				}
 
 				&:nth-child(1) .icon-wrapper {
-					left: 61px;
+					left: 48px;
 				}
 				&:nth-child(2) .icon-wrapper {
-					left: 92px;
+					left: 84px;
 				}
 				&:nth-child(3) .icon-wrapper {
-					left: 98px;
-				}
-			}
-
-			.icon-wrapper {
-				width: 38px;
-				height: 40px;
-
-				@include media-breakpoint-up(sm) {
-					top: 0.75rem;
-				}
-
-				@include media-breakpoint-up(md) {
-					top: 0.9rem;
+					left: 92px;
 				}
 			}
 
@@ -89,12 +76,23 @@
 				color: $white;
 				text-decoration: none;
 
-				.svg-active {
-					display: none !important;
+				@include media-breakpoint-up(md) {
+					@include fontSize(22);
+					font-weight: 700;
 				}
 
-				.svg-inactive {
-					display: block !important;
+				@include media-breakpoint-up(lg) {
+					.svg-inactive {
+						display: block !important;
+					}
+				}
+
+				@include media-breakpoint-up(xl) {
+					@include fontSize(32);
+				}
+
+				.svg-active {
+					display: none !important;
 				}
 
 				&.active {
@@ -110,11 +108,17 @@
 						display: none !important;
 					}
 				}
+			}
+			.icon-wrapper {
+				width: 38px;
+				height: 40px;
+
+				@include media-breakpoint-up(sm) {
+					top: 0.75rem;
+				}
 
 				@include media-breakpoint-up(md) {
-					// @include fontSize(32);
-					font-weight: 700;
-					//font-size: 1.5rem;
+					top: 0.9rem;
 				}
 			}
 		}
@@ -123,8 +127,3 @@
 		}
 	}
 }
-
-// Tabbed content
-// Trip Planner - refer to src/assets/scss/trip-planner.scss
-// NexTrip - refer to src/assets/scss/nextrip.scss
-// Alerts - refer to src/assets/scss/alerts.scss
