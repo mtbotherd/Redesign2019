@@ -1,0 +1,22 @@
+// /*************************************
+//     Footer Styles
+// *************************************/
+footer {
+	.card-title {
+		@include fontSize(16);
+		font-weight: $font-weight-bold;
+		margin-bottom: 0.25rem;
+		text-transform: uppercase;
+	}
+
+	.card-body {
+		padding: 0;
+	}
+
+	.nav-link {
+		@include fontSize(16);
+		font-weight: $font-weight-bold;
+		text-decoration: none;
+		padding: 0.25rem 0;
+	}
+}

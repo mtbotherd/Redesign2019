@@ -39,7 +39,9 @@
             </div>
             <p class="text-center pt-5">
                 Metro Transit is a service of the Metropolitcan Council.
-                <span class="d-block d-md-none">
+                <span
+                    class="d-block d-md-none"
+                >
                     <br>
                 </span>&copy; 2019 Metro Transit
             </p>
@@ -51,26 +53,4 @@
 export default {}
 </script>
 
-<style lang="scss" scoped>
-@import '../assets/scss/bootstrap-custom.scss';
-@import '../assets/scss/mixins.scss';
-footer {
-	.card-title {
-		@include fontSize(16);
-		font-weight: $font-weight-bold;
-		margin-bottom: 0.25rem;
-		text-transform: uppercase;
-	}
-
-	.card-body {
-		padding: 0;
-	}
-
-	.nav-link {
-		@include fontSize(16);
-		font-weight: $font-weight-bold;
-		text-decoration: none;
-		padding: 0.25rem 0;
-	}
-}
-</style>
+<style lang="scss" scoped></style>
