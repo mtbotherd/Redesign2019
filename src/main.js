@@ -46,9 +46,9 @@ requireComponent.keys().forEach(fileName => {
 })
 
 //  Manually Register Components Globally
-//  Search schedules by route component
-import SearchSchedulesByRoute from '@/components/SearchSchedulesByRoute'
-Vue.component('SearchSchedulesByRoute', SearchSchedulesByRoute)
+//  Find schedules by route component
+import FindSchedulesByRoute from '@/components/FindSchedulesByRoute'
+Vue.component('FindSchedulesByRoute', FindSchedulesByRoute)
 
 //  Trip tools module
 //  Trip tools tabs component
@@ -83,14 +83,12 @@ $(function() {
 
 	// Show time/date selectors
 	$('#tpSelectTime').change(function() {
-		if ($(this).val() == 'tp-depart-at') {
-			$('.tp-time-elements').css('display', 'flex')
-		}
-		if ($(this).val() == 'tp-arrive-by') {
-			$('.tp-time-elements').css('display', 'flex')
-		}
-		if ($(this).val() == 'tp-leave-now') {
-			$('.tp-time-elements').hide()
+		if ($(this).val() != 'tp-leave-now') {
+			$('.tp-time-elements')
+				.fadeIn('slow')
+				.css('display', 'flex')
+		} else {
+			$('.tp-time-elements').fadeOut('fast')
 		}
 	})
 })

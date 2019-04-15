@@ -11,11 +11,12 @@
 		display: none;
 
 		.icon-wrapper {
-			width: 24px;
-			height: 24px;
+			width: 22px;
+			height: 22px;
 
 			@include media-breakpoint-up(md) {
-				margin-top: 0.75rem !important;
+				margin-top: 0.3rem !important; // For use with the class 'form-control' on the input.
+				//margin-top: 0.75rem !important; // For use with the class 'form-control-lg' on the input.
 			}
 		}
 	}

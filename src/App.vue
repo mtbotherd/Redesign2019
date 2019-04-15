@@ -1,28 +1,33 @@
 <template>
-	<div id="app">
-		<header>
-			<NavBar />
-		</header>
-		<section id="mainContent">
-			<router-view />
-		</section>
-		<footer></footer>
-	</div>
+    <div id="app">
+        <form>
+            <HeaderSection/>
+            <section id="mainContent">
+                <router-view/>
+            </section>
+            <footerSection/>
+        </form>
+    </div>
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue'
+// Import components into this view.
+import HeaderSection from './components/HeaderSection.vue'
+import FooterSection from './components/FooterSection.vue'
 
 export default {
-	// register component for use in this view.
+	// Register imported components for use in this view.
 	components: {
-		NavBar
+		HeaderSection,
+		FooterSection
 	}
 }
 </script>
 <style>
+/*	Imports Proxinoa font from typekit  */
 @import 'https://use.typekit.net/tev0qmq.css';
 </style>
 <style lang="scss">
+/*  Imports all styles used in the application  */
 @import './assets/scss/app.scss';
 </style>

@@ -1,26 +1,21 @@
 <template>
-	<div id="home">
-		<div class="hero-bg pt-3 pt-md-0">
-			<div class="container">
-				<SearchSchedulesByRoute />
-				<div class="cta-link-white">
-					<router-link
-						class="d-inline-flex nav-link stretched-link"
-						:to="{ name: 'schedules-maps' }"
-					>
-						View all Schedules &amp; Maps
-					</router-link>
-					<BaseIconSprite
-						name="icon-sm-right-arrow-white"
-						class="flex-fill"
-					/>
-				</div>
-			</div>
-		</div>
-		<div id="homeContent" class="container">
-			<TriptoolsTabs />
-		</div>
-	</div>
+    <div id="home">
+        <div class="hero-bg pt-3 pt-md-0">
+            <div class="container">
+                <FindSchedulesByRoute class="d-none d-md-block"/>
+                <div class="cta-link-white mt-md-2">
+                    <router-link
+                        class="d-inline-flex nav-link stretched-link"
+                        :to="{ name: 'schedules-maps' }"
+                    >View all Schedules &amp; Maps</router-link>
+                    <BaseIconSprite name="icon-sm-right-arrow-white" class="flex-fill"/>
+                </div>
+            </div>
+        </div>
+        <div id="homeContent" class="container">
+            <TriptoolsTabs/>
+        </div>
+    </div>
 </template>
 
 <script>

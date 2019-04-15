@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-// Main Navigation
+// Imports views for Main Navigation links.
 import Home from './views/Home.vue'
 import TripPlanner from './views/TripPlanner.vue'
 import NexTrip from './views/NexTrip.vue'
@@ -14,14 +14,14 @@ import ContactUs from './views/ContactUs.vue'
 import TransitPolice from './views/TransitPolice.vue'
 import HowToRideGuide from './views/HowToRideGuide.vue'
 
-// Components
+// Imports views for Footer Navigation links.
 
 Vue.use(Router)
 
 export default new Router({
 	mode: 'history',
 	routes: [
-		// Main navigation
+		// Main navigation routes
 		{
 			path: '/',
 			name: 'home',
@@ -82,5 +82,6 @@ export default new Router({
 			name: 'how-to-ride-guide',
 			component: HowToRideGuide
 		}
+		//  Footer navigation routes
 	]
 })
