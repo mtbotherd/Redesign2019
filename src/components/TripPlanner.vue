@@ -294,10 +294,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-// @import '../assets/scss/mixins.scss';
-// .tp-depart-time,
-// .tp-depart-date {
-// 	@include fontSize(17);
-// }
-</style>
+<style lang="scss" scoped></style>

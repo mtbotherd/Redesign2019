@@ -1,21 +1,21 @@
 <template>
-  <div id="home">
-    <div class="hero-bg pt-3 pt-lg-0">
-      <div class="container">
-        <FindSchedulesByRoute class="d-none d-md-block"/>
-        <div class="cta-link-white mt-md-2">
-          <router-link
-            class="d-inline-flex nav-link stretched-link"
-            :to="{ name: 'schedules-maps' }"
-          >View all Schedules &amp; Maps</router-link>
-          <BaseIconSprite name="icon-sm-right-arrow-white" class="flex-fill"/>
+    <div id="home">
+        <div class="hero-bg pt-3 pt-lg-0">
+            <div class="container">
+                <FindSchedulesByRoute class="d-none d-md-block"/>
+                <div class="cta-link-white mt-md-2">
+                    <router-link
+                        class="d-inline-flex nav-link stretched-link"
+                        :to="{ name: 'schedules-maps' }"
+                    >View all Schedules &amp; Maps</router-link>
+                    <BaseIconSprite name="icon-sm-right-arrow-white" class="flex-fill"/>
+                </div>
+            </div>
         </div>
-      </div>
+        <div id="homeContent" class="container">
+            <TriptoolsTabs/>
+        </div>
     </div>
-    <div id="homeContent" class="container">
-      <TriptoolsTabs/>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -25,10 +25,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-//@import 'node_modules/bootstrap/scss/bootstrap.scss';
-@import '../assets/scss/mixins.scss';
 .hero-bg {
-	background-color: #000000;
+	background-color: $black;
 	background-image: url('../assets/img/lrt.png');
 	background-position: top center;
 	background-repeat: no-repeat;
@@ -36,14 +34,14 @@ export default {
 	background-size: 102% 70%;
 	height: 10rem;
 
-	@media (min-width: 768px) {
+	@include media-breakpoint-up(md) {
 		background-size: 102% 90%;
 		height: 15rem;
 	}
-	@media (min-width: 992px) {
+	@include media-breakpoint-up(lg) {
 		height: 16rem;
 	}
-	@media (min-width: 1200px) {
+	@include media-breakpoint-up(xl) {
 		background-size: contain;
 		height: 17rem;
 	}
@@ -60,14 +58,14 @@ export default {
 		margin-right: auto;
 		text-decoration: none;
 
-		@media (min-width: 768px) {
+		@include media-breakpoint-up(md) {
 			@include fontSize(23);
 			margin-right: 0;
 			text-decoration: underline;
 		}
 	}
 
-	@media (min-width: 768px) {
+	@include media-breakpoint-up(md) {
 		border: 0;
 		display: block;
 		text-align: center;
@@ -78,7 +76,7 @@ export default {
 		top: 0.7rem;
 		right: 0.75rem;
 
-		@media (min-width: 768px) {
+		@include media-breakpoint-up(md) {
 			position: relative;
 			top: 0.25rem;
 			left: 0;
@@ -90,11 +88,11 @@ export default {
 	position: relative;
 	top: -4.93rem;
 
-	@media (min-width: 768px) {
+	@include media-breakpoint-up(md) {
 		top: -4.2rem;
 	}
 
-	@media (min-width: 1200px) {
+	@include media-breakpoint-up(xl) {
 		top: -5.12rem;
 	}
 }

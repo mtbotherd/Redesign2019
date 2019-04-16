@@ -13,14 +13,14 @@ export default {}
 
 <style lang="scss" scoped>
 .cta-link-primary {
-	color: #626462;
+	color: $body-color;
 	border-width: 2px;
 
 	.icon-wrapper {
 		top: 0.75rem;
 		right: 0.5rem;
 
-		@media (min-width: 768px) {
+		@include media-breakpoint-up(md) {
 			top: 1.25rem;
 			width: 20px;
 			height: 15px;
