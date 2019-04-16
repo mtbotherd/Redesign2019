@@ -29,5 +29,5 @@ export default {
 </style>
 <style lang="scss">
 // Imports all styles used in the application
-//@import './assets/scss/app.scss'; -  This file has been imported globally via vue.config.js.
+@import './assets/scss/app.scss';
 </style>

@@ -64,8 +64,8 @@ import NexTrip from '@/components/NexTrip'
 Vue.component('NexTrip', NexTrip)
 
 //  Alerts component
-import Alerts from '@/components/Alerts'
-Vue.component('Alerts', Alerts)
+import ServiceAlerts from '@/components/ServiceAlerts'
+Vue.component('ServiceAlerts', ServiceAlerts)
 
 //################################################
 //  Custom scripts (jQuery)
