@@ -31,10 +31,13 @@ export default {}
 <style lang="scss" scoped>
 @include media-breakpoint-up(md) {
 	#findSchedulesByRoute {
+		input {
+			@include fontSize(23);
+		}
 		.btn-search {
 			top: 0;
 			right: 0;
-			padding: 0.9rem;
+			padding: 0.6rem 1rem;
 			z-index: 4; // Sets icon button over input during focus (which takes on z-index: 3)
 		}
 	}
