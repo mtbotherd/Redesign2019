@@ -12,8 +12,19 @@
                 </div>
             </div>
         </div>
-        <div id="homeContent" class="container">
-            <TriptoolsTabs/>
+        <div id="homeContent">
+            <div class="container">
+                <TriptoolsTabs/>
+            </div>
+            <hr>
+            <div class="container">
+                <BaseCta class="text-center mt-md-3">
+                    <router-link
+                        class="stretched-link"
+                        :to="{ name: 'how-to-ride-guide' }"
+                    >How to Ride</router-link>
+                </BaseCta>
+            </div>
         </div>
     </div>
 </template>

@@ -1,16 +1,12 @@
 /***************************************************
     Buttons
 ***************************************************/
-.btn-warning,
-.cta-link-primary {
+.btn-warning {
 	font-weight: $font-weight-bold;
 	color: $body-color;
 	width: 14.063rem;
-}
 
-@include media-breakpoint-up(md) {
-	.btn-warning,
-	.cta-link-primary {
+	@include media-breakpoint-up(md) {
 		@include fontSize(23);
 		width: 17.5rem;
 		padding: 0.75rem;

@@ -1,7 +1,9 @@
 <template>
     <footer class="border-top pt-4">
         <div class="container">
-            <BaseCta class="text-center mt-md-3">Contact Us</BaseCta>
+            <BaseCta class="text-center mt-md-3">
+                <router-link class="stretched-link" :to="{ name: 'contact-us' }">Contact Us</router-link>
+            </BaseCta>
 
             <div class="footer d-none d-md-block pt-5">
                 <b-card-group deck>

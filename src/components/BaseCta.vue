@@ -1,49 +1,45 @@
 <template>
     <div>
-        <b-button variant="outline-primary" size="lg" class="cta-link-primary position-relative">
+        <b-button variant="outline-primary">
             <slot>CTA Link</slot>
+            <BaseIconSprite name="icon-sm-arrow-right-blue"/>
         </b-button>
-        <BaseIconSprite name="icon-sm-arrow-right-blue"/>
     </div>
 </template>
 
 <script>
-export default {
-	computed: {
-		type() {
-			if (this.to) {
-				return 'router-link'
-			}
-
-			return 'button'
-		}
-	},
-
-	props: {
-		to: {
-			required: false
-		},
-		value: {
-			type: String
-		}
-	}
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
-.cta-link-primary {
-	color: $body-color;
-	border-width: 2px;
+.btn-outline-primary {
+	position: relative;
+	border: 2px solid $primary;
+	width: 14.063rem;
 
-	// .icon-wrapper {
-	// 	top: 0.75rem;
-	// 	right: 0.5rem;
+	&:hover {
+		background-color: $gray-100;
+	}
 
-	// 	@include media-breakpoint-up(md) {
-	// 		top: 1.25rem;
-	// 		width: 20px;
-	// 		height: 15px;
-	// 	}
-	// }
+	@include media-breakpoint-up(md) {
+		@include fontSize(23);
+		width: 17.5rem;
+		padding: 0.75rem;
+	}
+
+	a {
+		font-weight: $font-weight-bold;
+		color: $body-color;
+
+		&:hover {
+			//background-color: $white;
+		}
+	}
+
+	.icon-wrapper {
+		position: absolute;
+		top: 1.25rem;
+		right: 0.75rem;
+	}
 }
 </style>

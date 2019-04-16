@@ -1,9 +1,9 @@
 <template>
-    <div class="icon-wrapper">
+    <span class="icon-wrapper">
         <svg class="icon" :width="width" :height="height">
             <use v-bind="{ 'xlink:href': '/icon-sprite.svg#' + name }"></use>
         </svg>
-    </div>
+    </span>
 </template>
 
 <script>
