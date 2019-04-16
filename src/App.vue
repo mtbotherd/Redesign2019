@@ -28,6 +28,6 @@ export default {
 @import 'https://use.typekit.net/tev0qmq.css';
 </style>
 <style lang="scss">
-/*  Imports all styles used in the application  */
-@import './assets/scss/app.scss';
+// Imports all styles used in the application
+//@import './assets/scss/app.scss'; -  This file has been imported globally via vue.config.js.
 </style>
