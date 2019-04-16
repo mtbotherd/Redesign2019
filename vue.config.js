@@ -2,7 +2,12 @@ module.exports = {
 	assetsDir: undefined,
 
 	css: {
-		sourceMap: true
+		sourceMap: true,
+		loaderOptions: {
+			sass: {
+				data: `@import "@/assets/scss/app.scss";`
+			}
+		}
 	},
 
 	lintOnSave: undefined,
