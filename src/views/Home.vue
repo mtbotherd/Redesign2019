@@ -1,30 +1,33 @@
 <template>
-    <div id="home">
-        <div class="hero-bg pt-3 pt-lg-0">
-            <div class="container">
-                <FindSchedulesByRoute class="d-none d-md-block"/>
-                <div class="cta-link-white mt-md-2">
-                    <router-link
-                        class="d-inline-flex nav-link stretched-link"
-                        :to="{ name: 'schedules-maps' }"
-                    >View all Schedules &amp; Maps</router-link>
-                    <BaseIconSprite name="icon-sm-right-arrow-white" class="flex-fill"/>
-                </div>
-            </div>
+  <div id="home">
+    <div class="hero-bg pt-3 pt-lg-0">
+      <div class="container">
+        <FindSchedulesByRoute class="d-none d-md-block"/>
+        <div class="cta-link-white mt-md-2">
+          <router-link
+            class="d-inline-flex nav-link stretched-link"
+            :to="{ name: 'schedules-maps' }"
+          >View all Schedules &amp; Maps</router-link>
+          <BaseIconSprite name="icon-sm-arrow-right-white" class="flex-fill"/>
         </div>
-        <div id="homeContent">
-            <div class="container">
-                <TriptoolsTabs/>
-            </div>
-            <hr>
-            <div class="container">
-                <div class="how-to-ride">
-                    <BaseIconSprite name="icon-lg-circle-exclamation-color"/>
-                    <BaseCta to="how-to-ride-guide" value="How to Ride"/>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <div id="homeContent">
+      <main class="section pt-0 pb-4 pb-md-5">
+        <div class="container">
+          <TriptoolsTabs/>
+        </div>
+      </main>
+      <section class="section">
+        <div class="how-to-ride">
+          <div class="container">
+            <BaseIconSprite name="icon-lg-circle-exclamation-color"/>
+            <BaseCta to="how-to-ride-guide" value="How to Ride"/>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 </template>
 
 <script>

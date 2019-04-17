@@ -1,13 +1,13 @@
 <template>
-    <div id="app">
-        <form>
-            <HeaderSection/>
-            <section id="mainContent">
-                <router-view/>
-            </section>
-            <footerSection/>
-        </form>
-    </div>
+  <div id="app">
+    <form>
+      <HeaderSection/>
+      <section id="mainContent">
+        <router-view/>
+      </section>
+      <footerSection/>
+    </form>
+  </div>
 </template>
 
 <script>
