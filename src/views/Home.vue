@@ -38,24 +38,21 @@ export default {
 
 <style lang="scss" scoped>
 .hero-bg {
-	background-color: $black;
-	background-image: url('../assets/img/lrt.png');
-	background-position: top center;
+	background-image: url('../assets/img/mt-header-lrt-2000x457.jpg');
+	background-size: cover;
+	background-position: 90%;
 	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: 102% 70%;
 	height: 10rem;
 
 	@include media-breakpoint-up(md) {
-		background-size: 102% 90%;
 		height: 15rem;
 	}
 	@include media-breakpoint-up(lg) {
-		height: 16rem;
+		height: 17rem;
 	}
 	@include media-breakpoint-up(xl) {
-		background-size: contain;
-		height: 17rem;
+		height: 20rem;
+		//height: 17rem;
 	}
 }
 
