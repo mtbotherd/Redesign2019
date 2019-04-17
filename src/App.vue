@@ -30,4 +30,10 @@ export default {
 <style lang="scss">
 // Imports all styles used in the application
 @import './assets/scss/app.scss';
+@include media-breakpoint-up(md) {
+	.container {
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+	}
+}
 </style>
