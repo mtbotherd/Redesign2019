@@ -18,12 +18,10 @@
             </div>
             <hr>
             <div class="container">
-                <BaseCta class="text-center mt-md-3">
-                    <router-link
-                        class="stretched-link"
-                        :to="{ name: 'how-to-ride-guide' }"
-                    >How to Ride</router-link>
-                </BaseCta>
+                <div class="how-to-ride">
+                    <BaseIconSprite name="icon-lg-circle-exclamation-color"/>
+                    <BaseCta to="how-to-ride-guide" value="How to Ride"/>
+                </div>
             </div>
         </div>
     </div>
@@ -105,6 +103,30 @@ export default {
 
 	@include media-breakpoint-up(xl) {
 		top: -5.12rem;
+	}
+
+	.how-to-ride {
+		position: relative;
+		width: 345px;
+		margin: 0 auto;
+
+		@include media-breakpoint-up(md) {
+			width: 410px;
+		}
+
+		.icon-wrapper {
+			position: absolute;
+			top: 0.5rem;
+			left: 1rem;
+			width: 32px;
+			height: 32px;
+
+			@include media-breakpoint-up(md) {
+				left: 0;
+				width: 50px;
+				height: 50px;
+			}
+		}
 	}
 }
 </style>

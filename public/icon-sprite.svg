@@ -1,7 +1,7 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
-<symbol id="icon-sm-right-arrow-white" viewBox="0 0 43 32">
-<title>sm-right-arrow-white</title>
+<symbol id="icon-sm-arrow-right-white" viewBox="0 0 43 32">
+<title>sm-arrow-right-white</title>
 <path fill="#fff" style="fill: var(--color1, #fff)" d="M42.457 14.884l-14.408-14.408c-0.283-0.285-0.676-0.461-1.109-0.461-0.864 0-1.565 0.7-1.565 1.565 0 0.433 0.176 0.826 0.461 1.109l11.745 11.745h-35.999c-0.873 0-1.581 0.708-1.581 1.581s0.708 1.581 1.581 1.581h35.997l-11.745 11.745c-0.292 0.279-0.474 0.671-0.474 1.106s0.182 0.827 0.473 1.106l0.001 0.001c0.293 0.28 0.691 0.452 1.129 0.452s0.836-0.172 1.13-0.452l-0.001 0.001 14.408-14.408c0.279-0.272 0.452-0.652 0.452-1.072 0-0.020-0-0.039-0.001-0.059l0 0.003c-0.022-0.443-0.206-0.839-0.495-1.133l0 0z"></path>
 </symbol>
 <symbol id="icon-sm-accessible-gray" viewBox="0 0 32 32">

@@ -24,7 +24,7 @@ export default {
 }
 </script>
 <style>
-/*	Imports Proxinoa font from typekit  */
+/*	Imports Proxima-nova font from typekit  */
 @import 'https://use.typekit.net/tev0qmq.css';
 </style>
 <style lang="scss">

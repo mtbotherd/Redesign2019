@@ -1,24 +1,64 @@
 <template>
-    <div>
-        <b-button variant="outline-primary">
-            <slot>CTA Link</slot>
-            <BaseIconSprite name="icon-sm-arrow-right-blue"/>
-        </b-button>
+    <div class="text-center">
+        <component :is="type" class="btn btn-outline-primary" :to="to">
+            {{ value }}
+            <BaseIconSprite name="icon-sm-arrow-right-blue" class="state-normal"/>
+            <BaseIconSprite name="icon-sm-arrow-right-white" class="state-hover"/>
+        </component>
     </div>
 </template>
 
 <script>
-export default {}
+export default {
+	computed: {
+		type() {
+			if (this.to) {
+				return 'router-link'
+			}
+
+			return 'button'
+		}
+	},
+
+	props: {
+		to: {
+			required: false
+		},
+		value: {
+			type: String
+		}
+	}
+}
 </script>
 
 <style lang="scss" scoped>
 .btn-outline-primary {
+	font-weight: $font-weight-bold;
+	color: $body-color;
 	position: relative;
 	border: 2px solid $primary;
 	width: 14.063rem;
 
-	&:hover {
-		background-color: $gray-100;
+	&:hover,
+	&:focus {
+		background-color: $blue;
+		color: $white;
+		border: 2px solid $blue;
+
+		.state-normal {
+			display: none;
+		}
+		.state-hover {
+			display: inline-flex;
+		}
+	}
+
+	.state-normal {
+		display: inline-flex;
+	}
+
+	.state-hover {
+		display: none;
 	}
 
 	@include media-breakpoint-up(md) {
@@ -27,19 +67,15 @@ export default {}
 		padding: 0.75rem;
 	}
 
-	a {
-		font-weight: $font-weight-bold;
-		color: $body-color;
-
-		&:hover {
-			//background-color: $white;
-		}
-	}
-
 	.icon-wrapper {
 		position: absolute;
-		top: 1.25rem;
+		top: 0.75rem;
 		right: 0.75rem;
+
+		@include media-breakpoint-up(md) {
+			top: 1.25rem;
+			right: 0.75rem;
+		}
 	}
 }
 </style>
