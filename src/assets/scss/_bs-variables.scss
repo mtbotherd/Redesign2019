@@ -874,14 +874,14 @@ $dropdown-link-active-color: $dropdown-link-hover-color;
 // $card-cap-bg: rgba($black, 0.03);
 // $card-cap-color: null;
 // $card-color: null;
-// $card-bg: $white;
+$card-bg: transparent;
 
 // $card-img-overlay-padding: 1.25rem;
 
 // $card-group-margin: $grid-gutter-width / 2;
 // $card-deck-margin: $card-group-margin;
 
-// $card-columns-count: 3;
+$card-columns-count: 4;
 // $card-columns-gap: 1.25rem;
 // $card-columns-margin: $card-spacer-y;
 

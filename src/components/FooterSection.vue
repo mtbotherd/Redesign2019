@@ -38,10 +38,12 @@
         </b-card-group>
       </div>
       <p class="text-center pt-5">
-        Metro Transit is a service of the Metropolitcan Council.
-        <span class="d-block d-md-none">
-          <br>
-        </span>&copy; 2019 Metro Transit
+        <small>
+          Metro Transit is a service of the Metropolitcan Council.
+          <span class="d-block d-md-none">
+            <br>
+          </span>&copy; 2019 Metro Transit
+        </small>
       </p>
     </div>
   </footer>
@@ -51,4 +53,26 @@
 export default {}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+footer.section {
+	background-color: $gray-100;
+
+	.card-title {
+		@include fontSize(16);
+		font-weight: $font-weight-bold;
+		margin-bottom: 0.25rem;
+		text-transform: uppercase;
+	}
+
+	.card-body {
+		padding: 0;
+	}
+
+	.nav-link {
+		@include fontSize(16);
+		font-weight: $font-weight-bold;
+		text-decoration: none;
+		padding: 0.25rem 0;
+	}
+}
+</style>

@@ -50,8 +50,8 @@ requireComponent.keys().forEach(fileName => {
 import FindSchedulesByRoute from '@/components/FindSchedulesByRoute'
 Vue.component('FindSchedulesByRoute', FindSchedulesByRoute)
 
-//  Trip tools module
-//  Trip tools tabs component
+//  Trip Tools module
+//  Trip Tools tabs component
 import TriptoolsTabs from '@/components/TriptoolsTabs'
 Vue.component('TriptoolsTabs', TriptoolsTabs)
 
@@ -66,6 +66,15 @@ Vue.component('NexTrip', NexTrip)
 //  Alerts component
 import ServiceAlerts from '@/components/ServiceAlerts'
 Vue.component('ServiceAlerts', ServiceAlerts)
+// End Trip Tools module
+
+// How to Ride component
+import HowToRide from '@/components/HowToRide'
+Vue.component('HowToRide', HowToRide)
+
+// Web Ads component
+import WebAds from '@/components/WebAds'
+Vue.component('WebAds', WebAds)
 
 //################################################
 //  Custom scripts (jQuery)

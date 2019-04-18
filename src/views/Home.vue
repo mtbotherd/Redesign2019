@@ -1,33 +1,35 @@
 <template>
-  <div id="home">
-    <div class="hero-bg pt-3 pt-lg-0">
-      <div class="container">
-        <FindSchedulesByRoute class="d-none d-md-block"/>
-        <div class="cta-link-white mt-md-2">
-          <router-link
-            class="d-inline-flex nav-link stretched-link"
-            :to="{ name: 'schedules-maps' }"
-          >View all Schedules &amp; Maps</router-link>
-          <BaseIconSprite name="icon-sm-arrow-right-white" class="flex-fill"/>
+    <div id="home">
+        <div class="hero-bg pt-3 pt-md-0 pt-lg-3">
+            <div class="container">
+                <FindSchedulesByRoute class="d-none d-md-block"/>
+                <div class="cta-link-white mt-md-2">
+                    <router-link
+                        class="d-inline-flex nav-link stretched-link"
+                        :to="{ name: 'schedules-maps' }"
+                    >View all Schedules &amp; Maps</router-link>
+                    <BaseIconSprite name="icon-sm-arrow-right-white" class="flex-fill"/>
+                </div>
+            </div>
         </div>
-      </div>
+        <div id="homeContent">
+            <main class="section pt-0 pb-4 pb-md-5">
+                <div class="container">
+                    <TriptoolsTabs/>
+                </div>
+            </main>
+            <section class="section">
+                <div class="container">
+                    <HowToRide/>
+                </div>
+            </section>
+            <section class="section">
+                <div class="container">
+                    <WebAds/>
+                </div>
+            </section>
+        </div>
     </div>
-    <div id="homeContent">
-      <main class="section pt-0 pb-4 pb-md-5">
-        <div class="container">
-          <TriptoolsTabs/>
-        </div>
-      </main>
-      <section class="section">
-        <div class="how-to-ride">
-          <div class="container">
-            <BaseIconSprite name="icon-lg-circle-exclamation-color"/>
-            <BaseCta to="how-to-ride-guide" value="How to Ride"/>
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -96,6 +98,7 @@ export default {
 #homeContent {
 	position: relative;
 	top: -4.93rem;
+	margin-bottom: -4.93rem;
 
 	@include media-breakpoint-up(md) {
 		top: -4.2rem;
@@ -103,30 +106,6 @@ export default {
 
 	@include media-breakpoint-up(xl) {
 		top: -5.12rem;
-	}
-
-	.how-to-ride {
-		position: relative;
-		width: 345px;
-		margin: 0 auto;
-
-		@include media-breakpoint-up(md) {
-			width: 410px;
-		}
-
-		.icon-wrapper {
-			position: absolute;
-			top: 0.5rem;
-			left: 1rem;
-			width: 32px;
-			height: 32px;
-
-			@include media-breakpoint-up(md) {
-				left: 0;
-				width: 50px;
-				height: 50px;
-			}
-		}
 	}
 }
 </style>
