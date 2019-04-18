@@ -1,7 +1,7 @@
 <template>
-	<div class="transit-police">
-		<h1>Transit Police</h1>
-	</div>
+    <div class="container transit-police">
+        <h1>Transit Police</h1>
+    </div>
 </template>
 
 <script>

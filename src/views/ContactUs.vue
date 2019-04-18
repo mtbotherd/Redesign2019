@@ -1,7 +1,7 @@
 <template>
-	<div class="contact-us">
-		<h1>Contact Us</h1>
-	</div>
+    <div class="container contact-us">
+        <h1>Contact Us</h1>
+    </div>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
-	<div class="goto-card">
-		<h1>Go-To Card</h1>
-	</div>
+    <div class="container goto-card">
+        <h1>Go-To Card</h1>
+    </div>
 </template>
 
 <script>

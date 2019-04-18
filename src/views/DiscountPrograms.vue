@@ -1,7 +1,7 @@
 <template>
-	<div class="discount-programs">
-		<h1>Discount Programs</h1>
-	</div>
+    <div class="container discount-programs">
+        <h1>Discount Programs</h1>
+    </div>
 </template>
 
 <script>

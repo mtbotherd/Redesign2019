@@ -1,7 +1,7 @@
 <template>
-	<div class="find-stops">
-		<h1>Find Stops</h1>
-	</div>
+    <div class="container find-stops">
+        <h1>Find Stops</h1>
+    </div>
 </template>
 
 <script>

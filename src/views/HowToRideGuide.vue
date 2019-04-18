@@ -1,7 +1,7 @@
 <template>
-	<div class="how-to-ride-guide">
-		<h1>How to Ride Guide</h1>
-	</div>
+    <div class="container how-to-ride-guide">
+        <h1>How to Ride Guide</h1>
+    </div>
 </template>
 
 <script>

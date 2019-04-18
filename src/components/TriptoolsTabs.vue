@@ -1,5 +1,5 @@
 <template>
-    <div id="tripToolsTabs">
+    <div id="tripToolsTabs" class="trip-tools-tabs">
         <b-card no-body>
             <b-tabs>
                 <b-tab title-item-class="trip-planner-tab mr-2" title-link-class="p-md-3" active>

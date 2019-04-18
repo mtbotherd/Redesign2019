@@ -56,6 +56,11 @@ export default {
 			top: 0.5rem;
 			right: 0.25rem;
 		}
+
+		@include media-breakpoint-up(xl) {
+			top: 0.75rem;
+			right: 0.75rem;
+		}
 	}
 }
 // .btn-warning {

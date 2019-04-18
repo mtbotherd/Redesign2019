@@ -1,7 +1,7 @@
 <template>
-	<div class="ride-costs">
-		<h1>Ride Costs</h1>
-	</div>
+    <div class="container ride-costs">
+        <h1>Ride Costs</h1>
+    </div>
 </template>
 
 <script>
