@@ -44,9 +44,9 @@
                                 <option value="tp-arrive-by">Arrive by</option>
                             </select>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="input-group mb-3 tp-time-picker">
+                        <div class="row tp-time-elements">
+                            <div class="col-xl-6">
+                                <div class="input-group mb-3">
                                     <label for="tpTime" class="sr-only">Depart/arrival time</label>
                                     <input
                                         type="time"
@@ -59,13 +59,13 @@
                                         <BaseIconSprite
                                             name="icon-sm-clock-gray"
                                             id="tpTime"
-                                            class="icon-clock mt-1 mr-2"
+                                            class="icon-clock mt-1 mt-md-2"
                                         />
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="input-group mb-3 tp-date-picker">
+                            <div class="col-xl-6">
+                                <div class="input-group mb-3">
                                     <label for="tpDate" class="sr-only">Depart/arrival date</label>
                                     <input
                                         type="date"
@@ -78,7 +78,7 @@
                                         <BaseIconSprite
                                             name="icon-sm-calendar-gray"
                                             id="tpDate"
-                                            class="icon-clock-gray mt-1 mr-2"
+                                            class="icon-clock-gray mt-1 mt-md-2"
                                         />
                                     </div>
                                 </div>

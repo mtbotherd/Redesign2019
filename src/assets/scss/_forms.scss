@@ -8,6 +8,7 @@
 	position: relative;
 }
 
+.form-control,
 .form-control-lg,
 .custom-select {
 	@include fontSize(17);
