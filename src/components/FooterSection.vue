@@ -16,7 +16,7 @@
                         <b-nav vertical>
                             <b-nav-item active>Contacts</b-nav-item>
                             <b-nav-item>Press Releases</b-nav-item>
-                            <b-nav-item>Awarsd</b-nav-item>
+                            <b-nav-item>Awards</b-nav-item>
                         </b-nav>
                     </b-card>
                     <b-card title="Careers" class="border-0">

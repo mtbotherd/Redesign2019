@@ -33,7 +33,7 @@
 					padding: 0.454rem 0.5rem 0.454rem 1rem;
 				}
 
-				.btn {
+				.btn-link {
 					text-decoration: none;
 					color: $body-color;
 					@include fontSize(17);
@@ -44,7 +44,25 @@
 						@include fontSize(23);
 						padding: 0;
 					}
+
+					// .icon {
+					// 	-webkit-transform: rotate(45deg);
+					// 	-moz-transform: rotate(45deg);
+					// 	-ms-transform: rotate(45deg);
+					// 	-o-transform: rotate(45deg);
+					// 	transform: rotate(45deg);
+					// }
 				}
+
+				// .btn-link.collapsed {
+				// 	.icon {
+				// 		-webkit-transform: rotate(45deg);
+				// 		-moz-transform: rotate(45deg);
+				// 		-ms-transform: rotate(45deg);
+				// 		-o-transform: rotate(45deg);
+				// 		transform: rotate(45deg);
+				// 	}
+				// }
 			}
 
 			.card-body {

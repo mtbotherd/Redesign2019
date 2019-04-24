@@ -22,7 +22,7 @@
         >
             <b-card-text>This card has supporting text below as a natural lead-in to additional content.</b-card-text>
             <div slot="footer">
-                <BaseCtaYellow to="/allianz-field" value="Learn more"/>
+                <BaseCtaYellow to="/drive" value="Learn more"/>
             </div>
         </b-card>
         <b-card
@@ -36,7 +36,7 @@
                 This card has even longer content than the first to show that equal height action.
             </b-card-text>
             <div slot="footer">
-                <BaseCtaYellow to="/allianz-field" value="Learn more"/>
+                <BaseCtaYellow to="/riders-club" value="Learn more"/>
             </div>
         </b-card>
         <b-card
@@ -50,7 +50,7 @@
                 This card has even longer content than the first to show that equal height action.
             </b-card-text>
             <div slot="footer">
-                <BaseCtaYellow to="/allianz-field" value="Learn more"/>
+                <BaseCtaYellow to="/service-alerts" value="Learn more"/>
             </div>
         </b-card>
     </b-card-group>
