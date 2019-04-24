@@ -37,9 +37,9 @@ hr {
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
 
-	@include media-breakpoint-up(md) {
-		border-top: 2px solid $gray-600;
-	}
+	// @include media-breakpoint-up(md) {
+	// 	border-top: 2px solid $gray-600;
+	// }
 }
 
 b,

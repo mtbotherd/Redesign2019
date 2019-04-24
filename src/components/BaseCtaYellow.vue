@@ -34,8 +34,9 @@ export default {
 .btn-warning {
 	position: relative;
 	color: $body-color;
-	//width: 100%;
+	@include fontSize(12);
 	font-weight: $font-weight-bold;
+	width: 100%;
 
 	@include media-breakpoint-up(md) {
 		width: 100%;

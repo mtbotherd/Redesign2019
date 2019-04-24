@@ -95,6 +95,10 @@
 					display: none !important;
 				}
 
+				.svg-inactive {
+					display: block !important;
+				}
+
 				&.active {
 					background-color: $white;
 					color: $cyan;
