@@ -62,14 +62,13 @@ export default {
 	}
 
 	@include media-breakpoint-up(md) {
-		@include fontSize(23);
 		width: 17.5rem;
 		padding: 0.75rem;
 	}
 
 	.icon-wrapper {
 		position: absolute;
-		top: 0.75rem;
+		top: 0.65rem;
 		right: 0.75rem;
 
 		@include media-breakpoint-up(md) {

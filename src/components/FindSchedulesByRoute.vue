@@ -1,15 +1,7 @@
 <template>
     <div id="findSchedulesByRoute">
         <div class="row justify-content-md-center">
-            <div class="col-md-8 col-lg-6 mt-2 mt-md-2 mt-lg-5">
-                <!-- <b-input-group size="lg" class="mt-3">
-                    <b-form-input type="search"></b-form-input>
-                    <b-input-group-append>
-                        <b-button type="search" variant="primary" class="form-control">
-                            <BaseIconSprite name="icon-sm-magnifying-glass-gray"/>
-                        </b-button>
-                    </b-input-group-append>
-                </b-input-group>-->
+            <div class="col-md-8 col-lg-6 mt-2 mt-md-4">
                 <div class="input-group">
                     <input
                         type="search"

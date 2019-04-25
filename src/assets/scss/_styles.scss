@@ -1,6 +1,90 @@
 /***************************************************************
     Application styles
 ***************************************************************/
+// Reset default font size for tablet and up. Base default (mobile first) is set to 14px.
+@media (min-width: 768px) {
+	body {
+		@include fontSize(16);
+		//font-size: $font-size-base * 0.25;
+	}
+}
+@media (min-width: 992px) {
+	body {
+		@include fontSize(18);
+		//font-size: $font-size-base * 0.5;
+	}
+}
+
+b,
+strong {
+	font-weight: $font-weight-bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
+	font-weight: $font-weight-bold !important;
+}
+
+h1,
+.h1 {
+	@include fontSize(32);
+
+	@include media-breakpoint-up(md) {
+		@include fontSize(41);
+	}
+}
+
+h2,
+.h2 {
+	@include fontSize(23);
+
+	@include media-breakpoint-up(lg) {
+		@include fontSize(32);
+	}
+}
+
+h3,
+.h3 {
+	@include fontSize(19);
+
+	@include media-breakpoint-up(lg) {
+		@include fontSize(28);
+	}
+}
+
+h4,
+.h4 {
+	@include fontSize(15);
+
+	@include media-breakpoint-up(lg) {
+		@include fontSize(23);
+	}
+}
+
+hr {
+	border-top: 1px solid $gray-600;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+
+	// @include media-breakpoint-up(md) {
+	// 	border-top: 2px solid $gray-600;
+	// }
+}
+
+.btn {
+	@include fontSize(16);
+
+	@include media-breakpoint-up(md) {
+		@include fontSize(23);
+	}
+}
+
 // Overrode user agent styles
 :focus {
 	outline: none !important;
@@ -30,19 +114,4 @@
 	&:nth-child(even) {
 		background-color: $gray-100;
 	}
-}
-
-hr {
-	border-top: 1px solid $gray-600;
-	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
-
-	// @include media-breakpoint-up(md) {
-	// 	border-top: 2px solid $gray-600;
-	// }
-}
-
-b,
-strong {
-	font-weight: $font-weight-bold;
 }

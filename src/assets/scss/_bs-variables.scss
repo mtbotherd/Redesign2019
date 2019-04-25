@@ -271,7 +271,7 @@ $font-family-sans-serif: proxima-nova, -apple-system, BlinkMacSystemFont,
 // $font-family-base: $font-family-sans-serif;
 // // stylelint-enable value-keyword-case
 
-$font-size-base: 0.875rem; // Assumes the browser default, typically `16px`
+$font-size-base: 0.875rem; // Defaults to 14px. Browser default is 16.
 $font-size-lg: $font-size-base * 1.25;
 // $font-size-sm: $font-size-base * 0.875;
 

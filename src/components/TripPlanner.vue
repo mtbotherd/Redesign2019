@@ -267,13 +267,13 @@
                                                 for="tpAccessibleStopNo"
                                             >No</label>
                                         </div>
-                                        <!-- </b-card-text> -->
                                     </b-card-body>
                                 </b-collapse>
                             </b-card>
                         </div>
                     </div>
                 </div>
+                <TripPlannerResults/>
                 <div class="text-center">
                     <BaseSubmit>Plan my trip</BaseSubmit>
                 </div>

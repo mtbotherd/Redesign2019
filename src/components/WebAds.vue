@@ -1,9 +1,8 @@
 <template>
-    <!-- <b-card-group deck> -->
     <div class="row">
         <div class="col-6 col-md-3">
             <b-card
-                title="Title"
+                title="Allianz Field"
                 :img-src="require('../Data/sites/1/media/web-ads/allianz-field/06-28-71113-19_webad.png')"
                 img-alt="Image"
                 img-top
@@ -15,7 +14,7 @@
         </div>
         <div class="col-6 col-md-3">
             <b-card
-                title="Title"
+                title="Bus Driver Hiring"
                 :img-src="require('../Data/sites/1/media/web-ads/hiring/34499_homepage_ad.png')"
                 img-alt="Image"
                 img-top
@@ -27,7 +26,7 @@
         </div>
         <div class="col-6 col-md-3">
             <b-card
-                title="Title"
+                title="Riders Club"
                 :img-src="require('../Data/sites/1/media/web-ads/riders-club/60551-ridersclubad_300x270.png')"
                 img-alt="Image"
                 img-top
@@ -39,18 +38,18 @@
         </div>
         <div class="col-6 col-md-3">
             <b-card
-                title="Title"
+                title="Rider Alerts"
                 :img-src="require('../Data/sites/1/media/web-ads/placeholders/rideralert_ad.png')"
                 img-alt="Image"
                 img-top
             >
+                <!-- <b-card-text>This is a test.</b-card-text> -->
                 <div slot="footer">
                     <BaseCtaYellow to="/allianz-field" value="Learn more"/>
                 </div>
             </b-card>
         </div>
     </div>
-    <!-- </b-card-group> -->
 </template>
 
 <script>
@@ -65,8 +64,16 @@ export default {}
 		padding-bottom: 0;
 	}
 }
+
+.card-deck {
+	.card {
+		// margin-right: 0;
+		// margin-left: 0;
+	}
+}
 .card-body,
 .card-footer {
+	text-align: center;
 	padding: 0.75rem;
 }
 .card-footer {

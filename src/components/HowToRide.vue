@@ -21,12 +21,13 @@ export default {}
 
 	.icon-wrapper {
 		position: absolute;
-		top: 0.5rem;
+		top: 0.25rem;
 		left: 1rem;
 		width: 32px;
 		height: 32px;
 
 		@include media-breakpoint-up(md) {
+			top: 0.45rem;
 			left: 0;
 			width: 50px;
 			height: 50px;

@@ -50,63 +50,21 @@ export default {
 
 	.icon-wrapper {
 		position: absolute;
-		top: 0.75rem;
+		top: 0.6rem;
 		right: 0.75rem;
+		width: 0.75rem;
+		height: 0.75rem;
 
-		@include media-breakpoint-up(md) {
-			top: 0.5rem;
-			right: 0.25rem;
-		}
-
-		@include media-breakpoint-up(xl) {
+		@include media-breakpoint-up(lg) {
 			top: 0.75rem;
-			right: 0.75rem;
+			width: 1rem;
+			height: 1rem;
 		}
+
+		// @include media-breakpoint-up(xl) {
+		// 	top: 0.75rem;
+		// 	right: 0.75rem;
+		// }
 	}
 }
-// .btn-warning {
-// 	font-weight: $font-weight-bold;
-// 	color: $body-color;
-// 	position: relative;
-// 	width: 14.063rem;
-
-// 	&:hover,
-// 	&:focus {
-// 		background-color: $blue;
-// 		color: $white;
-// 		border: 2px solid $blue;
-
-// 		.state-normal {
-// 			display: none;
-// 		}
-// 		.state-hover {
-// 			display: inline-flex;
-// 		}
-// 	}
-
-// 	.state-normal {
-// 		display: inline-flex;
-// 	}
-
-// 	.state-hover {
-// 		display: none;
-// 	}
-
-// 	@include media-breakpoint-up(md) {
-// 		@include fontSize(23);
-// 		width: 17.5rem;
-// 		padding: 0.75rem;
-// 	}
-
-// 	.icon-wrapper {
-// 		position: absolute;
-// 		top: 0.75rem;
-// 		right: 0.75rem;
-
-// 		@include media-breakpoint-up(md) {
-// 			top: 1.25rem;
-// 			right: 0.75rem;
-// 		}
-// 	}
-// }
 </style>

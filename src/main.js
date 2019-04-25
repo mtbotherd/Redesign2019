@@ -59,6 +59,10 @@ Vue.component('TriptoolsTabs', TriptoolsTabs)
 import TripPlanner from '@/components/TripPlanner'
 Vue.component('TripPlanner', TripPlanner)
 
+//  Trip Planner Results component
+import TripPlannerResults from '@/components/TripPlannerResults'
+Vue.component('TripPlannerResults', TripPlannerResults)
+
 //  NexTrip component
 import NexTrip from '@/components/NexTrip'
 Vue.component('NexTrip', NexTrip)
