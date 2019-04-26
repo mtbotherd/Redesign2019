@@ -13,6 +13,7 @@
                     >
                     <div class="input-group-append">
                         <b-button type="search" variant="primary">
+                            <span class="sr-only">Search</span>
                             <BaseIconSprite name="icon-sm-magnifying-glass-gray"/>
                         </b-button>
                     </div>
