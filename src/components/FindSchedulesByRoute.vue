@@ -24,7 +24,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+	name: 'FindSchedulesByRoute'
+}
 </script>
 
 <style lang="scss" scoped>

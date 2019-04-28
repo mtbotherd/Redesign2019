@@ -9,6 +9,7 @@
 
 <script>
 export default {
+	name: 'BaseCtaYellow',
 	computed: {
 		type() {
 			if (this.to) {

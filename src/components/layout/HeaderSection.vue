@@ -4,7 +4,7 @@
             <a class="skip-to-content" href="#mainContent">Skip to main content</a>
             <div class="container">
                 <router-link class="navbar-brand" :to="{ name: 'home' }">
-                    <img src="../assets/img/MetroTransitLogo.svg" class="logo d-inline-block">
+                    <img src="../../assets/img/MetroTransitLogo.svg" class="logo d-inline-block">
                 </router-link>
                 <button
                     class="navbar-toggler navbar-toggler-right"
@@ -202,7 +202,85 @@
 </template>
 
 <script>
-export default {}
+//  Components with the prefix "Base" are already registered globally in main.js
+export default {
+	name: 'HeaderSection'
+}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+a.skip-to-content {
+	position: absolute;
+	top: -40px;
+	left: 0;
+	transition: top 1s ease-out;
+
+	&:focus {
+		background-color: $red;
+		color: $white;
+		left: 0;
+		padding: 1rem;
+		text-decoration: underline;
+		top: 0;
+		transition: top 0.1s ease-in;
+	}
+}
+
+nav.navbar {
+	.nav-fill {
+		.nav-item {
+			text-align: left;
+		}
+	}
+	.nav-link {
+		text-decoration: none;
+
+		@include media-breakpoint-up(md) {
+			@include fontSize(18);
+		}
+
+		@include media-breakpoint-up(xl) {
+			padding-top: 1.25rem;
+		}
+	}
+	.icon-wrapper {
+		width: 0.75rem;
+		height: 0.75rem;
+
+		@include media-breakpoint-up(xl) {
+			width: 1rem;
+			height: 1rem;
+			vertical-align: middle;
+		}
+	}
+
+	.dropdown-toggle {
+		.icon-wrapper {
+			display: inline-flex;
+		}
+
+		&::after {
+			display: none;
+		}
+	}
+
+	.dropdown-menu {
+		.dropdown-item {
+			text-decoration: none;
+			@include fontSize(18);
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.icon-xs-avatar-gray {
+		padding: 0.5rem;
+	}
+}
+@include media-breakpoint-up(xl) {
+	.navbar-expand-lg .navbar-nav .nav-link {
+		padding-right: 0.88rem;
+		padding-left: 0.88rem;
+	}
+}
+</style>

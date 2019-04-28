@@ -10,6 +10,7 @@
 
 <script>
 export default {
+	name: 'BaseCta',
 	computed: {
 		type() {
 			if (this.to) {

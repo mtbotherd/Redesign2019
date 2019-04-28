@@ -43,7 +43,6 @@
                 img-alt="Image"
                 img-top
             >
-                <!-- <b-card-text>This is a test.</b-card-text> -->
                 <div slot="footer">
                     <BaseCtaYellow to="/allianz-field" value="Learn more"/>
                 </div>

@@ -3,7 +3,7 @@
         <div class="hero-bg pt-3 pt-md-0 pt-lg-3">
             <div class="container">
                 <FindSchedulesByRoute class="d-none d-md-block"/>
-                <div class="cta-link-white mt-md-2">
+                <div class="cta-link-white mt-md-2 mt-xl-4">
                     <router-link
                         class="d-inline-flex nav-link stretched-link"
                         :to="{ name: 'schedules-maps' }"
@@ -33,7 +33,19 @@
 </template>
 
 <script>
+import FindSchedulesByRoute from '../components/FindSchedulesByRoute'
+import TriptoolsTabs from '../components/TriptoolsTabs'
+import HowToRide from '../components/HowToRide'
+import WebAds from '../components/WebAds'
+
 export default {
+	name: 'Home',
+	components: {
+		FindSchedulesByRoute,
+		TriptoolsTabs,
+		HowToRide,
+		WebAds
+	},
 	title: 'Metro Transit | Home'
 }
 </script>

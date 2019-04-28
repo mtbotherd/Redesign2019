@@ -8,6 +8,7 @@
 
 <script>
 export default {
+	name: 'BaseIconSprite',
 	props: {
 		name: String, // ID of the symbol we want to use
 		width: {

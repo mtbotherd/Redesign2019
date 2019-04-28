@@ -17,7 +17,13 @@
                             class="svg-inactive mx-auto"
                         />Trip Planner
                     </template>
-                    <TripPlanner/>
+                    <div
+                        class="tt-trip-planner tab-pane fade show active"
+                        role="tabpanel"
+                        aria-labelledby="trip-planner-tab"
+                    >
+                        <TripPlanner/>
+                    </div>
                 </b-tab>
                 <b-tab title-item-class="mr-2" title-link-class="p-md-3">
                     <template slot="title">
@@ -34,7 +40,13 @@
                             class="svg-inactive d-block d-md-inline-block ml-auto mr-auto"
                         />NexTrip
                     </template>
-                    <NexTrip/>
+                    <div
+                        class="tt-nextrip tab-pane fade"
+                        role="tabpanel"
+                        aria-labelledby="nextrip-tab"
+                    >
+                        <NexTrip/>
+                    </div>
                 </b-tab>
                 <b-tab title-link-class="p-md-3">
                     <template slot="title">
@@ -51,7 +63,13 @@
                             class="svg-inactive d-block d-md-inline-block ml-auto mr-auto"
                         />Alerts
                     </template>
-                    <ServiceAlerts/>
+                    <div
+                        class="tt-alerts tab-pane fade"
+                        role="tabpanel"
+                        aria-labelledby="alerts-tab"
+                    >
+                        <ServiceAlerts/>
+                    </div>
                 </b-tab>
             </b-tabs>
         </b-card>
@@ -59,7 +77,18 @@
 </template>
 
 <script>
-export default {}
+import TripPlanner from './TripPlanner'
+import NexTrip from './NexTrip'
+import ServiceAlerts from './ServiceAlerts'
+
+export default {
+	name: 'TriptoolsTabs',
+	components: {
+		TripPlanner,
+		NexTrip,
+		ServiceAlerts
+	}
+}
 </script>
 
 <style lang="scss" scoped></style>

@@ -1,12 +1,12 @@
 <template>
     <div class="container maps-schedules">
-        <h1>Maps &amp; Schedules</h1>
+        <h1>Schedules &amp; Maps</h1>
     </div>
 </template>
 
 <script>
 export default {
-	title: 'Metro Transit | Maps &amp; Schedules'
+	title: 'Metro Transit | Schedules & Maps'
 }
 </script>
 

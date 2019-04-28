@@ -4,7 +4,7 @@
         <p class="mb-0">
             <strong>Start:&nbsp;</strong>225 Farrington
             <abbr title="street">St.</abbr>,
-            <abbr title="Saint Paul">St.</abbr> Paul, MN 55102
+            <abbr title="Saint">St.</abbr> Paul, MN 55102
         </p>
         <p>
             <strong>End:&nbsp;</strong>560 6th
@@ -96,7 +96,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+	name: 'TripPlannerResults'
+}
 </script>
 
 <style lang="scss" scoped>

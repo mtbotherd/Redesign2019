@@ -6,6 +6,7 @@
 
 <script>
 export default {
+	name: 'HowToRideGuide',
 	title: 'Metro Transit | How to Ride Guide'
 }
 </script>

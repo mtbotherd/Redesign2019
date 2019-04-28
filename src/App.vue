@@ -1,22 +1,22 @@
 <template>
-  <div id="app">
-    <form>
-      <HeaderSection/>
-      <section id="mainContent">
-        <router-view/>
-      </section>
-      <footerSection/>
-    </form>
-  </div>
+    <div id="app">
+        <form @submit.prevent="onSubmit">
+            <HeaderSection/>
+            <section id="mainContent">
+                <router-view/>
+            </section>
+            <footerSection/>
+        </form>
+    </div>
 </template>
 
 <script>
 // Import components into this view.
-import HeaderSection from './components/HeaderSection.vue'
-import FooterSection from './components/FooterSection.vue'
+import HeaderSection from './components/layout/HeaderSection.vue'
+import FooterSection from './components/layout/FooterSection.vue'
 
 export default {
-	// Register imported components for use in this view.
+	name: 'app',
 	components: {
 		HeaderSection,
 		FooterSection
@@ -30,6 +30,7 @@ export default {
 <style lang="scss">
 // Imports all styles used in the application
 @import './assets/scss/app.scss';
+
 @include media-breakpoint-up(md) {
 	.container {
 		padding-right: 0 !important;

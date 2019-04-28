@@ -6,7 +6,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+	name: 'HowToRide'
+}
 </script>
 
 <style lang="scss" scoped>

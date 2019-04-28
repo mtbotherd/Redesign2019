@@ -52,7 +52,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+	name: 'FooterSection'
+}
 </script>
 
 <style lang="scss" scoped>
