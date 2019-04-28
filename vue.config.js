@@ -14,5 +14,8 @@ module.exports = {
 	outputDir: undefined,
 	runtimeCompiler: undefined,
 	productionSourceMap: false,
-	parallel: undefined
+	parallel: undefined,
+	devServer: {
+		host: 'localhost'
+	}
 }
