@@ -38,6 +38,10 @@ h1,
 	@include media-breakpoint-up(md) {
 		@include fontSize(41);
 	}
+
+	> .page-title {
+		background-color: $blue;
+	}
 }
 
 h2,
@@ -86,9 +90,9 @@ hr {
 }
 
 // Overrode user agent styles
-:focus {
-	outline: none !important;
-}
+// :focus {
+// 	outline: none !important;
+// }
 
 // Application global styles
 #app {
@@ -114,6 +118,15 @@ hr {
 	&:nth-child(even) {
 		background-color: $gray-100;
 	}
+}
+
+:focus {
+	color: #626462;
+	background-color: #fff;
+	border-color: #51cfff;
+	outline: 0;
+	-webkit-box-shadow: 0 0 0 0.2rem rgba(0, 151, 208, 0.25);
+	box-shadow: 0 0 0 0.2rem rgba(0, 151, 208, 0.25);
 }
 
 //  Misc Styles
