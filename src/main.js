@@ -4,7 +4,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 
@@ -30,7 +29,7 @@ Vue.mixin(TitleMixin)
 //  Component names must start with "Base, App or V"
 //################################################
 const requireComponent = require.context(
-	'./components',
+	'./components/base',
 	false,
 	/Base[A-Z]\w+\.(vue|js)$/
 )
@@ -46,39 +45,9 @@ requireComponent.keys().forEach(fileName => {
 })
 
 //  Manually Register Components Globally
-//  Find schedules by route component
-import FindSchedulesByRoute from '@/components/FindSchedulesByRoute'
-Vue.component('FindSchedulesByRoute', FindSchedulesByRoute)
-
-//  Trip Tools module
-//  Trip Tools tabs component
-import TriptoolsTabs from '@/components/TriptoolsTabs'
-Vue.component('TriptoolsTabs', TriptoolsTabs)
-
-//  Trip Planner component
-import TripPlanner from '@/components/TripPlanner'
-Vue.component('TripPlanner', TripPlanner)
-
-//  Trip Planner Results component
-import TripPlannerResults from '@/components/TripPlannerResults'
-Vue.component('TripPlannerResults', TripPlannerResults)
-
-//  NexTrip component
-import NexTrip from '@/components/NexTrip'
-Vue.component('NexTrip', NexTrip)
-
-//  Alerts component
-import ServiceAlerts from '@/components/ServiceAlerts'
-Vue.component('ServiceAlerts', ServiceAlerts)
-// End Trip Tools module
-
-// How to Ride component
-import HowToRide from '@/components/HowToRide'
-Vue.component('HowToRide', HowToRide)
-
-// Web Ads component
-import WebAds from '@/components/WebAds'
-Vue.component('WebAds', WebAds)
+//  Trip Plan compponent
+import TripPlan from '@/components/TripPlan'
+Vue.component('TripPlan', TripPlan)
 
 //################################################
 //  Custom scripts (jQuery)
@@ -113,6 +82,5 @@ Vue.config.productionTip = false
 //################################################
 new Vue({
 	router,
-	store,
 	render: h => h(App)
 }).$mount('#app')
