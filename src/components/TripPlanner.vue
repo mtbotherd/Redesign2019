@@ -250,11 +250,11 @@
         </div>
 
         <TripPlannerResults/>
+        <TripPlan/>
         <div class="text-center">
             <BaseButton type="submit" name="planMyTrip">Plan my trip</BaseButton>
         </div>
     </div>
-    <!-- End Trip Planner -->
 </template>
 
 <script>
@@ -297,16 +297,11 @@ export default {
 				border-bottom: 0;
 				padding: 0;
 
-				@include media-breakpoint-up(md) {
-					//padding: 0.454rem 1rem;
-				}
-
 				.btn-link {
 					text-decoration: none;
 					color: $body-color;
 					@include fontSize(17);
 					font-weight: 500;
-					//padding: 0.016rem 0;
 					padding: 0.375rem 0.75rem;
 
 					@include media-breakpoint-up(md) {

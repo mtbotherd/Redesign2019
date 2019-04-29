@@ -12,17 +12,17 @@
 
 <script>
 export default {
-	name: 'BaseCtaYellow',
+	name: 'BaseCta',
 	props: {
 		name: String,
 		type: String,
 		to: {
 			required: false
-		},
-		data() {
-			return {
-				buttonLabel: 'Click me'
-			}
+		}
+	},
+	data() {
+		return {
+			buttonLabel: 'Click me'
 		}
 	}
 }

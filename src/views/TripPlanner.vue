@@ -1,8 +1,8 @@
 <template>
-  <div class="container trip-planner">
-    <h1>Trip Planner</h1>
-    <TripPlanner/>
-  </div>
+    <div class="container trip-planner">
+        <h1>Trip Planner</h1>
+        <TripPlanner/>
+    </div>
 </template>
 
 <script>

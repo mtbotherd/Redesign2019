@@ -52,7 +52,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+	name: 'WebAds'
+}
 </script>
 
 <style lang="scss" scoped>
