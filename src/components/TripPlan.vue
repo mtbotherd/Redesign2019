@@ -1,6 +1,6 @@
 <template>
     <div id="tripPlan" class="tt-trip-plan">
-        <h1 class="page-title">Trip Plan</h1>
+        <h2>Trip Plan</h2>
     </div>
 </template>
 
@@ -11,4 +11,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#tripPlan {
+	h2 {
+		background-color: $blue;
+		color: $white;
+		padding: 0.25rem 0.75rem;
+	}
+}
 </style>
