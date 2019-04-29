@@ -24,10 +24,11 @@ Vue.use(BootstrapVue)
 import TitleMixin from './assets/js/TitleMixin'
 Vue.mixin(TitleMixin)
 
-//################################################
+//##########################################################
 //  Automatically Register Components Globally
 //  Component names must start with "Base, App or V"
-//################################################
+//  Component names must be either PascalCase or kebab-case.
+//##########################################################
 const requireComponent = require.context(
 	'./components/base',
 	false,
