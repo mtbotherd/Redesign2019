@@ -1,80 +1,62 @@
+<!-- Usage:
+	<BaseCta to="page-url">Button label</BaseCta>
+-->
 <template>
     <div class="text-center">
-        <component :is="type" class="btn btn-outline-primary" :to="to">
-            {{ value }}
-            <BaseIconSprite name="icon-sm-arrow-right-blue" class="state-normal"/>
-            <BaseIconSprite name="icon-sm-arrow-right-white" class="state-hover"/>
-        </component>
+        <b-btn class="btn btn-warning" :to="to">
+            <slot>{{ buttonLabel }}</slot>
+            <BaseIconSprite name="icon-sm-arrow-right-blue"/>
+        </b-btn>
     </div>
 </template>
 
 <script>
 export default {
-	name: 'BaseCta',
-	computed: {
-		type() {
-			if (this.to) {
-				return 'router-link'
-			}
-
-			return 'button'
-		}
-	},
-
+	name: 'BaseCtaYellow',
 	props: {
+		name: String,
+		type: String,
 		to: {
 			required: false
 		},
-		value: {
-			type: String
+		data() {
+			return {
+				buttonLabel: 'Click me'
+			}
 		}
 	}
 }
 </script>
 
 <style lang="scss" scoped>
-.btn-outline-primary {
-	font-weight: $font-weight-bold;
-	color: $body-color;
+.btn-warning {
 	position: relative;
-	border: 2px solid $primary;
-	width: 14.063rem;
-
-	&:hover,
-	&:focus {
-		background-color: $blue;
-		color: $white;
-		border: 2px solid $blue;
-
-		.state-normal {
-			display: none;
-		}
-		.state-hover {
-			display: inline-flex;
-		}
-	}
-
-	.state-normal {
-		display: inline-flex;
-	}
-
-	.state-hover {
-		display: none;
-	}
+	color: $body-color;
+	@include fontSize(12);
+	font-weight: $font-weight-bold;
+	width: 100%;
 
 	@include media-breakpoint-up(md) {
-		width: 17.5rem;
-		padding: 0.75rem;
+		width: 100%;
+		@include fontSize(12);
+	}
+
+	@include media-breakpoint-up(lg) {
+		width: 100%;
+		@include fontSize(18);
 	}
 
 	.icon-wrapper {
 		position: absolute;
-		top: 0.65rem;
+		top: 0.6rem;
 		right: 0.75rem;
+		width: 0.75rem;
+		height: 0.75rem;
 
-		@include media-breakpoint-up(md) {
-			top: 1.25rem;
-			right: 0.75rem;
+		@include media-breakpoint-up(lg) {
+			top: 0.75rem;
+			width: 1rem;
+			height: 1rem;
 		}
 	}
 }

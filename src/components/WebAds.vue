@@ -8,7 +8,7 @@
                 img-top
             >
                 <div slot="footer">
-                    <BaseCtaYellow to="/allianz-field" value="Learn more"/>
+                    <BaseCta to="/allianz-field">Learn more</BaseCta>
                 </div>
             </b-card>
         </div>
@@ -20,7 +20,7 @@
                 img-top
             >
                 <div slot="footer">
-                    <BaseCtaYellow to="/allianz-field" value="Learn more"/>
+                    <BaseCta to="/drive">Learn more</BaseCta>
                 </div>
             </b-card>
         </div>
@@ -32,7 +32,7 @@
                 img-top
             >
                 <div slot="footer">
-                    <BaseCtaYellow to="/allianz-field" value="Learn more"/>
+                    <BaseCta to="/riders-club">Learn more</BaseCta>
                 </div>
             </b-card>
         </div>
@@ -44,7 +44,7 @@
                 img-top
             >
                 <div slot="footer">
-                    <BaseCtaYellow to="/allianz-field" value="Learn more"/>
+                    <BaseCta to="/rider-alerts">Learn more</BaseCta>
                 </div>
             </b-card>
         </div>
@@ -64,12 +64,6 @@ export default {}
 	}
 }
 
-.card-deck {
-	.card {
-		// margin-right: 0;
-		// margin-left: 0;
-	}
-}
 .card-body,
 .card-footer {
 	text-align: center;

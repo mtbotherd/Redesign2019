@@ -251,7 +251,7 @@
 
         <TripPlannerResults/>
         <div class="text-center">
-            <BaseSubmit>Plan my trip</BaseSubmit>
+            <BaseButton type="submit" name="planMyTrip">Plan my trip</BaseButton>
         </div>
     </div>
     <!-- End Trip Planner -->

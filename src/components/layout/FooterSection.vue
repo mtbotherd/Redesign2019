@@ -1,7 +1,7 @@
 <template>
     <footer class="section">
         <div class="container">
-            <BaseCta to="contact-us" value="Contact Us"/>
+            <BaseLink to="contact-us">Contact us</BaseLink>
 
             <div class="footer d-none d-md-block pt-5">
                 <b-card-group deck>
