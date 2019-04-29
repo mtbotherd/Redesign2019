@@ -45,11 +45,6 @@ requireComponent.keys().forEach(fileName => {
 	Vue.component(componentName, componentConfig.default || componentConfig)
 })
 
-//  Manually Register Components Globally
-//  Trip Plan compponent
-import TripPlan from '@/components/TripPlan'
-Vue.component('TripPlan', TripPlan)
-
 //################################################
 //  Custom scripts (jQuery)
 //################################################

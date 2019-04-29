@@ -252,7 +252,13 @@
 
 <script>
 export default {
-	name: 'TripPlannerForm'
+	name: 'TripPlannerForm',
+	data() {
+		return {
+			fromLocation: '',
+			toLocation: ''
+		}
+	}
 }
 </script>
 

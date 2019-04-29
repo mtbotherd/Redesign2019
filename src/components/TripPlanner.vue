@@ -3,7 +3,6 @@
         <h1 class="sr-only">Trip Planner</h1>
         <TripPlannerForm/>
         <TripPlannerResults/>
-        <TripPlan/>
         <div class="text-center">
             <BaseButton type="submit" name="planMyTrip">Plan my trip</BaseButton>
         </div>
@@ -13,20 +12,12 @@
 <script>
 import TripPlannerForm from './TripPlannerForm'
 import TripPlannerResults from './TripPlannerResults'
-import TripPlan from './TripPlan'
 
 export default {
 	name: 'TripPlanner',
 	components: {
 		TripPlannerForm,
-		TripPlannerResults,
-		TripPlan
-	},
-	data() {
-		return {
-			fromLocation: '',
-			toLocation: ''
-		}
+		TripPlannerResults
 	}
 }
 </script>

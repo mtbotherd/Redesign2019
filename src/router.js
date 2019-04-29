@@ -4,6 +4,7 @@ import Router from 'vue-router'
 // Imports views for Main Navigation links.
 import Home from './views/Home.vue'
 import TripPlanner from './views/TripPlanner.vue'
+import TripPlan from './views/TripPlan.vue'
 import NexTrip from './views/NexTrip.vue'
 import FindStops from './views/FindStops.vue'
 import SchedulesMaps from './views/SchedulesMaps.vue'
@@ -21,7 +22,6 @@ Vue.use(Router)
 export default new Router({
 	mode: 'history',
 	routes: [
-		// Main navigation routes
 		{
 			path: '/',
 			name: 'home',
@@ -31,6 +31,11 @@ export default new Router({
 			path: '/trip-planner',
 			name: 'trip-planner',
 			component: TripPlanner
+		},
+		{
+			path: '/trip-plan',
+			name: 'trip-plan',
+			component: TripPlan
 		},
 		{
 			path: '/nextrip',
