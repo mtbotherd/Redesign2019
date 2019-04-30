@@ -22,7 +22,7 @@
             </b-card-header>
             <b-card-body>
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-lg-5">
                         <div class="tp-itinerary">
                             <div class="legs">
                                 <div class="d-inline-block float-left leg-time">1:06 p.m.</div>
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-lg-7">
                         <div class="tp-map">Base map</div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@ export default {
 #tripPlanItinerary {
 	padding: 1.5rem 0;
 
-	@include media-breakpoint-up(md) {
+	@include media-breakpoint-up(lg) {
 		padding: 3rem 0;
 	}
 
@@ -82,7 +82,7 @@ export default {
 				padding: 0.5rem;
 				width: 6rem;
 
-				@include media-breakpoint-up(md) {
+				@include media-breakpoint-up(lg) {
 					@include fontSize(23);
 					padding: 0.813rem;
 					width: 9.857rem;
@@ -94,7 +94,7 @@ export default {
 				padding: 0.5rem;
 				width: 100%;
 
-				@include media-breakpoint-up(md) {
+				@include media-breakpoint-up(lg) {
 					padding: 0.813rem;
 
 					.icon-wrapper {
@@ -106,7 +106,7 @@ export default {
 				.route {
 					@include fontSize(8);
 
-					@include media-breakpoint-up(md) {
+					@include media-breakpoint-up(lg) {
 						@include fontSize(18);
 					}
 				}
@@ -122,7 +122,7 @@ export default {
 					@include fontSize(8);
 					padding-right: 0.5rem;
 
-					@include media-breakpoint-up(md) {
+					@include media-breakpoint-up(lg) {
 						@include fontSize(16);
 					}
 				}
@@ -130,7 +130,7 @@ export default {
 				.icon-chain-link {
 					display: none;
 
-					@include media-breakpoint-up(md) {
+					@include media-breakpoint-up(lgd) {
 						display: inline-flex;
 					}
 				}
@@ -141,7 +141,7 @@ export default {
 			padding-right: 0;
 			padding-left: 0;
 
-			@include media-breakpoint-up(md) {
+			@include media-breakpoint-up(lg) {
 				border: 1px solid $border-color;
 				border-top: 0;
 				padding: 1rem;
@@ -168,7 +168,7 @@ export default {
 						top: -0.5rem;
 						left: -1.333rem;
 
-						@include media-breakpoint-up(md) {
+						@include media-breakpoint-up(lg) {
 							top: -0.25rem;
 						}
 
