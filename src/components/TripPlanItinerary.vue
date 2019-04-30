@@ -22,13 +22,72 @@
             </b-card-header>
             <b-card-body>
                 <div class="row">
-                    <div class="col-lg-5">
-                        <div class="tp-itinerary">
-                            <div class="legs">
+                    <div class="col-md-12 col-lg-5 col-xl-4">
+                        <div class="d-block tp-itinerary">
+                            <div id="leg-1" class="float-left leg-item leg-walk">
                                 <div class="d-inline-block float-left leg-time">1:06 p.m.</div>
-                                <div class="d-inline-block float-left leg-detail">
-                                    <div class="d-inline-block float-left leg-mode">
+                                <div class="d-inline-block float-left leg-mode walk">
+                                    <div class="d-inline-block float-left leg-mode-icon">
                                         <BaseIconSprite name="icon-md-circle-pedestrian-color"/>
+                                    </div>
+                                    <p>
+                                        <strong>Walk</strong> 0.12 miles to Selby
+                                        <abbr title="avenue">Ave</abbr> &amp; Farrington
+                                        <abbr title="street">St</abbr>
+                                        <br>
+                                        <small>(about 4 min)</small>
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="leg-2" class="leg-item leg-bus">
+                                <div class="d-inline-block float-left leg-time">1:10 p.m.</div>
+                                <div class="d-inline-block float-left leg-mode bus">
+                                    <div class="d-inline-block float-left leg-mode-icon">
+                                        <BaseIconSprite name="icon-lg-circle-bus-gray"/>
+                                    </div>
+                                    <p>
+                                        <BaseIconSprite name="icon-md-broadcast-red"/>&nbsp;Currently 5 min late
+                                        <br>
+                                        <strong>Route: 21 Selby-Lake/Uptown</strong>&nbsp;
+                                        <b-link to="/home/#ServiceAlerts">view alerts</b-link>
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="leg-3" class="leg-item leg-lrt-green">
+                                <div class="d-inline-block float-left leg-time">1:40 p.m.</div>
+                                <div class="d-inline-block float-left leg-mode metro-green">
+                                    <div class="d-inline-block float-left leg-mode-icon">
+                                        <BaseIconSprite name="icon-md-circle-lrt-green"/>
+                                    </div>
+                                    <p>
+                                        <strong>Walk</strong> 0.12 miles to Selby
+                                        <abbr title="avenue">Ave</abbr> &amp; Farrington
+                                        <abbr title="street">St</abbr>
+                                        <br>
+                                        <small>(about 4 min)</small>
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="leg-4" class="leg-item leg-walk">
+                                <div class="d-inline-block float-left leg-time">1:10 p.m.</div>
+                                <div class="d-inline-block float-left leg-mode walk">
+                                    <div class="d-inline-block float-left leg-mode-icon">
+                                        <BaseIconSprite name="icon-md-circle-pedestrian-color"/>
+                                    </div>
+                                    <p>
+                                        <strong>Walk</strong> 0.12 miles to Selby
+                                        <abbr title="avenue">Ave</abbr> &amp; Farrington
+                                        <abbr title="street">St</abbr>
+                                        <br>
+                                        <small>(about 4 min)</small>
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="leg-5" class="leg-item leg-arrive">
+                                <div class="d-inline-block float-left leg-time">12:88 p.m.</div>
+                                <div class="d-inline-block float-left leg-mode arrive">
+                                    <div class="d-inline-block float-left leg-mode-icon">
+                                        <BaseIconSprite name="icon-md-circle-pin-color"/>
                                     </div>
                                     <p>
                                         <strong>Walk</strong> 0.12 miles to Selby
@@ -41,7 +100,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-7">
+                    <div class="col-md-12 col-lg-7 col-xl-8">
                         <div class="tp-map">Base map</div>
                     </div>
                 </div>
@@ -57,133 +116,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#tripPlanItinerary {
-	padding: 1.5rem 0;
-
-	@include media-breakpoint-up(lg) {
-		padding: 3rem 0;
-	}
-
-	.card {
-		margin-bottom: 0.75rem;
-		border: 0;
-		background-color: transparent;
-		padding: 0;
-
-		.card-header {
-			background-color: transparent;
-			border: 2px solid $gray-700;
-			padding: 0;
-
-			.tp-time {
-				border-right: 2px solid $gray-700;
-				@include fontSize(12);
-				font-weight: $font-weight-bold;
-				padding: 0.5rem;
-				width: 6rem;
-
-				@include media-breakpoint-up(lg) {
-					@include fontSize(23);
-					padding: 0.813rem;
-					width: 9.857rem;
-				}
-			}
-
-			.tp-route {
-				display: flex;
-				padding: 0.5rem;
-				width: 100%;
-
-				@include media-breakpoint-up(lg) {
-					padding: 0.813rem;
-
-					.icon-wrapper {
-						width: 1.5rem;
-						height: 1.5rem;
-					}
-				}
-
-				.route {
-					@include fontSize(8);
-
-					@include media-breakpoint-up(lg) {
-						@include fontSize(18);
-					}
-				}
-
-				.rotate-right {
-					transform: rotate(90deg);
-					width: 0.5rem;
-					height: 0.5rem;
-				}
-
-				.badge {
-					border-radius: 0.25rem;
-					@include fontSize(8);
-					padding-right: 0.5rem;
-
-					@include media-breakpoint-up(lg) {
-						@include fontSize(16);
-					}
-				}
-
-				.icon-chain-link {
-					display: none;
-
-					@include media-breakpoint-up(lgd) {
-						display: inline-flex;
-					}
-				}
-			}
-		}
-
-		.card-body {
-			padding-right: 0;
-			padding-left: 0;
-
-			@include media-breakpoint-up(lg) {
-				border: 1px solid $border-color;
-				border-top: 0;
-				padding: 1rem;
-			}
-
-			.tp-itinerary {
-				.leg-time {
-					font-weight: $font-weight-bold;
-					margin-right: 3rem;
-				}
-
-				.leg-detail {
-					width: 14.75rem;
-					border-left: 4px dotted #7dcae7;
-					margin-left: -1rem;
-					padding-left: 1rem;
-					position: relative;
-
-					.leg-mode {
-						background-color: $white;
-						width: 2.5rem;
-						height: 2.5rem;
-						position: absolute;
-						top: -0.5rem;
-						left: -1.333rem;
-
-						@include media-breakpoint-up(lg) {
-							top: -0.25rem;
-						}
-
-						.icon-wrapper {
-							width: 2.5rem;
-							height: 2.5rem;
-						}
-					}
-
-					p {
-						padding-left: 0.75rem;
-					}
-				}
-			}
-		}
-	}
-}
 </style>
