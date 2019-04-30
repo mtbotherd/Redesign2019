@@ -4,7 +4,7 @@
             <b-card-header>
                 <span class="d-flex">
                     <span class="d-flex align-items-center tp-time">56 min</span>
-                    <span class="align-items-center tp-route">
+                    <span class="d-flex align-items-center tp-route">
                         <BaseIconSprite name="icon-sm-pedestrian-gray"/>
                         <BaseIconSprite name="icon-sm-chevron-up-gray" class="rotate-right mr-2"/>
                         <BaseIconSprite name="icon-sm-bus-gray"/>&nbsp;
@@ -23,23 +23,27 @@
             <b-card-body>
                 <div class="row">
                     <div class="col-md-5">
-                        <div class="current-itinerary">
+                        <div class="tp-itinerary">
                             <div class="legs">
-                                <div class="leg-time">1:06 p.m.</div>
-                                <div class="leg-mode">
-                                    <BaseIconSprite name="icon-md-circle-pedestrian-color"/>
-                                </div>
-                                <div class="leg-detail">
+                                <div class="d-inline-block float-left leg-time">1:06 p.m.</div>
+                                <div class="d-inline-block float-left leg-detail">
+                                    <div class="d-inline-block float-left leg-mode">
+                                        <BaseIconSprite name="icon-md-circle-pedestrian-color"/>
+                                    </div>
                                     <p>
                                         <strong>Walk</strong> 0.12 miles to Selby
                                         <abbr title="avenue">Ave</abbr> &amp; Farrington
-                                        <abbr title="street">St</abbr> (about 4 min)
+                                        <abbr title="street">St</abbr>
+                                        <br>
+                                        <small>(about 4 min)</small>
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-7">Map goes here</div>
+                    <div class="col-md-7">
+                        <div class="tp-map">Base map</div>
+                    </div>
                 </div>
             </b-card-body>
         </b-card>
@@ -68,11 +72,11 @@ export default {
 
 		.card-header {
 			background-color: transparent;
-			border: 1px solid $gray-700;
+			border: 2px solid $gray-700;
 			padding: 0;
 
 			.tp-time {
-				border-right: 1px solid $gray-700;
+				border-right: 2px solid $gray-700;
 				@include fontSize(12);
 				font-weight: $font-weight-bold;
 				padding: 0.5rem;
@@ -88,7 +92,6 @@ export default {
 			.tp-route {
 				display: flex;
 				padding: 0.5rem;
-				// padding: 0.5rem 0.75rem;
 				width: 100%;
 
 				@include media-breakpoint-up(md) {
@@ -135,8 +138,51 @@ export default {
 		}
 
 		.card-body {
-			border: 1px solid $border-color;
-			border-top: 0;
+			padding-right: 0;
+			padding-left: 0;
+
+			@include media-breakpoint-up(md) {
+				border: 1px solid $border-color;
+				border-top: 0;
+				padding: 1rem;
+			}
+
+			.tp-itinerary {
+				.leg-time {
+					font-weight: $font-weight-bold;
+					margin-right: 3rem;
+				}
+
+				.leg-detail {
+					width: 14.75rem;
+					border-left: 4px dotted #7dcae7;
+					margin-left: -1rem;
+					padding-left: 1rem;
+					position: relative;
+
+					.leg-mode {
+						background-color: $white;
+						width: 2.5rem;
+						height: 2.5rem;
+						position: absolute;
+						top: -0.5rem;
+						left: -1.333rem;
+
+						@include media-breakpoint-up(md) {
+							top: -0.25rem;
+						}
+
+						.icon-wrapper {
+							width: 2.5rem;
+							height: 2.5rem;
+						}
+					}
+
+					p {
+						padding-left: 0.75rem;
+					}
+				}
+			}
 		}
 	}
 }
