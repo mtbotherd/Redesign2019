@@ -84,7 +84,6 @@
 
 			@include media-breakpoint-up(lg) {
 				border: 1px solid $border-color;
-				border-top: 0;
 				padding: 1.75rem 1rem 1rem;
 			}
 
@@ -107,7 +106,7 @@
 
 				.leg-mode {
 					width: 14.75rem;
-					//border-left: 4px dotted #7dcae7;
+					line-height: 1.2;
 					margin-left: -1rem;
 					padding-bottom: 0.5rem;
 					padding-left: 1.75rem;
@@ -125,6 +124,10 @@
 					@include media-breakpoint-up(lg) {
 						padding-left: 2rem;
 						width: 14.72rem;
+					}
+
+					@include media-breakpoint-up(xl) {
+						width: 20.64rem;
 					}
 
 					.leg-mode-icon {

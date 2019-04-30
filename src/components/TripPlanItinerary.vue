@@ -20,9 +20,9 @@
                     </span>
                 </span>
             </b-card-header>
-            <b-card-body>
+            <b-card-body class="border-top-0">
                 <div class="row">
-                    <div class="col-md-12 col-lg-5 col-xl-4">
+                    <div class="col-md-12 col-lg-5">
                         <div class="d-block tp-itinerary">
                             <div id="leg-1" class="float-left leg-item leg-walk">
                                 <div class="d-inline-block float-left leg-time">1:06 p.m.</div>
@@ -48,7 +48,8 @@
                                     <p>
                                         <BaseIconSprite name="icon-md-broadcast-red"/>&nbsp;Currently 5 min late
                                         <br>
-                                        <strong>Route: 21 Selby-Lake/Uptown</strong>&nbsp;
+                                        <strong>Route: 21 Selby-Lake/Uptown</strong>
+                                        <br>
                                         <b-link to="/home/#ServiceAlerts">view alerts</b-link>
                                     </p>
                                 </div>
@@ -100,8 +101,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 col-lg-7 col-xl-8">
-                        <div class="tp-map">Base map</div>
+                    <div class="col-md-12 col-lg-7">
+                        <div class="tp-basemap">
+                            <b-card no-body class="border">Base map</b-card>
+                        </div>
                     </div>
                 </div>
             </b-card-body>
