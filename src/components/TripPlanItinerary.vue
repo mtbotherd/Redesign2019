@@ -52,7 +52,7 @@
                                         <BaseIconSprite name="icon-lg-circle-bus-gray"/>
                                     </div>
                                     <p>
-                                        <BaseIconSprite name="icon-md-broadcast-red"/>&nbsp;Currently 5
+                                        <BaseIconSprite name="icon-md-broadcast-red" class="blink"/>&nbsp;Currently 5
                                         <abbr title="minutes">min</abbr> late
                                         <br>
                                         <strong>Route: 21 Selby-Lake/Uptown</strong>

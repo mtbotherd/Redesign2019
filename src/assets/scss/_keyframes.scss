@@ -1,0 +1,12 @@
+/***************************************************************
+    CSS keyframes
+***************************************************************/
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+}
+
+.blink {
+	animation: fadeIn 1s infinite alternate;
+}
