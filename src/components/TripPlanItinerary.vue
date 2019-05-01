@@ -55,7 +55,7 @@
                                         <BaseIconSprite name="icon-md-broadcast-red" class="blink"/>&nbsp;Currently 5
                                         <abbr title="minutes">min</abbr> late
                                         <br>
-                                        <strong>Route: 21 Selby-Lake/Uptown</strong>
+                                        <strong>Route 21</strong> Selby-Lake/Uptown
                                         <br>
                                         <b-link to="/home/#ServiceAlerts">
                                             <small>view alerts</small>
@@ -69,10 +69,8 @@
                                     <p>
                                         <strong>Arrive</strong> at Snelling
                                         <abbr title="avenue">Ave</abbr> &amp; University
-                                        <abbr title="avenue">
-                                            Ave / SpruceTree
-                                            <abbr title="drive">Dr</abbr>
-                                        </abbr>
+                                        <abbr title="avenue">Ave</abbr> / SpruceTree
+                                        <abbr title="drive">Dr</abbr>
                                     </p>
                                 </div>
                             </div>
@@ -83,10 +81,8 @@
                                         <BaseIconSprite name="icon-md-circle-lrt-green"/>
                                     </div>
                                     <p>
-                                        <strong>
-                                            Green Line to
-                                            <abbr title="Minneapolis">Mpls</abbr>-Target Field
-                                        </strong>
+                                        <strong>Green Line</strong> to
+                                        <abbr title="Minneapolis">Mpls</abbr>-Target Field
                                     </p>
                                     <p>
                                         <strong>Depart</strong> from Snelling
@@ -106,7 +102,7 @@
                                     <p>
                                         <strong>Walk</strong> 0.25 miles
                                         <abbr title="west">W</abbr> to
-                                        <abbr title="Fred T. Heywood">FTH</abbr>, Minneapolist, MN
+                                        <abbr title="Fred T. Heywood">FTH</abbr>, Minneapolis, MN
                                         <br>
                                         <small>
                                             (about 6
@@ -122,10 +118,11 @@
                                         <BaseIconSprite name="icon-md-circle-pin-color"/>
                                     </div>
                                     <p>
-                                        <strong>
-                                            Arrive at
-                                            <abbr title="Fred T. Heywood">FTH</abbr>, Minneapolis, MN
-                                        </strong>
+                                        <strong>Arrive</strong>
+                                        at
+                                        <abbr
+                                            title="Fred T. Heywood"
+                                        >FTH</abbr>, Minneapolis, MN
                                     </p>
                                 </div>
                             </div>
