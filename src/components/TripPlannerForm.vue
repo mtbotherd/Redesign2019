@@ -2,8 +2,8 @@
     <div id="tripPlannerForm">
         <div class="form-group mb-0">
             <input
-                v-model="fromLocation"
                 id="tpFrom"
+                v-model="tpFrom"
                 type="text"
                 name="tpFrom"
                 class="form-control form-control-lg tp-from-location"
@@ -19,8 +19,8 @@
         </div>
         <div class="form-group">
             <input
-                v-model="toLocation"
                 id="tpTo"
+                v-model="tpTo"
                 type="text"
                 name="tpTo"
                 class="form-control form-control-lg tp-to-location"
@@ -31,9 +31,10 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="tpLeaveNow" class="sr-only">Leave now</label>
+                    <label for="tpSelectTime" class="sr-only">Leave now</label>
                     <select
                         id="tpSelectTime"
+                        v-model="tpSelectTime"
                         name="tpSelectTime"
                         class="custom-select custom-select-lg"
                     >
@@ -48,6 +49,7 @@
                             <label for="tpTime" class="sr-only">Depart/arrival time</label>
                             <input
                                 id="tpTime"
+                                v-model="tpTime"
                                 type="time"
                                 name="tpTime"
                                 class="form-control border-right-0"
@@ -57,7 +59,6 @@
                             <div class="input-group-append border">
                                 <BaseIconSprite
                                     name="icon-sm-clock-gray"
-                                    id="tpTime"
                                     class="icon-clock mt-1 mt-md-2"
                                 />
                             </div>
@@ -68,6 +69,7 @@
                             <label for="tpDate" class="sr-only">Depart/arrival date</label>
                             <input
                                 id="tpDate"
+                                v-model="tpDate"
                                 type="date"
                                 name="tpDate"
                                 class="form-control border-right-0"
@@ -77,7 +79,6 @@
                             <div class="input-group-append border">
                                 <BaseIconSprite
                                     name="icon-sm-calendar-gray"
-                                    id="tpDate"
                                     class="icon-clock-gray mt-1 mt-md-2"
                                 />
                             </div>
@@ -108,6 +109,7 @@
                                 <div class="custom-control custom-radio">
                                     <input
                                         id="tpQuarterMile"
+                                        v-model="tpDistance"
                                         type="radio"
                                         name="tp-walking-distance"
                                         class="custom-control-input"
@@ -117,6 +119,7 @@
                                 <div class="custom-control custom-radio">
                                     <input
                                         id="tpHalfMile"
+                                        v-model="tpDistance"
                                         type="radio"
                                         name="tp-walking-distance"
                                         class="custom-control-input"
@@ -126,6 +129,7 @@
                                 <div class="custom-control custom-radio">
                                     <input
                                         id="tpOneMile"
+                                        v-model="tpDistance"
                                         type="radio"
                                         name="tp-walking-distance"
                                         class="custom-control-input"
@@ -252,13 +256,7 @@
 
 <script>
 export default {
-	name: 'TripPlannerForm',
-	data() {
-		return {
-			fromLocation: '',
-			toLocation: ''
-		}
-	}
+	name: 'TripPlannerForm'
 }
 </script>
 

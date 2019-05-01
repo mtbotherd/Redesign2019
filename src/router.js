@@ -88,5 +88,12 @@ export default new Router({
 			component: HowToRideGuide
 		}
 		//  Footer navigation routes
-	]
+	],
+	scrollBehavior(to, from, savedPosition) {
+		if (savedPostion) {
+			return savedPosition
+		} else {
+			return { x: 0, y: 0 }
+		}
+	}
 })
