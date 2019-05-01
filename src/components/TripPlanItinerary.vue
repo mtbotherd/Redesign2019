@@ -3,7 +3,10 @@
         <b-card no-body>
             <b-card-header>
                 <span class="d-flex">
-                    <span class="d-flex align-items-center tp-time">56 min</span>
+                    <span class="d-flex align-items-center tp-time">
+                        56&nbsp;
+                        <abbr title="minutes">min</abbr>
+                    </span>
                     <span class="d-flex align-items-center tp-route">
                         <BaseIconSprite name="icon-sm-pedestrian-gray"/>
                         <BaseIconSprite name="icon-sm-chevron-up-gray" class="rotate-right mr-2"/>
@@ -35,7 +38,10 @@
                                         <abbr title="avenue">Ave</abbr> &amp; Farrington
                                         <abbr title="street">St</abbr>
                                         <br>
-                                        <small>(about 4 min)</small>
+                                        <small>
+                                            (about 4
+                                            <abbr title="minutes">min</abbr>)
+                                        </small>
                                     </p>
                                 </div>
                             </div>
@@ -46,11 +52,27 @@
                                         <BaseIconSprite name="icon-lg-circle-bus-gray"/>
                                     </div>
                                     <p>
-                                        <BaseIconSprite name="icon-md-broadcast-red"/>&nbsp;Currently 5 min late
+                                        <BaseIconSprite name="icon-md-broadcast-red"/>&nbsp;Currently 5
+                                        <abbr title="minutes">min</abbr> late
                                         <br>
                                         <strong>Route: 21 Selby-Lake/Uptown</strong>
                                         <br>
-                                        <b-link to="/home/#ServiceAlerts">view alerts</b-link>
+                                        <b-link to="/home/#ServiceAlerts">
+                                            <small>view alerts</small>
+                                        </b-link>
+                                    </p>
+                                    <p>
+                                        <strong>Depart</strong> from Selby
+                                        <abbr title="avenue">Ave</abbr> &amp; Farrington
+                                        <abbr title="street">St</abbr>
+                                    </p>
+                                    <p>
+                                        <strong>Arrive</strong> at Snelling
+                                        <abbr title="avenue">Ave</abbr> &amp; University
+                                        <abbr title="avenue">
+                                            Ave / SpruceTree
+                                            <abbr title="drive">Dr</abbr>
+                                        </abbr>
                                     </p>
                                 </div>
                             </div>
@@ -61,11 +83,17 @@
                                         <BaseIconSprite name="icon-md-circle-lrt-green"/>
                                     </div>
                                     <p>
-                                        <strong>Walk</strong> 0.12 miles to Selby
-                                        <abbr title="avenue">Ave</abbr> &amp; Farrington
-                                        <abbr title="street">St</abbr>
-                                        <br>
-                                        <small>(about 4 min)</small>
+                                        <strong>
+                                            Green Line to
+                                            <abbr title="Minneapolis">Mpls</abbr>-Target Field
+                                        </strong>
+                                    </p>
+                                    <p>
+                                        <strong>Depart</strong> from Snelling
+                                        <abbr title="avenue">Ave</abbr> Station
+                                    </p>
+                                    <p>
+                                        <strong>Arrive</strong> at Target Field Station Platform 1
                                     </p>
                                 </div>
                             </div>
@@ -76,11 +104,14 @@
                                         <BaseIconSprite name="icon-md-circle-pedestrian-color"/>
                                     </div>
                                     <p>
-                                        <strong>Walk</strong> 0.12 miles to Selby
-                                        <abbr title="avenue">Ave</abbr> &amp; Farrington
-                                        <abbr title="street">St</abbr>
+                                        <strong>Walk</strong> 0.25 miles
+                                        <abbr title="west">W</abbr> to
+                                        <abbr title="Fred T. Heywood">FTH</abbr>, Minneapolist, MN
                                         <br>
-                                        <small>(about 4 min)</small>
+                                        <small>
+                                            (about 6
+                                            <abbr title="minutes">min</abbr>)
+                                        </small>
                                     </p>
                                 </div>
                             </div>
@@ -91,15 +122,16 @@
                                         <BaseIconSprite name="icon-md-circle-pin-color"/>
                                     </div>
                                     <p>
-                                        <strong>Walk</strong> 0.12 miles to Selby
-                                        <abbr title="avenue">Ave</abbr> &amp; Farrington
-                                        <abbr title="street">St</abbr>
-                                        <br>
-                                        <small>(about 4 min)</small>
+                                        <strong>
+                                            Arrive at
+                                            <abbr title="Fred T. Heywood">FTH</abbr>, Minneapolis, MN
+                                        </strong>
                                     </p>
                                 </div>
                             </div>
                         </div>
+                        <div class="clearfix"></div>
+                        <hr class="d-block d-lg-none">
                     </div>
                     <div class="col-md-12 col-lg-7">
                         <div class="tp-basemap">

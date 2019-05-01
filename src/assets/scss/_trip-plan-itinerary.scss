@@ -112,22 +112,25 @@
 					padding-left: 1.75rem;
 					position: relative;
 
-					&:last-child {
-						padding-bottom: 0;
-					}
-
 					@include media-breakpoint-up(md) {
 						margin-left: 0;
+						padding-bottom: 0.75rem;
 						width: 38rem;
 					}
 
 					@include media-breakpoint-up(lg) {
+						padding-bottom: 1.25rem;
 						padding-left: 2rem;
 						width: 14.72rem;
 					}
 
 					@include media-breakpoint-up(xl) {
+						padding-bottom: 1.5rem;
 						width: 20.64rem;
+					}
+
+					p {
+						margin-top: 0.15rem;
 					}
 
 					.leg-mode-icon {
