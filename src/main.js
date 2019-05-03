@@ -59,14 +59,14 @@ $(function() {
 		inputs[1].value = tmp
 	})
 
-	// Show time/date selectors
-	$('#tpSelectTime').change(function() {
-		if ($(this).val() != 'tp-leave-now') {
-			$('.tp-time-elements')
+	//  Show time/date selectors
+	$('#selectTime').change(function() {
+		if ($(this).val() != 'leave-now') {
+			$('.time-elements')
 				.fadeIn('slow')
 				.css('display', 'flex')
 		} else {
-			$('.tp-time-elements').fadeOut('fast')
+			$('.time-elements').fadeOut('fast')
 		}
 	})
 })

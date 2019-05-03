@@ -1,7 +1,6 @@
 <template>
     <div id="tripToolsTabs" class="trip-tools-tabs">
-        <TabsTest/>
-        <!-- <b-card no-body>
+        <b-card no-body>
             <b-tabs>
                 <b-tab title-item-class="trip-planner-tab mr-2" title-link-class="p-md-3" active>
                     <template slot="title">
@@ -73,23 +72,21 @@
                     </div>
                 </b-tab>
             </b-tabs>
-        </b-card>-->
+        </b-card>
     </div>
 </template>
 
 <script>
-import TabsTest from './TabsTest'
-// import TripPlanner from './TripPlanner'
-// import NexTrip from './NexTrip'
-// import ServiceAlerts from './ServiceAlerts'
+import TripPlanner from './TripPlanner'
+import NexTrip from './NexTrip'
+import ServiceAlerts from './ServiceAlerts'
 
 export default {
 	name: 'TriptoolsTabs',
 	components: {
-		TabsTest
-		// TripPlanner,
-		// NexTrip,
-		// ServiceAlerts
+		TripPlanner,
+		NexTrip,
+		ServiceAlerts
 	}
 }
 </script>

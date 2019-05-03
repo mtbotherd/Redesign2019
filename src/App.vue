@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <form @submit.prevent="onSubmit">
+        <form @submit.stop.prevent="onSubmit">
             <HeaderSection/>
             <section id="mainContent">
                 <router-view/>

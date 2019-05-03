@@ -12,7 +12,6 @@
 .form-control-lg,
 .custom-select {
 	@include fontSize(17);
-	font-weight: $font-weight-medium;
 
 	@include media-breakpoint-up(md) {
 		@include fontSize(23);
