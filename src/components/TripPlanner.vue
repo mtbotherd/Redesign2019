@@ -259,13 +259,13 @@ export default {
 	name: 'TripPlanner',
 	components: {
 		TripPlannerResults
-	},
-	data() {
-		return {
-			fromLocation: '',
-			toLocation: ''
-		}
 	}
+	// data() {
+	// 	return {
+	// 		fromLocation: '',
+	// 		toLocation: ''
+	// 	}
+	// }
 }
 </script>
 

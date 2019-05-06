@@ -16,6 +16,7 @@
 		"lodash": "^4.17.11",
 		"popper.js": "^1.15.0",
 		"vue": "^2.6.3",
+		"vue-float-label": "^1.6.1",
 		"vue-loader": "^15.7.0",
 		"vue-router": "^3.0.5",
 		"vuex": "^3.0.1"

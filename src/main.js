@@ -15,6 +15,10 @@ require('jquery-confirm')
 //  Bootstrap - This imports bootstrap.js.  Refer to app.scss for bootstrap styles import.
 import 'bootstrap'
 
+//  Vue Float Labels plugin for form elements
+import FloatingLabel from 'vue-simple-floating-labels'
+Vue.use(FloatingLabel)
+
 // BootstrapVue - This imports bootstrap-vue.
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
