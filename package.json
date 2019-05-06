@@ -9,29 +9,29 @@
 	},
 	"dependencies": {
 		"babel-helper-vue-jsx-merge-props": "^2.0.3",
-		"bootstrap": "^4.2.1",
+		"babel-polyfill": "^6.26.0",
+		"bootstrap": "^4.3.1",
 		"core-js": "^3.0.1",
-		"jquery": "^3.4.0",
+		"jquery": "^3.4.1",
 		"jquery-confirm": "^3.3.4",
 		"lodash": "^4.17.11",
 		"popper.js": "^1.15.0",
-		"vue": "^2.6.3",
-		"vue-float-label": "^1.6.1",
+		"vue": "^2.6.10",
 		"vue-loader": "^15.7.0",
-		"vue-router": "^3.0.5",
-		"vuex": "^3.0.1"
+		"vue-router": "^3.0.6",
+		"vuex": "^3.1.0"
 	},
 	"devDependencies": {
-		"@vue/cli-plugin-babel": "^3.6.0",
-		"@vue/cli-plugin-eslint": "^3.6.0",
-		"@vue/cli-service": "^3.6.0",
+		"@vue/cli-plugin-babel": "^3.7.0",
+		"@vue/cli-plugin-eslint": "^3.7.0",
+		"@vue/cli-service": "^3.7.0",
 		"@vue/eslint-config-prettier": "^4.0.1",
 		"babel-eslint": "^10.0.1",
 		"bootstrap-vue": "^2.0.0-rc.18",
 		"eslint": "^5.16.0",
-		"eslint-plugin-vue": "^5.0.0",
-		"node-sass": "^4.9.0",
-		"sass-loader": "^7.0.1",
-		"vue-template-compiler": "^2.6.3"
+		"eslint-plugin-vue": "^5.2.2",
+		"node-sass": "^4.12.0",
+		"sass-loader": "^7.1.0",
+		"vue-template-compiler": "^2.6.10"
 	}
 }
