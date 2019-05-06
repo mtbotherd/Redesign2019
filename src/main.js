@@ -1,6 +1,7 @@
 //################################################
 //  Core Vue Framework
 //################################################
+//import 'babel-polyfill'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -16,8 +17,8 @@ require('jquery-confirm')
 import 'bootstrap'
 
 //  Vue Float Labels plugin for form elements
-import FloatingLabel from 'vue-simple-floating-labels'
-Vue.use(FloatingLabel)
+// import FloatingLabel from 'vue-simple-floating-labels'
+// Vue.use(FloatingLabel)
 
 // BootstrapVue - This imports bootstrap-vue.
 import BootstrapVue from 'bootstrap-vue'
