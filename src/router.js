@@ -90,7 +90,7 @@ export default new Router({
 		//  Footer navigation routes
 	],
 	scrollBehavior(to, from, savedPosition) {
-		if (savedPostion) {
+		if (savedPosition) {
 			return savedPosition
 		} else {
 			return { x: 0, y: 0 }
