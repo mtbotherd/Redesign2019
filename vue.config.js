@@ -17,5 +17,6 @@ module.exports = {
 	parallel: undefined,
 	devServer: {
 		host: 'localhost'
-	}
+	},
+	transpileDependencies: ['vuex']
 }
