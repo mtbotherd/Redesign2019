@@ -1,6 +1,12 @@
 <template>
     <span class="icon-wrapper">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon" :width="width" :height="height">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
+            class="icon"
+            :width="width"
+            :height="height"
+        >
             <use v-bind="{ 'xlink:href': '/icon-sprite.svg#' + name }"></use>
         </svg>
     </span>
