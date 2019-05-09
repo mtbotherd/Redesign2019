@@ -11,7 +11,7 @@ module.exports = {
 	assetsDir: undefined,
 	lintOnSave: undefined,
 	publicPath: undefined,
-	outputDir: undefined,
+	outputDir: 'dist',
 	runtimeCompiler: undefined,
 	productionSourceMap: false,
 	parallel: undefined,
