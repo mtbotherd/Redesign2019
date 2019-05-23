@@ -1,12 +1,10 @@
 <template>
     <div id="app">
-        <form @submit.stop.prevent="onSubmit">
-            <HeaderSection/>
-            <section id="mainContent">
-                <router-view/>
-            </section>
-            <footerSection/>
-        </form>
+        <HeaderSection/>
+        <section id="mainContent">
+            <router-view/>
+        </section>
+        <footerSection/>
     </div>
 </template>
 
