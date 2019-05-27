@@ -2,49 +2,49 @@
     <div class="row">
         <div class="col-6 col-md-3">
             <b-card
-                title="Allianz Field"
-                :img-src="require('../Data/sites/1/media/web-ads/allianz-field/06-28-71113-19_webad.png')"
+                title="Web Ad"
+                :img-src="require('../assets/img/placeholder-300x300.png')"
                 img-alt="Image"
                 img-top
             >
                 <div slot="footer">
-                    <BaseCta to="/allianz-field">Learn more</BaseCta>
+                    <BaseCta to="/">Learn more</BaseCta>
                 </div>
             </b-card>
         </div>
         <div class="col-6 col-md-3">
             <b-card
-                title="Bus Driver Hiring"
-                :img-src="require('../Data/sites/1/media/web-ads/hiring/34499_homepage_ad.png')"
+                title="Web Ad"
+                :img-src="require('../assets/img/placeholder-300x300.png')"
                 img-alt="Image"
                 img-top
             >
                 <div slot="footer">
-                    <BaseCta to="/drive">Learn more</BaseCta>
+                    <BaseCta to="/">Learn more</BaseCta>
                 </div>
             </b-card>
         </div>
         <div class="col-6 col-md-3">
             <b-card
-                title="Riders Club"
-                :img-src="require('../Data/sites/1/media/web-ads/riders-club/60551-ridersclubad_300x270.png')"
+                title="Web Ad"
+                :img-src="require('../assets/img/placeholder-300x300.png')"
                 img-alt="Image"
                 img-top
             >
                 <div slot="footer">
-                    <BaseCta to="/riders-club">Learn more</BaseCta>
+                    <BaseCta to="/">Learn more</BaseCta>
                 </div>
             </b-card>
         </div>
         <div class="col-6 col-md-3">
             <b-card
-                title="Rider Alerts"
-                :img-src="require('../Data/sites/1/media/web-ads/placeholders/rideralert_ad.png')"
+                title="Web Ad"
+                :img-src="require('../assets/img/placeholder-300x300.png')"
                 img-alt="Image"
                 img-top
             >
                 <div slot="footer">
-                    <BaseCta to="/rider-alerts">Learn more</BaseCta>
+                    <BaseCta to="/">Learn more</BaseCta>
                 </div>
             </b-card>
         </div>
