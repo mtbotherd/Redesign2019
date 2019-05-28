@@ -1,6 +1,7 @@
 <template>
     <div id="serviceAlertsModule">
-        <h1>Alerts</h1>
+        <h1 class="sr-only">Alerts</h1>
+        <p>This is where Alerts module will go.</p>
     </div>
 </template>
 
