@@ -22,7 +22,7 @@
                         role="tabpanel"
                         aria-labelledby="trip-planner-tab"
                     >
-                        <TripPlanner/>
+                        <TripPlannerModule/>
                     </div>
                 </b-tab>
                 <b-tab title-item-class="mr-2" title-link-class="p-md-3">
@@ -45,7 +45,7 @@
                         role="tabpanel"
                         aria-labelledby="nextrip-tab"
                     >
-                        <NexTrip/>
+                        <NexTripModule/>
                     </div>
                 </b-tab>
                 <b-tab title-link-class="p-md-3">
@@ -68,7 +68,7 @@
                         role="tabpanel"
                         aria-labelledby="alerts-tab"
                     >
-                        <ServiceAlerts/>
+                        <ServiceAlertsModule/>
                     </div>
                 </b-tab>
             </b-tabs>
@@ -77,16 +77,16 @@
 </template>
 
 <script>
-import TripPlanner from './TripPlanner'
-import NexTrip from './NexTrip'
-import ServiceAlerts from './ServiceAlerts'
+import TripPlannerModule from './TripPlanner/TripPlannerModule'
+import NexTripModule from './NexTrip/NexTripModule'
+import ServiceAlertsModule from './ServiceAlerts/ServiceAlertsModule'
 
 export default {
 	name: 'TriptoolsTabs',
 	components: {
-		TripPlanner,
-		NexTrip,
-		ServiceAlerts
+		TripPlannerModule,
+		NexTripModule,
+		ServiceAlertsModule
 	}
 }
 </script>

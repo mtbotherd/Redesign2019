@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import TripPlanItinerary from '../components/TripPlanItinerary'
+import TripPlanItinerary from '@/components/TripPlanner/TripPlanItinerary'
 
 export default {
 	name: 'TripPlan',

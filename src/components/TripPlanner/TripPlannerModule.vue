@@ -1,5 +1,5 @@
 <template>
-    <div id="tripPlanner" class="card border-0">
+    <div id="tripPlannerModule" class="card border-0">
         <h1 class="sr-only">Trip Planner</h1>
         <div class="form-group mb-0">
             <input
@@ -256,7 +256,7 @@
 import TripPlannerResults from './TripPlannerResults'
 
 export default {
-	name: 'TripPlanner',
+	name: 'TripPlannerModule',
 	components: {
 		TripPlannerResults
 	},
@@ -270,7 +270,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#tripPlanner {
+#tripPlannerModule {
 	.location-toggler .icon-wrapper {
 		width: 2rem;
 		height: 2rem;

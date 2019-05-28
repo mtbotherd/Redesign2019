@@ -1,5 +1,5 @@
 <template>
-    <div id="nextrip">
+    <div id="nexTripModule">
         <h1>NexTrip</h1>
         <p>The NexTrip module will live here.</p>
     </div>
@@ -7,8 +7,11 @@
 
 <script>
 export default {
-	name: 'NexTrip'
+	name: 'NexTripModule'
 }
 </script>
 
-<style  lang="scss" scoped></style>
+<style  lang="scss" scoped>
+#nexTripModule {
+}
+</style>
