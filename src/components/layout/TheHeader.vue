@@ -30,10 +30,6 @@
                                 <BaseIconSprite name="icon-sm-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="tripToolsDropdown">
-                                <!-- <router-link
-                                    class="dropdown-item"
-                                    :to="{ name: 'home', hash: '#tripPlanner' }"
-                                >Trip Planner</router-link>-->
                                 <router-link
                                     class="dropdown-item"
                                     :to="{ name: 'trip-planner' }"
