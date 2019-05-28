@@ -24,7 +24,7 @@
                 </span>
             </b-card-header>
             <b-card-body class="border-top-0">
-                <div class="row">
+                <div class="row flex-row">
                     <div class="col-md-12 col-lg-5">
                         <div class="d-block tp-itinerary">
                             <div id="leg-1" class="float-left leg-item leg-walk">
@@ -132,7 +132,9 @@
                     </div>
                     <div class="col-md-12 col-lg-7">
                         <div class="tp-basemap">
-                            <b-card no-body class="border">Base map</b-card>
+                            <b-card no-body class="border">
+                                <img class="img-fluid" src="@/assets/img/TripPlanMap1.png">
+                            </b-card>
                         </div>
                     </div>
                 </div>
@@ -148,4 +150,46 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.row.flex-row {
+	display: flex;
+	flex-wrap: wrap;
+}
+.row.flex-row > [class*='col-'] {
+	display: flex;
+	flex-direction: column;
+}
+
+/*
+* And with max cross-browser enabled.
+* Nobody should ever write this by hand. 
+* Use a preprocesser with autoprefixing.
+*/
+.row.flex-row {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.row.flex-row > [class*='col-'] {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+// .tp-basemap {
+// 	margin-top: 1rem;
+
+// 	@include media-breakpoint-up(lg) {
+// 		margin-top: 0;
+// 	}
+// }
 </style>
