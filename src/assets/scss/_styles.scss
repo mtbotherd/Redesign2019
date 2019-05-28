@@ -120,6 +120,14 @@ hr {
 	}
 }
 
+:active {
+	color: transparent;
+	background-color: transparent;
+	border-color: transparent;
+	-webkit-box-shadow: transparent;
+	box-shadow: transparent;
+}
+
 :focus {
 	color: #626462;
 	background-color: #fff;
