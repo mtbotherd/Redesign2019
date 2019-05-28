@@ -18,7 +18,7 @@
                         />Trip Planner
                     </template>
                     <div
-                        class="tt-trip-planner tab-pane fade show active"
+                        class="tt-trip-planner tab-pane fade show"
                         role="tabpanel"
                         aria-labelledby="trip-planner-tab"
                     >
@@ -41,7 +41,7 @@
                         />NexTrip
                     </template>
                     <div
-                        class="tt-nextrip tab-pane fade"
+                        class="tt-nextrip tab-pane fade show"
                         role="tabpanel"
                         aria-labelledby="nextrip-tab"
                     >
@@ -64,7 +64,7 @@
                         />Alerts
                     </template>
                     <div
-                        class="tt-alerts tab-pane fade"
+                        class="tt-alerts tab-pane fade show"
                         role="tabpanel"
                         aria-labelledby="alerts-tab"
                     >
