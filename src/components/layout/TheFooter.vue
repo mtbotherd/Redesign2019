@@ -53,7 +53,7 @@
 
 <script>
 export default {
-	name: 'FooterSection'
+	name: 'TheFooter'
 }
 </script>
 

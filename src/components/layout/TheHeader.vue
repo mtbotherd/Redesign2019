@@ -208,7 +208,7 @@
 <script>
 //  Components with the prefix "Base" are already registered globally in main.js
 export default {
-	name: 'HeaderSection'
+	name: 'TheHeader'
 }
 </script>
 

@@ -1,23 +1,23 @@
 <template>
     <div id="app">
-        <HeaderSection/>
+        <TheHeader/>
         <section id="mainContent">
             <router-view/>
         </section>
-        <footerSection/>
+        <TheFooter/>
     </div>
 </template>
 
 <script>
 // Import components into this view.
-import HeaderSection from './components/layout/HeaderSection.vue'
-import FooterSection from './components/layout/FooterSection.vue'
+import TheHeader from './components/layout/TheHeader.vue'
+import TheFooter from './components/layout/TheFooter.vue'
 
 export default {
 	name: 'app',
 	components: {
-		HeaderSection,
-		FooterSection
+		TheHeader,
+		TheFooter
 	}
 }
 </script>
