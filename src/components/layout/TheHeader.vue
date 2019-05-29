@@ -4,7 +4,7 @@
             <a class="skip-to-content" href="#mainContent">Skip to main content</a>
             <div class="container">
                 <router-link class="navbar-brand" :to="{ name: 'home' }">
-                    <img src="../../assets/img/MetroTransitLogo.svg" class="logo d-inline-block">
+                    <img src="@/assets/img/MetroTransitLogo.svg" class="logo d-inline-block">
                 </router-link>
                 <button
                     class="navbar-toggler navbar-toggler-right"
