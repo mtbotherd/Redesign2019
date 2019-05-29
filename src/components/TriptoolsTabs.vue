@@ -18,7 +18,7 @@
                         />Trip Planner
                     </template>
                     <div
-                        class="tt-trip-planner tab-pane fade show"
+                        class="tt-trip-planner tab-pane fade show active"
                         role="tabpanel"
                         aria-labelledby="trip-planner-tab"
                     >
