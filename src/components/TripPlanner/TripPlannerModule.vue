@@ -38,11 +38,6 @@
                         name="selectTime"
                         class="custom-select custom-select-lg"
                     >
-                        <!-- <option
-                            v-for="option in options"
-                            v-bind:value="option.id"
-                            v-bind:key="option.value"
-                        >{{ option.value }}</option>-->
                         <option value="leave-now">Leave now</option>
                         <option value="depart-at">Depart at</option>
                         <option value="arrive-by">Arrive by</option>
