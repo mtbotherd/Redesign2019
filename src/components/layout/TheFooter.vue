@@ -39,7 +39,7 @@
             </div>
             <p class="text-center pt-5">
                 <small>
-                    Metro Transit is a service of the Metropolitcan Council.
+                    Metro Transit is a service of the Metropolitan Council.
                     <span
                         class="d-block d-md-none"
                     >
