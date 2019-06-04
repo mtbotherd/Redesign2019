@@ -10,7 +10,7 @@ module.exports = {
 	},
 	assetsDir: undefined,
 	lintOnSave: undefined,
-	publicPath: undefined,
+	publicPath: '/',
 	outputDir: 'dist',
 	runtimeCompiler: undefined,
 	productionSourceMap: false,
