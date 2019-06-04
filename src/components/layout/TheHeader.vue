@@ -3,9 +3,9 @@
         <nav class="navbar navbar-expand-xl navbar-light border-bottom">
             <a class="skip-to-content" href="#mainContent">Skip to main content</a>
             <div class="container">
-                <router-link class="navbar-brand" :to="{ name: 'home' }">
-                    <img src="@/assets/img/MetroTransitLogo.svg" class="logo d-inline-block">
-                </router-link>
+                <b-navbar-brand :to="{ name: 'home' }">
+                    <img src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
+                </b-navbar-brand>
                 <button
                     class="navbar-toggler navbar-toggler-right"
                     type="button"
@@ -30,22 +30,22 @@
                                 <BaseIconSprite name="icon-sm-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="tripToolsDropdown">
-                                <router-link
+                                <b-link
                                     class="dropdown-item"
                                     :to="{ name: 'trip-planner' }"
-                                >Trip Planner</router-link>
-                                <router-link class="dropdown-item" :to="{ name: 'nextrip' }">NexTrip</router-link>
-                                <router-link
+                                >Trip Planner</b-link>
+                                <b-link class="dropdown-item" :to="{ name: 'nextrip' }">NexTrip</b-link>
+                                <b-link
                                     class="dropdown-item"
                                     :to="{ name: 'find-stops' }"
-                                >Find Stops</router-link>
+                                >Find Stops</b-link>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <router-link
+                            <b-link
                                 class="nav-link"
                                 :to="{ name: 'schedules-maps' }"
-                            >Schedules &amp; Maps</router-link>
+                            >Schedules &amp; Maps</b-link>
                         </li>
                         <li class="nav-item dropdown">
                             <a
@@ -61,18 +61,15 @@
                                 <BaseIconSprite name="icon-sm-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="faresDropdown">
-                                <router-link
+                                <b-link
                                     class="dropdown-item"
                                     :to="{ name: 'ride-costs' }"
-                                >Ride Costs</router-link>
-                                <router-link
-                                    class="dropdown-item"
-                                    :to="{ name: 'goto-card' }"
-                                >Go-To Card</router-link>
-                                <router-link
+                                >Ride Costs</b-link>
+                                <b-link class="dropdown-item" :to="{ name: 'goto-card' }">Go-To Card</b-link>
+                                <b-link
                                     class="dropdown-item"
                                     :to="{ name: 'discount-programs' }"
-                                >Discount Programs</router-link>
+                                >Discount Programs</b-link>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -89,18 +86,9 @@
                                 <BaseIconSprite name="icon-sm-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="faresDropdown">
-                                <router-link
-                                    class="dropdown-item"
-                                    :to="{ name: 'link-name' }"
-                                >Link name</router-link>
-                                <router-link
-                                    class="dropdown-item"
-                                    :to="{ name: 'link-name' }"
-                                >Link name</router-link>
-                                <router-link
-                                    class="dropdown-item"
-                                    :to="{ name: 'link-name' }"
-                                >Link name</router-link>
+                                <b-link class="dropdown-item" :to="{ name: 'link-name' }">Link name</b-link>
+                                <b-link class="dropdown-item" :to="{ name: 'link-name' }">Link name</b-link>
+                                <b-link class="dropdown-item" :to="{ name: 'link-name' }">Link name</b-link>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -117,18 +105,18 @@
                                 <BaseIconSprite name="icon-sm-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="helpDropdown">
-                                <router-link
+                                <b-link
                                     class="dropdown-item"
                                     :to="{ name: 'contact-us' }"
-                                >Contact Us</router-link>
-                                <router-link
+                                >Contact Us</b-link>
+                                <b-link
                                     class="dropdown-item"
                                     :to="{ name: 'transit-police' }"
-                                >Transit Police</router-link>
-                                <router-link
+                                >Transit Police</b-link>
+                                <b-link
                                     class="dropdown-item"
                                     :to="{ name: 'how-to-ride-guide' }"
-                                >How to Ride Guide</router-link>
+                                >How to Ride Guide</b-link>
                             </div>
                         </li>
                         <li class="nav-item dropdown">

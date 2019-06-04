@@ -4,10 +4,10 @@
             <div class="container">
                 <FindSchedulesByRoute class="d-none d-md-block"/>
                 <div class="cta-link-white mt-md-2 mt-xl-4">
-                    <router-link
-                        class="d-inline-flex nav-link stretched-link"
-                        :to="{ name: 'schedules-maps' }"
-                    >View all Schedules &amp; Maps</router-link>
+                    <b-link
+                        class="d-inline-flex nav-link"
+                        to="schedules-maps"
+                    >View all Schedules &amp; Maps</b-link>
                     <BaseIconSprite name="icon-sm-arrow-right-white" class="flex-fill"/>
                 </div>
             </div>
@@ -52,7 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 .hero-bg {
-	background-image: url('../assets/img/mt-header-lrt-2000x457.jpg');
+	background-image: url('/img/mt-header-lrt-2000x457.jpg');
 	background-size: cover;
 	background-position: 90%;
 	background-repeat: no-repeat;

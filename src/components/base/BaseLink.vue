@@ -3,11 +3,11 @@
 -->
 <template>
     <div id="baseLink" class="text-center">
-        <router-link class="btn btn-outline-primary" :to="to">
+        <b-link class="btn btn-outline-primary" :to="to">
             <slot>{{ buttonLabel }}</slot>
             <BaseIconSprite name="icon-sm-arrow-right-blue" class="state-normal"/>
             <BaseIconSprite name="icon-sm-arrow-right-white" class="state-hover"/>
-        </router-link>
+        </b-link>
     </div>
 </template>
 
