@@ -3,8 +3,8 @@
         <div class="col-6 col-md-3">
             <b-card
                 title="Web Ad"
-                :img-src="require('../assets/img/placeholder-300x300.png')"
-                img-alt="Image"
+                :img-src="require('../../public/img/placeholder-300x300.png')"
+                img-alt="CMS image"
                 img-top
             >
                 <div slot="footer">
@@ -15,8 +15,8 @@
         <div class="col-6 col-md-3">
             <b-card
                 title="Web Ad"
-                :img-src="require('../assets/img/placeholder-300x300.png')"
-                img-alt="Image"
+                :img-src="require('../../public/img/placeholder-300x300.png')"
+                img-alt="CMS image"
                 img-top
             >
                 <div slot="footer">
@@ -27,8 +27,8 @@
         <div class="col-6 col-md-3">
             <b-card
                 title="Web Ad"
-                :img-src="require('../assets/img/placeholder-300x300.png')"
-                img-alt="Image"
+                :img-src="require('../../public/img/placeholder-300x300.png')"
+                img-alt="CMS image"
                 img-top
             >
                 <div slot="footer">
@@ -39,8 +39,8 @@
         <div class="col-6 col-md-3">
             <b-card
                 title="Web Ad"
-                :img-src="require('../assets/img/placeholder-300x300.png')"
-                img-alt="Image"
+                :img-src="require('../../public/img/placeholder-300x300.png')"
+                img-alt="CMS image"
                 img-top
             >
                 <div slot="footer">
