@@ -133,7 +133,7 @@
                     <div class="col-md-12 col-lg-7">
                         <div class="tp-basemap">
                             <b-card no-body class="border">
-                                <img class="img-fluid" src="@/assets/img/TripPlanMap1.png">
+                                <img class="img-fluid" src="/img/TripPlanMap1.png">
                             </b-card>
                         </div>
                     </div>
