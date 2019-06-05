@@ -1,6 +1,6 @@
 <template>
     <div class="container nextrip">
-        <NexTrip/>
+        <NexTripModule/>
     </div>
 </template>
 
@@ -8,7 +8,8 @@
 import NexTripMoodule from '@/components/NexTrip/NexTripModule'
 
 export default {
-	title: 'Metro Transit | NexTrip'
+	title: 'Metro Transit | NexTrip',
+	name: 'NexTrip'
 }
 </script>
 

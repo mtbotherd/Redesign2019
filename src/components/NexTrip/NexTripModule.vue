@@ -11,6 +11,7 @@
                         name="selectRoute"
                         class="custom-select custom-select-lg"
                     >
+                        <option value>Select route</option>
                         <option value="route-1">Route 1</option>
                         <option value="route-2">Route 2</option>
                         <option value="route-2">Route 3</option>
@@ -30,7 +31,7 @@
                         class="form-control form-control-lg"
                         required
                     >
-                    <label for="stopNumber" class="form-control-placeholder">Enter Stop Number</label>
+                    <label for="stopNumber" class="form-control-placeholder">Enter stop number</label>
                 </div>
             </div>
         </div>
