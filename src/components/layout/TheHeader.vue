@@ -30,22 +30,13 @@
                                 <BaseIconSprite name="icon-sm-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="tripToolsDropdown">
-                                <b-link
-                                    class="dropdown-item"
-                                    :to="{ name: 'trip-planner' }"
-                                >Trip Planner</b-link>
-                                <b-link class="dropdown-item" :to="{ name: 'nextrip' }">NexTrip</b-link>
-                                <b-link
-                                    class="dropdown-item"
-                                    :to="{ name: 'find-stops' }"
-                                >Find Stops</b-link>
+                                <b-link class="dropdown-item" href="#trip-planner">Trip Planner</b-link>
+                                <b-link class="dropdown-item" href="#nextrip">NexTrip</b-link>
+                                <b-link class="dropdown-item" href="#find-stops">Find Stops</b-link>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <b-link
-                                class="nav-link"
-                                :to="{ name: 'schedules-maps' }"
-                            >Schedules &amp; Maps</b-link>
+                            <b-link class="nav-link" href="schedules-maps">Schedules &amp; Maps</b-link>
                         </li>
                         <li class="nav-item dropdown">
                             <a
@@ -61,14 +52,11 @@
                                 <BaseIconSprite name="icon-sm-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="faresDropdown">
+                                <b-link class="dropdown-item" href="ride-costs">Ride Costs</b-link>
+                                <b-link class="dropdown-item" href="goto-card">Go-To Card</b-link>
                                 <b-link
                                     class="dropdown-item"
-                                    :to="{ name: 'ride-costs' }"
-                                >Ride Costs</b-link>
-                                <b-link class="dropdown-item" :to="{ name: 'goto-card' }">Go-To Card</b-link>
-                                <b-link
-                                    class="dropdown-item"
-                                    :to="{ name: 'discount-programs' }"
+                                    href="discount-programs"
                                 >Discount Programs</b-link>
                             </div>
                         </li>
@@ -86,9 +74,9 @@
                                 <BaseIconSprite name="icon-sm-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="faresDropdown">
-                                <b-link class="dropdown-item" :to="{ name: 'link-name' }">Link name</b-link>
-                                <b-link class="dropdown-item" :to="{ name: 'link-name' }">Link name</b-link>
-                                <b-link class="dropdown-item" :to="{ name: 'link-name' }">Link name</b-link>
+                                <b-link class="dropdown-item" href>Link name</b-link>
+                                <b-link class="dropdown-item" href>Link name</b-link>
+                                <b-link class="dropdown-item" href>Link name</b-link>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -105,17 +93,11 @@
                                 <BaseIconSprite name="icon-sm-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="helpDropdown">
+                                <b-link class="dropdown-item" href="contact-us">Contact Us</b-link>
+                                <b-link class="dropdown-item" href="transit-police">Transit Police</b-link>
                                 <b-link
                                     class="dropdown-item"
-                                    :to="{ name: 'contact-us' }"
-                                >Contact Us</b-link>
-                                <b-link
-                                    class="dropdown-item"
-                                    :to="{ name: 'transit-police' }"
-                                >Transit Police</b-link>
-                                <b-link
-                                    class="dropdown-item"
-                                    :to="{ name: 'how-to-ride-guide' }"
+                                    href="how-to-ride-guide"
                                 >How to Ride Guide</b-link>
                             </div>
                         </li>
