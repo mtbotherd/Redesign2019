@@ -109,6 +109,7 @@ export default {
 
 <style lang="scss" scoped>
 .tt-trip-planner-results {
+	display: none;
 	p {
 		@include fontSize(16);
 	}
