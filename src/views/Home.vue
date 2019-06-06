@@ -72,7 +72,7 @@ export default {
 
 .cta-link-white {
 	position: relative;
-	border: 1px solid #ffffff;
+	border: 2px solid #ffffff;
 
 	.nav-link {
 		color: white;
