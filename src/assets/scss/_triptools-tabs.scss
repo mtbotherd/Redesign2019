@@ -11,19 +11,29 @@
 		margin-bottom: 2rem;
 
 		.nav-item {
+			position: relative;
 			flex-basis: 0;
 			flex-grow: 1;
 			text-align: center;
 			background-color: $cyan;
 			margin-bottom: 0;
 
-			@include media-breakpoint-up(md) {
-				position: relative;
-				.icon-wrapper {
+			.icon-wrapper {
+				width: 35px;
+				height: 35px;
+
+				@include media-breakpoint-up(md) {
 					position: absolute;
-					top: 0.25rem;
+					top: 1rem;
 				}
 
+				@include media-breakpoint-up(xl) {
+					width: 50px;
+					height: 50px;
+				}
+			}
+
+			@include media-breakpoint-up(md) {
 				&:nth-child(1) .icon-wrapper {
 					left: 10px;
 				}
@@ -36,44 +46,34 @@
 			}
 
 			@include media-breakpoint-up(lg) {
-				position: relative;
-				.icon-wrapper {
-					position: absolute;
-					top: 0.25rem;
-				}
-
 				&:nth-child(1) .icon-wrapper {
-					left: 41px;
+					left: 50px;
 				}
 				&:nth-child(2) .icon-wrapper {
-					left: 66px;
+					left: 74px;
 				}
 				&:nth-child(3) .icon-wrapper {
-					left: 71px;
+					left: 80px;
 				}
 			}
 
 			@include media-breakpoint-up(xl) {
-				position: relative;
-				.icon-wrapper {
-					position: absolute;
-					top: 0.25rem;
-				}
-
 				&:nth-child(1) .icon-wrapper {
-					left: 48px;
+					left: 41px;
 				}
 				&:nth-child(2) .icon-wrapper {
-					left: 84px;
+					left: 74px;
 				}
 				&:nth-child(3) .icon-wrapper {
-					left: 92px;
+					left: 81px;
 				}
 			}
 
 			.nav-link {
 				background-color: $cyan;
 				color: $white;
+				font-weight: $font-weight-bold;
+				padding: 0.5rem;
 				text-decoration: none;
 
 				@include media-breakpoint-up(md) {
@@ -111,18 +111,6 @@
 					.svg-inactive {
 						display: none !important;
 					}
-				}
-			}
-			.icon-wrapper {
-				width: 38px;
-				height: 40px;
-
-				@include media-breakpoint-up(sm) {
-					top: 0.75rem;
-				}
-
-				@include media-breakpoint-up(md) {
-					top: 0.9rem;
 				}
 			}
 		}
