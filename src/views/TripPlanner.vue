@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TripPlannerModule from '@/components/TripPlanner/TripPlannerModule'
+import TripPlannerModule from '@/components/trip-planner/TripPlannerModule'
 export default {
 	name: 'TripPlanner',
 	title: 'Metro Transit | Trip Planner'

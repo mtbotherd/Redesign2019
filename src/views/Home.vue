@@ -25,7 +25,7 @@
             </section>
             <section class="section">
                 <div class="container">
-                    <WebAds/>
+                    <News/>
                 </div>
             </section>
         </div>
@@ -36,7 +36,7 @@
 import FindSchedulesByRoute from '../components/FindSchedulesByRoute'
 import TriptoolsTabs from '../components/TriptoolsTabs'
 import HowToRide from '../components/HowToRide'
-import WebAds from '../components/WebAds'
+import News from '../components/News'
 
 export default {
 	name: 'Home',
@@ -44,7 +44,7 @@ export default {
 		FindSchedulesByRoute,
 		TriptoolsTabs,
 		HowToRide,
-		WebAds
+		News
 	},
 	title: 'Metro Transit | Home'
 }
@@ -109,8 +109,8 @@ export default {
 
 #homeContent {
 	position: relative;
-	top: -4.93rem;
-	margin-bottom: -4.93rem;
+	top: -4.74rem;
+	margin-bottom: -4.74rem;
 
 	@include media-breakpoint-up(md) {
 		top: -4.2rem;
