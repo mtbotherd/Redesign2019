@@ -7,6 +7,9 @@ import App from './App.vue'
 import router from './router'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
+import VueFloatLabel from 'vue-float-label'
+
+Vue.use(VueFloatLabel)
 
 //  Include jQuerey
 const $ = require('jquery')
@@ -56,9 +59,9 @@ requireComponent.keys().forEach(fileName => {
 $(function() {
 	// Trip Planner
 	// Location switcher
-	var inputs = $('.tp-from-location, .tp-to-location'),
+	var inputs = $('.from-location, .to-location'),
 		tmp
-	$('.tp-location-toggler .icon-wrapper').click(function() {
+	$('.location-toggler .icon-wrapper').click(function() {
 		tmp = inputs[0].value
 		inputs[0].value = inputs[1].value
 		inputs[1].value = tmp
