@@ -2,15 +2,18 @@
     <div id="tripPlannerModule" class="card border-0">
         <h1 class="sr-only">Trip Planner</h1>
         <div class="form-group mb-0">
-            <input
-                id="fromLocation"
-                v-model="fromLocation"
-                type="text"
-                name="fromLocation"
-                class="form-control form-control-lg from-location"
-                required
-            >
-            <label for="fromLocation" class="form-control-placeholder">From</label>
+            <float-label>
+                <input
+                    id="fromLocation"
+                    v-model="fromLocation"
+                    type="text"
+                    name="fromLocation"
+                    class="form-control form-control-lg from-location"
+                    placeholder="To"
+                    required
+                >
+            </float-label>
+            <!-- <label for="fromLocation" class="form-control-placeholder">From</label> -->
         </div>
         <div class="location-toggler text-right">
             <BaseIconSprite
@@ -19,20 +22,23 @@
             />
         </div>
         <div class="form-group">
-            <input
-                id="toLocation"
-                v-model="toLocation"
-                type="text"
-                name="toLocation"
-                class="form-control form-control-lg to-location"
-                required
-            >
-            <label for="toLocation" class="form-control-placeholder">To</label>
+            <float-label>
+                <input
+                    id="toLocation"
+                    v-model="toLocation"
+                    type="text"
+                    name="toLocation"
+                    class="form-control form-control-lg to-location"
+                    placeholder="From"
+                    required
+                >
+            </float-label>
+            <!-- <label for="toLocation" class="form-control-placeholder">To</label> -->
         </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="selectTime" class="sr-only">Leave now</label>
+                    <label for="selectTime" class="sr-only">Select time</label>
                     <select
                         id="selectTime"
                         name="selectTime"
@@ -277,6 +283,10 @@ export default {
 		.input-group-append {
 			padding: 0.375rem 0.75rem;
 		}
+	}
+
+	input::placeholder {
+		font-weight: $font-weight-medium;
 	}
 
 	.custom-select {
