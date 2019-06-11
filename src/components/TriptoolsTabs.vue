@@ -2,7 +2,12 @@
     <div id="tripToolsTabs" class="trip-tools-tabs">
         <b-card no-body>
             <b-tabs>
-                <b-tab title-item-class="trip-planner-tab mr-2" title-link-class="p-md-3" active>
+                <b-tab
+                    id="tripPlannerTab"
+                    title-item-class="trip-planner-tab mr-2"
+                    title-link-class="p-md-3"
+                    active
+                >
                     <template slot="title">
                         <BaseIconSprite name="icon-lg-directions-color" class="svg-active mx-auto"/>
                         <BaseIconSprite
@@ -13,12 +18,12 @@
                     <div
                         class="tt-trip-planner tab-pane fade show active"
                         role="tabpanel"
-                        aria-labelledby="trip-planner-tab"
+                        aria-labelledby="tripPlannerTab"
                     >
                         <TripPlannerModule/>
                     </div>
                 </b-tab>
-                <b-tab title-item-class="mr-2" title-link-class="p-md-3">
+                <b-tab id="nextripTab" title-item-class="mr-2" title-link-class="p-md-3">
                     <template slot="title">
                         <BaseIconSprite
                             name="icon-lg-clock-color"
@@ -32,12 +37,12 @@
                     <div
                         class="tt-nextrip tab-pane fade show"
                         role="tabpanel"
-                        aria-labelledby="nextrip-tab"
+                        aria-labelledby="nextripTab"
                     >
                         <NexTripModule/>
                     </div>
                 </b-tab>
-                <b-tab title-link-class="p-md-3">
+                <b-tab id="alertsTab" title-link-class="p-md-3">
                     <template slot="title">
                         <BaseIconSprite
                             name="icon-lg-triangle-exclamation-color"
@@ -51,7 +56,7 @@
                     <div
                         class="tt-alerts tab-pane fade show"
                         role="tabpanel"
-                        aria-labelledby="alerts-tab"
+                        aria-labelledby="alertsTab"
                     >
                         <AlertsModule/>
                     </div>

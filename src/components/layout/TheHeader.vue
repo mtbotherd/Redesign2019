@@ -4,7 +4,11 @@
             <a class="skip-to-content" href="#mainContent">Skip to main content</a>
             <div class="container">
                 <b-navbar-brand :to="{ name: 'home' }">
-                    <img src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
+                    <img
+                        alt="metro transit logo"
+                        src="/img/MetroTransitLogo.svg"
+                        class="logo d-inline-block"
+                    >
                 </b-navbar-brand>
                 <button
                     class="navbar-toggler navbar-toggler-right"
@@ -137,7 +141,7 @@
                                 <span class="sr-only">Search</span>
                                 <BaseIconSprite name="icon-sm-magnifying-glass-gray"/>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="searchDropdown">
+                            <!-- <div class="dropdown-menu" aria-labelledby="searchDropdown">
                                 <div class="form-group">
                                     <label for="siteSearch" class="sr-only">Search</label>
                                     <input
@@ -147,7 +151,7 @@
                                         placeholder="Enter search word or phrase"
                                     >
                                 </div>
-                            </div>
+                            </div>-->
                         </li>
                         <li>
                             <a
