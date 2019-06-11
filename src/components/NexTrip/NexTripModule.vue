@@ -46,6 +46,11 @@ export default {
 			stopNumber: ''
 		}
 	}
+	// mounted() {
+	// 	if (this.href === window.location.hash) {
+	// 		this.isActive = true
+	// 	}
+	// }
 }
 </script>
 
