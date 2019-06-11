@@ -1,5 +1,5 @@
 <template>
-    <div id="serviceAlertsModule">
+    <div id="alertsModule">
         <h1 class="sr-only">Alerts</h1>
         <p>This is where Alerts module will go.</p>
     </div>
@@ -7,11 +7,11 @@
 
 <script>
 export default {
-	name: 'ServiceAlertsModule'
+	name: 'AlertsModule'
 }
 </script>
 
 <style lang="scss" scoped>
-#serviceAlertsModule {
+#alertsModule {
 }
 </style>

@@ -53,7 +53,7 @@
                         role="tabpanel"
                         aria-labelledby="alerts-tab"
                     >
-                        <ServiceAlertsModule/>
+                        <AlertsModule/>
                     </div>
                 </b-tab>
             </b-tabs>
@@ -64,14 +64,14 @@
 <script>
 import TripPlannerModule from './trip-planner/TripPlannerModule'
 import NexTripModule from './nextrip/NexTripModule'
-import ServiceAlertsModule from './service-alerts/ServiceAlertsModule'
+import AlertsModule from './alerts/AlertsModule'
 
 export default {
 	name: 'TriptoolsTabs',
 	components: {
 		TripPlannerModule,
 		NexTripModule,
-		ServiceAlertsModule
+		AlertsModule
 	}
 }
 </script>

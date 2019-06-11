@@ -2,7 +2,7 @@
 	<baseLink :to="{ name: 'router-link-name' }">button label</baseLink>
 -->
 <template>
-    <div id="baseLink" class="text-center">
+    <div class="text-center">
         <b-link class="btn btn-outline-primary" :to="to">
             <slot>{{ buttonLabel }}</slot>
             <BaseIconSprite name="icon-sm-arrow-right-blue" class="state-normal"/>

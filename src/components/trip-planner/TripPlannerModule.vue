@@ -2,7 +2,7 @@
     <div id="tripPlannerModule" class="card border-0">
         <h1 class="sr-only">Trip Planner</h1>
         <div class="form-group mb-0">
-            <float-label>
+            <float-label for="fromLocation">
                 <input
                     id="fromLocation"
                     v-model="fromLocation"
@@ -22,7 +22,7 @@
             />
         </div>
         <div class="form-group">
-            <float-label>
+            <float-label for="toLocation">
                 <input
                     id="toLocation"
                     v-model="toLocation"
@@ -233,7 +233,7 @@
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input
-                                        id="acessibleNo"
+                                        id="accessibleNo"
                                         type="radio"
                                         name="accessible"
                                         class="custom-control-input"
