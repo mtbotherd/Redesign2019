@@ -23,15 +23,20 @@
             </div>
             <div class="col-md-5">
                 <div class="form-group">
-                    <input
-                        id="stopNumber"
-                        v-model="stopNumber"
-                        type="text"
-                        name="stopNumber"
-                        class="form-control form-control-lg"
-                        required
-                    >
-                    <label for="stopNumber" class="form-control-placeholder">Enter stop number</label>
+                    <!-- <div class="float-label"> -->
+                    <float-label for="stopNumber">
+                        <input
+                            id="stopNumber"
+                            v-model="stopNumber"
+                            type="text"
+                            name="stopNumber"
+                            class="form-control form-control-lg"
+                            placeholder="Enter stop number"
+                            required
+                        >
+                    </float-label>
+                    <!-- <label for="stopNumber">Enter stop number</label> -->
+                    <!-- </div> -->
                 </div>
             </div>
         </div>

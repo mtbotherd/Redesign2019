@@ -5,37 +5,22 @@
 // 1. Add the input element first. Make sure it is required.
 // 2. Add the clase "form-control-placeholder" to the label element.
 
-// New Float labels using vue-float-labels.
-
 .form-group {
 	position: relative;
 
-	// .vfl-label-on-focus {
-	// 	top: 0;
-	// 	left: 0.2rem;
-	// 	transition: all 0.2s ease-in;
-	// }
-
-	.vfl-label {
-		@include fontSize(12);
-		text-transform: uppercase;
+	// New Float labels using vue-float-labels
+	// https://github.com/brtjkzl/vue-float-label
+	.vfl-label-on-input {
+		top: -2px;
+		left: 3px;
 	}
 
 	.vfl-label-on-focus {
 		color: $gray-300;
+		font-size: 6 0%;
 	}
-
-	.vfl-label-on-input {
-		top: 0;
-		left: 0.2rem;
-	}
-
-	// .vfl-label-on-focus {
-	// 	color: #ff851b;
-	// }
 
 	.vfl-label + input {
-		font-size: 100%;
 		transition: border 0.2s;
 	}
 }

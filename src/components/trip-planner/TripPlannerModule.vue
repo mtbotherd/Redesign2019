@@ -9,11 +9,11 @@
                     type="text"
                     name="fromLocation"
                     class="form-control form-control-lg from-location"
-                    placeholder="To"
+                    placeholder="From"
                     required
                 >
+                <!-- <label for="fromLocation">From</label> -->
             </float-label>
-            <!-- <label for="fromLocation" class="form-control-placeholder">From</label> -->
         </div>
         <div class="location-toggler text-right">
             <BaseIconSprite
@@ -29,11 +29,10 @@
                     type="text"
                     name="toLocation"
                     class="form-control form-control-lg to-location"
-                    placeholder="From"
+                    placeholder="To"
                     required
                 >
             </float-label>
-            <!-- <label for="toLocation" class="form-control-placeholder">To</label> -->
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -44,9 +43,7 @@
                         name="selectTime"
                         class="custom-select custom-select-lg"
                     >
-                        <option value="leave-now">Leave now</option>
-                        <option value="depart-at">Depart at</option>
-                        <option value="arrive-by">Arrive by</option>
+                        <option v-for="option in options" :value="option.value">{{ option.text }}</option>
                     </select>
                 </div>
                 <div class="row time-elements">
@@ -264,7 +261,18 @@ export default {
 	data() {
 		return {
 			fromLocation: '',
-			toLocation: ''
+			toLocation: '',
+			// selectTime: 'Leave now',
+			options: [
+				{ value: 'leave-now', text: 'Leave now' },
+				{ value: 'depart-at', text: 'Depart at' },
+				{ value: 'arrive-by', text: 'Arrive by' }
+			]
+		}
+	},
+	computed: {
+		isActive() {
+			return false
 		}
 	}
 }
@@ -286,7 +294,7 @@ export default {
 	}
 
 	input::placeholder {
-		font-weight: $font-weight-medium;
+		font-weight: $font-weight-bold;
 	}
 
 	.custom-select {
