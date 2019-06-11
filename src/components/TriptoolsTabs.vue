@@ -1,8 +1,14 @@
 <template>
     <div id="tripToolsTabs" class="trip-tools-tabs">
         <b-card no-body>
-            <b-tabs>
-                <b-tab title-item-class="trip-planner-tab mr-2" title-link-class="p-md-3" active>
+            <b-tabs v-model="tabIndex">
+                <b-tab
+                    title="Trip Planner"
+                    title-item-class="mr-2"
+                    title-link-class="p-md-3"
+                    href="#trip-planner"
+                    active
+                >
                     <template slot="title">
                         <BaseIconSprite name="icon-lg-directions-color" class="svg-active mx-auto"/>
                         <BaseIconSprite
@@ -14,7 +20,12 @@
                         <TripPlannerModule/>
                     </div>
                 </b-tab>
-                <b-tab title-item-class="mr-2" title-link-class="p-md-3">
+                <b-tab
+                    title="NexTrip"
+                    title-item-class="mr-2"
+                    title-link-class="p-md-3"
+                    href="#nextrip"
+                >
                     <template slot="title">
                         <BaseIconSprite
                             name="icon-lg-clock-color"
@@ -29,7 +40,7 @@
                         <NexTripModule/>
                     </div>
                 </b-tab>
-                <b-tab title-link-class="p-md-3">
+                <b-tab title="Alerts" title-link-class="p-md-3" href="#alerts">
                     <template slot="title">
                         <BaseIconSprite
                             name="icon-lg-triangle-exclamation-color"
@@ -46,6 +57,42 @@
                 </b-tab>
             </b-tabs>
         </b-card>
+
+        <!-- <b-nav tabs fill>
+            <b-nav-item href="#tripPlanner" active>
+                <BaseIconSprite name="icon-lg-directions-color" class="svg-active mx-auto"/>
+                <BaseIconSprite name="icon-lg-directions-white" class="svg-inactive mx-auto"/>Trip Planner
+                <div class="tt-trip-planner tab-pane fade show active" role="tabpanel">
+                <TripPlannerModule/>
+                </div>
+            </b-nav-item>
+            <b-nav-item href="#nextrip">
+                <BaseIconSprite
+                    name="icon-lg-clock-color"
+                    class="svg-active d-block d-md-inline-block ml-auto mr-auto"
+                />
+                <BaseIconSprite
+                    name="icon-lg-clock-white"
+                    class="svg-inactive d-block d-md-inline-block ml-auto mr-auto"
+                />NexTrip
+                <div class="tt-nextrip tab-pane fade show" role="tabpanel">
+                <NexTripModule/>
+                </div>
+            </b-nav-item>
+            <b-nav-item href="#alerts">
+                <BaseIconSprite
+                    name="icon-lg-triangle-exclamation-color"
+                    class="svg-active d-block d-md-inline-block ml-auto mr-auto"
+                />
+                <BaseIconSprite
+                    name="icon-lg-triangle-exclamation-white"
+                    class="svg-inactive d-block d-md-inline-block ml-auto mr-auto"
+                />Alerts
+                <div class="tt-alerts tab-pane fade show" role="tabpanel">
+                <AlertsModule/>
+                </div>
+            </b-nav-item>
+        </b-nav>-->
     </div>
 </template>
 
@@ -60,6 +107,15 @@ export default {
 		TripPlannerModule,
 		NexTripModule,
 		AlertsModule
+	},
+	data() {
+		return {
+			tabIndex: 0, // Current tab
+			tabs: ['#trip-planner', '#nextrip', '#alerts']
+		}
+	},
+	mounted() {
+		this.tabIndex = this.tabs.findIndex(tab => tab === this.$route.hash)
 	}
 }
 </script>
