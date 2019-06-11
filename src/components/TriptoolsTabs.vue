@@ -2,12 +2,7 @@
     <div id="tripToolsTabs" class="trip-tools-tabs">
         <b-card no-body>
             <b-tabs>
-                <b-tab
-                    id="tripPlannerTab"
-                    title-item-class="trip-planner-tab mr-2"
-                    title-link-class="p-md-3"
-                    active
-                >
+                <b-tab title-item-class="trip-planner-tab mr-2" title-link-class="p-md-3" active>
                     <template slot="title">
                         <BaseIconSprite name="icon-lg-directions-color" class="svg-active mx-auto"/>
                         <BaseIconSprite
@@ -15,15 +10,11 @@
                             class="svg-inactive mx-auto"
                         />Trip Planner
                     </template>
-                    <div
-                        class="tt-trip-planner tab-pane fade show active"
-                        role="tabpanel"
-                        aria-labelledby="tripPlannerTab"
-                    >
+                    <div class="tt-trip-planner tab-pane fade show active" role="tabpanel">
                         <TripPlannerModule/>
                     </div>
                 </b-tab>
-                <b-tab id="nextripTab" title-item-class="mr-2" title-link-class="p-md-3">
+                <b-tab title-item-class="mr-2" title-link-class="p-md-3">
                     <template slot="title">
                         <BaseIconSprite
                             name="icon-lg-clock-color"
@@ -34,15 +25,11 @@
                             class="svg-inactive d-block d-md-inline-block ml-auto mr-auto"
                         />NexTrip
                     </template>
-                    <div
-                        class="tt-nextrip tab-pane fade show"
-                        role="tabpanel"
-                        aria-labelledby="nextripTab"
-                    >
+                    <div class="tt-nextrip tab-pane fade show" role="tabpanel">
                         <NexTripModule/>
                     </div>
                 </b-tab>
-                <b-tab id="alertsTab" title-link-class="p-md-3">
+                <b-tab title-link-class="p-md-3">
                     <template slot="title">
                         <BaseIconSprite
                             name="icon-lg-triangle-exclamation-color"
@@ -53,11 +40,7 @@
                             class="svg-inactive d-block d-md-inline-block ml-auto mr-auto"
                         />Alerts
                     </template>
-                    <div
-                        class="tt-alerts tab-pane fade show"
-                        role="tabpanel"
-                        aria-labelledby="alertsTab"
-                    >
+                    <div class="tt-alerts tab-pane fade show" role="tabpanel">
                         <AlertsModule/>
                     </div>
                 </b-tab>
