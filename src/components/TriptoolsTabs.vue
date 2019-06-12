@@ -1,7 +1,7 @@
 <template>
     <div id="tripToolsTabs" class="trip-tools-tabs">
         <b-card no-body>
-            <b-tabs v-model="tabIndex">
+            <b-tabs>
                 <b-tab
                     title="Trip Planner"
                     title-item-class="mr-2"
@@ -107,17 +107,6 @@ export default {
 		TripPlannerModule,
 		NexTripModule,
 		AlertsModule
-	},
-	data() {
-		return {
-			// Used for links back to tabs using hash.
-			tabIndex: 0, // Current tab
-			tabs: ['#trip-planner', '#nextrip', '#alerts']
-		}
-	},
-	mounted() {
-		// Find tab in index and set active - uses hash from tabs data above.
-		this.tabIndex = this.tabs.findIndex(tab => tab === this.$route.hash)
 	}
 }
 </script>
