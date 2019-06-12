@@ -109,8 +109,8 @@ export default {
 
 #homeContent {
 	position: relative;
-	top: -4.74rem;
-	margin-bottom: -4.74rem;
+	top: -4.62rem;
+	margin-bottom: -4.62rem;
 
 	@include media-breakpoint-up(md) {
 		top: -4.2rem;
