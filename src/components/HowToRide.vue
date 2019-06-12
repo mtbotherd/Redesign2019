@@ -1,7 +1,7 @@
 <template>
     <div id="howToRide" class="how-to-ride">
         <BaseIconSprite name="icon-lg-circle-exclamation-color"/>
-        <BaseLink to="how-to-ride-guide">How to ride</BaseLink>
+        <BaseLink href="how-to-ride-guide">How to ride</BaseLink>
     </div>
 </template>
 
