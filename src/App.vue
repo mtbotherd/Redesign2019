@@ -2,6 +2,7 @@
     <div id="app">
         <TheHeader/>
         <section id="mainContent">
+            <!-- <Home/> -->
             <router-view/>
         </section>
         <TheFooter/>
