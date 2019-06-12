@@ -3,7 +3,7 @@
 -->
 <template>
     <div class="text-center">
-        <b-link class="btn btn-outline-primary" :to="to">
+        <b-link class="btn btn-outline-primary" :href="href">
             <slot>{{ buttonLabel }}</slot>
             <BaseIconSprite name="icon-sm-arrow-right-blue" class="state-normal"/>
             <BaseIconSprite name="icon-sm-arrow-right-white" class="state-hover"/>
@@ -15,7 +15,7 @@
 export default {
 	name: 'BaseLink',
 	props: {
-		to: {
+		href: {
 			required: true,
 			type: String
 		}
