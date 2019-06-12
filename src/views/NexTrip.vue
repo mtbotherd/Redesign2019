@@ -1,16 +1,20 @@
 <template>
-    <div class="container nextrip">
+    <div id="nextrip" class="container">
+        <h1>NexTrip</h1>
         <NexTripModule/>
     </div>
 </template>
 
 <script>
-import NexTripMoodule from '@/components/NexTrip/NexTripModule'
-
+import NexTripModule from '../components/nextrip/NexTripModule.vue'
 export default {
+	name: 'NexTrip',
 	title: 'Metro Transit | NexTrip',
-	name: 'NexTrip'
+	components: {
+		NexTripModule
+	}
 }
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+</style>
