@@ -6,7 +6,7 @@
                 <div class="cta-link-white mt-md-2 mt-xl-4">
                     <b-link
                         class="d-inline-flex nav-link"
-                        to="schedules-maps"
+                        href="schedules-maps"
                     >View all Schedules &amp; Maps</b-link>
                     <BaseIconSprite name="icon-sm-arrow-right-white" class="flex-fill"/>
                 </div>
