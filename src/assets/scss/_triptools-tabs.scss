@@ -72,13 +72,12 @@
 			.nav-link {
 				background-color: $cyan;
 				color: $white;
-				font-weight: $font-weight-bold;
 				padding: 0.5rem;
 				text-decoration: none;
 
 				@include media-breakpoint-up(md) {
 					@include fontSize(22);
-					font-weight: 700;
+					font-weight: $font-weight-bold;
 				}
 
 				@include media-breakpoint-up(lg) {
