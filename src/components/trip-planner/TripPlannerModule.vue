@@ -43,7 +43,9 @@
                         name="selectTime"
                         class="custom-select custom-select-lg"
                     >
-                        <option v-for="option in options" :value="option.value">{{ option.text }}</option>
+                        <option value="leave-now">Leave now</option>
+                        <option value="depart-at">Depart at</option>
+                        <option value="arrive-by">Arrive by</option>
                     </select>
                 </div>
                 <div class="row time-elements">
@@ -261,18 +263,7 @@ export default {
 	data() {
 		return {
 			fromLocation: '',
-			toLocation: '',
-			// selectTime: 'Leave now',
-			options: [
-				{ value: 'leave-now', text: 'Leave now' },
-				{ value: 'depart-at', text: 'Depart at' },
-				{ value: 'arrive-by', text: 'Arrive by' }
-			]
-		}
-	},
-	computed: {
-		isActive() {
-			return false
+			toLocation: ''
 		}
 	}
 }
