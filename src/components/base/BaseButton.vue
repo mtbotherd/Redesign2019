@@ -2,7 +2,7 @@
 	<BaseButton type="type" name="name">Button label</BaseButton>
 -->
 <template>
-    <b-btn variant="warning" @click.native="$emit('click', $event)" class="mt-4">
+    <b-btn variant="warning" @click.native="$emit('click', $event)" class="mt-2">
         <slot>{{ buttonLabel }}</slot>
     </b-btn>
 </template>
