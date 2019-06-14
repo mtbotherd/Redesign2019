@@ -1,8 +1,8 @@
 <template>
     <div id="nexTripModule">
-        <b-card nobody>
+        <b-card no-body>
             <h1 class="sr-only">NexTrip</h1>
-            <h2 class="text-center">Real-time Departures</h2>
+            <p class="h2 text-center">Real-time Departures</p>
             <div class="row">
                 <div class="col-md-5">
                     <div class="form-group">
@@ -67,6 +67,17 @@
                         </float-label>
                     </div>
                 </div>
+            </div>
+
+            <!-- NexTrip Departures (results) -->
+            <div id="nexTripdepartures">
+                <h2 class="text-center">Departures</h2>
+                <p>
+                    Selby
+                    <abbr title="avenue">Ave</abbr>. and Dale
+                    <abbr title="street">St</abbr>.
+                    <br>Stop 17023
+                </p>
             </div>
             <div class="text-center">
                 <BaseButton type="submit" name="getDepartures">Get departures</BaseButton>
