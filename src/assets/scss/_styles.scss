@@ -2,7 +2,7 @@
     Application styles
 ***************************************************************/
 // Reset default font size for tablet and up. Base default (mobile first) is set to 14px.
-@media (min-width: 768px) {
+@media (max-width: 767) {
 	body {
 		@include fontSize(16);
 		//font-size: $font-size-base * 0.25;
