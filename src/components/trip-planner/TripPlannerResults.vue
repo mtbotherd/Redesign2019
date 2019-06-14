@@ -1,5 +1,5 @@
 <template>
-    <div id="tripPlannerResults" class="tt-trip-planner-results">
+    <div id="tripPlannerResults">
         <h2>Suggested trips</h2>
         <p class="mb-0">
             <strong>Start:&nbsp;</strong>225 Farrington
@@ -108,11 +108,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.tt-trip-planner-results {
-	display: none;
-	p {
-		@include fontSize(16);
-	}
+#tripPlannerResults {
+	// p {
+	// 	@include fontSize(16);
+	// }
 
 	.card {
 		margin-bottom: 0.75rem;
