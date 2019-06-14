@@ -66,17 +66,6 @@ $(function() {
 		inputs[0].value = inputs[1].value
 		inputs[1].value = tmp
 	})
-
-	//  Show time/date selectors
-	$('#selectTime').change(function() {
-		if ($(this).val() != 'leave-now') {
-			$('.time-elements')
-				.fadeIn('slow')
-				.css('display', 'flex')
-		} else {
-			$('.time-elements').fadeOut('fast')
-		}
-	})
 })
 
 Vue.config.productionTip = false
