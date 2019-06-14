@@ -1,6 +1,6 @@
 <template>
     <div id="tripPlannerModule">
-        <b-card nobody>
+        <b-card no-body>
             <h1 class="sr-only">Trip Planner</h1>
             <div class="form-group mb-0">
                 <float-label for="fromLocation">
