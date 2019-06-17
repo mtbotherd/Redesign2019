@@ -25,7 +25,7 @@
             </b-card-header>
             <b-card-body class="border-top-0">
                 <div class="row flex-row">
-                    <div class="col-md-12 col-lg-5">
+                    <div class="col-lg-5">
                         <div class="d-block tp-itinerary">
                             <div id="leg-1" class="float-left leg-item leg-walk">
                                 <div class="d-inline-block float-left leg-time">1:06 p.m.</div>
@@ -130,7 +130,7 @@
                         <div class="clearfix"></div>
                         <hr class="d-block d-lg-none">
                     </div>
-                    <div class="col-md-12 col-lg-7">
+                    <div class="col-lg-7">
                         <div class="tp-basemap">
                             <b-card no-body class="border">
                                 <img class="img-fluid" src="/img/TripPlanMap1.png">
@@ -159,11 +159,6 @@ export default {
 	flex-direction: column;
 }
 
-/*
-* And with max cross-browser enabled.
-* Nobody should ever write this by hand. 
-* Use a preprocesser with autoprefixing.
-*/
 .row.flex-row {
 	display: -webkit-box;
 	display: -webkit-flex;

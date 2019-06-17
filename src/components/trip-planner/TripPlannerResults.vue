@@ -109,10 +109,6 @@ export default {
 
 <style lang="scss" scoped>
 #tripPlannerResults {
-	// p {
-	// 	@include fontSize(16);
-	// }
-
 	.card {
 		margin-bottom: 0.75rem;
 		background-color: transparent;
@@ -166,7 +162,7 @@ export default {
 		}
 
 		&:last-child {
-			margin-bottom: 3rem;
+			margin-bottom: 0;
 		}
 	}
 }

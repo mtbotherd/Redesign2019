@@ -257,7 +257,7 @@
                 </div>
             </div>
             <TripPlannerResults/>
-            <div class="text-center">
+            <div class="btn-container text-center">
                 <BaseButton type="submit" name="planMyTrip">Plan my trip</BaseButton>
             </div>
         </b-card>
