@@ -78,6 +78,11 @@
                     <abbr title="street">St</abbr>.
                     <br>Stop 17023
                 </p>
+				<div class="list-group">
+					<div class="list-group-item">
+						
+					</div>
+				</div>
             </div>
             <div class="text-center">
                 <BaseButton type="submit" name="getDepartures">Get departures</BaseButton>
