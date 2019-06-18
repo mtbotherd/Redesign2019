@@ -34,7 +34,7 @@
                             <option value="west">West</option>
                         </select>
                     </div>
-                    <div v-if="directionSelected" class="form-group">
+                    <div v-if="routeSelected && directionSelected" class="form-group">
                         <label for="selectStop" class="sr-only">Select stop</label>
                         <select
                             id="selectStop"
@@ -70,76 +70,26 @@
             </div>
 
             <!-- NexTrip Departures (results) -->
-            <div id="nexTripdepartures">
-                <div class="card no-body">
-                    <p class="h2 text-center">Departures</p>
-                    <p>
-                        Selby
-                        <abbr title="avenue">Ave</abbr>. and Dale
-                        <abbr title="street">St</abbr>.
-                        <br>Stop 17023
-                    </p>
-                    <div class="list-group">
-                        <div class="list-group-item pr-0 pl-0">
-                            <div class="row">
-                                <div class="col-8">
-                                    <span class="nt-route-number mr-2">21 A</span>
-                                    <span class="nt-route-name mr-3">Shelby-Lake / Uptown</span>
-                                </div>
-                                <div class="col-4 text-right">
-                                    <span class="nt-depart-time float-right">
-                                        <BaseIconSprite
-                                            name="icon-md-broadcast-red"
-                                            class="blink mr-1"
-                                        />6
-                                        <abbr title="minutes">min</abbr>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-group-item pr-0 pl-0">
-                            <div class="row">
-                                <div class="col-8">
-                                    <span class="nt-route-number mr-2">21 A</span>
-                                    <span class="nt-route-name mr-3">Shelby-Lake / Uptown</span>
-                                </div>
-                                <div class="col-4 text-right">
-                                    <span class="nt-depart-time float-right">
-                                        <BaseIconSprite
-                                            name="icon-md-broadcast-red"
-                                            class="blink mr-1"
-                                        />6
-                                        <abbr title="minutes">min</abbr>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-group-item pr-0 pl-0">
-                            <div class="row">
-                                <div class="col-8">
-                                    <span class="nt-route-number mr-2">21 A</span>
-                                    <span
-                                        class="nt-route-name pr-3"
-                                    >SW Transit - Express - Chaska - Chanhassen Mpls</span>
-                                </div>
-                                <div class="col-4 text-right">
-                                    <span class="nt-depart-time">7:49 p.m.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="btn-container text-center">
-                    <BaseButton type="submit" name="getDepartures">Get departures</BaseButton>
-                </div>
+            <NexTripDepartures/>
+            <b-button v-b-toggle.collapse-a.collapse-b class="btn-block">Show my bus</b-button>
+            <b-collapse id="collapse-a" class="mt-2">
+                <b-card>I am collapsible content A!</b-card>
+            </b-collapse>
+            <div class="btn-container text-center">
+                <BaseButton type="submit" name="getDepartures">Get departures</BaseButton>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import NexTripDepartures from './NexTripDepartures'
+
 export default {
 	name: 'NexTripModule',
+	components: {
+		NexTripDepartures
+	},
 	data() {
 		return {
 			routeSelected: '',
@@ -147,7 +97,8 @@ export default {
 			stopSelected: '',
 			stopNumber: ''
 		}
-	}
+	},
+	methods: {}
 }
 </script>
 
@@ -159,12 +110,6 @@ export default {
 		padding: 0;
 	}
 
-	.list-group-item {
-		border-color: $gray-300;
-		border-right: none;
-		border-left: none;
-	}
-
 	.or {
 		margin-bottom: 1rem;
 
@@ -172,11 +117,6 @@ export default {
 			margin-bottom: 0;
 			padding-top: 1rem;
 		}
-	}
-
-	.nt-route-number,
-	.nt-depart-time {
-		font-weight: $font-weight-bold;
 	}
 }
 </style>
