@@ -9,46 +9,26 @@
                 <br>Stop 17023
             </p>
             <div class="list-group mb-2">
-                <div class="list-group-item pr-0 pl-0">
-                    <div class="row">
-                        <div class="col-8">
-                            <span class="nt-route-number mr-2">21 A</span>
-                            <span class="nt-route-name mr-3">Shelby-Lake / Uptown</span>
-                        </div>
-                        <div class="col-4 text-right">
-                            <span class="nt-depart-time float-right">
-                                <BaseIconSprite name="icon-md-broadcast-red" class="blink mr-1"/>6
-                                <abbr title="minutes">min</abbr>
-                            </span>
-                        </div>
-                    </div>
+                <div class="d-flex list-group-item pr-0 pl-0">
+                    <span class="nt-route-number mr-2">21 A</span>
+                    <span class="nt-route-name">Shelby-Lake / Uptown</span>
+                    <span class="nt-depart-time ml-auto">
+                        <BaseIconSprite name="icon-md-broadcast-red" class="blink mr-1"/>6
+                        <abbr title="minutes">min</abbr>
+                    </span>
                 </div>
-                <div class="list-group-item pr-0 pl-0">
-                    <div class="row">
-                        <div class="col-8">
-                            <span class="nt-route-number mr-2">21 A</span>
-                            <span class="nt-route-name mr-3">Shelby-Lake / Uptown</span>
-                        </div>
-                        <div class="col-4 text-right">
-                            <span class="nt-depart-time float-right">
-                                <BaseIconSprite name="icon-md-broadcast-red" class="blink mr-1"/>6
-                                <abbr title="minutes">min</abbr>
-                            </span>
-                        </div>
-                    </div>
+                <div class="d-flex list-group-item pr-0 pl-0">
+                    <span class="nt-route-number mr-2">21 A</span>
+                    <span class="nt-route-name">Shelby-Lake / Uptown</span>
+                    <span class="nt-depart-time ml-auto">
+                        <BaseIconSprite name="icon-md-broadcast-red" class="blink mr-1"/>6
+                        <abbr title="minutes">min</abbr>
+                    </span>
                 </div>
-                <div class="list-group-item pr-0 pl-0">
-                    <div class="row">
-                        <div class="col-8">
-                            <span class="nt-route-number mr-2">21 A</span>
-                            <span
-                                class="nt-route-name pr-3"
-                            >SW Transit - Express - Chaska - Chanhassen Mpls</span>
-                        </div>
-                        <div class="col-4 text-right">
-                            <span class="nt-depart-time">7:49 p.m.</span>
-                        </div>
-                    </div>
+                <div class="d-flex list-group-item pr-0 pl-0">
+                    <span class="nt-route-number mr-2">21 A</span>
+                    <span class="nt-route-name mr-2">SW Transit - Express - Chaska - Chanhassen Mpls</span>
+                    <span class="nt-depart-time ml-auto">10:00 p.m.</span>
                 </div>
             </div>
             <b-link class="nt-show-more-link">
@@ -58,14 +38,18 @@
         </div>
 
         <div class="nt-show-my-bus">
-            <b-btn v-b-toggle.collapse-a.collapse-b variant="light" class="btn-block text-left">
-                <BaseIconSprite name="icon-md-bus-broadcast-gray"/>Show my bus
-                <div class="d-flex float-right">
-                    <BaseIconSprite name="icon-sm-chevron-down-blue"/>
-                </div>
+            <b-btn
+                v-b-toggle.collapse-a.collapse-b
+                variant="light"
+                class="d-flex align-items-center btn-block text-left"
+            >
+                <BaseIconSprite name="icon-md-bus-broadcast-gray" class="bus-broadcast-icon mr-2"/>Show my bus
+                <BaseIconSprite name="icon-sm-chevron-down-blue" class="ml-auto"/>
             </b-btn>
-            <b-collapse id="collapse-a" class="mt-2">
-                <b-card>I am collapsible content A!</b-card>
+            <b-collapse id="collapse-a">
+                <b-card no-body>
+                    <img class="img-fluid" src="/img/TripPlanMap1.png">
+                </b-card>
             </b-collapse>
         </div>
 
@@ -110,16 +94,32 @@ export default {
 			}
 		}
 
-		.nt-route-number,
+		.nt-route-number {
+			font-weight: $font-weight-bold;
+		}
 		.nt-depart-time {
 			font-weight: $font-weight-bold;
+		}
+
+		.nt-route-name {
+			max-width: 219px;
+
+			@include media-breakpoint-up(md) {
+				max-width: 100%;
+			}
 		}
 	}
 
 	.nt-show-my-bus {
-		.btn-label,
-		.icon-wrapper {
-			text-align: left;
+		.btn {
+			color: $gray-600;
+			@include fontSize(20);
+			font-weight: $font-weight-bold;
+		}
+
+		.bus-broadcast-icon {
+			width: 28px;
+			height: 28px;
 		}
 	}
 }
