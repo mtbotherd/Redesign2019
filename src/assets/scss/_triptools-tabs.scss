@@ -38,34 +38,34 @@
 					left: 10px;
 				}
 				&:nth-child(2) .icon-wrapper {
-					left: 35px;
+					left: 32px;
 				}
 				&:nth-child(3) .icon-wrapper {
-					left: 40px;
+					left: 38px;
 				}
 			}
 
 			@include media-breakpoint-up(lg) {
 				&:nth-child(1) .icon-wrapper {
-					left: 50px;
+					left: 48px;
 				}
 				&:nth-child(2) .icon-wrapper {
-					left: 74px;
+					left: 70px;
 				}
 				&:nth-child(3) .icon-wrapper {
-					left: 80px;
+					left: 77px;
 				}
 			}
 
 			@include media-breakpoint-up(xl) {
 				&:nth-child(1) .icon-wrapper {
-					left: 41px;
+					left: 35px;
 				}
 				&:nth-child(2) .icon-wrapper {
-					left: 74px;
+					left: 70px;
 				}
 				&:nth-child(3) .icon-wrapper {
-					left: 81px;
+					left: 78px;
 				}
 			}
 
