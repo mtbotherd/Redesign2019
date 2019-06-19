@@ -71,10 +71,7 @@
 
             <!-- NexTrip Departures (results) -->
             <NexTripDepartures/>
-            <b-button v-b-toggle.collapse-a.collapse-b class="btn-block">Show my bus</b-button>
-            <b-collapse id="collapse-a" class="mt-2">
-                <b-card>I am collapsible content A!</b-card>
-            </b-collapse>
+
             <div class="btn-container text-center">
                 <BaseButton type="submit" name="getDepartures">Get departures</BaseButton>
             </div>
