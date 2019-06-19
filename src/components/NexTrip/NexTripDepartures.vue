@@ -65,7 +65,6 @@ export default {
 
 <style lang="scss" scoped>
 #nexTripDepartures {
-	margin-bottom: 3rem;
 	.card {
 		background-color: $gray-100;
 
