@@ -1,6 +1,6 @@
 <template>
     <div id="nexTripDepartures">
-        <div class="card p-2">
+        <div class="card mb-3 p-2">
             <p class="h2 text-center">Departures</p>
             <p>
                 Selby
@@ -57,6 +57,18 @@
             </b-link>
         </div>
 
+        <div class="nt-show-my-bus">
+            <b-btn v-b-toggle.collapse-a.collapse-b variant="light" class="btn-block text-left">
+                <BaseIconSprite name="icon-md-bus-broadcast-gray"/>Show my bus
+                <div class="d-flex float-right">
+                    <BaseIconSprite name="icon-sm-chevron-down-blue"/>
+                </div>
+            </b-btn>
+            <b-collapse id="collapse-a" class="mt-2">
+                <b-card>I am collapsible content A!</b-card>
+            </b-collapse>
+        </div>
+
         <!-- Elements to collapse -->
     </div>
 </template>
@@ -101,6 +113,13 @@ export default {
 		.nt-route-number,
 		.nt-depart-time {
 			font-weight: $font-weight-bold;
+		}
+	}
+
+	.nt-show-my-bus {
+		.btn-label,
+		.icon-wrapper {
+			text-align: left;
 		}
 	}
 }
