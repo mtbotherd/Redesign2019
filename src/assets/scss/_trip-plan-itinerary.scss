@@ -100,7 +100,7 @@
 
 					@include media-breakpoint-up(lg) {
 						margin-right: 1.75rem;
-						width: 85px;
+						width: 115px;
 					}
 				}
 
@@ -115,13 +115,14 @@
 					@include media-breakpoint-up(md) {
 						margin-left: 0;
 						padding-bottom: 0.75rem;
-						width: 38rem;
+						//width: 38rem;
+						width: auto;
 					}
 
 					@include media-breakpoint-up(lg) {
 						padding-bottom: 1.25rem;
 						padding-left: 2rem;
-						width: 14.72rem;
+						width: 16rem;
 					}
 
 					@include media-breakpoint-up(xl) {
@@ -143,6 +144,7 @@
 
 						@include media-breakpoint-up(lg) {
 							top: -0.25rem;
+							left: -1.3rem;
 							width: 2.25rem;
 							height: 2.25rem;
 						}

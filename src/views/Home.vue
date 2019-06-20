@@ -8,7 +8,7 @@
                         class="d-inline-flex nav-link"
                         href="schedules-maps"
                     >View all Schedules &amp; Maps</b-link>
-                    <BaseIconSprite name="icon-sm-arrow-right-white" class="flex-fill"/>
+                    <BaseIconSprite name="icon-arrow-right-white" class="flex-fill"/>
                 </div>
             </div>
         </div>

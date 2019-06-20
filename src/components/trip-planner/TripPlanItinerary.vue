@@ -8,18 +8,18 @@
                         <abbr title="minutes">min</abbr>
                     </span>
                     <span class="d-flex align-items-center tp-route">
-                        <BaseIconSprite name="icon-sm-pedestrian-gray"/>
-                        <BaseIconSprite name="icon-sm-chevron-up-gray" class="rotate-right mr-2"/>
-                        <BaseIconSprite name="icon-sm-bus-gray"/>&nbsp;
+                        <BaseIconSprite name="icon-pedestrian-gray"/>
+                        <BaseIconSprite name="icon-chevron-up-gray" class="rotate-right mr-2"/>
+                        <BaseIconSprite name="icon-bus-gray"/>&nbsp;
                         <span class="route mr-1">21</span>
-                        <BaseIconSprite name="icon-sm-chevron-up-gray" class="rotate-right mr-1"/>
+                        <BaseIconSprite name="icon-chevron-up-gray" class="rotate-right mr-1"/>
                         <span class="d-flex align-items-center badge badge-success mr-1">
-                            <BaseIconSprite name="icon-sm-lrt-white"/>
+                            <BaseIconSprite name="icon-lrt-white"/>
                             <span class="caps">Green</span>
                         </span>
-                        <BaseIconSprite name="icon-sm-chevron-up-gray" class="rotate-right"/>
-                        <BaseIconSprite name="icon-sm-pedestrian-gray" class="mr-1"/>
-                        <BaseIconSprite name="icon-sm-link-gray" class="icon-chain-link ml-auto"/>
+                        <BaseIconSprite name="icon-chevron-up-gray" class="rotate-right"/>
+                        <BaseIconSprite name="icon-pedestrian-gray" class="mr-1"/>
+                        <BaseIconSprite name="icon-link-gray" class="icon-chain-link ml-auto"/>
                     </span>
                 </span>
             </b-card-header>
@@ -27,11 +27,11 @@
                 <div class="row flex-row">
                     <div class="col-lg-5">
                         <div class="d-block tp-itinerary">
-                            <div id="leg-1" class="float-left leg-item leg-walk">
-                                <div class="d-inline-block float-left leg-time">1:06 p.m.</div>
-                                <div class="d-inline-block float-left leg-mode walk">
-                                    <div class="d-inline-block float-left leg-mode-icon">
-                                        <BaseIconSprite name="icon-md-circle-pedestrian-color"/>
+                            <div class="leg-item">
+                                <div class="d-table-cell leg-time">1:06 p.m.</div>
+                                <div class="d-table-cell leg-mode walk">
+                                    <div class="d-table-cell leg-mode-icon">
+                                        <BaseIconSprite name="icon-circle-pedestrian-color"/>
                                     </div>
                                     <p>
                                         <strong>Walk</strong> 0.12 miles to Selby
@@ -45,14 +45,14 @@
                                     </p>
                                 </div>
                             </div>
-                            <div id="leg-2" class="leg-item leg-bus">
-                                <div class="d-inline-block float-left leg-time">1:10 p.m.</div>
-                                <div class="d-inline-block float-left leg-mode bus">
-                                    <div class="d-inline-block float-left leg-mode-icon">
-                                        <BaseIconSprite name="icon-lg-circle-bus-gray"/>
+                            <div class="leg-item">
+                                <div class="d-table-cell leg-time">1:10 p.m.</div>
+                                <div class="d-table-cell leg-mode bus">
+                                    <div class="d-table-cell leg-mode-icon">
+                                        <BaseIconSprite name="icon-circle-bus-gray"/>
                                     </div>
                                     <p>
-                                        <BaseIconSprite name="icon-md-broadcast-red" class="blink"/>&nbsp;Currently 5
+                                        <BaseIconSprite name="icon-broadcast-red" class="blink"/>&nbsp;Currently 5
                                         <abbr title="minutes">min</abbr> late
                                         <br>
                                         <strong>Route 21</strong> Selby-Lake/Uptown
@@ -74,11 +74,11 @@
                                     </p>
                                 </div>
                             </div>
-                            <div id="leg-3" class="leg-item leg-lrt-green">
-                                <div class="d-inline-block float-left leg-time">1:40 p.m.</div>
-                                <div class="d-inline-block float-left leg-mode metro-green">
-                                    <div class="d-inline-block float-left leg-mode-icon">
-                                        <BaseIconSprite name="icon-md-circle-lrt-green"/>
+                            <div class="leg-item">
+                                <div class="d-table-cell leg-time">1:40 p.m.</div>
+                                <div class="d-table-cell leg-mode metro-green">
+                                    <div class="d-table-cell leg-mode-icon">
+                                        <BaseIconSprite name="icon-circle-lrt-green"/>
                                     </div>
                                     <p>
                                         <strong>Green Line</strong> to
@@ -93,11 +93,11 @@
                                     </p>
                                 </div>
                             </div>
-                            <div id="leg-4" class="leg-item leg-walk">
-                                <div class="d-inline-block float-left leg-time">1:10 p.m.</div>
-                                <div class="d-inline-block float-left leg-mode walk">
-                                    <div class="d-inline-block float-left leg-mode-icon">
-                                        <BaseIconSprite name="icon-md-circle-pedestrian-color"/>
+                            <div class="leg-item">
+                                <div class="d-table-cell leg-time">1:10 p.m.</div>
+                                <div class="d-table-cell leg-mode walk">
+                                    <div class="d-table-cell leg-mode-icon">
+                                        <BaseIconSprite name="icon-circle-pedestrian-color"/>
                                     </div>
                                     <p>
                                         <strong>Walk</strong> 0.25 miles
@@ -111,11 +111,11 @@
                                     </p>
                                 </div>
                             </div>
-                            <div id="leg-5" class="leg-item leg-arrive">
-                                <div class="d-inline-block float-left leg-time">12:88 p.m.</div>
-                                <div class="d-inline-block float-left leg-mode arrive">
-                                    <div class="d-inline-block float-left leg-mode-icon">
-                                        <BaseIconSprite name="icon-md-circle-pin-color"/>
+                            <div class="leg-item">
+                                <div class="d-table-cell leg-time">12:88 p.m.</div>
+                                <div class="d-table-cell leg-mode arrive">
+                                    <div class="d-table-cell leg-mode-icon">
+                                        <BaseIconSprite name="icon-circle-pin-color"/>
                                     </div>
                                     <p>
                                         <strong>Arrive</strong>

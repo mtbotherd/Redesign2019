@@ -5,7 +5,7 @@
     <div class="text-center">
         <b-btn class="btn btn-warning" :to="to">
             <slot>{{ buttonLabel }}</slot>
-            <BaseIconSprite name="icon-sm-arrow-right-blue"/>
+            <BaseIconSprite name="icon-arrow-right-blue"/>
         </b-btn>
     </div>
 </template>

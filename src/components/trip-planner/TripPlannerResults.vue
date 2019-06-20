@@ -16,24 +16,18 @@
                     <span class="d-flex" role="link">
                         <span class="d-flex align-items-center tp-time">56 min</span>
                         <span class="align-items-center tp-route">
-                            <BaseIconSprite name="icon-sm-pedestrian-gray"/>
-                            <BaseIconSprite
-                                name="icon-sm-chevron-up-gray"
-                                class="rotate-right mr-2"
-                            />
-                            <BaseIconSprite name="icon-sm-bus-gray"/>&nbsp;
+                            <BaseIconSprite name="icon-pedestrian-gray"/>
+                            <BaseIconSprite name="icon-chevron-up-gray" class="rotate-right mr-2"/>
+                            <BaseIconSprite name="icon-bus-gray"/>&nbsp;
                             <span class="route mr-1">21</span>
-                            <BaseIconSprite
-                                name="icon-sm-chevron-up-gray"
-                                class="rotate-right mr-1"
-                            />
+                            <BaseIconSprite name="icon-chevron-up-gray" class="rotate-right mr-1"/>
                             <span class="d-flex align-items-center badge badge-success mr-1">
-                                <BaseIconSprite name="icon-sm-lrt-white"/>
+                                <BaseIconSprite name="icon-lrt-white"/>
                                 <span class="caps">Green</span>
                             </span>
-                            <BaseIconSprite name="icon-sm-chevron-up-gray" class="rotate-right"/>
-                            <BaseIconSprite name="icon-sm-pedestrian-gray" class="mr-1"/>
-                            <BaseIconSprite name="icon-sm-arrow-right-blue" class="ml-auto"/>
+                            <BaseIconSprite name="icon-chevron-up-gray" class="rotate-right"/>
+                            <BaseIconSprite name="icon-pedestrian-gray" class="mr-1"/>
+                            <BaseIconSprite name="icon-arrow-right-blue" class="ml-auto"/>
                         </span>
                     </span>
                 </b-link>
@@ -43,29 +37,20 @@
                     <span class="d-flex" role="link">
                         <span class="d-flex align-items-center tp-time">1 hr 2 min</span>
                         <span class="align-items-center tp-route">
-                            <BaseIconSprite name="icon-sm-pedestrian-gray"/>
-                            <BaseIconSprite
-                                name="icon-sm-chevron-up-gray"
-                                class="rotate-right mr-1"
-                            />
-                            <BaseIconSprite name="icon-sm-bus-gray"/>&nbsp;
+                            <BaseIconSprite name="icon-pedestrian-gray"/>
+                            <BaseIconSprite name="icon-chevron-up-gray" class="rotate-right mr-1"/>
+                            <BaseIconSprite name="icon-bus-gray"/>&nbsp;
                             <span class="route mr-1">21</span>
-                            <BaseIconSprite
-                                name="icon-sm-chevron-up-gray"
-                                class="rotate-right mr-1"
-                            />
-                            <BaseIconSprite name="icon-sm-pedestrian-gray"/>
-                            <BaseIconSprite
-                                name="icon-sm-chevron-up-gray"
-                                class="rotate-right mr-1"
-                            />
+                            <BaseIconSprite name="icon-chevron-up-gray" class="rotate-right mr-1"/>
+                            <BaseIconSprite name="icon-pedestrian-gray"/>
+                            <BaseIconSprite name="icon-chevron-up-gray" class="rotate-right mr-1"/>
                             <span class="d-flex align-items-center badge badge-secondary mr-1">
-                                <BaseIconSprite name="icon-sm-lrt-white"/>
+                                <BaseIconSprite name="icon-lrt-white"/>
                                 <span class="caps">Blue</span>
                             </span>
-                            <BaseIconSprite name="icon-sm-chevron-up-gray" class="rotate-right"/>
-                            <BaseIconSprite name="icon-sm-pedestrian-gray" class="mr-1"/>
-                            <BaseIconSprite name="icon-sm-arrow-right-blue" class="ml-auto"/>
+                            <BaseIconSprite name="icon-chevron-up-gray" class="rotate-right"/>
+                            <BaseIconSprite name="icon-pedestrian-gray" class="mr-1"/>
+                            <BaseIconSprite name="icon-arrow-right-blue" class="ml-auto"/>
                         </span>
                     </span>
                 </b-link>
@@ -75,24 +60,18 @@
                     <span class="d-flex" role="link">
                         <span class="d-flex align-items-center tp-time">1 hr 6 min</span>
                         <span class="align-items-center tp-route">
-                            <BaseIconSprite name="icon-sm-pedestrian-gray"/>
-                            <BaseIconSprite
-                                name="icon-sm-chevron-up-gray"
-                                class="rotate-right mr-2"
-                            />
-                            <BaseIconSprite name="icon-sm-bus-gray"/>&nbsp;
+                            <BaseIconSprite name="icon-pedestrian-gray"/>
+                            <BaseIconSprite name="icon-chevron-up-gray" class="rotate-right mr-2"/>
+                            <BaseIconSprite name="icon-bus-gray"/>&nbsp;
                             <span class="route mr-1">21</span>
-                            <BaseIconSprite
-                                name="icon-sm-chevron-up-gray"
-                                class="rotate-right mr-2"
-                            />
+                            <BaseIconSprite name="icon-chevron-up-gray" class="rotate-right mr-2"/>
                             <span class="d-flex align-items-center badge badge-success mr-1">
-                                <BaseIconSprite name="icon-sm-lrt-white"/>
+                                <BaseIconSprite name="icon-lrt-white"/>
                                 <span class="caps">Green</span>
                             </span>
-                            <BaseIconSprite name="icon-sm-chevron-up-gray" class="rotate-right"/>
-                            <BaseIconSprite name="icon-sm-pedestrian-gray" class="mr-1"/>
-                            <BaseIconSprite name="icon-sm-arrow-right-blue" class="ml-auto"/>
+                            <BaseIconSprite name="icon-chevron-up-gray" class="rotate-right"/>
+                            <BaseIconSprite name="icon-pedestrian-gray" class="mr-1"/>
+                            <BaseIconSprite name="icon-arrow-right-blue" class="ml-auto"/>
                         </span>
                     </span>
                 </b-link>

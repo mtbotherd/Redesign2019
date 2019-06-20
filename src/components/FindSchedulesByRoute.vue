@@ -14,7 +14,7 @@
                     <div class="input-group-append">
                         <b-button id="searchButton" type="search" variant="primary">
                             <span class="sr-only">Search</span>
-                            <BaseIconSprite name="icon-sm-magnifying-glass-gray"/>
+                            <BaseIconSprite name="icon-magnifying-glass-gray"/>
                         </b-button>
                     </div>
                 </div>

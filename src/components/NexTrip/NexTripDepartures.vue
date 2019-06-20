@@ -13,7 +13,7 @@
                     <span class="nt-route-number mr-2">21 A</span>
                     <span class="nt-route-name">Shelby-Lake / Uptown</span>
                     <span class="nt-depart-time ml-auto">
-                        <BaseIconSprite name="icon-md-broadcast-red" class="blink mr-1"/>6
+                        <BaseIconSprite name="icon-broadcast-red" class="blink mr-1"/>6
                         <abbr title="minutes">min</abbr>
                     </span>
                 </div>
@@ -21,7 +21,7 @@
                     <span class="nt-route-number mr-2">21 A</span>
                     <span class="nt-route-name">Shelby-Lake / Uptown</span>
                     <span class="nt-depart-time ml-auto">
-                        <BaseIconSprite name="icon-md-broadcast-red" class="blink mr-1"/>6
+                        <BaseIconSprite name="icon-broadcast-red" class="blink mr-1"/>6
                         <abbr title="minutes">min</abbr>
                     </span>
                 </div>
@@ -43,8 +43,8 @@
                 variant="light"
                 class="d-flex align-items-center btn-block text-left"
             >
-                <BaseIconSprite name="icon-md-bus-broadcast-gray" class="bus-broadcast-icon mr-2"/>Show my bus
-                <BaseIconSprite name="icon-sm-chevron-down-blue" class="ml-auto"/>
+                <BaseIconSprite name="icon-bus-broadcast-gray" class="bus-broadcast-icon mr-2"/>Show my bus
+                <BaseIconSprite name="icon-chevron-down-blue" class="ml-auto"/>
             </b-btn>
             <b-collapse id="collapse-a">
                 <b-card no-body>

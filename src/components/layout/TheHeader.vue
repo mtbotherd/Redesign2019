@@ -31,7 +31,7 @@
                                 aria-expanded="false"
                             >
                                 Trip Tools&nbsp;
-                                <BaseIconSprite name="icon-sm-chevron-down-gray"/>
+                                <BaseIconSprite name="icon-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="tripToolsDropdown">
                                 <b-link class="dropdown-item" href="trip-planner">Trip Planner</b-link>
@@ -53,7 +53,7 @@
                                 aria-expanded="false"
                             >
                                 Fares &amp; Passes&nbsp;
-                                <BaseIconSprite name="icon-sm-chevron-down-gray"/>
+                                <BaseIconSprite name="icon-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="faresDropdown">
                                 <b-link class="dropdown-item" href="ride-costs">Ride Costs</b-link>
@@ -75,7 +75,7 @@
                                 aria-expanded="false"
                             >
                                 More&nbsp;
-                                <BaseIconSprite name="icon-sm-chevron-down-gray"/>
+                                <BaseIconSprite name="icon-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="faresDropdown">
                                 <b-link class="dropdown-item" href>Link name</b-link>
@@ -94,7 +94,7 @@
                                 aria-expanded="false"
                             >
                                 Help&nbsp;
-                                <BaseIconSprite name="icon-sm-chevron-down-gray"/>
+                                <BaseIconSprite name="icon-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="helpDropdown">
                                 <b-link class="dropdown-item" href="contact-us">Contact Us</b-link>
@@ -115,9 +115,9 @@
                                 aria-haspopup="true"
                                 aria-expanded="false"
                             >
-                                <BaseIconSprite name="icon-sm-globe-gray"/>&nbsp;
+                                <BaseIconSprite name="icon-globe-gray"/>&nbsp;
                                 En&nbsp;
-                                <BaseIconSprite name="icon-sm-chevron-down-gray"/>
+                                <BaseIconSprite name="icon-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="language">
                                 <a class="dropdown-item" href="#">Hmong</a>
@@ -127,45 +127,21 @@
                                 <a class="dropdown-item" href="#">Vietnamese</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                id="search"
-                                role="button"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                                title="Search"
-                            >
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="search" title="Search">
                                 <span class="sr-only">Search</span>
-                                <BaseIconSprite name="icon-sm-magnifying-glass-gray"/>
+                                <BaseIconSprite name="icon-magnifying-glass-gray"/>
                             </a>
-                            <!-- <div class="dropdown-menu" aria-labelledby="searchDropdown">
-                                <div class="form-group">
-                                    <label for="siteSearch" class="sr-only">Search</label>
-                                    <input
-                                        type="search"
-                                        id="siteSearch"
-                                        class="form-control form-control-sm"
-                                        placeholder="Enter search word or phrase"
-                                    >
-                                </div>
-                            </div>-->
                         </li>
                         <li>
                             <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
+                                class="nav-link"
+                                href="https://account.metrotransittest.org/"
                                 id="profile"
-                                role="button"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
                                 title="Profile"
                             >
                                 <span class="sr-only">Your profile</span>
-                                <BaseIconSprite name="icon-sm-avatar-gray"/>
+                                <BaseIconSprite name="icon-avatar-gray"/>
                             </a>
                         </li>
                     </ul>

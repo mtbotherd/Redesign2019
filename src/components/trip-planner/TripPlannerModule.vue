@@ -18,8 +18,8 @@
             </div>
             <div class="location-toggler text-right">
                 <BaseIconSprite
-                    name="icon-sm-location-toggler-blue"
-                    class="icon-sm-location-toggler-blue mb-2 pt-2 pr-2 pl-2"
+                    name="icon-location-toggler-blue"
+                    class="icon-location-toggler-blue mb-2 pt-2 pr-2 pl-2"
                 />
             </div>
             <div class="form-group">
@@ -64,7 +64,7 @@
                                 >
                                 <div class="input-group-append border">
                                     <BaseIconSprite
-                                        name="icon-sm-clock-gray"
+                                        name="icon-clock-gray"
                                         class="icon-clock mt-1 mt-md-2"
                                     />
                                 </div>
@@ -83,7 +83,7 @@
                                 >
                                 <div class="input-group-append border">
                                     <BaseIconSprite
-                                        name="icon-sm-calendar-gray"
+                                        name="icon-calendar-gray"
                                         class="icon-clock-gray mt-1 mt-md-2"
                                     />
                                 </div>
@@ -103,7 +103,7 @@
                                     class="d-flex align-items-center text-left"
                                 >
                                     More options
-                                    <BaseIconSprite name="icon-sm-plus-blue" class="ml-auto"/>
+                                    <BaseIconSprite name="icon-plus-blue" class="ml-auto"/>
                                 </b-button>
                             </b-card-header>
                             <b-collapse id="tpMoreOptions" accordion="more-options" role="tabpanel">
@@ -229,7 +229,7 @@
 
                                     <p class="m-0">
                                         <strong>
-                                            <BaseIconSprite name="icon-sm-accessible-gray"/>&nbsp;Accessible stops
+                                            <BaseIconSprite name="icon-accessible-gray"/>&nbsp;Accessible stops
                                         </strong>
                                     </p>
                                     <div class="custom-control custom-radio custom-control-inline">

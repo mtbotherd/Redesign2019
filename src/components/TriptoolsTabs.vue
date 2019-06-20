@@ -10,11 +10,8 @@
                     active
                 >
                     <template slot="title">
-                        <BaseIconSprite name="icon-lg-directions-color" class="svg-active mx-auto"/>
-                        <BaseIconSprite
-                            name="icon-lg-directions-white"
-                            class="svg-inactive mx-auto"
-                        />Trip Planner
+                        <BaseIconSprite name="icon-directions-color" class="svg-active mx-auto"/>
+                        <BaseIconSprite name="icon-directions-white" class="svg-inactive mx-auto"/>Trip Planner
                     </template>
                     <div class="tt-trip-planner tab-pane fade show active" role="tabpanel">
                         <TripPlannerModule/>
@@ -28,11 +25,11 @@
                 >
                     <template slot="title">
                         <BaseIconSprite
-                            name="icon-lg-clock-color"
+                            name="icon-clock-color"
                             class="svg-active d-block d-md-inline-block ml-auto mr-auto"
                         />
                         <BaseIconSprite
-                            name="icon-lg-clock-white"
+                            name="icon-clock-white"
                             class="svg-inactive d-block d-md-inline-block ml-auto mr-auto"
                         />NexTrip
                     </template>
@@ -43,11 +40,11 @@
                 <b-tab title="Alerts" title-link-class="p-md-3" href="#alerts">
                     <template slot="title">
                         <BaseIconSprite
-                            name="icon-lg-triangle-exclamation-color"
+                            name="icon-triangle-exclamation-color"
                             class="svg-active d-block d-md-inline-block ml-auto mr-auto"
                         />
                         <BaseIconSprite
-                            name="icon-lg-triangle-exclamation-white"
+                            name="icon-triangle-exclamation-white"
                             class="svg-inactive d-block d-md-inline-block ml-auto mr-auto"
                         />Alerts
                     </template>
@@ -60,19 +57,19 @@
 
         <!-- <b-nav tabs fill>
             <b-nav-item href="#tripPlanner" active>
-                <BaseIconSprite name="icon-lg-directions-color" class="svg-active mx-auto"/>
-                <BaseIconSprite name="icon-lg-directions-white" class="svg-inactive mx-auto"/>Trip Planner
+                <BaseIconSprite name="icon-directions-color" class="svg-active mx-auto"/>
+                <BaseIconSprite name="icon-directions-white" class="svg-inactive mx-auto"/>Trip Planner
                 <div class="tt-trip-planner tab-pane fade show active" role="tabpanel">
                 <TripPlannerModule/>
                 </div>
             </b-nav-item>
             <b-nav-item href="#nextrip">
                 <BaseIconSprite
-                    name="icon-lg-clock-color"
+                    name="icon-clock-color"
                     class="svg-active d-block d-md-inline-block ml-auto mr-auto"
                 />
                 <BaseIconSprite
-                    name="icon-lg-clock-white"
+                    name="icon-clock-white"
                     class="svg-inactive d-block d-md-inline-block ml-auto mr-auto"
                 />NexTrip
                 <div class="tt-nextrip tab-pane fade show" role="tabpanel">
@@ -81,11 +78,11 @@
             </b-nav-item>
             <b-nav-item href="#alerts">
                 <BaseIconSprite
-                    name="icon-lg-triangle-exclamation-color"
+                    name="icon-triangle-exclamation-color"
                     class="svg-active d-block d-md-inline-block ml-auto mr-auto"
                 />
                 <BaseIconSprite
-                    name="icon-lg-triangle-exclamation-white"
+                    name="icon-triangle-exclamation-white"
                     class="svg-inactive d-block d-md-inline-block ml-auto mr-auto"
                 />Alerts
                 <div class="tt-alerts tab-pane fade show" role="tabpanel">

@@ -5,8 +5,8 @@
     <div class="text-center">
         <b-link class="btn btn-outline-primary" :href="href">
             <slot>{{ buttonLabel }}</slot>
-            <BaseIconSprite name="icon-sm-arrow-right-blue" class="state-normal"/>
-            <BaseIconSprite name="icon-sm-arrow-right-white" class="state-hover"/>
+            <BaseIconSprite name="icon-arrow-right-blue" class="state-normal"/>
+            <BaseIconSprite name="icon-arrow-right-white" class="state-hover"/>
         </b-link>
     </div>
 </template>
