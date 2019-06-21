@@ -25,7 +25,7 @@
             </section>
             <section class="section">
                 <div class="container">
-                    <News/>
+                    <NewsEvents/>
                 </div>
             </section>
         </div>
@@ -36,15 +36,15 @@
 import FindSchedulesByRoute from '../components/FindSchedulesByRoute'
 import TriptoolsTabs from '../components/TriptoolsTabs'
 import HowToRide from '../components/HowToRide'
-import News from '../components/News'
+import NewsEvents from '../components/NewsEvents'
 
 export default {
-	name: 'Home',
+	name: 'HomeView',
 	components: {
 		FindSchedulesByRoute,
 		TriptoolsTabs,
 		HowToRide,
-		News
+		NewsEvents
 	},
 	title: 'Metro Transit | Home'
 }

@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-xl navbar-light border-bottom">
             <a class="skip-to-content" href="#mainContent">Skip to main content</a>
             <div class="container">
-                <b-navbar-brand :to="{ name: 'home' }">
+                <b-navbar-brand href="home">
                     <img
                         alt="metro transit logo"
                         src="/img/MetroTransitLogo.svg"
@@ -19,8 +19,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-toggleable-xl navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav nav-fill w-100">
-                        <li class="nav-item dropdown active">
+                    <ul class="navbar-nav nav-fill">
+                        <li class="nav-item dropdown">
                             <a
                                 class="nav-link dropdown-toggle"
                                 href="#"
@@ -30,8 +30,9 @@
                                 aria-haspopup="true"
                                 aria-expanded="false"
                             >
-                                Trip Tools&nbsp;
-                                <BaseIconSprite name="icon-chevron-down-gray"/>
+                                Trip Tools
+                                <BaseIconSprite name="icon-chevron-down-gray" class="svg-inactive"/>
+                                <BaseIconSprite name="icon-chevron-up-white" class="svg-active"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="tripToolsDropdown">
                                 <b-link class="dropdown-item" href="trip-planner">Trip Planner</b-link>
@@ -85,7 +86,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a
-                                class="nav-link dropdown-toggle"
+                                class="nav-link dropdown-toggle active"
                                 href="#"
                                 id="helpDropdown"
                                 role="button"
@@ -127,13 +128,15 @@
                                 <a class="dropdown-item" href="#">Vietnamese</a>
                             </div>
                         </li>
+                    </ul>
+                    <ul class="navbar-nav nav-fill border-left">
                         <li class="nav-item">
                             <a class="nav-link" href="#" id="search" title="Search">
                                 <span class="sr-only">Search</span>
                                 <BaseIconSprite name="icon-magnifying-glass-gray"/>
                             </a>
                         </li>
-                        <li>
+                        <li class="nav-item">
                             <a
                                 class="nav-link"
                                 href="https://account.metrotransittest.org/"
@@ -177,20 +180,66 @@ a.skip-to-content {
 }
 
 nav.navbar {
+	@include media-breakpoint-up(lg) {
+		padding-bottom: 0;
+	}
+
 	.nav-fill {
 		.nav-item {
 			text-align: left;
-		}
-	}
-	.nav-link {
-		text-decoration: none;
 
-		@include media-breakpoint-up(md) {
-			@include fontSize(18);
-		}
+			&:hover,
+			&:active {
+				@include media-breakpoint-up(xl) {
+					background-color: $cyan;
 
-		@include media-breakpoint-up(xl) {
-			padding-top: 1.25rem;
+					.nav-link {
+						color: $white;
+					}
+					.icon-wrapper {
+						color: $white;
+					}
+				}
+			}
+
+			.nav-link {
+				text-decoration: none;
+
+				@include media-breakpoint-up(md) {
+					@include fontSize(18);
+				}
+
+				@include media-breakpoint-up(xl) {
+					padding: 1.25rem 0.75rem 0.5rem 0.75rem;
+				}
+
+				.svg-active {
+					display: none !important;
+				}
+
+				.svg-inactive {
+					display: inline-block !important;
+					vertical-align: top;
+				}
+
+				&:hover,
+				&:active {
+					.svg-active {
+						display: inline-block !important;
+						vertical-align: top;
+					}
+
+					.svg-inactive {
+						display: none !important;
+					}
+				}
+			}
+
+			.dropdown-menu {
+				background-color: $gray-100;
+				border: none;
+				margin-top: -1px;
+			}
 		}
 	}
 	.icon-wrapper {

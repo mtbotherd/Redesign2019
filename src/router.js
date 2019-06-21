@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // Imports views for Main Navigation links.
-import Home from './views/Home.vue'
+import HomeView from './views/HomeView.vue'
 import TripPlanner from './views/TripPlanner.vue'
 import TripPlan from './views/TripPlan.vue'
 import NexTrip from './views/NexTrip.vue'
@@ -25,7 +25,7 @@ export default new Router({
 		{
 			path: '/',
 			name: 'home',
-			component: Home
+			component: HomeView
 		},
 		{
 			path: '/trip-planner',
@@ -66,11 +66,6 @@ export default new Router({
 			path: '/discount-programs',
 			name: 'discount-programs',
 			component: DiscountPrograms
-		},
-		{
-			path: '/link-name',
-			name: 'link-name',
-			component: Home
 		},
 		{
 			path: '/contact-us',

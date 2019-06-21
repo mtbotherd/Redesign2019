@@ -13,7 +13,7 @@ module.exports = {
 	publicPath: '/',
 	outputDir: 'dist',
 	runtimeCompiler: undefined,
-	productionSourceMap: false,
+	productionSourceMap: true,
 	parallel: undefined,
 	devServer: {
 		host: 'localhost'
