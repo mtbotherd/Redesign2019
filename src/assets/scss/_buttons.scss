@@ -6,3 +6,8 @@
 		padding-top: 3rem;
 	}
 }
+
+// Removed bootstrap-vue's default dropdown icon
+.dropdown-toggle:after {
+	border: none !important;
+}
