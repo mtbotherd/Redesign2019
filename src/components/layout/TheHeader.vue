@@ -3,22 +3,40 @@
         <nav class="navbar navbar-expand-xl navbar-light border-bottom">
             <a class="skip-to-content" href="#mainContent">Skip to main content</a>
             <div class="container">
-                <b-navbar-brand href="home">
+                <b-navbar-brand href="/">
                     <img
                         alt="metro transit logo"
                         src="/img/MetroTransitLogo.svg"
                         class="logo d-inline-block"
                     >
                 </b-navbar-brand>
-                <button
+                <!-- <button
                     class="navbar-toggler navbar-toggler-right"
                     type="button"
                     data-toggle="collapse"
                     data-target="#navbarCollapse"
                 >
                     <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-toggleable-xl navbar-collapse" id="navbarCollapse">
+                </button>-->
+                <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+                <b-collapse id="navbarCollapse" is-nav>
+                    <b-navbar-nav>
+                        <b-nav-item-dropdown>
+                            <template slot="button-content">
+                                Trip Tools
+                                <BaseIconSprite name="icon-chevron-down-gray" class="svg-normal"/>
+                                <BaseIconSprite name="icon-chevron-down-white" class="svg-hover"/>
+                                <BaseIconSprite name="icon-chevron-up-white" class="svg-active"/>
+                            </template>
+                            <b-dropdown-item href="trip-planner">Trip Planner</b-dropdown-item>
+                            <b-dropdown-item href="nextrip">NexTrip</b-dropdown-item>
+                            <b-dropdown-item href="alerts">Alerts</b-dropdown-item>
+                            <b-dropdown-item href="park-n-ride">Find a Park & Ride</b-dropdown-item>
+                            <b-dropdown-item href="find-stops">Find a Stops or Station</b-dropdown-item>
+                        </b-nav-item-dropdown>
+                    </b-navbar-nav>
+                </b-collapse>
+                <!-- <div class="collapse navbar-toggleable-xl navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav nav-fill">
                         <li class="nav-item dropdown">
                             <a
@@ -31,7 +49,8 @@
                                 aria-expanded="false"
                             >
                                 Trip Tools
-                                <BaseIconSprite name="icon-chevron-down-gray" class="svg-inactive"/>
+                                <BaseIconSprite name="icon-chevron-down-gray" class="svg-normal"/>
+                                <BaseIconSprite name="icon-chevron-down-white" class="svg-hover"/>
                                 <BaseIconSprite name="icon-chevron-up-white" class="svg-active"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="tripToolsDropdown">
@@ -53,7 +72,7 @@
                                 aria-haspopup="true"
                                 aria-expanded="false"
                             >
-                                Fares &amp; Passes&nbsp;
+                                Fares
                                 <BaseIconSprite name="icon-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="faresDropdown">
@@ -75,7 +94,7 @@
                                 aria-haspopup="true"
                                 aria-expanded="false"
                             >
-                                More&nbsp;
+                                More
                                 <BaseIconSprite name="icon-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="faresDropdown">
@@ -94,7 +113,7 @@
                                 aria-haspopup="true"
                                 aria-expanded="false"
                             >
-                                Help&nbsp;
+                                Help
                                 <BaseIconSprite name="icon-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="helpDropdown">
@@ -117,7 +136,7 @@
                                 aria-expanded="false"
                             >
                                 <BaseIconSprite name="icon-globe-gray"/>&nbsp;
-                                En&nbsp;
+                                En
                                 <BaseIconSprite name="icon-chevron-down-gray"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="language">
@@ -148,7 +167,7 @@
                             </a>
                         </li>
                     </ul>
-                </div>
+                </div>-->
             </div>
         </nav>
     </header>
@@ -184,23 +203,50 @@ nav.navbar {
 		padding-bottom: 0;
 	}
 
-	.nav-fill {
+	.navbar-nav {
 		.nav-item {
 			text-align: left;
 
-			&:hover,
-			&:active {
-				@include media-breakpoint-up(xl) {
-					background-color: $cyan;
-
-					.nav-link {
-						color: $white;
-					}
-					.icon-wrapper {
-						color: $white;
-					}
-				}
+			.svg-hover,
+			.svg-active {
+				display: none !important;
 			}
+
+			// &:hover {
+			// 	background-color: $cyan;
+
+			// 	.nav-link {
+			// 		color: $white;
+			// 	}
+
+			// 	.svg-hover {
+			// 		display: inline-block !important;
+			// 		vertical-align: top;
+			// 	}
+
+			// 	.svg-normal,
+			// 	.svg-active {
+			// 		display: none;
+			// 	}
+			// }
+			// &:active,
+			// &:focus {
+			// 	.svg-active {
+			// 		display: inline-block !important;
+			// 	}
+
+			// 	.svg-normal,
+			// 	.svg-hover {
+			// 		display: none !important;
+			// 	}
+			// 	@include media-breakpoint-up(xl) {
+			// 		background-color: $cyan;
+
+			// 		.nav-link {
+			// 			color: $white;
+			// 		}
+			// 	}
+			// }
 
 			.nav-link {
 				text-decoration: none;
@@ -212,36 +258,10 @@ nav.navbar {
 				@include media-breakpoint-up(xl) {
 					padding: 1.25rem 0.75rem 0.5rem 0.75rem;
 				}
-
-				.svg-active {
-					display: none !important;
-				}
-
-				.svg-inactive {
-					display: inline-block !important;
-					vertical-align: top;
-				}
-
-				&:hover,
-				&:active {
-					.svg-active {
-						display: inline-block !important;
-						vertical-align: top;
-					}
-
-					.svg-inactive {
-						display: none !important;
-					}
-				}
-			}
-
-			.dropdown-menu {
-				background-color: $gray-100;
-				border: none;
-				margin-top: -1px;
 			}
 		}
 	}
+
 	.icon-wrapper {
 		width: 0.75rem;
 		height: 0.75rem;
@@ -250,23 +270,6 @@ nav.navbar {
 			width: 1rem;
 			height: 1rem;
 			vertical-align: middle;
-		}
-	}
-
-	.dropdown-toggle {
-		.icon-wrapper {
-			display: inline-flex;
-		}
-
-		&::after {
-			display: none;
-		}
-	}
-
-	.dropdown-menu {
-		.dropdown-item {
-			text-decoration: none;
-			@include fontSize(18);
 		}
 	}
 }
