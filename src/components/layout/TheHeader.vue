@@ -1,7 +1,6 @@
 <template>
     <header>
-        <nav class="navbar navbar-expand-xl navbar-light border-bottom">
-            <a class="skip-to-content" href="#mainContent">Skip to main content</a>
+        <b-navbar toggleable="xl">
             <div class="container">
                 <b-navbar-brand href="/">
                     <img
@@ -10,166 +9,92 @@
                         class="logo d-inline-block"
                     >
                 </b-navbar-brand>
-                <!-- <button
-                    class="navbar-toggler navbar-toggler-right"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarCollapse"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>-->
-                <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-                <b-collapse id="navbarCollapse" is-nav>
+                <b-navbar-toggle target="navCollapse"></b-navbar-toggle>
+                <b-collapse id="navCollapse" is-nav>
                     <b-navbar-nav>
                         <b-nav-item-dropdown>
                             <template slot="button-content">
-                                Trip Tools
-                                <BaseIconSprite name="icon-chevron-down-gray" class="svg-normal"/>
-                                <BaseIconSprite name="icon-chevron-down-white" class="svg-hover"/>
-                                <BaseIconSprite name="icon-chevron-up-white" class="svg-active"/>
+                                <span class="dropdown-text mr-2">Trip Tools</span>
+                                <BaseIconSprite name="icon-chevron-down-gray" class="inactive"/>
+                                <BaseIconSprite name="icon-chevron-down-white" class="active"/>
                             </template>
                             <b-dropdown-item href="trip-planner">Trip Planner</b-dropdown-item>
                             <b-dropdown-item href="nextrip">NexTrip</b-dropdown-item>
                             <b-dropdown-item href="alerts">Alerts</b-dropdown-item>
-                            <b-dropdown-item href="park-n-ride">Find a Park & Ride</b-dropdown-item>
-                            <b-dropdown-item href="find-stops">Find a Stops or Station</b-dropdown-item>
+                            <b-dropdown-item href="find-park-n-ride">Find a Park &amp; Ride</b-dropdown-item>
+                            <b-dropdown-item href="stops-stations">Find a Stop or Station</b-dropdown-item>
+                        </b-nav-item-dropdown>
+                        <b-nav-item href="schedules-maps">
+                            <slot>Schedules &amp; Maps</slot>
+                        </b-nav-item>
+                        <b-nav-item-dropdown>
+                            <template slot="button-content">
+                                <span class="dropdown-text mr-2">Fares</span>
+                                <BaseIconSprite name="icon-chevron-down-gray" class="inactive"/>
+                                <BaseIconSprite name="icon-chevron-down-white" class="active"/>
+                            </template>
+                            <b-dropdown-item href="fares">Fares</b-dropdown-item>
+                            <b-dropdown-item href="go-to-card">Go-To Card</b-dropdown-item>
+                            <b-dropdown-item href="passes">Pass Programs</b-dropdown-item>
+                            <b-dropdown-item href="https://store.metrotransit.org/">Store</b-dropdown-item>
+                        </b-nav-item-dropdown>
+                        <b-nav-item-dropdown>
+                            <template slot="button-content">
+                                <span class="dropdown-text mr-2">More</span>
+                                <BaseIconSprite name="icon-chevron-down-gray" class="inactive"/>
+                                <BaseIconSprite name="icon-chevron-down-white" class="active"/>
+                            </template>
+                            <b-dropdown-item href="/">Carpool &amp; Vanpool</b-dropdown-item>
+                            <b-dropdown-item href="transit-link">Transit Link</b-dropdown-item>
+                            <b-dropdown-item href="guaranteed-ride-home">Guaranteed Ride Home</b-dropdown-item>
+                            <b-dropdown-item href="bicycle">Bicycle</b-dropdown-item>
+                            <b-dropdown-item href="news-room">News &amp; Events</b-dropdown-item>
+                        </b-nav-item-dropdown>
+                        <b-nav-item-dropdown>
+                            <template slot="button-content">
+                                <span class="dropdown-text mr-2">Help</span>
+                                <BaseIconSprite name="icon-chevron-down-gray" class="inactive"/>
+                                <BaseIconSprite name="icon-chevron-down-white" class="active"/>
+                            </template>
+                            <b-dropdown-item href="how-to-ride">How to Ride Guide</b-dropdown-item>
+                            <b-dropdown-item href="contact-us">Contact Us</b-dropdown-item>
+                            <b-dropdown-item href="lost-found">Lost &amp; Found</b-dropdown-item>
+                            <b-dropdown-item href="accessibility">Accessibility</b-dropdown-item>
+                            <b-dropdown-item href="languages">Languages</b-dropdown-item>
+                            <b-dropdown-item href="police">Transit Police</b-dropdown-item>
+                        </b-nav-item-dropdown>
+                        <b-nav-item-dropdown>
+                            <template slot="button-content">
+                                <BaseIconSprite name="icon-globe-gray"/>
+                                <span class="dropdown-text mr-2 ml-1">En</span>
+                                <BaseIconSprite name="icon-chevron-down-gray" class="inactive"/>
+                                <BaseIconSprite name="icon-chevron-down-white" class="active"/>
+                            </template>
+                            <b-dropdown-item href="how-to-ride">How to Ride Guide</b-dropdown-item>
+                            <b-dropdown-item href="contact-us">Contact Us</b-dropdown-item>
+                            <b-dropdown-item href="lost-found">Lost &amp; Found</b-dropdown-item>
+                            <b-dropdown-item href="accessibility">Accessibility</b-dropdown-item>
+                            <b-dropdown-item href="languages">Languages</b-dropdown-item>
+                            <b-dropdown-item href="police">Transit Police</b-dropdown-item>
                         </b-nav-item-dropdown>
                     </b-navbar-nav>
+                    <b-navbar-nav class="utilities">
+                        <b-nav-item href="https://store.metrotransit.org/">
+                            <BaseIconSprite name="icon-shopping-cart-green" class="inactive"/>
+                            <BaseIconSprite name="icon-shopping-cart-white" class="active"/>
+                        </b-nav-item>
+                        <b-nav-item href="/">
+                            <BaseIconSprite name="icon-magnifying-glass-gray" class="inactive"/>
+                            <BaseIconSprite name="icon-magnifying-glass-white" class="active"/>
+                        </b-nav-item>
+                        <b-nav-item href="/">
+                            <BaseIconSprite name="icon-avatar-gray" class="inactive"/>
+                            <BaseIconSprite name="icon-avatar-white" class="active"/>
+                        </b-nav-item>
+                    </b-navbar-nav>
                 </b-collapse>
-                <!-- <div class="collapse navbar-toggleable-xl navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav nav-fill">
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                id="tripToolsDropdown"
-                                role="button"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                            >
-                                Trip Tools
-                                <BaseIconSprite name="icon-chevron-down-gray" class="svg-normal"/>
-                                <BaseIconSprite name="icon-chevron-down-white" class="svg-hover"/>
-                                <BaseIconSprite name="icon-chevron-up-white" class="svg-active"/>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="tripToolsDropdown">
-                                <b-link class="dropdown-item" href="trip-planner">Trip Planner</b-link>
-                                <b-link class="dropdown-item" href="nextrip">NexTrip</b-link>
-                                <b-link class="dropdown-item" href="find-stops">Find Stops</b-link>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <b-link class="nav-link" href="schedules-maps">Schedules &amp; Maps</b-link>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                id="faresDropdown"
-                                role="button"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                            >
-                                Fares
-                                <BaseIconSprite name="icon-chevron-down-gray"/>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="faresDropdown">
-                                <b-link class="dropdown-item" href="ride-costs">Ride Costs</b-link>
-                                <b-link class="dropdown-item" href="goto-card">Go-To Card</b-link>
-                                <b-link
-                                    class="dropdown-item"
-                                    href="discount-programs"
-                                >Discount Programs</b-link>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                id="moreDropdown"
-                                role="button"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                            >
-                                More
-                                <BaseIconSprite name="icon-chevron-down-gray"/>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="faresDropdown">
-                                <b-link class="dropdown-item" href>Link name</b-link>
-                                <b-link class="dropdown-item" href>Link name</b-link>
-                                <b-link class="dropdown-item" href>Link name</b-link>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle active"
-                                href="#"
-                                id="helpDropdown"
-                                role="button"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                            >
-                                Help
-                                <BaseIconSprite name="icon-chevron-down-gray"/>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="helpDropdown">
-                                <b-link class="dropdown-item" href="contact-us">Contact Us</b-link>
-                                <b-link class="dropdown-item" href="transit-police">Transit Police</b-link>
-                                <b-link
-                                    class="dropdown-item"
-                                    href="/how-to-ride-guide"
-                                >How to Ride Guide</b-link>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                id="language"
-                                role="button"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                            >
-                                <BaseIconSprite name="icon-globe-gray"/>&nbsp;
-                                En
-                                <BaseIconSprite name="icon-chevron-down-gray"/>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="language">
-                                <a class="dropdown-item" href="#">Hmong</a>
-                                <a class="dropdown-item" href="#">Karen</a>
-                                <a class="dropdown-item" href="#">Somali</a>
-                                <a class="dropdown-item" href="#">Spanish</a>
-                                <a class="dropdown-item" href="#">Vietnamese</a>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav nav-fill border-left">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="search" title="Search">
-                                <span class="sr-only">Search</span>
-                                <BaseIconSprite name="icon-magnifying-glass-gray"/>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                href="https://account.metrotransittest.org/"
-                                id="profile"
-                                title="Profile"
-                            >
-                                <span class="sr-only">Your profile</span>
-                                <BaseIconSprite name="icon-avatar-gray"/>
-                            </a>
-                        </li>
-                    </ul>
-                </div>-->
             </div>
-        </nav>
+        </b-navbar>
     </header>
 </template>
 
@@ -198,91 +123,38 @@ a.skip-to-content {
 	}
 }
 
-nav.navbar {
-	@include media-breakpoint-up(lg) {
-		padding-bottom: 0;
-	}
-
+.navbar-light {
 	.navbar-nav {
-		.nav-item {
-			text-align: left;
+		.nav-link {
+			.icon-wrapper {
+				width: 1rem;
+				height: 1rem;
+				vertical-align: middle;
 
-			.svg-hover,
-			.svg-active {
-				display: none !important;
+				+ .active {
+					display: none;
+				}
 			}
+		}
 
-			// &:hover {
-			// 	background-color: $cyan;
-
-			// 	.nav-link {
-			// 		color: $white;
-			// 	}
-
-			// 	.svg-hover {
-			// 		display: inline-block !important;
-			// 		vertical-align: top;
-			// 	}
-
-			// 	.svg-normal,
-			// 	.svg-active {
-			// 		display: none;
-			// 	}
-			// }
-			// &:active,
-			// &:focus {
-			// 	.svg-active {
-			// 		display: inline-block !important;
-			// 	}
-
-			// 	.svg-normal,
-			// 	.svg-hover {
-			// 		display: none !important;
-			// 	}
-			// 	@include media-breakpoint-up(xl) {
-			// 		background-color: $cyan;
-
-			// 		.nav-link {
-			// 			color: $white;
-			// 		}
-			// 	}
-			// }
+		+ .utilities {
+			@include media-breakpoint-up(xl) {
+				margin-left: auto;
+				padding-left: 1rem;
+				border-left: 1px solid $border-color;
+			}
 
 			.nav-link {
-				text-decoration: none;
-
-				@include media-breakpoint-up(md) {
-					@include fontSize(18);
-				}
-
-				@include media-breakpoint-up(xl) {
-					padding: 1.25rem 0.75rem 0.5rem 0.75rem;
+				.icon-wrapper {
+					@include media-breakpoint-up(xl) {
+						.icon-wrapper {
+							width: 1.25rem;
+							height: 1.25rem;
+						}
+					}
 				}
 			}
 		}
-	}
-
-	.icon-wrapper {
-		width: 0.75rem;
-		height: 0.75rem;
-
-		@include media-breakpoint-up(xl) {
-			width: 1rem;
-			height: 1rem;
-			vertical-align: middle;
-		}
-	}
-}
-
-@include media-breakpoint-up(md) {
-	.icon-xs-avatar-gray {
-		padding: 0.5rem;
-	}
-}
-@include media-breakpoint-up(xl) {
-	.navbar-expand-lg .navbar-nav .nav-link {
-		padding-right: 0.88rem;
-		padding-left: 0.88rem;
 	}
 }
 </style>
