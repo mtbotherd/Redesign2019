@@ -1,0 +1,117 @@
+a.skip-to-content {
+	position: absolute;
+	top: -40px;
+	left: 0;
+	transition: top 1s ease-out;
+
+	&:focus {
+		background-color: $red;
+		color: $white;
+		left: 0;
+		padding: 1rem;
+		text-decoration: underline;
+		top: 0;
+		transition: top 0.1s ease-in;
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.navbar {
+		padding-bottom: 0 !important;
+
+		.navbar-brand {
+			margin-top: -0.75rem;
+		}
+	}
+}
+
+.navbar-nav {
+	.nav-item {
+		&:hover {
+			background-color: $cyan;
+		}
+		.nav-link {
+			@include media-breakpoint-up(xl) {
+				padding-top: 1.25rem;
+				padding-right: 0.85rem !important;
+				padding-bottom: 1.25rem;
+				padding-left: 0.85rem !important;
+			}
+
+			.svg-active {
+				display: none;
+			}
+
+			&:hover {
+				color: $white !important;
+
+				.svg-inactive {
+					display: none;
+				}
+				.svg-active {
+					display: inline-flex;
+				}
+			}
+
+			.icon-wrapper {
+				width: 0.75rem;
+				height: 0.75rem;
+				vertical-align: middle;
+
+				@include media-breakpoint-up(lg) {
+					width: 1rem;
+					height: 1rem;
+				}
+
+				+ .active {
+					display: none;
+				}
+			}
+		}
+
+		.dropdown-menu {
+			background-color: $gray-100;
+			@include media-breakpoint-up(xl) {
+				margin-top: 0;
+				border: none;
+			}
+
+			li a {
+				color: $cyan;
+				@include media-breakpoint-up(lg) {
+					@include fontSize(18);
+				}
+
+				&:hover,
+				&:active {
+					color: $secondary;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+
+	+ .utilities {
+		@include media-breakpoint-up(xl) {
+			margin-left: auto;
+			padding-left: 1.25rem;
+			border-left: 1px solid $border-color;
+		}
+
+		.nav-link {
+			.icon-wrapper {
+				@include media-breakpoint-up(xl) {
+					width: 1.25rem;
+					height: 1.25rem;
+				}
+			}
+
+			.shopping-cart {
+				@include media-breakpoint-up(xl) {
+					width: 1.5rem;
+					height: 1.5rem;
+				}
+			}
+		}
+	}
+}
