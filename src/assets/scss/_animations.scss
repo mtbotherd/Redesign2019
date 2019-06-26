@@ -1,5 +1,5 @@
 /***************************************************************
-    CSS keyframes
+    CSS Animations
 ***************************************************************/
 @keyframes fadeIn {
 	from {
@@ -7,6 +7,20 @@
 	}
 }
 
+// Animate broadcast icon
 .blink {
 	animation: fadeIn 1s infinite alternate;
+}
+
+// Rotate icon
+.rotate-90 {
+	transform: rotate(90deg);
+}
+
+.rotate-180 {
+	transform: rotate(180deg);
+}
+
+.rotate-270 {
+	transform: rotate(-90deg);
 }
