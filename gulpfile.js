@@ -25,7 +25,7 @@ gulp.task("vendor:js", function() {
       "./node_modules/popper.js/dist/umd/popper.*",
       "./node_modules/bootstrap/dist/js/*"
     ])
-    .pipe(gulp.dest("./src/js/vendor"));
+    .pipe(gulp.dest("./js/vendor"));
 });
 
 // Copy font-awesome from node_modules into /fonts
@@ -38,7 +38,7 @@ gulp.task("vendor:js", function() {
 //       "!./node_modules/font-awesome/.*",
 //       "!./node_modules/font-awesome/*.{txt,json,md}"
 //     ])
-//     .pipe(gulp.dest("./src/fonts/font-awesome"));
+//     .pipe(gulp.dest("./fonts/font-awesome"));
 // });
 
 // vendor task
@@ -49,23 +49,23 @@ gulp.task("vendor", gulp.parallel("vendor:js"));
 gulp.task("vendor:build", function() {
   var jsStream = gulp
     .src([
-      "./src/js/vendor/bootstrap.bundle.min.js",
-      "./src/js/vendor/jquery.slim.min.js",
-      "./src/js/vendor/popper.min.js"
+      "./js/vendor/bootstrap.bundle.min.js",
+      "./js/vendor/jquery.slim.min.js",
+      "./js/vendor/popper.min.js"
     ])
-    .pipe(gulp.dest("./dist/src/js/vendor"));
+    .pipe(gulp.dest("./dist/js/vendor"));
   //   var fontStream = gulp
-  //     .src(["./src/fonts/font-awesome/**/*.*"])
-  //     .pipe(gulp.dest("./dist/src/fonts/font-awesome"));
+  //     .src(["./fonts/font-awesome/**/*.*"])
+  //     .pipe(gulp.dest("./dist/fonts/font-awesome"));
   //return merge(jsStream, fontStream);
   return merge(jsStream);
 });
 
-// Copy Bootstrap SCSS(SASS) from node_modules to /src/scss/bootstrap
+// Copy Bootstrap SCSS(SASS) from node_modules to /scss/bootstrap
 gulp.task("bootstrap:scss", function() {
   return gulp
     .src(["./node_modules/bootstrap/scss/**/*"])
-    .pipe(gulp.dest("./src/scss/bootstrap"));
+    .pipe(gulp.dest("./scss/bootstrap"));
 });
 
 // Compile SCSS(SASS) files
@@ -73,7 +73,7 @@ gulp.task(
   "scss",
   gulp.series("bootstrap:scss", function compileScss() {
     return gulp
-      .src(["./src/scss/*.scss"])
+      .src(["./scss/*.scss"])
       .pipe(
         sass
           .sync({
@@ -82,7 +82,7 @@ gulp.task(
           .on("error", sass.logError)
       )
       .pipe(autoprefixer())
-      .pipe(gulp.dest("./src/css"));
+      .pipe(gulp.dest("./css"));
   })
 );
 
@@ -91,14 +91,14 @@ gulp.task(
   "css:minify",
   gulp.series("scss", function cssMinify() {
     return gulp
-      .src("./src/css/app.css")
+      .src("./css/app.css")
       .pipe(cleanCSS())
       .pipe(
         rename({
           suffix: ".min"
         })
       )
-      .pipe(gulp.dest("./dist/src/css"))
+      .pipe(gulp.dest("./dist/css"))
       .pipe(browserSync.stream());
   })
 );
@@ -106,14 +106,14 @@ gulp.task(
 // Minify Js
 gulp.task("js:minify", function() {
   return gulp
-    .src(["./src/js/app.js"])
+    .src(["./js/app.js"])
     .pipe(uglify())
     .pipe(
       rename({
         suffix: ".min"
       })
     )
-    .pipe(gulp.dest("./dist/src/js"))
+    .pipe(gulp.dest("./dist/js"))
     .pipe(browserSync.stream());
 });
 
