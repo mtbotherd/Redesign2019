@@ -1,0 +1,13 @@
+// Wrap buttons in this class for consistent vertical spacing.
+.btn-container {
+	padding-top: 1rem;
+
+	@include media-breakpoint-up(md) {
+		padding-top: 3rem;
+	}
+}
+
+// Removed bootstrap-vue's default dropdown icon
+.dropdown-toggle:after {
+	border: none !important;
+}

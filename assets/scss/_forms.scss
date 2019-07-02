@@ -1,0 +1,58 @@
+/**********************************************
+    Form styles
+**********************************************/
+// Depricaated - Floating labels
+// 1. Add the input element first. Make sure it is required.
+// 2. Add the clase "form-control-placeholder" to the label element.
+
+.form-group {
+	position: relative;
+
+	// New Float labels using vue-float-labels
+	// https://github.com/brtjkzl/vue-float-label
+	.vfl-label-on-input {
+		top: -2px;
+		left: 3px;
+	}
+
+	.vfl-label-on-focus {
+		color: $gray-300;
+		font-size: 6 0%;
+	}
+
+	.vfl-label + input {
+		transition: border 0.2s;
+	}
+}
+
+.form-control,
+.form-control-lg,
+.custom-select {
+	@include fontSize(17);
+
+	@include media-breakpoint-up(md) {
+		@include fontSize(23);
+	}
+}
+
+.form-control-placeholder {
+	position: absolute;
+	top: 0;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	padding-left: 1rem;
+	transition: all 200ms;
+	color: $input-color;
+	@include fontSize(21);
+	font-weight: bold;
+
+	@include media-breakpoint-up(md) {
+		@include fontSize(23);
+	}
+}
+
+.form-control:focus + .form-control-placeholder,
+.form-control:valid + .form-control-placeholder {
+	@include fontSize(14);
+	transform: translate3d(0, -100%, 0);
+}

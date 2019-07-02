@@ -1,0 +1,130 @@
+/***************************************************************
+    Application styles
+***************************************************************/
+// Reset default font size for tablet and up. Base default (mobile first) is set to 14px.
+@media (max-width: 767) {
+	body {
+		@include fontSize(16);
+		//font-size: $font-size-base * 0.25;
+	}
+}
+@media (min-width: 992px) {
+	body {
+		@include fontSize(18);
+		//font-size: $font-size-base * 0.5;
+	}
+}
+
+b,
+strong {
+	font-weight: $font-weight-bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
+	font-weight: $font-weight-bold !important;
+}
+
+h1,
+.h1 {
+	@include fontSize(32);
+
+	@include media-breakpoint-up(md) {
+		@include fontSize(41);
+	}
+
+	> .page-title {
+		background-color: $blue;
+	}
+}
+
+h2,
+.h2 {
+	@include fontSize(23);
+
+	@include media-breakpoint-up(lg) {
+		@include fontSize(32);
+	}
+}
+
+h3,
+.h3 {
+	@include fontSize(19);
+
+	@include media-breakpoint-up(lg) {
+		@include fontSize(28);
+	}
+}
+
+h4,
+.h4 {
+	@include fontSize(15);
+
+	@include media-breakpoint-up(lg) {
+		@include fontSize(23);
+	}
+}
+
+hr {
+	border-top: 1px solid $gray-600;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+
+	// @include media-breakpoint-up(md) {
+	// 	border-top: 2px solid $gray-600;
+	// }
+}
+
+.btn {
+	@include fontSize(16);
+
+	@include media-breakpoint-up(md) {
+		@include fontSize(23);
+	}
+}
+
+// Overrode user agent styles
+// :focus {
+// 	outline: none !important;
+// }
+
+// Application global styles
+#app {
+	@include media-breakpoint-up(xl) {
+		.input-group > .form-control:not(:last-child),
+		.input-group > .custom-select:not(:last-child) {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			border-radius: 0;
+		}
+	}
+}
+
+.section {
+	padding: 1.5rem 0;
+
+	@include media-breakpoint-up(md) {
+		padding: 3rem 0;
+	}
+
+	&:nth-child(even) {
+		background-color: $gray-100;
+	}
+}
+
+//  Misc Styles
+.caps {
+	text-transform: uppercase;
+}
+
+abbr {
+	text-decoration: none !important;
+}

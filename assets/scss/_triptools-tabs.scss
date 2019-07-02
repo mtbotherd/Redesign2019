@@ -1,0 +1,121 @@
+/***************************************************
+    Nav Tabs
+***************************************************/
+// Tab styles
+#tripToolsTabs {
+	.card {
+		background-color: transparent;
+		border: 0;
+	}
+	.nav-tabs {
+		margin-bottom: 2rem;
+
+		.nav-item {
+			position: relative;
+			flex-basis: 0;
+			flex-grow: 1;
+			text-align: center;
+			background-color: $cyan;
+			margin-bottom: 0;
+
+			.icon-wrapper {
+				width: 35px;
+				height: 35px;
+
+				@include media-breakpoint-up(md) {
+					position: absolute;
+					top: 1rem;
+				}
+
+				@include media-breakpoint-up(xl) {
+					width: 50px;
+					height: 50px;
+				}
+			}
+
+			@include media-breakpoint-up(md) {
+				&:nth-child(1) .icon-wrapper {
+					left: 10px;
+				}
+				&:nth-child(2) .icon-wrapper {
+					left: 32px;
+				}
+				&:nth-child(3) .icon-wrapper {
+					left: 38px;
+				}
+			}
+
+			@include media-breakpoint-up(lg) {
+				&:nth-child(1) .icon-wrapper {
+					left: 48px;
+				}
+				&:nth-child(2) .icon-wrapper {
+					left: 70px;
+				}
+				&:nth-child(3) .icon-wrapper {
+					left: 77px;
+				}
+			}
+
+			@include media-breakpoint-up(xl) {
+				&:nth-child(1) .icon-wrapper {
+					left: 35px;
+				}
+				&:nth-child(2) .icon-wrapper {
+					left: 70px;
+				}
+				&:nth-child(3) .icon-wrapper {
+					left: 78px;
+				}
+			}
+
+			.nav-link {
+				background-color: $cyan;
+				color: $white;
+				@include fontSize(14);
+				font-weight: $font-weight-bold;
+				padding: 0.5rem;
+				text-decoration: none;
+
+				@include media-breakpoint-up(md) {
+					@include fontSize(22);
+				}
+
+				@include media-breakpoint-up(lg) {
+					.svg-inactive {
+						display: block !important;
+					}
+				}
+
+				@include media-breakpoint-up(xl) {
+					@include fontSize(32);
+				}
+
+				.svg-active {
+					display: none !important;
+				}
+
+				.svg-inactive {
+					display: block !important;
+				}
+
+				&.active {
+					background-color: $white;
+					color: $cyan;
+					text-decoration: none;
+
+					.svg-active {
+						display: block !important;
+					}
+
+					.svg-inactive {
+						display: none !important;
+					}
+				}
+			}
+		}
+		.nav-item.active {
+			background-color: $white;
+		}
+	}
+}

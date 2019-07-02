@@ -1,0 +1,199 @@
+#tripPlanItinerary {
+	padding: 1.5rem 0;
+
+	@include media-breakpoint-up(lg) {
+		padding: 3rem 0;
+	}
+
+	.card {
+		margin-bottom: 0.75rem;
+		border: 0;
+		background-color: transparent;
+		padding: 0;
+
+		.card-header {
+			background-color: transparent;
+			border: 2px solid $gray-700;
+			padding: 0;
+
+			.tp-time {
+				border-right: 2px solid $gray-700;
+				@include fontSize(12);
+				font-weight: $font-weight-bold;
+				padding: 0.5rem;
+				width: 6rem;
+
+				@include media-breakpoint-up(lg) {
+					@include fontSize(23);
+					padding: 0.813rem;
+					width: 9.857rem;
+				}
+			}
+
+			.tp-route {
+				display: flex;
+				padding: 0.5rem;
+				width: 100%;
+
+				@include media-breakpoint-up(lg) {
+					padding: 0.813rem;
+
+					.icon-wrapper {
+						width: 1.5rem;
+						height: 1.5rem;
+					}
+				}
+
+				.route {
+					@include fontSize(8);
+
+					@include media-breakpoint-up(lg) {
+						@include fontSize(18);
+					}
+				}
+
+				.rotate-right {
+					transform: rotate(90deg);
+					width: 0.5rem;
+					height: 0.5rem;
+				}
+
+				.badge {
+					border-radius: 0.25rem;
+					@include fontSize(8);
+					padding-right: 0.5rem;
+
+					@include media-breakpoint-up(lg) {
+						@include fontSize(16);
+					}
+				}
+
+				.icon-chain-link {
+					display: none;
+
+					@include media-breakpoint-up(lg) {
+						display: inline-flex;
+					}
+				}
+			}
+		}
+
+		.card-body {
+			padding-right: 0;
+			padding-left: 0;
+
+			@include media-breakpoint-up(lg) {
+				border: 1px solid $border-color;
+				padding: 1.75rem 1rem 1rem;
+			}
+
+			.tp-itinerary {
+				.leg-time {
+					font-weight: $font-weight-bold;
+					margin-right: 1rem;
+					width: 96px;
+
+					@include media-breakpoint-up(md) {
+						margin-right: 1rem;
+						width: 91px;
+					}
+
+					@include media-breakpoint-up(lg) {
+						margin-right: 1.75rem;
+						width: 115px;
+					}
+				}
+
+				.leg-mode {
+					width: 14.75rem;
+					line-height: 1.2;
+					margin-left: -1rem;
+					padding-bottom: 0.5rem;
+					padding-left: 1.75rem;
+					position: relative;
+
+					@include media-breakpoint-up(md) {
+						margin-left: 0;
+						padding-bottom: 0.75rem;
+						//width: 38rem;
+						width: auto;
+					}
+
+					@include media-breakpoint-up(lg) {
+						padding-bottom: 1.25rem;
+						padding-left: 2rem;
+						width: 16rem;
+					}
+
+					@include media-breakpoint-up(xl) {
+						padding-bottom: 1.5rem;
+						width: 20.64rem;
+					}
+
+					p {
+						margin-top: 0.15rem;
+					}
+
+					.leg-mode-icon {
+						background-color: $white;
+						width: 2rem;
+						height: 2rem;
+						position: absolute;
+						top: -0.25rem;
+						left: -1.2rem;
+
+						@include media-breakpoint-up(lg) {
+							top: -0.25rem;
+							left: -1.3rem;
+							width: 2.25rem;
+							height: 2.25rem;
+						}
+
+						.icon-wrapper {
+							width: 2rem;
+							height: 2rem;
+
+							@include media-breakpoint-up(lg) {
+								width: 2.25rem;
+								height: 2.25rem;
+							}
+						}
+					}
+				}
+
+				.walk {
+					border-left: 4px dotted #7dcae7;
+				}
+
+				.bus {
+					border-left: 4px solid #7dcae7;
+				}
+
+				.metro-green {
+					border-left: 4px solid $green;
+				}
+
+				.metro-blue {
+					border-left: 4px solid $blue;
+				}
+
+				.metro-red {
+					border-left: 4px solid $red;
+				}
+
+				.metro-a {
+				}
+
+				.metro-c {
+				}
+
+				.ns-train {
+				}
+
+				.arrive {
+					border-left: 4px solid transparent;
+				}
+			}
+		}
+	}
+}
