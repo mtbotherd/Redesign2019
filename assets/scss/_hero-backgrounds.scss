@@ -1,0 +1,18 @@
+.hero-bg {
+  background-image: url("../img/mt-header-lrt-2000x457.jpg");
+  background-size: cover;
+  background-position: 90%;
+  background-repeat: no-repeat;
+  height: 10rem;
+
+  @include media-breakpoint-up(md) {
+    height: 15rem;
+  }
+  @include media-breakpoint-up(lg) {
+    height: 17rem;
+  }
+  @include media-breakpoint-up(xl) {
+    height: 20rem;
+    //height: 17rem;
+  }
+}

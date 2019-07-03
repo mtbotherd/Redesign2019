@@ -1,13 +1,39 @@
 // Wrap buttons in this class for consistent vertical spacing.
 .btn-container {
-	padding-top: 1rem;
+  padding-top: 1rem;
 
-	@include media-breakpoint-up(md) {
-		padding-top: 3rem;
-	}
+  @include media-breakpoint-up(md) {
+    padding-top: 3rem;
+  }
 }
 
 // Removed bootstrap-vue's default dropdown icon
 .dropdown-toggle:after {
-	border: none !important;
+  border: none !important;
+}
+
+// CTA Link White
+.cta-link-white {
+  position: relative;
+  border: 2px solid #ffffff;
+
+  .nav-link {
+    color: white;
+    @include fontSize(17);
+    font-weight: 700;
+    margin-right: auto;
+    text-decoration: none;
+
+    @include media-breakpoint-up(md) {
+      @include fontSize(23);
+      margin-right: 0;
+      text-decoration: underline;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    border: 0;
+    display: block;
+    text-align: center;
+  }
 }

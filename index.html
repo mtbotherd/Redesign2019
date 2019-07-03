@@ -13,9 +13,535 @@
   </head>
 
   <body>
-    <header></header>
+    <header>
+      <nav class="navbar navbar-expand-xl navbar-light">
+        <a href="#mainContent" class="skip-to-content">Skip to main content</a>
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img
+              alt="metro transit logo"
+              src="assets/img/MetroTransitLogo.svg"
+              class="logo d-inline-block"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-    <section id="mainContent"></section>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Trip Tools <span class="sr-only">(current)</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/trip-tools">Trip Tools</a>
+                  <a class="dropdown-item" href="/nextrip">NexTrip</a>
+                  <a class="dropdown-item" href="/alerts">Alerts</a>
+                  <a class="dropdown-item" href="/park-ride"
+                    >Find a Park &amp; Ride</a
+                  >
+                  <a class="dropdown-item" href="/planner/servicesfinder.aspx"
+                    >Find a Stop or Station</a
+                  >
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="schedules-maps"
+                  >Schedules &amp; Maps</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Fares
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/fares">Fares</a>
+                  <a class="dropdown-item" href="/go-to-card">Go-To Card</a>
+                  <a class="dropdown-item" href="/pass-programs"
+                    >Pass Programs</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    href="https://store.metrotransit.org/"
+                    >Store</a
+                  >
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  More
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/carpool"
+                    >Carpool &amp; Vanpool</a
+                  >
+                  <a class="dropdown-item" href="/transit-link">Transit Link</a>
+                  <a class="dropdown-item" href="/guaranteed-ride-home"
+                    >Guaranteed Ride Home</a
+                  >
+                  <a class="dropdown-item" href="/bicycle">Bicycle</a>
+                  <a class="dropdown-item" href="/news">News &amp; Events</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Help
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/how-to-ride"
+                    >How to Ride Guide</a
+                  >
+                  <a class="dropdown-item" href="contact-us">Contact Us</a>
+                  <a class="dropdown-item" href="/lost-found"
+                    >Lost &amp; Found</a
+                  >
+                  <a class="dropdown-item" href="/accessibility"
+                    >Accessibility</a
+                  >
+                  <a class="dropdown-item" href="/languages">Languages</a>
+                  <a class="dropdown-item" href="/police">Transit Police</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  En
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Link</a>
+                  <a class="dropdown-item" href="#">Link</a>
+                  <a class="dropdown-item" href="#">Link</a>
+                  <a class="dropdown-item" href="#">Link</a>
+                  <a class="dropdown-item" href="#">Link</a>
+                  <a class="dropdown-item" href="#">Link</a>
+                  <a class="dropdown-item" href="#">Link</a>
+                  <a class="dropdown-item" href="#">Link</a>
+                  <a class="dropdown-item" href="#">Link</a>
+                  <a class="dropdown-item" href="#">Link</a>
+                </div>
+              </li>
+            </ul>
+            <ul class="navbar-nav utilities">
+              <li class="nav-item">SC</li>
+              <li class="nav-item">MG</li>
+              <li class="nav-item">PR</li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section id="mainContent">
+      <div id="home">
+        <div class="hero-bg pt-3 pt-md-0 pt-lg-3">
+          <div class="container">
+            <div id="findSchedulesByRoute" class="d-none d-md-block">
+              <div class="row justify-content-md-center">
+                <div class="col-md-8 col-lg-6 mt-2 mt-md-4">
+                  <div class="input-group">
+                    <input
+                      type="search"
+                      id="schedulesByRoute"
+                      class="form-control form-control-lg"
+                      placeholder="Find schedules by route"
+                      aria-label="Find schedules by route"
+                      aria-describedby="searchButton"
+                    />
+                    <div class="input-group-append">
+                      <button
+                        id="searchButton"
+                        type="search"
+                        class="btn btn-primary"
+                      >
+                        <span class="sr-only">Search</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cta-link-white mt-md-2 mt-xl-4">
+              <a class="d-inline-flex nav-link" href="schedules-maps"
+                >View all Schedules &amp; Maps</a
+              >
+            </div>
+          </div>
+        </div>
+        <div id="homeContent">
+          <main class="section pt-0 pb-4 pb-md-5">
+            <div class="container">
+              <div id="tripToolsTabs" class="trip-tools-tabs">
+                <div class="card">
+                  <div class="tabs">
+                    <ul class="nav nav-tabs" role="tab-list">
+                      <li class="nav-item mr-2" role="presentation">
+                        <a
+                          class="nav-link active p-md-3"
+                          href="#tripPlanner"
+                          role="tab"
+                          aria-selected="true"
+                          aria-setsize="3"
+                          aria-posinset="1"
+                          >Trip Planner</a
+                        >
+                      </li>
+                      <li class="nav-item mr-2" role="presentation">
+                        <a
+                          class="nav-link"
+                          tabindex="-1"
+                          href="#nextrip"
+                          role="tab"
+                          aria-selected="false"
+                          aria-setsize="3"
+                          aria-posinset="2"
+                          >NexTrip</a
+                        >
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <a
+                          class="nav-link"
+                          tabindex="-1"
+                          href="#alerts"
+                          role="tab"
+                          aria-selected="false"
+                          aria-setsize="3"
+                          aria-posinset="3"
+                          >Alerts</a
+                        >
+                      </li>
+                    </ul>
+                    <div class="tab-content">
+                      <div
+                        class="tt-trip-planner tab-pane fade show active"
+                        role="tabpanel"
+                      >
+                        <div id="tripPlannerModule">
+                          <div class="card">
+                            <h1 class="sr-only">Trip Planner</h1>
+                            <div class="form-group mb-0">
+                              <label for="fromLocation" class="sr-only"
+                                >From</label
+                              >
+                              <input
+                                id="fromLocation"
+                                type="text"
+                                class="form-control form-control-lg from-location"
+                                name="fromLocation"
+                                placeholder="From"
+                                required
+                              />
+                            </div>
+                            <div class="form-group mb-0">
+                              <label for="toLocation" class="sr-only">To</label>
+                              <input
+                                id="toLocation"
+                                type="text"
+                                class="form-control form-control-lg to-location"
+                                name="toLocation"
+                                placeholder="To"
+                                required
+                              />
+                            </div>
+                            <div class="location-toggler text-right">
+                              <img
+                                alt=""
+                                src=""
+                              />
+							</div>
+							<div class="form-group">
+								<float-label for="toLocation">
+									<input
+										id="toLocation"
+										v-model="toLocation"
+										type="text"
+										name="toLocation"
+										class="form-control form-control-lg to-location"
+										placeholder="To"
+										required
+									>
+								</float-label>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="selectTime" class="sr-only">Select time</label>
+										<select
+											id="selectTime"
+											v-model="timeSelected"
+											name="selectTime"
+											class="custom-select custom-select-lg"
+										>
+											<option value="leave-now">Leave now</option>
+											<option value="depart-at">Depart at</option>
+											<option value="arrive-by">Arrive by</option>
+										</select>
+									</div>
+									<div v-if="timeSelected !== 'leave-now'" class="row time-elements">
+										<div class="col-xl-6">
+											<div class="input-group mb-3">
+												<label for="time" class="sr-only">Depart/arrival time</label>
+												<input
+													id="time"
+													type="time"
+													name="time"
+													class="form-control border-right-0"
+													aria-label="depart/arrive by time"
+													aria-describedby="time"
+												>
+												<div class="input-group-append border">
+													<BaseIconSprite
+														name="icon-clock-gray"
+														class="icon-clock mt-1 mt-md-2"
+													/>
+												</div>
+											</div>
+										</div>
+										<div class="col-xl-6">
+											<div class="input-group mb-3">
+												<label for="date" class="sr-only">Depart/arrival date</label>
+												<input
+													id="date"
+													type="date"
+													name="date"
+													class="form-control border-right-0"
+													aria-label="depart/arrive by time"
+													aria-describedby="date"
+												>
+												<div class="input-group-append border">
+													<BaseIconSprite
+														name="icon-calendar-gray"
+														class="icon-clock-gray mt-1 mt-md-2"
+													/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="more-options" role="tablist">
+										<!-- <b-card no-body>
+											<b-card-header header-tag="header" class="d-flex border" role="tab">
+												<b-button
+													href="#"
+													v-b-toggle.tpMoreOptions
+													variant="link"
+													block
+													class="d-flex align-items-center text-left"
+												>
+													More options
+													<BaseIconSprite name="icon-plus-blue" class="ml-auto"/>
+												</b-button>
+											</b-card-header>
+											<b-collapse id="tpMoreOptions" accordion="more-options" role="tabpanel">
+												<b-card-body class="border">
+													<b-card-text class="mb-0">
+														<strong>I'm willing to walk:</strong>
+													</b-card-text>
+													<div class="custom-control custom-radio">
+														<input
+															id="quarterMile"
+															type="radio"
+															name="walkingDistance"
+															class="custom-control-input"
+														>
+														<label
+															class="custom-control-label"
+															for="quarterMile"
+														>1/4 mile</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input
+															id="halfMile"
+															type="radio"
+															name="walkingDistance"
+															class="custom-control-input"
+														>
+														<label class="custom-control-label" for="halfMile">1/2 mile</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input
+															id="oneMile"
+															type="radio"
+															name="walkingDistance"
+															class="custom-control-input"
+														>
+														<label class="custom-control-label" for="oneMile">1 mile</label>
+													</div>
+													<hr>
+				
+													<div class="custom-control custom-radio">
+														<input
+															id="anyType"
+															type="radio"
+															name="serviceType"
+															class="custom-control-input"
+														>
+														<label
+															class="custom-control-label"
+															for="anyType"
+														>Any service type</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input
+															id="railOnly"
+															type="radio"
+															name="serviceType"
+															class="custom-control-input"
+														>
+														<label class="custom-control-label" for="railOnly">Rail only</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input
+															id="busOnly"
+															type="radio"
+															name="serviceType"
+															class="custom-control-input"
+														>
+														<label class="custom-control-label" for="busOnly">Bus only</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input
+															id="noExpress"
+															type="radio"
+															name="serviceType"
+															class="custom-control-input"
+														>
+														<label
+															class="custom-control-label"
+															for="noExpress"
+														>No express</label>
+													</div>
+				
+													<hr>
+				
+													<div class="custom-control custom-radio">
+														<input
+															id="fasterTrip"
+															type="radio"
+															name="convenience"
+															class="custom-control-input"
+														>
+														<label
+															class="custom-control-label"
+															for="fasterTrip"
+														>Faster trip</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input
+															id="fewerTransfers"
+															type="radio"
+															name="convenience"
+															class="custom-control-input"
+														>
+														<label
+															class="custom-control-label"
+															for="fewerTransfers"
+														>Fewer transfers</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input
+															id="lessWalking"
+															type="radio"
+															name="convenience"
+															class="custom-control-input"
+														>
+														<label
+															class="custom-control-label"
+															for="lessWalking"
+														>Less walking</label>
+													</div>
+				
+													<hr>
+				
+													<p class="m-0">
+														<strong>
+															<BaseIconSprite name="icon-accessible-gray"/>&nbsp;Accessible stops
+														</strong>
+													</p>
+													<div class="custom-control custom-radio custom-control-inline">
+														<input
+															id="accessibleYes"
+															type="radio"
+															name="accessible"
+															class="custom-control-input"
+														>
+														<label class="custom-control-label" for="accessibleYes">Yes</label>
+													</div>
+													<div class="custom-control custom-radio custom-control-inline">
+														<input
+															id="accessibleNo"
+															type="radio"
+															name="accessible"
+															class="custom-control-input"
+														>
+														<label class="custom-control-label" for="accessibleNo">No</label>
+													</div>
+												</b-card-body>
+											</b-collapse>
+										</b-card> -->
+									</div>
+								</div>
+							</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
 
     <footer class="section">
       <div class="container">
