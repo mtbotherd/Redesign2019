@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="favicon.ico" />
     <title>Metro Transit</title>
-    <link href="https://use.typekit.net/tev0qmq.css" />
+	<link href="https://use.typekit.net/tev0qmq.css" />
+	<link href="assets/css/sprite.css" rel="stylesheet" />
     <!-- build:css -->
     <link href="assets/css/app.css" rel="stylesheet" />
     <!-- endbuild -->
@@ -48,7 +49,8 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  Trip Tools <span class="sr-only">(current)</span>
+				  Trip Tools <span class="sr-only">(current)</span>
+				  <i class="icon-chevron-down-gray"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="/trip-tools">Trip Tools</a>
@@ -279,17 +281,6 @@
                                 required
                               />
                             </div>
-                            <div class="form-group mb-0">
-                              <label for="toLocation" class="sr-only">To</label>
-                              <input
-                                id="toLocation"
-                                type="text"
-                                class="form-control form-control-lg to-location"
-                                name="toLocation"
-                                placeholder="To"
-                                required
-                              />
-                            </div>
                             <div class="location-toggler text-right">
                               <img
                                 alt=""
@@ -297,17 +288,15 @@
                               />
 							</div>
 							<div class="form-group">
-								<float-label for="toLocation">
+								<label for="toLocation" class="sr-only">To</label>
 									<input
 										id="toLocation"
-										v-model="toLocation"
 										type="text"
 										name="toLocation"
 										class="form-control form-control-lg to-location"
 										placeholder="To"
 										required
 									>
-								</float-label>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
@@ -315,7 +304,6 @@
 										<label for="selectTime" class="sr-only">Select time</label>
 										<select
 											id="selectTime"
-											v-model="timeSelected"
 											name="selectTime"
 											class="custom-select custom-select-lg"
 										>
@@ -324,7 +312,7 @@
 											<option value="arrive-by">Arrive by</option>
 										</select>
 									</div>
-									<div v-if="timeSelected !== 'leave-now'" class="row time-elements">
+									<div class="row time-elements">
 										<div class="col-xl-6">
 											<div class="input-group mb-3">
 												<label for="time" class="sr-only">Depart/arrival time</label>
@@ -337,10 +325,7 @@
 													aria-describedby="time"
 												>
 												<div class="input-group-append border">
-													<BaseIconSprite
-														name="icon-clock-gray"
-														class="icon-clock mt-1 mt-md-2"
-													/>
+													<i class="icon clock"></i>
 												</div>
 											</div>
 										</div>
