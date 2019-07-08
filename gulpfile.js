@@ -9,11 +9,25 @@ var gulp = require("gulp"),
   merge = require("merge-stream"),
   htmlreplace = require("gulp-html-replace"),
   autoprefixer = require("gulp-autoprefixer"),
+  svgSprite = require("gulp-svg-sprites"),
   browserSync = require("browser-sync").create();
 
 // Clean task
 gulp.task("clean", function() {
   return del(["dist", "assets/css/app.css"]);
+});
+
+gulp.task("svgSprite", function() {
+  return gulp
+    .src("assets/svg/*.svg")
+    .pipe(
+      svgSprite({
+        templates: {
+          scss: true
+        }
+      })
+    )
+    .pipe(gulp.dest("assets"));
 });
 
 // Copy third party libraries from node_modules into /vendor

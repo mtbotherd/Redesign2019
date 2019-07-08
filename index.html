@@ -7,14 +7,14 @@
     <link rel="icon" href="favicon.ico" />
     <title>Metro Transit</title>
 	<link href="https://use.typekit.net/tev0qmq.css" />
-	<link href="assets/css/sprite.css" rel="stylesheet" />
+	<!-- <link href="assets/css/sprite.css" rel="stylesheet" /> -->
     <!-- build:css -->
     <link href="assets/css/app.css" rel="stylesheet" />
     <!-- endbuild -->
   </head>
 
-  <body>
-    <header>
+  <body>			
+    <header id="header">
       <nav class="navbar navbar-expand-xl navbar-light">
         <a href="#mainContent" class="skip-to-content">Skip to main content</a>
         <div class="container">
@@ -38,7 +38,7 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav ml-auto">
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -49,8 +49,7 @@
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-				  Trip Tools <span class="sr-only">(current)</span>
-				  <i class="icon-chevron-down-gray"></i>
+				  Trip Tools
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="/trip-tools">Trip Tools</a>
@@ -60,14 +59,16 @@
                     >Find a Park &amp; Ride</a
                   >
                   <a class="dropdown-item" href="/planner/servicesfinder.aspx"
-                    >Find a Stop or Station</a
-                  >
+					>
+					Find a Stop or Station
+				  </a>
                 </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="schedules-maps"
-                  >Schedules &amp; Maps</a
-                >
+				  >
+				  Schedules &amp; Maps
+				</a>
               </li>
               <li class="nav-item dropdown">
                 <a
@@ -237,7 +238,7 @@
                       </li>
                       <li class="nav-item mr-2" role="presentation">
                         <a
-                          class="nav-link"
+                          class="nav-link p-md-3"
                           tabindex="-1"
                           href="#nextrip"
                           role="tab"
@@ -249,7 +250,7 @@
                       </li>
                       <li class="nav-item" role="presentation">
                         <a
-                          class="nav-link"
+                          class="nav-link p-md-3"
                           tabindex="-1"
                           href="#alerts"
                           role="tab"
