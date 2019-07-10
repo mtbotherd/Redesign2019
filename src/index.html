@@ -14,6 +14,7 @@
 
 <body>
 
+	<!-- Begin Header -->
 	<header id="header">
 		<nav class="navbar navbar-expand-xl navbar-light">
 			<a href="#mainContent" class="skip-to-content">Skip to main content</a>
@@ -119,20 +120,28 @@
 					</ul>
 					<ul class="navbar-nav utilities">
 						<li class="nav-item">
-							<svg class="icon icon-shopping-cart-green"><use xlink:href="symbol-defs.svg#icon-shopping-cart-green"></use></svg>
+							<a class="nav-link" href="https://store.metrotransit.org">
+								<svg class="icon icon-shopping-cart-green"><use xlink:href="symbol-defs.svg#icon-shopping-cart-green"></use></svg>
+							</a>
 						</li>
 						<li class="nav-item">
-							<svg class="icon icon-search-gray"><use xlink:href="symbol-defs.svg#icon-search-gray"></use></svg>
+							<a class="nav-link" href="">
+								<svg class="icon icon-search-gray"><use xlink:href="symbol-defs.svg#icon-search-gray"></use></svg>
+							</a>
 						</li>
 						<li class="nav-item">
-							<svg class="icon icon-avatar-gray"><use xlink:href="symbol-defs.svg#icon-avatar-gray"></use></svg>
+							<a class="nav-link" href="">
+								<svg class="icon icon-avatar-gray"><use xlink:href="symbol-defs.svg#icon-avatar-gray"></use></svg>
+							</a>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 	</header>
+	<!-- End Header -->
 
+	<!-- Begin Main Content -->
 	<section id="mainContent">
 		<div id="home">
 			<div class="hero-bg pt-3 pt-md-0 pt-lg-3">
@@ -147,6 +156,7 @@
 									<div class="input-group-append">
 										<button id="searchButton" type="search" class="btn btn-primary">
 											<span class="sr-only">Search</span>
+											<svg class="icon icon-search-gray"><use xlink:href="symbol-defs.svg#icon-search-gray"></use></svg>
 										</button>
 									</div>
 								</div>
@@ -417,7 +427,9 @@ class="custom-control-input"
 			</div>
 		</div>
 	</section>
+	<!-- End Main Content -->
 
+	<!-- Begin Footer -->
 	<footer class="section">
 		<div class="container">
 			<div class="footer d-none d-md-block pt-5"></div>
@@ -430,6 +442,8 @@ class="custom-control-input"
 			</p>
 		</div>
 	</footer>
+	<!-- End Footer -->
+
 	<!-- build:js js/app.min.js -->
 	<script src="js/jquery.js"></script>
 	<script src="js/popper.js"></script>

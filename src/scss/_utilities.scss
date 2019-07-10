@@ -5,5 +5,19 @@
       padding-left: 1.25rem;
       border-left: 1px solid $border-color;
     }
+
+    .icon {
+      @include media-breakpoint-up(xl) {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    .icon-shopping-cart-green {
+      @include media-breakpoint-up(xl) {
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 }
