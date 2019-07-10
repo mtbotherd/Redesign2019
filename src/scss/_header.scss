@@ -39,16 +39,6 @@ a.skip-to-content {
           padding-left: 0.85rem !important;
         }
 
-        .dropdown-icon {
-          width: 1rem;
-		  height: 1rem;
-		}
-		
-		// svg.hover,
-		// svg.active {
-		// 	display: none;
-		// }
-
         &:active,
         &:hover {
           color: $white;
@@ -57,7 +47,7 @@ a.skip-to-content {
 
       .dropdown-toggle {
         &::after {
-          border: none !important;
+          border: none !important; // Removed Bootstraps default arrow.
         }
       }
 
@@ -68,7 +58,7 @@ a.skip-to-content {
           border: none;
         }
 
-        li a {
+        .dropdown-item {
           color: $cyan;
           @include media-breakpoint-up(lg) {
             @include fontSize(18);
