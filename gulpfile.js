@@ -30,7 +30,8 @@ gulp.task('javascript', function() {
             'node_modules/jquery/dist/jquery.js',
             'node_modules/popper.js/dist/umd/popper.js',
             'node_modules/bootstrap/dist/js/bootstrap.js',
-            'node_modules/exlink/jquery.exlink.js'
+			'node_modules/exlink/jquery.exlink.js',
+			'node_modules/svgxuse/svgxuse.js'
         ])
         .pipe(gulp.dest('src/js'))
 });
