@@ -18,21 +18,11 @@ a.skip-to-content {
   @include media-breakpoint-up(xl) {
     .navbar {
       padding: 0 !important;
-
-      .navbar-brand {
-        margin-top: -0.75rem;
-      }
     }
   }
 
   .navbar-nav {
     .nav-item {
-      @include media-breakpoint-up(xl) {
-        padding-top: 1.25rem;
-        padding-right: 0.85rem !important;
-        padding-bottom: 1.25rem;
-        padding-left: 0.85rem !important;
-      }
       &:hover {
         background-color: $cyan;
 
@@ -41,11 +31,33 @@ a.skip-to-content {
         }
       }
       .nav-link {
-        padding: 0;
+        // padding: 0;
+        @include media-breakpoint-up(xl) {
+          padding-top: 1.25rem;
+          padding-right: 0.85rem !important;
+          padding-bottom: 1.25rem;
+          padding-left: 0.85rem !important;
+        }
+
+        .dropdown-icon {
+          width: 1rem;
+		  height: 1rem;
+		}
+		
+		// svg.hover,
+		// svg.active {
+		// 	display: none;
+		// }
 
         &:active,
         &:hover {
           color: $white;
+        }
+      }
+
+      .dropdown-toggle {
+        &::after {
+          border: none !important;
         }
       }
 
@@ -68,30 +80,6 @@ a.skip-to-content {
             text-decoration: underline;
           }
         }
-      }
-    }
-    // .dropdown {
-    //   position: relative;
-
-    //   &::after {
-    //     background-image: url(../svg/chevron-down-gray.svg);
-    //     content: "";
-    //     position: absolute;
-    //     top: 1.65rem;
-    //     right: 0;
-    //     width: 16px;
-    //     height: 16px;
-    //   }
-
-    //   &:hover::after {
-    //     background-image: url(../svg/chevron-down-white.svg);
-    //   }
-    // }
-    + .utilities {
-      @include media-breakpoint-up(xl) {
-        margin-left: auto;
-        padding-left: 1.25rem;
-        border-left: 1px solid $border-color;
       }
     }
   }

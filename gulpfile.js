@@ -1,190 +1,136 @@
-"use strict";
+var gulp = require('gulp'),
+	sass = require('gulp-sass'),
+	autoprefixer = require('gulp-autoprefixer'),
+	sourcemaps = require('gulp-sourcemaps'),
+	useref = require('gulp-useref'),
+	uglify = require('gulp-uglify'),
+	gulpIf = require('gulp-if'),
+	cssnano = require('gulp-cssnano'),
+	imagemin = require('gulp-imagemin'),
+	cache = require('gulp-cache'),
+	del = require('del'),
+	runSequence = require('run-sequence'),
+	browserSync = require('browser-sync').create();
 
-var gulp = require("gulp"),
-  sass = require("gulp-sass"),
-  del = require("del"),
-  uglify = require("gulp-uglify"),
-  cleanCSS = require("gulp-clean-css"),
-  rename = require("gulp-rename"),
-  merge = require("merge-stream"),
-  htmlreplace = require("gulp-html-replace"),
-  autoprefixer = require("gulp-autoprefixer"),
-  svgSprite = require("gulp-svg-sprites"),
-  browserSync = require("browser-sync").create();
+// Development Tasks
+// -----------------
 
-// Clean task
-gulp.task("clean", function() {
-  return del(["dist", "assets/css/app.css"]);
-});
-
-gulp.task("svgSprite", function() {
-  return gulp
-    .src("assets/svg/*.svg")
-    .pipe(
-      svgSprite({
-        templates: {
-          scss: true
+// Start browserSync server
+gulp.task('browserSync', function() {
+    browserSync.init({
+        server: {
+            baseDir: 'src'
         }
-      })
-    )
-    .pipe(gulp.dest("assets"));
-});
-
-// Copy third party libraries from node_modules into /vendor
-gulp.task("vendor:js", function() {
-  return gulp
-    .src([
-      "./node_modules/bootstrap/dist/js/*",
-      "./node_modules/jquery/dist/*",
-      "!./node_modules/jquery/dist/core.js",
-      "./node_modules/popper.js/dist/umd/popper.*"
-    ])
-    .pipe(gulp.dest("./assets/js/vendor"));
-});
-
-// Copy font-awesome from node_modules into /fonts
-// gulp.task('vendor:fonts', function() {
-//   return  gulp.src([
-//     './node_modules/font-awesome/**/*',
-//     '!./node_modules/font-awesome/{less,less/*}',
-//     '!./node_modules/font-awesome/{scss,scss/*}',
-//     '!./node_modules/font-awesome/.*',
-//     '!./node_modules/font-awesome/*.{txt,json,md}'
-//   ])
-//     .pipe(gulp.dest('./assets/fonts/font-awesome'))
-// });
-
-// vendor task
-gulp.task("vendor", gulp.parallel("vendor:js"));
-
-// Create svg sprite
-
-// Copy vendor's js to /dist
-gulp.task("vendor:build", function() {
-  var jsStream = gulp
-    .src([
-      "./assets/js/vendor/bootstrap.bundle.min.js",
-      "./assets/js/vendor/jquery.slim.min.js",
-      "./assets/js/vendor/popper.min.js"
-    ])
-    .pipe(gulp.dest("./dist/assets/js/vendor"));
-  var fontStream = gulp
-    .src(["./assets/fonts/**/*.*"])
-    .pipe(gulp.dest("./dist/assets/fonts"));
-  return merge(jsStream, fontStream);
-});
-
-// Copy Bootstrap SCSS(SASS) from node_modules to /assets/scss/bootstrap
-gulp.task("bootstrap:scss", function() {
-  return gulp
-    .src(["./node_modules/bootstrap/scss/**/*"])
-    .pipe(gulp.dest("./assets/scss/bootstrap"));
-});
-
-// Compile SCSS(SASS) files
-gulp.task(
-  "scss",
-  gulp.series("bootstrap:scss", function compileScss() {
-    return gulp
-      .src(["./assets/scss/*.scss"])
-      .pipe(
-        sass
-          .sync({
-            outputStyle: "expanded"
-          })
-          .on("error", sass.logError)
-      )
-      .pipe(autoprefixer())
-      .pipe(gulp.dest("./assets/css"));
-  })
-);
-
-// Minify CSS
-gulp.task(
-  "css:minify",
-  gulp.series("scss", function cssMinify() {
-    return gulp
-      .src("./assets/css/app.css")
-      .pipe(cleanCSS())
-      .pipe(
-        rename({
-          suffix: ".min"
-        })
-      )
-      .pipe(gulp.dest("./dist/assets/css"))
-      .pipe(browserSync.stream());
-  })
-);
-
-// Minify Js
-gulp.task("js:minify", function() {
-  return gulp
-    .src(["./assets/js/app.js"])
-    .pipe(uglify())
-    .pipe(
-      rename({
-        suffix: ".min"
-      })
-    )
-    .pipe(gulp.dest("./dist/assets/js"))
-    .pipe(browserSync.stream());
-});
-
-// Replace HTML block for Js and Css file upon build and copy to /dist
-gulp.task("replaceHtmlBlock", function() {
-  return gulp
-    .src(["*.html"])
-    .pipe(
-      htmlreplace({
-        js: "assets/js/app.min.js",
-        css: "assets/css/app.min.css"
-      })
-    )
-    .pipe(gulp.dest("dist/"));
-});
-
-// Configure the browserSync task and watch file path for change
-gulp.task("dev", function browserDev(done) {
-  browserSync.init({
-    server: {
-      baseDir: "./"
-    }
-  });
-  gulp.watch(
-    [
-      "assets/scss/*.scss",
-      "assets/scss/**/*.scss",
-      "!assets/scss/bootstrap/**"
-    ],
-    gulp.series("css:minify", function cssBrowserReload(done) {
-      browserSync.reload();
-      done(); //Async callback for completion.
     })
-  );
-  gulp.watch(
-    "assets/js/app.js",
-    gulp.series("js:minify", function jsBrowserReload(done) {
-      browserSync.reload();
-      done();
-    })
-  );
-  gulp.watch(["*.html"]).on("change", browserSync.reload);
-  done();
 });
 
-// Build task
-gulp.task(
-  "build",
-  gulp.series(
-    gulp.parallel("css:minify", "js:minify", "vendor"),
-    "vendor:build",
-    function copyAssets() {
-      return gulp
-        .src(["*.html", "favicon.ico", "assets/img/**"], { base: "./" })
-        .pipe(gulp.dest("dist"));
-    }
-  )
-);
+// Copy JS to src
+gulp.task('javascript', function() {
+    return gulp.src([
+            'node_modules/jquery/dist/jquery.js',
+            'node_modules/popper.js/dist/umd/popper.js',
+            'node_modules/bootstrap/dist/js/bootstrap.js',
+            'node_modules/exlink/jquery.exlink.js'
+        ])
+        .pipe(gulp.dest('src/js'))
+});
 
-// Default task
-gulp.task("default", gulp.series("clean", "build", "replaceHtmlBlock"));
+// Copy JS to dist
+gulp.task('javascriptDist', function() {
+    return gulp.src([
+            'src/js/**/*.js'
+        ])
+        .pipe(gulp.dest('dist/js'))
+});
+
+// Copy vendor css to dist
+gulp.task('css', function() {
+    return gulp.src([
+            'src/css/**/*.css',
+            '!src/css/all.css'
+        ])
+        .pipe(gulp.dest('dist/css'))
+});
+
+// Copy sourcemaps to dist
+gulp.task('sourcemaps', function() {
+    return gulp.src('src/maps/**/*.map')
+        .pipe(gulp.dest('dist/maps'))
+});
+
+// Copy fonts to dist
+gulp.task('fonts', function() {
+    return gulp.src('src/fonts/*')
+        .pipe(gulp.dest('dist/fonts'))
+});
+
+// Compile sass to css
+gulp.task('sass', function() {
+    return gulp.src('src/scss/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
+        .pipe(sourcemaps.write('../maps'))
+        .pipe(gulp.dest('src/css'))
+        .pipe(browserSync.reload({
+            stream: true
+        }))
+});
+
+
+// Watchers
+gulp.task('watch', function() {
+    gulp.watch('src/scss/**/*.scss', ['sass']);
+    gulp.watch('src/*.html', browserSync.reload);
+    gulp.watch('src/js/**/*.js', browserSync.reload);
+});
+
+// Optimization Tasks
+// ------------------
+
+// Optimize CSS and JS
+gulp.task('useref', function() {
+    return gulp.src([
+            'src/*.html'
+        ]) // Grabs CSS and JS from HTML document
+        .pipe(useref())
+        .pipe(gulpIf('*.js', uglify())) // Minifies only if it's a js file
+        .pipe(gulpIf('*.css', cssnano())) // Minifies only if it's a css file
+        .pipe(gulp.dest('dist'))
+});
+
+// Optimize images
+gulp.task('images', function() {
+    return gulp.src('src/img/**/*.+(png|jpg|gif|svg)')
+        .pipe(imagemin({
+            interlaced: true
+        })) // refer to https://github.com/sindresorhus/gulp-imagemin for optimization options available based on file type.
+        .pipe(gulp.dest('dist/img'))
+});
+
+// Clean Dist
+gulp.task('clean', function() {
+    return del.sync('dist').then(function(cb) {
+        return cache.clearAll(cb);
+    });
+})
+
+gulp.task('clean:dist', function() {
+    return del.sync('dist/**/*');
+});
+
+// Build Sequence
+// --------------
+gulp.task('default', function(callback) {
+    runSequence(['javascript', 'fonts', 'sass', 'browserSync'], 'watch',
+        callback
+    )
+});
+
+gulp.task('build', function(callback) {
+    runSequence(
+        'clean:dist',
+        'sass', ['useref', 'css', 'fonts', 'javascriptDist', 'images', 'sourcemaps'],
+        callback
+    )
+});
