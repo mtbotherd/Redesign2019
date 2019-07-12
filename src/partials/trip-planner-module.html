@@ -1,4 +1,4 @@
-<div class="tt-trip-planner tab-pane fade show active" role="tabpanel">
+<div id="tripPlanner" class="tt-trip-planner tab-pane fade show active" role="tabpanel" aria-labelledby="tripPlannerTab">
     <div id="tripPlannerModule">
         <div class="card">
             <h1 class="sr-only">Trip Planner</h1>
@@ -8,8 +8,10 @@
                     class="form-control form-control-lg from-location"
                     name="fromLocation" placeholder="From" required />
             </div>
-            <div class="location-toggler text-right">
-                <img alt="" src="" />
+            <div class="location-toggler text-right mb-2 pt-2 pr-2 pl-2">
+                <svg class="icon icon-location-switcher-blue">
+                    <use xlink:href="symbol-defs.svg#icon-location-switcher-blue"></use>
+                </svg>
             </div>
             <div class="form-group">
                 <label for="toLocation" class="sr-only">To</label>

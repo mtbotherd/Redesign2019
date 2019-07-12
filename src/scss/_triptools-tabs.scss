@@ -18,7 +18,7 @@
 			background-color: $cyan;
 			margin-bottom: 0;
 
-			.icon-wrapper {
+			.icon {
 				width: 35px;
 				height: 35px;
 
@@ -34,37 +34,37 @@
 			}
 
 			@include media-breakpoint-up(md) {
-				&:nth-child(1) .icon-wrapper {
+				&:nth-child(1) .icon {
 					left: 10px;
 				}
-				&:nth-child(2) .icon-wrapper {
+				&:nth-child(2) .icon {
 					left: 32px;
 				}
-				&:nth-child(3) .icon-wrapper {
+				&:nth-child(3) .icon {
 					left: 38px;
 				}
 			}
 
 			@include media-breakpoint-up(lg) {
-				&:nth-child(1) .icon-wrapper {
+				&:nth-child(1) .icon {
 					left: 48px;
 				}
-				&:nth-child(2) .icon-wrapper {
+				&:nth-child(2) .icon {
 					left: 70px;
 				}
-				&:nth-child(3) .icon-wrapper {
+				&:nth-child(3) .icon {
 					left: 77px;
 				}
 			}
 
 			@include media-breakpoint-up(xl) {
-				&:nth-child(1) .icon-wrapper {
+				&:nth-child(1) .icon {
 					left: 35px;
 				}
-				&:nth-child(2) .icon-wrapper {
+				&:nth-child(2) .icon {
 					left: 70px;
 				}
-				&:nth-child(3) .icon-wrapper {
+				&:nth-child(3) .icon {
 					left: 78px;
 				}
 			}
@@ -82,7 +82,7 @@
 				}
 
 				@include media-breakpoint-up(lg) {
-					.svg-inactive {
+					svg.inactive {
 						display: block !important;
 					}
 				}
@@ -91,11 +91,11 @@
 					@include fontSize(32);
 				}
 
-				.svg-active {
+				svg.active {
 					display: none !important;
 				}
 
-				.svg-inactive {
+				svg.inactive {
 					display: block !important;
 				}
 
@@ -104,11 +104,11 @@
 					color: $cyan;
 					text-decoration: none;
 
-					.svg-active {
+					svg.active {
 						display: block !important;
 					}
 
-					.svg-inactive {
+					svg.inactive {
 						display: none !important;
 					}
 				}

@@ -7892,37 +7892,37 @@ footer.section {
     text-align: center;
     background-color: #0097d0;
     margin-bottom: 0; }
-    #tripToolsTabs .nav-tabs .nav-item .icon-wrapper {
+    #tripToolsTabs .nav-tabs .nav-item .icon {
       width: 35px;
       height: 35px; }
       @media (min-width: 768px) {
-        #tripToolsTabs .nav-tabs .nav-item .icon-wrapper {
+        #tripToolsTabs .nav-tabs .nav-item .icon {
           position: absolute;
           top: 1rem; } }
       @media (min-width: 1200px) {
-        #tripToolsTabs .nav-tabs .nav-item .icon-wrapper {
+        #tripToolsTabs .nav-tabs .nav-item .icon {
           width: 50px;
           height: 50px; } }
     @media (min-width: 768px) {
-      #tripToolsTabs .nav-tabs .nav-item:nth-child(1) .icon-wrapper {
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(1) .icon {
         left: 10px; }
-      #tripToolsTabs .nav-tabs .nav-item:nth-child(2) .icon-wrapper {
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(2) .icon {
         left: 32px; }
-      #tripToolsTabs .nav-tabs .nav-item:nth-child(3) .icon-wrapper {
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(3) .icon {
         left: 38px; } }
     @media (min-width: 992px) {
-      #tripToolsTabs .nav-tabs .nav-item:nth-child(1) .icon-wrapper {
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(1) .icon {
         left: 48px; }
-      #tripToolsTabs .nav-tabs .nav-item:nth-child(2) .icon-wrapper {
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(2) .icon {
         left: 70px; }
-      #tripToolsTabs .nav-tabs .nav-item:nth-child(3) .icon-wrapper {
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(3) .icon {
         left: 77px; } }
     @media (min-width: 1200px) {
-      #tripToolsTabs .nav-tabs .nav-item:nth-child(1) .icon-wrapper {
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(1) .icon {
         left: 35px; }
-      #tripToolsTabs .nav-tabs .nav-item:nth-child(2) .icon-wrapper {
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(2) .icon {
         left: 70px; }
-      #tripToolsTabs .nav-tabs .nav-item:nth-child(3) .icon-wrapper {
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(3) .icon {
         left: 78px; } }
     #tripToolsTabs .nav-tabs .nav-item .nav-link {
       background-color: #0097d0;
@@ -7937,23 +7937,23 @@ footer.section {
           font-size: 22px !important;
           font-size: 1.375rem !important; } }
       @media (min-width: 992px) {
-        #tripToolsTabs .nav-tabs .nav-item .nav-link .svg-inactive {
+        #tripToolsTabs .nav-tabs .nav-item .nav-link svg.inactive {
           display: block !important; } }
       @media (min-width: 1200px) {
         #tripToolsTabs .nav-tabs .nav-item .nav-link {
           font-size: 32px !important;
           font-size: 2rem !important; } }
-      #tripToolsTabs .nav-tabs .nav-item .nav-link .svg-active {
+      #tripToolsTabs .nav-tabs .nav-item .nav-link svg.active {
         display: none !important; }
-      #tripToolsTabs .nav-tabs .nav-item .nav-link .svg-inactive {
+      #tripToolsTabs .nav-tabs .nav-item .nav-link svg.inactive {
         display: block !important; }
       #tripToolsTabs .nav-tabs .nav-item .nav-link.active {
         background-color: #fff;
         color: #0097d0;
         text-decoration: none; }
-        #tripToolsTabs .nav-tabs .nav-item .nav-link.active .svg-active {
+        #tripToolsTabs .nav-tabs .nav-item .nav-link.active svg.active {
           display: block !important; }
-        #tripToolsTabs .nav-tabs .nav-item .nav-link.active .svg-inactive {
+        #tripToolsTabs .nav-tabs .nav-item .nav-link.active svg.inactive {
           display: none !important; }
   #tripToolsTabs .nav-tabs .nav-item.active {
     background-color: #fff; }

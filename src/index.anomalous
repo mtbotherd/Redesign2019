@@ -15,7 +15,7 @@
 <body>
 
 	<!-- Begin Header -->
-	<partial src="partials/header.html" />
+	<partial src="./partials/header.html" />
 	<!-- End Header -->
 
 	<!-- Begin Main Content -->
@@ -49,33 +49,9 @@
 			<div id="homeContent">
 				<main class="section pt-0 pb-4 pb-md-5">
 					<div class="container">
-						<div id="tripToolsTabs" class="trip-tools-tabs">
-							<div class="card">
-								<div class="tabs">
-									<ul class="nav nav-tabs" role="tab-list">
-										<li class="nav-item mr-2" role="presentation">
-											<a class="nav-link active p-md-3" href="#tripPlanner" role="tab"
-												aria-selected="true" aria-setsize="3" aria-posinset="1">
-												<svg class="icon icon-trip-planner-color active"><use xlink:href="symbol-defs.svg#icon-trip-planner-color"></use></svg>
-												<svg class="icon icon-trip-planner-white inactive"><use xlink:href="symbol-defs.svg#icon-trip-planner-white"></use></svg>
-												Trip Planner
-											</a>
-										</li>
-										<li class="nav-item mr-2" role="presentation">
-											<a class="nav-link p-md-3" tabindex="-1" href="#nextrip" role="tab"
-												aria-selected="false" aria-setsize="3" aria-posinset="2">NexTrip</a>
-										</li>
-										<li class="nav-item" role="presentation">
-											<a class="nav-link p-md-3" tabindex="-1" href="#alerts" role="tab"
-												aria-selected="false" aria-setsize="3" aria-posinset="3">Alerts</a>
-										</li>
-									</ul>
-									<div class="tab-content">
-										<partial src="partials/trip-planner.html" />
-									</div>
-								</div>
-							</div>
-						</div>
+						<!-- Start trip tools tabs -->
+						<partial src="./partials/trip-tools-tabs.html" />
+						<!-- End trip tools tabs -->
 					</div>
 				</main>
 			</div>
@@ -84,7 +60,7 @@
 	<!-- End Main Content -->
 
 	<!-- Begin Footer -->
-	<partial src="partials/footer.html" />
+	<partial src="./partials/footer.html" />
 	<!-- End Footer -->
 
 	<!-- build:js js/app.min.js -->
@@ -93,7 +69,7 @@
 	<script src="js/bootstrap.js"></script>
 	<script src="js/jquery.exlink.js"></script>
 	<script src="js/svgxuse.js"></script>
-	<script src="js/svg.js"></script>
+	<script src="js/scripts.js"></script>
 	<!-- endbuild -->
 </body>
 

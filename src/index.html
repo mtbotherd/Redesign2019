@@ -176,29 +176,35 @@
 			<div id="homeContent">
 				<main class="section pt-0 pb-4 pb-md-5">
 					<div class="container">
+						<!-- Start trip tools tabs -->
 						<div id="tripToolsTabs" class="trip-tools-tabs">
-							<div class="card">
-								<div class="tabs">
-									<ul class="nav nav-tabs" role="tab-list">
-										<li class="nav-item mr-2" role="presentation">
-											<a class="nav-link active p-md-3" href="#tripPlanner" role="tab"
-												aria-selected="true" aria-setsize="3" aria-posinset="1">
-												<svg class="icon icon-trip-planner-color active"><use xlink:href="symbol-defs.svg#icon-trip-planner-color"></use></svg>
-												<svg class="icon icon-trip-planner-white inactive"><use xlink:href="symbol-defs.svg#icon-trip-planner-white"></use></svg>
-												Trip Planner
-											</a>
-										</li>
-										<li class="nav-item mr-2" role="presentation">
-											<a class="nav-link p-md-3" tabindex="-1" href="#nextrip" role="tab"
-												aria-selected="false" aria-setsize="3" aria-posinset="2">NexTrip</a>
-										</li>
-										<li class="nav-item" role="presentation">
-											<a class="nav-link p-md-3" tabindex="-1" href="#alerts" role="tab"
-												aria-selected="false" aria-setsize="3" aria-posinset="3">Alerts</a>
-										</li>
-									</ul>
-									<div class="tab-content">
-										<div class="tt-trip-planner tab-pane fade show active" role="tabpanel">
+    <div class="card">
+        <div class="tabs">
+            <ul id="ttTabs" class="nav nav-tabs" role="tab-list">
+                <li class="nav-item mr-2" role="presentation">
+                    <a id="tpTab" class="nav-link active p-md-3" data-toggle="tab" href="#tripPlanner" role="tab" aria-controls="tripPlanner" aria-selected="true">
+                            <svg class="icon icon-trip-planner-color active"><use xlink:href="symbol-defs.svg#icon-trip-planner-color"></use></svg>
+                            <svg class="icon icon-trip-planner-white inactive"><use xlink:href="symbol-defs.svg#icon-trip-planner-white"></use></svg>
+                        Trip Planner
+                    </a>
+                </li>
+                <li class="nav-item mr-2" role="presentation">
+                    <a id="nTab" class="nav-link p-md-3" data-toggle="tab" href="#nextrip" role="tab" aria-controls="nextrip" aria-selected="true">
+                        <svg class="icon icon-nextrip-color active"><use xlink:href="symbol-defs.svg#icon-nextrip-color"></use></svg>
+                        <svg class="icon icon-nextrip-white inactive"><use xlink:href="symbol-defs.svg#icon-nextrip-white"></use></svg>
+                        NexTrip
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a id="aTab" class="nav-link p-md-3" data-toggle="tab" href="#alerts" role="tab" aria-controls="alerts" aria-selected="true">
+                        <svg class="icon icon-alerts-color active"><use xlink:href="symbol-defs.svg#icon-alerts-color"></use></svg>
+                        <svg class="icon icon-alerts-white inactive"><use xlink:href="symbol-defs.svg#icon-alerts-white"></use></svg>
+                        Alerts
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="tripPlanner" class="tt-trip-planner tab-pane fade show active" role="tabpanel" aria-labelledby="tripPlannerTab">
     <div id="tripPlannerModule">
         <div class="card">
             <h1 class="sr-only">Trip Planner</h1>
@@ -208,8 +214,10 @@
                     class="form-control form-control-lg from-location"
                     name="fromLocation" placeholder="From" required />
             </div>
-            <div class="location-toggler text-right">
-                <img alt="" src="" />
+            <div class="location-toggler text-right mb-2 pt-2 pr-2 pl-2">
+                <svg class="icon icon-location-switcher-blue">
+                    <use xlink:href="symbol-defs.svg#icon-location-switcher-blue"></use>
+                </svg>
             </div>
             <div class="form-group">
                 <label for="toLocation" class="sr-only">To</label>
@@ -401,30 +409,86 @@
     </div>
 </div>
 
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</main>
-			</div>
-		</div>
-	</section>
-	<!-- End Main Content -->
+                <div id="nextrip" class="tt-trip-planner tab-pane fade" role="tabpanel" aria-labelledby="nextripTab">
+        <h1 class="sr-only">NexTrip</h1>
+        <div class="card no-body">
+            <h2 class="text-center">Real-time Departures</h2>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="selectRoute" class="sr-only">Select route</label>
+                        <select
+                            id="selectRoute"
+                            v-model="routeSelected"
+                            name="selectRoute"
+                            class="custom-select custom-select-lg"
+                        >
+                            <option value>Select route</option>
+                            <option value="route-1">Route 1</option>
+                            <option value="route-2">Route 2</option>
+                            <option value="route-2">Route 3</option>
+                        </select>
+                    </div>
+                    <div v-if="routeSelected" class="form-group">
+                        <label for="selectDirection" class="sr-only">Select direction</label>
+                        <select
+                            id="selectDirection"
+                            v-model="directionSelected"
+                            name="selectDirection"
+                            class="custom-select custom-select-lg"
+                        >
+                            <option value>Select direction</option>
+                            <option value="north">North</option>
+                            <option value="sout">South</option>
+                            <option value="east">East</option>
+                            <option value="west">West</option>
+                        </select>
+                    </div>
+                    <div v-if="routeSelected && directionSelected" class="form-group">
+                        <label for="selectStop" class="sr-only">Select stop</label>
+                        <select
+                            id="selectStop"
+                            v-model="stopSelected"
+                            name="selectStop"
+                            class="custom-select custom-select-lg"
+                        >
+                            <option value>Select stop</option>
+                            <option value="stop-1">Stop 1</option>
+                            <option value="stop-2">Stop 2</option>
+                            <option value="stop-3">Stop 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <p class="text-center or">or</p>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <float-label for="stopNumber">
+                            <input
+                                id="stopNumber"
+                                v-model="stopNumber"
+                                type="text"
+                                name="stopNumber"
+                                class="form-control form-control-lg"
+                                placeholder="Enter stop number"
+                                required
+                            >
+                        </float-label>
+                    </div>
+                </div>
+            </div>
 
-	<!-- Begin Footer -->
-	<footer class="section">
-    <div class="container">
-        <div class="footer d-none d-md-block pt-5"></div>
-        <p class="text-center pt-5">
-            <small>
-                Metro Transit is a service of the Metropolitan Council.
-                <span class="d-block d-md-none"> <br /> </span>&copy; 2019 Metro
-                Transit
-            </small>
-        </p>
+            <!-- NexTrip Departures (results) -->
+            <NexTripDepartures/>
+
+            <div class="btn-container text-center">
+                <BaseButton type="submit" name="getDepartures">Get departures</BaseButton>
+            </div>
+        </div>
     </div>
-</footer>
+
+                <div id="alerts" class="tt-alerts tab-pane fade" role="tabpanel" aria-labelledby="alertsTab"></div>
 
 	<!-- End Footer -->
 
@@ -434,7 +498,7 @@
 	<script src="js/bootstrap.js"></script>
 	<script src="js/jquery.exlink.js"></script>
 	<script src="js/svgxuse.js"></script>
-	<script src="js/svg.js"></script>
+	<script src="js/scripts.js"></script>
 	<!-- endbuild -->
 </body>
 
