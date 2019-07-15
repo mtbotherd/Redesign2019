@@ -247,7 +247,7 @@
                                     aria-label="depart/arrive by time"
                                     aria-describedby="time">
                                 <div class="input-group-append border">
-                                    <i class="icon clock"></i>
+                                    <svg class="icon icon-clock-gray mt-1 mt-md-2"><use xlink:href="symbol-defs.svg#icon-clock-gray"></use></svg>
                                 </div>
                             </div>
                         </div>
@@ -260,8 +260,7 @@
                                     aria-label="depart/arrive by time"
                                     aria-describedby="date">
                                 <div class="input-group-append border">
-                                    <BaseIconSprite name="icon-calendar-gray"
-                                        class="icon-clock-gray mt-1 mt-md-2" />
+                                    <svg class="icon icon-calendar-gray mt-1 mt-md-2"><use xlink:href="symbol-defs.svg#icon-calendar-gray"></use></svg>
                                 </div>
                             </div>
                         </div>
@@ -271,7 +270,7 @@
                     <div class="more-options" role="tablist">
                         <div class="card">
                             <div class="card-header d-flex border">
-                                <a href="#" class="btn d-flex align-items-center text-left btn-link btn-block collapsed" aria-controls="tpMoreOptions" aria-expanded="false" role="button">
+                                <a href="#tpMoreOptions" data-toggle="collapse" class="btn d-flex align-items-center text-left btn-link btn-block collapsed" aria-controls="tpMoreOptions" aria-expanded="false" role="button">
                                     More options
                                     <svg class="icon icon-plus-blue ml-auto inactive"><use xlink:href="symbol-defs.svg#icon-plus-blue"></use></svg>
                                 </a>
@@ -378,7 +377,7 @@
 
                                     <p class="m-0">
                                         <strong>
-                                        <BaseIconSprite name="icon-accessible-gray"/>&nbsp;Accessible stops
+                                        <svg class="icon icon-accessible-gray"><use xlink:href="symbol-defs.svg#icon-accessible-gray"></use></svg>&nbsp;Accessible stops
                                         </strong>
                                     </p>
                                     <div class="custom-control custom-radio custom-control-inline">
@@ -406,6 +405,86 @@
                 </div>
             </div>
         </div>
+        <div id="tripPlannerResults">
+       <h2>Suggested trips</h2>
+       <p class="mb-0">
+           <strong>Start:&nbsp;</strong>225 Farrington
+           <abbr title="street">St.</abbr>,
+           <abbr title="Saint">St.</abbr> Paul, MN 55102
+       </p>
+       <p>
+           <strong>End:&nbsp;</strong>560 6th
+           <abbr title="avenue">Ave.</abbr> N, Minneapolis, MN 55411
+       </p>
+       <div class="tp-itinerary" role="tablist">
+           <div class="card">
+               <a href="/trip-plan" class="border">
+                   <span class="d-flex" role="link">
+                       <span class="d-flex align-items-center tp-time">56 min</span>
+                       <span class="align-items-center tp-route">
+                           <svg class="icon icon-pedestrian-gray"><use xlink:href="symbol-defs.svg#icon-pedestrian-gray"></use></svg>
+                           <svg class="icon icon-chevron-right-gray mr-2"><use xlink:href="symbol-defs.svg#icon-chevron-right-gray"></use></svg>
+                           <svg class="icon icon-bus-gray"><use xlink:href="symbol-defs.svg#icon-bus-gray"></use></svg>&nbsp;
+                           <span class="route mr-1">21</span>
+                           <svg class="icon icon-chevron-right-gray mr-1"><use xlink:href="symbol-defs.svg#icon-chevron-right-gray"></use></svg>
+                           <span class="d-flex align-items-center badge badge-success mr-1">
+                               <svg class="icon icon-lrt-white"><use xlink:href="symbol-defs.svg#icon-lrt-white"></use></svg>
+                               <span class="caps">Green</span>
+                           </span>
+                           <svg class="icon icon-chevron-right-gray"><use xlink:href="symbol-defs.svg#icon-chevron-right-gray"></use></svg>
+                           <svg class="icon icon-pedestrian-gray mr-1"><use xlink:href="symbol-defs.svg#icon-pedestrian-gray"></use></svg>
+                           <svg class="icon icon-arrow-right-blue ml-auto"><use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use></svg>
+                       </span>
+                   </span>
+               </a>
+           </div>
+           <div class="card">
+               <a href="/trip-plan" class="border">
+                   <span class="d-flex" role="link">
+                       <span class="d-flex align-items-center tp-time">1 hr 2 min</span>
+                       <span class="align-items-center tp-route">
+                           <svg class="icon icon-pedestrian-gray"><use xlink:href="symbol-defs.svg#icon-pedestrian-gray"></use></svg>
+                           <svg class="icon icon-chevron-right-gray mr-1"><use xlink:href="symbol-defs.svg#icon-chevron-right-gray"></use></svg>
+                           <svg class="icon icon-bus-gray"><use xlink:href="symbol-defs.svg#icon-bus-gray"></use></svg>&nbsp;
+                           <span class="route mr-1">21</span>
+                           <svg class="icon icon-chevron-right-gray mr-1"><use xlink:href="symbol-defs.svg#icon-chevron-right-gray"></use></svg>
+                           <svg class="icon icon-pedestrian-gray"><use xlink:href="symbol-defs.svg#icon-pedestrian-gray"></use></svg>
+                           <svg class="icon icon-chevron-right-gray mr-1"><use xlink:href="symbol-defs.svg#icon-chevron-right-gray"></use></svg>
+                           <span class="d-flex align-items-center badge badge-secondary mr-1">
+                               <svg class="icon icon-lrt-white"><use xlink:href="symbol-defs.svg#icon-lrt-white"></use></svg>
+                               <span class="caps">Blue</span>
+                           </span>
+                           <svg class="icon icon-chevron-right-gray"><use xlink:href="symbol-defs.svg#icon-chevron-right-gray"></use></svg>
+                           <svg class="icon icon-pedestrian-gray mr-1"><use xlink:href="symbol-defs.svg#icon-pedestrian-gray"></use></svg>
+                           <svg class="icon icon-arrow-right-blue ml-auto"><use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use></svg>
+                       </span>
+                   </span>
+               </a>
+           </div>
+           <div class="card">
+               <a href="/trip-plan" class="border">
+                   <span class="d-flex" role="link">
+                       <span class="d-flex align-items-center tp-time">1 hr 6 min</span>
+                       <span class="align-items-center tp-route">
+                           <svg class="icon icon-pedestrian-gray"><use xlink:href="symbol-defs.svg#icon-pedestrian-gray"></use></svg>
+                           <svg class="icon icon-chevron-right-gray mr-2"><use xlink:href="symbol-defs.svg#icon-chevron-right-gray"></use></svg>
+                           <svg class="icon icon-bus-gray"><use xlink:href="symbol-defs.svg#icon-bus-gray"></use></svg>&nbsp;
+                           <span class="route mr-1">21</span>
+                           <svg class="icon icon-chevron-right-gray mr-2"><use xlink:href="symbol-defs.svg#icon-chevron-right-gray"></use></svg>
+                           <span class="d-flex align-items-center badge badge-success mr-1">
+                               <svg class="icon icon-lrt-white"><use xlink:href="symbol-defs.svg#icon-lrt-white"></use></svg>
+                               <span class="caps">Green</span>
+                           </span>
+                           <svg class="icon icon-chevron-right-gray"><use xlink:href="symbol-defs.svg#icon-chevron-right-gray"></use></svg>
+                           <svg class="icon icon-pedestrian-gray mr-1"><use xlink:href="symbol-defs.svg#icon-pedestrian-gray"></use></svg>
+                           <svg class="icon icon-arrow-right-blue ml-auto"><use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use></svg>
+                       </span>
+                   </span>
+               </a>
+           </div>
+       </div>
+   </div>
+
     </div>
 </div>
 

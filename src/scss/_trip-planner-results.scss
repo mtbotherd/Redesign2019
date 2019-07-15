@@ -1,0 +1,57 @@
+#tripPlannerResults {
+	.card {
+		margin-bottom: 0.75rem;
+		background-color: transparent;
+		padding: 0;
+
+		a {
+			color: $body-color;
+
+			.tp-time {
+				border-right: 1px solid $border-color;
+				@include fontSize(12);
+				font-weight: $font-weight-bold;
+				padding: 0.5rem;
+				width: 6rem;
+			}
+
+			.tp-route {
+				display: flex;
+				padding: 0.5rem 0.75rem;
+				width: 100%;
+
+				.route {
+					@include fontSize(8);
+				}
+
+				.icon-chevron-right-gray {
+					width: 0.5rem;
+					height: 0.5rem;
+				}
+
+				.badge {
+					border-radius: 0.25rem;
+					@include fontSize(8);
+					padding-right: 0.5rem;
+				}
+			}
+
+			&:hover {
+				border: 1px solid $cyan !important;
+
+				.tp-time {
+					background-color: $cyan;
+					color: $white;
+				}
+
+				.tp-route {
+					background-color: $teal;
+				}
+			}
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

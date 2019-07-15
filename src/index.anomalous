@@ -15,7 +15,7 @@
 <body>
 
 	<!-- Begin Header -->
-	<partial src="./partials/header.html" />
+	<partial src="partials/header.html" />
 	<!-- End Header -->
 
 	<!-- Begin Main Content -->
@@ -50,17 +50,25 @@
 				<main class="section pt-0 pb-4 pb-md-5">
 					<div class="container">
 						<!-- Start trip tools tabs -->
-						<partial src="./partials/trip-tools-tabs.html" />
+						<partial src="partials/trip-tools-tabs.html" />
 						<!-- End trip tools tabs -->
 					</div>
 				</main>
+				<section class="section">
+				    <div class="container">
+				        <div id="howToRide" class="base-link">
+				            <svg class="icon icon-circle-exclamation-color"><use xlink:href="symbol-defs.svg#icon-circle-exclamation-color"></use></svg>
+				            <a href="how-to-ride-guide">How to ride</a>
+				        </div>
+				    </div>
+				</section>
 			</div>
 		</div>
 	</section>
 	<!-- End Main Content -->
 
 	<!-- Begin Footer -->
-	<partial src="./partials/footer.html" />
+	<partial src="partials/footer.html" />
 	<!-- End Footer -->
 
 	<!-- build:js js/app.min.js -->
