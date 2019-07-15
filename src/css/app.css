@@ -1532,7 +1532,7 @@ select.form-control:focus::-ms-value {
 .col-form-label-sm {
   padding-top: calc(0.25rem + 1px);
   padding-bottom: calc(0.25rem + 1px);
-  font-size: 0.76563rem;
+  font-size: 0.76562rem;
   line-height: 1.5; }
 
 .form-control-plaintext {
@@ -1553,7 +1553,7 @@ select.form-control:focus::-ms-value {
 .form-control-sm {
   height: calc(1.5em + 0.5rem + 2px);
   padding: 0.25rem 0.5rem;
-  font-size: 0.76563rem;
+  font-size: 0.76562rem;
   line-height: 1.5;
   border-radius: 0; }
 
@@ -1631,7 +1631,7 @@ textarea.form-control {
   max-width: 100%;
   padding: 0.25rem 0.5rem;
   margin-top: .1rem;
-  font-size: 0.76563rem;
+  font-size: 0.76562rem;
   line-height: 1.5;
   color: #fff;
   background-color: rgba(0, 130, 68, 0.9);
@@ -1728,7 +1728,7 @@ textarea.form-control {
   max-width: 100%;
   padding: 0.25rem 0.5rem;
   margin-top: .1rem;
-  font-size: 0.76563rem;
+  font-size: 0.76562rem;
   line-height: 1.5;
   color: #fff;
   background-color: rgba(237, 27, 46, 0.9);
@@ -2284,7 +2284,7 @@ fieldset:disabled a.btn {
 
 .btn-sm, .btn-group-sm > .btn {
   padding: 0.25rem 0.5rem;
-  font-size: 0.76563rem;
+  font-size: 0.76562rem;
   line-height: 1.5;
   border-radius: 0; }
 
@@ -2516,7 +2516,7 @@ input[type="button"].btn-block {
   display: block;
   padding: 0.5rem 1.5rem;
   margin-bottom: 0;
-  font-size: 0.76563rem;
+  font-size: 0.76562rem;
   color: #626462;
   white-space: nowrap; }
 
@@ -2753,7 +2753,7 @@ input[type="button"].btn-block {
 .input-group-sm > .input-group-prepend > .btn,
 .input-group-sm > .input-group-append > .btn {
   padding: 0.25rem 0.5rem;
-  font-size: 0.76563rem;
+  font-size: 0.76562rem;
   line-height: 1.5;
   border-radius: 0; }
 
@@ -2935,7 +2935,7 @@ input[type="button"].btn-block {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   padding-left: 0.5rem;
-  font-size: 0.76563rem; }
+  font-size: 0.76562rem; }
 
 .custom-select-lg {
   height: calc(1.5em + 1rem + 2px);
@@ -3771,7 +3771,7 @@ input[type="button"].btn-block {
 
 .pagination-sm .page-link {
   padding: 0.25rem 0.5rem;
-  font-size: 0.76563rem;
+  font-size: 0.76562rem;
   line-height: 1.5; }
 
 .pagination-sm .page-item:first-child .page-link {
@@ -4554,7 +4554,7 @@ a.close.disabled {
   word-spacing: normal;
   white-space: normal;
   line-break: auto;
-  font-size: 0.76563rem;
+  font-size: 0.76562rem;
   word-wrap: break-word;
   opacity: 0; }
   .tooltip.show {
@@ -4639,7 +4639,7 @@ a.close.disabled {
   word-spacing: normal;
   white-space: normal;
   line-break: auto;
-  font-size: 0.76563rem;
+  font-size: 0.76562rem;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: padding-box;
@@ -7791,28 +7791,22 @@ a.skip-to-content {
     border: 0;
     z-index: 4; } }
 
-footer.section {
-  background-color: #f5f5f4; }
-  footer.section .card-title {
-    font-size: 16px !important;
-    font-size: 1rem !important;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-    text-transform: uppercase; }
-  footer.section .card-body {
-    padding: 0; }
-  footer.section .nav-link {
-    font-size: 16px !important;
-    font-size: 1rem !important;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 0.25rem 0; }
-
 .btn-container {
   padding-top: 1rem; }
   @media (min-width: 768px) {
     .btn-container {
       padding-top: 3rem; } }
+
+.btn-warning {
+  font-weight: 700;
+  color: #626462;
+  width: 14.063rem; }
+  @media (min-width: 768px) {
+    .btn-warning {
+      font-size: 23px !important;
+      font-size: 1.4375rem !important;
+      width: 17.5rem;
+      padding: 0.75rem; } }
 
 .cta-link-white {
   position: relative;
@@ -7836,25 +7830,61 @@ footer.section {
       display: block;
       text-align: center; } }
 
-.base-link {
-  position: relative;
-  width: 345px;
-  margin: 0 auto; }
+#howToRide {
+  width: 345px; }
   @media (min-width: 768px) {
-    .base-link {
+    #howToRide {
       width: 410px; } }
-  .base-link .icon-wrapper {
+  #howToRide .icon-wrapper {
+    position: relative;
+    margin: 0 auto; }
+    #howToRide .icon-wrapper .icon {
+      position: absolute;
+      top: 0.25rem;
+      left: 1rem;
+      width: 32px;
+      height: 32px; }
+      @media (min-width: 768px) {
+        #howToRide .icon-wrapper .icon {
+          top: 0.45rem;
+          left: 0;
+          width: 50px;
+          height: 50px; } }
+
+.btn-outline-primary {
+  font-weight: 700;
+  color: #626462;
+  position: relative;
+  border: 2px solid #0097d0;
+  width: 14.063rem; }
+  .btn-outline-primary:hover, .btn-outline-primary:focus {
+    background-color: #0053a0;
+    color: #fff;
+    border: 2px solid #0053a0; }
+    .btn-outline-primary:hover .inactive, .btn-outline-primary:focus .inactive {
+      display: none; }
+    .btn-outline-primary:hover .active, .btn-outline-primary:focus .active {
+      display: -webkit-inline-box;
+      display: inline-flex; }
+  .btn-outline-primary .inactive {
+    display: -webkit-inline-box;
+    display: inline-flex; }
+  .btn-outline-primary .active {
+    display: none; }
+  @media (min-width: 768px) {
+    .btn-outline-primary {
+      width: 17.5rem;
+      padding: 0.75rem; } }
+  .btn-outline-primary .icon {
     position: absolute;
-    top: 0.25rem;
-    left: 1rem;
-    width: 32px;
-    height: 32px; }
+    top: 0.65rem;
+    right: 0.75rem;
+    width: 1rem;
+    height: 1rem; }
     @media (min-width: 768px) {
-      .base-link .icon-wrapper {
-        top: 0.45rem;
-        left: 0;
-        width: 50px;
-        height: 50px; } }
+      .btn-outline-primary .icon {
+        top: 1.25rem;
+        right: 0.75rem; } }
 
 /**********************************************
     Form styles
@@ -8129,6 +8159,52 @@ footer.section {
     #homeContent {
       top: -5.12rem; } }
 
+/***************************************************
+    News & Updates
+***************************************************/
+#news .row:first-child .col-6 {
+  padding-bottom: 1.5rem; }
+  @media (min-width: 768px) {
+    #news .row:first-child .col-6 {
+      padding-bottom: 0; } }
+
+#news .card-body,
+#news .card-footer {
+  text-align: center;
+  padding: 0.75rem; }
+
+#news .card-footer {
+  background-color: transparent;
+  border-top: 0; }
+  #news .card-footer .btn-warning {
+    position: relative;
+    color: #626462;
+    font-size: 12px !important;
+    font-size: 0.75rem !important;
+    font-weight: 700;
+    width: 100%; }
+    @media (min-width: 768px) {
+      #news .card-footer .btn-warning {
+        font-size: 12px !important;
+        font-size: 0.75rem !important;
+        padding: 0.375rem 0.75rem; } }
+    @media (min-width: 992px) {
+      #news .card-footer .btn-warning {
+        width: 100%;
+        font-size: 18px !important;
+        font-size: 1.125rem !important; } }
+    #news .card-footer .btn-warning .icon {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.75rem;
+      width: 0.75rem;
+      height: 0.75rem; }
+      @media (min-width: 992px) {
+        #news .card-footer .btn-warning .icon {
+          top: 0.75rem;
+          width: 1rem;
+          height: 1rem; } }
+
 #tripPlannerModule .location-toggler .icon-wrapper {
   width: 2rem;
   height: 2rem; }
@@ -8219,5 +8295,28 @@ footer.section {
         background-color: #dbf4fd; }
   #tripPlannerResults .card:last-child {
     margin-bottom: 0; }
+
+footer.section {
+  background-color: #f5f5f4; }
+  footer.section .card-title {
+    font-size: 16px !important;
+    font-size: 1rem !important;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase; }
+  footer.section .card-body {
+    padding: 0; }
+  footer.section .social-media {
+    margin-top: 3rem; }
+    @media (min-width: 1200px) {
+      footer.section .social-media .icon {
+        width: 50px;
+        height: 50px; } }
+  footer.section .nav-link {
+    font-size: 16px !important;
+    font-size: 1rem !important;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.25rem 0; }
 
 /*# sourceMappingURL=../maps/app.css.map */

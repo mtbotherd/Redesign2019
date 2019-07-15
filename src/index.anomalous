@@ -50,17 +50,130 @@
 				<main class="section pt-0 pb-4 pb-md-5">
 					<div class="container">
 						<!-- Start trip tools tabs -->
-						<partial src="partials/trip-tools-tabs.html" />
-						<!-- End trip tools tabs -->
+						<div id="tripToolsTabs" class="trip-tools-tabs">
+						    <div class="card">
+						        <div class="tabs">
+						            <ul class="nav nav-tabs" role="tab-list">
+						                <li class="nav-item mr-2" role="presentation">
+						                    <a id="tpTab" class="nav-link active p-md-3" data-toggle="tab" href="#tripPlanner" role="tab" aria-controls="tripPlanner" aria-selected="true">
+						                            <svg class="icon icon-trip-planner-color mx-auto active"><use xlink:href="symbol-defs.svg#icon-trip-planner-color"></use></svg>
+						                            <svg class="icon icon-trip-planner-white mx-auto inactive"><use xlink:href="symbol-defs.svg#icon-trip-planner-white"></use></svg>
+						                        Trip Planner
+						                    </a>
+						                </li>
+						                <li class="nav-item mr-2" role="presentation">
+						                    <a id="nTab" class="nav-link p-md-3" data-toggle="tab" href="#nextrip" role="tab" aria-controls="nextrip" aria-selected="true">
+						                        <svg class="icon icon-nextrip-color mx-auto active"><use xlink:href="symbol-defs.svg#icon-nextrip-color"></use></svg>
+						                        <svg class="icon icon-nextrip-white mx-auto inactive"><use xlink:href="symbol-defs.svg#icon-nextrip-white"></use></svg>
+						                        NexTrip
+						                    </a>
+						                </li>
+						                <li class="nav-item" role="presentation">
+						                    <a id="aTab" class="nav-link p-md-3" data-toggle="tab" href="#alerts" role="tab" aria-controls="alerts" aria-selected="true">
+						                        <svg class="icon icon-alerts-color mx-auto active"><use xlink:href="symbol-defs.svg#icon-alerts-color"></use></svg>
+						                        <svg class="icon icon-alerts-white mx-auto inactive"><use xlink:href="symbol-defs.svg#icon-alerts-white"></use></svg>
+						                        Alerts
+						                    </a>
+						                </li>
+						            </ul>
+						            <div class="tab-content">
+						                <partial src="./partials/trip-planner-module.html" />
+						                <partial src="./partials/nextrip-module.html" />
+						                <partial src="./partials/alerts-module.html"  />
+						            </div>
+						        </div>
+						    </div>
+						</div>
 					</div>
 				</main>
 				<section class="section">
 				    <div class="container">
-				        <div id="howToRide" class="base-link">
-				            <svg class="icon icon-circle-exclamation-color"><use xlink:href="symbol-defs.svg#icon-circle-exclamation-color"></use></svg>
-				            <a href="how-to-ride-guide">How to ride</a>
-				        </div>
+				        <div id="howToRide" class="text-center mx-auto">
+							<div class="icon-wrapper">
+			            		<svg class="icon icon-circle-blue-outline-question"><use xlink:href="symbol-defs.svg#icon-circle-blue-outline-question"></use></svg>
+							</div>
+			            	<a href="how-to-ride-guide" class="btn btn-outline-primary">How to ride
+								<svg class="icon icon-arrow-right-blue inactive"><use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use></svg>
+								<svg class="icon icon-arrow-right-white active"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg>
+							</a>
+						</div>
 				    </div>
+				</section>
+				<section class="section">
+					<div class="container">
+						<div id="news">
+					        <div class="row">
+					            <div class="col-6 col-md-3">
+					                <div class="card">
+										<img src="./img/placeholder-300x300.png" class="card-img-top" />
+										<div class="card-body">
+											<h4 class="card-title">Article 1</h4>
+										</div>
+					                    <div class="card-footer">
+					                        <div class="text-center">
+					                        	<a href="/" class="btn btn-warning">Learn more
+													<svg class="icon icon-arrow-right-blue">
+														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
+													</svg>
+												</a>
+					                        </div>
+					                    </div>
+					                </div>
+					            </div>
+					            <div class="col-6 col-md-3">
+									<div class="card">
+										<img src="./img/placeholder-300x300.png" class="card-img-top" />
+										<div class="card-body">
+											<h4 class="card-title">Article 1</h4>
+										</div>
+					                    <div class="card-footer">
+					                        <div class="text-center">
+					                        	<a href="/" class="btn btn-warning">Learn more
+													<svg class="icon icon-arrow-right-blue">
+														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
+													</svg>
+												</a>
+					                        </div>
+					                    </div>
+					                </div>
+					            </div>
+					            <div class="col-6 col-md-3">
+									<div class="card">
+										<img src="./img/placeholder-300x300.png" class="card-img-top" />
+										<div class="card-body">
+											<h4 class="card-title">Article 3</h4>
+										</div>
+					                    <div class="card-footer">
+											<div class="text-center">
+					                        	<a href="/" class="btn btn-warning">Learn more
+													<svg class="icon icon-arrow-right-blue">
+														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
+													</svg>
+												</a>
+					                        </div>
+					                    </div>
+					                </div>
+					            </div>
+					            <div class="col-6 col-md-3">
+									<div class="card">
+										<img src="./img/placeholder-300x300.png" class="card-img-top" />
+										<div class="card-body">
+											<h4 class="card-title">Article 4</h4>
+										</div>
+					                    <div class="card-footer">
+											<div class="text-center">
+					                        	<a href="/" class="btn btn-warning">Learn more
+													<svg class="icon icon-arrow-right-blue">
+														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
+													</svg>
+												</a>
+					                        </div>
+					                    </div>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+					</div>
 				</section>
 			</div>
 		</div>

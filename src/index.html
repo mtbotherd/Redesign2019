@@ -178,33 +178,33 @@
 					<div class="container">
 						<!-- Start trip tools tabs -->
 						<div id="tripToolsTabs" class="trip-tools-tabs">
-    <div class="card">
-        <div class="tabs">
-            <ul id="ttTabs" class="nav nav-tabs" role="tab-list">
-                <li class="nav-item mr-2" role="presentation">
-                    <a id="tpTab" class="nav-link active p-md-3" data-toggle="tab" href="#tripPlanner" role="tab" aria-controls="tripPlanner" aria-selected="true">
-                            <svg class="icon icon-trip-planner-color active"><use xlink:href="symbol-defs.svg#icon-trip-planner-color"></use></svg>
-                            <svg class="icon icon-trip-planner-white inactive"><use xlink:href="symbol-defs.svg#icon-trip-planner-white"></use></svg>
-                        Trip Planner
-                    </a>
-                </li>
-                <li class="nav-item mr-2" role="presentation">
-                    <a id="nTab" class="nav-link p-md-3" data-toggle="tab" href="#nextrip" role="tab" aria-controls="nextrip" aria-selected="true">
-                        <svg class="icon icon-nextrip-color active"><use xlink:href="symbol-defs.svg#icon-nextrip-color"></use></svg>
-                        <svg class="icon icon-nextrip-white inactive"><use xlink:href="symbol-defs.svg#icon-nextrip-white"></use></svg>
-                        NexTrip
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a id="aTab" class="nav-link p-md-3" data-toggle="tab" href="#alerts" role="tab" aria-controls="alerts" aria-selected="true">
-                        <svg class="icon icon-alerts-color active"><use xlink:href="symbol-defs.svg#icon-alerts-color"></use></svg>
-                        <svg class="icon icon-alerts-white inactive"><use xlink:href="symbol-defs.svg#icon-alerts-white"></use></svg>
-                        Alerts
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div id="tripPlanner" class="tt-trip-planner tab-pane fade show active" role="tabpanel" aria-labelledby="tripPlannerTab">
+						    <div class="card">
+						        <div class="tabs">
+						            <ul class="nav nav-tabs" role="tab-list">
+						                <li class="nav-item mr-2" role="presentation">
+						                    <a id="tpTab" class="nav-link active p-md-3" data-toggle="tab" href="#tripPlanner" role="tab" aria-controls="tripPlanner" aria-selected="true">
+						                            <svg class="icon icon-trip-planner-color mx-auto active"><use xlink:href="symbol-defs.svg#icon-trip-planner-color"></use></svg>
+						                            <svg class="icon icon-trip-planner-white mx-auto inactive"><use xlink:href="symbol-defs.svg#icon-trip-planner-white"></use></svg>
+						                        Trip Planner
+						                    </a>
+						                </li>
+						                <li class="nav-item mr-2" role="presentation">
+						                    <a id="nTab" class="nav-link p-md-3" data-toggle="tab" href="#nextrip" role="tab" aria-controls="nextrip" aria-selected="true">
+						                        <svg class="icon icon-nextrip-color mx-auto active"><use xlink:href="symbol-defs.svg#icon-nextrip-color"></use></svg>
+						                        <svg class="icon icon-nextrip-white mx-auto inactive"><use xlink:href="symbol-defs.svg#icon-nextrip-white"></use></svg>
+						                        NexTrip
+						                    </a>
+						                </li>
+						                <li class="nav-item" role="presentation">
+						                    <a id="aTab" class="nav-link p-md-3" data-toggle="tab" href="#alerts" role="tab" aria-controls="alerts" aria-selected="true">
+						                        <svg class="icon icon-alerts-color mx-auto active"><use xlink:href="symbol-defs.svg#icon-alerts-color"></use></svg>
+						                        <svg class="icon icon-alerts-white mx-auto inactive"><use xlink:href="symbol-defs.svg#icon-alerts-white"></use></svg>
+						                        Alerts
+						                    </a>
+						                </li>
+						            </ul>
+						            <div class="tab-content">
+						                <div id="tripPlanner" class="tt-trip-planner tab-pane fade show active" role="tabpanel" aria-labelledby="tripPlannerTab">
     <div id="tripPlannerModule">
         <div class="card">
             <h1 class="sr-only">Trip Planner</h1>
@@ -404,8 +404,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="tripPlannerResults">
+            <div id="tripPlannerResults">
        <h2>Suggested trips</h2>
        <p class="mb-0">
            <strong>Start:&nbsp;</strong>225 Farrington
@@ -485,10 +484,14 @@
        </div>
    </div>
 
+            <div class="btn-container text-center">
+                <button type="submit" class="btn mt-2 btn-warning" name="planMyTrip">Plan my trip</button>
+            </div>
+        </div>
     </div>
 </div>
 
-                <div id="nextrip" class="tt-trip-planner tab-pane fade" role="tabpanel" aria-labelledby="nextripTab">
+						                <div id="nextrip" class="tt-trip-planner tab-pane fade" role="tabpanel" aria-labelledby="nextripTab">
         <h1 class="sr-only">NexTrip</h1>
         <div class="card no-body">
             <h2 class="text-center">Real-time Departures</h2>
@@ -567,7 +570,211 @@
         </div>
     </div>
 
-                <div id="alerts" class="tt-alerts tab-pane fade" role="tabpanel" aria-labelledby="alertsTab"></div>
+						                <div id="alerts" class="tt-alerts tab-pane fade" role="tabpanel" aria-labelledby="alertsTab"></div>
+
+						            </div>
+						        </div>
+						    </div>
+						</div>
+					</div>
+				</main>
+				<section class="section">
+				    <div class="container">
+				        <div id="howToRide" class="text-center mx-auto">
+							<div class="icon-wrapper">
+			            		<svg class="icon icon-circle-blue-outline-question"><use xlink:href="symbol-defs.svg#icon-circle-blue-outline-question"></use></svg>
+							</div>
+			            	<a href="how-to-ride-guide" class="btn btn-outline-primary">How to ride
+								<svg class="icon icon-arrow-right-blue inactive"><use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use></svg>
+								<svg class="icon icon-arrow-right-white active"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg>
+							</a>
+						</div>
+				    </div>
+				</section>
+				<section class="section">
+					<div class="container">
+						<div id="news">
+					        <div class="row">
+					            <div class="col-6 col-md-3">
+					                <div class="card">
+										<img src="./img/placeholder-300x300.png" class="card-img-top" />
+										<div class="card-body">
+											<h4 class="card-title">Article 1</h4>
+										</div>
+					                    <div class="card-footer">
+					                        <div class="text-center">
+					                        	<a href="/" class="btn btn-warning">Learn more
+													<svg class="icon icon-arrow-right-blue">
+														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
+													</svg>
+												</a>
+					                        </div>
+					                    </div>
+					                </div>
+					            </div>
+					            <div class="col-6 col-md-3">
+									<div class="card">
+										<img src="./img/placeholder-300x300.png" class="card-img-top" />
+										<div class="card-body">
+											<h4 class="card-title">Article 1</h4>
+										</div>
+					                    <div class="card-footer">
+					                        <div class="text-center">
+					                        	<a href="/" class="btn btn-warning">Learn more
+													<svg class="icon icon-arrow-right-blue">
+														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
+													</svg>
+												</a>
+					                        </div>
+					                    </div>
+					                </div>
+					            </div>
+					            <div class="col-6 col-md-3">
+									<div class="card">
+										<img src="./img/placeholder-300x300.png" class="card-img-top" />
+										<div class="card-body">
+											<h4 class="card-title">Article 3</h4>
+										</div>
+					                    <div class="card-footer">
+											<div class="text-center">
+					                        	<a href="/" class="btn btn-warning">Learn more
+													<svg class="icon icon-arrow-right-blue">
+														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
+													</svg>
+												</a>
+					                        </div>
+					                    </div>
+					                </div>
+					            </div>
+					            <div class="col-6 col-md-3">
+									<div class="card">
+										<img src="./img/placeholder-300x300.png" class="card-img-top" />
+										<div class="card-body">
+											<h4 class="card-title">Article 4</h4>
+										</div>
+					                    <div class="card-footer">
+											<div class="text-center">
+					                        	<a href="/" class="btn btn-warning">Learn more
+													<svg class="icon icon-arrow-right-blue">
+														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
+													</svg>
+												</a>
+					                        </div>
+					                    </div>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</section>
+	<!-- End Main Content -->
+
+	<!-- Begin Footer -->
+	<footer class="section">
+    <div class="container">
+        <div class="text-center">
+            <a href="/contact-us" class="btn btn-outline-primary">Contact us
+                <svg class="icon icon-arrow-right-blue inactive"><use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use></svg>
+                <svg class="icon icon-arrow-right-white active"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg>
+            </a>
+        </div>
+        <div class="social-media text-center">
+            <a href="https://www.twitter.com/MetroTransitMN"><svg class="icon icon-twitter-gray mr-2"><use xlink:href="symbol-defs.svg#icon-twitter-gray"></use></svg></a>
+            <a href="https://www.facebook.com/MetroTransitMN"><svg class="icon icon-facebook-gray mr-2"><use xlink:href="symbol-defs.svg#icon-facebook-gray"></use></svg></a>
+            <a href="https://www.youtube.com/MetroTransitMN"><svg class="icon icon-youtube-gray mr-2"><use xlink:href="symbol-defs.svg#icon-youtube-gray"></use></svg></a>
+            <a href="https://instagram.com/metrotransitmn"><svg class="icon icon-instagram-gray mr-2"><use xlink:href="symbol-defs.svg#icon-instagram-gray"></use></svg></a>
+            <a href="https://www.linkedin.com/company/metro-transit"><svg class="icon icon-linkedin-gray mr-2"><use xlink:href="symbol-defs.svg#icon-linkedin-gray"></use></svg></a>
+            <a href="https://www.flickr.com/photos/metrotransitmn/"><svg class="icon icon-flickr-gray"><use xlink:href="symbol-defs.svg#icon-flickr-gray"></use></svg></a>
+        </div>
+        <div class="footer d-none d-md-block pt-5">
+            <div class="card-deck">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h4 class="card-title">About Metro Transit</h4>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="/mission-impact" class="nav-link">Mission &amp; Impact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/transit-initiatives" class="nav-link">Transit Initiatives</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/facilities" class="nav-link">Facilities</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h4 class="card-title">Media Relations</h4>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="/contacts" class="nav-link">Contacts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/press" class="nav-link">Press Releases</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/awards" class="nav-link">Awards</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h4 class="card-title">Careers</h4>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="/jobs" class="nav-link">Available Job Opportunities</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/drive" class="nav-link">Become a Bus Driver</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/transit-police-careers" class="nav-link">Join the Transit Police</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/job-seekers" class="nav-link">Career Fairs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/internships" class="nav-link">Internships</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h4 class="card-title">Policies</h4>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="/social-media-policy" class="nav-link">Social Media Policy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://metrocouncil.org/Privacy-Policy.aspx" class="nav-link" target="_blank">Privacy Policy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/code-of-conduct" class="nav-link">Code of Conduct</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/titlevi" class="nav-link">Title VI: Commitment to Fairness</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-center pt-5">
+            <small>
+                Metro Transit is a service of the Metropolitan Council.
+                <span class="d-block d-md-none"> <br /> </span>&copy; 2019 Metro
+                Transit
+            </small>
+        </p>
+    </div>
+</footer>
 
 	<!-- End Footer -->
 
