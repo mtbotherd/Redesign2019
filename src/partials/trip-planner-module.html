@@ -3,21 +3,23 @@
         <div class="card">
             <h1 class="sr-only">Trip Planner</h1>
             <div class="form-group mb-0">
-                <label for="fromLocation" class="sr-only">From</label>
+                <!-- <label for="fromLocation" class="sr-only">From</label> -->
                 <input id="fromLocation" type="text"
                     class="form-control form-control-lg from-location"
-                    name="fromLocation" placeholder="From" required />
+                    name="fromLocation" required>
+                <label for="fromLocation" class="floating-label">From</label>
             </div>
-            <div class="location-toggler text-right mb-2 pt-2 pr-2 pl-2">
+            <button class="location-toggler ml-auto">
                 <svg class="icon icon-location-switcher-blue">
                     <use xlink:href="symbol-defs.svg#icon-location-switcher-blue"></use>
                 </svg>
-            </div>
+            </button>
             <div class="form-group">
-                <label for="toLocation" class="sr-only">To</label>
+                <!-- <label for="toLocation" class="sr-only">To</label> -->
                 <input id="toLocation" type="text" name="toLocation"
                     class="form-control form-control-lg to-location"
-                    placeholder="To" required>
+                    required>
+                <label for="toLocation" class="floating-label">To</label>
             </div>
             <div class="row">
                 <div class="col-md-6">

@@ -1,8 +1,19 @@
 #tripPlannerModule {
-  .location-toggler .icon-wrapper {
-    width: 2rem;
-    height: 2rem;
-  }
+    // Locatin toggle buttons
+    button.location-toggler {
+        background-color: transparent;
+        border: none;
+        width: 2rem;
+        height: 2rem;
+        //padding: 1rem;
+
+        .icon {
+          width: 1rem;
+          height: 1rem;
+        }
+    }
+
+  //button.location-toggler
 
   .time-elements {
     .input-group-append {

@@ -1,6 +1,7 @@
 <div id="nextrip" class="tt-trip-planner tab-pane fade" role="tabpanel" aria-labelledby="nextripTab">
-        <h1 class="sr-only">NexTrip</h1>
-        <div class="card no-body">
+    <div id="nextripModule">
+        <div class="card">
+            <h1 class="sr-only">NexTrip</h1>
             <h2 class="text-center">Real-time Departures</h2>
             <div class="row">
                 <div class="col-md-5">
@@ -53,17 +54,13 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <float-label for="stopNumber">
-                            <input
-                                id="stopNumber"
-                                v-model="stopNumber"
-                                type="text"
-                                name="stopNumber"
-                                class="form-control form-control-lg"
-                                placeholder="Enter stop number"
-                                required
-                            >
-                        </float-label>
+                        <input
+                            id="stopNumber"
+                            name="stopNumber"
+                            class="form-control form-control-lg"
+                            required
+                        >
+                        <label for="stopNumber" class="floating-label">Enter stop number</label>
                     </div>
                 </div>
             </div>
@@ -76,3 +73,4 @@
             </div>
         </div>
     </div>
+</div>

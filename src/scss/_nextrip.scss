@@ -1,0 +1,14 @@
+#nextripModule {
+	.card-header {
+		background-color: transparent;
+		border: none;
+		padding: 0;
+	}
+	.or {
+		margin-bottom: 1rem;
+		@include media-breakpoint-up(md) {
+			margin-bottom: 0;
+			padding-top: 1rem;
+		}
+	}
+}
