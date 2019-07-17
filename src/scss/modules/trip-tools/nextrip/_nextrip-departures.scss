@@ -35,6 +35,14 @@
 		.nt-depart-time {
 			font-weight: $font-weight-bold;
             max-width: 70px;
+
+			@include media-breakpoint-up(md) {
+				max-width: 75px;
+			}
+
+			@include media-breakpoint-up(lg) {
+				max-width: 94px;
+			}
 		}
 
 		.nt-route-name {
@@ -47,20 +55,28 @@
 	}
 
 	.nt-show-my-bus {
+
 		.btn {
 			color: $gray-600;
 			@include fontSize(20);
 			font-weight: $font-weight-bold;
+			background-color: #d8ecfd;
 
-            .icon-bus-broadcast-color {
-    			width: 40px;
-    			height: 40px;
-    		}
+			&.collapsed {
+				background-color: $gray-100;
 
-            .icon-chevron-down-blue {
-    			width: 1rem;
-    			height: 1rem;
-    		}
+
+			}
+		}
+
+		.icon-bus-broadcast-color {
+			width: 40px;
+			height: 40px;
+		}
+
+		.icon-chevron-down-blue {
+			width: 1rem;
+			height: 1rem;
 		}
 	}
 }

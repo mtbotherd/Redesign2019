@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Metro Transit - Website Design Guide</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link href="https://use.typekit.net/tev0qmq.css" />
+	<!-- build:css css/app.min.css -->
+	<link rel="stylesheet" href="css/app.css" />
+	<!-- endbuild -->
+</head>
+
+<body>
+
+	<!-- Begin Header -->
+	<partial src="partials/header.html" />
+	<!-- End Header -->
+
+    <!-- Begin Main Content -->
+	<section id="mainContent">
+        <div class="nextrip-hero-bg pt-3 pt-md-0 pt-lg-3">
+            <div class="container">
+                <div class="level-two-hero">
+                    <h1>NexTrip</h1>
+                </div>
+            </div>
+        </div>
+
+        <main class="section">
+            <partial src="partials/nextrip-module.html"/>
+        </main>
+    </section>
+
+    <!-- End Main Content -->
+
+	<!-- Begin Footer -->
+	<partial src="partials/footer.html" />
+	<!-- End Footer -->
+
+	<!-- build:js js/app.min.js -->
+	<script src="js/jquery.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.exlink.js"></script>
+	<script src="js/svgxuse.js"></script>
+	<script src="js/scripts.js"></script>
+	<!-- endbuild -->
+</body>
+
+</html>

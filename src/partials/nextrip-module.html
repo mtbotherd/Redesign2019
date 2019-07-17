@@ -1,15 +1,13 @@
 <div id="nextrip" class="tt-trip-planner tab-pane fade" role="tabpanel" aria-labelledby="nextripTab">
     <div id="nextripModule">
         <div class="card mb-4">
-            <h1 class="sr-only">NexTrip</h1>
             <h2 class="text-center">Real-time Departures</h2>
             <div class="row">
                 <div class="col-md-5">
-                    <div class="form-group">
+                    <div class="form-group select-route">
                         <label for="selectRoute" class="sr-only">Select route</label>
                         <select
                             id="selectRoute"
-                            v-model="routeSelected"
                             name="selectRoute"
                             class="custom-select custom-select-lg"
                         >
@@ -19,11 +17,10 @@
                             <option value="route-2">Route 3</option>
                         </select>
                     </div>
-                    <div v-if="routeSelected" class="form-group">
+                    <div class="form-group select-route-direction">
                         <label for="selectDirection" class="sr-only">Select direction</label>
                         <select
                             id="selectDirection"
-                            v-model="directionSelected"
                             name="selectDirection"
                             class="custom-select custom-select-lg"
                         >
@@ -34,11 +31,10 @@
                             <option value="west">West</option>
                         </select>
                     </div>
-                    <div v-if="routeSelected && directionSelected" class="form-group">
+                    <div class="form-group select-route-stop">
                         <label for="selectStop" class="sr-only">Select stop</label>
                         <select
                             id="selectStop"
-                            v-model="stopSelected"
                             name="selectStop"
                             class="custom-select custom-select-lg"
                         >

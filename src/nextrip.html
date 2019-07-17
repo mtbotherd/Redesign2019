@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Metro Transit - Website Design Guide</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link href="https://use.typekit.net/tev0qmq.css" />
+	<!-- build:css css/app.min.css -->
+	<link rel="stylesheet" href="css/app.css" />
+	<!-- endbuild -->
+</head>
+
+<body>
+
+	<!-- Begin Header -->
+	<header id="header">
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <a href="#mainContent" class="skip-to-content">Skip to main content</a>
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img alt="metro transit logo" src="img/MetroTransitLogo.svg" class="logo d-inline-block" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-xl-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Trip Tools
+                            <svg class="icon dropdown-icon inactive"><use xlink:href="symbol-defs.svg#icon-chevron-down-gray"></use></svg>
+                            <svg class="icon dropdown-icon active"><use xlink:href="symbol-defs.svg#icon-chevron-down-white"></use></svg>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/trip-tools">Trip Tools</a>
+                            <a class="dropdown-item" href="/nextrip">NexTrip</a>
+                            <a class="dropdown-item" href="/alerts">Alerts</a>
+                            <a class="dropdown-item" href="/park-ride">Find a Park &amp; Ride</a>
+                            <a class="dropdown-item" href="/planner/servicesfinder.aspx">
+                                Find a Stop or Station
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="schedules-maps">
+                            Schedules &amp; Maps
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Fares
+                            <svg class="icon dropdown-icon inactive"><use xlink:href="symbol-defs.svg#icon-chevron-down-gray"></use></svg>
+                            <svg class="icon dropdown-icon active"><use xlink:href="symbol-defs.svg#icon-chevron-down-white"></use></svg>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/fares">Fares</a>
+                            <a class="dropdown-item" href="/go-to-card">Go-To Card</a>
+                            <a class="dropdown-item" href="/pass-programs">Pass Programs</a>
+                            <a class="dropdown-item" href="https://store.metrotransit.org/">Store</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            More
+                            <svg class="icon dropdown-icon inactive"><use xlink:href="symbol-defs.svg#icon-chevron-down-gray"></use></svg>
+                            <svg class="icon dropdown-icon active"><use xlink:href="symbol-defs.svg#icon-chevron-down-white"></use></svg>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/carpool">Carpool &amp; Vanpool</a>
+                            <a class="dropdown-item" href="/transit-link">Transit Link</a>
+                            <a class="dropdown-item" href="/guaranteed-ride-home">Guaranteed Ride Home</a>
+                            <a class="dropdown-item" href="/bicycle">Bicycle</a>
+                            <a class="dropdown-item" href="/news">News &amp; Events</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Help
+                            <svg class="icon dropdown-icon inactive"><use xlink:href="symbol-defs.svg#icon-chevron-down-gray"></use></svg>
+                            <svg class="icon dropdown-icon active"><use xlink:href="symbol-defs.svg#icon-chevron-down-white"></use></svg>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/how-to-ride">How to Ride Guide</a>
+                            <a class="dropdown-item" href="contact-us">Contact Us</a>
+                            <a class="dropdown-item" href="/lost-found">Lost &amp; Found</a>
+                            <a class="dropdown-item" href="/accessibility">Accessibility</a>
+                            <a class="dropdown-item" href="/languages">Languages</a>
+                            <a class="dropdown-item" href="/police">Transit Police</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            En
+                            <svg class="icon dropdown-icon inactive"><use xlink:href="symbol-defs.svg#icon-chevron-down-gray"></use></svg>
+                            <svg class="icon dropdown-icon active"><use xlink:href="symbol-defs.svg#icon-chevron-down-white"></use></svg>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Link</a>
+                            <a class="dropdown-item" href="#">Link</a>
+                            <a class="dropdown-item" href="#">Link</a>
+                            <a class="dropdown-item" href="#">Link</a>
+                            <a class="dropdown-item" href="#">Link</a>
+                            <a class="dropdown-item" href="#">Link</a>
+                            <a class="dropdown-item" href="#">Link</a>
+                            <a class="dropdown-item" href="#">Link</a>
+                            <a class="dropdown-item" href="#">Link</a>
+                            <a class="dropdown-item" href="#">Link</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav utilities">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://store.metrotransit.org">
+                            <svg class="icon icon-shopping-cart-green inactive"><use xlink:href="symbol-defs.svg#icon-shopping-cart-green"></use></svg>
+                            <svg class="icon icon-shopping-cart-green active"><use xlink:href="symbol-defs.svg#icon-shopping-cart-white"></use></svg>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            <svg class="icon icon-search-gray inactive"><use xlink:href="symbol-defs.svg#icon-search-gray"></use></svg>
+                            <svg class="icon icon-search-white active"><use xlink:href="symbol-defs.svg#icon-search-white"></use></svg>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            <svg class="icon icon-avatar-gray inactive"><use xlink:href="symbol-defs.svg#icon-avatar-gray"></use></svg>
+                            <svg class="icon icon-avatar-white active"><use xlink:href="symbol-defs.svg#icon-avatar-white"></use></svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+	<!-- End Header -->
+
+    <!-- Begin Main Content -->
+	<section id="mainContent">
+        <div class="nextrip-hero-bg pt-3 pt-md-0 pt-lg-3">
+            <div class="container">
+                <div class="level-two-hero">
+                    <h1>NexTrip</h1>
+                </div>
+            </div>
+        </div>
+
+        <main class="section">
+            <div id="nextrip" class="tt-trip-planner tab-pane fade" role="tabpanel" aria-labelledby="nextripTab">
+    <div id="nextripModule">
+        <div class="card mb-4">
+            <h2 class="text-center">Real-time Departures</h2>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group select-route">
+                        <label for="selectRoute" class="sr-only">Select route</label>
+                        <select
+                            id="selectRoute"
+                            name="selectRoute"
+                            class="custom-select custom-select-lg"
+                        >
+                            <option value>Select route</option>
+                            <option value="route-1">Route 1</option>
+                            <option value="route-2">Route 2</option>
+                            <option value="route-2">Route 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group select-route-direction">
+                        <label for="selectDirection" class="sr-only">Select direction</label>
+                        <select
+                            id="selectDirection"
+                            name="selectDirection"
+                            class="custom-select custom-select-lg"
+                        >
+                            <option value>Select direction</option>
+                            <option value="north">North</option>
+                            <option value="sout">South</option>
+                            <option value="east">East</option>
+                            <option value="west">West</option>
+                        </select>
+                    </div>
+                    <div class="form-group select-route-stop">
+                        <label for="selectStop" class="sr-only">Select stop</label>
+                        <select
+                            id="selectStop"
+                            name="selectStop"
+                            class="custom-select custom-select-lg"
+                        >
+                            <option value>Select stop</option>
+                            <option value="stop-1">Stop 1</option>
+                            <option value="stop-2">Stop 2</option>
+                            <option value="stop-3">Stop 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <p class="text-center or">or</p>
+                </div>
+                <div class="col-md-5">
+                    <div class="input-group">
+                        <input type="search"
+                            id="stopNumber"
+                            name="stopNumber"
+                            class="form-control form-control-lg"
+                            placeholder="Enter stop number"
+                            aria-describedby="searchStopsButton"
+                            required
+                        >
+                        <label for="stopNumber" class="sr-only">Enter stop number</label>
+                        <div class="input-group-append">
+                            <button id="searchStopsButton" type="search" class="btn btn-primary border-top border-right border-bottom">
+                                <span class="sr-only">Search button</span>
+                                <svg class="icon icon-search-gray"><use xlink:href="symbol-defs.svg#icon-search-gray"></use></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- NexTrip Departures (results) -->
+        <div id="nextripDepartures">
+    <div class="card mb-3 p-2">
+        <h2>Departures</h2>
+        <p>
+            Selby
+            <abbr title="avenue">Ave</abbr>. and Dale
+            <abbr title="street">St</abbr>.
+            <br>Stop 17023
+        </p>
+        <div class="list-group mb-2">
+            <div class="d-flex list-group-item pr-0 pl-0">
+                <span class="nt-route-number mr-2">21 A</span>
+                <span class="nt-route-name">Shelby-Lake / Uptown</span>
+                <span class="nt-depart-time ml-auto">
+                    <svg class="icon icon-broadcast-red blink mr-1"><use xlink:href="symbol-defs.svg#icon-broadcast-red"></use></svg>
+                    6
+                    <abbr title="minutes">min</abbr>
+                </span>
+            </div>
+            <div class="d-flex list-group-item pr-0 pl-0">
+                <span class="nt-route-number mr-2">21 A</span>
+                <span class="nt-route-name">Shelby-Lake / Uptown</span>
+                <span class="nt-depart-time ml-auto">
+                    <svg class="icon icon-broadcast-red blink mr-1"><use xlink:href="symbol-defs.svg#icon-broadcast-red"></use></svg>
+                    6
+                    <abbr title="minutes">min</abbr>
+                </span>
+            </div>
+            <div class="d-flex list-group-item pr-0 pl-0">
+                <span class="nt-route-number mr-2">21 A</span>
+                <span class="nt-route-name mr-2">SW Transit - Express - Chaska - Chanhassen Mpls</span>
+                <span class="nt-depart-time ml-auto">10:00 p.m.</span>
+            </div>
+        </div>
+        <a href="" class="nt-show-more-link">
+            <svg class="icon icon-circle-plus-blue mr-2"><use xlink:href="symbol-defs.svg#icon-circle-plus-blue"></use></svg>
+            <span class="nt-show-more">Show more</span>
+        </a>
+    </div>
+
+    <div id="showMyBus" class="nt-show-my-bus">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0">
+                    <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false">
+                        <svg class="icon icon-bus-broadcast-color mr-2"><use xlink:href="symbol-defs.svg#icon-bus-broadcast-color"></use></svg>
+                        Show my bus
+                        <svg class="icon icon-chevron-down-blue ml-auto"><use xlink:href="symbol-defs.svg#icon-chevron-down-blue"></use></svg>
+                        <!-- <svg class="icon icon-chevron-up-blue ml-auto"><use xlink:href="symbol-defs.svg#icon-chevron-up-blue"></use></svg> -->
+                    </button>
+                </h3>
+            </div>
+            <div id="collapseMap" class="collapse">
+                <div class="card-body p-0">
+                    <img class="img-fluid" src="/img/TripPlanMap1.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Elements to collapse -->
+</div>
+
+    </div>
+</div>
+
+        </main>
+    </section>
+
+    <!-- End Main Content -->
+
+	<!-- Begin Footer -->
+	<footer class="section">
+    <div class="container">
+        <div class="d-none d-xl-block mb-5">
+            <div class="text-center">
+                <a href="/contact-us" class="btn btn-outline-primary">Contact us
+                    <svg class="icon icon-arrow-right-blue inactive"><use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use></svg>
+                    <svg class="icon icon-arrow-right-white active"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg>
+                </a>
+            </div>
+            <div class="social-media text-center">
+                <a href="https://www.twitter.com/MetroTransitMN"><svg class="icon icon-twitter-gray mr-2"><use xlink:href="symbol-defs.svg#icon-twitter-gray"></use></svg></a>
+                <a href="https://www.facebook.com/MetroTransitMN"><svg class="icon icon-facebook-gray mr-2"><use xlink:href="symbol-defs.svg#icon-facebook-gray"></use></svg></a>
+                <a href="https://www.youtube.com/MetroTransitMN"><svg class="icon icon-youtube-gray mr-2"><use xlink:href="symbol-defs.svg#icon-youtube-gray"></use></svg></a>
+                <a href="https://instagram.com/metrotransitmn"><svg class="icon icon-instagram-gray mr-2"><use xlink:href="symbol-defs.svg#icon-instagram-gray"></use></svg></a>
+                <a href="https://www.linkedin.com/company/metro-transit"><svg class="icon icon-linkedin-gray mr-2"><use xlink:href="symbol-defs.svg#icon-linkedin-gray"></use></svg></a>
+                <a href="https://www.flickr.com/photos/metrotransitmn/"><svg class="icon icon-flickr-gray"><use xlink:href="symbol-defs.svg#icon-flickr-gray"></use></svg></a>
+            </div>
+            <div class="footer d-none d-md-block pt-5">
+                <div class="card-deck">
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <h4 class="card-title">About Metro Transit</h4>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a href="/mission-impact" class="nav-link">Mission &amp; Impact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/transit-initiatives" class="nav-link">Transit Initiatives</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/facilities" class="nav-link">Facilities</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <h4 class="card-title">Media Relations</h4>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a href="/contacts" class="nav-link">Contacts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/press" class="nav-link">Press Releases</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/awards" class="nav-link">Awards</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <h4 class="card-title">Careers</h4>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a href="/jobs" class="nav-link">Available Job Opportunities</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/drive" class="nav-link">Become a Bus Driver</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/transit-police-careers" class="nav-link">Join the Transit Police</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/job-seekers" class="nav-link">Career Fairs</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/internships" class="nav-link">Internships</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <h4 class="card-title">Policies</h4>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a href="/social-media-policy" class="nav-link">Social Media Policy</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://metrocouncil.org/Privacy-Policy.aspx" class="nav-link" target="_blank">Privacy Policy</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/code-of-conduct" class="nav-link">Code of Conduct</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/titlevi" class="nav-link">Title VI: Commitment to Fairness</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-center">
+            <small>
+                Metro Transit is a service of the Metropolitan Council.
+                <span class="d-block d-md-none"> <br /> </span>&copy; 2019 Metro
+                Transit
+            </small>
+        </p>
+    </div>
+</footer>
+
+	<!-- End Footer -->
+
+	<!-- build:js js/app.min.js -->
+	<script src="js/jquery.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.exlink.js"></script>
+	<script src="js/svgxuse.js"></script>
+	<script src="js/scripts.js"></script>
+	<!-- endbuild -->
+</body>
+
+</html>

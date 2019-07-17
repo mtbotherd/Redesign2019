@@ -33,5 +33,32 @@ $(document).ready(function() {
         } else {
             $('.time-elements').hide();
         }
-    })
-})
+    });
+
+    /***********************************************
+			NexTrip
+	***********************************************/
+    // Select route
+    $('.select-route-direction, .select-route-stop').hide();
+    $('.select-route').change(function() {
+        if ($('select').val() != null) {
+            $('.select-route-direction').fadeIn('slow').css('display', 'flex');
+        } else {
+            $('.select-route-direction, .select-route-stop').hide();
+        }
+    });
+
+    // Select selectDirection
+    $('.select-route-direction').change(function() {
+        if ($('select').val() != null) {
+            $('.select-route-stop').fadeIn('slow').css('display', 'flex');
+        } else {
+            $('.select-route-stop').hide();
+        }
+    });
+
+    // Collapse - rotate icon
+    $('.accordion .btn').click(function() {
+        $(this).hasCass('collapsed').find('.icon-chevron-down-blue').toggleClass('rotate-180');
+    });
+});

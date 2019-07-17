@@ -1,3 +1,4 @@
+// Home page
 .hero-bg {
   background-image: url("../img/mt-header-lrt-2000x457.jpg");
   background-size: cover;
@@ -13,6 +14,40 @@
   }
   @include media-breakpoint-up(xl) {
     height: 20rem;
-    //height: 17rem;
+  }
+}
+
+// Inside pages
+.level-two-hero {
+    position: relaitve;
+
+    h1 {
+        position: absolute;
+        left: 0;
+        background-color: $white;
+        color: $gray-300;
+        display: inline-flex;
+        opacity: 0.9;
+        padding: 1rem;
+        width: auto;
+    }
+}
+
+// nextrip
+.nextrip-hero-bg {
+  background-image: url("../img/nextrip.jpg");
+  background-size: cover;
+  background-position: 90%;
+  background-repeat: no-repeat;
+  height: 10rem;
+
+  @include media-breakpoint-up(md) {
+    height: 15rem;
+  }
+  @include media-breakpoint-up(lg) {
+    height: 17rem;
+  }
+  @include media-breakpoint-up(xl) {
+    height: 20rem;
   }
 }

@@ -55,7 +55,6 @@
     .btn-primary {
       background-color: $white;
       border: 0;
-      z-index: 4; // Sets icon button over input during focus (which takes on z-index: 3)
 
       .icon {
           vertical-align: baseline;
