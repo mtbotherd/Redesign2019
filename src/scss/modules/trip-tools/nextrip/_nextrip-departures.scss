@@ -1,0 +1,66 @@
+#nextripDepartures {
+	.card {
+		background-color: $gray-100 !important;
+
+		.list-group-item {
+			background-color: transparent;
+			border-color: $gray-300;
+			border-right: none;
+			border-left: none;
+		}
+
+		.nt-show-more {
+			position: relative;
+			color: $gray-600;
+			font-size: 20px;
+			font-weight: $font-weight-bold;
+            margin-left: 2rem;
+        }
+
+        .nt-show-more-link {
+            position: relative;
+
+			.icon {
+				position: absolute;
+				top: 3px;
+				width: 24px;
+				height: 24px;
+			}
+		}
+
+		.nt-route-number {
+			font-weight: $font-weight-bold;
+		}
+
+		.nt-depart-time {
+			font-weight: $font-weight-bold;
+            max-width: 70px;
+		}
+
+		.nt-route-name {
+			max-width: 214px;
+
+			@include media-breakpoint-up(md) {
+				max-width: 100%;
+			}
+		}
+	}
+
+	.nt-show-my-bus {
+		.btn {
+			color: $gray-600;
+			@include fontSize(20);
+			font-weight: $font-weight-bold;
+
+            .icon-bus-broadcast-color {
+    			width: 40px;
+    			height: 40px;
+    		}
+
+            .icon-chevron-down-blue {
+    			width: 1rem;
+    			height: 1rem;
+    		}
+		}
+	}
+}

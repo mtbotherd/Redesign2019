@@ -12,7 +12,8 @@
 }
 
 // Floating labels
-.form-group {
+.form-group,
+.input-group {
   position: relative;
 }
 
@@ -44,24 +45,26 @@
   }
 }
 
-// .form-control-placeholder {
-//   position: absolute;
-//   top: 0;
-//   padding-top: 0.5rem;
-//   padding-bottom: 0.5rem;
-//   padding-left: 1rem;
-//   transition: all 200ms;
-//   color: $input-color;
-//   @include fontSize(21);
-//   font-weight: bold;
-//
-//   @include media-breakpoint-up(md) {
-//     @include fontSize(23);
-//   }
-// }
-//
-// .form-control:focus + .form-control-placeholder,
-// .form-control:valid + .form-control-placeholder {
-//   @include fontSize(14);
-//   transform: translate3d(0, -100%, 0);
-// }
+//  Search bars
+#findSchedulesByRoute,
+#nextrip {
+    .form-control {
+      @include fontSize(23);
+    }
+
+    .btn-primary {
+      background-color: $white;
+      border: 0;
+      z-index: 4; // Sets icon button over input during focus (which takes on z-index: 3)
+
+      .icon {
+          vertical-align: baseline;
+      }
+    }
+}
+
+#findSchedulesByRoute {
+    .form-control {
+        border: 0;
+    }
+}
