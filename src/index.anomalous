@@ -20,7 +20,7 @@
 
 	<!-- Begin Main Content -->
 	<section id="mainContent">
-		<div id="home">
+		<div id="homePage">
 			<div class="hero-bg pt-3 pt-md-0 pt-lg-3">
 				<div class="container">
 					<div id="findSchedulesByRoute" class="d-none d-md-block">
@@ -78,9 +78,15 @@
 						                </li>
 						            </ul>
 						            <div class="tab-content">
-						                <partial src="./partials/trip-planner-module.html" />
-						                <partial src="./partials/nextrip-module.html" />
-						                <partial src="./partials/alerts-module.html"  />
+										<div id="tripPlanner" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tripPlannerTab">
+						                	<partial src="./partials/trip-planner/trip-planner-module.html" />
+										</div>
+										<div id="nextrip" class="tt-nextrip tab-pane fade" role="tabpanel" aria-labelledby="nextripTab">
+						                	<partial src="./partials/nextrip/nextrip-module.html" />
+										</div>
+										<div id="alerts" class="tt-alerts tab-pane fade" role="tabpanel" aria-labelledby="alertsTab">
+						                	<partial src="./partials/alerts/alerts-module.html"  />
+										</div>
 						            </div>
 						        </div>
 						    </div>

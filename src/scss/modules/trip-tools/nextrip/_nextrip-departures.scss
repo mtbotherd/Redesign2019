@@ -12,7 +12,7 @@
 		.nt-show-more {
 			position: relative;
 			color: $gray-600;
-			font-size: 20px;
+			@include fontSize(20);
 			font-weight: $font-weight-bold;
             margin-left: 2rem;
         }
@@ -32,9 +32,17 @@
 			font-weight: $font-weight-bold;
 		}
 
+		.nt-route-name {
+			max-width: 200px;
+
+			@include media-breakpoint-up(md) {
+				max-width: 100%;
+			}
+		}
+
 		.nt-depart-time {
 			font-weight: $font-weight-bold;
-            max-width: 70px;
+            max-width: 76px;
 
 			@include media-breakpoint-up(md) {
 				max-width: 75px;
@@ -44,17 +52,13 @@
 				max-width: 94px;
 			}
 		}
-
-		.nt-route-name {
-			max-width: 214px;
-
-			@include media-breakpoint-up(md) {
-				max-width: 100%;
-			}
-		}
 	}
 
 	.nt-show-my-bus {
+
+		.card-header {
+			padding: 0;
+		}
 
 		.btn {
 			color: $gray-600;

@@ -45,9 +45,8 @@
   }
 }
 
-//  Search bars
-#findSchedulesByRoute,
-#nextrip {
+//  Search - Find Schedules by Route
+#findSchedulesByRoute {
     .form-control {
       @include fontSize(23);
     }

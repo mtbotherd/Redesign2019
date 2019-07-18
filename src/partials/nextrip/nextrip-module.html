@@ -1,0 +1,74 @@
+<!-- Start NexTrip module -->
+<div id="nextripModule">
+    <div class="card mb-4">
+        <h2 class="text-center">Real-time Departures</h2>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group select-route">
+                    <label for="selectRoute" class="sr-only">Select route</label>
+                    <select
+                        id="selectRoute"
+                        name="selectRoute"
+                        class="custom-select custom-select-lg"
+                    >
+                        <option value>Select route</option>
+                        <option value="route-1">Route 1</option>
+                        <option value="route-2">Route 2</option>
+                        <option value="route-2">Route 3</option>
+                    </select>
+                </div>
+                <div class="form-group select-route-direction">
+                    <label for="selectDirection" class="sr-only">Select direction</label>
+                    <select
+                        id="selectDirection"
+                        name="selectDirection"
+                        class="custom-select custom-select-lg"
+                    >
+                        <option value>Select direction</option>
+                        <option value="north">North</option>
+                        <option value="sout">South</option>
+                        <option value="east">East</option>
+                        <option value="west">West</option>
+                    </select>
+                </div>
+                <div class="form-group select-route-stop">
+                    <label for="selectStop" class="sr-only">Select stop</label>
+                    <select
+                        id="selectStop"
+                        name="selectStop"
+                        class="custom-select custom-select-lg"
+                    >
+                        <option value>Select stop</option>
+                        <option value="stop-1">Stop 1</option>
+                        <option value="stop-2">Stop 2</option>
+                        <option value="stop-3">Stop 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <p class="text-center or">or</p>
+            </div>
+            <div class="col-md-5">
+                <div class="input-group">
+                    <input type="search"
+                        id="stopNumber"
+                        name="stopNumber"
+                        class="form-control form-control-lg"
+                        placeholder="Enter stop number"
+                        aria-describedby="searchStopsButton"
+                        required
+                    >
+                    <label for="stopNumber" class="sr-only">Enter stop number</label>
+                    <div class="input-group-append">
+                        <button id="searchStopsButton" type="search" class="btn btn-primary border-top border-right border-bottom">
+                            <span class="sr-only">Search button</span>
+                            <svg class="icon icon-search-gray"><use xlink:href="symbol-defs.svg#icon-search-gray"></use></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <partial src="partials/nextrip/nextrip-departures.html"/>
+</div>
+<!-- End NexTrip module -->

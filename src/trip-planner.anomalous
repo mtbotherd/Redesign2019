@@ -18,28 +18,30 @@
 	<partial src="partials/header.html" />
 	<!-- End Header -->
 
-    <!-- Begin Main Content -->
+	<!-- Begin Main Content -->
 	<section id="mainContent">
-        <div id="primaryPage">
-            <div class="nextrip-hero-bg">
+		<div id="primaryPage">
+
+			<!-- When adding a new page, also add new background image styles in _hero-backgrounds.scss. Change the class below to match that of the hero background. -->
+			<div class="trip-planner-hero-bg">
                 <div class="container">
                     <div class="position-relative">
-                        <h1>NexTrip</h1>
+                        <h1>Trip Planner</h1>
                     </div>
                 </div>
             </div>
 
-            <div class="page-content">
-                <main class="section pt-0 pb-4 pb-md-5">
-                    <div class="container">
-                        <partial src="partials/nextrip/nextrip-module.html" />
-                    </div>
-                </main>
-            </div>
-        </div>
-    </section>
-
-    <!-- End Main Content -->
+			<div class="page-content">
+				<!-- Main page content -->
+				<main class="section pt-0 pb-4 pb-md-5">
+					<div class="container">
+						<partial src="partials/trip-planner/trip-planner-module.html" />
+					</div>
+				</main>
+			</div>
+		</div>
+	</section>
+	<!-- End Main Content -->
 
 	<!-- Begin Footer -->
 	<partial src="partials/footer.html" />

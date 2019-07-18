@@ -1,15 +1,4 @@
 #tripPlan {
-	.page-title {
-		background-color: $blue;
-		padding: 0.5rem 0;
-		@include media-breakpoint-up(md) {
-			padding: 4rem 0 1rem 0;
-		}
-	}
-	h1 {
-		color: $white;
-		margin-bottom: 0;
-	}
 
 	.tt-trip-plan {
 		padding: 1.5rem 0;
@@ -50,11 +39,6 @@
 
 					@include media-breakpoint-up(lg) {
 						padding: 0.813rem;
-
-						.icon-wrapper {
-							width: 1.5rem;
-							height: 1.5rem;
-						}
 					}
 
 					.route {
@@ -65,8 +49,7 @@
 						}
 					}
 
-					.rotate-right {
-						transform: rotate(90deg);
+					.icon-chevron-right-gray {
 						width: 0.5rem;
 						height: 0.5rem;
 					}

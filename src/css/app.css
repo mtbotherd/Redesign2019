@@ -3498,7 +3498,7 @@ input[type="button"].btn-block {
   word-wrap: break-word;
   background-color: transparent;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 0 solid rgba(0, 0, 0, 0.125);
   border-radius: 0; }
   .card > hr {
     margin-right: 0;
@@ -3535,18 +3535,18 @@ input[type="button"].btn-block {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+  border-bottom: 0 solid rgba(0, 0, 0, 0.125); }
   .card-header:first-child {
-    border-radius: calc(0 - 1px) calc(0 - 1px) 0 0; }
+    border-radius: calc(0 - 0) calc(0 - 0) 0 0; }
   .card-header + .list-group .list-group-item:first-child {
     border-top: 0; }
 
 .card-footer {
   padding: 0.75rem 1.25rem;
   background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125); }
+  border-top: 0 solid rgba(0, 0, 0, 0.125); }
   .card-footer:last-child {
-    border-radius: 0 0 calc(0 - 1px) calc(0 - 1px); }
+    border-radius: 0 0 calc(0 - 0) calc(0 - 0); }
 
 .card-header-tabs {
   margin-right: -0.625rem;
@@ -3568,17 +3568,17 @@ input[type="button"].btn-block {
 
 .card-img {
   width: 100%;
-  border-radius: calc(0 - 1px); }
+  border-radius: calc(0 - 0); }
 
 .card-img-top {
   width: 100%;
-  border-top-left-radius: calc(0 - 1px);
-  border-top-right-radius: calc(0 - 1px); }
+  border-top-left-radius: calc(0 - 0);
+  border-top-right-radius: calc(0 - 0); }
 
 .card-img-bottom {
   width: 100%;
-  border-bottom-right-radius: calc(0 - 1px);
-  border-bottom-left-radius: calc(0 - 1px); }
+  border-bottom-right-radius: calc(0 - 0);
+  border-bottom-left-radius: calc(0 - 0); }
 
 .card-deck {
   display: -webkit-box;
@@ -3678,7 +3678,7 @@ input[type="button"].btn-block {
     border-top-left-radius: 0;
     border-top-right-radius: 0; }
   .accordion > .card .card-header {
-    margin-bottom: -1px; }
+    margin-bottom: 0; }
 
 .breadcrumb {
   display: -webkit-box;
@@ -7578,6 +7578,11 @@ a.text-dark:hover, a.text-dark:focus {
     font-size: 18px !important;
     font-size: 1.125rem !important; } }
 
+@media (min-width: 768px) {
+  .container {
+    padding-right: 0;
+    padding-left: 0; } }
+
 b,
 strong {
   font-weight: 700; }
@@ -7668,6 +7673,9 @@ abbr {
   height: 1rem;
   display: -webkit-inline-box;
   display: inline-flex; }
+
+.card-header {
+  background-color: #f5f5f4; }
 
 /***************************************************************
     CSS Animations
@@ -7781,25 +7789,13 @@ a.skip-to-content {
     .hero-bg {
       height: 20rem; } }
 
-.level-two-hero {
-  position: relaitve; }
-  .level-two-hero h1 {
-    position: absolute;
-    left: 0;
-    background-color: #fff;
-    color: #8a8b8a;
-    display: -webkit-inline-box;
-    display: inline-flex;
-    opacity: 0.9;
-    padding: 1rem;
-    width: auto; }
-
 .nextrip-hero-bg {
   background-image: url("../img/nextrip.jpg");
   background-size: cover;
   background-position: 90%;
   background-repeat: no-repeat;
-  height: 10rem; }
+  height: 10rem;
+  margin-bottom: 2rem; }
   @media (min-width: 768px) {
     .nextrip-hero-bg {
       height: 15rem; } }
@@ -7809,6 +7805,65 @@ a.skip-to-content {
   @media (min-width: 1200px) {
     .nextrip-hero-bg {
       height: 20rem; } }
+
+.trip-planner-hero-bg {
+  background-image: url("../img/trip-planner.jpg");
+  background-size: cover;
+  background-position: 29%;
+  background-repeat: no-repeat;
+  height: 10rem;
+  margin-bottom: 2rem; }
+  @media (min-width: 768px) {
+    .trip-planner-hero-bg {
+      height: 15rem; } }
+  @media (min-width: 992px) {
+    .trip-planner-hero-bg {
+      height: 17rem; } }
+  @media (min-width: 1200px) {
+    .trip-planner-hero-bg {
+      background-position: 90%;
+      height: 20rem; } }
+
+#primaryPage h1 {
+  position: absolute;
+  left: 0;
+  top: 5.25rem;
+  background-color: #fff;
+  color: #8a8b8a;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  font-size: 23px !important;
+  font-size: 1.4375rem !important;
+  opacity: 0.9;
+  padding: 1rem;
+  width: auto; }
+  @media (min-width: 768px) {
+    #primaryPage h1 {
+      top: 9.25rem;
+      font-size: 32px !important;
+      font-size: 2rem !important; } }
+  @media (min-width: 992px) {
+    #primaryPage h1 {
+      top: 11.5rem; } }
+  @media (min-width: 1200px) {
+    #primaryPage h1 {
+      top: 13.5rem; } }
+
+#secondaryPage .page-title {
+  background-color: #0053a0;
+  padding: 1.25rem 0; }
+  @media (min-width: 768px) {
+    #secondaryPage .page-title {
+      padding: 7.25rem 0 1rem 0; } }
+  #secondaryPage .page-title h1 {
+    color: #fff;
+    margin-bottom: 0;
+    font-size: 23px !important;
+    font-size: 1.4375rem !important; }
+    @media (min-width: 768px) {
+      #secondaryPage .page-title h1 {
+        font-size: 32px !important;
+        font-size: 2rem !important; } }
 
 .btn-container {
   padding-top: 1rem; }
@@ -7952,17 +8007,14 @@ a.skip-to-content {
       margin-bottom: 0;
       line-height: 1; } }
 
-#findSchedulesByRoute .form-control,
-#nextrip .form-control {
+#findSchedulesByRoute .form-control {
   font-size: 23px !important;
   font-size: 1.4375rem !important; }
 
-#findSchedulesByRoute .btn-primary,
-#nextrip .btn-primary {
+#findSchedulesByRoute .btn-primary {
   background-color: #fff;
   border: 0; }
-  #findSchedulesByRoute .btn-primary .icon,
-  #nextrip .btn-primary .icon {
+  #findSchedulesByRoute .btn-primary .icon {
     vertical-align: baseline; }
 
 #findSchedulesByRoute .form-control {
@@ -8028,10 +8080,6 @@ a.skip-to-content {
 /***************************************************
     Nav Tabs
 ***************************************************/
-#tripToolsTabs .card {
-  background-color: transparent;
-  border: 0; }
-
 #tripToolsTabs .nav-tabs {
   margin-bottom: 2rem; }
   #tripToolsTabs .nav-tabs .nav-item {
@@ -8144,8 +8192,6 @@ a.skip-to-content {
     #tripPlannerModule .more-options .card .card-header .btn-link {
       text-decoration: none;
       color: #626462;
-      font-size: 17px !important;
-      font-size: 1.0625rem !important;
       font-weight: 500;
       padding: 0.375rem 0.75rem; }
       @media (min-width: 768px) {
@@ -8204,17 +8250,6 @@ a.skip-to-content {
   #tripPlannerResults .card:last-child {
     margin-bottom: 0; }
 
-#tripPlan .page-title {
-  background-color: #0053a0;
-  padding: 0.5rem 0; }
-  @media (min-width: 768px) {
-    #tripPlan .page-title {
-      padding: 4rem 0 1rem 0; } }
-
-#tripPlan h1 {
-  color: #fff;
-  margin-bottom: 0; }
-
 #tripPlan .tt-trip-plan {
   padding: 1.5rem 0; }
   @media (min-width: 992px) {
@@ -8249,10 +8284,7 @@ a.skip-to-content {
         width: 100%; }
         @media (min-width: 992px) {
           #tripPlan .tt-trip-plan .card .card-header .tp-route {
-            padding: 0.813rem; }
-            #tripPlan .tt-trip-plan .card .card-header .tp-route .icon-wrapper {
-              width: 1.5rem;
-              height: 1.5rem; } }
+            padding: 0.813rem; } }
         #tripPlan .tt-trip-plan .card .card-header .tp-route .route {
           font-size: 8px !important;
           font-size: 0.5rem !important; }
@@ -8260,9 +8292,7 @@ a.skip-to-content {
             #tripPlan .tt-trip-plan .card .card-header .tp-route .route {
               font-size: 18px !important;
               font-size: 1.125rem !important; } }
-        #tripPlan .tt-trip-plan .card .card-header .tp-route .rotate-right {
-          -webkit-transform: rotate(90deg);
-                  transform: rotate(90deg);
+        #tripPlan .tt-trip-plan .card .card-header .tp-route .icon-chevron-right-gray {
           width: 0.5rem;
           height: 0.5rem; }
         #tripPlan .tt-trip-plan .card .card-header .tp-route .badge {
@@ -8355,17 +8385,18 @@ a.skip-to-content {
       #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .arrive {
         border-left: 4px solid transparent; }
 
-#nextripModule .card-header {
-  background-color: transparent;
-  border: none;
-  padding: 0; }
-
 #nextripModule .or {
   margin-bottom: 1rem; }
   @media (min-width: 768px) {
     #nextripModule .or {
       margin-bottom: 0;
       padding-top: 1rem; } }
+
+#nextripModule .input-group-append .btn-primary {
+  background-color: #fff;
+  border: 0; }
+  #nextripModule .input-group-append .btn-primary .icon {
+    vertical-align: baseline; }
 
 #nextripDepartures .card {
   background-color: #f5f5f4 !important; }
@@ -8377,7 +8408,8 @@ a.skip-to-content {
   #nextripDepartures .card .nt-show-more {
     position: relative;
     color: #626462;
-    font-size: 20px;
+    font-size: 20px !important;
+    font-size: 1.25rem !important;
     font-weight: 700;
     margin-left: 2rem; }
   #nextripDepartures .card .nt-show-more-link {
@@ -8389,20 +8421,23 @@ a.skip-to-content {
       height: 24px; }
   #nextripDepartures .card .nt-route-number {
     font-weight: 700; }
+  #nextripDepartures .card .nt-route-name {
+    max-width: 200px; }
+    @media (min-width: 768px) {
+      #nextripDepartures .card .nt-route-name {
+        max-width: 100%; } }
   #nextripDepartures .card .nt-depart-time {
     font-weight: 700;
-    max-width: 70px; }
+    max-width: 76px; }
     @media (min-width: 768px) {
       #nextripDepartures .card .nt-depart-time {
         max-width: 75px; } }
     @media (min-width: 992px) {
       #nextripDepartures .card .nt-depart-time {
         max-width: 94px; } }
-  #nextripDepartures .card .nt-route-name {
-    max-width: 214px; }
-    @media (min-width: 768px) {
-      #nextripDepartures .card .nt-route-name {
-        max-width: 100%; } }
+
+#nextripDepartures .nt-show-my-bus .card-header {
+  padding: 0; }
 
 #nextripDepartures .nt-show-my-bus .btn {
   color: #626462;

@@ -1,0 +1,30 @@
+#primaryPage {
+
+    // refer to _hero-badckgrounds.scss for styles relating to the hero image.
+
+    h1 {
+        position: absolute;
+        left: 0;
+        top: 5.25rem;
+        background-color: $white;
+        color: $gray-300;
+        display: inline-flex;
+        @include fontSize(23);
+        opacity: 0.9;
+        padding: 1rem;
+        width: auto;
+
+        @include media-breakpoint-up(md) {
+            top: 9.25rem;
+            @include fontSize(32);
+        }
+
+        @include media-breakpoint-up(lg) {
+            top: 11.5rem;
+        }
+
+        @include media-breakpoint-up(xl) {
+            top: 13.5rem;
+        }
+    }
+}
