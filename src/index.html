@@ -5,8 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Metro Transit - Website Design Guide</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-	<link href="https://use.typekit.net/tev0qmq.css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<!-- build:css css/app.min.css -->
 	<link rel="stylesheet" href="css/app.css" />
 	<!-- endbuild -->
@@ -169,8 +168,10 @@
 						</div>
 					</div>
 					<div class="cta-link-white mt-md-2 mt-xl-4">
-						<a class="d-inline-flex nav-link" href="schedules-maps">View all Schedules &amp; Maps</a>
-						<svg class="icon icon-arrow-right-white"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg>
+						<a class="d-inline-flex nav-link" href="schedules-maps">
+							<span class="link-text"></span>View all Schedules &amp; Maps</span>
+							<svg class="icon icon-arrow-right-white"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -419,7 +420,7 @@
            <strong>End:&nbsp;</strong>560 6th
            <abbr title="avenue">Ave.</abbr> N, Minneapolis, MN 55411
        </p>
-       <div class="tp-itinerary" role="tablist">
+       <div class="tp-results" role="tablist">
            <div class="card">
                <a href="/trip-plan" class="border">
                    <span class="d-flex" role="link">
@@ -490,6 +491,11 @@
 
         <div class="btn-container text-center">
             <button type="submit" class="btn mt-2 btn-warning" name="planMyTrip">Plan my trip</button>
+        </div>
+        <div class="btn-container text-center">
+            <button type="submit" class="btn mt-2 btn-warning" name="planMyTrip">
+                Edit my trip
+                <svg class="icon icon-edit-blue"><use xlink:href="symbol-defs.svg#icon-edit-blue"></use></svg></button>
         </div>
     </div>
 </div>
@@ -661,77 +667,78 @@
 				<section class="section">
 					<div class="container">
 						<div id="news">
-					        <div class="row">
-					            <div class="col-6 col-md-3">
-					                <div class="card">
-										<img src="./img/placeholder-300x300.png" class="card-img-top" />
-										<div class="card-body">
-											<h4 class="card-title">Article 1</h4>
-										</div>
-					                    <div class="card-footer">
-					                        <div class="text-center">
-					                        	<a href="/" class="btn btn-warning">Learn more
-													<svg class="icon icon-arrow-right-blue">
-														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
-													</svg>
-												</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="col-6 col-md-3">
-									<div class="card">
-										<img src="./img/placeholder-300x300.png" class="card-img-top" />
-										<div class="card-body">
-											<h4 class="card-title">Article 1</h4>
-										</div>
-					                    <div class="card-footer">
-					                        <div class="text-center">
-					                        	<a href="/" class="btn btn-warning">Learn more
-													<svg class="icon icon-arrow-right-blue">
-														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
-													</svg>
-												</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="col-6 col-md-3">
-									<div class="card">
-										<img src="./img/placeholder-300x300.png" class="card-img-top" />
-										<div class="card-body">
-											<h4 class="card-title">Article 3</h4>
-										</div>
-					                    <div class="card-footer">
-											<div class="text-center">
-					                        	<a href="/" class="btn btn-warning">Learn more
-													<svg class="icon icon-arrow-right-blue">
-														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
-													</svg>
-												</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="col-6 col-md-3">
-									<div class="card">
-										<img src="./img/placeholder-300x300.png" class="card-img-top" />
-										<div class="card-body">
-											<h4 class="card-title">Article 4</h4>
-										</div>
-					                    <div class="card-footer">
-											<div class="text-center">
-					                        	<a href="/" class="btn btn-warning">Learn more
-													<svg class="icon icon-arrow-right-blue">
-														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
-													</svg>
-												</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					        </div>
-					    </div>
+    <div class="row">
+        <div class="col-6 col-md-3">
+            <div class="card">
+                <img src="./img/placeholder-300x300.png" class="card-img-top" />
+                <div class="card-body">
+                    <h4 class="card-title">Article 1</h4>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center">
+                        <a href="/" class="btn btn-warning">Learn more
+                            <svg class="icon icon-arrow-right-blue">
+                                <use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="card">
+                <img src="./img/placeholder-300x300.png" class="card-img-top" />
+                <div class="card-body">
+                    <h4 class="card-title">Article 1</h4>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center">
+                        <a href="/" class="btn btn-warning">Learn more
+                            <svg class="icon icon-arrow-right-blue">
+                                <use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="card">
+                <img src="./img/placeholder-300x300.png" class="card-img-top" />
+                <div class="card-body">
+                    <h4 class="card-title">Article 3</h4>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center">
+                        <a href="/" class="btn btn-warning">Learn more
+                            <svg class="icon icon-arrow-right-blue">
+                                <use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="card">
+                <img src="./img/placeholder-300x300.png" class="card-img-top" />
+                <div class="card-body">
+                    <h4 class="card-title">Article 4</h4>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center">
+                        <a href="/" class="btn btn-warning">Learn more
+                            <svg class="icon icon-arrow-right-blue">
+                                <use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 					</div>
 				</section>
 			</div>
@@ -742,14 +749,14 @@
 	<!-- Begin Footer -->
 	<footer class="section">
     <div class="container">
-        <div class="d-none d-xl-block mb-5">
+        <div class="mb-5">
             <div class="text-center">
                 <a href="/contact-us" class="btn btn-outline-primary">Contact us
                     <svg class="icon icon-arrow-right-blue inactive"><use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use></svg>
                     <svg class="icon icon-arrow-right-white active"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg>
                 </a>
             </div>
-            <div class="social-media text-center">
+            <div class="d-none d-md-block social-media text-center">
                 <a href="https://www.twitter.com/MetroTransitMN"><svg class="icon icon-twitter-gray mr-2"><use xlink:href="symbol-defs.svg#icon-twitter-gray"></use></svg></a>
                 <a href="https://www.facebook.com/MetroTransitMN"><svg class="icon icon-facebook-gray mr-2"><use xlink:href="symbol-defs.svg#icon-facebook-gray"></use></svg></a>
                 <a href="https://www.youtube.com/MetroTransitMN"><svg class="icon icon-youtube-gray mr-2"><use xlink:href="symbol-defs.svg#icon-youtube-gray"></use></svg></a>
@@ -758,19 +765,19 @@
                 <a href="https://www.flickr.com/photos/metrotransitmn/"><svg class="icon icon-flickr-gray"><use xlink:href="symbol-defs.svg#icon-flickr-gray"></use></svg></a>
             </div>
             <div class="footer d-none d-md-block pt-5">
-                <div class="card-deck">
+                <div class="card-deck pb-4">
                     <div class="card border-0">
                         <div class="card-body">
                             <h4 class="card-title">About Metro Transit</h4>
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a href="/mission-impact" class="nav-link">Mission &amp; Impact</a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="/transit-initiatives" class="nav-link">Transit Initiatives</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/facilities" class="nav-link">Facilities</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/riders-almanac-blog" class="nav-link">Riders Almanac</a>
                                 </li>
                             </ul>
                         </div>
@@ -787,6 +794,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="/awards" class="nav-link">Awards</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/" class="nav-link">Images &amp; Logos</a>
                                 </li>
                             </ul>
                         </div>
@@ -832,6 +842,39 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+                <div class="card-deck">
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <h4 class="card-title">Mission &amp; Impact</h4>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a href="/commitment-to-fairness" class="nav-link">Commitment to Fairness</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/impact-programs" class="nav-link">Impact Programs</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <h4 class="card-title">Resources</h4>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a href="/app" class="nav-link">Try the Metro Transit App</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/advertise-with-metro-transit" class="nav-link">Advertise with Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/apps" class="nav-link">API Resources for Developers</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card border-0"></div>
+                    <div class="card border-0"></div>
                 </div>
             </div>
         </div>

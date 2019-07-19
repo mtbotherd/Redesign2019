@@ -15,16 +15,16 @@
         width: auto;
 
         @include media-breakpoint-up(md) {
-            top: 9.25rem;
-            @include fontSize(32);
+            top: 8.5rem;
+            @include fontSize(41);
         }
 
         @include media-breakpoint-up(lg) {
-            top: 11.5rem;
+            top: 11rem;
         }
 
         @include media-breakpoint-up(xl) {
-            top: 13.5rem;
+            top: 13rem;
         }
     }
 }

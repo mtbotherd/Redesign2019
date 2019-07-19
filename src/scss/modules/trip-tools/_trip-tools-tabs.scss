@@ -25,8 +25,8 @@
 				}
 
 				@include media-breakpoint-up(xl) {
-					width: 50px;
-					height: 50px;
+					width: 48px;
+					height: 48px;
 				}
 			}
 
@@ -56,13 +56,13 @@
 
 			@include media-breakpoint-up(xl) {
 				&:nth-child(1) .icon {
-					left: 35px;
+					left: 42px;
 				}
 				&:nth-child(2) .icon {
-					left: 66px;
+					left: 77px;
 				}
 				&:nth-child(3) .icon {
-					left: 78px;
+					left: 86px;
 				}
 			}
 

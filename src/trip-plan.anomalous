@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Metro Transit - Website Design Guide</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-	<link href="https://use.typekit.net/tev0qmq.css" />
 	<!-- build:css css/app.min.css -->
 	<link rel="stylesheet" href="css/app.css" />
 	<!-- endbuild -->
@@ -55,7 +54,7 @@
 				            <div class="card-body border-top-0">
 				                <div class="row flex-row">
 				                    <div class="col-lg-5">
-				                        <div class="d-block tp-itinerary">
+				                        <div class="d-block tp-results">
 				                            <div class="leg-item">
 				                                <div class="d-table-cell leg-time">1:06 p.m.</div>
 				                                <div class="d-table-cell leg-mode walk">
@@ -84,7 +83,7 @@
 				                                        <svg class="icon icon-broadcast-red blink"><use xlink:href="symbol-defs.svg#icon-broadcast-red"></use></svg>&nbsp;Currently 5
 				                                        <abbr title="minutes">min</abbr> late
 				                                        <br>
-				                                        <strong>Route 21</strong> Selby-Lake/Uptown
+				                                        <strong>Route 21 Selby-Lake/Uptown</strong>
 				                                        <br>
 				                                        <a href="/home/#ServiceAlerts">
 				                                            <small>view alerts</small>

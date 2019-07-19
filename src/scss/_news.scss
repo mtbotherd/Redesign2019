@@ -10,6 +10,10 @@
 		}
 	}
 
+	.card {
+		border: 1px solid $border-color;
+	}
+
 	.card-body,
 	.card-footer {
 		text-align: center;
@@ -52,13 +56,4 @@
         	}
         }
 	}
-
-	// .icon {
-	// 	top: 0.5rem;
-	// 	width: 0.5rem;
-    //
-	// 	@include media-breakpoint-up(md) {
-	// 		right: 0.75rem;
-	// 	}
-	// }
 }

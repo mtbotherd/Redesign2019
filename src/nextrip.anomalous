@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Metro Transit - Website Design Guide</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-	<link href="https://use.typekit.net/tev0qmq.css" />
 	<!-- build:css css/app.min.css -->
 	<link rel="stylesheet" href="css/app.css" />
 	<!-- endbuild -->

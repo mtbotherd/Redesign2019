@@ -5,8 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Metro Transit - Website Design Guide</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-	<link href="https://use.typekit.net/tev0qmq.css" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<!-- build:css css/app.min.css -->
 	<link rel="stylesheet" href="css/app.css" />
 	<!-- endbuild -->
@@ -42,8 +41,10 @@
 						</div>
 					</div>
 					<div class="cta-link-white mt-md-2 mt-xl-4">
-						<a class="d-inline-flex nav-link" href="schedules-maps">View all Schedules &amp; Maps</a>
-						<svg class="icon icon-arrow-right-white"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg>
+						<a class="d-inline-flex nav-link" href="schedules-maps">
+							<span class="link-text"></span>View all Schedules &amp; Maps</span>
+							<svg class="icon icon-arrow-right-white"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -108,78 +109,7 @@
 				</section>
 				<section class="section">
 					<div class="container">
-						<div id="news">
-					        <div class="row">
-					            <div class="col-6 col-md-3">
-					                <div class="card">
-										<img src="./img/placeholder-300x300.png" class="card-img-top" />
-										<div class="card-body">
-											<h4 class="card-title">Article 1</h4>
-										</div>
-					                    <div class="card-footer">
-					                        <div class="text-center">
-					                        	<a href="/" class="btn btn-warning">Learn more
-													<svg class="icon icon-arrow-right-blue">
-														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
-													</svg>
-												</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="col-6 col-md-3">
-									<div class="card">
-										<img src="./img/placeholder-300x300.png" class="card-img-top" />
-										<div class="card-body">
-											<h4 class="card-title">Article 1</h4>
-										</div>
-					                    <div class="card-footer">
-					                        <div class="text-center">
-					                        	<a href="/" class="btn btn-warning">Learn more
-													<svg class="icon icon-arrow-right-blue">
-														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
-													</svg>
-												</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="col-6 col-md-3">
-									<div class="card">
-										<img src="./img/placeholder-300x300.png" class="card-img-top" />
-										<div class="card-body">
-											<h4 class="card-title">Article 3</h4>
-										</div>
-					                    <div class="card-footer">
-											<div class="text-center">
-					                        	<a href="/" class="btn btn-warning">Learn more
-													<svg class="icon icon-arrow-right-blue">
-														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
-													</svg>
-												</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					            <div class="col-6 col-md-3">
-									<div class="card">
-										<img src="./img/placeholder-300x300.png" class="card-img-top" />
-										<div class="card-body">
-											<h4 class="card-title">Article 4</h4>
-										</div>
-					                    <div class="card-footer">
-											<div class="text-center">
-					                        	<a href="/" class="btn btn-warning">Learn more
-													<svg class="icon icon-arrow-right-blue">
-														<use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use>
-													</svg>
-												</a>
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>
-					        </div>
-					    </div>
+						<partial src="./partials/news.html" />
 					</div>
 				</section>
 			</div>

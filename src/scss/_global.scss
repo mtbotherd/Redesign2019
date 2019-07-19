@@ -65,16 +65,16 @@ h3,
   @include fontSize(19);
 
   @include media-breakpoint-up(lg) {
-    @include fontSize(28);
+    @include fontSize(23);
   }
 }
 
 h4,
 .h4 {
-  @include fontSize(15);
+  @include fontSize(16);
 
   @include media-breakpoint-up(lg) {
-    @include fontSize(23);
+    @include fontSize(19);
   }
 }
 

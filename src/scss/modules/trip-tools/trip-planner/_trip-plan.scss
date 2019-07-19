@@ -83,20 +83,22 @@
 					padding: 1.75rem 1rem 1rem;
 				}
 
-				.tp-itinerary {
+				.tp-results {
+					@include fontSize(20);
+
 					.leg-time {
 						font-weight: $font-weight-bold;
 						margin-right: 1rem;
-						width: 96px;
+						width: 115px;
 
 						@include media-breakpoint-up(md) {
 							margin-right: 1rem;
-							width: 91px;
+							width: 125px;
 						}
 
 						@include media-breakpoint-up(lg) {
 							margin-right: 1.75rem;
-							width: 115px;
+							width: 135px;
 						}
 					}
 

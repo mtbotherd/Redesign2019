@@ -4,6 +4,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@import url(https://use.typekit.net/tev0qmq.css);
 :root {
   --blue: #0053a0;
   --indigo: #6610f2;
@@ -7621,16 +7622,16 @@ h3, .h3 {
   font-size: 1.1875rem !important; }
   @media (min-width: 992px) {
     h3, .h3 {
-      font-size: 28px !important;
-      font-size: 1.75rem !important; } }
-
-h4, .h4 {
-  font-size: 15px !important;
-  font-size: 0.9375rem !important; }
-  @media (min-width: 992px) {
-    h4, .h4 {
       font-size: 23px !important;
       font-size: 1.4375rem !important; } }
+
+h4, .h4 {
+  font-size: 16px !important;
+  font-size: 1rem !important; }
+  @media (min-width: 992px) {
+    h4, .h4 {
+      font-size: 19px !important;
+      font-size: 1.1875rem !important; } }
 
 hr {
   border-top: 1px solid #626462;
@@ -7839,22 +7840,22 @@ a.skip-to-content {
   width: auto; }
   @media (min-width: 768px) {
     #primaryPage h1 {
-      top: 9.25rem;
-      font-size: 32px !important;
-      font-size: 2rem !important; } }
+      top: 8.5rem;
+      font-size: 41px !important;
+      font-size: 2.5625rem !important; } }
   @media (min-width: 992px) {
     #primaryPage h1 {
-      top: 11.5rem; } }
+      top: 11rem; } }
   @media (min-width: 1200px) {
     #primaryPage h1 {
-      top: 13.5rem; } }
+      top: 13rem; } }
 
 #secondaryPage .page-title {
   background-color: #0053a0;
   padding: 1.25rem 0; }
   @media (min-width: 768px) {
     #secondaryPage .page-title {
-      padding: 7.25rem 0 1rem 0; } }
+      padding: 3rem 0; } }
   #secondaryPage .page-title h1 {
     color: #fff;
     margin-bottom: 0;
@@ -7862,8 +7863,8 @@ a.skip-to-content {
     font-size: 1.4375rem !important; }
     @media (min-width: 768px) {
       #secondaryPage .page-title h1 {
-        font-size: 32px !important;
-        font-size: 2rem !important; } }
+        font-size: 41px !important;
+        font-size: 2.5625rem !important; } }
 
 .btn-container {
   padding-top: 1rem; }
@@ -7872,6 +7873,7 @@ a.skip-to-content {
       padding-top: 3rem; } }
 
 .btn-warning {
+  position: relative;
   font-weight: 700;
   color: #626462;
   width: 14.063rem; }
@@ -7881,23 +7883,39 @@ a.skip-to-content {
       font-size: 1.4375rem !important;
       width: 17.5rem;
       padding: 0.75rem; } }
+  .btn-warning .icon {
+    position: absolute;
+    right: 1rem;
+    width: 1.375rem;
+    height: 1.375rem; }
+    @media (min-width: 768px) {
+      .btn-warning .icon {
+        top: 0.75rem;
+        width: 1.875rem;
+        height: 1.875rem; } }
 
 .cta-link-white {
-  position: relative;
   border: 2px solid #ffffff; }
   .cta-link-white .nav-link {
+    position: relative;
     color: white;
     font-size: 17px !important;
     font-size: 1.0625rem !important;
     font-weight: 700;
-    margin-right: auto;
     text-decoration: none; }
     @media (min-width: 768px) {
       .cta-link-white .nav-link {
         font-size: 23px !important;
         font-size: 1.4375rem !important;
-        margin-right: 0;
-        text-decoration: underline; } }
+        margin-right: 0; } }
+    .cta-link-white .nav-link .link-text {
+      margin-right: 1rem; }
+    .cta-link-white .nav-link .icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      position: absolute;
+      top: 1rem;
+      right: 0; }
   @media (min-width: 768px) {
     .cta-link-white {
       border: 0;
@@ -7995,15 +8013,13 @@ a.skip-to-content {
   -webkit-transition: 0.3s ease all;
   transition: 0.3s ease all;
   font-size: 16px !important;
-  font-size: 1rem !important;
-  font-weight: 700; }
-  @media (min-width: 1200px) {
+  font-size: 1rem !important; }
+  @media (min-width: 768px) {
     .floating-label {
-      top: 12px;
+      top: 16px;
       left: 1.25rem;
       font-size: 23px !important;
       font-size: 1.4375rem !important;
-      font-weight: 700;
       margin-bottom: 0;
       line-height: 1; } }
 
@@ -8039,6 +8055,9 @@ a.skip-to-content {
   @media (min-width: 768px) {
     #news .row:first-child .col-6 {
       padding-bottom: 0; } }
+
+#news .card {
+  border: 1px solid #e3e3e0; }
 
 #news .card-body,
 #news .card-footer {
@@ -8099,8 +8118,8 @@ a.skip-to-content {
           top: 1rem; } }
       @media (min-width: 1200px) {
         #tripToolsTabs .nav-tabs .nav-item .icon {
-          width: 50px;
-          height: 50px; } }
+          width: 48px;
+          height: 48px; } }
     @media (min-width: 768px) {
       #tripToolsTabs .nav-tabs .nav-item:nth-child(1) .icon {
         left: 10px; }
@@ -8117,11 +8136,11 @@ a.skip-to-content {
         left: 77px; } }
     @media (min-width: 1200px) {
       #tripToolsTabs .nav-tabs .nav-item:nth-child(1) .icon {
-        left: 35px; }
+        left: 42px; }
       #tripToolsTabs .nav-tabs .nav-item:nth-child(2) .icon {
-        left: 66px; }
+        left: 77px; }
       #tripToolsTabs .nav-tabs .nav-item:nth-child(3) .icon {
-        left: 78px; } }
+        left: 86px; } }
     #tripToolsTabs .nav-tabs .nav-item .nav-link {
       background-color: #0097d0;
       color: #fff;
@@ -8224,22 +8243,54 @@ a.skip-to-content {
       font-weight: 700;
       padding: 0.5rem;
       width: 6rem; }
+      @media (min-width: 768px) {
+        #tripPlannerResults .card a .tp-time {
+          width: 10rem; } }
+      @media (min-width: 768px) {
+        #tripPlannerResults .card a .tp-time {
+          font-size: 23px !important;
+          font-size: 1.4375rem !important; } }
     #tripPlannerResults .card a .tp-route {
       display: -webkit-box;
       display: flex;
       padding: 0.5rem 0.75rem;
       width: 100%; }
-      #tripPlannerResults .card a .tp-route .route {
-        font-size: 8px !important;
-        font-size: 0.5rem !important; }
       #tripPlannerResults .card a .tp-route .icon-chevron-right-gray {
         width: 0.5rem;
         height: 0.5rem; }
+        @media (min-width: 768px) {
+          #tripPlannerResults .card a .tp-route .icon-chevron-right-gray {
+            width: 0.75rem;
+            height: 0.75rem; } }
+      @media (min-width: 768px) {
+        #tripPlannerResults .card a .tp-route .icon-pedestrian-gray,
+        #tripPlannerResults .card a .tp-route .icon-bus-gray {
+          width: 1.5rem;
+          height: 1.5rem; } }
+      #tripPlannerResults .card a .tp-route .route {
+        font-size: 8px !important;
+        font-size: 0.5rem !important;
+        line-height: 1; }
+        @media (min-width: 768px) {
+          #tripPlannerResults .card a .tp-route .route {
+            font-size: 18px !important;
+            font-size: 1.125rem !important; } }
       #tripPlannerResults .card a .tp-route .badge {
         border-radius: 0.25rem;
         font-size: 8px !important;
         font-size: 0.5rem !important;
         padding-right: 0.5rem; }
+        @media (min-width: 768px) {
+          #tripPlannerResults .card a .tp-route .badge {
+            font-size: 16px !important;
+            font-size: 1rem !important; }
+            #tripPlannerResults .card a .tp-route .badge .icon {
+              width: 1.5rem;
+              height: 1.5rem; } }
+      @media (min-width: 768px) {
+        #tripPlannerResults .card a .tp-route .icon-arrow-right-blue {
+          width: 1.25rem;
+          height: 1.25rem; } }
     #tripPlannerResults .card a:hover {
       border: 1px solid #0097d0 !important; }
       #tripPlannerResults .card a:hover .tp-time {
@@ -8317,73 +8368,76 @@ a.skip-to-content {
         #tripPlan .tt-trip-plan .card .card-body {
           border: 1px solid #e3e3e0;
           padding: 1.75rem 1rem 1rem; } }
-      #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .leg-time {
-        font-weight: 700;
-        margin-right: 1rem;
-        width: 96px; }
-        @media (min-width: 768px) {
-          #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .leg-time {
-            margin-right: 1rem;
-            width: 91px; } }
-        @media (min-width: 992px) {
-          #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .leg-time {
-            margin-right: 1.75rem;
-            width: 115px; } }
-      #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .leg-mode {
-        width: 14.75rem;
-        line-height: 1.2;
-        margin-left: -1rem;
-        padding-bottom: 0.5rem;
-        padding-left: 1.75rem;
-        position: relative; }
-        @media (min-width: 768px) {
-          #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .leg-mode {
-            margin-left: 0;
-            padding-bottom: 0.75rem;
-            width: auto; } }
-        @media (min-width: 992px) {
-          #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .leg-mode {
-            padding-bottom: 1.25rem;
-            padding-left: 2rem;
-            width: 16rem; } }
-        @media (min-width: 1200px) {
-          #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .leg-mode {
-            padding-bottom: 1.5rem;
-            width: 20.64rem; } }
-        #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .leg-mode p {
-          margin-top: 0.15rem; }
-        #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .leg-mode .leg-mode-icon {
-          background-color: #fff;
-          width: 2rem;
-          height: 2rem;
-          position: absolute;
-          top: -0.25rem;
-          left: -1.2rem; }
+      #tripPlan .tt-trip-plan .card .card-body .tp-results {
+        font-size: 20px !important;
+        font-size: 1.25rem !important; }
+        #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-time {
+          font-weight: 700;
+          margin-right: 1rem;
+          width: 115px; }
+          @media (min-width: 768px) {
+            #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-time {
+              margin-right: 1rem;
+              width: 125px; } }
           @media (min-width: 992px) {
-            #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .leg-mode .leg-mode-icon {
-              top: -0.25rem;
-              left: -1.3rem;
-              width: 2.25rem;
-              height: 2.25rem; } }
-          #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .leg-mode .leg-mode-icon .icon {
+            #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-time {
+              margin-right: 1.75rem;
+              width: 135px; } }
+        #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode {
+          width: 14.75rem;
+          line-height: 1.2;
+          margin-left: -1rem;
+          padding-bottom: 0.5rem;
+          padding-left: 1.75rem;
+          position: relative; }
+          @media (min-width: 768px) {
+            #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode {
+              margin-left: 0;
+              padding-bottom: 0.75rem;
+              width: auto; } }
+          @media (min-width: 992px) {
+            #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode {
+              padding-bottom: 1.25rem;
+              padding-left: 2rem;
+              width: 16rem; } }
+          @media (min-width: 1200px) {
+            #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode {
+              padding-bottom: 1.5rem;
+              width: 20.64rem; } }
+          #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode p {
+            margin-top: 0.15rem; }
+          #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode .leg-mode-icon {
+            background-color: #fff;
             width: 2rem;
-            height: 2rem; }
+            height: 2rem;
+            position: absolute;
+            top: -0.25rem;
+            left: -1.2rem; }
             @media (min-width: 992px) {
-              #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .leg-mode .leg-mode-icon .icon {
+              #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode .leg-mode-icon {
+                top: -0.25rem;
+                left: -1.3rem;
                 width: 2.25rem;
                 height: 2.25rem; } }
-      #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .walk {
-        border-left: 4px dotted #7dcae7; }
-      #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .bus {
-        border-left: 4px solid #7dcae7; }
-      #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .metro-green {
-        border-left: 4px solid #008244; }
-      #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .metro-blue {
-        border-left: 4px solid #0053a0; }
-      #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .metro-red {
-        border-left: 4px solid #ed1b2e; }
-      #tripPlan .tt-trip-plan .card .card-body .tp-itinerary .arrive {
-        border-left: 4px solid transparent; }
+            #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode .leg-mode-icon .icon {
+              width: 2rem;
+              height: 2rem; }
+              @media (min-width: 992px) {
+                #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode .leg-mode-icon .icon {
+                  width: 2.25rem;
+                  height: 2.25rem; } }
+        #tripPlan .tt-trip-plan .card .card-body .tp-results .walk {
+          border-left: 4px dotted #7dcae7; }
+        #tripPlan .tt-trip-plan .card .card-body .tp-results .bus {
+          border-left: 4px solid #7dcae7; }
+        #tripPlan .tt-trip-plan .card .card-body .tp-results .metro-green {
+          border-left: 4px solid #008244; }
+        #tripPlan .tt-trip-plan .card .card-body .tp-results .metro-blue {
+          border-left: 4px solid #0053a0; }
+        #tripPlan .tt-trip-plan .card .card-body .tp-results .metro-red {
+          border-left: 4px solid #ed1b2e; }
+        #tripPlan .tt-trip-plan .card .card-body .tp-results .arrive {
+          border-left: 4px solid transparent; }
 
 #nextripModule .or {
   margin-bottom: 1rem; }

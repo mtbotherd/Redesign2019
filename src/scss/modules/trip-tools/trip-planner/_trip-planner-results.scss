@@ -13,6 +13,14 @@
 				font-weight: $font-weight-bold;
 				padding: 0.5rem;
 				width: 6rem;
+
+				@include media-breakpoint-up(md) {
+					width: 10rem;
+				}
+
+				@include media-breakpoint-up(md) {
+					@include fontSize(23);
+				}
 			}
 
 			.tp-route {
@@ -20,19 +28,53 @@
 				padding: 0.5rem 0.75rem;
 				width: 100%;
 
-				.route {
-					@include fontSize(8);
-				}
-
 				.icon-chevron-right-gray {
 					width: 0.5rem;
 					height: 0.5rem;
+
+					@include media-breakpoint-up(md) {
+						width: 0.75rem;
+						height: 0.75rem;
+					}
+				}
+
+				@include media-breakpoint-up(md) {
+					.icon-pedestrian-gray,
+					.icon-bus-gray {
+						width: 1.5rem;
+						height: 1.5rem;
+					}
+				}
+
+				.route {
+				  	@include fontSize(8)
+					line-height: 1;
+
+					@include media-breakpoint-up(md) {
+						@include fontSize(18);
+					}
 				}
 
 				.badge {
 					border-radius: 0.25rem;
 					@include fontSize(8);
 					padding-right: 0.5rem;
+
+					@include media-breakpoint-up(md) {
+						@include fontSize(16);
+
+						.icon {
+							width: 1.5rem;
+							height: 1.5rem;
+						}
+					}
+				}
+
+				.icon-arrow-right-blue {
+					@include media-breakpoint-up(md) {
+						width: 1.25rem;
+						height: 1.25rem;
+					}
 				}
 			}
 
