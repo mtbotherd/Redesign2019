@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Metro Transit - Website Design Guide</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-	<!-- build:css css/app.min.css -->
-	<link rel="stylesheet" href="css/app.css" />
+	<!-- build:css app.min.css -->
+	<link rel="stylesheet" href="app.css" />
 	<!-- endbuild -->
 </head>
 
@@ -180,13 +180,13 @@
 	<partial src="partials/footer.html" />
 	<!-- End Footer -->
 
-	<!-- build:js js/app.min.js -->
-	<script src="js/jquery.js"></script>
-	<script src="js/popper.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/jquery.exlink.js"></script>
-	<script src="js/svgxuse.js"></script>
-	<script src="js/scripts.js"></script>
+	<!-- build:js ../../../../../js/app.min.js -->
+	<script src="../../../../../js/jquery.js"></script>
+	<script src="../../../../../js/popper.js"></script>
+	<script src="../../../../../js/bootstrap.js"></script>
+	<script src="../../../../../js/jquery.exlink.js"></script>
+	<script src="../../../../../js/svgxuse.js"></script>
+	<script src="../../../../../js/scripts.js"></script>
 	<!-- endbuild -->
 </body>
 

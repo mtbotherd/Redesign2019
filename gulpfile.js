@@ -19,7 +19,7 @@ var gulp = require('gulp'),
 gulp.task('browserSync', function() {
     browserSync.init({
         server: {
-            baseDir: 'src'
+            baseDir: ['src/Data/sites/1/skins/MetroTransitIII', 'src']
         }
     })
 });
@@ -44,20 +44,19 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('dist/js'))
 });
 
-// Copy vendor css to dist
+// Copy css to dist
 gulp.task('css', function() {
     return gulp.src([
-            'src/css/**/*.css',
-            '!src/css/all.css'
+            'src/css/**/*.css'
         ])
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest('dist/Data/sites/1/skins/MetroTransitIII'))
 });
 
 // Copy sourcemaps to dist
-gulp.task('sourcemaps', function() {
-    return gulp.src('src/maps/**/*.map')
-        .pipe(gulp.dest('dist/maps'))
-});
+// gulp.task('sourcemaps', function() {
+//     return gulp.src('src/maps/**/*.map')
+//         .pipe(gulp.dest('dist/maps'))
+// });
 
 // Copy fonts to dist
 gulp.task('fonts', function() {
@@ -67,9 +66,10 @@ gulp.task('fonts', function() {
 
 // Copy svf defs to Dist
 gulp.task('svgDefs', function() {
-    return gulp.src('src/symbol-defs.svg')
-        .pipe(gulp.dest('dist'))
+    return gulp.src('src/Data/sites/1/skins/MetroTransitIII/symbol-defs.svg')
+        .pipe(gulp.dest('dist/Data/sites/1/skins/MetroTransitIII'))
 });
+
 
 // Compile sass to css
 gulp.task('sass', function() {
@@ -78,7 +78,7 @@ gulp.task('sass', function() {
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(sourcemaps.write('../maps'))
-        .pipe(gulp.dest('src/css'))
+        .pipe(gulp.dest('src/Data/sites/1/skins/MetroTransitIII'))
         .pipe(browserSync.reload({
             stream: true
         }))
@@ -88,7 +88,7 @@ gulp.task('sass', function() {
 // Watchers
 gulp.task('watch', function() {
     gulp.watch('src/scss/**/*.scss', ['sass']);
-    gulp.watch('src/*.html', browserSync.reload);
+    gulp.watch('src/Data/sites/1/skins/MetroTransitIII/*.html', browserSync.reload);
     gulp.watch('src/js/**/*.js', browserSync.reload);
 });
 
@@ -98,12 +98,12 @@ gulp.task('watch', function() {
 // Optimize CSS and JS
 gulp.task('useref', function() {
     return gulp.src([
-            'src/*.html'
+            'src/Data/sites/1/skins/MetroTransitIII/*.html',
         ]) // Grabs CSS and JS from HTML document
         .pipe(useref())
         .pipe(gulpIf('*.js', uglify())) // Minifies only if it's a js file
         .pipe(gulpIf('*.css', cssnano())) // Minifies only if it's a css file
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('dist/Data/sites/1/skins/MetroTransitIII'))
 });
 
 // Optimize images
@@ -129,7 +129,7 @@ gulp.task('clean:dist', function() {
 // Build Sequence
 // --------------
 gulp.task('default', function(callback) {
-    runSequence(['vendorjs', 'fonts', 'sass', 'browserSync'], 'watch',
+    runSequence(['vendorjs', 'sass', 'browserSync'], 'watch',
         callback
     )
 });
@@ -137,7 +137,7 @@ gulp.task('default', function(callback) {
 gulp.task('build', function(callback) {
     runSequence(
         'clean:dist',
-        'sass', ['useref', 'css', 'fonts', 'scripts', 'images', 'svgDefs', 'sourcemaps'],
+        'sass', ['useref', 'css', 'fonts', 'scripts', 'images', 'svgDefs'],
         callback
     )
 });

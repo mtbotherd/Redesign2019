@@ -7775,7 +7775,7 @@ a.skip-to-content {
     height: 24px; } }
 
 .hero-bg {
-  background-image: url("../img/mt-header-lrt-2000x457.jpg");
+  background-image: url("../../../../../img/mt-header-lrt-2000x457.jpg");
   background-size: cover;
   background-position: 90%;
   background-repeat: no-repeat;
@@ -7791,7 +7791,7 @@ a.skip-to-content {
       height: 20rem; } }
 
 .nextrip-hero-bg {
-  background-image: url("../img/nextrip.jpg");
+  background-image: url("../../../../../img/nextrip.jpg");
   background-size: cover;
   background-position: 90%;
   background-repeat: no-repeat;
@@ -7808,7 +7808,7 @@ a.skip-to-content {
       height: 20rem; } }
 
 .trip-planner-hero-bg {
-  background-image: url("../img/trip-planner.jpg");
+  background-image: url("../../../../../img/trip-planner.jpg");
   background-size: cover;
   background-position: 29%;
   background-repeat: no-repeat;

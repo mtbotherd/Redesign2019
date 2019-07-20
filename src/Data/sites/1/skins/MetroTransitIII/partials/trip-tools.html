@@ -1,0 +1,40 @@
+<div id="tripToolsTabs" class="trip-tools-tabs">
+    <div class="card">
+        <div class="tabs">
+            <ul class="nav nav-tabs" role="tab-list">
+                <li class="nav-item mr-2" role="presentation">
+                    <a id="tpTab" class="nav-link active p-md-3" data-toggle="tab" href="#tripPlanner" role="tab" aria-controls="tripPlanner" aria-selected="true">
+                            <svg class="icon icon-trip-planner-color mx-auto active"><use xlink:href="symbol-defs.svg#icon-trip-planner-color"></use></svg>
+                            <svg class="icon icon-trip-planner-white mx-auto inactive"><use xlink:href="symbol-defs.svg#icon-trip-planner-white"></use></svg>
+                        Trip Planner
+                    </a>
+                </li>
+                <li class="nav-item mr-2" role="presentation">
+                    <a id="nTab" class="nav-link p-md-3" data-toggle="tab" href="#nextrip" role="tab" aria-controls="nextrip" aria-selected="true">
+                        <svg class="icon icon-nextrip-color mx-auto active"><use xlink:href="symbol-defs.svg#icon-nextrip-color"></use></svg>
+                        <svg class="icon icon-nextrip-white mx-auto inactive"><use xlink:href="symbol-defs.svg#icon-nextrip-white"></use></svg>
+                        NexTrip
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a id="aTab" class="nav-link p-md-3" data-toggle="tab" href="#alerts" role="tab" aria-controls="alerts" aria-selected="true">
+                        <svg class="icon icon-alerts-color mx-auto active"><use xlink:href="symbol-defs.svg#icon-alerts-color"></use></svg>
+                        <svg class="icon icon-alerts-white mx-auto inactive"><use xlink:href="symbol-defs.svg#icon-alerts-white"></use></svg>
+                        Alerts
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="tripPlanner" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tripPlannerTab">
+                    <partial src="partials/trip-planner/trip-planner-module.html" />
+                </div>
+                <div id="nextrip" class="tt-nextrip tab-pane fade" role="tabpanel" aria-labelledby="nextripTab">
+                    <partial src="partials/nextrip/nextrip-module.html" />
+                </div>
+                <div id="alerts" class="tt-alerts tab-pane fade" role="tabpanel" aria-labelledby="alertsTab">
+                    <partial src="partials/alerts/alerts-module.html"  />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
