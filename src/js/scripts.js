@@ -56,9 +56,4 @@ $(document).ready(function() {
             $('.select-route-stop').hide();
         }
     });
-
-    // Show my bus - Collapse - rotate icon
-    // $('.accordion .btn').click(function() {
-    //     $(this).hasCass('collapsed').find('.icon-chevron-down-blue').toggleClass('rotate-180');
-    // });
 });

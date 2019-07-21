@@ -7692,17 +7692,30 @@ abbr {
   -webkit-animation: fadeIn 1s infinite alternate;
           animation: fadeIn 1s infinite alternate; }
 
-.rotate-90 {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg); }
+.dropdown .active {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: .3s transform ease-in-out;
+  transition: .3s transform ease-in-out; }
 
-.rotate-180 {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg); }
+.dropdown.show .active {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  -webkit-transition: .3s transform ease-in-out;
+  transition: .3s transform ease-in-out; }
 
-.rotate-270 {
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg); }
+.accordion .icon-chevron-down-blue {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  -webkit-transition: .3s transform ease-in-out;
+  transition: .3s transform ease-in-out;
+  display: inline-block; }
+
+.accordion .collapsed .icon-chevron-down-blue {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: .3s transform ease-in-out;
+  transition: .3s transform ease-in-out; }
 
 a.skip-to-content {
   position: absolute;
