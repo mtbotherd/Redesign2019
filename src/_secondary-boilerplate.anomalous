@@ -19,16 +19,12 @@
 
 	<!-- Begin Main Content -->
 	<section id="mainContent">
-		<div id="primaryPage">
-
-			<!-- When adding a new page, also add new background image styles in _hero-backgrounds.scss. Change the class below to match that of the hero background. -->
-			<div class="nextrip-hero-bg">
-                <div class="container">
-                    <div class="position-relative">
-                        <h1>NexTrip</h1>
-                    </div>
-                </div>
-            </div>
+		<div id="secondaryPage">
+			<div class="page-title">
+				<div class="container">
+					<h1>Page Title</h1>
+				</div>
+			</div>
 
 			<div class="page-content">
 				<!-- Main page content -->
@@ -57,13 +53,11 @@
 	<partial src="partials/footer.html" />
 	<!-- End Footer -->
 
-	<!-- build:js ../../../../../js/app.min.js -->
-	<script src="../../../../../js/jquery.js"></script>
-	<script src="../../../../../js/popper.js"></script>
-	<script src="../../../../../js/bootstrap.js"></script>
-	<script src="../../../../../js/jquery.exlink.js"></script>
-	<script src="../../../../../js/svgxuse.js"></script>
-	<script src="../../../../../js/scripts.js"></script>
+	<!-- Vendor scripts -->
+	<partial src="partials/js-scripts.html" />
+	<!-- End vendor scripts -->
+	<!-- build:js js/app.min.js -->
+	<script src="js/scripts.js"></script>
 	<!-- endbuild -->
 </body>
 

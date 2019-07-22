@@ -33,7 +33,7 @@
 									<div class="input-group-append">
 										<button id="searchRoutesButton" type="search" class="btn btn-primary">
 											<span class="sr-only">Search button</span>
-											<svg class="icon icon-search-gray"><use xlink:href="symbol-defs.svg#icon-search-gray"></use></svg>
+											<svg class="icon icon-search-gray"><use xlink:href="./symbol-defs.svg#icon-search-gray"></use></svg>
 										</button>
 									</div>
 								</div>
@@ -82,13 +82,11 @@
 	<partial src="partials/footer.html" />
 	<!-- End Footer -->
 
-	<!-- build:js ../../../../../js/app.min.js -->
-	<script src="../../../../../js/jquery.js"></script>
-	<script src="../../../../../js/popper.js"></script>
-	<script src="../../../../../js/bootstrap.js"></script>
-	<script src="../../../../../js/jquery.exlink.js"></script>
-	<script src="../../../../../js/svgxuse.js"></script>
-	<script src="../../../../../js/scripts.js"></script>
+	<!-- Vendor scripts -->
+	<partial src="partials/js-scripts.html" />
+	<!-- End vendor scripts -->
+	<!-- build:js js/app.min.js -->
+	<script src="js/scripts.js"></script>
 	<!-- endbuild -->
 </body>
 

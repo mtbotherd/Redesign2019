@@ -19,7 +19,8 @@ var gulp = require('gulp'),
 gulp.task('browserSync', function() {
     browserSync.init({
         server: {
-            baseDir: ['src/Data/sites/1/skins/MetroTransitIII', 'src']
+            // baseDir: ['src/Data/sites/1/skins/MetroTransitIII', 'src']
+            baseDir: ['src']
         }
     })
 });
@@ -49,7 +50,8 @@ gulp.task('css', function() {
     return gulp.src([
             'src/css/**/*.css'
         ])
-        .pipe(gulp.dest('dist/Data/sites/1/skins/MetroTransitIII'))
+        // .pipe(gulp.dest('dist/Data/sites/1/skins/MetroTransitIII'))
+        .pipe(gulp.dest('dist/css'))
 });
 
 // Copy sourcemaps to dist
@@ -66,8 +68,10 @@ gulp.task('fonts', function() {
 
 // Copy svf defs to Dist
 gulp.task('svgDefs', function() {
-    return gulp.src('src/Data/sites/1/skins/MetroTransitIII/symbol-defs.svg')
-        .pipe(gulp.dest('dist/Data/sites/1/skins/MetroTransitIII'))
+    // return gulp.src('src/Data/sites/1/skins/MetroTransitIII/symbol-defs.svg')
+    //     .pipe(gulp.dest('dist/Data/sites/1/skins/MetroTransitIII'))
+    return gulp.src('src/symbol-defs.svg')
+        .pipe(gulp.dest('dist'))
 });
 
 
@@ -77,8 +81,9 @@ gulp.task('sass', function() {
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
-        .pipe(sourcemaps.write('../maps'))
-        .pipe(gulp.dest('src/Data/sites/1/skins/MetroTransitIII'))
+        .pipe(sourcemaps.write('maps'))
+        // .pipe(gulp.dest('src/Data/sites/1/skins/MetroTransitIII'))
+        .pipe(gulp.dest('src'))
         .pipe(browserSync.reload({
             stream: true
         }))
@@ -88,7 +93,8 @@ gulp.task('sass', function() {
 // Watchers
 gulp.task('watch', function() {
     gulp.watch('src/scss/**/*.scss', ['sass']);
-    gulp.watch('src/Data/sites/1/skins/MetroTransitIII/*.html', browserSync.reload);
+    // gulp.watch('src/Data/sites/1/skins/MetroTransitIII/*.html', browserSync.reload);
+    gulp.watch('src/*.html', browserSync.reload);
     gulp.watch('src/js/**/*.js', browserSync.reload);
 });
 
@@ -98,12 +104,14 @@ gulp.task('watch', function() {
 // Optimize CSS and JS
 gulp.task('useref', function() {
     return gulp.src([
-            'src/Data/sites/1/skins/MetroTransitIII/*.html',
+            // 'src/Data/sites/1/skins/MetroTransitIII/*.html',
+            'src/*.html'
         ]) // Grabs CSS and JS from HTML document
         .pipe(useref())
         .pipe(gulpIf('*.js', uglify())) // Minifies only if it's a js file
         .pipe(gulpIf('*.css', cssnano())) // Minifies only if it's a css file
-        .pipe(gulp.dest('dist/Data/sites/1/skins/MetroTransitIII'))
+        // .pipe(gulp.dest('dist/Data/sites/1/skins/MetroTransitIII'))
+        .pipe(gulp.dest('dist'))
 });
 
 // Optimize images
