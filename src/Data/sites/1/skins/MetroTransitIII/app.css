@@ -7708,8 +7708,7 @@ abbr {
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
   -webkit-transition: .3s transform ease-in-out;
-  transition: .3s transform ease-in-out;
-  display: inline-block; }
+  transition: .3s transform ease-in-out; }
 
 .accordion .collapsed .icon-chevron-down-blue {
   -webkit-transform: rotate(0deg);

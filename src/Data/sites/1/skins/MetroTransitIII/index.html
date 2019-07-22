@@ -125,10 +125,22 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <div class="nav-link">
                             <svg class="icon icon-search-gray inactive"><use xlink:href="symbol-defs.svg#icon-search-gray"></use></svg>
                             <svg class="icon icon-search-white active"><use xlink:href="symbol-defs.svg#icon-search-white"></use></svg>
-                        </a>
+                            <div class="input-group">
+                                <input type="search" id="siteSearch" class="form-control"
+                                    placeholder="Search for routes and information" aria-label="Search for routes and information"
+                                    aria-describedby="siteSearchButton">
+                                    <label for="siteSearch" class="sr-only">Search for routes and information</label>
+                                <div class="input-group-append">
+                                    <button id="siteSearchButton" type="search" class="btn btn-primary">
+                                        <span class="sr-only">Search button</span>
+                                        <svg class="icon icon-search-gray"><use xlink:href="symbol-defs.svg#icon-search-gray"></use></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">
@@ -506,7 +518,7 @@
                     <!-- Start NexTrip module -->
 <div id="nextripModule">
     <div class="card mb-4">
-        <h2 class="text-center">Real-time Departures</h2>
+        <h2 class="text-center mb-5">Real-time Departures</h2>
         <div class="row">
             <div class="col-md-5">
                 <div class="form-group select-route">
