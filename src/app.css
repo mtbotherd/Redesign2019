@@ -7716,6 +7716,22 @@ abbr {
   -webkit-transition: .3s transform ease-in-out;
   transition: .3s transform ease-in-out; }
 
+@media (min-width: 1200px) {
+  #header .utilities {
+    margin-left: auto;
+    padding-left: 1.25rem;
+    border-left: 1px solid #e3e3e0; } }
+
+@media (min-width: 1200px) {
+  #header .utilities .icon {
+    width: 24px;
+    height: 24px; } }
+
+@media (min-width: 1200px) {
+  #header .utilities .icon-shopping-cart-green {
+    width: 24px;
+    height: 24px; } }
+
 a.skip-to-content {
   position: absolute;
   top: -40px;
@@ -7769,22 +7785,6 @@ a.skip-to-content {
     #header .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover, #header .navbar-nav .nav-item .dropdown-menu .dropdown-item:active {
       color: #0053a0;
       text-decoration: underline; }
-
-@media (min-width: 1200px) {
-  #header .utilities {
-    margin-left: auto;
-    padding-left: 1.25rem;
-    border-left: 1px solid #e3e3e0; } }
-
-@media (min-width: 1200px) {
-  #header .utilities .icon {
-    width: 24px;
-    height: 24px; } }
-
-@media (min-width: 1200px) {
-  #header .utilities .icon-shopping-cart-green {
-    width: 24px;
-    height: 24px; } }
 
 .hero-bg {
   background-image: url("../../../../../img/mt-header-lrt-2000x457.jpg");
@@ -7998,6 +7998,11 @@ a.skip-to-content {
 .custom-select {
   font-size: 16px !important;
   font-size: 1rem !important; }
+  .form-control:focus,
+  .form-control-lg:focus,
+  .custom-select:focus {
+    box-shadow: transparent;
+    border-color: transparent; }
   @media (min-width: 768px) {
     .form-control,
     .form-control-lg,
@@ -8552,7 +8557,8 @@ footer.section {
   right: 0;
   width: 420px;
   padding: 1rem;
-  display: none; }
+  display: none;
+  z-index: 10; }
   .search-box .form-control {
     color: #626462;
     font-size: 18px !important;

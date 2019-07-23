@@ -6,6 +6,11 @@
 .custom-select {
   @include fontSize(16);
 
+  &:focus {
+      box-shadow: transparent;
+      border-color: transparent;
+  }
+
   @include media-breakpoint-up(md) {
     @include fontSize(23);
   }
