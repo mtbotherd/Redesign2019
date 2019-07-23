@@ -33,8 +33,8 @@
                         <a class="nav-link dropdown-toggle" href="/trip-planner" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Trip Tools
-                            <img src="/img/svg/chevron-down-gray.svg" class="inactive" />
-                            <img src="/img/svg/chevron-down-white.svg" class="active" />
+                            <img src="/img/svg/chevron-down-gray.svg" class="icon inactive" />
+                            <img src="/img/svg/chevron-down-white.svg" class="icon active" />
                             <!-- <svg class="icon dropdown-icon inactive"><use xlink:href="/symbol-defs.svg#icon-chevron-down-gray"></use></svg>
                             <svg class="icon dropdown-icon active"><use xlink:href="/symbol-defs.svg#icon-chevron-down-white"></use></svg> -->
                         </a>
@@ -57,8 +57,8 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Fares
-                            <img src="/img/svg/chevron-down-gray.svg" class="inactive" />
-                            <img src="/img/svg/chevron-down-white.svg" class="active" />
+                            <img src="/img/svg/chevron-down-gray.svg" class="icon inactive" />
+                            <img src="/img/svg/chevron-down-white.svg" class="icon active" />
                             <!-- <svg class="icon dropdown-icon inactive"><use xlink:href="/symbol-defs.svg#icon-chevron-down-gray"></use></svg>
                             <svg class="icon dropdown-icon active"><use xlink:href="/symbol-defs.svg#icon-chevron-down-white"></use></svg> -->
                         </a>
@@ -73,8 +73,8 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             More
-                            <img src="/img/svg/chevron-down-gray.svg" class="inactive" />
-                            <img src="/img/svg/chevron-down-white.svg" class="active" />
+                            <img src="/img/svg/chevron-down-gray.svg" class="icon inactive" />
+                            <img src="/img/svg/chevron-down-white.svg" class="icon active" />
                             <!-- <svg class="icon dropdown-icon inactive"><use xlink:href="/symbol-defs.svg#icon-chevron-down-gray"></use></svg>
                             <svg class="icon dropdown-icon active"><use xlink:href="/symbol-defs.svg#icon-chevron-down-white"></use></svg> -->
                         </a>
@@ -90,8 +90,8 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Help
-                            <img src="/img/svg/chevron-down-gray.svg" class="inactive" />
-                            <img src="/img/svg/chevron-down-white.svg" class="active" />
+                            <img src="/img/svg/chevron-down-gray.svg" class="icon inactive" />
+                            <img src="/img/svg/chevron-down-white.svg" class="icon active" />
                             <!-- <svg class="icon dropdown-icon inactive"><use xlink:href="/symbol-defs.svg#icon-chevron-down-gray"></use></svg>
                             <svg class="icon dropdown-icon active"><use xlink:href="/symbol-defs.svg#icon-chevron-down-white"></use></svg> -->
                         </a>
@@ -108,8 +108,8 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             En
-                            <img src="/img/svg/chevron-down-gray.svg" class="inactive" />
-                            <img src="/img/svg/chevron-down-white.svg" class="active" />
+                            <img src="/img/svg/chevron-down-gray.svg" class="icon inactive" />
+                            <img src="/img/svg/chevron-down-white.svg" class="icon active" />
                             <!-- <svg class="icon dropdown-icon inactive"><use xlink:href="/symbol-defs.svg#icon-chevron-down-gray"></use></svg>
                             <svg class="icon dropdown-icon active"><use xlink:href="/symbol-defs.svg#icon-chevron-down-white"></use></svg> -->
                         </a>
@@ -130,28 +130,27 @@
                 <ul class="navbar-nav utilities">
                     <li class="nav-item">
                         <a class="nav-link" href="https://store.metrotransit.org">
-                            <img src="/img/svg/shopping-cart-green.svg" class="inactive" />
-                            <img src="/img/svg/shopping-cart-white.svg" class="active" />
+                            <img src="/img/svg/shopping-cart-green.svg" class="icon inactive" />
+                            <img src="/img/svg/shopping-cart-white.svg" class="icon active" />
                             <!-- <svg class="icon icon-shopping-cart-green inactive"><use xlink:href="symbol-defs.svg#icon-shopping-cart-green"></use></svg>
                             <svg class="icon icon-shopping-cart-green active"><use xlink:href="symbol-defs.svg#icon-shopping-cart-white"></use></svg> -->
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <div class="nav-link">
-                            <img src="/img/svg/search-gray.svg" class="inactive" />
-                            <img src="/img/svg/search-white.svg" class="active" />
-                            <!-- <svg class="icon icon-search-gray inactive"><use xlink:href="symbol-defs.svg#icon-search-gray"></use></svg>
-                            <svg class="icon icon-search-white active"><use xlink:href="symbol-defs.svg#icon-search-white"></use></svg> -->
+                    <li class="nav-item position-relative">
+                        <div class="nav-link site-search">
+                            <img src="/img/svg/search-gray.svg" class="icon inactive" />
+                            <img src="/img/svg/search-white.svg" class="icon active" />
+                        </div>
+                        <div id="search-box" class="search-box">
                             <div class="input-group">
                                 <input type="search" id="siteSearch" class="form-control"
                                     placeholder="Search for routes and information" aria-label="Search for routes and information"
                                     aria-describedby="siteSearchButton">
                                     <label for="siteSearch" class="sr-only">Search for routes and information</label>
-                                <div class="input-group-append">
+                                <div class="input-group-append mr-auto">
                                     <button id="siteSearchButton" type="search" class="btn btn-primary">
                                         <span class="sr-only">Search button</span>
-                                        <img src="/img/svg/search-gray.svg" />
-                                        <!-- <svg class="icon icon-search-gray"><use xlink:href="symbol-defs.svg#icon-search-gray"></use></svg> -->
+                                        <img class="icon" src="/img/svg/search-gray.svg" />
                                     </button>
                                 </div>
                             </div>
@@ -159,8 +158,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">
-                            <img src="/img/svg/avatar-gray.svg" class="inactive" />
-                            <img src="/img/svg/avatar-white.svg" class="active" />
+                            <img src="/img/svg/avatar-gray.svg" class="icon inactive" />
+                            <img src="/img/svg/avatar-white.svg" class="icon active" />
                             <!-- <svg class="icon icon-avatar-gray inactive"><use xlink:href="symbol-defs.svg#icon-avatar-gray"></use></svg>
                             <svg class="icon icon-avatar-white active"><use xlink:href="symbol-defs.svg#icon-avatar-white"></use></svg> -->
                         </a>
@@ -359,7 +358,6 @@
 <script src="js/bootstrap.js"></script>
 <script src="js/jquery.exlink.js"></script>
 <script src="js/svgxuse.js"></script>
-<script src="js/scripts.js"></script>
 
 	<!-- End vendor scripts -->
 	<!-- build:js js/app.min.js -->

@@ -58,7 +58,7 @@
 	<!-- End Footer -->
 
 	<!-- Vendor scripts -->
-	<partial src="partials/js-scripts.html" />
+	<partial src="partials/vendor-scripts.html" />
 	<!-- End vendor scripts -->
 	<!-- build:js js/app.min.js -->
 	<script src="js/scripts.js"></script>

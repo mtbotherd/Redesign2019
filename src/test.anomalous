@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Metro Transit - Website Design Guide</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<!-- build:css app.min.css -->
+	<link rel="stylesheet" href="app.css" />
+	<!-- endbuild -->
+</head>
+
+<body>
+
+	<!-- Start header -->
+	<partial src="partials/header.html" />
+
+	<!-- Vendor scripts -->
+	<partial src="partials/vendor-scripts.html" />
+	<!-- End vendor scripts -->
+	<!-- build:js js/app.min.js -->
+	<script src="js/scripts.js"></script>
+	<!-- endbuild -->
+</body>
+
+</html>

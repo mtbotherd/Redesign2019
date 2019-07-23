@@ -7778,8 +7778,8 @@ a.skip-to-content {
 
 @media (min-width: 1200px) {
   #header .utilities .icon {
-    width: 18px;
-    height: 18px; } }
+    width: 24px;
+    height: 24px; } }
 
 @media (min-width: 1200px) {
   #header .utilities .icon-shopping-cart-green {
@@ -8544,5 +8544,26 @@ footer.section {
     font-weight: 700;
     text-decoration: none;
     padding: 0.25rem 0; }
+
+.search-box {
+  background: #f5f5f4;
+  position: absolute;
+  top: 67px;
+  right: 0;
+  width: 420px;
+  padding: 1rem;
+  display: none; }
+  .search-box .form-control {
+    color: #626462;
+    font-size: 18px !important;
+    font-size: 1.125rem !important; }
+  .search-box .input-group-append {
+    background-color: #fff; }
+    .search-box .input-group-append .btn-primary {
+      background-color: #fff;
+      border: 1px solid #e3e3e0;
+      border-left: 0;
+      font-size: 18px !important;
+      font-size: 1.125rem !important; }
 
 /*# sourceMappingURL=maps/app.css.map */

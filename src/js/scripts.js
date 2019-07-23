@@ -1,16 +1,29 @@
 $(document).ready(function() {
+
+    //'use strict';
     /***********************************************
     		SVG icon interactions
     ***********************************************/
-    $('#header svg.active').hide();
+    // $('#header svg.active').hide();
+    //
+    // var navSvg = $('#header .nav-item');
+    // $(navSvg).hover(function() {
+    //     $(this).find('svg.active').show();
+    //     $(this).find('svg.inactive').hide();
+    // }, function() {
+    //     $(this).find('svg.inactive').show();
+    //     $(this).find('svg.active').hide();
+    // });
 
-    var navSvg = $('#header .nav-item');
-    $(navSvg).hover(function() {
-        $(this).find('svg.active').show();
-        $(this).find('svg.inactive').hide();
+    $('#header img.active').hide();
+
+    var navImg = $('#header .nav-item');
+    $(navImg).hover(function() {
+        $(this).find('img.active').show();
+        $(this).find('img.inactive').hide();
     }, function() {
-        $(this).find('svg.inactive').show();
-        $(this).find('svg.active').hide();
+        $(this).find('img.inactive').show();
+        $(this).find('img.active').hide();
     });
 
     /***********************************************
@@ -56,4 +69,11 @@ $(document).ready(function() {
             $('.select-route-stop').hide();
         }
     });
+
+    // Test
+    $('.site-search').click(function() {
+        $('#search-box').slideToggle();
+        $('#siteSearch').focus();
+    });
+
 });
