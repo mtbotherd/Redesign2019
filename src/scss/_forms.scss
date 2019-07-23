@@ -6,14 +6,16 @@
 .custom-select {
   @include fontSize(16);
 
-  &:focus {
-      box-shadow: transparent;
-      border-color: transparent;
-  }
-
   @include media-breakpoint-up(md) {
     @include fontSize(23);
   }
+}
+
+.form-control:focus,
+.form-control-lg:focus,
+.custom-select:focus,
+.btn:focus {
+    outline: none;
 }
 
 // Floating labels
@@ -46,6 +48,41 @@
       margin-bottom: 0;
       line-height: 1;
   }
+}
+
+.search-box {
+    background: $gray-100;
+    position: absolute;
+    top: 67px;
+    right: 0;
+    width: 420px;
+    padding: 1rem;
+    display: none;
+    z-index: 3;
+
+    .form-control {
+        color: $gray-600;
+        @include fontSize(18);
+    }
+
+    .input-group-append {
+        background-color: #fff;
+
+        .btn-primary {
+            background-color: $white;
+            border: 1px solid $border-color;
+            border-left: 0;
+            @include fontSize(18);
+        }
+    }
+}
+
+button[type="search"],
+.nav-link {
+    .icon {
+        width: 24px !important;
+        height: 24px !important;
+    }
 }
 
 //  Search - Find Schedules by Route

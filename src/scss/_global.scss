@@ -96,10 +96,6 @@ hr {
   }
 }
 
-// Overrode user agent styles
-// :focus {
-// 	outline: none !important;
-// }
 
 // Application global styles
 #app {
@@ -137,9 +133,9 @@ abbr {
 }
 
 .icon {
-  width: 1rem;
-  height: 1rem;
-  display: inline-flex;
+    width: 1rem;
+    height: 1rem;
+    display: inline-flex;
 }
 
 .card-header {

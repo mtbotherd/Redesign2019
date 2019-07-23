@@ -7998,17 +7998,18 @@ a.skip-to-content {
 .custom-select {
   font-size: 16px !important;
   font-size: 1rem !important; }
-  .form-control:focus,
-  .form-control-lg:focus,
-  .custom-select:focus {
-    box-shadow: transparent;
-    border-color: transparent; }
   @media (min-width: 768px) {
     .form-control,
     .form-control-lg,
     .custom-select {
       font-size: 23px !important;
       font-size: 1.4375rem !important; } }
+
+.form-control:focus,
+.form-control-lg:focus,
+.custom-select:focus,
+.btn:focus {
+  outline: none; }
 
 .form-group,
 .input-group {
@@ -8039,6 +8040,33 @@ a.skip-to-content {
       font-size: 1.4375rem !important;
       margin-bottom: 0;
       line-height: 1; } }
+
+.search-box {
+  background: #f5f5f4;
+  position: absolute;
+  top: 67px;
+  right: 0;
+  width: 420px;
+  padding: 1rem;
+  display: none;
+  z-index: 3; }
+  .search-box .form-control {
+    color: #626462;
+    font-size: 18px !important;
+    font-size: 1.125rem !important; }
+  .search-box .input-group-append {
+    background-color: #fff; }
+    .search-box .input-group-append .btn-primary {
+      background-color: #fff;
+      border: 1px solid #e3e3e0;
+      border-left: 0;
+      font-size: 18px !important;
+      font-size: 1.125rem !important; }
+
+button[type="search"] .icon,
+.nav-link .icon {
+  width: 24px !important;
+  height: 24px !important; }
 
 #findSchedulesByRoute .form-control {
   font-size: 23px !important;
@@ -8468,8 +8496,6 @@ a.skip-to-content {
 #nextripModule .input-group-append .btn-primary {
   background-color: #fff;
   border: 0; }
-  #nextripModule .input-group-append .btn-primary .icon {
-    vertical-align: baseline; }
 
 #nextripDepartures .card {
   background-color: #f5f5f4 !important; }
@@ -8551,27 +8577,5 @@ footer.section {
     font-weight: 700;
     text-decoration: none;
     padding: 0.25rem 0; }
-
-.search-box {
-  background: #f5f5f4;
-  position: absolute;
-  top: 67px;
-  right: 0;
-  width: 420px;
-  padding: 1rem;
-  display: none;
-  z-index: 10; }
-  .search-box .form-control {
-    color: #626462;
-    font-size: 18px !important;
-    font-size: 1.125rem !important; }
-  .search-box .input-group-append {
-    background-color: #fff; }
-    .search-box .input-group-append .btn-primary {
-      background-color: #fff;
-      border: 1px solid #e3e3e0;
-      border-left: 0;
-      font-size: 18px !important;
-      font-size: 1.125rem !important; }
 
 /*# sourceMappingURL=maps/app.css.map */
