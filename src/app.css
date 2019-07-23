@@ -8048,7 +8048,9 @@ a.skip-to-content {
   background-color: #fff;
   border: 0; }
   #findSchedulesByRoute .btn-primary .icon {
-    vertical-align: baseline; }
+    width: 24px;
+    height: 24px;
+    vertical-align: middle; }
 
 #findSchedulesByRoute .form-control {
   border: 0; }
