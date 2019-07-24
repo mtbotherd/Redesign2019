@@ -198,8 +198,9 @@
 					</div>
 					<div class="cta-link-white mt-md-2 mt-xl-4">
 						<a class="d-inline-flex nav-link" href="schedules-maps">
-							<span class="link-text"></span>View all Schedules &amp; Maps</span>
-							<svg class="icon icon-arrow-right-white"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg>
+							<span class="link-text">View all Schedules &amp; Maps</span>
+							<img class="icon" src="/img/svg/arrow-right-white.svg" />
+							<!-- <svg class="icon icon-arrow-right-white"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg> -->
 						</a>
 					</div>
 				</div>
@@ -672,7 +673,39 @@
 
                 </div>
                 <div id="alerts" class="tt-alerts tab-pane fade" role="tabpanel" aria-labelledby="alertsTab">
-                    <div id="alertsModule"></div>
+                    <!-- Start Alerts module -->
+<div id="alertsModule">
+    <div class="card">
+        <h1 class="sr-only">Alerts</h1>
+        <h2>Check planned detours, bus stop, service changes, and disruptions</h2>
+        <div class="text-center mt-4 mb-4">
+            <a href="how-to-ride-guide" class="btn btn-outline-primary">Sign up for alerts
+    			<svg class="icon icon-arrow-right-blue inactive"><use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use></svg>
+    			<svg class="icon icon-arrow-right-white active"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg>
+    		</a>
+        </div>
+        <div class="accordion service-alerts">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">
+                        <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false">
+                            <svg class="icon icon-bus-broadcast-color mr-2"><use xlink:href="symbol-defs.svg#icon-bus-broadcast-color"></use></svg>
+                            METRO Blue Line
+                            <svg class="icon icon-chevron-down-blue ml-auto"><use xlink:href="symbol-defs.svg#icon-chevron-down-blue"></use></svg>
+                            <!-- <svg class="icon icon-chevron-up-blue ml-auto"><use xlink:href="symbol-defs.svg#icon-chevron-up-blue"></use></svg> -->
+                        </button>
+                    </h3>
+                </div>
+                <div id="collapseMap" class="collapse" style="">
+                    <div class="card-body p-0">
+                        <!-- <img class="img-fluid" src="/img/TripPlanMap1.png"> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Alerts module -->
 
                 </div>
             </div>

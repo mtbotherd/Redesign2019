@@ -43,8 +43,9 @@
 					</div>
 					<div class="cta-link-white mt-md-2 mt-xl-4">
 						<a class="d-inline-flex nav-link" href="schedules-maps">
-							<span class="link-text"></span>View all Schedules &amp; Maps</span>
-							<svg class="icon icon-arrow-right-white"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg>
+							<span class="link-text">View all Schedules &amp; Maps</span>
+							<img class="icon" src="/img/svg/arrow-right-white.svg" />
+							<!-- <svg class="icon icon-arrow-right-white"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg> -->
 						</a>
 					</div>
 				</div>

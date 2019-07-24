@@ -7646,15 +7646,6 @@ hr {
       font-size: 23px !important;
       font-size: 1.4375rem !important; } }
 
-@media (min-width: 1200px) {
-  #app .input-group > .form-control:not(:last-child),
-  #app .input-group > .custom-select:not(:last-child) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-radius: 0; } }
-
 .section {
   padding: 1.5rem 0; }
   @media (min-width: 768px) {
@@ -8005,12 +7996,6 @@ a.skip-to-content {
       font-size: 23px !important;
       font-size: 1.4375rem !important; } }
 
-.form-control:focus,
-.form-control-lg:focus,
-.custom-select:focus,
-.btn:focus {
-  outline: none; }
-
 .form-group,
 .input-group {
   position: relative; }
@@ -8063,10 +8048,10 @@ a.skip-to-content {
       font-size: 18px !important;
       font-size: 1.125rem !important; }
 
-button[type="search"] .icon,
-.nav-link .icon {
-  width: 24px !important;
-  height: 24px !important; }
+@media (min-width: 768px) {
+  button[type="search"] .icon {
+    width: 24px !important;
+    height: 24px !important; } }
 
 #findSchedulesByRoute .form-control {
   font-size: 23px !important;
