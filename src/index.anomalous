@@ -7,7 +7,7 @@
 	<title>Metro Transit - Website Design Guide</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<!-- build:css app.min.css -->
-	<link rel="stylesheet" href="app.css" />
+	<link rel="stylesheet" href="app.css">
 	<!-- endbuild -->
 </head>
 
@@ -33,8 +33,7 @@
 									<div class="input-group-append">
 										<button id="searchRoutesButton" type="search" class="btn btn-primary">
 											<span class="sr-only">Search button</span>
-											<img class="icon" src="/img/svg/search-gray.svg" />
-											<!-- <svg class="icon icon-search-gray"><use xlink:href="./symbol-defs.svg#icon-search-gray"></use></svg> -->
+											<img class="icon" src="/img/svg/search-gray.svg">
 										</button>
 									</div>
 								</div>
@@ -44,8 +43,7 @@
 					<div class="cta-link-white mt-md-2 mt-xl-4">
 						<a class="d-inline-flex nav-link" href="schedules-maps">
 							<span class="link-text">View all Schedules &amp; Maps</span>
-							<img class="icon" src="/img/svg/arrow-right-white.svg" />
-							<!-- <svg class="icon icon-arrow-right-white"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg> -->
+							<img class="icon" src="/img/svg/arrow-right-white.svg">
 						</a>
 					</div>
 				</div>
@@ -54,18 +52,18 @@
 				<main class="section pt-0 pb-4 pb-md-5">
 					<div class="container">
 						<!-- Start trip tools tabs -->
-						<partial src="partials/trip-tools.html" />
+						<partial src="partials/trip-tools-tabs.html" />
 					</div>
 				</main>
 				<section class="section">
 				    <div class="container">
 				        <div id="howToRide" class="text-center mx-auto">
 							<div class="icon-wrapper">
-			            		<svg class="icon icon-circle-blue-outline-question"><use xlink:href="symbol-defs.svg#icon-circle-blue-outline-question"></use></svg>
+			            		<img class="icon" src="/img/svg/circle-blue-outline-question.svg">
 							</div>
-			            	<a href="how-to-ride-guide" class="btn btn-outline-primary">How to ride
-								<svg class="icon icon-arrow-right-blue inactive"><use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use></svg>
-								<svg class="icon icon-arrow-right-white active"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg>
+			            	<a href="/how-to-ride-guide" class="btn btn-outline-primary">How to ride
+								<img class="icon inactive" src="/img/svg/arrow-right-blue.svg">
+								<img class="icon active" src="/img/svg/arrow-right-white.svg">
 							</a>
 						</div>
 				    </div>

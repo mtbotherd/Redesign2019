@@ -1,19 +1,6 @@
 $(document).ready(function() {
 
-    //'use strict';
-    /***********************************************
-    		SVG icon interactions
-    ***********************************************/
-    // $('#header svg.active').hide();
-    //
-    // var navSvg = $('#header .nav-item');
-    // $(navSvg).hover(function() {
-    //     $(this).find('svg.active').show();
-    //     $(this).find('svg.inactive').hide();
-    // }, function() {
-    //     $(this).find('svg.inactive').show();
-    //     $(this).find('svg.active').hide();
-    // });
+    'use strict';
 
     $('#header img.active').hide();
 

@@ -36,18 +36,18 @@
 				                        <abbr title="minutes">min</abbr>
 				                    </span>
 				                    <span class="d-flex align-items-center tp-route">
-				                        <svg class="icon icon-pedestrian-gray"><use xlink:href="symbol-defs.svg#icon-pedestrian-gray"></use></svg>
-				                        <svg class="icon icon-chevron-right-gray mr-2"><use xlink:href="symbol-defs.svg#icon-chevron-right-gray"></use></svg>
-				                        <svg class="icon icon-bus-gray"><use xlink:href="symbol-defs.svg#icon-bus-gray"></use></svg>&nbsp;
+				                        <img class="icon" src="/img/svg/pedestrian-gray.svg">
+				                        <img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+				                        <img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
 				                        <span class="route mr-1">21</span>
-				                        <svg class="icon icon-chevron-right-gray mr-1"><use xlink:href="symbol-defs.svg#icon-chevron-right-gray"></use></svg>
+				                        <img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
 				                        <span class="d-flex align-items-center badge badge-success mr-1">
-				                            <svg class="icon icon-lrt-white"><use xlink:href="symbol-defs.svg#icon-lrt-white"></use></svg>
+				                            <img class="icon" src="/img/svg/lrt-white.svg">
 				                            <span class="caps">Green</span>
 				                        </span>
-				                        <svg class="icon icon-chevron-right-gray"><use xlink:href="symbol-defs.svg#icon-chevron-right-gray"></use></svg>
-				                        <svg class="icon icon-pedestrian-gray mr-1"><use xlink:href="symbol-defs.svg#icon-pedestrian-gray"></use></svg>
-										<svg class="icon icon-link-gray icon-chain-link ml-auto"><use xlink:href="symbol-defs.svg#icon-link-gray"></use></svg>
+				                        <img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
+				                        <img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
+										<img class="icon ml-auto" src="/img/svg/link-gray.svg">
 				                    </span>
 				                </span>
 				            </div>
@@ -59,7 +59,7 @@
 				                                <div class="d-table-cell leg-time">1:06 p.m.</div>
 				                                <div class="d-table-cell leg-mode walk">
 				                                    <div class="d-table-cell leg-mode-icon">
-				                                        <svg class="icon icon-circle-green-outline-pedestrian"><use xlink:href="symbol-defs.svg#icon-circle-green-outline-pedestrian"></use></svg>
+				                                        <img class="icon" src="/img/svg/circle-green-outline-pedestrian.svg">
 				                                    </div>
 				                                    <p>
 				                                        <strong>Walk</strong> 0.12 miles to Selby
@@ -77,10 +77,10 @@
 				                                <div class="d-table-cell leg-time">1:10 p.m.</div>
 				                                <div class="d-table-cell leg-mode bus">
 				                                    <div class="d-table-cell leg-mode-icon">
-				                                        <svg class="icon icon-circle-gray-outline-bus"><use xlink:href="symbol-defs.svg#icon-circle-gray-outline-bus"></use></svg>
+				                                        <img class="icon" src="/img/svg/circle-gray-outline-bus.svg">
 				                                    </div>
 				                                    <p>
-				                                        <svg class="icon icon-broadcast-red blink"><use xlink:href="symbol-defs.svg#icon-broadcast-red"></use></svg>&nbsp;Currently 5
+				                                        <img class="icon blink" src="/img/svg/broadcast-red.svg">&nbsp;Currently 5
 				                                        <abbr title="minutes">min</abbr> late
 				                                        <br>
 				                                        <strong>Route 21 Selby-Lake/Uptown</strong>
@@ -106,7 +106,7 @@
 				                                <div class="d-table-cell leg-time">1:40 p.m.</div>
 				                                <div class="d-table-cell leg-mode metro-green">
 				                                    <div class="d-table-cell leg-mode-icon">
-				                                        <svg class="icon icon-circle-green-outline-lrt"><use xlink:href="symbol-defs.svg#icon-circle-green-outline-lrt"></use></svg>
+				                                        <img class="icon" src="/img/svg/circle-green-outline-lrt.svg">
 				                                    </div>
 				                                    <p>
 				                                        <strong>Green Line</strong> to
@@ -125,7 +125,7 @@
 				                                <div class="d-table-cell leg-time">1:10 p.m.</div>
 				                                <div class="d-table-cell leg-mode walk">
 				                                    <div class="d-table-cell leg-mode-icon">
-				                                        <svg class="icon icon-circle-green-outline-pedestrian"><use xlink:href="symbol-defs.svg#icon-circle-green-outline-pedestrian"></use></svg>
+				                                        <img class="icon" src="/img/svg/circle-green-outline-pedestrian.svg">
 				                                    </div>
 				                                    <p>
 				                                        <strong>Walk</strong> 0.25 miles
@@ -143,7 +143,7 @@
 				                                <div class="d-table-cell leg-time">12:88 p.m.</div>
 				                                <div class="d-table-cell leg-mode arrive">
 				                                    <div class="d-table-cell leg-mode-icon">
-				                                        <svg class="icon icon-circle-red-outline-pin"><use xlink:href="symbol-defs.svg#icon-circle-red-outline-pin"></use></svg>
+				                                        <img class="icon" src="/img/svg/circle-red-outline-pin.svg">
 				                                    </div>
 				                                    <p>
 				                                        <strong>Arrive</strong>

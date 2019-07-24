@@ -1,23 +1,16 @@
-#header {
-  .utilities {
+.utilities {
     @include media-breakpoint-up(xl) {
-      margin-left: auto;
-      padding-left: 1.25rem;
-      border-left: 1px solid $border-color;
+        margin-left: auto;
+        padding-left: 1.25rem;
+        border-left: 1px solid $border-color;
     }
 
-    .icon {
-      @include media-breakpoint-up(xl) {
-        width: 24px;
-        height: 24px;
-      }
+    .nav-link {
+        .icon {
+            @include media-breakpoint-up(md) {
+                width: 1.5rem !important;
+                height: 1.5rem !important;
+            }
+        }
     }
-
-    .icon-shopping-cart-green {
-      @include media-breakpoint-up(xl) {
-        width: 24px;
-        height: 24px;
-      }
-    }
-  }
 }

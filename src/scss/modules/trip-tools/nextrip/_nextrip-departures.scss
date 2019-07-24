@@ -33,24 +33,32 @@
 		}
 
 		.nt-route-name {
-			max-width: 200px;
+			max-width: 218px;
 
 			@include media-breakpoint-up(md) {
-				max-width: 100%;
+				max-width: 593px;
+			}
+
+			@include media-breakpoint-up(lg) {
+				max-width: 807px;
+			}
+
+			@include media-breakpoint-up(xl) {
+				max-width: 987px;
 			}
 		}
 
 		.nt-depart-time {
 			font-weight: $font-weight-bold;
-            max-width: 76px;
-
-			@include media-breakpoint-up(md) {
-				max-width: 75px;
-			}
-
-			@include media-breakpoint-up(lg) {
-				max-width: 94px;
-			}
+            // max-width: 76px;
+			//
+			// @include media-breakpoint-up(md) {
+			// 	max-width: 75px;
+			// }
+			//
+			// @include media-breakpoint-up(lg) {
+			// 	max-width: 94px;
+			// }
 		}
 	}
 

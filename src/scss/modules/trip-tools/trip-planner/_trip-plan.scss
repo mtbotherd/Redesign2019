@@ -49,9 +49,14 @@
 						}
 					}
 
-					.icon-chevron-right-gray {
-						width: 0.5rem;
-						height: 0.5rem;
+					.chevron-right-gray {
+					    width: 0.5rem;
+					    height: 0.5rem;
+
+					    @include media-breakpoint-up(lg) {
+					        width: 0.75rem;
+					        height: 0.75rem;
+					    }
 					}
 
 					.badge {
@@ -61,14 +66,6 @@
 
 						@include media-breakpoint-up(lg) {
 							@include fontSize(16);
-						}
-					}
-
-					.icon-chain-link {
-						display: none;
-
-						@include media-breakpoint-up(lg) {
-							display: inline-flex;
 						}
 					}
 				}

@@ -7665,6 +7665,10 @@ abbr {
   height: 1rem;
   display: -webkit-inline-box;
   display: inline-flex; }
+  @media (min-width: 992px) {
+    .icon {
+      width: 1.5rem;
+      height: 1.5rem; } }
 
 .card-header {
   background-color: #f5f5f4; }
@@ -7708,20 +7712,15 @@ abbr {
   transition: .3s transform ease-in-out; }
 
 @media (min-width: 1200px) {
-  #header .utilities {
+  .utilities {
     margin-left: auto;
     padding-left: 1.25rem;
     border-left: 1px solid #e3e3e0; } }
 
-@media (min-width: 1200px) {
-  #header .utilities .icon {
-    width: 24px;
-    height: 24px; } }
-
-@media (min-width: 1200px) {
-  #header .utilities .icon-shopping-cart-green {
-    width: 24px;
-    height: 24px; } }
+@media (min-width: 768px) {
+  .utilities .nav-link .icon {
+    width: 1.5rem !important;
+    height: 1.5rem !important; } }
 
 a.skip-to-content {
   position: absolute;
@@ -7754,6 +7753,14 @@ a.skip-to-content {
     padding-right: 0.85rem !important;
     padding-bottom: 1.25rem;
     padding-left: 0.85rem !important; } }
+
+#header .navbar-nav .nav-item .nav-link .icon {
+  width: 0.75rem;
+  width: 0.75rem; }
+  @media (min-width: 768px) {
+    #header .navbar-nav .nav-item .nav-link .icon {
+      width: 1rem;
+      height: 1rem; } }
 
 #header .navbar-nav .nav-item .nav-link:active, #header .navbar-nav .nav-item .nav-link:hover {
   color: #fff; }
@@ -7794,7 +7801,7 @@ a.skip-to-content {
       height: 20rem; } }
 
 .nextrip-hero-bg {
-  background-image: url("/img/nextrip.jpg");
+  background-image: url("../../../../../img/nextrip.jpg");
   background-size: cover;
   background-position: 90%;
   background-repeat: no-repeat;
@@ -8186,23 +8193,23 @@ a.skip-to-content {
           font-size: 22px !important;
           font-size: 1.375rem !important; } }
       @media (min-width: 992px) {
-        #tripToolsTabs .nav-tabs .nav-item .nav-link svg.inactive {
+        #tripToolsTabs .nav-tabs .nav-item .nav-link .inactive {
           display: block !important; } }
       @media (min-width: 1200px) {
         #tripToolsTabs .nav-tabs .nav-item .nav-link {
           font-size: 32px !important;
           font-size: 2rem !important; } }
-      #tripToolsTabs .nav-tabs .nav-item .nav-link svg.active {
+      #tripToolsTabs .nav-tabs .nav-item .nav-link .active {
         display: none !important; }
-      #tripToolsTabs .nav-tabs .nav-item .nav-link svg.inactive {
+      #tripToolsTabs .nav-tabs .nav-item .nav-link .inactive {
         display: block !important; }
       #tripToolsTabs .nav-tabs .nav-item .nav-link.active {
         background-color: #fff;
         color: #0097d0;
         text-decoration: none; }
-        #tripToolsTabs .nav-tabs .nav-item .nav-link.active svg.active {
+        #tripToolsTabs .nav-tabs .nav-item .nav-link.active .active {
           display: block !important; }
-        #tripToolsTabs .nav-tabs .nav-item .nav-link.active svg.inactive {
+        #tripToolsTabs .nav-tabs .nav-item .nav-link.active .inactive {
           display: none !important; }
   #tripToolsTabs .nav-tabs .nav-item.active {
     background-color: #fff; }
@@ -8375,9 +8382,13 @@ a.skip-to-content {
             #tripPlan .tt-trip-plan .card .card-header .tp-route .route {
               font-size: 18px !important;
               font-size: 1.125rem !important; } }
-        #tripPlan .tt-trip-plan .card .card-header .tp-route .icon-chevron-right-gray {
+        #tripPlan .tt-trip-plan .card .card-header .tp-route .chevron-right-gray {
           width: 0.5rem;
           height: 0.5rem; }
+          @media (min-width: 992px) {
+            #tripPlan .tt-trip-plan .card .card-header .tp-route .chevron-right-gray {
+              width: 0.75rem;
+              height: 0.75rem; } }
         #tripPlan .tt-trip-plan .card .card-header .tp-route .badge {
           border-radius: 0.25rem;
           font-size: 8px !important;
@@ -8387,12 +8398,6 @@ a.skip-to-content {
             #tripPlan .tt-trip-plan .card .card-header .tp-route .badge {
               font-size: 16px !important;
               font-size: 1rem !important; } }
-        #tripPlan .tt-trip-plan .card .card-header .tp-route .icon-chain-link {
-          display: none; }
-          @media (min-width: 992px) {
-            #tripPlan .tt-trip-plan .card .card-header .tp-route .icon-chain-link {
-              display: -webkit-inline-box;
-              display: inline-flex; } }
     #tripPlan .tt-trip-plan .card .card-body {
       padding-right: 0;
       padding-left: 0; }
@@ -8506,19 +8511,18 @@ a.skip-to-content {
   #nextripDepartures .card .nt-route-number {
     font-weight: 700; }
   #nextripDepartures .card .nt-route-name {
-    max-width: 200px; }
+    max-width: 218px; }
     @media (min-width: 768px) {
       #nextripDepartures .card .nt-route-name {
-        max-width: 100%; } }
-  #nextripDepartures .card .nt-depart-time {
-    font-weight: 700;
-    max-width: 76px; }
-    @media (min-width: 768px) {
-      #nextripDepartures .card .nt-depart-time {
-        max-width: 75px; } }
+        max-width: 593px; } }
     @media (min-width: 992px) {
-      #nextripDepartures .card .nt-depart-time {
-        max-width: 94px; } }
+      #nextripDepartures .card .nt-route-name {
+        max-width: 807px; } }
+    @media (min-width: 1200px) {
+      #nextripDepartures .card .nt-route-name {
+        max-width: 987px; } }
+  #nextripDepartures .card .nt-depart-time {
+    font-weight: 700; }
 
 #nextripDepartures .nt-show-my-bus .card-header {
   padding: 0; }

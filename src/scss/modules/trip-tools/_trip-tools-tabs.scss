@@ -79,7 +79,7 @@
 				}
 
 				@include media-breakpoint-up(lg) {
-					svg.inactive {
+					.inactive {
 						display: block !important;
 					}
 				}
@@ -88,11 +88,11 @@
 					@include fontSize(32);
 				}
 
-				svg.active {
+				.active {
 					display: none !important;
 				}
 
-				svg.inactive {
+				.inactive {
 					display: block !important;
 				}
 
@@ -101,11 +101,11 @@
 					color: $cyan;
 					text-decoration: none;
 
-					svg.active {
+					.active {
 						display: block !important;
 					}
 
-					svg.inactive {
+					.inactive {
 						display: none !important;
 					}
 				}

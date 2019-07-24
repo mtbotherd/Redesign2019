@@ -41,6 +41,16 @@ a.skip-to-content {
           padding-left: 0.85rem !important;
         }
 
+        .icon {
+            width: 0.75rem;
+            width: 0.75rem;
+
+            @include media-breakpoint-up(md) {
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+
         &:active,
         &:hover {
           color: $white;
