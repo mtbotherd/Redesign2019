@@ -8340,21 +8340,21 @@ a.skip-to-content {
   #tripPlannerResults .card:last-child {
     margin-bottom: 0; }
 
-#tripPlan .tt-trip-plan {
+#tripPlanner .tt-trip-plan {
   padding: 1.5rem 0; }
   @media (min-width: 992px) {
-    #tripPlan .tt-trip-plan {
+    #tripPlanner .tt-trip-plan {
       padding: 3rem 0; } }
-  #tripPlan .tt-trip-plan .card {
+  #tripPlanner .tt-trip-plan .card {
     margin-bottom: 0.75rem;
     border: 0;
     background-color: transparent;
     padding: 0; }
-    #tripPlan .tt-trip-plan .card .card-header {
+    #tripPlanner .tt-trip-plan .card .card-header {
       background-color: transparent;
       border: 2px solid #343a40;
       padding: 0; }
-      #tripPlan .tt-trip-plan .card .card-header .tp-time {
+      #tripPlanner .tt-trip-plan .card .card-header .tp-time {
         border-right: 2px solid #343a40;
         font-size: 12px !important;
         font-size: 0.75rem !important;
@@ -8362,65 +8362,58 @@ a.skip-to-content {
         padding: 0.5rem;
         width: 6rem; }
         @media (min-width: 992px) {
-          #tripPlan .tt-trip-plan .card .card-header .tp-time {
+          #tripPlanner .tt-trip-plan .card .card-header .tp-time {
             font-size: 23px !important;
             font-size: 1.4375rem !important;
             padding: 0.813rem;
             width: 9.857rem; } }
-      #tripPlan .tt-trip-plan .card .card-header .tp-route {
+      #tripPlanner .tt-trip-plan .card .card-header .tp-route {
         display: -webkit-box;
         display: flex;
         padding: 0.5rem;
         width: 100%; }
         @media (min-width: 992px) {
-          #tripPlan .tt-trip-plan .card .card-header .tp-route {
+          #tripPlanner .tt-trip-plan .card .card-header .tp-route {
             padding: 0.813rem; } }
-        #tripPlan .tt-trip-plan .card .card-header .tp-route .route {
+        #tripPlanner .tt-trip-plan .card .card-header .tp-route .route {
           font-size: 8px !important;
           font-size: 0.5rem !important; }
           @media (min-width: 992px) {
-            #tripPlan .tt-trip-plan .card .card-header .tp-route .route {
+            #tripPlanner .tt-trip-plan .card .card-header .tp-route .route {
               font-size: 18px !important;
               font-size: 1.125rem !important; } }
-        #tripPlan .tt-trip-plan .card .card-header .tp-route .chevron-right-gray {
-          width: 0.5rem;
-          height: 0.5rem; }
-          @media (min-width: 992px) {
-            #tripPlan .tt-trip-plan .card .card-header .tp-route .chevron-right-gray {
-              width: 0.75rem;
-              height: 0.75rem; } }
-        #tripPlan .tt-trip-plan .card .card-header .tp-route .badge {
+        #tripPlanner .tt-trip-plan .card .card-header .tp-route .badge {
           border-radius: 0.25rem;
           font-size: 8px !important;
           font-size: 0.5rem !important;
           padding-right: 0.5rem; }
           @media (min-width: 992px) {
-            #tripPlan .tt-trip-plan .card .card-header .tp-route .badge {
+            #tripPlanner .tt-trip-plan .card .card-header .tp-route .badge {
               font-size: 16px !important;
               font-size: 1rem !important; } }
-    #tripPlan .tt-trip-plan .card .card-body {
+    #tripPlanner .tt-trip-plan .card .card-body {
       padding-right: 0;
       padding-left: 0; }
       @media (min-width: 992px) {
-        #tripPlan .tt-trip-plan .card .card-body {
+        #tripPlanner .tt-trip-plan .card .card-body {
           border: 1px solid #e3e3e0;
           padding: 1.75rem 1rem 1rem; } }
-      #tripPlan .tt-trip-plan .card .card-body .tp-results {
+      #tripPlanner .tt-trip-plan .card .card-body .tp-results {
         font-size: 20px !important;
         font-size: 1.25rem !important; }
-        #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-time {
+        #tripPlanner .tt-trip-plan .card .card-body .tp-results .leg-time {
           font-weight: 700;
           margin-right: 1rem;
           width: 115px; }
           @media (min-width: 768px) {
-            #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-time {
+            #tripPlanner .tt-trip-plan .card .card-body .tp-results .leg-time {
               margin-right: 1rem;
               width: 125px; } }
           @media (min-width: 992px) {
-            #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-time {
+            #tripPlanner .tt-trip-plan .card .card-body .tp-results .leg-time {
               margin-right: 1.75rem;
               width: 135px; } }
-        #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode {
+        #tripPlanner .tt-trip-plan .card .card-body .tp-results .leg-mode {
           width: 14.75rem;
           line-height: 1.2;
           margin-left: -1rem;
@@ -8428,22 +8421,22 @@ a.skip-to-content {
           padding-left: 1.75rem;
           position: relative; }
           @media (min-width: 768px) {
-            #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode {
+            #tripPlanner .tt-trip-plan .card .card-body .tp-results .leg-mode {
               margin-left: 0;
               padding-bottom: 0.75rem;
               width: auto; } }
           @media (min-width: 992px) {
-            #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode {
+            #tripPlanner .tt-trip-plan .card .card-body .tp-results .leg-mode {
               padding-bottom: 1.25rem;
               padding-left: 2rem;
               width: 16rem; } }
           @media (min-width: 1200px) {
-            #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode {
+            #tripPlanner .tt-trip-plan .card .card-body .tp-results .leg-mode {
               padding-bottom: 1.5rem;
               width: 20.64rem; } }
-          #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode p {
+          #tripPlanner .tt-trip-plan .card .card-body .tp-results .leg-mode p {
             margin-top: 0.15rem; }
-          #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode .leg-mode-icon {
+          #tripPlanner .tt-trip-plan .card .card-body .tp-results .leg-mode .leg-mode-icon {
             background-color: #fff;
             width: 2rem;
             height: 2rem;
@@ -8451,29 +8444,29 @@ a.skip-to-content {
             top: -0.25rem;
             left: -1.2rem; }
             @media (min-width: 992px) {
-              #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode .leg-mode-icon {
+              #tripPlanner .tt-trip-plan .card .card-body .tp-results .leg-mode .leg-mode-icon {
                 top: -0.25rem;
                 left: -1.3rem;
                 width: 2.25rem;
                 height: 2.25rem; } }
-            #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode .leg-mode-icon .icon {
+            #tripPlanner .tt-trip-plan .card .card-body .tp-results .leg-mode .leg-mode-icon .icon {
               width: 2rem;
               height: 2rem; }
               @media (min-width: 992px) {
-                #tripPlan .tt-trip-plan .card .card-body .tp-results .leg-mode .leg-mode-icon .icon {
+                #tripPlanner .tt-trip-plan .card .card-body .tp-results .leg-mode .leg-mode-icon .icon {
                   width: 2.25rem;
                   height: 2.25rem; } }
-        #tripPlan .tt-trip-plan .card .card-body .tp-results .walk {
+        #tripPlanner .tt-trip-plan .card .card-body .tp-results .walk {
           border-left: 4px dotted #7dcae7; }
-        #tripPlan .tt-trip-plan .card .card-body .tp-results .bus {
+        #tripPlanner .tt-trip-plan .card .card-body .tp-results .bus {
           border-left: 4px solid #7dcae7; }
-        #tripPlan .tt-trip-plan .card .card-body .tp-results .metro-green {
+        #tripPlanner .tt-trip-plan .card .card-body .tp-results .metro-green {
           border-left: 4px solid #008244; }
-        #tripPlan .tt-trip-plan .card .card-body .tp-results .metro-blue {
+        #tripPlanner .tt-trip-plan .card .card-body .tp-results .metro-blue {
           border-left: 4px solid #0053a0; }
-        #tripPlan .tt-trip-plan .card .card-body .tp-results .metro-red {
+        #tripPlanner .tt-trip-plan .card .card-body .tp-results .metro-red {
           border-left: 4px solid #ed1b2e; }
-        #tripPlan .tt-trip-plan .card .card-body .tp-results .arrive {
+        #tripPlanner .tt-trip-plan .card .card-body .tp-results .arrive {
           border-left: 4px solid transparent; }
 
 #nextripModule .or {

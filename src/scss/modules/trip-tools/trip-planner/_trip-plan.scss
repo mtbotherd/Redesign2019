@@ -1,4 +1,4 @@
-#tripPlan {
+#tripPlanner {
 
 	.tt-trip-plan {
 		padding: 1.5rem 0;
@@ -47,16 +47,6 @@
 						@include media-breakpoint-up(lg) {
 							@include fontSize(18);
 						}
-					}
-
-					.chevron-right-gray {
-					    width: 0.5rem;
-					    height: 0.5rem;
-
-					    @include media-breakpoint-up(lg) {
-					        width: 0.75rem;
-					        height: 0.75rem;
-					    }
 					}
 
 					.badge {
