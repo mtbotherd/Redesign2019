@@ -6,8 +6,8 @@ $(document).ready(function() {
 
     var navImg = $('#header .nav-item');
     $(navImg).hover(function() {
-        $(this).find('img.active').show();
         $(this).find('img.inactive').hide();
+        $(this).find('img.active').show();
     }, function() {
         $(this).find('img.inactive').show();
         $(this).find('img.active').hide();
@@ -55,12 +55,6 @@ $(document).ready(function() {
         } else {
             $('.select-route-stop').hide();
         }
-    });
-
-    // Test
-    $('.site-search').click(function() {
-        $('#search-box').slideToggle();
-        $('#siteSearch').focus();
     });
 
 });

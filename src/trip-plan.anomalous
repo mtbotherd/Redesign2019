@@ -80,10 +80,10 @@
 				                                        <img class="icon" src="/img/svg/circle-gray-outline-bus.svg">
 				                                    </div>
 				                                    <p>
-				                                        <img class="icon blink" src="/img/svg/broadcast-red.svg">&nbsp;Currently 5
-				                                        <abbr title="minutes">min</abbr> late
+				                                        <img class="icon blink" src="/img/svg/broadcast-red.svg">&nbsp;<strong>Currently 5
+				                                        <abbr title="minutes">min</abbr> late</strong>
 				                                        <br>
-				                                        <strong>Route 21 Selby-Lake/Uptown</strong>
+				                                        Route 21 Selby-Lake/Uptown
 				                                        <br>
 				                                        <a href="/home/#ServiceAlerts">
 				                                            <small>view alerts</small>

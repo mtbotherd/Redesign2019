@@ -10,6 +10,13 @@
 // Animate broadcast icon
 .blink {
 	animation: fadeIn 1s infinite alternate;
+	width: 0.75rem;
+	height: 0.75rem;
+
+	@include media-breakpoint-up(md) {
+		width: 1rem;
+		height: 1rem;
+	}
 }
 
 // Navbar - rotate icon on show/hide
@@ -30,12 +37,23 @@
 }
 
 // Accordion - rotate icon on collapse/aria-expanded
-.accordion .icon-chevron-down-blue {
+.nt-show-my-bus .chevron-down-blue {
   transform: rotate(-180deg);
   transition: .3s transform ease-in-out;
 }
 
-.accordion .collapsed .icon-chevron-down-blue {
+.nt-show-my-bus .collapsed .chevron-down-blue {
   transform: rotate(0deg);
   transition: .3s transform ease-in-out;
+}
+
+// More options
+.more-options .plus-blue {
+	transform: rotate(-45deg);
+	transition: .3s transform ease-in-out;
+}
+
+.more-options .collapsed .plus-blue {
+	transform: rotate(0deg);
+	transition: .3s transform ease-in-out;
 }

@@ -1,10 +1,10 @@
-#tripPlanner {
+#tripPlan {
 
 	.tt-trip-plan {
-		padding: 1.5rem 0;
+		margin-bottom: 1rem;
 
 		@include media-breakpoint-up(lg) {
-			padding: 3rem 0;
+			margin-bottom: 3rem;
 		}
 
 		.card {
@@ -12,6 +12,7 @@
 			border: 0;
 			background-color: transparent;
 			padding: 0;
+			margin-bottom: 0;
 
 			.card-header {
 				background-color: transparent;

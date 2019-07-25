@@ -43,7 +43,7 @@ h1,
   @include fontSize(32);
 
   @include media-breakpoint-up(md) {
-    @include fontSize(41);
+    @include fontSize(42);
   }
 
   > .page-title {
@@ -65,16 +65,16 @@ h3,
   @include fontSize(19);
 
   @include media-breakpoint-up(lg) {
-    @include fontSize(23);
+    @include fontSize(28);
   }
 }
 
 h4,
 .h4 {
-  @include fontSize(16);
+  @include fontSize(18);
 
   @include media-breakpoint-up(lg) {
-    @include fontSize(19);
+    @include fontSize(23);
   }
 }
 
@@ -86,6 +86,17 @@ hr {
   // @include media-breakpoint-up(md) {
   // 	border-top: 2px solid $gray-600;
   // }
+}
+
+p.lead {
+    @include fontSize(18);
+    @include media-breakpoint-up(lg) {
+        @include fontSize(20);
+    }
+}
+
+hr {
+    margin: 3rem 0;
 }
 
 .btn {

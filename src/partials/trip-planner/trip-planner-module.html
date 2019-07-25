@@ -1,7 +1,7 @@
 <!-- Start Trip Planner module -->
 <div id="tripPlannerModule">
+    <h1 class="sr-only">Trip Planner</h1>
     <div class="card">
-        <h1 class="sr-only">Trip Planner</h1>
         <div class="form-group mb-0">
             <!-- <label for="fromLocation" class="sr-only">From</label> -->
             <input id="fromLocation" type="text"
@@ -10,9 +10,8 @@
             <label for="fromLocation" class="floating-label">From</label>
         </div>
         <button class="location-toggler ml-auto">
-            <svg class="icon icon-location-switcher-blue">
-                <use xlink:href="symbol-defs.svg#icon-location-switcher-blue"></use>
-            </svg>
+            <img class="icon location-switcher-blue" src="/img/svg/location-switcher-blue.svg">
+
         </button>
         <div class="form-group">
             <!-- <label for="toLocation" class="sr-only">To</label> -->
@@ -43,7 +42,7 @@
                                 aria-label="depart/arrive by time"
                                 aria-describedby="time">
                             <div class="input-group-append border">
-                                <svg class="icon icon-clock-gray mt-1 mt-md-2"><use xlink:href="symbol-defs.svg#icon-clock-gray"></use></svg>
+                                <img class="icon clock-gray mt-1 mt-md-2" src="/img/svg/clock-gray.svg">
                             </div>
                         </div>
                     </div>
@@ -56,19 +55,19 @@
                                 aria-label="depart/arrive by time"
                                 aria-describedby="date">
                             <div class="input-group-append border">
-                                <svg class="icon icon-calendar-gray mt-1 mt-md-2"><use xlink:href="symbol-defs.svg#icon-calendar-gray"></use></svg>
+                                <img class="icon calendar-gray mt-1 mt-md-2" src="/img/svg/calendar-gray.svg">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="more-options" role="tablist">
+                <div class="accordion more-options" role="tablist">
                     <div class="card">
                         <div class="card-header d-flex border">
                             <a href="#tpMoreOptions" data-toggle="collapse" class="btn d-flex align-items-center text-left btn-link btn-block collapsed" aria-controls="tpMoreOptions" aria-expanded="false" role="button">
                                 More options
-                                <svg class="icon icon-plus-blue ml-auto inactive"><use xlink:href="symbol-defs.svg#icon-plus-blue"></use></svg>
+                                <img class="icon plus-blue ml-auto inactive" src="/img/svg/plus-blue.svg">
                             </a>
                         </div>
                         <div id="tpMoreOptions" class="collapse" role="tabpanel">
@@ -173,7 +172,7 @@
 
                                 <p class="m-0">
                                     <strong>
-                                    <svg class="icon icon-accessible-gray"><use xlink:href="symbol-defs.svg#icon-accessible-gray"></use></svg>&nbsp;Accessible stops
+                                    <img class="icon accessible-gray" src="/img/svg/accessible-gray.svg">&nbsp;Accessible stops
                                     </strong>
                                 </p>
                                 <div class="custom-control custom-radio custom-control-inline">
@@ -200,14 +199,16 @@
                 </div>
             </div>
         </div>
-        <partial src="partials/trip-planner/trip-planner-results.html" />
         <div class="btn-container text-center">
             <button type="submit" class="btn mt-2 btn-warning" name="planMyTrip">Plan my trip</button>
         </div>
+        <hr />
+        <partial src="partials/trip-planner/trip-planner-results.html" />
         <div class="btn-container text-center">
             <button type="submit" class="btn mt-2 btn-warning" name="planMyTrip">
                 Edit my trip
-                <svg class="icon icon-edit-blue"><use xlink:href="symbol-defs.svg#icon-edit-blue"></use></svg></button>
+                <img class="icon edit-blue" src="/img/svg/edit-blue.svg">
+            </button>
         </div>
     </div>
 </div>
