@@ -1,4 +1,4 @@
-#secondaryPage {
+.secondary-page {
     .page-title {
 		background-color: $blue;
         margin-bottom: 1rem;
@@ -23,4 +23,6 @@
             }
     	}
 	}
+
+    .page-content {}
 }

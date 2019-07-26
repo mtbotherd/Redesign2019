@@ -67,6 +67,11 @@
         .card-body {
             background-color: $gray-100;
 
+            hr {
+                border-top: 1px solid $gray-600;
+                margin: 0.25rem 0;
+            }
+
             .accessible-gray {
                 width: 1rem;
                 height: 1rem;

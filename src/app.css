@@ -8141,19 +8141,19 @@ a.skip-to-content {
     #primaryPage h1 {
       top: 13rem; } }
 
-#secondaryPage .page-title {
+.secondary-page .page-title {
   background-color: #0053a0;
   margin-bottom: 1rem; }
   @media (min-width: 992px) {
-    #secondaryPage .page-title {
+    .secondary-page .page-title {
       height: 170px;
       margin-bottom: 3rem; } }
-  #secondaryPage .page-title h1 {
+  .secondary-page .page-title h1 {
     color: #fff;
     margin-bottom: 0;
     padding: 0.75rem 0; }
     @media (min-width: 768px) {
-      #secondaryPage .page-title h1 {
+      .secondary-page .page-title h1 {
         padding-top: 6rem;
         padding-bottom: 1.5rem; } }
 
@@ -8342,6 +8342,9 @@ a.skip-to-content {
                 transform: rotate(45deg); }
   #tripPlannerModule .more-options .card-body {
     background-color: #f5f5f4; }
+    #tripPlannerModule .more-options .card-body hr {
+      border-top: 1px solid #626462;
+      margin: 0.25rem 0; }
     #tripPlannerModule .more-options .card-body .accessible-gray {
       width: 1rem;
       height: 1rem; }
