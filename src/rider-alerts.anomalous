@@ -19,24 +19,35 @@
 
 	<!-- Begin Main Content -->
 	<section id="mainContent">
-		<div id="primaryPage">
-
-			<!-- When adding a new page, also add new background image styles in _hero-backgrounds.scss. Change the class below to match that of the hero background. -->
-			<div class="trip-planner-hero-bg">
-                <div class="container">
-                    <div class="position-relative">
-                        <h1>Trip Planner</h1>
-                    </div>
-                </div>
-            </div>
+		<div id="secondaryPage">
+			<div class="page-title">
+				<div class="container">
+					<h1>Alerts</h1>
+				</div>
+			</div>
 
 			<div class="page-content">
 				<!-- Main page content -->
 				<main class="section pt-0 pb-4 pb-md-5">
 					<div class="container">
-						<partial src="partials/trip-planner/trip-planner-module.html" />
+		            	<a href="/home#alerts" class="btn btn-outline-primary">
+							<img class="icon arrow-left-blue inactive" src="/img/svg/arrow-left-blue.svg">
+							<img class="icon arrow-left-white active" src="/img/svg/arrow-left-white.svg">
+							Back to alerts
+						</a>
 					</div>
 				</main>
+
+				<!-- Additional content sections -->
+				<!-- <section class="section">
+				    <div class="container">
+				    </div>
+				</section>
+
+				<section class="section">
+					<div class="container">
+					</div>
+				</section> -->
 			</div>
 		</div>
 	</section>

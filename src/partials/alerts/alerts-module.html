@@ -2,28 +2,175 @@
 <div id="alertsModule">
     <div class="card">
         <h1 class="sr-only">Alerts</h1>
-        <h2>Check planned detours, bus stop, service changes, and disruptions</h2>
+        <h2 class="text-center">Check planned detours, bus stop, service changes, and disruptions</h2>
         <div class="text-center mt-4 mb-4">
             <a href="how-to-ride-guide" class="btn btn-outline-primary">Sign up for alerts
-    			<svg class="icon icon-arrow-right-blue inactive"><use xlink:href="symbol-defs.svg#icon-arrow-right-blue"></use></svg>
-    			<svg class="icon icon-arrow-right-white active"><use xlink:href="symbol-defs.svg#icon-arrow-right-white"></use></svg>
+    			<img class="icon inactive" src="/img/svg/arrow-right-blue.svg">
+    			<img class="icon active" src="/img/svg/arrow-right-white.svg">
     		</a>
         </div>
         <div class="accordion service-alerts">
             <div class="card">
                 <div class="card-header">
                     <h3 class="mb-0">
-                        <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false">
-                            <svg class="icon icon-bus-broadcast-color mr-2"><use xlink:href="symbol-defs.svg#icon-bus-broadcast-color"></use></svg>
-                            METRO Blue Line
-                            <svg class="icon icon-chevron-down-blue ml-auto"><use xlink:href="symbol-defs.svg#icon-chevron-down-blue"></use></svg>
-                            <!-- <svg class="icon icon-chevron-up-blue ml-auto"><use xlink:href="symbol-defs.svg#icon-chevron-up-blue"></use></svg> -->
+                        <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#metroBlueLrt" aria-expanded="false">
+                            <img class="icon circle-blue-lrt mr-2" src="/img/svg/circle-blue-lrt.svg">
+                            <span class="route-alert">
+                                <strong>METRO</strong>&nbsp;Blue Line
+                            </span>
+                            <div class="ml-auto">
+                                <span class="number-alerts">1 Alert(s)</span>
+                                <img class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
+                            </div>
                         </button>
                     </h3>
                 </div>
-                <div id="collapseMap" class="collapse" style="">
-                    <div class="card-body p-0">
-                        <!-- <img class="img-fluid" src="/img/TripPlanMap1.png"> -->
+                <div id="metroBlueLrt" class="collapse" style="">
+                    <div class="card-body border">
+                        <p><a href="/rider-alerts/901">Station closed</a><br />Starting Jan 22 at 9 AM - 8th St between 3rd Ave and 4th Ave</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion service-alerts">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">
+                        <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#metroGreenLrt" aria-expanded="false">
+                            <img class="icon circle-green-lrt mr-2" src="/img/svg/circle-green-lrt.svg">
+                            <span class="route-alert">
+                                <strong>METRO</strong>&nbsp;Green Line
+                            </span>
+                            <div class="ml-auto">
+                                <span class="number-alerts">3 Alert(s)</span>
+                                <img class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
+                            </div>
+                        </button>
+                    </h3>
+                </div>
+                <div id="metroGreenLrt" class="collapse" style="">
+                    <div class="card-body border">
+                        <p><a href="/rider-alerts/902">Station closed</a><br />Starting Jan 22 at 9 AM - 8th St between 3rd Ave and 4th Ave</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion service-alerts">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">
+                        <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#metroRedBrt" aria-expanded="false">
+                            <img class="icon circle-red-bus mr-2" src="/img/svg/circle-red-bus.svg">
+                            <span class="route-alert">
+                                <strong>METRO</strong>&nbsp;Red Line
+                            </span>
+                            <div class="ml-auto">
+                                <span class="number-alerts">3 Alert(s)</span>
+                                <img class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
+                            </div>
+                        </button>
+                    </h3>
+                </div>
+                <div id="metroRedBrt" class="collapse" style="">
+                    <div class="card-body border">
+                        <p><a href="/rider-alerts/923">Station closed</a><br />Starting Jan 22 at 9 AM - 8th St between 3rd Ave and 4th Ave</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion service-alerts">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">
+                        <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#metroABrt" aria-expanded="false">
+                            <img class="icon circle-gray-bus mr-2" src="/img/svg/circle-gray-bus.svg">
+                            <span class="route-alert">
+                                <strong>METRO</strong>&nbsp;A Line
+                            </span>
+                            <div class="ml-auto">
+                                <span class="number-alerts">15 Alert(s)</span>
+                                <img class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
+                            </div>
+                        </button>
+                    </h3>
+                </div>
+                <div id="metroABrt" class="collapse" style="">
+                    <div class="card-body border">
+                        <p><a href="/rider-alerts/921">Station closed</a><br />Starting Jan 22 at 9 AM - 8th St between 3rd Ave and 4th Ave</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion service-alerts">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">
+                        <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#metroCBrt" aria-expanded="false">
+                            <img class="icon circle-gray-bus mr-2" src="/img/svg/circle-gray-bus.svg">
+                            <span class="route-alert">
+                                <strong>METRO</strong>&nbsp;C Line
+                            </span>
+                            <div class="ml-auto">
+                                <span class="number-alerts">3 Alert(s)</span>
+                                <img class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
+                            </div>
+                        </button>
+                    </h3>
+                </div>
+                <div id="metroCBrt" class="collapse" style="">
+                    <div class="card-body border">
+                        <p><a href="/rider-alerts/923">Station closed</a><br />Starting Jan 22 at 9 AM - 8th St between 3rd Ave and 4th Ave</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion service-alerts">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">
+                        <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#northstarRail" aria-expanded="false">
+                            <img class="icon circle-gray-outline-train mr-2" src="/img/svg/circle-gray-outline-train.svg">
+                            <span class="route-alert">
+                                <strong>Northstar</strong>&nbsp;community rail
+                            </span>
+                            <div class="ml-auto">
+                                <span class="number-alerts">1 Alert(s)</span>
+                                <img class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
+                            </div>
+                        </button>
+                    </h3>
+                </div>
+                <div id="northstarRail" class="collapse" style="">
+                    <div class="card-body border">
+                        <p><a href="/rider-alerts/888">Station closed</a><br />Starting Jan 22 at 9 AM - 8th St between 3rd Ave and 4th Ave</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion service-alerts">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">
+                        <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#busRt3" aria-expanded="false">
+                            <img class="icon circle-gray-outline-bus mr-2" src="/img/svg/circle-gray-outline-bus.svg">
+                            <span class="route-alert">
+                                <strong>Route 3</strong>&nbsp;U of M / Como / Maryland
+                            </span>
+                            <div class="ml-auto">
+                                <span class="number-alerts">1 Alert(s)</span>
+                                <img class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
+                            </div>
+                        </button>
+                    </h3>
+                </div>
+                <div id="busRt3" class="collapse" style="">
+                    <div class="card-body border">
+                        <p><a href="/rider-alerts/3">Bus Stop Closed</a><br />Starting Jan 22 at 9 AM - 8th St between 3rd Ave and 4th Ave</p>
+                        <p><a href="/rider-alerts/3">Bus Stops Closed</a><br />Starting Nov 30 at 5:30 PM - Southbound Brooklyn Blvd at 51st Ave, 50th Ave & 49th Ave</p>
+                        <p><a href="/rider-alerts/3">Bus Stop Closed</a><br />Starting Nov 30 at 9 AM - 8th St at Nicollet</p>
+                        <p><a href="/rider-alerts/3">Route 5 changes begin Dec. 1</a></p>
+                        <p><a href="/rider-alerts/3">Bus Stop Closed</a><br />Starting Oct 1 at 3 PM (School Days Only) - Southbound 44th Ave at James</p>
+                        <p><a href="/rider-alerts/3">Bus Stop Closed</a><br />Starts June 4 @ 9 AM - 7th St just past 5th Ave</p>
                     </div>
                 </div>
             </div>

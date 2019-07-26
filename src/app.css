@@ -7716,13 +7716,13 @@ abbr {
   -webkit-transition: .3s transform ease-in-out;
   transition: .3s transform ease-in-out; }
 
-.nt-show-my-bus .chevron-down-blue {
+.accordion .chevron-down-blue {
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
   -webkit-transition: .3s transform ease-in-out;
   transition: .3s transform ease-in-out; }
 
-.nt-show-my-bus .collapsed .chevron-down-blue {
+.accordion .collapsed .chevron-down-blue {
   -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
   -webkit-transition: .3s transform ease-in-out;
@@ -7864,47 +7864,6 @@ a.skip-to-content {
       background-position: 90%;
       height: 20rem; } }
 
-#primaryPage h1 {
-  position: absolute;
-  left: 0;
-  top: 5.25rem;
-  background-color: #fff;
-  color: #8a8b8a;
-  display: -webkit-inline-box;
-  display: inline-flex;
-  font-size: 23px !important;
-  font-size: 1.4375rem !important;
-  opacity: 0.9;
-  padding: 1rem;
-  width: auto; }
-  @media (min-width: 768px) {
-    #primaryPage h1 {
-      top: 8.5rem;
-      font-size: 41px !important;
-      font-size: 2.5625rem !important; } }
-  @media (min-width: 992px) {
-    #primaryPage h1 {
-      top: 11rem; } }
-  @media (min-width: 1200px) {
-    #primaryPage h1 {
-      top: 13rem; } }
-
-#secondaryPage .page-title {
-  background-color: #0053a0;
-  margin-bottom: 1rem; }
-  @media (min-width: 992px) {
-    #secondaryPage .page-title {
-      height: 170px;
-      margin-bottom: 3rem; } }
-  #secondaryPage .page-title h1 {
-    color: #fff;
-    margin-bottom: 0;
-    padding: 0.75rem 0; }
-    @media (min-width: 768px) {
-      #secondaryPage .page-title h1 {
-        padding-top: 6rem;
-        padding-bottom: 1.5rem; } }
-
 .btn-container {
   padding-top: 1rem; }
   @media (min-width: 768px) {
@@ -8008,15 +7967,28 @@ a.skip-to-content {
       width: 17.5rem;
       padding: 0.75rem; } }
   .btn-outline-primary .icon {
+    width: 1.25rem;
+    height: 1.25rem; }
+  .btn-outline-primary .arrow-right-blue,
+  .btn-outline-primary .arrow-right-white {
     position: absolute;
     top: 0.65rem;
-    right: 0.75rem;
-    width: 1rem;
-    height: 1rem; }
+    right: 0.75rem; }
     @media (min-width: 768px) {
-      .btn-outline-primary .icon {
+      .btn-outline-primary .arrow-right-blue,
+      .btn-outline-primary .arrow-right-white {
         top: 1.25rem;
         right: 0.75rem; } }
+  .btn-outline-primary .arrow-left-blue,
+  .btn-outline-primary .arrow-left-white {
+    position: absolute;
+    top: 0.65rem;
+    left: 0.75rem; }
+    @media (min-width: 768px) {
+      .btn-outline-primary .arrow-left-blue,
+      .btn-outline-primary .arrow-left-white {
+        top: 1.25rem;
+        left: 0.75rem; } }
 
 /**********************************************
     Form styles
@@ -8105,6 +8077,34 @@ a.skip-to-content {
 #findSchedulesByRoute .form-control {
   border: 0; }
 
+.accordion .card .card-header {
+  padding: 0 !important; }
+  .accordion .card .card-header .btn {
+    color: #626462;
+    font-size: 18px !important;
+    font-size: 1.125rem !important;
+    background-color: #d8ecfd; }
+    @media (min-width: 992px) {
+      .accordion .card .card-header .btn {
+        font-size: 23px !important;
+        font-size: 1.4375rem !important; } }
+    .accordion .card .card-header .btn.collapsed {
+      background-color: #f5f5f4; }
+  .accordion .card .card-header .icon {
+    width: 2.25rem;
+    height: 2.25rem; }
+    @media (min-width: 992px) {
+      .accordion .card .card-header .icon {
+        width: 2.5rem;
+        height: 2.5rem; } }
+    .accordion .card .card-header .icon.chevron-down-blue {
+      width: 1rem;
+      height: 1rem; }
+      @media (min-width: 992px) {
+        .accordion .card .card-header .icon.chevron-down-blue {
+          width: 1.5rem;
+          height: 1.5rem; } }
+
 #homeContent {
   position: relative;
   top: -4.62rem;
@@ -8115,6 +8115,47 @@ a.skip-to-content {
   @media (min-width: 1200px) {
     #homeContent {
       top: -5.12rem; } }
+
+#primaryPage h1 {
+  position: absolute;
+  left: 0;
+  top: 5.25rem;
+  background-color: #fff;
+  color: #8a8b8a;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  font-size: 23px !important;
+  font-size: 1.4375rem !important;
+  opacity: 0.9;
+  padding: 1rem;
+  width: auto; }
+  @media (min-width: 768px) {
+    #primaryPage h1 {
+      top: 8.5rem;
+      font-size: 41px !important;
+      font-size: 2.5625rem !important; } }
+  @media (min-width: 992px) {
+    #primaryPage h1 {
+      top: 11rem; } }
+  @media (min-width: 1200px) {
+    #primaryPage h1 {
+      top: 13rem; } }
+
+#secondaryPage .page-title {
+  background-color: #0053a0;
+  margin-bottom: 1rem; }
+  @media (min-width: 992px) {
+    #secondaryPage .page-title {
+      height: 170px;
+      margin-bottom: 3rem; } }
+  #secondaryPage .page-title h1 {
+    color: #fff;
+    margin-bottom: 0;
+    padding: 0.75rem 0; }
+    @media (min-width: 768px) {
+      #secondaryPage .page-title h1 {
+        padding-top: 6rem;
+        padding-bottom: 1.5rem; } }
 
 /***************************************************
     News & Updates
@@ -8274,10 +8315,10 @@ a.skip-to-content {
 #tripPlannerModule .more-options {
   margin-bottom: 1rem; }
   #tripPlannerModule .more-options .card-header {
-    background-color: transparent;
     border-bottom: 0;
     padding: 0; }
     #tripPlannerModule .more-options .card-header .btn-link {
+      background-color: #fff;
       text-decoration: none;
       color: #626462;
       font-weight: 500;
@@ -8558,18 +8599,6 @@ a.skip-to-content {
   #nextripDepartures .card .nt-depart-time {
     font-weight: 700; }
 
-#nextripDepartures .nt-show-my-bus .card-header {
-  padding: 0; }
-
-#nextripDepartures .nt-show-my-bus .btn {
-  color: #626462;
-  font-size: 20px !important;
-  font-size: 1.25rem !important;
-  font-weight: 700;
-  background-color: #d8ecfd; }
-  #nextripDepartures .nt-show-my-bus .btn.collapsed {
-    background-color: #f5f5f4; }
-
 #nextripDepartures .nt-show-my-bus .icon-bus-broadcast-color {
   width: 40px;
   height: 40px; }
@@ -8577,6 +8606,22 @@ a.skip-to-content {
 #nextripDepartures .nt-show-my-bus .icon-chevron-down-blue {
   width: 1rem;
   height: 1rem; }
+
+#alerts .service-alerts {
+  margin-bottom: 0.5rem; }
+  #alerts .service-alerts .route-alert {
+    max-width: 165px; }
+    @media (min-width: 768px) {
+      #alerts .service-alerts .route-alert {
+        max-width: 540px; } }
+    @media (min-width: 992px) {
+      #alerts .service-alerts .route-alert {
+        max-width: 730px; } }
+    @media (min-width: 1200px) {
+      #alerts .service-alerts .route-alert {
+        max-width: 910px; } }
+  #alerts .service-alerts .number-alerts {
+    font-weight: 700; }
 
 footer.section {
   background-color: #f5f5f4; }

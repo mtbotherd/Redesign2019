@@ -29,11 +29,11 @@
     .more-options {
         margin-bottom: 1rem;
         .card-header {
-            background-color: transparent;
             border-bottom: 0;
             padding: 0;
 
             .btn-link {
+                background-color: $white;
                 text-decoration: none;
                 color: $body-color;
                 font-weight: 500;

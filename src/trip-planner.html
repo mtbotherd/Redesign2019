@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Metro Transit - Website Design Guide</title>
+	<title>Metro Transit</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	<!-- build:css app.min.css -->
 	<link rel="stylesheet" href="app.css" />
@@ -177,8 +177,8 @@
 					<div class="container">
 						<!-- Start Trip Planner module -->
 <div id="tripPlannerModule">
+    <h1 class="sr-only">Trip Planner</h1>
     <div class="card">
-        <h1 class="sr-only">Trip Planner</h1>
         <div class="form-group mb-0">
             <!-- <label for="fromLocation" class="sr-only">From</label> -->
             <input id="fromLocation" type="text"
@@ -187,7 +187,7 @@
             <label for="fromLocation" class="floating-label">From</label>
         </div>
         <button class="location-toggler ml-auto">
-            <img class="icon icon-location-switcher-blue" src="/img/svg/location-switcher-blue">
+            <img class="icon location-switcher-blue" src="/img/svg/location-switcher-blue.svg">
 
         </button>
         <div class="form-group">
@@ -219,7 +219,7 @@
                                 aria-label="depart/arrive by time"
                                 aria-describedby="time">
                             <div class="input-group-append border">
-                                <img class="icon icon-clock-gray mt-1 mt-md-2"><use xlink:href="symbol-defs.svg#icon-clock-gray">
+                                <img class="icon clock-gray mt-1 mt-md-2" src="/img/svg/clock-gray.svg">
                             </div>
                         </div>
                     </div>
@@ -232,19 +232,19 @@
                                 aria-label="depart/arrive by time"
                                 aria-describedby="date">
                             <div class="input-group-append border">
-                                <img class="icon icon-calendar-gray mt-1 mt-md-2"><use xlink:href="symbol-defs.svg#icon-calendar-gray">
+                                <img class="icon calendar-gray mt-1 mt-md-2" src="/img/svg/calendar-gray.svg">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="more-options" role="tablist">
+                <div class="accordion more-options" role="tablist">
                     <div class="card">
                         <div class="card-header d-flex border">
                             <a href="#tpMoreOptions" data-toggle="collapse" class="btn d-flex align-items-center text-left btn-link btn-block collapsed" aria-controls="tpMoreOptions" aria-expanded="false" role="button">
                                 More options
-                                <img class="icon icon-plus-blue ml-auto inactive"><use xlink:href="symbol-defs.svg#icon-plus-blue">
+                                <img class="icon plus-blue ml-auto inactive" src="/img/svg/plus-blue.svg">
                             </a>
                         </div>
                         <div id="tpMoreOptions" class="collapse" role="tabpanel">
@@ -349,7 +349,7 @@
 
                                 <p class="m-0">
                                     <strong>
-                                    <img class="icon icon-accessible-gray"><use xlink:href="symbol-defs.svg#icon-accessible-gray">&nbsp;Accessible stops
+                                    <img class="icon accessible-gray" src="/img/svg/accessible-gray.svg">&nbsp;Accessible stops
                                     </strong>
                                 </p>
                                 <div class="custom-control custom-radio custom-control-inline">
@@ -376,93 +376,99 @@
                 </div>
             </div>
         </div>
-        <div id="tripPlannerResults">
-       <h2>Suggested trips</h2>
-       <p class="mb-0">
-           <strong>Start:&nbsp;</strong>225 Farrington
-           <abbr title="street">St.</abbr>,
-           <abbr title="Saint">St.</abbr> Paul, MN 55102
-       </p>
-       <p>
-           <strong>End:&nbsp;</strong>560 6th
-           <abbr title="avenue">Ave.</abbr> N, Minneapolis, MN 55411
-       </p>
-       <div class="tp-results" role="tablist">
-           <div class="card">
-               <a href="/trip-plan" class="border">
-                   <span class="d-flex" role="link">
-                       <span class="d-flex align-items-center tp-time">56 min</span>
-                       <span class="align-items-center tp-route">
-                           <img class="icon" src="/img/svg/pedestrian-gray.svg">
-                           <img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
-                           <img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
-                           <span class="route mr-1">21</span>
-                           <img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
-                           <span class="d-flex align-items-center badge badge-success mr-1">
-                               <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
-                               <span class="caps">Green</span>
-                           </span>
-                           <img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
-                           <img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
-                           <img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
-                       </span>
-                   </span>
-               </a>
-           </div>
-           <div class="card">
-               <a href="/trip-plan" class="border">
-                   <span class="d-flex" role="link">
-                       <span class="d-flex align-items-center tp-time">1 hr 2 min</span>
-                       <span class="align-items-center tp-route">
-                           <img class="icon" src="/img/svg/pedestrian-gray.svg">
-                           <img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
-                           <img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
-                           <span class="route mr-1">21</span>
-                           <img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
-                           <img class="icon" src="/img/svg/pedestrian-gray.svg">
-                           <img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
-                           <span class="d-flex align-items-center badge badge-secondary mr-1">
-                               <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
-                               <span class="caps">Blue</span>
-                           </span>
-                           <img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
-                           <img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
-                           <img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
-                       </span>
-                   </span>
-               </a>
-           </div>
-           <div class="card">
-               <a href="/trip-plan" class="border">
-                   <span class="d-flex" role="link">
-                       <span class="d-flex align-items-center tp-time">1 hr 6 min</span>
-                       <span class="align-items-center tp-route">
-                           <img class="icon" src="/img/svg/pedestrian-gray.svg">
-                           <img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
-                           <img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
-                           <span class="route mr-1">21</span>
-                           <img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
-                           <span class="d-flex align-items-center badge badge-success mr-1">
-                               <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
-                               <span class="caps">Green</span>
-                           </span>
-                           <img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
-                           <img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
-                           <img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
-                       </span>
-                   </span>
-               </a>
-           </div>
-       </div>
-   </div>
-
         <div class="btn-container text-center">
             <button type="submit" class="btn mt-2 btn-warning" name="planMyTrip">Plan my trip</button>
         </div>
+        <hr />
+        <div id="tripPlannerResults">
+   <h2>Suggested trips</h2>
+   <p class="mb-0">
+       <strong>Start:&nbsp;</strong>225 Farrington
+       <abbr title="street">St.</abbr>,
+       <abbr title="Saint">St.</abbr> Paul, MN 55102
+   </p>
+   <p>
+       <strong>End:&nbsp;</strong>560 6th
+       <abbr title="avenue">Ave.</abbr> N, Minneapolis, MN 55411
+   </p>
+   <div class="tp-results" role="tablist">
+       <div class="card">
+           <a href="/trip-plan" class="border">
+               <span class="d-flex" role="link">
+                   <span class="d-flex align-items-center tp-time">56 min</span>
+                   <span class="align-items-center tp-route">
+                       <img class="icon" src="/img/svg/pedestrian-gray.svg">
+                       <img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+                       <img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
+                       <span class="route mr-1">21</span>
+                       <img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
+                       <span class="d-flex align-items-center badge badge-success mr-1">
+                           <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+                           <span class="caps">Green</span>
+                       </span>
+                       <img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
+                       <img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
+                       <img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
+                   </span>
+               </span>
+           </a>
+       </div>
+       <div class="card">
+           <a href="/trip-plan" class="border">
+               <span class="d-flex" role="link">
+                   <span class="d-flex align-items-center tp-time">1 hr 2 min</span>
+                   <span class="align-items-center tp-route">
+                       <img class="icon" src="/img/svg/pedestrian-gray.svg">
+                       <img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
+                       <img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
+                       <span class="route mr-1">21</span>
+                       <img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
+                       <img class="icon" src="/img/svg/pedestrian-gray.svg">
+                       <img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
+                       <span class="d-flex align-items-center badge badge-secondary mr-1">
+                           <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+                           <span class="caps">Blue</span>
+                       </span>
+                       <img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
+                       <img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
+                       <img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
+                   </span>
+               </span>
+           </a>
+       </div>
+       <div class="card">
+           <a href="/trip-plan" class="border">
+               <span class="d-flex" role="link">
+                   <span class="d-flex align-items-center tp-time">1 hr 6 min</span>
+                   <span class="align-items-center tp-route">
+                       <img class="icon" src="/img/svg/pedestrian-gray.svg">
+                       <img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+                       <img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
+                       <span class="route mr-1">21</span>
+                       <img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+                       <span class="d-flex align-items-center badge badge-success mr-1">
+                           <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+                           <span class="caps">Green</span>
+                       </span>
+                       <img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
+                       <img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
+                       <img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
+                   </span>
+               </span>
+           </a>
+       </div>
+   </div>
+   <h2>No trips found</h2>
+   <div class="card border p-5">
+       <p>We’re sorry, no results are available for this trip plan. Please try a specific thing for better results or call or text Transit information at 612-373-3333. (this language needs to be written.)</p>
+   </div>
+</div>
+
         <div class="btn-container text-center">
             <button type="submit" class="btn mt-2 btn-warning" name="planMyTrip">
                 Edit my trip
-                <img class="icon icon-edit-blue"><use xlink:href="symbol-defs.svg#icon-edit-blue"></button>
+                <img class="icon edit-blue" src="/img/svg/edit-blue.svg">
+            </button>
         </div>
     </div>
 </div>

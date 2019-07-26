@@ -50,36 +50,10 @@
 
 		.nt-depart-time {
 			font-weight: $font-weight-bold;
-            // max-width: 76px;
-			//
-			// @include media-breakpoint-up(md) {
-			// 	max-width: 75px;
-			// }
-			//
-			// @include media-breakpoint-up(lg) {
-			// 	max-width: 94px;
-			// }
 		}
 	}
 
 	.nt-show-my-bus {
-
-		.card-header {
-			padding: 0;
-		}
-
-		.btn {
-			color: $gray-600;
-			@include fontSize(20);
-			font-weight: $font-weight-bold;
-			background-color: #d8ecfd;
-
-			&.collapsed {
-				background-color: $gray-100;
-
-
-			}
-		}
 
 		.icon-bus-broadcast-color {
 			width: 40px;
