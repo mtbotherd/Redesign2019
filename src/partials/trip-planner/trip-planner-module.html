@@ -76,24 +76,25 @@
                                     <strong>I'm willing to walk:</strong>
                                 </p>
                                 <div class="custom-control custom-radio">
-                                    <input id="quarterMile" type="radio" name="walkingDistance" class="custom-control-input" />
+                                    <input id="quarterMile" type="radio" name="walkingDistance" class="custom-control-input">
                                     <label for="quarterMile" class="custom-control-label">1/4 mile</label>
                                 </div>
                                 <div class="custom-control custom-radio">
-                                    <input id="halfMile" type="radio" name="walkingDistance" class="custom-control-input" />
+                                    <input id="halfMile" type="radio" name="walkingDistance" class="custom-control-input" checked>
                                     <label for="halfMile" class="custom-control-label">1/2 mile</label>
                                 </div>
                                 <div class="custom-control custom-radio">
-                                    <input id="oneMile" type="radio" name="walkingDistance" class="custom-control-input" />
+                                    <input id="oneMile" type="radio" name="walkingDistance" class="custom-control-input">
                                     <label for="oneMile" class="custom-control-label">1 mile</label>
                                 </div>
-                                <hr />
+                                <hr>
                                 <div class="custom-control custom-radio">
                                     <input
                                     id="anyType"
                                     type="radio"
                                     name="serviceType"
                                     class="custom-control-input"
+                                    checked
                                     >
                                     <label
                                     class="custom-control-label"
@@ -130,13 +131,14 @@
                                     for="noExpress"
                                     >No express</label>
                                 </div>
-                                <hr />
+                                <hr>
                                 <div class="custom-control custom-radio">
                                     <input
                                     id="fasterTrip"
                                     type="radio"
                                     name="convenience"
                                     class="custom-control-input"
+                                    checked
                                     >
                                     <label
                                     class="custom-control-label"
@@ -190,6 +192,7 @@
                                     type="radio"
                                     name="accessible"
                                     class="custom-control-input"
+                                    checked
                                     >
                                     <label class="custom-control-label" for="accessibleNo">No</label>
                                 </div>
@@ -202,8 +205,8 @@
         <div class="btn-container text-center">
             <button type="submit" class="btn mt-2 btn-warning" name="planMyTrip">Plan my trip</button>
         </div>
-        <hr />
-        <partial src="partials/trip-planner/trip-planner-results.html" />
+        <hr>
+        <partial src="partials/trip-planner/trip-planner-results.html">
         <div class="btn-container text-center">
             <button type="submit" class="btn mt-2 btn-warning" name="planMyTrip">
                 Edit my trip

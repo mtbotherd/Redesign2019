@@ -13,6 +13,12 @@ $(document).ready(function() {
         $(this).find('img.active').hide();
     });
 
+    // Display search bar
+    $('.site-search').click(function() {
+        $('#search-box').slideToggle();
+        $('#siteSearch').focus();
+    });
+
     /***********************************************
     		Trip Planner
     ***********************************************/
