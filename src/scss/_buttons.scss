@@ -36,10 +36,10 @@
 
 // CTA Link White
 .cta-link-white {
+    position: relative;
     border: 2px solid #ffffff;
 
     .nav-link {
-        position: relative;
         color: white;
         @include fontSize(17);
         font-weight: 700;
@@ -49,17 +49,18 @@
             @include fontSize(23);
             margin-right: 0;
         }
+    }
 
-        .link-text {
-            margin-right: 1rem;
-        }
+    .icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        position: absolute;
+        top: 0.75rem;
+        right: 1rem;
 
-        .icon {
-            width: 1.25rem;
-            height: 1.25rem;
-            position: absolute;
+        @include media-breakpoint-up(md) {
             top: 1rem;
-            right: 0;
+            right: auto;
         }
     }
 
