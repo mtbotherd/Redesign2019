@@ -9,15 +9,7 @@
 			border-left: none;
 		}
 
-		.nt-show-more {
-			position: relative;
-			color: $gray-600;
-			@include fontSize(20);
-			font-weight: $font-weight-bold;
-            margin-left: 2rem;
-        }
-
-        .nt-show-more-link {
+		.nt-show-more-link {
             position: relative;
 
 			.icon {
@@ -27,6 +19,14 @@
 				height: 24px;
 			}
 		}
+
+		.nt-show-more {
+			position: relative;
+			color: $gray-600;
+			// @include fontSize(20);
+			// font-weight: $font-weight-bold;
+            margin-left: 2rem;
+        }
 
 		.nt-route-number {
 			font-weight: $font-weight-bold;

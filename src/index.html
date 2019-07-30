@@ -161,7 +161,7 @@
 	<!-- Begin Main Content -->
 	<section id="mainContent">
 		<div id="homePage">
-			<div class="hero-bg pt-3 pt-md-0 pt-lg-3">
+			<div class="hero home-bg mb-0 pt-3 pt-md-0 pt-lg-3">
 				<div class="container">
 					<div id="findSchedulesByRoute" class="d-none d-md-block">
 						<div class="row justify-content-md-center">
@@ -306,7 +306,6 @@
                                     <input id="oneMile" type="radio" name="walkingDistance" class="custom-control-input">
                                     <label for="oneMile" class="custom-control-label">1 mile</label>
                                 </div>
-                                <hr>
                                 <div class="custom-control custom-radio">
                                     <input
                                     id="anyType"
@@ -424,7 +423,6 @@
         <div class="btn-container text-center">
             <button type="submit" class="btn mt-2 btn-warning" name="planMyTrip">Plan my trip</button>
         </div>
-        <hr>
         <div id="tripPlannerResults">
            <h2>Suggested trips</h2>
            <p class="mb-0">
@@ -504,7 +502,7 @@
                </div>
            </div>
            <h2>No trips found</h2>
-           <div class="card border p-5">
+           <div class="card border p-4">
                <p>We’re sorry, no results are available for this trip plan. Please try a specific thing for better results or call or text Transit information at 612-373-3333. (this language needs to be written.)</p>
            </div>
         </div>
@@ -522,7 +520,7 @@
                 <div id="nextrip" class="tt-nextrip tab-pane fade" role="tabpanel" aria-labelledby="nextripTab">
                     <div id="nextripModule">
     <div class="card mb-4">
-        <h2 class="text-center mb-5">Real-time Departures</h2>
+        <h2 class="text-center mb-4 mb-lg-5">Real-time Departures</h2>
         <div class="row">
             <div class="col-md-5">
                 <div class="form-group select-route">
@@ -626,20 +624,20 @@
             </div>
             <a href="" class="nt-show-more-link">
                 <img class="icon mr-2" src="/img/svg/circle-plus-blue.svg">
-                <span class="nt-show-more">Show more</span>
+                <span class="h2 nt-show-more">Show more</span>
             </a>
         </div>
 
         <div id="showMyBus" class="accordion nt-show-my-bus">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="mb-0">
+                    <!-- <h2 class="mb-0"> -->
                         <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false">
                             <img class="icon mr-2" src="/img/svg/bus-broadcast-color.svg">
-                            <strong>Show my bus</strong>
+                            <h2 class="mb-0">Show my bus</h2>
                             <img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
                         </button>
-                    </h3>
+                    <!-- </h2> -->
                 </div>
                 <div id="collapseMap" class="collapse">
                     <div class="card-body p-0">

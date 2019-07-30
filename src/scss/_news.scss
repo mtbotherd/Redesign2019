@@ -26,32 +26,33 @@
         .btn-warning {
         	position: relative;
         	color: $body-color;
-        	@include fontSize(12);
+        	@include fontSize(18);
         	font-weight: $font-weight-bold;
         	width: 100%;
 
         	@include media-breakpoint-up(md) {
         		//width: 100%;
-        		@include fontSize(12);
+        		//@include fontSize(18);
                 padding: 0.375rem 0.75rem;
         	}
 
         	@include media-breakpoint-up(lg) {
         		width: 100%;
-        		@include fontSize(18);
+        		@include fontSize(23);
         	}
 
         	.icon {
         		position: absolute;
-        		top: 0.6rem;
-        		right: 0.75rem;
+        		top: 0.75rem;
+        		right: 0.25rem;
         		width: 0.75rem;
         		height: 0.75rem;
 
         		@include media-breakpoint-up(lg) {
-        			top: 0.75rem;
-        			width: 1rem;
-        			height: 1rem;
+        			top: 1rem;
+					right: 0.75rem;
+					width: 1rem;
+					height: 1rem;
         		}
         	}
         }

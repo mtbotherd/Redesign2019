@@ -1,60 +1,36 @@
 // Name hero backgounds based on module/page name.
 // Home page
-.hero-bg {
-  background-image: url("../../../../../img/mt-header-lrt-2000x457.jpg");
+.hero {
   background-size: cover;
   background-position: 90%;
   background-repeat: no-repeat;
   height: 10rem;
+  margin-bottom: 1rem;
 
   @include media-breakpoint-up(md) {
     height: 15rem;
   }
   @include media-breakpoint-up(lg) {
     height: 17rem;
+    margin-bottom: 3rem;
   }
   @include media-breakpoint-up(xl) {
     height: 20rem;
   }
 }
 
-// nextrip
-.nextrip-hero-bg {
+.home-bg {
+    background-image: url("../../../../../img/mt-header-lrt-2000x457.jpg");
+}
+
+.trip-planner-bg {
+  background-image: url("../../../../../img/trip-planner.jpg");
+}
+
+.nextrip-bg {
   background-image: url("../../../../../img/nextrip.jpg");
-  background-size: cover;
-  background-position: 90%;
-  background-repeat: no-repeat;
-  height: 10rem;
-  margin-bottom: 2rem;
-
-  @include media-breakpoint-up(md) {
-    height: 15rem;
-  }
-  @include media-breakpoint-up(lg) {
-    height: 17rem;
-  }
-  @include media-breakpoint-up(xl) {
-    height: 20rem;
-  }
 }
 
-// nextrip
-.trip-planner-hero-bg {
-  background-image: url("/img/trip-planner.jpg");
-  background-size: cover;
-  background-position: 29%;
-  background-repeat: no-repeat;
-  height: 10rem;
-  margin-bottom: 2rem;
-
-  @include media-breakpoint-up(md) {
-    height: 15rem;
-  }
-  @include media-breakpoint-up(lg) {
-    height: 17rem;
-  }
-  @include media-breakpoint-up(xl) {
-    background-position: 90%;
-    height: 20rem;
-  }
+.schedules-maps-bg {
+      background-image: url("../../../../../img/schedules-maps.jpg");
 }

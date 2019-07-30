@@ -4,7 +4,7 @@
 .form-control,
 .form-control-lg,
 .custom-select {
-  @include fontSize(16);
+  @include fontSize(18);
 
   @include media-breakpoint-up(md) {
     @include fontSize(23);
@@ -83,6 +83,7 @@ button[type="search"] {
 #findSchedulesByRoute {
     .form-control {
       @include fontSize(23);
+      border: 0;
     }
 
     .btn-primary {
@@ -94,11 +95,5 @@ button[type="search"] {
           height: 24px;
           vertical-align: middle;
       }
-    }
-}
-
-#findSchedulesByRoute {
-    .form-control {
-        border: 0;
     }
 }

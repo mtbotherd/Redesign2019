@@ -20,7 +20,7 @@
 	<!-- Begin Main Content -->
 	<section id="mainContent">
 		<div id="homePage">
-			<div class="hero-bg pt-3 pt-md-0 pt-lg-3">
+			<div class="hero home-bg mb-0 pt-3 pt-md-0 pt-lg-3">
 				<div class="container">
 					<div id="findSchedulesByRoute" class="d-none d-md-block">
 						<div class="row justify-content-md-center">

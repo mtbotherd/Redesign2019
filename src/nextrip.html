@@ -161,7 +161,7 @@
     <!-- Begin Main Content -->
 	<section id="mainContent">
         <div id="primaryPage">
-            <div class="nextrip-hero-bg">
+            <div class="hero nextrip-bg">
                 <div class="container">
                     <div class="position-relative">
                         <h1>NexTrip</h1>
@@ -172,10 +172,9 @@
             <div class="page-content">
                 <main class="section pt-0 pb-4 pb-md-5">
                     <div class="container">
-                        <!-- Start NexTrip module -->
-<div id="nextripModule">
+                        <div id="nextripModule">
     <div class="card mb-4">
-        <h2 class="text-center mb-5">Real-time Departures</h2>
+        <h2 class="text-center mb-4 mb-lg-5">Real-time Departures</h2>
         <div class="row">
             <div class="col-md-5">
                 <div class="form-group select-route">
@@ -244,69 +243,65 @@
         </div>
     </div>
     <div id="nextripDepartures">
-    <div class="card mb-3 p-2">
-        <h2>Departures</h2>
-        <p>
-            Selby
-            <abbr title="avenue">Ave</abbr>. and Dale
-            <abbr title="street">St</abbr>.
-            <br>Stop 17023
-        </p>
-        <div class="list-group mb-2">
-            <div class="d-flex list-group-item pr-0 pl-0">
-                <span class="nt-route-number mr-2">21 A</span>
-                <span class="nt-route-name">Shelby-Lake / Uptown</span>
-                <span class="nt-depart-time ml-auto">
-                    <img class="icon blink mr-1" src="/img/svg/broadcast-red.svg">
-                    6
-                    <abbr title="minutes">min</abbr>
-                </span>
+        <div class="card mb-3 p-2">
+            <h2>Departures</h2>
+            <p>
+                Selby
+                <abbr title="avenue">Ave</abbr>. and Dale
+                <abbr title="street">St</abbr>.
+                <br>Stop 17023
+            </p>
+            <div class="list-group mb-2">
+                <div class="d-flex list-group-item pr-0 pl-0">
+                    <span class="nt-route-number mr-2">21 A</span>
+                    <span class="nt-route-name">Shelby-Lake / Uptown</span>
+                    <span class="nt-depart-time ml-auto">
+                        <img class="icon blink mr-1" src="/img/svg/broadcast-red.svg">
+                        6
+                        <abbr title="minutes">min</abbr>
+                    </span>
+                </div>
+                <div class="d-flex list-group-item pr-0 pl-0">
+                    <span class="nt-route-number mr-2">21 A</span>
+                    <span class="nt-route-name">Shelby-Lake / Uptown</span>
+                    <span class="nt-depart-time ml-auto">
+                        <img class="icon blink mr-1" src="/img/svg/broadcast-red.svg">
+                        6
+                        <abbr title="minutes">min</abbr>
+                    </span>
+                </div>
+                <div class="d-flex list-group-item pr-0 pl-0">
+                    <span class="nt-route-number mr-2">21 A</span>
+                    <span class="nt-route-name mr-2">SW Transit - Express - Chaska - Chanhassen Mpls</span>
+                    <span class="nt-depart-time ml-auto">10:00 p.m.</span>
+                </div>
             </div>
-            <div class="d-flex list-group-item pr-0 pl-0">
-                <span class="nt-route-number mr-2">21 A</span>
-                <span class="nt-route-name">Shelby-Lake / Uptown</span>
-                <span class="nt-depart-time ml-auto">
-                    <img class="icon blink mr-1" src="/img/svg/broadcast-red.svg">
-                    6
-                    <abbr title="minutes">min</abbr>
-                </span>
-            </div>
-            <div class="d-flex list-group-item pr-0 pl-0">
-                <span class="nt-route-number mr-2">21 A</span>
-                <span class="nt-route-name mr-2">SW Transit - Express - Chaska - Chanhassen Mpls</span>
-                <span class="nt-depart-time ml-auto">10:00 p.m.</span>
-            </div>
+            <a href="" class="nt-show-more-link">
+                <img class="icon mr-2" src="/img/svg/circle-plus-blue.svg">
+                <span class="h2 nt-show-more">Show more</span>
+            </a>
         </div>
-        <a href="" class="nt-show-more-link">
-            <img class="icon mr-2" src="/img/svg/circle-plus-blue.svg">
-            <span class="nt-show-more">Show more</span>
-        </a>
-    </div>
 
-    <div id="showMyBus" class="accordion nt-show-my-bus">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="mb-0">
-                    <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false">
-                        <img class="icon mr-2" src="/img/svg/bus-broadcast-color.svg">
-                        <strong>Show my bus</strong>
-                        <img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
-                    </button>
-                </h3>
-            </div>
-            <div id="collapseMap" class="collapse">
-                <div class="card-body p-0">
-                    <img class="img-fluid" src="/img/TripPlanMap1.png">
+        <div id="showMyBus" class="accordion nt-show-my-bus">
+            <div class="card">
+                <div class="card-header">
+                    <!-- <h2 class="mb-0"> -->
+                        <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false">
+                            <img class="icon mr-2" src="/img/svg/bus-broadcast-color.svg">
+                            <h2 class="mb-0">Show my bus</h2>
+                            <img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+                        </button>
+                    <!-- </h2> -->
+                </div>
+                <div id="collapseMap" class="collapse">
+                    <div class="card-body p-0">
+                        <img class="img-fluid" src="/img/TripPlanMap1.png">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Elements to collapse -->
 </div>
-
-</div>
-<!-- End NexTrip module -->
 
                     </div>
                 </main>
