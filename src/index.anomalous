@@ -51,7 +51,6 @@
 			<div id="homeContent">
 				<main class="section pt-0 pb-4 pb-md-5">
 					<div class="container">
-						<!-- Start trip tools tabs -->
 						<partial src="partials/trip-tools-tabs.html" />
 					</div>
 				</main>
