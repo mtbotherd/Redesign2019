@@ -7970,6 +7970,26 @@ a.skip-to-content {
         top: 1.25rem;
         left: 0.75rem; } }
 
+.btn-outline-secondary {
+  color: #626462;
+  background-color: #fff;
+  border: 2px solid #8a8b8a;
+  font-weight: 700; }
+  @media (min-width: 992px) {
+    .btn-outline-secondary {
+      font-size: 20px !important;
+      font-size: 1.25rem !important;
+      width: 170px;
+      height: 50px;
+      margin-right: 1rem; } }
+  .btn-outline-secondary:hover {
+    background-color: #dbf4fd;
+    border: 2px solid #0097d0;
+    color: #0097d0; }
+  .btn-outline-secondary.routes {
+    width: 70px;
+    height: 50px; }
+
 /**********************************************
     Form styles
 **********************************************/
@@ -8093,47 +8113,6 @@ a.skip-to-content {
   @media (min-width: 1200px) {
     #homeContent {
       top: -5.12rem; } }
-
-#primaryPage h1 {
-  position: absolute;
-  left: 0;
-  top: 5.25rem;
-  background-color: #fff;
-  color: #8a8b8a;
-  display: -webkit-inline-box;
-  display: inline-flex;
-  font-size: 23px !important;
-  font-size: 1.4375rem !important;
-  opacity: 0.9;
-  padding: 1rem;
-  width: auto; }
-  @media (min-width: 768px) {
-    #primaryPage h1 {
-      top: 8.5rem;
-      font-size: 41px !important;
-      font-size: 2.5625rem !important; } }
-  @media (min-width: 992px) {
-    #primaryPage h1 {
-      top: 11rem; } }
-  @media (min-width: 1200px) {
-    #primaryPage h1 {
-      top: 13rem; } }
-
-.secondary-page .page-title {
-  background-color: #0053a0;
-  margin-bottom: 1rem; }
-  @media (min-width: 992px) {
-    .secondary-page .page-title {
-      height: 170px;
-      margin-bottom: 3rem; } }
-  .secondary-page .page-title h1 {
-    color: #fff;
-    margin-bottom: 0;
-    padding: 0.75rem 0; }
-    @media (min-width: 768px) {
-      .secondary-page .page-title h1 {
-        padding-top: 6rem;
-        padding-bottom: 1.5rem; } }
 
 /***************************************************
     News & Updates
@@ -8623,5 +8602,67 @@ footer.section {
     font-weight: 700;
     text-decoration: none;
     padding: 0.25rem 0; }
+
+#primaryPage h1 {
+  position: absolute;
+  left: 0;
+  top: 5.25rem;
+  background-color: #fff;
+  color: #8a8b8a;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  font-size: 23px !important;
+  font-size: 1.4375rem !important;
+  opacity: 0.9;
+  padding: 1rem;
+  width: auto; }
+  @media (min-width: 768px) {
+    #primaryPage h1 {
+      top: 8.5rem;
+      font-size: 41px !important;
+      font-size: 2.5625rem !important; } }
+  @media (min-width: 992px) {
+    #primaryPage h1 {
+      top: 11rem; } }
+  @media (min-width: 1200px) {
+    #primaryPage h1 {
+      top: 13rem; } }
+
+.secondary-page .page-title {
+  background-color: #0053a0;
+  margin-bottom: 1rem; }
+  @media (min-width: 992px) {
+    .secondary-page .page-title {
+      height: 170px;
+      margin-bottom: 3rem; } }
+  .secondary-page .page-title h1 {
+    color: #fff;
+    margin-bottom: 0;
+    padding: 0.75rem 0; }
+    @media (min-width: 768px) {
+      .secondary-page .page-title h1 {
+        padding-top: 6rem;
+        padding-bottom: 1.5rem; } }
+
+#primaryPage .schedules-by-route {
+  position: relative; }
+  #primaryPage .schedules-by-route .icon.date-time-color {
+    position: absolute;
+    top: 0.25rem;
+    left: 13.75rem;
+    width: 3rem;
+    height: 3rem; }
+  #primaryPage .schedules-by-route .input-group {
+    max-width: 570px; }
+
+@media (min-width: 992px) {
+  #primaryPage section.section h2 {
+    margin-bottom: 2rem; } }
+
+@media (min-width: 992px) {
+  #primaryPage section.section .icon {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 0.5rem; } }
 
 /*# sourceMappingURL=maps/app.css.map */

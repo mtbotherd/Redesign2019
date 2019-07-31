@@ -165,3 +165,28 @@
         }
     }
 }
+
+.btn-outline-secondary {
+    color: $gray-600;
+    background-color: $white;
+    border: 2px solid $gray-300;
+    font-weight: $font-weight-bold;
+
+    @include media-breakpoint-up(lg) {
+        @include fontSize(20);
+        width: 170px;
+        height: 50px;
+        margin-right: 1rem;
+    }
+
+    &:hover {
+        background-color: $teal;
+        border: 2px solid $cyan;
+        color: $cyan;
+    }
+
+    &.routes {
+        width: 70px;
+        height: 50px;
+    }
+}
