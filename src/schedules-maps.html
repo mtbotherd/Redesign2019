@@ -129,7 +129,7 @@
                             <img src="/img/svg/search-gray.svg" class="icon  inactive">
                             <img src="/img/svg/search-white.svg" class="icon active">
                         </div>
-                        <div id="search-box" class="search-box">
+                        <div id="siteSearchBox" class="site-search-box">
                             <div class="input-group">
                                 <input type="search" id="siteSearch" class="form-control"
                                     placeholder="Search for routes and information" aria-label="Search for routes and information"
@@ -173,9 +173,9 @@
 
 			<div class="page-content">
 				<!-- Main page content -->
-				<main class="section pt-0 pb-4 pb-md-5">
+				<section class="section pt-0 pb-4 pb-md-5">
 					<div class="container">
-						<div id="findSchedulesByRoute" class="schedules-by-route">
+						<div id="findSchedulesByRoute" class="auto-complete-search-box">
 							<img class="icon date-time-color" src="/img/svg/date-time-color.svg" />
 							<div class="input-group mx-auto border">
 								<input type="search" id="schedulesByRoute" class="form-control form-control-lg"
@@ -191,12 +191,13 @@
 							</div>
 						</div>
 					</div>
-				</main>
+				</section>
 
 				<!-- Additional content sections -->
 				<section class="section">
 				    <div class="container">
-						<div class="row">
+						<div id="schedulesMapsByRoute">
+							<div class="row">
 							<div class="col-lg-4">
 								<h2>
 									<img class="icon" src="/img/svg/circle-gray-train.svg" />
@@ -231,43 +232,107 @@
 								<button type="button" class="btn btn-warning">View all routes</button>
 							</div>
 						</div>
+						</div>
 				    </div>
 				</section>
 
 				<section class="section">
 					<div class="container">
-						<h2>
-							<img class="icon" src="/img/svg/circle-gray-bus.svg" />
-							<span class="align-middle">METRO Bus Rapid Transit</span>
-						</h2>
-						<button type="button" class="btn btn-outline-secondary">A Line</button>
-						<button type="button" class="btn btn-outline-secondary">C Line</button>
-						<button type="button" class="btn btn-outline-secondary">Red Line</button>
+						<div id="metroBRT">
+							<h2>
+								<img class="icon" src="/img/svg/circle-gray-bus.svg" />
+								<span class="align-middle">METRO Bus Rapid Transit</span>
+							</h2>
+							<button type="button" class="btn btn-outline-secondary">A Line</button>
+							<button type="button" class="btn btn-outline-secondary">C Line</button>
+							<button type="button" class="btn btn-outline-secondary">Red Line</button>
+						</div>
 					</div>
 				</section>
 
 				<section class="section">
 					<div class="container">
-						<h2>
-							<img class="icon" src="/img/svg/circle-gray-train.svg" />
-							<span class="align-middle">Commuter Rail</span>
-						</h2>
-						<button type="button" class="btn btn-outline-secondary">Northstar</button>
+						<div id="commuterRail">
+							<h2>
+								<img class="icon" src="/img/svg/circle-gray-train.svg" />
+								<span class="align-middle">Commuter Rail</span>
+							</h2>
+							<button type="button" class="btn btn-outline-secondary">Northstar</button>
+						</div>
 					</div>
 				</section>
 
 				<section class="section">
 					<div class="container">
+						<div id="interactiveMap">
+							<h2>
+								<img class="icon" src="/img/svg/schedules-maps-color.svg" />
+								<span class="align-middle">Interactive Map</span>
+							</h2>
+							<div class="auto-complete-search-box mb-4 mb-lg-5">
+								<div class="input-group mx-auto">
+									<input type="search" id="schedulesMaps" class="form-control form-control-lg"
+										placeholder="Address, intersection or landmark" aria-label="Find schedules by route"
+										aria-describedby="searchButton">
+									<label for="SearchButton" class="sr-only">Find schedules by route</label>
+									<div class="input-group-append">
+										<button id="searchButton" type="search" class="btn btn-primary">
+											<span class="sr-only">Search button</span>
+											<img class="icon" src="/img/svg/search-gray.svg">
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="mb-4 mb-lg-5">
+								<div class="row">
+									<div class="col-md-3">
+										<button type="button" class="btn btn-outline-primary">Hide bus stops</button>
+									</div>
+									<div class="col-md-3">
+										<button type="button" class="btn btn-outline-primary">Show Park &amp; Rides</button>
+									</div>
+									<div class="col-md-3">
+										<button type="button" class="btn btn-outline-primary">Show METRO Stations</button>
+									</div>
+									<div class="col-md-3">
+										<button type="button" class="btn btn-outline-primary">Show Transit Centers</button>
+									</div>
+								</div>
+							</div>
+							<div class="map-container border">
+								<img alt="Interactive map" src="" />
+							</div>
+						</div>
 					</div>
 				</section>
 
 				<section class="section">
 					<div class="container">
+						<div id="systemMaps">
+							<h2>System Maps</h2>
+							<div class="row">
+								<div class="col-md-6">
+									<img alt="Entire system map" src="" />
+									<p class="h4">Entire system (PDF)</p>
+								</div>
+								<div class="col-md-6">
+									<img alt="METRO network map" src="" />
+									<p class="h4">METRO Network Map</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</section>
 
-				<section class="section">
+				<section class="section cyan">
 					<div class="container">
+						<div id="alertsSignup" class="text-center">
+							<a class="btn btn-outline-white" href="https://public.govdelivery.com/accounts/MNMETRO/subscriber/new">
+								Sign up for alerts
+								<img class="icon inactive" src="/img/svg/arrow-right-white.svg" />
+								<img class="icon active" src="/img/svg/arrow-right-blue.svg" />
+							</a>
+						</div>
 					</div>
 				</section>
 			</div>

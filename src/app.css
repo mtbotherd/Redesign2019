@@ -7664,6 +7664,8 @@ hr {
       padding: 3rem 0; } }
   .section:nth-child(even) {
     background-color: #f5f5f4; }
+  .section.cyan {
+    background-color: #0097d0; }
 
 .caps {
   text-transform: uppercase; }
@@ -7990,6 +7992,57 @@ a.skip-to-content {
     width: 70px;
     height: 50px; }
 
+.btn-outline-white {
+  position: relative;
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid #fff;
+  font-weight: 700;
+  margin-right: 0; }
+  @media (min-width: 992px) {
+    .btn-outline-white {
+      font-size: 23px !important;
+      font-size: 1.4375rem !important;
+      width: 270px;
+      padding: 0.75rem; } }
+  .btn-outline-white:hover, .btn-outline-white:focus {
+    background-color: #fff;
+    color: #0097d0;
+    border: 2px solid #fff; }
+    .btn-outline-white:hover .inactive, .btn-outline-white:focus .inactive {
+      display: none; }
+    .btn-outline-white:hover .active, .btn-outline-white:focus .active {
+      display: -webkit-inline-box;
+      display: inline-flex; }
+  .btn-outline-white .inactive {
+    display: -webkit-inline-box;
+    display: inline-flex; }
+  .btn-outline-white .active {
+    display: none; }
+  @media (min-width: 768px) {
+    .btn-outline-white {
+      width: 17.5rem;
+      padding: 0.75rem; } }
+  .btn-outline-white .icon {
+    position: absolute;
+    margin-right: 0; }
+    @media (min-width: 992px) {
+      .btn-outline-white .icon {
+        top: 1.25rem;
+        right: 0.75rem;
+        width: 1.25rem !important;
+        height: 1.25rem !important; } }
+  .btn-outline-white .arrow-right-blue,
+  .btn-outline-white .arrow-right-white {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem; }
+    @media (min-width: 768px) {
+      .btn-outline-white .arrow-right-blue,
+      .btn-outline-white .arrow-right-white {
+        top: 1.25rem;
+        right: 0.75rem; } }
+
 /**********************************************
     Form styles
 **********************************************/
@@ -8035,7 +8088,7 @@ a.skip-to-content {
       margin-bottom: 0;
       line-height: 1; } }
 
-.search-box {
+.site-search-box {
   background: #f5f5f4;
   position: absolute;
   top: 67px;
@@ -8044,13 +8097,13 @@ a.skip-to-content {
   padding: 1rem;
   display: none;
   z-index: 3; }
-  .search-box .form-control {
+  .site-search-box .form-control {
     color: #626462;
     font-size: 18px !important;
     font-size: 1.125rem !important; }
-  .search-box .input-group-append {
+  .site-search-box .input-group-append {
     background-color: #fff; }
-    .search-box .input-group-append .btn-primary {
+    .site-search-box .input-group-append .btn-primary {
       background-color: #fff;
       border: 1px solid #e3e3e0;
       border-left: 0;
@@ -8062,18 +8115,31 @@ a.skip-to-content {
     width: 24px !important;
     height: 24px !important; } }
 
-#findSchedulesByRoute .form-control {
-  font-size: 23px !important;
-  font-size: 1.4375rem !important;
-  border: 0; }
-
-#findSchedulesByRoute .btn-primary {
-  background-color: #fff;
-  border: 0; }
-  #findSchedulesByRoute .btn-primary .icon {
-    width: 24px;
-    height: 24px;
-    vertical-align: middle; }
+.auto-complete-search-box {
+  position: relative; }
+  @media (min-width: 992px) {
+    .auto-complete-search-box .icon.date-time-color {
+      position: absolute;
+      top: 0.25rem;
+      left: 13.75rem;
+      width: 3rem;
+      height: 3rem; } }
+  @media (min-width: 992px) {
+    .auto-complete-search-box .input-group {
+      max-width: 570px; } }
+  @media (min-width: 992px) {
+    .auto-complete-search-box .input-group .form-control {
+      font-size: 23px !important;
+      font-size: 1.4375rem !important; } }
+  .auto-complete-search-box .btn-primary {
+    background-color: #fff;
+    border: 1px solid #e3e3e0;
+    border-left: none; }
+    @media (min-width: 992px) {
+      .auto-complete-search-box .btn-primary .icon {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle; } }
 
 .accordion .card .card-header {
   padding: 0 !important; }
@@ -8644,25 +8710,22 @@ footer.section {
         padding-top: 6rem;
         padding-bottom: 1.5rem; } }
 
-#primaryPage .schedules-by-route {
-  position: relative; }
-  #primaryPage .schedules-by-route .icon.date-time-color {
-    position: absolute;
-    top: 0.25rem;
-    left: 13.75rem;
-    width: 3rem;
-    height: 3rem; }
-  #primaryPage .schedules-by-route .input-group {
-    max-width: 570px; }
-
 @media (min-width: 992px) {
   #primaryPage section.section h2 {
     margin-bottom: 2rem; } }
 
 @media (min-width: 992px) {
-  #primaryPage section.section .icon {
+  #primaryPage section.section h2 .icon {
     width: 3rem;
     height: 3rem;
     margin-right: 0.5rem; } }
+
+#interactiveMap .btn-outline-primary {
+  width: 100%; }
+
+@media (min-width: 1200px) {
+  #interactiveMap .map-container {
+    width: 100%;
+    height: 788px; } }
 
 /*# sourceMappingURL=maps/app.css.map */

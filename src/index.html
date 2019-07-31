@@ -129,7 +129,7 @@
                             <img src="/img/svg/search-gray.svg" class="icon  inactive">
                             <img src="/img/svg/search-white.svg" class="icon active">
                         </div>
-                        <div id="search-box" class="search-box">
+                        <div id="siteSearchBox" class="site-search-box">
                             <div class="input-group">
                                 <input type="search" id="siteSearch" class="form-control"
                                     placeholder="Search for routes and information" aria-label="Search for routes and information"
@@ -163,11 +163,11 @@
 		<div id="homePage">
 			<div class="hero home-bg mb-0 pt-3 pt-md-0 pt-lg-3">
 				<div class="container">
-					<div id="findSchedulesByRoute" class="d-none d-md-block">
+					<div id="findSchedulesByRoute" class="auto-complete-search-box d-none d-md-block">
 						<div class="row justify-content-md-center">
 							<div class="col-md-8 col-lg-6 mt-2 mt-md-5">
 								<div class="input-group">
-									<input type="search" id="schedulesByRoute" class="form-control form-control-lg"
+									<input type="search" id="schedulesByRoute" class="form-control form-control-lg border-0"
 										placeholder="Find schedules by route" aria-label="Find schedules by route"
 										aria-describedby="searchRoutesButton">
 									<label for="schedulesByRoute" class="sr-only">Find schedules by route</label>
@@ -568,21 +568,23 @@
                 <p class="text-center or">or</p>
             </div>
             <div class="col-md-5">
-                <div class="input-group">
-                    <input type="search"
-                        id="stopNumber"
-                        name="stopNumber"
-                        class="form-control form-control-lg"
-                        placeholder="Enter stop number"
-                        aria-describedby="searchStopsButton"
-                        required
-                    >
-                    <label for="stopNumber" class="sr-only">Enter stop number</label>
-                    <div class="input-group-append">
-                        <button id="searchStopsButton" type="search" class="btn btn-primary border-top border-right border-bottom">
-                            <span class="sr-only">Search button</span>
-                            <img class="icon" src="/img/svg/search-gray.svg">
-                        </button>
+                <div class="auto-complete-search-box">
+                    <div class="input-group">
+                        <input type="search"
+                            id="stopNumber"
+                            name="stopNumber"
+                            class="form-control form-control-lg"
+                            placeholder="Enter stop number"
+                            aria-describedby="searchStopsButton"
+                            required
+                        >
+                        <label for="stopNumber" class="sr-only">Enter stop number</label>
+                        <div class="input-group-append">
+                            <button id="searchStopsButton" type="search" class="btn btn-primary border-top border-right border-bottom">
+                                <span class="sr-only">Search button</span>
+                                <img class="icon" src="/img/svg/search-gray.svg">
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

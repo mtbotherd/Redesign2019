@@ -43,7 +43,7 @@
   }
 }
 
-.search-box {
+.site-search-box {
     background: $gray-100;
     position: absolute;
     top: 67px;
@@ -79,21 +79,48 @@ button[type="search"] {
     }
 }
 
-//  Search - Find Schedules by Route
-#findSchedulesByRoute {
-    .form-control {
-      @include fontSize(23);
-      border: 0;
+//  Auto Complete Search(? - Ask Ellen if all are auto-complete) - Find Schedules by Route
+// #findSchedulesByRoute {
+.auto-complete-search-box {
+    position: relative;
+
+    .icon.date-time-color {
+
+        @include media-breakpoint-up(lg) {
+            position: absolute;
+            top: 0.25rem;
+            left: 13.75rem;
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+
+    .input-group {
+
+        @include media-breakpoint-up(lg) {
+            max-width: 570px;
+        }
+
+        .form-control {
+
+            @include media-breakpoint-up(lg) {
+                @include fontSize(23);
+            }
+        }
     }
 
     .btn-primary {
       background-color: $white;
-      border: 0;
+      border: 1px solid $gray-200;
+      border-left: none;
 
       .icon {
-          width: 24px;
-          height: 24px;
-          vertical-align: middle;
+
+          @include media-breakpoint-up(lg) {
+              width: 24px;
+              height: 24px;
+              vertical-align: middle;
+          }
       }
     }
 }

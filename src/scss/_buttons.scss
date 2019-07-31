@@ -190,3 +190,70 @@
         height: 50px;
     }
 }
+
+.btn-outline-white {
+    position: relative;
+    color: $white;
+    background-color: transparent;
+    border: 2px solid $white;
+    font-weight: $font-weight-bold;
+    margin-right: 0;
+
+    @include media-breakpoint-up(lg) {
+        @include fontSize(23);
+        width: 270px;
+        padding: 0.75rem;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $white;
+        color: $cyan;
+        border: 2px solid $white;
+
+        .inactive {
+            display: none;
+        }
+        .active {
+            display: inline-flex;
+        }
+    }
+
+    .inactive {
+        display: inline-flex;
+    }
+
+    .active {
+        display: none;
+    }
+
+    @include media-breakpoint-up(md) {
+        width: 17.5rem;
+        padding: 0.75rem;
+    }
+
+    .icon {
+        position: absolute;
+        margin-right: 0;
+
+        @include media-breakpoint-up(lg) {
+            top: 1.25rem;
+            right: 0.75rem;
+            width: 1.25rem !important;
+            height: 1.25rem !important;
+        }
+    }
+
+    .arrow-right-blue,
+    .arrow-right-white {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.75rem;
+
+
+        @include media-breakpoint-up(md) {
+            top: 1.25rem;
+            right: 0.75rem;
+        }
+    }
+}

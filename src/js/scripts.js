@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     // Display search bar
     $('.site-search').click(function() {
-        $('#search-box').slideToggle();
+        $('#siteSearchBox').slideToggle();
         $('#siteSearch').focus();
     });
 

@@ -22,11 +22,11 @@
 		<div id="homePage">
 			<div class="hero home-bg mb-0 pt-3 pt-md-0 pt-lg-3">
 				<div class="container">
-					<div id="findSchedulesByRoute" class="d-none d-md-block">
+					<div id="findSchedulesByRoute" class="auto-complete-search-box d-none d-md-block">
 						<div class="row justify-content-md-center">
 							<div class="col-md-8 col-lg-6 mt-2 mt-md-5">
 								<div class="input-group">
-									<input type="search" id="schedulesByRoute" class="form-control form-control-lg"
+									<input type="search" id="schedulesByRoute" class="form-control form-control-lg border-0"
 										placeholder="Find schedules by route" aria-label="Find schedules by route"
 										aria-describedby="searchRoutesButton">
 									<label for="schedulesByRoute" class="sr-only">Find schedules by route</label>

@@ -119,6 +119,10 @@ hr {
   &:nth-child(even) {
     background-color: $gray-100;
   }
+
+  &.cyan {
+      background-color: $cyan;
+  }
 }
 
 //  Misc Styles
