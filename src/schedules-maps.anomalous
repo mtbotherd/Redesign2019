@@ -143,7 +143,7 @@
 								</div>
 							</div>
 							<div class="mb-4 mb-lg-5">
-								<div class="row">
+								<!-- <div class="row">
 									<div class="col-md-3">
 										<button type="button" class="btn btn-outline-primary">Hide bus stops</button>
 									</div>
@@ -156,6 +156,26 @@
 									<div class="col-md-3">
 										<button type="button" class="btn btn-outline-primary">Show Transit Centers</button>
 									</div>
+								</div> -->
+								<div class="custom-control custom-switch">
+									<input type="checkbox" class="custom-control-input" id="stopsStations" checked />
+									<label class="custom-control-label" for="stopsStations">Stops &amp; stations</label>
+								</div>
+								<div class="custom-control custom-switch">
+									<input type="checkbox" class="custom-control-input" id="parkRide" />
+									<label class="custom-control-label" for="parkRide">Park &amp; Rides</label>
+								</div>
+								<div class="custom-control custom-switch">
+									<input type="checkbox" class="custom-control-input" id="niceRide" />
+									<label class="custom-control-label" for="niceRide">Nice Ride</label>
+								</div>
+								<div class="custom-control custom-switch">
+									<input type="checkbox" class="custom-control-input" id="bikeLockers" />
+									<label class="custom-control-label" for="bikeLockers">Bike lockers</label>
+								</div>
+								<div class="custom-control custom-switch">
+									<input type="checkbox" class="custom-control-input" id="vanCarPoolLots" />
+									<label class="custom-control-label" for="vanCarPoolLots">Vanpool/Carpool lots</label>
 								</div>
 							</div>
 							<div class="map-container border">

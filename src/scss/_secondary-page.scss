@@ -1,4 +1,4 @@
-.secondary-page {
+#secondaryPage {
     .page-title {
 		background-color: $blue;
         margin-bottom: 1rem;
@@ -24,5 +24,21 @@
     	}
 	}
 
-    .page-content {}
+    .page-content {
+
+        h2 {
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 2rem;
+            }
+
+            .icon {
+
+                @include media-breakpoint-up(lg) {
+                    width: 3rem;
+                    height: 3rem;
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+    }
 }
