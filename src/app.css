@@ -7664,8 +7664,14 @@ hr {
       padding: 3rem 0; } }
   .section:nth-child(even) {
     background-color: #f5f5f4; }
-  .section.cyan {
-    background-color: #0097d0; }
+
+.blue-bg {
+  background-color: #0053a0;
+  color: #fff; }
+
+.cyan-bg {
+  background-color: #0097d0;
+  color: #fff; }
 
 .caps {
   text-transform: uppercase; }
@@ -7832,7 +7838,8 @@ a.skip-to-content {
     .hero {
       height: 20rem; } }
 
-.home-bg {
+.home-bg,
+.placeholder-bg {
   background-image: url("../../../../../img/mt-header-lrt-2000x457.jpg"); }
 
 .trip-planner-bg {
