@@ -2,22 +2,67 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Metro Transit</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-	<!-- build:css app.min.css -->
-	<link rel="stylesheet" href="app.css" />
-	<!-- endbuild -->
+	<partial src="partials/meta.html" />
 </head>
 
 <body>
 
-	<!-- Start header -->
+	<!-- Begin Header -->
 	<partial src="partials/header.html" />
+	<!-- End Header -->
+
+	<!-- Begin Main Content -->
+	<section id="mainContent">
+		<div id="primaryPage">
+
+			<!-- When adding a new page, also add new background image styles in _hero-backgrounds.scss. Change the class below to match that of the hero background. -->
+			<div class="hero  placeholder-bg">
+                <div class="container">
+                    <div class="position-relative">
+                        <h1>JSON and AJAX</h1>
+                    </div>
+                </div>
+            </div>
+
+			<div class="page-content">
+				<!-- Main page content -->
+				<main class="section pt-0 pb-4 pb-md-5">
+					<div class="container">
+						<button type="button" id="btn" class="btn btn-warning">Get data</button>
+
+						<div id="animalInfo"></div>
+					</div>
+				</main>
+
+				<!-- Additional content sections -->
+				<section class="section">
+				    <div class="container">
+				    </div>
+				</section>
+
+				<!-- <section class="section">
+					<div class="row">
+						<div class="col-md-6 blue-bg text-center pt-lg-5">
+							<h2>Other ways to purchase fares</h2>
+						</div>
+						<div class="col-md-6 cyan-bg text-center pt-lg-5">
+							<h2>My Store Features</h2>
+							<p>To edit your account information, including your password, click on the “Edit Account” link in the upper right hand corner.</p>
+						</div>
+					</div>
+				</section> -->
+			</div>
+		</div>
+	</section>
+	<!-- End Main Content -->
+
+	<!-- Begin Footer -->
+	<partial src="partials/footer.html" />
+	<!-- End Footer -->
 
 	<!-- Vendor scripts -->
 	<partial src="partials/vendor-scripts.html" />
+	<script src="js/json-test.js"></script>
 	<!-- End vendor scripts -->
 	<!-- build:js js/app.min.js -->
 	<script src="js/scripts.js"></script>
