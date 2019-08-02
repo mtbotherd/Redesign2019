@@ -62,5 +62,20 @@ $(document).ready(function() {
             $('.select-route-stop').hide();
         }
     });
-
+    /*************************************************
+    * Trip Plans
+    ************************************************/
+    var JSONPLAN = null;
+    $.ajax({
+        type: 'get',
+        url: 'TripPlan.json',
+        dataType: 'json'
+    })
+    .done(function(result, status, xhr) {
+        console.dir(result);
+        JSONPLAN = result;
+    })
+    .fail(function(err) {
+        console.warn('Fetch TripPlan - No trip found ' + err);
+    });
 });
