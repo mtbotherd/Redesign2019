@@ -660,12 +660,16 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.exlink.js"></script>
     <script src="js/svgxuse.js"></script>
-    <script src="js/jquery.autocomplete.min.js"></script>
 
 	<!-- End vendor scripts -->
 	<!-- build:js js/app.min.js -->
     <script src="js/scripts.js"></script>
+
+    <script src="js/jquery.autocomplete.min.js"></script>
     <script>
+        /* =================================================================
+            BEGIN AUTOCOMPLETE
+        */
         const LOCATOR =
         //"https://arcgistest.metctest.state.mn.us/arcgis/rest/services/Geocoders/metro_transit_test_v1_2/GeocodeServer/";
         "https://arcgistest.metctest.state.mn.us/transit/rest/services/metro_transit/GeocodeServer/";
@@ -681,7 +685,6 @@
                         y : position.coords.latitude,
                         spatialReference: { wkid: 4326 }
                     };
-                    console.log(JSON.stringify(MYLOCATION));
                 },
                 function(error) {
                     console.warn("getLocation failed: " + error);
@@ -728,7 +731,7 @@
                             });
                         })
                         .fail(function(e) {
-                            console.warn("Call to locator failed");
+                            console.warn("Address locator failed for: " + query);
                         });
                 },
                 onSelect: function(suggest) {
@@ -737,7 +740,7 @@
                         url: LOCATOR + "findAddressCandidates",
                             data: {
                             SingleLine: suggest.value,
-                            outFields: "Addr_type, LongLabel, PlaceName, Place_addr, Distance",
+                            outFields: "Addr_type, LongLabel, PlaceName, Place_addr",
                             maxLocations: 6,
                             magicKey: suggest.data,
                             outSR: UTMout ? 26915 : 4326,
@@ -747,21 +750,28 @@
                     })
                         .done(function(r) {
                             if (r.error) {
-                                console.warn(inputDiv + " select: " + r.error.message);
+                                console.warn("Call to FindCandidate failed for: " + suggest.value);
                             } else {
-                                var choice = r.candidates[0];
-                                if (choice) {
-                                    console.log("Have a " + inputDiv);
-                                    console.dir(choice);
+                                if (r.candidates.length > 0) {
+                                    var choice = r.candidates[0];
+                                    console.log(inputDiv + ": " + JSON.stringify(choice));
+                                    if (inputDiv === "fromLocation") {
+                                        FROMLOCATION = choice;
+                                    }
+                                    if (inputDiv === "toLocation") {
+                                        TOLOCATION = choice;
+                                    }
                                 }
                             }
                         })
                         .fail(function(e) {
-                            console.warn("Call to FindCandidate failed for " + suggestion.value);
+                            console.warn("Call to FindCandidate failed for: " + suggest.value);
                         });
                 }
             });
         }
+        var FROMLOCATION = null;
+        var TOLOCATION = null;
         addressAutoComplete("fromLocation",/*UTMout*/true);
         addressAutoComplete("toLocation",/*UTMout*/true);
     </script>
