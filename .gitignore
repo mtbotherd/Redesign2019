@@ -1,3 +1,10 @@
 node_modules
 dist
 *.DS_Store
+src/json
+src/alerts-test.html
+src/nextrip-john.html
+src/nextrip-test.html
+src/test.html
+src/js/json-test.js
+src/js/nextrip.js

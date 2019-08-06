@@ -41,6 +41,21 @@ $(document).ready(function() {
         }
     });
 
+    // Get json data
+    // var JSONPLAN = null;
+    // $.ajax({
+    //     type: 'get',
+    //     url: 'TripPlan.json',
+    //     dataType: 'json'
+    // })
+    // .done(function(result, status, xhr) {
+    //     console.dir(result);
+    //     JSONPLAN = result;
+    // })
+    // .fail(function(err) {
+    //     console.warn('Fetch TripPlan - No trip found ' + err);
+    // });
+
     /***********************************************
 			NexTrip
 	***********************************************/
@@ -62,20 +77,58 @@ $(document).ready(function() {
             $('.select-route-stop').hide();
         }
     });
+
+    // Get json data
+
+    // var ntRouteOptions;
+    // var ntDirectionOptions;
+    //
+    // $.ajax ({
+    //     type: 'get',
+    //     //url: 'http://svc.metrotransit.org/NexTrip/Routes?format=json',
+    //     url: 'https://svc.metrotransittest.org/nextripv2/routes',
+    //     dataType: 'json',
+    //     success: function(result) {
+    //         $.each(result, function(i,ntRoute) {
+    //             //console.log(ntRoute.Description);
+    //             //<option value="Route">Route</option>
+    //             ntRouteOptions += "<option value='" +  ntRoute.Route + "'>" + ntRoute.Description + "</option>";
+    //         });
+    //         $('#ntRoute').html(ntRouteOptions);
+    //     }
+    // });
+    // $('#ntRoute').change(function() {
+    //     if($(this).val() != null) {
+    //         $.ajax ({
+    //             type: 'get',
+    //             url: 'http://svc.metrotransit.org/NexTrip/Directions/5?format=json',
+    //             dataType: 'json',
+    //             success: function(result) {
+    //                 $.each(result, function(directionText,directionValue) {
+    //                     //console.log(ntRoute.Description);
+    //                     //<option value="Route">Route</option>
+    //                     ntDirectionOptions += "<option value='" +  directionValue.Value + "'>" + directionText.Text + "</option>";
+    //                 });
+    //                 $('#ntDirection').html(ntDirectionOptions);
+    //             }
+    //         });
+    //     }
+    // });
+
     /*************************************************
     * Trip Plans
     ************************************************/
-    var JSONPLAN = null;
-    $.ajax({
-        type: 'get',
-        url: 'TripPlan.json',
-        dataType: 'json'
-    })
-    .done(function(result, status, xhr) {
-        console.dir(result);
-        JSONPLAN = result;
-    })
-    .fail(function(err) {
-        console.warn('Fetch TripPlan - No trip found ' + err);
-    });
+    // var JSONPLAN = null;
+    // $.ajax({
+    //     type: 'get',
+    //     url: 'TripPlan.json',
+    //     dataType: 'json'
+    // })
+    // .done(function(result, status, xhr) {
+    //     console.dir(result);
+    //     JSONPLAN = result;
+    // })
+    // .fail(function(err) {
+    //     console.warn('Fetch TripPlan - No trip found ' + err);
+    // });
 });
