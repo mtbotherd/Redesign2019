@@ -172,143 +172,133 @@
             </div>
 
             <div class="page-content">
-                <main class="section pt-0 pb-4 pb-md-5">
+                <section class="section">
                     <div class="container">
                         <div id="nextripModule">
-    <div class="card mb-4">
-        <h2 class="text-center mb-4 mb-lg-5">Real-time Departures</h2>
-        <div class="row">
-            <div class="col-md-5">
-                <div class="form-group select-route">
-                    <label for="selectRoute" class="sr-only">Select route</label>
-                    <select
-                        id="selectRoute"
-                        name="selectRoute"
-                        class="custom-select custom-select-lg"
-                    >
-                        <option value>Select route</option>
-                        <option value="route-1">Route 1</option>
-                        <option value="route-2">Route 2</option>
-                        <option value="route-2">Route 3</option>
-                    </select>
-                </div>
-                <div class="form-group select-route-direction">
-                    <label for="selectDirection" class="sr-only">Select direction</label>
-                    <select
-                        id="selectDirection"
-                        name="selectDirection"
-                        class="custom-select custom-select-lg"
-                    >
-                        <option value>Select direction</option>
-                        <option value="north">North</option>
-                        <option value="sout">South</option>
-                        <option value="east">East</option>
-                        <option value="west">West</option>
-                    </select>
-                </div>
-                <div class="form-group select-route-stop">
-                    <label for="selectStop" class="sr-only">Select stop</label>
-                    <select
-                        id="selectStop"
-                        name="selectStop"
-                        class="custom-select custom-select-lg"
-                    >
-                        <option value>Select stop</option>
-                        <option value="stop-1">Stop 1</option>
-                        <option value="stop-2">Stop 2</option>
-                        <option value="stop-3">Stop 3</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <p class="text-center or">or</p>
-            </div>
-            <div class="col-md-5">
-                <div class="auto-complete-search-box">
-                    <div class="input-group">
-                        <input type="search"
-                            id="stopNumber"
-                            name="stopNumber"
-                            class="form-control form-control-lg"
-                            placeholder="Enter stop number"
-                            aria-describedby="searchStopsButton"
-                            required
-                        >
-                        <label for="stopNumber" class="sr-only">Enter stop number</label>
-                        <div class="input-group-append">
-                            <button id="searchStopsButton" type="search" class="btn btn-primary border-top border-right border-bottom">
-                                <span class="sr-only">Search button</span>
-                                <img class="icon" src="/img/svg/search-gray.svg">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="nextripDepartures">
-        <div class="card mb-3 p-2">
-            <h2>Departures</h2>
-            <p>
-                Selby
-                <abbr title="avenue">Ave</abbr>. and Dale
-                <abbr title="street">St</abbr>.
-                <br>Stop 17023
-            </p>
-            <div class="list-group mb-2">
-                <div class="d-flex list-group-item pr-0 pl-0">
-                    <span class="nt-route-number mr-2">21 A</span>
-                    <span class="nt-route-name">Shelby-Lake / Uptown</span>
-                    <span class="nt-depart-time ml-auto">
-                        <img class="icon blink mr-1" src="/img/svg/broadcast-red.svg">
-                        6
-                        <abbr title="minutes">min</abbr>
-                    </span>
-                </div>
-                <div class="d-flex list-group-item pr-0 pl-0">
-                    <span class="nt-route-number mr-2">21 A</span>
-                    <span class="nt-route-name">Shelby-Lake / Uptown</span>
-                    <span class="nt-depart-time ml-auto">
-                        <img class="icon blink mr-1" src="/img/svg/broadcast-red.svg">
-                        6
-                        <abbr title="minutes">min</abbr>
-                    </span>
-                </div>
-                <div class="d-flex list-group-item pr-0 pl-0">
-                    <span class="nt-route-number mr-2">21 A</span>
-                    <span class="nt-route-name mr-2">SW Transit - Express - Chaska - Chanhassen Mpls</span>
-                    <span class="nt-depart-time ml-auto">10:00 p.m.</span>
-                </div>
-            </div>
-            <a href="" class="nt-show-more-link">
-                <img class="icon mr-2" src="/img/svg/circle-plus-blue.svg">
-                <span class="h2 nt-show-more">Show more</span>
-            </a>
-        </div>
+							<div class="card mb-4">
+								<h2 class="text-center mb-4 mb-lg-5">Real-time Departures</h2>
+								<div class="row">
+									<div class="col-md-5">
+										<div class="form-group select-route">
+											<label for="selectRoute" class="sr-only">Select route</label>
+											<select
+												id="ntRoute"
+												name="ntRoute"
+												class="custom-select custom-select-lg"
+											>
+												<option value="default" selected>Select route</option>
+											</select>
+										</div>
+										<div class="form-group select-route-direction">
+											<label for="selectDirection" class="sr-only">Select direction</label>
+											<select
+												id="selectDirection"
+												name="selectDirection"
+												class="custom-select custom-select-lg"
+											>
+												<option value>Select direction</option>
+											</select>
+										</div>
+										<div class="form-group select-route-stop">
+											<label for="selectStop" class="sr-only">Select stop</label>
+											<select
+												id="selectStop"
+												name="selectStop"
+												class="custom-select custom-select-lg"
+											>
+												<option value>Select stop</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<p class="text-center or">or</p>
+									</div>
+									<div class="col-md-5">
+										<div class="auto-complete-search-box">
+											<div class="input-group">
+												<input type="search"
+													id="stopNumber"
+													name="stopNumber"
+													class="form-control form-control-lg"
+													placeholder="Enter stop number"
+													aria-describedby="searchStopsButton"
+													required
+												>
+												<label for="stopNumber" class="sr-only">Enter stop number</label>
+												<div class="input-group-append">
+													<button id="searchStopsButton" type="search" class="btn btn-primary border-top border-right border-bottom">
+														<span class="sr-only">Search button</span>
+														<img class="icon" src="/img/svg/search-gray.svg">
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="nextripDepartures">
+								<div class="card mb-3 p-2">
+									<h2>Departures</h2>
+									<p>
+										Selby
+										<abbr title="avenue">Ave</abbr>. and Dale
+										<abbr title="street">St</abbr>.
+										<br>Stop 17023
+									</p>
+									<div class="list-group mb-2">
+										<div class="d-flex list-group-item pr-0 pl-0">
+											<span class="nt-route-number mr-2">21 A</span>
+											<span class="nt-route-name">Shelby-Lake / Uptown</span>
+											<span class="nt-depart-time ml-auto">
+												<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg">
+												6
+												<abbr title="minutes">min</abbr>
+											</span>
+										</div>
+										<div class="d-flex list-group-item pr-0 pl-0">
+											<span class="nt-route-number mr-2">21 A</span>
+											<span class="nt-route-name">Shelby-Lake / Uptown</span>
+											<span class="nt-depart-time ml-auto">
+												<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg">
+												6
+												<abbr title="minutes">min</abbr>
+											</span>
+										</div>
+										<div class="d-flex list-group-item pr-0 pl-0">
+											<span class="nt-route-number mr-2">21 A</span>
+											<span class="nt-route-name mr-2">SW Transit - Express - Chaska - Chanhassen Mpls</span>
+											<span class="nt-depart-time ml-auto">10:00 p.m.</span>
+										</div>
+									</div>
+									<a href="" class="nt-show-more-link">
+										<img class="icon mr-2" src="/img/svg/circle-plus-blue.svg">
+										<span class="h2 nt-show-more">Show more</span>
+									</a>
+								</div>
 
-        <div id="showMyBus" class="accordion nt-show-my-bus">
-            <div class="card">
-                <div class="card-header">
-                    <!-- <h2 class="mb-0"> -->
-                        <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false">
-                            <img class="icon mr-2" src="/img/svg/bus-broadcast-color.svg">
-                            <h2 class="mb-0">Show my bus</h2>
-                            <img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
-                        </button>
-                    <!-- </h2> -->
-                </div>
-                <div id="collapseMap" class="collapse">
-                    <div class="card-body p-0">
-                        <img class="img-fluid" src="/img/TripPlanMap1.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+								<div id="showMyBus" class="accordion nt-show-my-bus">
+									<div class="card">
+										<div class="card-header">
+											<!-- <h2 class="mb-0"> -->
+												<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false">
+													<img class="icon mr-2" src="/img/svg/bus-broadcast-color.svg">
+													<h2 class="mb-0">Show my bus</h2>
+													<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+												</button>
+											<!-- </h2> -->
+										</div>
+										<div id="collapseMap" class="collapse">
+											<div class="card-body p-0">
+												<img class="img-fluid" src="/img/TripPlanMap1.png">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 
                     </div>
-                </main>
+                </section>
             </div>
         </div>
     </section>

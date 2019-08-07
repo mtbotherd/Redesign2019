@@ -7,8 +7,8 @@ $.ajax ({
     url: 'https://svc.metrotransittest.org/nextripv2/routes',
     dataType: 'json',
     success: function(result) {
-        $.each(result, function(i, ntRoute) {
-            $('#ntRoute').append('<option value="' + ntRoute.RouteId + '">' + ntRoute.Description + '</option>');
+        $.each(result, function(i, route) {
+            $('#ntRoute').append('<option value="' + route.RouteId + '">' + route.Description + '</option>');
         });
     }
 });
@@ -16,7 +16,7 @@ $.ajax ({
 
 $('#ntRoute').change(function() {
     // Show Direction dropdown if not empty
-    if ($('#ntRoute').val() != null) {
+    if ($('#ntRoute').val() != '') {
         $('.nt-direction').fadeIn('slow').css('display', 'flex');
     } else {
         $('.nt-direction, .nt-stop').hide();
@@ -27,11 +27,11 @@ $('#ntRoute').change(function() {
     // Get route direction based on route selected (above).
     $.ajax ({
         type: 'get',
-        url: 'https://svc.metrotransittest.org/nextripv2/directions/' + routeSelected + '',
+        url: 'https://svc.metrotransittest.org/nextripv2/directions/' + routeSelected,
         dataType: 'json',
         success: function(result) {
-            $.each(result, function(i, routeSelected) {
-                $('#ntDirection').append('<option value="' + routeSelected.DirectionId + '">' + routeSelected.DirectionName + '</option>');
+            $.each(result, function(i, direction) {
+                $('#ntDirection').append('<option value="' + direction.DirectionId + '">' + direction.DirectionName + '</option>');
             });
         }
     });
@@ -39,25 +39,39 @@ $('#ntRoute').change(function() {
 
 $('#ntDirection').change(function() {
     // Show Stop dropdown
-    if ($('#ntDirection').val() != null) {
+    if ($('#ntDirection').val() != '') {
         $('.nt-stop').fadeIn('slow').css('display', 'flex');
     } else {
         $('.nt-stop').hide();
     }
 
-    var directionSelected = $('#ntDirection option:selected').val() + '';
+	var routeSelected = $('#ntRoute option:selected').val();
+    var directionSelected = $('#ntDirection option:selected').val();
 
     // Get route direction based on route selected (above).
     $.ajax ({
         type: 'get',
-        url: 'https://svc.metrotransittest.org/nextripv2/' + directionSelected.StopId +  '',
+        url: 'https://svc.metrotransittest.org/nextripv2/stops/' + routeSelected + "/" + directionSelected,
         dataType: 'json',
         success: function(result) {
-            $.each(result, function(i, directionSelected) {
-                //console.log(ntRoute.Description);
-                //<option value="Route">Route</option>
-                $('#ntDirection').append('<option value="' + directionSelected.StopId + '">' + directionSelected.Description + '</option>');
+            $.each(result, function(i, stop) {
+                $('#ntStop').append('<option value="' + stop.PlaceCode + '">' + stop.Description + '</option>');
             });
         }
     });
+});
+
+$('#ntStop').change(function() {
+
+	var routeSelected = $('#ntRoute option:selected').val();
+    var directionSelected = $('#ntDirection option:selected').val();
+	var stopSelected = $('#ntStop option:selected').val();
+	
+	$.ajax ({
+        type: 'get',
+        url: 'https://svc.metrotransittest.org/nextripv2/' + routeSelected + "/" + directionSelected + "/" + stopSelected,
+        dataType: 'json'
+    }).done(function(result) {
+		$('#nextripDepartures').append(JSON.stringify(result))
+	});
 });
