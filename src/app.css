@@ -7998,6 +7998,9 @@ a.skip-to-content {
   .btn-outline-secondary.routes {
     width: 70px;
     height: 50px; }
+  .btn-outline-secondary.dollar-amount {
+    width: 69px;
+    height: 50px; }
 
 .btn-outline-white {
   position: relative;

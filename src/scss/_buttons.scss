@@ -1,259 +1,261 @@
 // Wrap buttons in this class for consistent vertical spacing.
 .btn-container {
-    padding-top: 1rem;
+  padding-top: 1rem;
 
-    @include media-breakpoint-up(md) {
-        padding-top: 3rem;
-    }
+  @include media-breakpoint-up(md) {
+    padding-top: 3rem;
+  }
 }
 
 .btn-warning {
-    position: relative;
-	font-weight: $font-weight-bold;
-	color: $body-color;
-	width: 14.063rem;
+  position: relative;
+  font-weight: $font-weight-bold;
+  color: $body-color;
+  width: 14.063rem;
 
-	@include media-breakpoint-up(md) {
-		@include fontSize(23);
-		width: 17.5rem;
-		padding: 0.75rem;
-	}
+  @include media-breakpoint-up(md) {
+    @include fontSize(23);
+    width: 17.5rem;
+    padding: 0.75rem;
+  }
 
-    .icon {
-        position: absolute;
-        top: 0.5rem;
-        right: 1rem;
-        width: 1rem;
-        height: 1rem;
+  .icon {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    width: 1rem;
+    height: 1rem;
 
-        @include media-breakpoint-up(md) {
-            top: 1rem;
-            width: 1.5rem;
-            height: 1.5rem;
-        }
+    @include media-breakpoint-up(md) {
+      top: 1rem;
+      width: 1.5rem;
+      height: 1.5rem;
     }
+  }
 }
 
 // CTA Link White
 .cta-link-white {
-    position: relative;
-    border: 2px solid #ffffff;
+  position: relative;
+  border: 2px solid #ffffff;
 
-    .nav-link {
-        color: white;
-        @include fontSize(17);
-        font-weight: 700;
-        text-decoration: none;
-
-        @include media-breakpoint-up(md) {
-            @include fontSize(23);
-            margin-right: 0;
-        }
-    }
-
-    .icon {
-        width: 1.25rem;
-        height: 1.25rem;
-        position: absolute;
-        top: 0.75rem;
-        right: 1rem;
-
-        @include media-breakpoint-up(md) {
-            top: 1rem;
-            right: auto;
-        }
-    }
+  .nav-link {
+    color: white;
+    @include fontSize(17);
+    font-weight: 700;
+    text-decoration: none;
 
     @include media-breakpoint-up(md) {
-        border: 0;
-        display: block;
-        text-align: center;
+      @include fontSize(23);
+      margin-right: 0;
     }
+  }
+
+  .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+
+    @include media-breakpoint-up(md) {
+      top: 1rem;
+      right: auto;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    border: 0;
+    display: block;
+    text-align: center;
+  }
 }
 
 // How to ride
 #howToRide {
-    width: 345px;
+  width: 345px;
 
-    @include media-breakpoint-up(md) {
-        width: 410px;
+  @include media-breakpoint-up(md) {
+    width: 410px;
+  }
+
+  .icon-wrapper {
+    position: relative;
+    margin: 0 auto;
+
+    .icon {
+      position: absolute;
+      top: 0.25rem;
+      left: 1rem;
+      width: 32px;
+      height: 32px;
+
+      @include media-breakpoint-up(md) {
+        top: 0.45rem;
+        left: 0;
+        width: 50px;
+        height: 50px;
+      }
     }
-
-    .icon-wrapper {
-        position: relative;
-        margin: 0 auto;
-
-        .icon {
-            position: absolute;
-            top: 0.25rem;
-            left: 1rem;
-            width: 32px;
-            height: 32px;
-
-            @include media-breakpoint-up(md) {
-                top: 0.45rem;
-                left: 0;
-                width: 50px;
-                height: 50px;
-            }
-        }
-    }
+  }
 }
 
 .btn-outline-primary {
-    font-weight: $font-weight-bold;
-    color: $body-color;
-    position: relative;
-    border: 2px solid $primary;
-    width: 14.063rem;
+  font-weight: $font-weight-bold;
+  color: $body-color;
+  position: relative;
+  border: 2px solid $primary;
+  width: 14.063rem;
 
-    &:hover,
-    &:focus {
-        background-color: $blue;
-        color: $white;
-        border: 2px solid $blue;
-
-        .inactive {
-            display: none;
-        }
-        .active {
-            display: inline-flex;
-        }
-    }
+  &:hover,
+  &:focus {
+    background-color: $blue;
+    color: $white;
+    border: 2px solid $blue;
 
     .inactive {
-        display: inline-flex;
+      display: none;
     }
-
     .active {
-        display: none;
+      display: inline-flex;
     }
+  }
+
+  .inactive {
+    display: inline-flex;
+  }
+
+  .active {
+    display: none;
+  }
+
+  @include media-breakpoint-up(md) {
+    width: 17.5rem;
+    padding: 0.75rem;
+  }
+
+  .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .arrow-right-blue,
+  .arrow-right-white {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
 
     @include media-breakpoint-up(md) {
-        width: 17.5rem;
-        padding: 0.75rem;
+      top: 1.25rem;
+      right: 0.75rem;
     }
+  }
 
-    .icon {
-        width: 1.25rem;
-        height: 1.25rem;
+  .arrow-left-blue,
+  .arrow-left-white {
+    position: absolute;
+    top: 0.65rem;
+    left: 0.75rem;
+
+    @include media-breakpoint-up(md) {
+      top: 1.25rem;
+      left: 0.75rem;
     }
-
-    .arrow-right-blue,
-    .arrow-right-white {
-        position: absolute;
-        top: 0.5rem;
-        right: 0.75rem;
-
-
-        @include media-breakpoint-up(md) {
-            top: 1.25rem;
-            right: 0.75rem;
-        }
-    }
-
-    .arrow-left-blue,
-    .arrow-left-white {
-        position: absolute;
-        top: 0.65rem;
-        left: 0.75rem;
-
-
-        @include media-breakpoint-up(md) {
-            top: 1.25rem;
-            left: 0.75rem;
-        }
-    }
+  }
 }
 
 .btn-outline-secondary {
-    color: $gray-600;
-    background-color: $white;
-    border: 2px solid $gray-300;
-    font-weight: $font-weight-bold;
+  color: $gray-600;
+  background-color: $white;
+  border: 2px solid $gray-300;
+  font-weight: $font-weight-bold;
 
-    @include media-breakpoint-up(lg) {
-        @include fontSize(20);
-        width: 170px;
-        height: 50px;
-        margin-right: 1rem;
-    }
+  @include media-breakpoint-up(lg) {
+    @include fontSize(20);
+    width: 170px;
+    height: 50px;
+    margin-right: 1rem;
+  }
 
-    &:hover {
-        background-color: $teal;
-        border: 2px solid $cyan;
-        color: $cyan;
-    }
+  &:hover {
+    background-color: $teal;
+    border: 2px solid $cyan;
+    color: $cyan;
+  }
 
-    &.routes {
-        width: 70px;
-        height: 50px;
-    }
+  &.routes {
+    width: 70px;
+    height: 50px;
+  }
+
+  &.dollar-amount {
+    width: 69px;
+    height: 50px;
+  }
 }
 
 .btn-outline-white {
-    position: relative;
-    color: $white;
-    background-color: transparent;
+  position: relative;
+  color: $white;
+  background-color: transparent;
+  border: 2px solid $white;
+  font-weight: $font-weight-bold;
+  margin-right: 0;
+
+  @include media-breakpoint-up(lg) {
+    @include fontSize(23);
+    width: 270px;
+    padding: 0.75rem;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $white;
+    color: $cyan;
     border: 2px solid $white;
-    font-weight: $font-weight-bold;
+
+    .inactive {
+      display: none;
+    }
+    .active {
+      display: inline-flex;
+    }
+  }
+
+  .inactive {
+    display: inline-flex;
+  }
+
+  .active {
+    display: none;
+  }
+
+  @include media-breakpoint-up(md) {
+    width: 17.5rem;
+    padding: 0.75rem;
+  }
+
+  .icon {
+    position: absolute;
     margin-right: 0;
 
     @include media-breakpoint-up(lg) {
-        @include fontSize(23);
-        width: 270px;
-        padding: 0.75rem;
+      top: 1.25rem;
+      right: 0.75rem;
+      width: 1.25rem !important;
+      height: 1.25rem !important;
     }
+  }
 
-    &:hover,
-    &:focus {
-        background-color: $white;
-        color: $cyan;
-        border: 2px solid $white;
-
-        .inactive {
-            display: none;
-        }
-        .active {
-            display: inline-flex;
-        }
-    }
-
-    .inactive {
-        display: inline-flex;
-    }
-
-    .active {
-        display: none;
-    }
+  .arrow-right-blue,
+  .arrow-right-white {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
 
     @include media-breakpoint-up(md) {
-        width: 17.5rem;
-        padding: 0.75rem;
+      top: 1.25rem;
+      right: 0.75rem;
     }
-
-    .icon {
-        position: absolute;
-        margin-right: 0;
-
-        @include media-breakpoint-up(lg) {
-            top: 1.25rem;
-            right: 0.75rem;
-            width: 1.25rem !important;
-            height: 1.25rem !important;
-        }
-    }
-
-    .arrow-right-blue,
-    .arrow-right-white {
-        position: absolute;
-        top: 0.5rem;
-        right: 0.75rem;
-
-
-        @include media-breakpoint-up(md) {
-            top: 1.25rem;
-            right: 0.75rem;
-        }
-    }
+  }
 }
