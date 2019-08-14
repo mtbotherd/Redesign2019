@@ -132,21 +132,38 @@ function loadDepartures(result) {
 	});
 	$('.stop-description').html('<p>' + stop.Description + '<br/>' + 'Stop ' + stop.StopId + '</p>');
 	$.each(departures, function (i, depart) {
-		list.append($('<div class="d-flex list-group-item pr-0 pl-0"/>')
-			.html(
-				'<span class="route-id mr-2">' 
-				+ depart.RouteId 
-				+ depart.Terminal 
-				+ '</span>'
-				+ '<span class="route-name">'
-				+ depart.Description
-				+ '</span>'
-				+ '<span class="depart-time ml-auto">'
-				+ depart.DepartureText
-				+ '</span>'
-		));
 		if (depart.Actual === true) {
-			$('.depart-time').prepend('<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg"/> ');
+			list.append($('<div class="d-flex list-group-item pr-0 pl-0"/>')
+				.html(
+					'<span class="route-id mr-2">' 
+					+ depart.RouteId 
+					+ depart.Terminal 
+					+ '</span>'
+					+ '<span class="route-name">'
+					+ depart.Description
+					+ '</span>'
+					+ '<span class="depart-time ml-auto">'
+					+ '<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg"/>'
+					+ depart.DepartureText
+					+ '</span>'
+			));
+		} else {
+			list.append($('<div class="d-flex list-group-item pr-0 pl-0"/>')
+				.html(
+					'<span class="route-id mr-2">' 
+					+ depart.RouteId 
+					+ depart.Terminal 
+					+ '</span>'
+					+ '<span class="route-name">'
+					+ depart.Description
+					+ '</span>'
+					+ '<span class="depart-time ml-auto">'
+					+ depart.DepartureText
+					+ '</span>'
+			));
 		}
+		// if (depart.Actual === true) {
+		// 	$('.depart-time').prepend('<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg"/> ');
+		// }
 	});
 };
