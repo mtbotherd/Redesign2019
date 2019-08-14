@@ -1,5 +1,3 @@
-//$(function () { }); The code that executes on page load should go in this kind of closure. It will then execute when the DOM is ready and not before. It's the same as using "document.ready()".
-
 $(function () {
 	var routeId,
 		directionId,
@@ -131,56 +129,22 @@ function loadDepartures(result) {
 		return a < b ? -1 : a > b ? 1 : 0;
 	});
 	$('.stop-description').html('<p>' + stop.Description + '<br/>' + 'Stop ' + stop.StopId + '</p>');
-	// $.each(departures, function (i, depart) {
-	// 	list.append($('<div class="d-flex list-group-item pr-0 pl-0"/>')
-	// 		.html(
-	// 			'<span class="route-id mr-2">' 
-	// 			+ depart.RouteId 
-	// 			+ depart.Terminal 
-	// 			+ '</span>'
-	// 			+ '<span class="route-name">'
-	// 			+ depart.Description
-	// 			+ '</span>'
-	// 			+ '<span class="depart-time ml-auto">'
-	// 			+ depart.DepartureText
-	// 			+ '</span>'
-	// 	));
-	// 	if (depart.Actual === true) {
-	// 		$('.depart-time').prepend('<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg"/> ');
-	// 		console.log(depart,i)
-	// 	}
-	// });
-	$.each(departures, function (i, depart) {
+    $.each(departures, function (i, depart) {
+		list.append($('<div class="d-flex list-group-item pr-0 pl-0"/>')
+			.html(
+				'<span class="route-id mr-2">' 
+				+ depart.RouteId 
+				+ depart.Terminal 
+				+ '</span>'
+				+ '<span class="route-name">'
+				+ depart.Description
+				+ '</span>'
+				+ '<span class="depart-time ml-auto">'
+				+ depart.DepartureText
+				+ '</span>'
+		));
 		if (depart.Actual === true) {
-			list.append($('<div class="d-flex list-group-item pr-0 pl-0"/>')
-			.html(
-				'<span class="route-id mr-2">' 
-				+ depart.RouteId 
-				+ depart.Terminal 
-				+ '</span>'
-				+ '<span class="route-name">'
-				+ depart.Description
-				+ '</span>'
-				+ '<span class="depart-time ml-auto">'
-				+'<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg"/>'
-				+ depart.DepartureText
-				+ '</span>'
-			));
-		}
-		else{
-			list.append($('<div class="d-flex list-group-item pr-0 pl-0"/>')
-			.html(
-				'<span class="route-id mr-2">' 
-				+ depart.RouteId 
-				+ depart.Terminal 
-				+ '</span>'
-				+ '<span class="route-name">'
-				+ depart.Description
-				+ '</span>'
-				+ '<span class="depart-time ml-auto">'
-				+ depart.DepartureText
-				+ '</span>'
-			));
+			$('.depart-time').prepend('<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg"/> ');
 		}
 	});
 };
