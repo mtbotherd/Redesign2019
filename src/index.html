@@ -523,17 +523,17 @@
 													<h2 class="text-center mb-4 mb-lg-5">Real-time Departures</h2>
 													<div class="row">
 														<div class="col-md-5">
-															<div class="form-group nt-route">
+															<div class="form-group select-route">
 																<label for="ntRoute" class="sr-only">Select route</label>
 																<select
 																	id="ntRoute"
 																	name="ntRoute"
 																	class="custom-select custom-select-lg"
 																>
-																	<option value="default" selected>Select route</option>
+																	<option value="">Select route</option>
 																</select>
 															</div>
-															<div class="form-group nt-direction">
+															<div class="form-group select-route-direction">
 																<label for="ntDirection" class="sr-only">Select direction</label>
 																<select
 																	id="ntDirection"
@@ -543,7 +543,7 @@
 																	<option value="">Select direction</option>
 																</select>
 															</div>
-															<div class="form-group nt-stop">
+															<div class="form-group select-route-stop">
 																<label for="ntStop" class="sr-only">Select stop</label>
 																<select
 																	id="ntStop"
@@ -581,8 +581,18 @@
 													</div>
 												</div>
 												<div id="nextripDepartures">
-													<!-- <div class="card mb-3 p-2">
+													<div class="card mb-3 p-2 p-md-4">
 														<h2>Departures</h2>
+														<div class="stop-description"></div>
+														<div class="list-group mb-2">
+
+															<!-- Departures list container -->
+															<div class="stop-departures"></div>
+														</div>
+													</div>
+												</div>
+												<!-- <div id="nextripDepartures">
+													<div class="card mb-3 p-2">
 														<p>
 															Selby
 															<abbr title="avenue">Ave</abbr>. and Dale
@@ -617,8 +627,8 @@
 														<a href="" class="nt-show-more-link">
 															<img class="icon mr-2" src="/img/svg/circle-plus-blue.svg">
 															<span class="h2 nt-show-more">Show more</span>
-														</a>
-													</div> -->
+														</a> -->
+													</div>
 
 													<!-- <div id="showMyBus" class="accordion nt-show-my-bus">
 														<div class="card">

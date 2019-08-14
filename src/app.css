@@ -8605,38 +8605,38 @@ a.skip-to-content {
     border-color: #8a8b8a;
     border-right: none;
     border-left: none; }
-  #nextripDepartures .card .nt-show-more-link {
+  #nextripDepartures .card .show-more-link {
     position: relative; }
-    #nextripDepartures .card .nt-show-more-link .icon {
+    #nextripDepartures .card .show-more-link .icon {
       position: absolute;
       top: 3px;
       width: 24px;
       height: 24px; }
-  #nextripDepartures .card .nt-show-more {
+  #nextripDepartures .card .show-more {
     position: relative;
     color: #626462;
     margin-left: 2rem; }
-  #nextripDepartures .card .nt-route-number {
+  #nextripDepartures .card .route-id {
     font-weight: 700; }
-  #nextripDepartures .card .nt-route-name {
+  #nextripDepartures .card .route-name {
     max-width: 218px; }
     @media (min-width: 768px) {
-      #nextripDepartures .card .nt-route-name {
+      #nextripDepartures .card .route-name {
         max-width: 593px; } }
     @media (min-width: 992px) {
-      #nextripDepartures .card .nt-route-name {
+      #nextripDepartures .card .route-name {
         max-width: 807px; } }
     @media (min-width: 1200px) {
-      #nextripDepartures .card .nt-route-name {
+      #nextripDepartures .card .route-name {
         max-width: 987px; } }
-  #nextripDepartures .card .nt-depart-time {
+  #nextripDepartures .card .depart-time {
     font-weight: 700; }
 
-#nextripDepartures .nt-show-my-bus .icon-bus-broadcast-color {
+#nextripDepartures .show-my-bus .icon-bus-broadcast-color {
   width: 40px;
   height: 40px; }
 
-#nextripDepartures .nt-show-my-bus .icon-chevron-down-blue {
+#nextripDepartures .show-my-bus .icon-chevron-down-blue {
   width: 1rem;
   height: 1rem; }
 

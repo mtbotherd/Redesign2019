@@ -1,68 +1,67 @@
 #nextripDepartures {
-	.card {
-		background-color: $gray-100 !important;
+  .card {
+    background-color: $gray-100 !important;
 
-		.list-group-item {
-			background-color: transparent;
-			border-color: $gray-300;
-			border-right: none;
-			border-left: none;
-		}
+    .list-group-item {
+      background-color: transparent;
+      border-color: $gray-300;
+      border-right: none;
+      border-left: none;
+    }
 
-		.nt-show-more-link {
-            position: relative;
+    .show-more-link {
+      position: relative;
 
-			.icon {
-				position: absolute;
-				top: 3px;
-				width: 24px;
-				height: 24px;
-			}
-		}
+      .icon {
+        position: absolute;
+        top: 3px;
+        width: 24px;
+        height: 24px;
+      }
+    }
 
-		.nt-show-more {
-			position: relative;
-			color: $gray-600;
-			// @include fontSize(20);
-			// font-weight: $font-weight-bold;
-            margin-left: 2rem;
-        }
+    .show-more {
+      position: relative;
+      color: $gray-600;
+      // @include fontSize(20);
+      // font-weight: $font-weight-bold;
+      margin-left: 2rem;
+    }
 
-		.nt-route-number {
-			font-weight: $font-weight-bold;
-		}
+    .route-id {
+      font-weight: $font-weight-bold;
+    }
 
-		.nt-route-name {
-			max-width: 218px;
+    .route-name {
+      max-width: 218px;
 
-			@include media-breakpoint-up(md) {
-				max-width: 593px;
-			}
+      @include media-breakpoint-up(md) {
+        max-width: 593px;
+      }
 
-			@include media-breakpoint-up(lg) {
-				max-width: 807px;
-			}
+      @include media-breakpoint-up(lg) {
+        max-width: 807px;
+      }
 
-			@include media-breakpoint-up(xl) {
-				max-width: 987px;
-			}
-		}
+      @include media-breakpoint-up(xl) {
+        max-width: 987px;
+      }
+    }
 
-		.nt-depart-time {
-			font-weight: $font-weight-bold;
-		}
-	}
+    .depart-time {
+      font-weight: $font-weight-bold;
+    }
+  }
 
-	.nt-show-my-bus {
+  .show-my-bus {
+    .icon-bus-broadcast-color {
+      width: 40px;
+      height: 40px;
+    }
 
-		.icon-bus-broadcast-color {
-			width: 40px;
-			height: 40px;
-		}
-
-		.icon-chevron-down-blue {
-			width: 1rem;
-			height: 1rem;
-		}
-	}
+    .icon-chevron-down-blue {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
 }
