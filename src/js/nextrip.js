@@ -38,7 +38,7 @@ $(function () {
 	// When stop dropdown changes, get Timepoint departures.
 	$('#ntStop').change(function () {
 		placeCode = this.value;
-		if (placeCode != '') {
+		if (placeCode !== '') {
 			if (timer > 0) {
 				clearInterval(timer);
 			}
@@ -130,7 +130,6 @@ function loadDepartures(result) {
 		b = new Date(b.DepartureTime);
 		return a < b ? -1 : a > b ? 1 : 0;
 	});
-	$
 	$('.stop-description').html('<p>' + stop.Description + '<br/>' + 'Stop ' + stop.StopId + '</p>');
 	$.each(departures, function (i, depart) {
 		list.append($('<div class="d-flex list-group-item pr-0 pl-0"/>')
@@ -146,7 +145,7 @@ function loadDepartures(result) {
 				+ depart.DepartureText
 				+ '</span>'
 		));
-		if (depart.Actual == "true") {
+		if (depart.Actual === true) {
 			$('.depart-time').prepend('<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg"/> ');
 		}
 	});
