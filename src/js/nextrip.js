@@ -45,7 +45,7 @@ $(function () {
 			timer = setInterval(function () {
 				getTimepointDepartures(routeId, directionId, placeCode);
 			}, 30000);
-			
+
 			getTimepointDepartures(routeId, directionId, placeCode);
 		}
 	});
@@ -75,7 +75,7 @@ function getRoutes() {
 };
 
 function getDirections(id) {
-	$.get('https://svc.metrotransittest.org/nextripv2/directions/' + id )
+	$.get('https://svc.metrotransittest.org/nextripv2/directions/' + id)
 		.done(function (result) {
 			let directions = JSON.parse(JSON.stringify(result));
 			let directiondrop = $('#ntDirection');
@@ -132,38 +132,33 @@ function loadDepartures(result) {
 	});
 	$('.stop-description').html('<p>' + stop.Description + '<br/>' + 'Stop ' + stop.StopId + '</p>');
 	$.each(departures, function (i, depart) {
+		var departRow = $('<div/>', { class: 'd-flex list-group-item pr-0 pl-0' }).appendTo(list);
+		departRow.append($('<span/>', { class: 'route-number mr-2' }).text(depart.RouteId + depart.Terminal));
+		departRow.append($('<span/>', { class: 'route-name' }).text(depart.Description));
+
+		var departTime = $('<span/>', { class: 'depart-time ml-auto' }).appendTo(departRow);
 		if (depart.Actual === true) {
-			list.append($('<div class="d-flex list-group-item pr-0 pl-0"/>')
-				.html(
-					'<span class="route-id mr-2">' 
-					+ depart.RouteId 
-					+ depart.Terminal 
-					+ '</span>'
-					+ '<span class="route-name">'
-					+ depart.Description
-					+ '</span>'
-					+ '<span class="depart-time ml-auto">'
-					+ '<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg"/>'
-					+ depart.DepartureText
-					+ '</span>'
-			));
-		} else {
-			list.append($('<div class="d-flex list-group-item pr-0 pl-0"/>')
-				.html(
-					'<span class="route-id mr-2">' 
-					+ depart.RouteId 
-					+ depart.Terminal 
-					+ '</span>'
-					+ '<span class="route-name">'
-					+ depart.Description
-					+ '</span>'
-					+ '<span class="depart-time ml-auto">'
-					+ depart.DepartureText
-					+ '</span>'
-			));
+			departTime.append($('<img/>', { class: 'icon blink mr-1', src: '/img/svg/broadcast-red.svg' }));
 		}
-		// if (depart.Actual === true) {
-		// 	$('.depart-time').prepend('<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg"/> ');
-		// }
+		departTime.append(depart.DepartureText);
+	});
+
+	var threshold = 3;
+
+	if ($('.stop-departures').children().length > threshold) {
+		$('.show.more').css('display', 'block');
+		console.log(threshold);
+	}
+
+	$('.show.more').click(function () {
+		$(this).parent().find('.stop-departures').children().slideDown('slow');
+		$(this).parent().find('.show.less').show();
+		$(this).hide();
+	});
+
+	$('.show.less').click(function () {
+		$(this).parent().find('.stop-departures').children(':nth-child(n+' + (threshold + 1) + ')').slideUp('slow');
+		$(this).parent().find('.show.more').show();
+		$(this).hide();
 	});
 };
