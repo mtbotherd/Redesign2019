@@ -41,21 +41,6 @@ $(document).ready(function() {
         }
     });
 
-    // Get json data
-    // var JSONPLAN = null;
-    // $.ajax({
-    //     type: 'get',
-    //     url: 'TripPlan.json',
-    //     dataType: 'json'
-    // })
-    // .done(function(result, status, xhr) {
-    //     console.dir(result);
-    //     JSONPLAN = result;
-    // })
-    // .fail(function(err) {
-    //     console.warn('Fetch TripPlan - No trip found ' + err);
-    // });
-
     /***********************************************
 			NexTrip
 	***********************************************/
@@ -77,6 +62,113 @@ $(document).ready(function() {
             $('.select-route-stop').hide();
         }
     });
+
+/* =================================================================
+        BEGIN AUTOCOMPLETE
+    */
+    const LOCATOR =
+    "https://arcgistest.metctest.state.mn.us/transit/rest/services/metro_transit/GeocodeServer/";
+    //
+    //  Get current location
+    // 
+    var MYLOCATION = null;
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                MYLOCATION = { 
+                    x : position.coords.longitude,
+                    y : position.coords.latitude,
+                    spatialReference: { wkid: 4326 }
+                };
+            },
+            function(error) {
+                console.warn("getLocation failed: " + error);
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            }
+        );
+    }
+    /* ======================================================================
+        addressAutoComplete
+        Parms:
+            inputDiv is a string with ID name of the input element 
+            UTMout is a boolean - if true, coordinates for the address are
+                returned in UTM projection (needed for Trip Planner), otherwise
+                coordinates are geographic Lat/Long
+        ========================================================================= */
+    var addressAutoComplete = function(/*string*/inputDiv,/*boolean*/UTMout) {
+        $("#" + inputDiv).devbridgeAutocomplete({
+            noCache: true,
+            autoSelectFirst: true,
+            minChars: 1,
+            width: "flex",
+            lookup: function(query, returnSuggestions) {
+                $.ajax({
+                    type: "get",
+                    url: LOCATOR + "suggest",
+                    data: {
+                        Text: query.replace(/[.,\/#!$%\^\*;:{}=\_`~()]/g, ""),
+                        maxSuggestions: 10,
+                        location: MYLOCATION ? JSON.stringify(MYLOCATION) : null,
+                        distance: MYLOCATION ? 4000 : null, // meters ~ 2.5 miles
+                        f: "json"
+                    },
+                    dataType: "json"
+                })
+                    .done(function(r) {
+                        returnSuggestions({
+                            suggestions: $.map(r.suggestions, function(c) {
+                                return { value: c.text, data: c.magicKey };
+                            })
+                        });
+                    })
+                    .fail(function(e) {
+                        console.warn("Address locator failed for: " + query);
+                    });
+            },
+            onSelect: function(suggest) {
+                $.ajax({
+                    type: "get",
+                    url: LOCATOR + "findAddressCandidates",
+                        data: {
+                        SingleLine: suggest.value,
+                        outFields: "Addr_type, LongLabel, PlaceName, Place_addr",
+                        maxLocations: 6,
+                        magicKey: suggest.data,
+                        outSR: UTMout ? 26915 : 4326,
+                        f: "json"
+                    },
+                    dataType: "json"
+                })
+                    .done(function(r) {
+                        if (r.error) {
+                            console.warn("Call to FindCandidate failed for: " + suggest.value);
+                        } else {
+                            if (r.candidates.length > 0) {
+                                var choice = r.candidates[0];
+                                console.log(inputDiv + ": " + JSON.stringify(choice));
+                                if (inputDiv === "fromLocation") {
+                                    FROMLOCATION = choice;
+                                }
+                                if (inputDiv === "toLocation") {
+                                    TOLOCATION = choice;
+                                }
+                            }
+                        }
+                    })
+                    .fail(function(e) {
+                        console.warn("Call to FindCandidate failed for: " + suggest.value);
+                    });
+            }
+        });
+    }
+    var FROMLOCATION = null;
+    var TOLOCATION = null;
+    addressAutoComplete("fromLocation",/*UTMout*/true);
+    addressAutoComplete("toLocation",/*UTMout*/true);
 
     // Get json data
 
@@ -113,22 +205,5 @@ $(document).ready(function() {
     //             }
     //         });
     //     }
-    // });
-
-    /*************************************************
-    * Trip Plans
-    ************************************************/
-    // var JSONPLAN = null;
-    // $.ajax({
-    //     type: 'get',
-    //     url: 'TripPlan.json',
-    //     dataType: 'json'
-    // })
-    // .done(function(result, status, xhr) {
-    //     console.dir(result);
-    //     JSONPLAN = result;
-    // })
-    // .fail(function(err) {
-    //     console.warn('Fetch TripPlan - No trip found ' + err);
     // });
 });
