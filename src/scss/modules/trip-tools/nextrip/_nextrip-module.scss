@@ -1,16 +1,99 @@
 #nextripModule {
-	.or {
-		margin-bottom: 1rem;
-		@include media-breakpoint-up(md) {
-			margin-bottom: 0;
-			padding-top: 1rem;
-		}
-	}
+  .or {
+    margin-bottom: 1rem;
 
-	.input-group-append {
-		.btn-primary {
-	      background-color: $white;
-	      border: 0;
-	    }
-	}
+    @include media-breakpoint-up(md) {
+      margin-bottom: 0;
+      padding-top: 1rem;
+    }
+  }
+
+  .input-group-append {
+    .btn-primary {
+      background-color: $white;
+      border: 0;
+    }
+  }
+
+  #nextripDepartures {
+    .card {
+      background-color: $gray-100 !important;
+
+      .list-group-item {
+        display: flex;
+
+        &:nth-child(n + 4) {
+          display: none !important;
+        }
+      }
+    }
+
+    .list-group-item {
+      background-color: transparent;
+      border-color: $gray-300;
+      border-right: none;
+      border-left: none;
+    }
+
+    .show {
+      cursor: pointer;
+      //display: none;
+      padding-top: 1rem;
+      position: relative;
+
+      &.less {
+        display: none;
+      }
+
+      .h4 {
+        position: relative;
+        color: $gray-600;
+        line-height: 1.5;
+        margin-left: 2rem;
+      }
+
+      .icon {
+        position: absolute;
+        top: 1.25rem;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    .route-number {
+      font-weight: $font-weight-bold;
+    }
+
+    .route-name {
+      max-width: 218px;
+
+      @include media-breakpoint-up(md) {
+        max-width: 593px;
+      }
+
+      @include media-breakpoint-up(lg) {
+        max-width: 807px;
+      }
+
+      @include media-breakpoint-up(xl) {
+        max-width: 987px;
+      }
+    }
+
+    .depart-time {
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  .show-my-bus {
+    .icon-bus-broadcast-color {
+      width: 40px;
+      height: 40px;
+    }
+
+    .icon-chevron-down-blue {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
 }

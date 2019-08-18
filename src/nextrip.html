@@ -174,39 +174,39 @@
             <div class="page-content">
                 <section class="section">
                     <div class="container">
-                        <div id="nextripModule">
+						<div id="nextripModule">
 							<div class="card mb-4">
 								<h2 class="text-center mb-4 mb-lg-5">Real-time Departures</h2>
 								<div class="row">
 									<div class="col-md-5">
 										<div class="form-group select-route">
-											<label for="selectRoute" class="sr-only">Select route</label>
+											<label for="ntRoute" class="sr-only">Select route</label>
 											<select
 												id="ntRoute"
 												name="ntRoute"
 												class="custom-select custom-select-lg"
 											>
-												<option value="default" selected>Select route</option>
+												<option value="">Select route</option>
 											</select>
 										</div>
 										<div class="form-group select-route-direction">
-											<label for="selectDirection" class="sr-only">Select direction</label>
+											<label for="ntDirection" class="sr-only">Select direction</label>
 											<select
-												id="selectDirection"
-												name="selectDirection"
+												id="ntDirection"
+												name="ntDirection"
 												class="custom-select custom-select-lg"
 											>
-												<option value>Select direction</option>
+												<option value="">Select direction</option>
 											</select>
 										</div>
 										<div class="form-group select-route-stop">
-											<label for="selectStop" class="sr-only">Select stop</label>
+											<label for="ntStop" class="sr-only">Select stop</label>
 											<select
-												id="selectStop"
-												name="selectStop"
+												id="ntStop"
+												name="ntStop"
 												class="custom-select custom-select-lg"
 											>
-												<option value>Select stop</option>
+												<option value="">Select stop</option>
 											</select>
 										</div>
 									</div>
@@ -236,56 +236,33 @@
 									</div>
 								</div>
 							</div>
-							<div id="nextripDepartures">
-								<div class="card mb-3 p-2">
+							<div id="nextripDepartures" class="nextrip-departures">
+								<div class="card mb-3 p-2 p-md-4">
 									<h2>Departures</h2>
-									<p>
-										Selby
-										<abbr title="avenue">Ave</abbr>. and Dale
-										<abbr title="street">St</abbr>.
-										<br>Stop 17023
-									</p>
+									<div class="stop-description"></div>
 									<div class="list-group mb-2">
-										<div class="d-flex list-group-item pr-0 pl-0">
-											<span class="nt-route-number mr-2">21 A</span>
-											<span class="nt-route-name">Shelby-Lake / Uptown</span>
-											<span class="nt-depart-time ml-auto">
-												<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg">
-												6
-												<abbr title="minutes">min</abbr>
-											</span>
+
+										<!-- Departures list container -->
+										<div class="stop-departures"></div>
+										<div class="show more">
+											<img class="icon mr-2" src="/img/svg/circle-plus-blue.svg">
+											<span class="h4">Show more departure times</span>
 										</div>
-										<div class="d-flex list-group-item pr-0 pl-0">
-											<span class="nt-route-number mr-2">21 A</span>
-											<span class="nt-route-name">Shelby-Lake / Uptown</span>
-											<span class="nt-depart-time ml-auto">
-												<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg">
-												6
-												<abbr title="minutes">min</abbr>
-											</span>
-										</div>
-										<div class="d-flex list-group-item pr-0 pl-0">
-											<span class="nt-route-number mr-2">21 A</span>
-											<span class="nt-route-name mr-2">SW Transit - Express - Chaska - Chanhassen Mpls</span>
-											<span class="nt-depart-time ml-auto">10:00 p.m.</span>
+										<div class="show less">
+											<img class="icon mr-2" src="/img/svg/circle-plus-blue.svg">
+											<span class="h4">Show less departure times</span>
 										</div>
 									</div>
-									<a href="" class="nt-show-more-link">
-										<img class="icon mr-2" src="/img/svg/circle-plus-blue.svg">
-										<span class="h2 nt-show-more">Show more</span>
-									</a>
 								</div>
 
 								<div id="showMyBus" class="accordion nt-show-my-bus">
 									<div class="card">
 										<div class="card-header">
-											<!-- <h2 class="mb-0"> -->
-												<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false">
-													<img class="icon mr-2" src="/img/svg/bus-broadcast-color.svg">
-													<h2 class="mb-0">Show my bus</h2>
-													<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
-												</button>
-											<!-- </h2> -->
+											<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false">
+												<img class="icon mr-2" src="/img/svg/bus-broadcast-color.svg">
+												<h2 class="mb-0">Show my bus</h2>
+												<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+											</button>
 										</div>
 										<div id="collapseMap" class="collapse">
 											<div class="card-body p-0">
@@ -296,7 +273,6 @@
 								</div>
 							</div>
 						</div>
-
                     </div>
                 </section>
             </div>
@@ -307,159 +283,158 @@
 
 	<!-- Begin Footer -->
 	<footer class="section">
-    <div class="container">
-        <div class="mb-5">
-            <div class="text-center">
-                <a href="/contact-us" class="btn btn-outline-primary">Contact us
-                    <img class="icon arrow-right-blue inactive" src="/img/svg/arrow-right-blue.svg" />
-                    <img class="icon arrow-right-white active" src="/img/svg/arrow-right-white.svg" />
-                </a>
-            </div>
-            <div class="d-none d-md-block social-media text-center">
-                <a href="https://www.twitter.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/twitter-gray.svg"></a>
-                <a href="https://www.facebook.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/facebook-gray.svg"></a>
-                <a href="https://www.youtube.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/youtube-gray.svg"></a>
-                <a href="https://instagram.com/metrotransitmn"><img class="icon mr-2" src="/img/svg/instagram-gray.svg"></a>
-                <a href="https://www.linkedin.com/company/metro-transit"><img class="icon mr-2" src="/img/svg/linkedin-gray.svg"></a>
-                <a href="https://www.flickr.com/photos/metrotransitmn/"><img class="icon" src="/img/svg/flickr-gray.svg"></a>
-            </div>
-            <div class="footer d-none d-md-block pt-5">
-                <div class="card-deck pb-4">
-                    <div class="card border-0">
-                        <div class="card-body">
-                            <h4 class="card-title">About Metro Transit</h4>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a href="/transit-initiatives" class="nav-link">Transit Initiatives</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/facilities" class="nav-link">Facilities</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/riders-almanac-blog" class="nav-link">Riders Almanac</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card border-0">
-                        <div class="card-body">
-                            <h4 class="card-title">Media Relations</h4>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a href="/contacts" class="nav-link">Contacts</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/press" class="nav-link">Press Releases</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/awards" class="nav-link">Awards</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/" class="nav-link">Images &amp; Logos</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card border-0">
-                        <div class="card-body">
-                            <h4 class="card-title">Careers</h4>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a href="/jobs" class="nav-link">Available Job Opportunities</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/drive" class="nav-link">Become a Bus Driver</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/transit-police-careers" class="nav-link">Join the Transit Police</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/job-seekers" class="nav-link">Career Fairs</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/internships" class="nav-link">Internships</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card border-0">
-                        <div class="card-body">
-                            <h4 class="card-title">Policies</h4>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a href="/social-media-policy" class="nav-link">Social Media Policy</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://metrocouncil.org/Privacy-Policy.aspx" class="nav-link" target="_blank">Privacy Policy</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/code-of-conduct" class="nav-link">Code of Conduct</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/titlevi" class="nav-link">Title VI: Commitment to Fairness</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-deck">
-                    <div class="card border-0">
-                        <div class="card-body">
-                            <h4 class="card-title">Mission &amp; Impact</h4>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a href="/commitment-to-fairness" class="nav-link">Commitment to Fairness</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/impact-programs" class="nav-link">Impact Programs</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card border-0">
-                        <div class="card-body">
-                            <h4 class="card-title">Resources</h4>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a href="/app" class="nav-link">Try the Metro Transit App</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/advertise-with-metro-transit" class="nav-link">Advertise with Us</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/apps" class="nav-link">API Resources for Developers</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card border-0"></div>
-                    <div class="card border-0"></div>
-                </div>
-            </div>
-        </div>
-        <p class="text-center">
-            <small>
-                Metro Transit is a service of the Metropolitan Council.
-                <span class="d-block d-md-none"> <br /> </span>&copy; 2019 Metro
-                Transit
-            </small>
-        </p>
-    </div>
-</footer>
-
+		<div class="container">
+			<div class="mb-5">
+				<div class="text-center">
+					<a href="/contact-us" class="btn btn-outline-primary">Contact us
+						<img class="icon arrow-right-blue inactive" src="/img/svg/arrow-right-blue.svg" />
+						<img class="icon arrow-right-white active" src="/img/svg/arrow-right-white.svg" />
+					</a>
+				</div>
+				<div class="d-none d-md-block social-media text-center">
+					<a href="https://www.twitter.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/twitter-gray.svg"></a>
+					<a href="https://www.facebook.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/facebook-gray.svg"></a>
+					<a href="https://www.youtube.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/youtube-gray.svg"></a>
+					<a href="https://instagram.com/metrotransitmn"><img class="icon mr-2" src="/img/svg/instagram-gray.svg"></a>
+					<a href="https://www.linkedin.com/company/metro-transit"><img class="icon mr-2" src="/img/svg/linkedin-gray.svg"></a>
+					<a href="https://www.flickr.com/photos/metrotransitmn/"><img class="icon" src="/img/svg/flickr-gray.svg"></a>
+				</div>
+				<div class="footer d-none d-md-block pt-5">
+					<div class="card-deck pb-4">
+						<div class="card border-0">
+							<div class="card-body">
+								<h4 class="card-title">About Metro Transit</h4>
+								<ul class="nav flex-column">
+									<li class="nav-item">
+										<a href="/transit-initiatives" class="nav-link">Transit Initiatives</a>
+									</li>
+									<li class="nav-item">
+										<a href="/facilities" class="nav-link">Facilities</a>
+									</li>
+									<li class="nav-item">
+										<a href="/riders-almanac-blog" class="nav-link">Riders Almanac</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card border-0">
+							<div class="card-body">
+								<h4 class="card-title">Media Relations</h4>
+								<ul class="nav flex-column">
+									<li class="nav-item">
+										<a href="/contacts" class="nav-link">Contacts</a>
+									</li>
+									<li class="nav-item">
+										<a href="/press" class="nav-link">Press Releases</a>
+									</li>
+									<li class="nav-item">
+										<a href="/awards" class="nav-link">Awards</a>
+									</li>
+									<li class="nav-item">
+										<a href="/" class="nav-link">Images &amp; Logos</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card border-0">
+							<div class="card-body">
+								<h4 class="card-title">Careers</h4>
+								<ul class="nav flex-column">
+									<li class="nav-item">
+										<a href="/jobs" class="nav-link">Available Job Opportunities</a>
+									</li>
+									<li class="nav-item">
+										<a href="/drive" class="nav-link">Become a Bus Driver</a>
+									</li>
+									<li class="nav-item">
+										<a href="/transit-police-careers" class="nav-link">Join the Transit Police</a>
+									</li>
+									<li class="nav-item">
+										<a href="/job-seekers" class="nav-link">Career Fairs</a>
+									</li>
+									<li class="nav-item">
+										<a href="/internships" class="nav-link">Internships</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card border-0">
+							<div class="card-body">
+								<h4 class="card-title">Policies</h4>
+								<ul class="nav flex-column">
+									<li class="nav-item">
+										<a href="/social-media-policy" class="nav-link">Social Media Policy</a>
+									</li>
+									<li class="nav-item">
+										<a href="https://metrocouncil.org/Privacy-Policy.aspx" class="nav-link" target="_blank">Privacy Policy</a>
+									</li>
+									<li class="nav-item">
+										<a href="/code-of-conduct" class="nav-link">Code of Conduct</a>
+									</li>
+									<li class="nav-item">
+										<a href="/titlevi" class="nav-link">Title VI: Commitment to Fairness</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="card-deck">
+						<div class="card border-0">
+							<div class="card-body">
+								<h4 class="card-title">Mission &amp; Impact</h4>
+								<ul class="nav flex-column">
+									<li class="nav-item">
+										<a href="/commitment-to-fairness" class="nav-link">Commitment to Fairness</a>
+									</li>
+									<li class="nav-item">
+										<a href="/impact-programs" class="nav-link">Impact Programs</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card border-0">
+							<div class="card-body">
+								<h4 class="card-title">Resources</h4>
+								<ul class="nav flex-column">
+									<li class="nav-item">
+										<a href="/app" class="nav-link">Try the Metro Transit App</a>
+									</li>
+									<li class="nav-item">
+										<a href="/advertise-with-metro-transit" class="nav-link">Advertise with Us</a>
+									</li>
+									<li class="nav-item">
+										<a href="/apps" class="nav-link">API Resources for Developers</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card border-0"></div>
+						<div class="card border-0"></div>
+					</div>
+				</div>
+			</div>
+			<p class="text-center">
+				<small>
+					Metro Transit is a service of the Metropolitan Council.
+					<span class="d-block d-md-none"> <br /> </span>&copy; 2019 Metro
+					Transit
+				</small>
+			</p>
+		</div>
+	</footer>
 	<!-- End Footer -->
 
 	<!-- Vendor scripts -->
-	<script src="js/jquery.js"></script>
-<script src="js/popper.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery.exlink.js"></script>
-<script src="js/svgxuse.js"></script>
-<script scr="js/nextrip.js"></script>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/popper.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/jquery.exlink.js"></script>
+	<script src="/js/svgxuse.js"></script>
+	<script src="/js/nextrip.js"></script>
 
 	<!-- End vendor scripts -->
-	<!-- build:js js/app.min.js -->
-	<script src="js/scripts.js"></script>
+	<!-- build:js /js/app.min.js -->
+	<script src="/js/scripts.js"></script>
 	<!-- endbuild -->
 </body>
 
