@@ -37,14 +37,6 @@ gulp.task('vendorjs', function() {
         .pipe(gulp.dest('src/js'))
 });
 
-// Copy iamp to dist
-gulp.task('imap', function() {
-    return gulp.src([
-            'src/imap/*'
-    ])
-    .pipe(gulp.dest('dist/imap'))
-});
-
 // Copy js to dist
 gulp.task('scripts', function() {
     return gulp.src([
@@ -104,7 +96,6 @@ gulp.task('watch', function() {
     // gulp.watch('src/Data/sites/1/skins/MetroTransitIII/*.html', browserSync.reload);
     gulp.watch('src/*.html', browserSync.reload);
     gulp.watch('src/js/**/*.js', browserSync.reload);
-    gulp.watch('src/imap/*');
 });
 
 // Optimization Tasks
@@ -154,7 +145,7 @@ gulp.task('default', function(callback) {
 gulp.task('build', function(callback) {
     runSequence(
         'clean:dist',
-        'sass', ['useref', 'css', 'fonts', 'scripts', 'imap', 'images', 'svgDefs'],
+        'sass', ['useref', 'css', 'fonts', 'scripts', 'images', 'svgDefs'],
         callback
     )
 });
