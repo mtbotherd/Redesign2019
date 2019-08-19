@@ -113,9 +113,6 @@ var NexTrip = (function ($, window, document, undefined) {
 			stopId,
 			timer;
 
-		$('.select-route-direction, .select-route-stop').hide();
-		$('#nextripDepartures').hide();
-
 		// Get routes when the page loads and populate the Routes dropdown
 		getRoutes();
 

@@ -15,7 +15,14 @@
     }
   }
 
+  .select-route-direction,
+  .select-route-stop {
+    display: none;
+  }
+
   #nextripDepartures {
+    display: none;
+
     .card {
       background-color: $gray-100 !important;
 
@@ -37,7 +44,6 @@
 
     .show {
       cursor: pointer;
-      //display: none;
       padding-top: 1rem;
       position: relative;
 
