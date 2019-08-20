@@ -23,13 +23,16 @@ $(document).ready(function() {
     		Trip Planner
     ***********************************************/
     // location switcher
-    var inputs = $('.from-location, .to-location'),
-        tmp
+    var inputs = $('.from-location, .to-location'), tmp, loctmp;
+
     $('.location-toggler').click(function() {
-        tmp = inputs[0].value
-        inputs[0].value = inputs[1].value
-        inputs[1].value = tmp
-    })
+        tmp = inputs[0].value;
+        loctmp = TRIPFROMLOCATION;
+        inputs[0].value = inputs[1].value;
+        TRIPFROMLOCATION = TRIPTOLOCATION;
+        inputs[1].value = tmp;
+        TRIPTOLOCATION = loctmp;
+    });
 
     // time & date inputs
     $('.time-elements').hide();
@@ -178,7 +181,7 @@ $(document).ready(function() {
     $('button[name="planMyTrip"]').click(function(){
         if (TRIPFROMLOCATION && TRIPTOLOCATION) {
             TRIPPLANJSON = null; // clear the old one
-            console.log("Lets to Tripping from " + TRIPFROMLOCATION.address + " to " + TRIPTOLOCATION.address);
+            console.log("Lets go tripping from " + TRIPFROMLOCATION.address + " to " + TRIPTOLOCATION.address);
             let testDate = new Date("8/19/2019 07:30:00 AM");
             let atisID = '0';
             let fromLoc = TRIPFROMLOCATION.address + '|' + TRIPFROMLOCATION.location.y + '|' + TRIPFROMLOCATION.location.x + '|' + atisID;
@@ -234,6 +237,7 @@ $(document).ready(function() {
                     }
                 }
             }
+            eraseCookie('mTPlan');
         });
     }
     if ($('#NexTripMap').attr('maptype') === 'BOM') {
