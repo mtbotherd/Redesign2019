@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
 
     'use strict';
 
@@ -35,85 +35,11 @@ $(document).ready(function() {
     $('.time-elements').hide();
     $('#selectTime').on('change', function() {
         if (this.value == 'depart-at' || this.value == 'arrive-by') {
-            $('.time-elements').show();
+            $('.time-elements').slideDown();
         } else {
-            $('.time-elements').hide();
+            $('.time-elements').slideUp();
         }
     });
-
-    // Get json data
-    // var JSONPLAN = null;
-    // $.ajax({
-    //     type: 'get',
-    //     url: 'TripPlan.json',
-    //     dataType: 'json'
-    // })
-    // .done(function(result, status, xhr) {
-    //     console.dir(result);
-    //     JSONPLAN = result;
-    // })
-    // .fail(function(err) {
-    //     console.warn('Fetch TripPlan - No trip found ' + err);
-    // });
-
-    /***********************************************
-			NexTrip
-	***********************************************/
-    // Select route
-    $('.select-route-direction, .select-route-stop').hide();
-    $('.select-route').change(function() {
-        if ($('select').val() != null) {
-            $('.select-route-direction').fadeIn('slow').css('display', 'flex');
-        } else {
-            $('.select-route-direction, .select-route-stop').hide();
-        }
-    });
-
-    // Select selectDirection
-    $('.select-route-direction').change(function() {
-        if ($('select').val() != null) {
-            $('.select-route-stop').fadeIn('slow').css('display', 'flex');
-        } else {
-            $('.select-route-stop').hide();
-        }
-    });
-
-    // Get json data
-
-    // var ntRouteOptions;
-    // var ntDirectionOptions;
-    //
-    // $.ajax ({
-    //     type: 'get',
-    //     //url: 'http://svc.metrotransit.org/NexTrip/Routes?format=json',
-    //     url: 'https://svc.metrotransittest.org/nextripv2/routes',
-    //     dataType: 'json',
-    //     success: function(result) {
-    //         $.each(result, function(i,ntRoute) {
-    //             //console.log(ntRoute.Description);
-    //             //<option value="Route">Route</option>
-    //             ntRouteOptions += "<option value='" +  ntRoute.Route + "'>" + ntRoute.Description + "</option>";
-    //         });
-    //         $('#ntRoute').html(ntRouteOptions);
-    //     }
-    // });
-    // $('#ntRoute').change(function() {
-    //     if($(this).val() != null) {
-    //         $.ajax ({
-    //             type: 'get',
-    //             url: 'http://svc.metrotransit.org/NexTrip/Directions/5?format=json',
-    //             dataType: 'json',
-    //             success: function(result) {
-    //                 $.each(result, function(directionText,directionValue) {
-    //                     //console.log(ntRoute.Description);
-    //                     //<option value="Route">Route</option>
-    //                     ntDirectionOptions += "<option value='" +  directionValue.Value + "'>" + directionText.Text + "</option>";
-    //                 });
-    //                 $('#ntDirection').html(ntDirectionOptions);
-    //             }
-    //         });
-    //     }
-    // });
 
     /*************************************************
     * Trip Plans
