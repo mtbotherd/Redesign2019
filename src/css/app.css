@@ -8762,10 +8762,12 @@ footer.section {
 #interactiveMap .btn-outline-primary {
   width: 100%; }
 
-@media (min-width: 1200px) {
-  #interactiveMap .map-container {
-    width: 100%;
-    height: 788px; } }
+#interactiveMap .map-container {
+  height: 600px; }
+  @media (min-width: 1200px) {
+    #interactiveMap .map-container {
+      width: 100%;
+      height: 788px; } }
 
 .autocomplete-suggestions {
   border: 2px solid #999;
@@ -8854,7 +8856,8 @@ footer.section {
 
 .esriScalebarLabel {
   padding-top: .3em;
-  font-size: 1em; }
+  font-size: 1em;
+  width: auto; }
 
 /*Mobile Popup*/
 .pNexTripLink {

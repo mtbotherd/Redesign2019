@@ -156,6 +156,9 @@ $(document).ready(function() {
                                 if (inputDiv === "toLocation") {
                                     TOLOCATION = choice;
                                 }
+                                if (inputDiv === "schedulesMaps") {
+                                    TRIM.centerMarkerAtPoint(choice.location.x,choice.location.y);
+                                }
                             }
                         }
                     })
@@ -165,10 +168,10 @@ $(document).ready(function() {
             }
         });
     }
-    var FROMLOCATION = null;
-    var TOLOCATION = null;
+
     addressAutoComplete("fromLocation",/*UTMout*/true);
     addressAutoComplete("toLocation",/*UTMout*/true);
+    addressAutoComplete("schedulesMaps", /*UTMout*/false);
 
     // Get json data
 
@@ -206,6 +209,7 @@ $(document).ready(function() {
     //         });
     //     }
     // });
+
     // =============================================
     // Initalize map depending on their map type
     // =============================================
@@ -220,4 +224,18 @@ $(document).ready(function() {
             BOM.startBusesOnMap(parms);
         });
     }
+    if ($('#TRIMap').attr('maptype') === 'full') {
+        TRIM.init('TRIMap').then(function() {
+            TRIM.geoLocate();
+        });
+    }
+    $('#stopsStations').click(function(){
+        TRIM.toggleLayer('allStops');
+    });
+    $('#parkRide').click(function(){
+        TRIM.toggleLayer('parkAndRides');
+    });
+    $('#niceRide').click(function(){
+        TRIM.toggleLayer('niceRides');
+    });
 });
