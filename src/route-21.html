@@ -9,6 +9,7 @@
 	<link rel="shortcut icon"
 		  href="favicon.ico"
 		  type="image/x-icon">
+	<link rel="stylesheet" href="https://js.arcgis.com/3.28/esri/css/esri.css" />
 	<link rel="stylesheet"
 		  href="/css/app.css">
 
@@ -289,8 +290,13 @@
 								<div id="collapseMap"
 									 class="collapse">
 									<div class="card-body p-0">
-										<img class="img-fluid"
-											 src="/img/TripPlanMap1.png">
+										<div class="map-container border">
+											<div id="RouteBOM" class="map" maptype="BOM" role="application" aria-label="interactive map of vehicle locations">
+												<div id="bombanner" class="mapbanner"></div>
+												<div id="bomticker" class="bomticker"></div>
+												<div id="bomlocate"></div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -365,10 +371,12 @@
 										<div class="col-lg-6">
 											<h3>Route map</h3>
 											<div class="tp-basemap">
-												<div class="card">
-													<img class="img-fluid"
-														 src="/img/TripPlanMap1.png">
-												</div>
+													<div class="map-container border">
+														<div id="TRIMap" class="map" mapType="route" role="application" aria-label="display map of transit route">
+																<div id="trimLocate"></div>
+																<div class="mapLoading"></div>
+														</div>
+													</div>
 											</div>
 										</div>
 									</div>
@@ -576,9 +584,11 @@
 	<script src="/js/popper.js"></script>
 	<script src="/js/bootstrap.js"></script>
 	<script src="/js/jquery.exlink.js"></script>
+	<script src="/js/jquery.autocomplete.js"></script>
 	<script src="/js/svgxuse.js"></script>
+	<script src="https://js.arcgis.com/3.28/"></script>
 	<!-- End vendor scripts -->
-
+	<script src="/js/TRIM.js"></script>
 	<script src="/js/scripts.js"></script>
 </body>
 

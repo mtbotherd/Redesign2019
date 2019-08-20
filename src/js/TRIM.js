@@ -1461,9 +1461,12 @@ var BOM = (function ($, window, document, undefined) {
     var _TICKS = 0; // a count of every iteration of the update cycle
     var _TICKSTOP = 60; // after this many cycles pause the service
     var _RESTARTACTIONVERB = 'Click or tap';
+    var _GEOLOCATE; // this is the locate button object
     var _DEBUG = false;
 
-
+    var geoLocate = function () {
+        _GEOLOCATE.locate();
+    }
     var BOMStatus = function () {
         return _BOMRUNNING;
     };
@@ -1882,17 +1885,17 @@ var BOM = (function ($, window, document, undefined) {
                     });
 
                     _MAP.on("load", function () {
-                        var geoLocate = new LocateButton({
+                        _GEOLOCATE = new LocateButton({
                             map: _MAP,
                             //useTracking: true
                             scale: 10000
                         }, 'bomlocate');
-                        geoLocate.startup();
-                        geoLocate.clearOnTrackingStop = true;
-                        geoLocate.on("locate", function () {
+                        _GEOLOCATE.startup();
+                        _GEOLOCATE.clearOnTrackingStop = true;
+                        _GEOLOCATE.on("locate", function () {
                             clearMarkerAtPoint();
                             on.once(_MAP, "click", function () {
-                                geoLocate.clear();
+                                _GEOLOCATE.clear();
                             });
                             if (_BOMRUNNING) {
                                 drawBusesOnMap();
@@ -2123,8 +2126,7 @@ var BOM = (function ($, window, document, undefined) {
                     showRoute(routenums);
                 }
             }).then(function (extentOfRoutes) {
-                _MAP.centerAndZoom(stopPoint, parms.stopZoomLevel).then(function () { 
-                    drawBusesOnMap(parms.zoomToNearestBus); });
+                _MAP.centerAndZoom(stopPoint, parms.stopZoomLevel).then(function () { drawBusesOnMap(parms.zoomToNearestBus); });
             }).fail(function () {
                 console.warn('Requested stop ' + parms.stopID + ' not found.');
                 //showMapBanner('Requested stop ' + parms.stopID + ' not found.');
@@ -2151,6 +2153,7 @@ var BOM = (function ($, window, document, undefined) {
     };
 
     return {
+        geoLocate: geoLocate, // zoom to user location
         BOM_running: BOMStatus, // true if BOM is running otherwise false
         clearMarkerAtPoint: clearMarkerAtPoint, // removes the stopID marker from the map
         drawBusesOnMap: drawBusesOnMap, // call this after moving to a new location on the map like after user preses 'Find Me'
