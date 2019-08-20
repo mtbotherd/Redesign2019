@@ -151,10 +151,10 @@ $(document).ready(function() {
                                 var choice = r.candidates[0];
                                 console.log(inputDiv + ": " + JSON.stringify(choice));
                                 if (inputDiv === "fromLocation") {
-                                    FROMLOCATION = choice;
+                                    TRIPFROMLOCATION = choice;
                                 }
                                 if (inputDiv === "toLocation") {
-                                    TOLOCATION = choice;
+                                    TRIPTOLOCATION = choice;
                                 }
                                 if (inputDiv === "schedulesMaps") {
                                     TRIM.centerMarkerAtPoint(choice.location.x,choice.location.y);
@@ -168,10 +168,129 @@ $(document).ready(function() {
             }
         });
     }
-
+    var TRIPFROMLOCATION = null;
+    var TRIPTOLOCATION = null;
+    var TRIPPLANJSON = null;
     addressAutoComplete("fromLocation",/*UTMout*/true);
     addressAutoComplete("toLocation",/*UTMout*/true);
     addressAutoComplete("schedulesMaps", /*UTMout*/false);
+
+    $('button[name="planMyTrip"]').click(function(){
+        if (TRIPFROMLOCATION && TRIPTOLOCATION) {
+            TRIPPLANJSON = null; // clear the old one
+            console.log("Lets to Tripping from " + TRIPFROMLOCATION.address + " to " + TRIPTOLOCATION.address);
+            let testDate = new Date("8/19/2019 07:30:00 AM");
+            let atisID = '0';
+            let fromLoc = TRIPFROMLOCATION.address + '|' + TRIPFROMLOCATION.location.y + '|' + TRIPFROMLOCATION.location.x + '|' + atisID;
+            let toLoc = TRIPTOLOCATION.address + '|' + TRIPTOLOCATION.location.y + '|' + TRIPTOLOCATION.location.x + '|' + atisID;
+            $.ajax({
+                type: "get",
+                url: "https://www.metrotransittest.org/Services/TripPlannerSvc.ashx",
+                data: {
+                    "s-orig": fromLoc,
+                    "s-dest": toLoc,
+                    "arrdep": "Depart", 
+                    "walkdist": "1.0",
+                    "minimize": "Time",
+                    "accessible": "False",
+                    //"xmode": "BCLTX",
+                    //"datetime": TRIM.convertDateTimeToDotNet(TRIM.convertUTCDateToLocalDate(new Date()))
+                    "datetime": TRIM.convertDateTimeToDotNet(TRIM.convertUTCDateToLocalDate(testDate))
+                },
+                dataType: "json"
+            })
+                .done(function (result, status, xhr) {
+                    console.dir(result);
+                    TRIPPLANJSON = result;
+                    console.log("Total Plans: " + TRIPPLANJSON.PlannerItin.PlannerOptions.length);
+                })
+                .fail(function (err) {
+                    console.warn("Fetch TripPlan - No trip found " + err);
+                });
+        }
+    });
+    // =============================================
+    // Initalize map depending on their map type
+    // =============================================
+    if ($('#tripPlanMap').attr('maptype') === 'trip') {
+        TRIM.init('tripPlanMap').then(function() {
+            if (TRIPPLANJSON) {
+                if (TRIPPLANJSON.PlannerItin) {
+                    if (TRIPPLANJSON.PlannerItin.PlannerOptions.length > 0) {
+                        console.log("Draw TripPlan 0");
+                        TRIM.drawTrip(0, TRIPPLANJSON,/*zoom*/true);
+                    }
+                    if (TRIPPLANJSON.PlannerItin.PlannerOptions.length > 1) {
+                        setTimeout(function () {
+                            console.log("Draw TripPlan 1");
+                            TRIM.drawTrip(1, TRIPPLANJSON,/*zoom*/true);
+                        }, 5000);
+                    }
+                    if (TRIPPLANJSON.PlannerItin.PlannerOptions.length > 2) {
+                        setTimeout(function () {
+                            console.log("Draw TripPlan 2");
+                            TRIM.drawTrip(2, TRIPPLANJSON,/*zoom*/true);
+                        }, 10000);
+                    }
+                }
+            }
+        });
+    }
+    if ($('#NexTripMap').attr('maptype') === 'BOM') {
+         let parms = {
+            stopID: '2611', // optional stop, if route too then show just the one route
+            routeID: null, // optional route, if no stop - show all on route, if 0 - show all
+            zoomToNearestBus: true, // when drawing buses the first time, zoom out until you find a bus to show
+            stopZoomLevel: 16 // Web Mercator level to intially zoom the stop extent, if stopID has a value
+        };
+        BOM.init('NexTripMap').then(function () {
+        });
+        $('#collapseMap').on('shown.bs.collapse', function () {
+            BOM.startBusesOnMap(parms);
+        });
+        $('#collapseMap').on('hidden.bs.collapse', function () {
+            BOM.stopBusesOnMap();
+        });
+    }
+    if ($('#TRIMap').attr('maptype') === 'full') {
+        TRIM.init('TRIMap').then(function() {
+            TRIM.geoLocate();
+        });
+    }
+    $('#stopsStations').click(function(){
+        TRIM.toggleLayer('allStops');
+    });
+    $('#parkRide').click(function(){
+        TRIM.toggleLayer('parkAndRides');
+    });
+    $('#niceRide').click(function(){
+        TRIM.toggleLayer('niceRides');
+    });
+    if ($('#routeMap').attr('maptype') === 'route') {
+        TRIM.init('routeMap').then(function() {
+            var routes = ["21"];
+            TRIM.drawRoutes(routes, /*zoom*/true);
+        });
+    }
+    if ($('#routeBOM').attr('maptype') === 'BOM') {
+        let parms = {
+           stopID: null, // optional stop, if route too then show just the one route
+           routeID: "21", // optional route, if no stop - show all on route, if 0 - show all
+           zoomToNearestBus: true, // when drawing buses the first time, zoom out until you find a bus to show
+           stopZoomLevel: 16 // Web Mercator level to intially zoom the stop extent, if stopID has a value
+        };
+        BOM.init('routeBOM').then(function () {
+           BOM.startBusesOnMap(parms);
+        });
+        $('#collapseMap').on('shown.bs.collapse', function () {
+           BOM.geoLocate();
+        });
+        $('#collapseMap').on('hidden.bs.collapse', function () {
+            BOM.stopBusesOnMap();
+        });
+   }
+
+});
 
     // Get json data
 
@@ -209,62 +328,3 @@ $(document).ready(function() {
     //         });
     //     }
     // });
-
-    // =============================================
-    // Initalize map depending on their map type
-    // =============================================
-    if ($('#NexTripMap').attr('maptype') === 'BOM') {
-         let parms = {
-            stopID: '2611', // optional stop, if route too then show just the one route
-            routeID: null, // optional route, if no stop - show all on route, if 0 - show all
-            zoomToNearestBus: true, // when drawing buses the first time, zoom out until you find a bus to show
-            stopZoomLevel: 16 // Web Mercator level to intially zoom the stop extent, if stopID has a value
-        };
-        BOM.init('NexTripMap').then(function () {
-        });
-        $('#collapseMap').on('shown.bs.collapse', function () {
-            BOM.startBusesOnMap(parms);
-        });
-        $('#collapseMap').on('hidden.bs.collapse', function () {
-            BOM.stopBusesOnMap();
-        });
-    }
-    if ($('#TRIMap').attr('maptype') === 'full') {
-        TRIM.init('TRIMap').then(function() {
-            TRIM.geoLocate();
-        });
-    }
-    $('#stopsStations').click(function(){
-        TRIM.toggleLayer('allStops');
-    });
-    $('#parkRide').click(function(){
-        TRIM.toggleLayer('parkAndRides');
-    });
-    $('#niceRide').click(function(){
-        TRIM.toggleLayer('niceRides');
-    });
-    if ($('#TRIMap').attr('maptype') === 'route') {
-        TRIM.init('TRIMap').then(function() {
-            var routes = ["21"];
-            TRIM.drawRoutes(routes, /*zoom*/true);
-        });
-    }
-    if ($('#RouteBOM').attr('maptype') === 'BOM') {
-        let parms = {
-           stopID: null, // optional stop, if route too then show just the one route
-           routeID: "21", // optional route, if no stop - show all on route, if 0 - show all
-           zoomToNearestBus: true, // when drawing buses the first time, zoom out until you find a bus to show
-           stopZoomLevel: 16 // Web Mercator level to intially zoom the stop extent, if stopID has a value
-        };
-        BOM.init('RouteBOM').then(function () {
-           BOM.startBusesOnMap(parms);
-        });
-        $('#collapseMap').on('shown.bs.collapse', function () {
-           BOM.geoLocate();
-        });
-        $('#collapseMap').on('hidden.bs.collapse', function () {
-                BOM.stopBusesOnMap();
-        });
-   }
-
-});
