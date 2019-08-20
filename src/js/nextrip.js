@@ -88,7 +88,6 @@ var NexTrip = (function ($, window, document, undefined) {
 
 		if (departures.length > threshold) {
 			$('.more').show();
-			console.log('Showing first ' + threshold + ' records');
 		} else {
 			$('.more').hide();
 		}
@@ -153,10 +152,11 @@ var NexTrip = (function ($, window, document, undefined) {
 		});
 
 		$('#searchStopsButton').click(function () {
+			var stopId = $('#stopNumber').val();
 			if (timer > 0) {
 				clearInterval(timer);
 			}
-			timer = setInerval(function () {
+			timer = setInterval(function () {
 				getStopDepartures(stopId);
 			}, 30000);
 
