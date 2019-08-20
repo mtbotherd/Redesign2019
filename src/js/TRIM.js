@@ -1,4 +1,4 @@
-﻿var CoordinateConversion = (function () {
+﻿ var CoordinateConversion = (function () {
     /* Code found here: http://home.hiwaay.net/~taylorc/toolbox/geography/geoutm.html
        Copyright 1997-1998 by Charles L. Taylor 
     */
@@ -1428,10 +1428,10 @@ var BOM = (function ($, window, document, undefined) {
     var _ROUTEID = null; // these are requested routes from the URL parameter
     var _ROUTESFORSHOW = null; // these are route number only for the requested stop
     var _ROUTESFORSTOP = null; // these have route number plus terminal letter for the requested stop
-    var _LOCATION_SERVICE = "//svc.metrotransit.org/nextrip/VehicleLocations/";
-    var _STOPS_QUERY_LAYER = "//arcgis.metc.state.mn.us/transit/rest/services/transit/BOM_Points/MapServer/0";
-    //var _ROUTE_SERVICE = "//arcgistest.metctest.state.mn.us/transit/rest/services/TRIM/MapServer";
-    var _ROUTE_SERVICE = "//arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer";
+    var _LOCATION_SERVICE = "https://svc.metrotransit.org/nextrip/VehicleLocations/";
+    var _STOPS_QUERY_LAYER = "https://arcgis.metc.state.mn.us/transit/rest/services/transit/BOM_Points/MapServer/0";
+    //var _ROUTE_SERVICE = "https://arcgistest.metctest.state.mn.us/transit/rest/services/TRIM/MapServer";
+    var _ROUTE_SERVICE = "https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer";
     var _ROUTE_LAYER = 4; // service layer ID for TRIM routes
     var _BOMRUNNING = true; // service actively cycling
     var _TIMEINTERVAL = 7500; // milliseconds between cycles requesting bus locations

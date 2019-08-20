@@ -206,4 +206,18 @@ $(document).ready(function() {
     //         });
     //     }
     // });
+    // =============================================
+    // Initalize map depending on their map type
+    // =============================================
+    if ($('#NexTripMap').attr('maptype') === 'BOM') {
+         let parms = {
+            stopID: '2611', // optional stop, if route too then show just the one route
+            routeID: null, // optional route, if no stop - show all on route, if 0 - show all
+            zoomToNearestBus: true, // when drawing buses the first time, zoom out until you find a bus to show
+            stopZoomLevel: 16 // Web Mercator level to intially zoom the stop extent, if stopID has a value
+        };
+        BOM.init('NexTripMap').then(function () {
+            BOM.startBusesOnMap(parms);
+        });
+    }
 });

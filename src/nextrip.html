@@ -9,8 +9,10 @@
 	<link rel="shortcut icon"
 		  href="favicon.ico"
 		  type="image/x-icon">
-<link rel="stylesheet" href="app.css">
+	<link rel="stylesheet"
 		  href="/css/app.css">
+	<link rel="stylesheet"
+          href="https://js.arcgis.com/3.28/esri/css/esri.css" />
 
 </head>
 
@@ -370,11 +372,14 @@
 													 src="/img/svg/chevron-down-blue.svg">
 											</button>
 										</div>
-										<div id="collapseMap"
+										<div id="collapseMap" style="height:300px;width:auto;"
 											 class="collapse">
-											<div class="card-body p-0">
-												<img class="img-fluid"
-													 src="/img/TripPlanMap1.png">
+											<div class="card-body p-0" >
+												<div id="NexTripMap" class="map" maptype="BOM" role="application" aria-label="interactive map of vehicle locations">
+													<div id="bombanner" class="mapbanner"></div>
+													<div id="bomticker" class="bomticker"></div>
+													<div id="bomlocate"></div>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -567,11 +572,13 @@
 	<script src="/js/jquery.js"></script>
 	<script src="/js/popper.js"></script>
 	<script src="/js/bootstrap.js"></script>
+	<script src="/js/jquery.autocomplete.js"></script>
 	<script src="/js/jquery.exlink.js"></script>
 	<script src="/js/svgxuse.js"></script>
-	<script src="/js/TRIM.js"></script>
-	<!-- End vendor scripts -->
+	<script src="https://js.arcgis.com/3.28/"></script>
 
+	<!-- End vendor scripts -->
+	<script src="/js/TRIM.js"></script>
 	<script src="/js/scripts.js"></script>
 </body>
 
