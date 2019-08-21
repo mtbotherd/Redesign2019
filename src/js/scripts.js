@@ -189,9 +189,6 @@ $(function() {
                 });
         }
     });
-    // =============================================
-    // Initalize map depending on their map type
-    // =============================================
     if ($('#tripPlanMap').attr('maptype') === 'trip') {
         TRIM.init('tripPlanMap').then(function() {
             if (TRIPPLANJSON) {
@@ -214,25 +211,12 @@ $(function() {
                     }
                 }
             }
-            eraseCookie('mTPlan');
         });
     }
-    if ($('#NexTripMap').attr('maptype') === 'BOM') {
-         let parms = {
-            stopID: '2611', // optional stop, if route too then show just the one route
-            routeID: null, // optional route, if no stop - show all on route, if 0 - show all
-            zoomToNearestBus: true, // when drawing buses the first time, zoom out until you find a bus to show
-            stopZoomLevel: 16 // Web Mercator level to intially zoom the stop extent, if stopID has a value
-        };
-        BOM.init('NexTripMap').then(function () {
-        });
-        $('#collapseMap').on('shown.bs.collapse', function () {
-            BOM.startBusesOnMap(parms);
-        });
-        $('#collapseMap').on('hidden.bs.collapse', function () {
-            BOM.stopBusesOnMap();
-        });
-    }
+
+    //
+    // schedules-maps
+    //
     if ($('#TRIMap').attr('maptype') === 'full') {
         TRIM.init('TRIMap').then(function() {
             TRIM.geoLocate();
@@ -247,6 +231,9 @@ $(function() {
     $('#niceRide').click(function(){
         TRIM.toggleLayer('niceRides');
     });
+    //
+    // routes
+    //
     if ($('#routeMap').attr('maptype') === 'route') {
         TRIM.init('routeMap').then(function() {
             var routes = ["21"];
