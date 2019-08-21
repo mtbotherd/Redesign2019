@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Metro Transit</title>
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://js.arcgis.com/3.28/esri/css/esri.css" />
 <link rel="stylesheet" href="/css/app.css">
 
 </head>
@@ -299,9 +300,12 @@
 			                    </div>
 			                    <div class="col-lg-7">
 			                        <div class="tp-basemap">
-			                            <div class="card border">
-			                                <img class="img-fluid" src="/img/TripPlanMap1.png">
-			                            </div>
+										<div class="map-container border">
+											<div id="tripPlanMap" class="map" mapType="trip" role="application" aria-label="interactive map of transit trip plan">
+												<div id="trimLocate"></div>
+												<div class="mapLoading"></div>
+											</div>
+										</div>
 			                        </div>
 			                    </div>
 			                </div>
@@ -461,10 +465,12 @@
 	<script src="/js/jquery.js"></script>
     <script src="/js/popper.js"></script>
     <script src="/js/bootstrap.js"></script>
-    <script src="/js/jquery.exlink.js"></script>
-    <script src="/js/svgxuse.js"></script>
+	<script src="/js/jquery.exlink.js"></script>
+	<script src="/js/jquery.autocomplete.js"></script>
+	<script src="/js/svgxuse.js"></script>
+	<script src="https://js.arcgis.com/3.28/"></script>
 	<!-- End vendor scripts -->
-	
+	<script src="/js/TRIM.js"></script>	
     <script src="/js/scripts.js"></script>
 </body>
 

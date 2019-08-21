@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Metro Transit</title>
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://js.arcgis.com/3.28/esri/css/esri.css" />
 <link rel="stylesheet" href="/css/app.css">
 
 </head>
@@ -299,27 +300,22 @@
 								</div> -->
 								<div class="custom-control custom-switch">
 									<input type="checkbox" class="custom-control-input" id="stopsStations" checked />
-									<label class="custom-control-label" for="stopsStations">Stops &amp; stations</label>
+									<label class="custom-control-label" for="stopsStations">Stops &amp; Stations</label>
 								</div>
 								<div class="custom-control custom-switch">
-									<input type="checkbox" class="custom-control-input" id="parkRide" />
+									<input type="checkbox" class="custom-control-input" id="parkRide" checked />
 									<label class="custom-control-label" for="parkRide">Park &amp; Rides</label>
 								</div>
 								<div class="custom-control custom-switch">
 									<input type="checkbox" class="custom-control-input" id="niceRide" />
 									<label class="custom-control-label" for="niceRide">Nice Ride</label>
 								</div>
-								<div class="custom-control custom-switch">
-									<input type="checkbox" class="custom-control-input" id="bikeLockers" />
-									<label class="custom-control-label" for="bikeLockers">Bike lockers</label>
-								</div>
-								<div class="custom-control custom-switch">
-									<input type="checkbox" class="custom-control-input" id="vanCarPoolLots" />
-									<label class="custom-control-label" for="vanCarPoolLots">Vanpool/Carpool lots</label>
-								</div>
 							</div>
 							<div class="map-container border">
-								<img alt="Interactive map" src="" />
+								<div id="TRIMap" class="map" mapType="full" role="application" aria-label="interactive map of transit stops">
+										<div id="trimLocate"></div>
+										<div class="mapLoading"></div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -506,10 +502,12 @@
 	<script src="/js/jquery.js"></script>
     <script src="/js/popper.js"></script>
     <script src="/js/bootstrap.js"></script>
-    <script src="/js/jquery.exlink.js"></script>
-    <script src="/js/svgxuse.js"></script>
+	<script src="/js/jquery.exlink.js"></script>
+	<script src="/js/jquery.autocomplete.js"></script>
+	<script src="/js/svgxuse.js"></script>
+	<script src="https://js.arcgis.com/3.28/"></script>
 	<!-- End vendor scripts -->
-	
+	<script src="/js/TRIM.js"></script>
     <script src="/js/scripts.js"></script>
 </body>
 

@@ -100,6 +100,7 @@ gulp.task('watch', function () {
 
 // Optimization Tasks
 // ------------------
+        //.pipe(gulpIf('*.js', uglify())) // Minifies only if it's a js file
 
 // Optimize images
 gulp.task('images', function () {

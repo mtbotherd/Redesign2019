@@ -1,0 +1,197 @@
+﻿/*
+*  Transit REDESIGN Map stylesheet
+*  ~/iMap/style/TRIM.css
+*
+*/
+.map {
+    font-size: 10pt;
+    line-height: 1.3;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+    .map > .LocateButton {
+        position: absolute;
+        right: 20px;
+        bottom: 140px;
+        z-index: 6;
+    }
+
+        .map > .LocateButton .zoomLocateButton {
+            width: 42px;
+            height: 42px;
+            padding: 0;
+        }
+
+    .map > .mapLoading {
+        position: absolute;
+        background-image: url('data:image/gif;base64,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');
+        right: 50%;
+        top: 50%;
+        width: 60px;
+        height: 60px;
+        z-index: 100;
+    }
+
+    .map > .bomticker {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        font-size: 0.8em;
+        text-rendering: optimizeLegibility;
+    }
+    .map > .mapbanner {
+        position: absolute; 
+        line-height: 30px; 
+        width: 70%; 
+        text-align: center; 
+        z-index: 30; 
+        top: 15%; 
+        left: 15%; 
+        background-color: white; 
+        border: solid 2px black; 
+        font-size: large; 
+        font-weight: bold; 
+        color: black;
+        display: none;
+    }
+
+.esriScalebar {
+    position: absolute;
+    bottom: 2em;
+}
+
+.esriScalebarLabel {
+    padding-top: .3em;
+    font-size: 1em;
+    width: auto;
+}
+
+/*Mobile Popup*/
+.pNexTripLink {
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
+.pfooter {
+    bottom: 3px;
+    font-size: .9em;
+    letter-spacing: -1px;
+    line-height: 1.5;
+    background-color: #E6F1F9;
+    margin-top: 5px;
+}
+
+.esriPopupMobile .titlePane {
+    background: #FFFFFF !important;
+    height: 80px;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    /*border-color:#0051A5;*/
+}
+
+.routelistmobpop {
+    /*white-space: normal;*/
+    font-weight: 500;
+    background-color: #f5f4f0;
+}
+
+.esriPopupMobile {
+    z-index: 5;
+}
+
+    .esriPopupMobile .titlePane .title {
+        font-size: 10pt;
+        color: #000000;
+        /*font-weight: bold;*/
+        line-height: 18px;
+        margin-top: 3px;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .esriPopupMobile a {
+        color: #0051A5;
+        text-decoration: underline !important;
+    }
+
+    .esriPopupMobile .sizer {
+        width: 300px;
+        height: 80px;
+    }
+
+    .esriPopupMobile .pointer.top {
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADWSURBVDhPtdK7DgFBGMXxoXENiYdUKxSESBRERIhC4jU8kkKLdS3H/4iRxReX4CS/nd3J7vmmWOe9f0caZcwwxxhJWO/eMDfvpFBBPEeM8HKIuRmjk9fgo+1OSzwaMoT13ZW5eZFBA1Z5iIb0YX1/Zm5C5S08Kw/RkB6sHnNAFh349War5Z0c0MVD3/1GDgN8Uh6iIW3cdMYfVK4/w6+ij8tD9mjiYUAeE/hltNHyTTSkjusAlU/hl+uvy0P0Z1ThEnpyhJO7UrGg219mkdSVk/+jnDh3Au8hTn2cIP/GAAAAAElFTkSuQmCCuAcNTxdPzOC45cIhH2dxyQX0ZcY/MJyXIV0X6KAVaFnZqXKM9QZ1SCyYgmeQjvNlIVc2g36yWtJjY3FJDaIFDH8B6Xi+zOFCrIBhZPf06Fg9OAJdoNX2nMzixq3Bv1iv6PGF1dIF7a6T6UzBHPiPPP6QXyWtT4v2JxRo4vwAAAAAAElFTkSuQmCC') !important; /*/iMap/images/pointertop_metc.png*/
+    }
+
+    .esriPopupMobile .pointer.bottom {
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACrSURBVDhPtdK/CsIwEMfxxEHEwedzdBDc3AQ3h64OgouLiIMP5mOoQ/xeuJakvVL/tD/4cORo7iDUB+IGzEjrYJEFHvt46jcFvJMXUgd5rp6yQ5ybLhBH/Jstqpnp8NIJv2aDbF52UPJnnfFt1mjMazTUGBeEx/MlpSsrWHNaF4gJruhasoR1PzKbiSluaFuygHWvYjZrZohLapnD+j5jNg3lkrvWj4aHENwbp2PtG24nkNIAAAAASUVORK5CYIIW/KV80tXbkkuQ3uQC9giSmfVds8hS7fCP9TkD35ksdyKQTK/smIVJjYueTkv4D0j1pV5UAZ5AMlWqmsXsoHujU5JjyPXlDtQIPAN9fn3T5PJWrrx1dcdfuzTB6vl1ARuFF5AlEwsVX97uPfCxyx5Y94V5mDAGA/BLMuU1sO555mHGOMiSTMpgzaeYhwa35EM/hyonouAHPB4oS9CdjKYAAAAASUVORK5CYII=') !important /*/iMap/images/pointerbottom_metc.png*/;
+    }
+
+    .esriPopupMobile .titleButton.close {
+        top: 3px;
+        left: 270px;
+        width: 16px;
+        height: 16px;
+        background: no-repeat url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAb5JREFUeNqkUzFLw0AU/s5UsUUs2VVcKkXcDnFSBJd2sUMREcShS12E0qEuHfMXBOcu/oWi4OLa0kEDgp2k0iWoSBxsE+N7l0uNVqcGXu/ufe/77st7qQiCAJM8U5jwSfDPhRAQtBpAjhaLou4DTS9W9Btj3wfkPu4gR4C1d3oq/bAw9xvbrVTGMCVASdBt1n6tJm3bRrFald53YY73O6WS7Ha72Dw8VJivBQQ3sSGEuoVsWYVyWXY6HWSzWVw2Gm0GNgoF2e/3kU6ncXt11abqOqWbR8QdCQShCyWyXSzK7sODIriui6deD7PJJNzHR0WmnjT5yjGBYfg6SmQxk5HPjqNsGoaBN8dRZGpmc5qtawE1hSedmNEd5/3w9RWpqFO+r8S1Swz0fuw7CHTDVkxTJj0Pc5SLgnOMBT+n83OMdIu1QYURqfPy0uaIzowN/xqjF76/lY+Rr4lI+TrHdUwkr0W8kW1qxBKt+6RaBVr3phnwyudlyi//gy1prpqCEGKBzikJbK0BxzZw1gJuKPdB8cn9XSdsFTi5A87bIfZO3F4kMK+HEE3I0+Hrhht6QAltnIcyIO6bmPTv/CXAACPM0BMSi5H+AAAAAElFTkSuQmCC');
+    }
+
+    .esriPopupMobile .titleButton.arrow {
+        top: 4px;
+        right: 189px;
+        width: 16px;
+        height: 4px;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAYCAIAAABWchv0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuNWWFMmUAAAAUSURBVChTY/iPAUaFYGDICP3/DwBXea5gXEFFlgAAAABJRU5ErkJggg==) no-repeat !important;
+    }
+
+    .esriPopupMobile .titleButton.prev {
+        top: 41px;
+        left: 67px;
+        width: 30px;
+        height: 30px;
+        background-image: none;
+    }
+
+    .esriPopupMobile .titleButton.next {
+        top: 41px;
+        right: 67px;
+        width: 30px;
+        height: 30px;
+        background-image: none;
+    }
+
+    .esriPopupMobile .titlePane .footer {
+        color: rgba(0, 81, 165, 0);
+    }
+
+    .esriPopupMobile hr {
+        color: #ff9900;
+        background-color: #ff9900;
+        height: 1px;
+        margin: 0 0;
+    }
+
+        .esriPopupMobile hr.ADA {
+            color: #C0C0C0;
+            background-color: #A0A0A0;
+            height: 1px;
+            margin: 0 0;
+        }
+
+.esriSimpleSlider div {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+    color: #555555 !important;
+    font-size: 2.4em;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 600;
+}
