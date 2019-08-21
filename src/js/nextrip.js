@@ -153,7 +153,7 @@ var NexTrip = (function ($, window, document, undefined) {
 		});
 
 		$('#searchStopsButton').click(function () {
-			$('#aspnetForm').validate({
+			$('form').validate({
 				debug: true,
 				rules: {
 					stopNumber: {
@@ -163,7 +163,7 @@ var NexTrip = (function ($, window, document, undefined) {
 				},
 				messages: {
 					stopNumber: {
-						required: 'X This field needs a stop number',
+						required: 'Please enter a stop number',
 						minlength: 'Must be a minimum of four numbers'
 					}
 				},
@@ -190,7 +190,7 @@ var NexTrip = (function ($, window, document, undefined) {
 				},
 				unhighlight: function(element, errorClass, validClass) {
 					// Adds valid class '.is-valid' for Bootstrap 4 styles.
-					$(element).parents('.input-group').addClass(validClass).removeClass(errorClass);
+					$(element).parents('.input-group').removeClass(errorClass);
 				}
 			});
 			$('#collapseMap').collapse('hide');
