@@ -192,7 +192,7 @@ var NexTrip = (function ($, window, document, undefined) {
 					$(element).parents('.input-group').removeClass(errorClass);
 				}
 			});
-			var stopId = $('#stopNumber').val();
+			stopId = $('#stopNumber').val();
 			if (timer > 0) {
 				clearInterval(timer);
 			}
