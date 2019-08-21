@@ -8151,6 +8151,62 @@ a.skip-to-content {
         height: 24px;
         vertical-align: middle; } }
 
+/**************************************************
+    Form validation styles
+**************************************************/
+form legend {
+  font-size: initial; }
+
+form .input-group {
+  position: relative; }
+
+form .custom-file-input:lang(en) ~ .custom-file-label::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f574";
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 900; }
+
+form .is-invalid .form-control {
+  border-color: #ed1b2e !important; }
+
+form .is-invalid .form-control:focus,
+form .is-invalid .custom-file-input:focus ~ .custom-file-label {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25), 0 0 6px #ed1b2e;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25), 0 0 6px #ed1b2e; }
+
+form .is-invalid .custom-file-input:lang(en) ~ .custom-file-label::after {
+  border-left: 1px solid #ed1b2e; }
+
+form .is-invalid .custom-file-label {
+  border-color: #ed1b2e !important; }
+
+form .is-invalid .form-control-feedback {
+  margin-right: 0.25rem; }
+
+form .is-invalid .help-block {
+  position: absolute;
+  top: 3.25rem;
+  color: #ed1b2e;
+  font-style: italic; }
+
+form .is-valid .form-control {
+  border-color: #008244; }
+
+form .is-valid .form-control:focus,
+form .is-valid .custom-file-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25), 0 0 6px #008244;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25), 0 0 6px #008244; }
+
+form .is-valid .custom-file-label {
+  border-color: #008244 !important; }
+
+form .is-valid .form-control-feedback {
+  display: none;
+  position: absolute;
+  top: 2.75rem;
+  right: 1.5rem; }
+
 .accordion .card .card-header {
   padding: 0 !important; }
   .accordion .card .card-header .btn {
