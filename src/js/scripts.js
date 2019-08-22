@@ -150,73 +150,13 @@ $(function() {
     }
     var TRIPFROMLOCATION = null;
     var TRIPTOLOCATION = null;
-    var TRIPPLANJSON = null;
     addressAutoComplete("fromLocation",/*UTMout*/true);
     addressAutoComplete("toLocation",/*UTMout*/true);
     addressAutoComplete("schedulesMaps", /*UTMout*/false);
 
-    $('button[name="planMyTrip"]').click(function(){
-        if (TRIPFROMLOCATION && TRIPTOLOCATION) {
-            TRIPPLANJSON = null; // clear the old one
-            console.log("Lets go tripping from " + TRIPFROMLOCATION.address + " to " + TRIPTOLOCATION.address);
-            let testDate = new Date("8/19/2019 07:30:00 AM");
-            let atisID = '0';
-            let fromLoc = TRIPFROMLOCATION.address + '|' + TRIPFROMLOCATION.location.y + '|' + TRIPFROMLOCATION.location.x + '|' + atisID;
-            let toLoc = TRIPTOLOCATION.address + '|' + TRIPTOLOCATION.location.y + '|' + TRIPTOLOCATION.location.x + '|' + atisID;
-            $.ajax({
-                type: "get",
-                url: "https://www.metrotransittest.org/Services/TripPlannerSvc.ashx",
-                data: {
-                    "s-orig": fromLoc,
-                    "s-dest": toLoc,
-                    "arrdep": "Depart", 
-                    "walkdist": "1.0",
-                    "minimize": "Time",
-                    "accessible": "False",
-                    //"xmode": "BCLTX",
-                    //"datetime": TRIM.convertDateTimeToDotNet(TRIM.convertUTCDateToLocalDate(new Date()))
-                    "datetime": TRIM.convertDateTimeToDotNet(TRIM.convertUTCDateToLocalDate(testDate))
-                },
-                dataType: "json"
-            })
-                .done(function (result, status, xhr) {
-                    console.dir(result);
-                    TRIPPLANJSON = result;
-                    console.log("Total Plans: " + TRIPPLANJSON.PlannerItin.PlannerOptions.length);
-                })
-                .fail(function (err) {
-                    console.warn("Fetch TripPlan - No trip found " + err);
-                });
-        }
-    });
-    if ($('#tripPlanMap').attr('maptype') === 'trip') {
-        TRIM.init('tripPlanMap').then(function() {
-            if (TRIPPLANJSON) {
-                if (TRIPPLANJSON.PlannerItin) {
-                    if (TRIPPLANJSON.PlannerItin.PlannerOptions.length > 0) {
-                        console.log("Draw TripPlan 0");
-                        TRIM.drawTrip(0, TRIPPLANJSON,/*zoom*/true);
-                    }
-                    if (TRIPPLANJSON.PlannerItin.PlannerOptions.length > 1) {
-                        setTimeout(function () {
-                            console.log("Draw TripPlan 1");
-                            TRIM.drawTrip(1, TRIPPLANJSON,/*zoom*/true);
-                        }, 5000);
-                    }
-                    if (TRIPPLANJSON.PlannerItin.PlannerOptions.length > 2) {
-                        setTimeout(function () {
-                            console.log("Draw TripPlan 2");
-                            TRIM.drawTrip(2, TRIPPLANJSON,/*zoom*/true);
-                        }, 10000);
-                    }
-                }
-            }
-        });
-    }
-
-    //
+    // ----------------------------------------------------
     // schedules-maps
-    //
+    // ----------------------------------------------------
     if ($('#TRIMap').attr('maptype') === 'full') {
         TRIM.init('TRIMap').then(function() {
             TRIM.geoLocate();
@@ -231,9 +171,9 @@ $(function() {
     $('#niceRide').click(function(){
         TRIM.toggleLayer('niceRides');
     });
-    //
+    // ---------------------------------------------------
     // routes
-    //
+    // ---------------------------------------------------
     if ($('#routeMap').attr('maptype') === 'route') {
         TRIM.init('routeMap').then(function() {
             var routes = ["21"];
