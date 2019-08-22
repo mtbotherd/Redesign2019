@@ -64,6 +64,13 @@
         width: 1.5rem;
         height: 1.5rem;
       }
+
+      .map-container {
+        margin-top: -1rem;
+        @include media-breakpoint-up(lg) {
+          height: 696px;
+        }
+      }
     }
 
     .route-number {
