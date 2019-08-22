@@ -24,11 +24,10 @@ gulp.task('browserSync', function () {
 // Copy vemdor js to src
 gulp.task('vendorjs', function () {
 	return gulp.src([
-		'node_modules/jquery/dist/jquery.js',
-		'node_modules/popper.js/dist/umd/popper.js',
-		'node_modules/bootstrap/dist/js/bootstrap.js',
-		'node_modules/exlink/jquery.exlink.js',
-		'node_modules/svgxuse/svgxuse.js'
+		'node_modules/jquery/dist/jquery.min.js',
+		'node_modules/popper.js/dist/umd/popper.min.js',
+		'node_modules/bootstrap/dist/js/bootstrap.min.js',
+		'node_modules/exlink/jquery.exlink.min.js'
 	])
 		.pipe(gulp.dest('src/js'))
 });
