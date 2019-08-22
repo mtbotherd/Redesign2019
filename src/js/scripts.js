@@ -43,9 +43,10 @@ $(function() {
             $('.time-elements').slideUp();
         }
     });
-/* =================================================================
-        BEGIN AUTOCOMPLETE
-    */
+
+	/***********************************************
+    		Begin Autocomplete
+    ***********************************************/
     const LOCATOR =
     "https://arcgistest.metctest.state.mn.us/transit/rest/services/metro_transit/GeocodeServer/";
     //
@@ -71,14 +72,14 @@ $(function() {
             }
         );
     }
-    /* ======================================================================
+    /* ===========================================================================
         addressAutoComplete
         Parms:
             inputDiv is a string with ID name of the input element 
             UTMout is a boolean - if true, coordinates for the address are
                 returned in UTM projection (needed for Trip Planner), otherwise
                 coordinates are geographic Lat/Long
-        ========================================================================= */
+	============================================================================*/
     var addressAutoComplete = function(/*string*/inputDiv,/*boolean*/UTMout) {
         $("#" + inputDiv).devbridgeAutocomplete({
             noCache: true,
@@ -197,6 +198,5 @@ $(function() {
             BOM.stopBusesOnMap();
         });
    }
-
 });
 
