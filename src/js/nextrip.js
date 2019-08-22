@@ -1,7 +1,11 @@
 var NexTrip = (function ($, window, document, undefined) {
 
 	'use strict';
-
+	var routeId,
+		directionId,
+		placeCode,
+		stopId,
+		timer;
 	function getRoutes() {
 		$.get('https://svc.metrotransittest.org/nextripv2/routes')
 			.done(function (result) {
@@ -65,6 +69,7 @@ var NexTrip = (function ($, window, document, undefined) {
 		let list = $('.stop-departures');
 		list.empty();
 		let stop = result.Stop;
+		stopId = stop.StopId;  // needed for the map 
 		//let route = result.Route;
 		let departures = result.Departures.sort(function (a, b) {
 			a = new Date(a.DeartureTime);
@@ -106,11 +111,6 @@ var NexTrip = (function ($, window, document, undefined) {
 	};
 
 	var init = function () {
-		var routeId,
-			directionId,
-			placeCode,
-			stopId,
-			timer;
 
 		// Get routes when the page loads and populate the Routes dropdown
 		getRoutes();
@@ -137,6 +137,7 @@ var NexTrip = (function ($, window, document, undefined) {
 
 		// When stop dropdown changes, get Timepoint departures.
 		$('#ntStop').change(function () {
+			$('#collapseMap').collapse('hide');
 			placeCode = this.value;
 			if (placeCode !== '') {
 				if (timer > 0) {
@@ -192,6 +193,7 @@ var NexTrip = (function ($, window, document, undefined) {
 					$(element).parents('.input-group').removeClass(errorClass);
 				}
 			});
+			$('#collapseMap').collapse('hide');
 			stopId = $('#stopNumber').val();
 			if (timer > 0) {
 				clearInterval(timer);
@@ -202,6 +204,23 @@ var NexTrip = (function ($, window, document, undefined) {
 
 			// Call getStopDepartures with entered stopId.
 			getStopDepartures(stopId);
+		});
+
+		if ($('#NexTripMap').attr('maptype') === 'BOM') 
+			BOM.init('NexTripMap').then(function () {
+		});
+		$('#collapseMap').on('shown.bs.collapse', function () {
+			var mapParms = {
+				stopID: stopId, // optional stop, if route too then show just the one route
+				routeID: routeId, // optional route, if no stop - show all on route, if 0 - show all
+				zoomToNearestBus: true, // when drawing buses the first time, zoom out until you find a bus to show
+				stopZoomLevel: 16 // Web Mercator level to intially zoom the stop extent, if stopID has a value
+			};
+			//console.dir(mapParms);
+			BOM.startBusesOnMap(mapParms);
+		});
+		$('#collapseMap').on('hidden.bs.collapse', function () {
+			BOM.stopBusesOnMap();
 		});
 	};
 
