@@ -8161,7 +8161,6 @@ form .input-group {
   position: relative; }
 
 form .custom-file-input:lang(en) ~ .custom-file-label::after {
-  font-family: "Font Awesome 5 Free";
   content: "\f574";
   display: inline-block;
   vertical-align: middle;
@@ -8688,6 +8687,11 @@ form .is-valid .form-control-feedback {
       top: 1.25rem;
       width: 1.5rem;
       height: 1.5rem; }
+    #nextripModule #nextripDepartures .show .map-container {
+      margin-top: -1rem; }
+      @media (min-width: 992px) {
+        #nextripModule #nextripDepartures .show .map-container {
+          height: 696px; } }
   #nextripModule #nextripDepartures .route-number {
     font-weight: 700; }
   #nextripModule #nextripDepartures .route-name {
