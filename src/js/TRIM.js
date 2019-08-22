@@ -1,4 +1,4 @@
-﻿ var CoordinateConversion = (function () {
+﻿var CoordinateConversion = (function () {
     /* Code found here: http://home.hiwaay.net/~taylorc/toolbox/geography/geoutm.html
        Copyright 1997-1998 by Charles L. Taylor 
     */
@@ -481,9 +481,6 @@ var TRIM = (function ($, window, document, undefined) {
         }
         return false;
     };
-    var geoLocate = function () {
-        GEOLOCATE.locate();
-    };
     var zoomToBBox = function (/*string*/parm) {
         require(["esri/geometry/Extent"], function (Extent) {
             //console.log("zoomToBBox says: " + setBBoxURL_value);
@@ -511,6 +508,10 @@ var TRIM = (function ($, window, document, undefined) {
      * These all need to be available from the outside
      * ==============================================================================
      */
+    // this is the external call to have the map zoom to the user's location
+    var geoLocate = function () {
+        GEOLOCATE.locate();
+    };
     var centerMarkerAtPoint = function (x, y) {  // x = longitude, y = latitude
         MAP.graphics.clear();
         require([
@@ -838,10 +839,10 @@ var TRIM = (function ($, window, document, undefined) {
             });
     };
 
-    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    //@@@@@@@@@@@@@@@@@@@@
+    //@@@  I N I T @@@@@@@
+    //@@@@@@@@@@@@@@@@@@@@
+    //@@@@@@@@@@@@@@@@@@@@
     var init = function (mapElementID) {
         return $.Deferred(function (dfd) {
 
@@ -853,16 +854,16 @@ var TRIM = (function ($, window, document, undefined) {
             var ROUTENAMES = null;
             $.ajax({
                 type: "get",
-                url: "https://svc.metrotransit.org/nextrip/Routes?format=json",
+                url: "https://svc.metrotransitTEST.org/nextripv2/routes",
                 dataType: "json"
             })
                 .done(function (result, status, xhr) {
                     ROUTENAMES = {};
-                    // Input format: { Route: "901", ProviderID: "8", Description: "METRO Blue Line", ... }
+                    // Input format: { RouteId: "901", ProviderID: "8", Description: "METRO Blue Line", RouteAbbr: ... }
                     // Outformat { "901": "METRO Blue Line" }
                     for (var i = 0, l = result.length; i < l; i++) {
                         var route = result[i];
-                        ROUTENAMES[route.Route] = route.Description;
+                        ROUTENAMES[route.RouteId] = route.Description;
                     }
                     //console.dir(ROUTENAMES);
                 })
@@ -1242,18 +1243,14 @@ var TRIM = (function ($, window, document, undefined) {
                                 MAP.infoWindow.hide();
                                 // clear these layers for any displays by passing nothing in the parameter
                                 // unless we're showing a particular route on the TRIM map
-
-                                //TODO TODO TODO
                                 //if (!mapProps.route) {
-                                //    drawRouteStops();
-                                //    drawRoutes();
+                                    drawRouteStops();
+                                    drawRoutes();
                                 //}
                             }
                             idMap(evt);
                         }
                     });
-
-                    //MAP.on("mouse-out", fireMapMouseUp);
 
                     MAP.on("resize", function (extent, width, height) { });
 
@@ -1276,8 +1273,9 @@ var TRIM = (function ($, window, document, undefined) {
                             console.error("Layer add " + result.error + " for " + result.layer.url);
                         }
                     });
+                    const TRIM_MapServer = "https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer";
 
-                    var allStopLayer = new ArcGISDynamicMapServiceLayer("https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer",
+                    var allStopLayer = new ArcGISDynamicMapServiceLayer(TRIM_MapServer,
                         {
                             id: "allStops",
                             opacity: 0.6
@@ -1285,7 +1283,7 @@ var TRIM = (function ($, window, document, undefined) {
                     allStopLayer.setImageFormat("svg");
                     allStopLayer.setVisibleLayers([1]);
 
-                    var goToLayer = new ArcGISDynamicMapServiceLayer("https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer",
+                    var goToLayer = new ArcGISDynamicMapServiceLayer(TRIM_MapServer,
                         {
                             id: "goTo",
                             opacity: 1,
@@ -1294,7 +1292,7 @@ var TRIM = (function ($, window, document, undefined) {
                     goToLayer.setImageFormat("svg");
                     goToLayer.setVisibleLayers([2]);
 
-                    var parkAndRidesLayer = new ArcGISDynamicMapServiceLayer("https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer",
+                    var parkAndRidesLayer = new ArcGISDynamicMapServiceLayer(TRIM_MapServer,
                         {
                             id: "parkAndRides",
                             opacity: 1,
@@ -1303,7 +1301,7 @@ var TRIM = (function ($, window, document, undefined) {
                     parkAndRidesLayer.setImageFormat("svg");
                     parkAndRidesLayer.setVisibleLayers([8]);
 
-                    var allRoutesLayer = new ArcGISDynamicMapServiceLayer("https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer",
+                    var allRoutesLayer = new ArcGISDynamicMapServiceLayer(TRIM_MapServer,
                         {
                             id: "allRoutes",
                             opacity: 0.35
@@ -1311,7 +1309,7 @@ var TRIM = (function ($, window, document, undefined) {
                     allRoutesLayer.setImageFormat("svg");
                     allRoutesLayer.setVisibleLayers([5]);
 
-                    var routestopLayer = new ArcGISDynamicMapServiceLayer("https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer",
+                    var routestopLayer = new ArcGISDynamicMapServiceLayer(TRIM_MapServer,
                         {
                             id: "routeStops",
                             opacity: 1
@@ -1320,7 +1318,7 @@ var TRIM = (function ($, window, document, undefined) {
                     routestopLayer.setVisibleLayers([0]);
                     routestopLayer.setLayerDefinitions(["1=0"]);
 
-                    var routesLayer = new ArcGISDynamicMapServiceLayer("https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer",
+                    var routesLayer = new ArcGISDynamicMapServiceLayer(TRIM_MapServer,
                         {
                             id: "routes",
                             opacity: 0.7
@@ -1385,14 +1383,6 @@ var TRIM = (function ($, window, document, undefined) {
                         ];
                     }
                     MAP.addLayers(mapLayers);
-
-                    //baseUnload.addOnUnload(function () {
-                    //    // drop a cookie of current map view
-                    //    var mapExtCookie = JSON.stringify(MAP.extent.toJson());
-                    //    //console.log(mapExtCookie);
-                    //    cookie("map.Extent", mapExtCookie, { expires: 5 });
-                    //    //console.log("unloading...");
-                    //});
                 }
             );
         }).promise();
@@ -1417,7 +1407,7 @@ var BOM = (function ($, window, document, undefined) {
 	 * Assumes: 
      * Code Dependencies:
      *  jquery191/jquery.min.js
-     *  ArcGIS Javascript API 3.26
+     *  ArcGIS Javascript API 3.28
      *  CoordinateConversion.js
      * 
      * Invoked from two separate javascript set-up scripts that establish the map
@@ -1450,9 +1440,8 @@ var BOM = (function ($, window, document, undefined) {
     var _ROUTEID = null; // these are requested routes from the URL parameter
     var _ROUTESFORSHOW = null; // these are route number only for the requested stop
     var _ROUTESFORSTOP = null; // these have route number plus terminal letter for the requested stop
-    var _LOCATION_SERVICE = "https://svc.metrotransit.org/nextrip/VehicleLocations/";
+    var _LOCATION_SERVICE = "https://svc.metrotransitTEST.org/nextripv2/vehicles/";
     var _STOPS_QUERY_LAYER = "https://arcgis.metc.state.mn.us/transit/rest/services/transit/BOM_Points/MapServer/0";
-    //var _ROUTE_SERVICE = "https://arcgistest.metctest.state.mn.us/transit/rest/services/TRIM/MapServer";
     var _ROUTE_SERVICE = "https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer";
     var _ROUTE_LAYER = 4; // service layer ID for TRIM routes
     var _BOMRUNNING = true; // service actively cycling
@@ -1636,7 +1625,7 @@ var BOM = (function ($, window, document, undefined) {
         }
         var response = [], // the collected bus locations for all routes
             promises = []; // the deferred promises for AJAX calls to get each route
-
+        // Example request: https://svc.metrotransittest.org/nextripv2/vehicles/3
         for (var r = 0, rl = routes.length; r < rl; r++) {
             var route = routes[r];
             var reqURL = _LOCATION_SERVICE + route;
@@ -1682,7 +1671,7 @@ var BOM = (function ($, window, document, undefined) {
                         //if (_DEBUG) console.log(i + " xD = " + xDelta + " yD = " + yDelta + " z = " + z);
 
                         $.each(response, function () {
-                            var p = newWMPointFromLatLong(this.VehicleLatitude, this.VehicleLongitude);
+                            var p = newWMPointFromLatLong(this.Latitude, this.Longitude);
                             // don't draw buses OUTSIDE the boundaries of the current extent
                             if (p.x > e.xmin - xDelta && p.x < e.xmax + xDelta && p.y > e.ymin - yDelta && p.y < e.ymax + yDelta) {
                                 var pnt;
@@ -1690,15 +1679,15 @@ var BOM = (function ($, window, document, undefined) {
                                     // draw only buses for routes that match route AND terminal letter
                                     // direction filter removed Dec 2018 to show more buses - helps circulator and bus turnaround situations
                                     //testRouteTerm += this.Direction === 1 ? ":SB" : this.Direction === 2 ? ":EB" : this.Direction === 3 ? ":WB" : this.Direction === 4 ? ":NB" : "";
-                                    if (_ROUTESFORSTOP.includes(this.Route + this.Terminal) || _SHOWALLBUSES) {
-                                        pnt = newPointFromLatLong(this.VehicleLatitude, this.VehicleLongitude);  // create a point from the bus location LAT/LONG
+                                    if (_ROUTESFORSTOP.includes(this.RouteId + this.Terminal) || _SHOWALLBUSES) {
+                                        pnt = newPointFromLatLong(this.Latitude, this.Longitude);  // create a point from the bus location LAT/LONG
                                         d++;
-                                        drawVehicleOnMap(pnt, this.Route, this.Terminal, this.Direction, this.LocationTime, this.BlockNumber);
+                                        drawVehicleOnMap(pnt, this.RouteId, this.Terminal, this.DirectionId, this.LocationTime, this.BlockNumber);
                                     }
                                 } else {
-                                    pnt = newPointFromLatLong(this.VehicleLatitude, this.VehicleLongitude);  // create a point from the bus location LAT/LONG
+                                    pnt = newPointFromLatLong(this.Latitude, this.Longitude);  // create a point from the bus location LAT/LONG
                                     d++;
-                                    drawVehicleOnMap(pnt, this.Route, this.Terminal, this.Direction, this.LocationTime, this.BlockNumber);
+                                    drawVehicleOnMap(pnt, this.RouteId, this.Terminal, this.DirectionId, this.LocationTime, this.BlockNumber);
                                 }
 
                             }
@@ -2156,7 +2145,7 @@ var BOM = (function ($, window, document, undefined) {
         geoLocate: geoLocate, // zoom to user location
         BOM_running: BOMStatus, // true if BOM is running otherwise false
         clearMarkerAtPoint: clearMarkerAtPoint, // removes the stopID marker from the map
-        drawBusesOnMap: drawBusesOnMap, // call this after moving to a new location on the map like after user preses 'Find Me'
+        drawBusesOnMap: drawBusesOnMap, // call this after moving to a new location on the map like after user presses 'Find Me'
         startBusesOnMap: startBusesOnMap, // call this after layers loaded 
         stopBusesOnMap: stopBusesOnMap, // call this after any error to stop auto updates
         setTimeInterval: setTimeInterval, // call to set a new milliseconds to refresh the location service

@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 @import url(https://use.typekit.net/tev0qmq.css);
+@import url(https://js.arcgis.com/3.28/esri/css/esri.css);
 :root {
   --blue: #0053a0;
   --indigo: #6610f2;
