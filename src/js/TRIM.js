@@ -875,7 +875,7 @@ var TRIM = (function ($, window, document, undefined) {
                 "esri/basemaps",
                 "esri/config",
                 "esri/graphic",
-                "esri/InfoTemplate",
+                "esri/Color",
                 "esri/SpatialReference",
                 "esri/geometry/Extent",
                 "esri/geometry/Point",
@@ -884,12 +884,10 @@ var TRIM = (function ($, window, document, undefined) {
                 "esri/tasks/query",
                 "esri/tasks/QueryTask",
                 "esri/symbols/PictureMarkerSymbol",
+                "esri/symbols/SimpleMarkerSymbol",
                 "esri/dijit/Scalebar",
-                "esri/dijit/PopupMobile",
+                "esri/dijit/Popup",
                 "esri/dijit/LocateButton",
-                "dojo/io-query",
-                "dojo/_base/unload", /*for firing before navigating away*/
-                "dojo/cookie", /*for cookies*/
                 "dojo/on",
                 "dojo/domReady!"
             ], function (
@@ -897,7 +895,7 @@ var TRIM = (function ($, window, document, undefined) {
                 esriBasemaps,
                 esriConfig,
                 Graphic,
-                InfoTemplate,
+                Color,
                 SpatialReference,
                 Extent,
                 Point,
@@ -906,12 +904,10 @@ var TRIM = (function ($, window, document, undefined) {
                 Query,
                 QueryTask,
                 PictureMarkerSymbol,
+                SimpleMarkerSymbol,
                 Scalebar,
-                PopupMobile,
+                Popup,
                 LocateButton,
-                ioQuery,
-                baseUnload,
-                cookie,
                 on
             ) {
                     var drawNiceRides = function () {
@@ -953,21 +949,23 @@ var TRIM = (function ($, window, document, undefined) {
                             workArray[i] = parseInt(workArray[i]); // convert string to integers to sort them correctly
                         }
                         var rtList = _bubbleSort(workArray);
-                        var routestring = "<div class=\"routelistmobpop\"><b>Routes served:</b><br/>";
+                        var routestring = "<div class=\"routelist\"><b>Routes served:</b><br/>";
                         var html = "";
-                        // <Route name="MobileSchedules" routeUrl="MobileRoute/{route}/{direction}/{stop}/{service}" virtualPath="~/M/Routes.aspx">
                         for (i = 0, len = rtList.length; i < len && i < cutoff; i++) {
                             if (i > 0) { routestring += "<br/>"; }
                             var rt = rtList[i];
                             var rtName = "";
                             if (ROUTENAMES) rtName = ROUTENAMES[rt];
-                            html = "<input id=\"cb" + rt + "\" dojotype=\"dijit.form.RadioButton\" onclick=\"javascript:TRIM.drawRoutes([" + rt + "]);TRIM.drawRouteStops([" + rt + "]);return true;\" name=\"optRoute\" type=\"radio\" />";
+                            html = "<input id=\"cb" + rt + "\"";
+                            html += "dojotype=\"dijit.form.RadioButton\"";
+                            html += "onclick=\"javascript:TRIM.drawRoutes([" + rt + "]);TRIM.drawRouteStops([" + rt + "]);return true;\"";
+                            html += "name=\"optRoute\" type=\"radio\" />";
                             html += "<label for=\"cb" + rt + "\">" + rtName + "</label>";
                             routestring += html;
                         }
                         routestring += "</div>";
                         if (rtList.length > cutoff) {
-                            routestring += "<div class=\"pNexTripLink\"><a href=#><b>More routes</b></a></div>";
+                            routestring += "<div class=\"routelistMoreLink\"><a href=#><b>More routes</b></a></div>";
                         }
                         //console.log(routestring);
                         return routestring;
@@ -976,8 +974,8 @@ var TRIM = (function ($, window, document, undefined) {
                         var showLocation = function (results2) {
                             var title = "Map Click<hr/>" + "Location found: <br/>" + results2.address.address.Street + "<br/>";
 
-                            $(".esriPopupMobile .sizer").css("height", "90px");
-                            $(".esriPopupMobile .titlePane").css("height", "90px");
+                            //$(".esriPopupMobile .sizer").css("height", "90px");
+                            //$(".esriPopupMobile .titlePane").css("height", "90px");
                             MAP.infoWindow.setTitle(title);
 
                             var rsltScrPnt = MAP.toScreen(results2.address.location);
@@ -1002,12 +1000,10 @@ var TRIM = (function ($, window, document, undefined) {
                                 infoWindowOrigin = MAP.toScreen(results2.address.location);
                             }
                             MAP.infoWindow.show(MAP.toMap(infoWindowOrigin));
-                            if (toppx > 0) {
-                                $(".esriPopupMobile").css("top", toppx + "px");
-                            }
+                            //if (toppx > 0) {
+                            //    $(".esriPopupMobile").css("top", toppx + "px");
+                            ///}
                         };
-                        var iTemplate = new InfoTemplate();
-
                         var query = new Query();
                         var queryTask = new QueryTask("https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/1");
                         var pixelWidth = MAP.extent.getWidth() / MAP.width;
@@ -1015,7 +1011,7 @@ var TRIM = (function ($, window, document, undefined) {
                         query.returnGeometry = true;
                         query.spatialRelationship = Query.SPATIAL_REL_INTERSECTS;
                         query.where = "NROUTES <> 0";
-                        query.outFields = ["SITEID", "SITE_ON", "SITE_AT", "CORN_DESC", "NODE_ID", "ROUTES", "ROUTEDIRS", "x_coordinate", "y_coordinate", "CITY_ID", "SYMBOL", "NROUTES"];
+                        query.outFields = ["SITEID", "SITE_ON", "SITE_AT", "ROUTES", "SYMBOL", "NROUTES"];
                         query.geometry = new Extent(evt.mapPoint.x - toleraceInMapCoords, evt.mapPoint.y - toleraceInMapCoords,
                             evt.mapPoint.x + toleraceInMapCoords,
                             evt.mapPoint.y + toleraceInMapCoords,
@@ -1036,111 +1032,33 @@ var TRIM = (function ($, window, document, undefined) {
                             else {
                                 //console.log("Bus Stop Query Complete. There are " + fetSetLen + " features");                  
                                 var feature = fSet.featureSet.features[0];
-                                //Grab first feature. If a user meant a different one, they can zoom in :( 
+
                                 var atts = feature.attributes;
-                                // show a highlight for the stop
+
                                 var stopGraphic = new Graphic();
                                 var stopSymbol;
                                 stopGraphic.setGeometry(feature.geometry);
                                 if (atts.Symbol === 0) {
                                     stopSymbol = new PictureMarkerSymbol('/img/svg/map-icons/badge-blue-bus.svg', 25, 25);
                                 } else if (atts.Symbol === 1) {
-                                    stopSymbol = new PictureMarkerSymbol('/img/svg/map-icons/badge-blue-ltr.svg', 24, 24);
+                                    stopSymbol = new PictureMarkerSymbol('/img/svg/map-icons/badge-blue-lrt.svg', 24, 24);
                                 } else if (atts.Symbol === 2) {
                                     stopSymbol = new PictureMarkerSymbol('/img/svg/map-icons/badge-blue-train.svg', 24, 24);
                                 }
                                 stopGraphic.setSymbol(stopSymbol);
                                 MAP.getLayer("stops").add(stopGraphic);
 
-                                var popHeight = 85;
-
-                                var content = "";
-                                var routeListCutoff = 10; // limit to number of routes to display 
+                                var routeListCutoff = 100; // limit to number of routes to display 
                                 var routeHTML = formatRouteList(atts.ROUTES, routeListCutoff);
 
-                                //var extractContent = function (s) {
-                                //    var span = document.createElement('span');
-                                //    span.innerHTML = s;
-                                //    return span.textContent || span.innerText;
-                                //};
-                                //var mprt = extractContent(routeHTML);
-                                //var mprl = mprt.length;
                                 var nRoutes = atts.NROUTES < routeListCutoff ? atts.NROUTES : 10;
-                                //var extraText = (nRoutes - 1) * 2 + 15;
-                                //var factor = mprl - extraText;
-                                //var magicnumber = factor + nRoutes / (nRoutes / factor) + nRoutes;
-                                ////If 4 or more routes or 3 routes + more than 12 characters
-                                //if (magicnumber > 26) {
-                                //    //two lines
-                                //    popHeight = 127;
-                                //}
-                                //if (magicnumber > 67) {
-                                //    //three lines
-                                //    popHeight = 150;
-                                //}
-                                //if (magicnumber > 108) {
-                                //    //four lines
-                                //    popHeight = 162;
-                                //}
-                                //if (magicnumber > 120) {
-                                //    popHeight = 180;
-                                //}
-                                //if (magicnumber > 194) {
-                                //    popHeight = 198;
-                                //}
-                                //If more than 11 routes or 10 routes + more than 39 characters
-                                popHeight += nRoutes * 20;
-                                if (nRoutes > routeListCutoff) popHeight = 320;
-                                $(".esriPopupMobile .sizer").css("height", popHeight + "px");
-                                $(".esriPopupMobile .titlePane").css("height", popHeight + "px");
 
-                                iTemplate.title = "Stop Number: " + atts.siteid + "<hr/>" + atts.site_on + " & " + atts.site_at + "<br/>" + routeHTML;
-                                // + "<div class=\"pNexTripLink\"><a href=#><b>View <i>Nex</i>Trip</b></a></div></div>";
-                                iTemplate.content = "";
-                                feature.infoTemplate = iTemplate;
-                                MAP.infoWindow.setFeatures([feature]);
+                                var content = atts.site_on + " & " + atts.site_at + "<br/>";
+                                content += routeHTML;
 
-                                var rsltScrPnt = evt.screenPoint;
-                                var infoWindowOrigin = evt.screenPoint;
-                                var toppx = 0;
-                                var delta = popHeight - 45;
-                                if (MAP.height / 2 < rsltScrPnt.y) {
-                                    //if click in the bottom half of the screen, change the click point by delta pixels.
-                                    var curPoint = rsltScrPnt;
-                                    curPoint.y = curPoint.y - delta;
-                                    infoWindowOrigin = curPoint;
-                                    if (curPoint.y + delta > MAP.height / 2 && MAP.height / 2 > curPoint.y) {
-                                        var adjustment;
-                                        curPoint.y = curPoint.y + delta;
-                                        if (popHeight === 108) {
-                                            adjustment = 192 - delta;
-                                            toppx = curPoint.y - adjustment;
-                                        } else if (popHeight === 127) {
-                                            adjustment = 223 - delta;
-                                            toppx = curPoint.y - adjustment;
-                                        } else if (popHeight === 150) {
-                                            adjustment = 265 - delta;
-                                            toppx = curPoint.y - adjustment;
-                                        } else if (popHeight === 162) {
-                                            adjustment = 282 - delta;
-                                            toppx = curPoint.y - adjustment;
-                                        } else if (popHeight === 180) {
-                                            adjustment = 300 - delta;
-                                            toppx = curPoint.y - adjustment;
-                                        } else {
-                                            adjustment = 154 - delta;
-                                            toppx = curPoint.y - adjustment;
-                                        }
-                                        infoWindowOrigin = curPoint;
-                                    }
-                                } else {
-                                    infoWindowOrigin = rsltScrPnt;
-                                }
-                                MAP.infoWindow.show(infoWindowOrigin, MAP.getInfoWindowAnchor(evt.screenPoint));
-                                if (toppx > 0) {
-                                    console.dir("top shift " + toppx);
-                                    $(".esriPopupMobile").css("top", toppx + "px");
-                                }
+                                MAP.infoWindow.setTitle("Stop Number: " + atts.siteid);
+                                MAP.infoWindow.setContent(content);
+                                MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
                             }
                         });
                     };
@@ -1163,28 +1081,28 @@ var TRIM = (function ($, window, document, undefined) {
                     //catch (e) {
                     //    console.warn(e);
                     //}
+                    var popUpDiv = document.createElement("div");
+                   // var popup = new PopupMobile({}, popUpDiv);
 
-                    var popup = new PopupMobile({}, document.createElement("div"));
-
-                    //var mapPopup = new Popup(
-                    //    {
-                    //        zoomFactor: 4,
-                    //        marginLeft: 20, //if maxed
-                    //        marginRight: 20, //if maxed
-                    //        anchor: "auto",
-                    //        pagingControls: false,
-                    //        pagingInfo: false,
-                    //        markerSymbol: new SimpleMarkerSymbol(
-                    //            "circle",
-                    //            32,
-                    //            null,
-                    //            new Color([0, 0, 0, 0.25])
-                    //        ),
-                    //        highlight: true
-                    //    },
-                    //    popUpDiv
-                    //);
-                    //mapPopup.startup();
+                    var mapPopup = new Popup(
+                       {
+                           zoomFactor: 4,
+                           marginLeft: 20, //if maxed
+                           marginRight: 20, //if maxed
+                           anchor: "auto",
+                           pagingControls: false,
+                           pagingInfo: false,
+                           markerSymbol: new SimpleMarkerSymbol(
+                               "circle",
+                               32,
+                               null,
+                               new Color([0, 0, 0, 0.25])
+                           ),
+                           highlight: true
+                       },
+                       popUpDiv
+                    );
+                    mapPopup.startup();
 
                     esriBasemaps.metCouncilWebMercator = {
                         baseMapLayers: [{ url: "https://arcgis.metc.state.mn.us/arcgis/rest/services/BaseLayer/BasemapWM/MapServer" }],
@@ -1199,13 +1117,14 @@ var TRIM = (function ($, window, document, undefined) {
                         autoResize: true,
                         logo: false,
                         showAttribution: true,
-                        infoWindow: popup,
+                        //infoWindow: popup,
+                        infoWindow: mapPopup,
                         sliderPosition: "bottom-right",
                         basemap: "transitVector",
                         maxZoom: 18,
                         minZoom: 9,
                         center: [-93.27, 44.975],
-                        fadeOnZoom: true,
+                        //fadeOnZoom: true,
                         zoom: 14
                     });
 
