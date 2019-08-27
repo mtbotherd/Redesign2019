@@ -454,7 +454,7 @@ var TRIM = (function ($, window, document, undefined) {
         var swapped;
         do {
             swapped = false;
-            for (var i = 0, l = inputArr.length; i < l; i++) {
+            for (let i = 0, l = inputArr.length; i < l; i++) {
                 if (inputArr[i] > inputArr[i + 1]) {
                     let tmp = inputArr[i];
                     inputArr[i] = inputArr[i + 1];
@@ -563,7 +563,7 @@ var TRIM = (function ($, window, document, undefined) {
             //routes = routes.filter(function (value, idx, arr) {
             //    return value !== "906"; // remove 906 from list
             //});
-            for (var i = 0, rl = routes.length; i < rl; i++) {
+            for (let i = 0, rl = routes.length; i < rl; i++) {
                 if (i > 0) {
                     x += " or ";
                 }
@@ -628,7 +628,7 @@ var TRIM = (function ($, window, document, undefined) {
                         require(["esri/geometry/Polyline"],
                             function (Polyline) {
                                 var extent;
-                                for (var i = 0, l = result.features.length; i < l; i++) {
+                                for (let i = 0, l = result.features.length; i < l; i++) {
                                     var g = new Polyline({
                                         paths: result.features[i].geometry.paths,
                                         spatialReference: result.spatialReference
@@ -723,7 +723,7 @@ var TRIM = (function ($, window, document, undefined) {
                 var firstSeg = 0;
                 var lastSeg = segs.length - 1;
                 var routesInSegments = [];
-                for (var i = 0, sl = segs.length; i < sl; i++) {
+                for (let i = 0, sl = segs.length; i < sl; i++) {
                     var seg = segs[i];
                     if (seg.Geometry) {
                         var cls1, attr;
@@ -861,7 +861,7 @@ var TRIM = (function ($, window, document, undefined) {
                     ROUTENAMES = {};
                     // Input format: { RouteId: "901", ProviderID: "8", Description: "METRO Blue Line", RouteAbbr: ... }
                     // Outformat { "901": "METRO Blue Line" }
-                    for (var i = 0, l = result.length; i < l; i++) {
+                    for (let i = 0, l = result.length; i < l; i++) {
                         var route = result[i];
                         ROUTENAMES[route.RouteId] = route.Description;
                     }
@@ -943,29 +943,28 @@ var TRIM = (function ($, window, document, undefined) {
                                 console.warn("NiceRide Station fetch failed" + err);
                             });
                     };
-                    var formatRouteList = function (/*string*/routeList, cutoff) {
+                    var formatRouteList = function (/*string*/routeList) {
+                        var routestring = '';
                         var workArray = routeList.split(" ");
-                        for (var i = 0, l = workArray.length; i < l; i++) {
-                            workArray[i] = parseInt(workArray[i]); // convert string to integers to sort them correctly
-                        }
-                        var rtList = _bubbleSort(workArray);
-                        var routestring = '<div class="routelist">';
-                        var html = '';
-                        for (i = 0, len = rtList.length; i < len && i < cutoff; i++) {
-                            if (i > 0) { routestring += '<br/>'; }
-                            var rt = rtList[i];
-                            var rtName = '';
-                            if (ROUTENAMES) rtName = ROUTENAMES[rt];
-                            html = '<input id="cb' + rt + '"';
-                            html += 'dojotype="dijit.form.RadioButton"';
-                            html += 'onclick="javascript:TRIM.drawRoutes([' + rt + ']);TRIM.drawRouteStops(['+ rt + ']);return true;"';
-                            html += 'name="optRoute" type="radio" />';
-                            html += '<label for="cb' + rt + '">' + rtName + '</label>';
-                            routestring += html;
-                        }
-                        routestring += '</div>';
-                        if (rtList.length > cutoff) {
-                            routestring += '<div class="routelistMoreLink"><a href=#><b>More routes</b></a></div>';
+                        if (workArray.length > 0) {
+                            for (let i = 0, l = workArray.length; i < l; i++) {
+                                workArray[i] = parseInt(workArray[i]); // convert string to integers to sort them correctly
+                            }
+                            var rtList = _bubbleSort(workArray);
+                            for (i = 0, len = rtList.length; i < len; i++) {
+                                if (i > 0) { routestring += '<br/>'; }
+                                var rt = rtList[i];
+                                var rtName = '';
+                                if (ROUTENAMES) rtName = ROUTENAMES[rt];
+                                var html = '<input id="cb' + rt + '"';
+                                html += 'dojotype="dijit.form.RadioButton"';
+                                html += 'onclick="javascript:TRIM.drawRoutes([' + rt + ']);TRIM.drawRouteStops(['+ rt + ']);return true;"';
+                                html += 'name="optRoute" type="radio" />';
+                                html += '<label for="cb' + rt + '">' + rtName + '</label>';
+                                routestring += html;
+                            }
+                        } else {
+                            routestring = '<span style="font-size:large">No routes service this stop.</span>';
                         }
                         //console.log(routestring);
                         return routestring;
@@ -1019,18 +1018,18 @@ var TRIM = (function ($, window, document, undefined) {
 
                         MAP.infoWindow.hide();
                         MAP.getLayer("stops").clear();
-
                         queryTask.execute(query);
                         queryTask.on("error", function (err) {
                             console.warn("Bus Stop Query Error: " + err);
                         });
                         queryTask.on("complete", function (fSet) {
+
                             if (fSet.featureSet.features.length === 0) {
                                 //if there are no features, do a generic reverse geocode.
                                 //locateAddress();
                             }
                             else {
-                                //console.log("Bus Stop Query Complete. There are " + fetSetLen + " features");                  
+                                //console.log("Bus Stop Query Complete. There are " + fSet.featureSet.features.length + " features");                  
                                 var feature = fSet.featureSet.features[0];
 
                                 var atts = feature.attributes;
@@ -1047,44 +1046,51 @@ var TRIM = (function ($, window, document, undefined) {
                                 }
                                 stopGraphic.setSymbol(stopSymbol);
                                 MAP.getLayer("stops").add(stopGraphic);
+                                $('#mapPopUpDepartures').empty();
+                                $('#mapPopUpStopDescription').html(atts.site_on + ' & ' + atts.site_at);
+                                $('#mapPopUpRoutes').html(formatRouteList(atts.ROUTES));
 
-                                var routeListCutoff = 100; // limit to number of routes to display 
-                                var routeHTML = formatRouteList(atts.ROUTES, routeListCutoff);
+                                $.get('https://svc.metrotransittest.org/nextripv2/' + atts.siteid)
+                                .done(function (result) {
+                                    if (result.Departures.length > 0) {
+                                        let departures = result.Departures.sort(function (a, b) {
+                                            a = new Date(a.DeartureTime);
+                                            b = new Date(b.DepartureTime);
+                                            return a < b ? -1 : a > b ? 1 : 0;
+                                        });
 
-                                var nRoutes = atts.NROUTES < routeListCutoff ? atts.NROUTES : 10;
+                                        for (let i=1,l=departures.length; i < l; i++) {
+                                            let depart = departures[i];
+                                            var departRow = $('<div/>', { class: 'list-group-item' }).appendTo($('#mapPopUpDepartures'));
+                                            departRow.append($('<span/>', { class: 'route-number mr-2' }).text(depart.RouteId + depart.Terminal));
+                                            departRow.append($('<span/>', { class: 'route-name' }).text(depart.Description));
+                                
+                                            var departTime = $('<span/>', { class: 'depart-time ml-auto' }).appendTo(departRow);
+                                            if (depart.Actual === true) {
+                                                departTime.append($('<img/>', { class: 'icon blink mr-1', src: '/img/svg/broadcast-red.svg' }));
+                                            }
+                                            departTime.append(depart.DepartureText);
+                                            
+                                        };
+                                    } else {
+                                        $('#mapPopUpDepartures').html('<span style="font-size:large">No departures available at this time</span>');
+                                    }
+                                })
+                                .fail(function () {
+                                    console.warn("Nextrip failed for stop " + atts.siteid);
+                                });
 
-                                var layout = atts.site_on + " & " + atts.site_at
-                                layout += '<div class="container">';
-                                layout += '<ul class="nav nav-tabs nav-justified">';
-                                layout += '<li class="nav-item">';
-                                layout += '<a class="nav-link active" data-toggle="tab" href="#mapPopUpTabRoutes">Routes</a>';
-                                layout += '</li>';
-                                layout += '<li class="nav-item">';
-                                layout += '<a class="nav-link" data-toggle="tab" href="#mapPopUpTabNexTrip">NexTrip</a>';
-                                layout += '</li>';
-                                layout += '</ul>';
-                                layout += '<div class="tab-content">';
-                                layout += '<div class="tab-pane container active" id="mapPopUpTabRoutes">'
-                                layout += routeHTML;
-                                layout += '</div>'; // mapPopUpTabRoutes
-                                layout += '<div class="tab-pane container" id="mapPopUpTabNexTrip">'
-                                layout += '<div class="stop-departures">';
-                                layout += '<div>' + 'Whole latta NexTrip content' + '<br/>' + '</div>';
-                                layout += '</div>'; // stop-departures
-                                layout += '</div>'; // mapPopUpTabNexTrip
-                                layout += '</div>'; // tab-content
-                                layout += '</div>'; // container
-
-                                //MAP.infoWindow.setFeatures([feature]); //adds a Zoom To Actione
+                                //MAP.infoWindow.setFeatures([feature]); //adds a Zoom-To Action
                                 MAP.infoWindow.setTitle("Stop Number: " + atts.siteid);
-                                MAP.infoWindow.setContent(layout);
+                                MAP.infoWindow.setContent($('#trimPopUp')[0]);
+                                $('#trimPopUp').show();
                                 MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
+
+
+
                             }
                         });
                     };
-
-
-
                     //===================================================================================
                     //  START OF MAP INITIALIZATION =====================================================
                     //===================================================================================
@@ -1595,7 +1601,7 @@ var BOM = (function ($, window, document, undefined) {
                 //if (_DEBUG) console.log(" LOD:res = " + _CURRENTLOD.resolution + " LOD:lvl = " + _CURRENTLOD.level);
 
                 if (response.length > 0) {
-                    var i = 0; // total iterations over response
+                    let i = 0; // total iterations over response
                     do { // if we're not zooming we will 'do' this just once
                         // if we are zooming, the first time through we want to test the current extent -- so NO DELTA needed
                         var z = 0;

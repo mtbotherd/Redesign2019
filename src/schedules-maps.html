@@ -315,6 +315,27 @@
 										<div id="trimLocate"></div>
 										<div class="mapLoading"></div>
 								</div>
+								<div id="trimPopUp" style="display:none;">
+									<div id="mapPopUpStopDescription" class="stop-description"></div>
+									<div class="container">
+										<ul class="nav nav-tabs nav-justified">
+											<li class="nav-item">
+												<a class="nav-link active" data-toggle="tab" href="#mapPopUpTabRoutes">Routes</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" data-toggle="tab" href="#mapPopUpTabNexTrip">NexTrip</a>
+											</li>
+										</ul>
+										<div class="tab-content">
+											<div class="tab-pane container active" id="mapPopUpTabRoutes">
+												<div id="mapPopUpRoutes" class="route-list"></div>
+											</div>
+											<div class="tab-pane container" id="mapPopUpTabNexTrip">
+												<div id="mapPopUpDepartures" class="stop-departures"></div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
