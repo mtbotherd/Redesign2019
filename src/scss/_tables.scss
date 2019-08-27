@@ -1,0 +1,82 @@
+// Rotate table headers
+table {
+  margin: 2rem 0 1rem 0;
+}
+.table-bordered thead th {
+  border: none;
+}
+.table-header-rotated {
+  border-collapse: collapse;
+
+  th.rotate {
+    font-weight: normal;
+    height: 140px;
+    white-space: nowrap;
+
+    &:first-child {
+      font-weight: $font-weight-bold;
+    }
+    // Firefox needs the extra DIV for some reason, otherwise the text disappears if you rotate
+    div {
+      transform: translate(34px, 37px) rotate(-45deg);
+      width: 55px;
+
+      @include media-breakpoint-up(md) {
+        transform: translate(34px, 36px) rotate(-45deg);
+      }
+
+      @include media-breakpoint-up(lg) {
+        transform: translate(32px, 35px) rotate(-45deg);
+      }
+
+      span {
+        //border-top: 1px solid $gray-300;
+        border-bottom: 1px solid $gray-300;
+        padding: 0.75rem 0;
+      }
+    }
+  }
+
+  tr.sub-header th {
+    border: 1px solid $gray-300;
+    border-top: none;
+    height: 57px;
+    text-align: center;
+
+    &:first-child {
+      border-left: none;
+    }
+
+    div {
+      border: 1px solid $gray-300;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      padding: 5px;
+      margin: 0 auto;
+
+      @include media-breakpoint-up(lg) {
+        line-height: 1;
+      }
+    }
+  }
+
+  thead.ampm {
+    background-color: $gray-100;
+    border-right: 1px solid $gray-300;
+    border-left: 1px solid $gray-300;
+  }
+
+  th.row-header {
+    padding: 0 10px;
+    border-top: 1px solid $gray-300;
+    border-bottom: 1px solid $gray-300;
+    border-left: 1px solid $gray-300;
+  }
+
+  td {
+    border: 1px solid $gray-300;
+    text-align: center;
+    padding: 10px 5px;
+  }
+}

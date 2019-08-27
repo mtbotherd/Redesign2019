@@ -8063,6 +8063,66 @@ input:focus,
         top: 1.25rem;
         right: 0.75rem; } }
 
+table {
+  margin: 2rem 0 1rem 0; }
+
+.table-bordered thead th {
+  border: none; }
+
+.table-header-rotated {
+  border-collapse: collapse; }
+  .table-header-rotated th.rotate {
+    font-weight: normal;
+    height: 140px;
+    white-space: nowrap; }
+    .table-header-rotated th.rotate:first-child {
+      font-weight: 700; }
+    .table-header-rotated th.rotate div {
+      -webkit-transform: translate(34px, 37px) rotate(-45deg);
+              transform: translate(34px, 37px) rotate(-45deg);
+      width: 55px; }
+      @media (min-width: 768px) {
+        .table-header-rotated th.rotate div {
+          -webkit-transform: translate(34px, 36px) rotate(-45deg);
+                  transform: translate(34px, 36px) rotate(-45deg); } }
+      @media (min-width: 992px) {
+        .table-header-rotated th.rotate div {
+          -webkit-transform: translate(32px, 35px) rotate(-45deg);
+                  transform: translate(32px, 35px) rotate(-45deg); } }
+      .table-header-rotated th.rotate div span {
+        border-bottom: 1px solid #8a8b8a;
+        padding: 0.75rem 0; }
+  .table-header-rotated tr.sub-header th {
+    border: 1px solid #8a8b8a;
+    border-top: none;
+    height: 57px;
+    text-align: center; }
+    .table-header-rotated tr.sub-header th:first-child {
+      border-left: none; }
+    .table-header-rotated tr.sub-header th div {
+      border: 1px solid #8a8b8a;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      padding: 5px;
+      margin: 0 auto; }
+      @media (min-width: 992px) {
+        .table-header-rotated tr.sub-header th div {
+          line-height: 1; } }
+  .table-header-rotated thead.ampm {
+    background-color: #f5f5f4;
+    border-right: 1px solid #8a8b8a;
+    border-left: 1px solid #8a8b8a; }
+  .table-header-rotated th.row-header {
+    padding: 0 10px;
+    border-top: 1px solid #8a8b8a;
+    border-bottom: 1px solid #8a8b8a;
+    border-left: 1px solid #8a8b8a; }
+  .table-header-rotated td {
+    border: 1px solid #8a8b8a;
+    text-align: center;
+    padding: 10px 5px; }
+
 /**********************************************
     Form styles
 **********************************************/
