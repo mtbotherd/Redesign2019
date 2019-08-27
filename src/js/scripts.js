@@ -116,7 +116,7 @@ $(function() {
                     url: LOCATOR + "findAddressCandidates",
                         data: {
                         SingleLine: suggest.value,
-                        outFields: "Addr_type, LongLabel, PlaceName, Place_addr",
+                        outFields: "Addr_type, LongLabel, PlaceName, Place_addr, ATIS_ID", 
                         maxLocations: 6,
                         magicKey: suggest.data,
                         outSR: UTMout ? 26915 : 4326,
