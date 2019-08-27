@@ -1,95 +1,93 @@
 #tripPlannerModule {
-    // Locatin toggle buttons
-    button.location-toggler {
+  // Locatin toggle buttons
+  button.location-toggler {
     background-color: transparent;
     border: none;
     width: 2rem;
     height: 2rem;
 
+    .icon {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  .time-elements {
+    .input-group-append {
+      padding: 0.375rem 0.75rem;
+    }
+  }
+
+  input::placeholder {
+    font-weight: $font-weight-bold;
+  }
+
+  .custom-select {
+    font-weight: $font-weight-medium;
+  }
+
+  .more-options {
+    margin-bottom: 1rem;
+    .card-header {
+      border-bottom: 0;
+      padding: 0;
+
+      .btn-link {
+        background-color: $white;
+        text-decoration: none;
+        color: $body-color;
+        font-weight: 500;
+        padding: 0.375rem 0.75rem;
+
+        @include media-breakpoint-up(md) {
+          @include fontSize(23);
+          padding: 0.454rem 1rem;
+        }
+
+        &:focus {
+          color: #626462;
+          background-color: #fff;
+          //border-color: #51cfff;
+          //outline: 0;
+        }
+
         .icon {
-            width: 1rem;
-            height: 1rem;
-        }
-    }
-
-    .time-elements {
-        .input-group-append {
-            padding: 0.375rem 0.75rem;
-        }
-    }
-
-    input::placeholder {
-        font-weight: $font-weight-bold;
-    }
-
-    .custom-select {
-        font-weight: $font-weight-medium;
-    }
-
-    .more-options {
-        margin-bottom: 1rem;
-        .card-header {
-            border-bottom: 0;
-            padding: 0;
-
-            .btn-link {
-                background-color: $white;
-                text-decoration: none;
-                color: $body-color;
-                font-weight: 500;
-                padding: 0.375rem 0.75rem;
-
-                @include media-breakpoint-up(md) {
-                    @include fontSize(23);
-                    padding: 0.454rem 1rem;
-                }
-
-                &:focus {
-                    color: #626462;
-                    background-color: #fff;
-                    border-color: #51cfff;
-                    outline: 0;
-                    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 151, 208, 0.25);
-                    box-shadow: 0 0 0 0.2rem rgba(0, 151, 208, 0.25);
-                }
-
-                .icon {
-                    width: 1rem;
-                    height: 1rem;
-                }
-
-                .active {
-                    transform: rotate(45deg);
-                }
-            }
+          width: 1rem;
+          height: 1rem;
         }
 
-        .card-body {
-            background-color: $gray-100;
-
-            hr {
-                border-top: 1px solid $gray-600;
-                margin: 0.25rem 0;
-            }
-
-            .accessible-gray {
-                width: 1rem;
-                height: 1rem;
-            }
+        .active {
+          transform: rotate(45deg);
         }
-
-        @include media-breakpoint-up(xl) {
-            margin-bottom: 1.5rem;
-        }
+      }
     }
+
+    .card-body {
+      background-color: $gray-100;
+
+      hr {
+        border-top: 1px solid $gray-600;
+        margin: 0.25rem 0;
+      }
+
+      .accessible-gray {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      margin-bottom: 1.5rem;
+    }
+  }
 }
 
 .chevron-right-gray {
-    width: 0.5rem;
-    height: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
 
-    @include media-breakpoint-up(md) {
-        width: 0.75rem;
-        height: 0.75rem;
-    }
+  @include media-breakpoint-up(md) {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
 }

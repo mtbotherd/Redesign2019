@@ -7852,6 +7852,15 @@ a.skip-to-content {
 .schedules-maps-bg {
   background-image: url("../../../../../img/schedules-maps.jpg"); }
 
+a:focus,
+button:focus,
+input:focus,
+.btn-link:focus,
+.btn-warning:focus {
+  border-color: #51cfff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 151, 208, 0.25); }
+
 .btn-container {
   padding-top: 1rem; }
   @media (min-width: 768px) {
@@ -8220,6 +8229,8 @@ form .is-valid .form-control-feedback {
         font-size: 1.4375rem !important; } }
     .accordion .card .card-header .btn.collapsed {
       background-color: #f5f5f4; }
+    .accordion .card .card-header .btn:focus {
+      color: #626462; }
   .accordion .card .card-header .icon {
     width: 2.25rem;
     height: 2.25rem; }
@@ -8418,10 +8429,7 @@ form .is-valid .form-control-feedback {
           padding: 0.454rem 1rem; } }
       #tripPlannerModule .more-options .card-header .btn-link:focus {
         color: #626462;
-        background-color: #fff;
-        border-color: #51cfff;
-        outline: 0;
-        box-shadow: 0 0 0 0.2rem rgba(0, 151, 208, 0.25); }
+        background-color: #fff; }
       #tripPlannerModule .more-options .card-header .btn-link .icon {
         width: 1rem;
         height: 1rem; }
@@ -8745,6 +8753,9 @@ footer.section {
     padding: 0; }
   footer.section .social-media {
     margin-top: 3rem; }
+    footer.section .social-media a {
+      padding: 0.875rem 0;
+      margin-right: 0.25rem; }
     @media (min-width: 1200px) {
       footer.section .social-media .icon {
         width: 50px;
