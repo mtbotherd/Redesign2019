@@ -8920,16 +8920,8 @@ footer.section {
   font-size: 1em;
   width: auto; }
 
-/*.pfooter {
-    bottom: 3px;
-    font-size: .9em;
-    letter-spacing: -1px;
-    line-height: 1.5;
-    background-color: #E6F1F9;
-    margin-top: 5px;
-}*/
 .esriPopup .sizer {
-  width: 350px; }
+  width: 380px; }
 
 .esriPopup .routelist {
   /*white-space: normal;*/
@@ -8938,64 +8930,29 @@ footer.section {
 
 .esriPopup .routelist, label {
   margin-bottom: 0;
-  margin-left: 3px; }
+  margin-left: 3px;
+  line-height: 20px;
+  white-space: nowrap; }
 
 .esriPopup .titlePane {
   height: 21px;
   font-size: 1.1em; }
 
 .esriPopup .contentPane {
+  max-height: 300px;
+  overflow: hidden;
   font-size: 1.1em;
-  line-height: 20px;
   overflow-x: hidden;
-  white-space: nowrap; }
+  background-color: #ededef; }
 
-.esriPopup a {
-  color: #0051A5;
-  text-decoration: underline !important; }
+.esriPopup .nav-link {
+  font-size: large; }
 
-/*.esriPopup .sizer {
-    width: 300px;
-    height: 80px;
-}*/
-/*.esriPopup .pointer.top {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADWSURBVDhPtdK7DgFBGMXxoXENiYdUKxSESBRERIhC4jU8kkKLdS3H/4iRxReX4CS/nd3J7vmmWOe9f0caZcwwxxhJWO/eMDfvpFBBPEeM8HKIuRmjk9fgo+1OSzwaMoT13ZW5eZFBA1Z5iIb0YX1/Zm5C5S08Kw/RkB6sHnNAFh349War5Z0c0MVD3/1GDgN8Uh6iIW3cdMYfVK4/w6+ij8tD9mjiYUAeE/hltNHyTTSkjusAlU/hl+uvy0P0Z1ThEnpyhJO7UrGg219mkdSVk/+jnDh3Au8hTn2cIP/GAAAAAElFTkSuQmCCuAcNTxdPzOC45cIhH2dxyQX0ZcY/MJyXIV0X6KAVaFnZqXKM9QZ1SCyYgmeQjvNlIVc2g36yWtJjY3FJDaIFDH8B6Xi+zOFCrIBhZPf06Fg9OAJdoNX2nMzixq3Bv1iv6PGF1dIF7a6T6UzBHPiPPP6QXyWtT4v2JxRo4vwAAAAAAElFTkSuQmCC') !important;
-} */
-/*.esriPopup .pointer.bottom {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAMCAYAAAB4MH11AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACrSURBVDhPtdK/CsIwEMfxxEHEwedzdBDc3AQ3h64OgouLiIMP5mOoQ/xeuJakvVL/tD/4cORo7iDUB+IGzEjrYJEFHvt46jcFvJMXUgd5rp6yQ5ybLhBH/Jstqpnp8NIJv2aDbF52UPJnnfFt1mjMazTUGBeEx/MlpSsrWHNaF4gJruhasoR1PzKbiSluaFuygHWvYjZrZohLapnD+j5jNg3lkrvWj4aHENwbp2PtG24nkNIAAAAASUVORK5CYIIW/KV80tXbkkuQ3uQC9giSmfVds8hS7fCP9TkD35ksdyKQTK/smIVJjYueTkv4D0j1pV5UAZ5AMlWqmsXsoHujU5JjyPXlDtQIPAN9fn3T5PJWrrx1dcdfuzTB6vl1ARuFF5AlEwsVX97uPfCxyx5Y94V5mDAGA/BLMuU1sO555mHGOMiSTMpgzaeYhwa35EM/hyonouAHPB4oS9CdjKYAAAAASUVORK5CYII=') !important /
-}*/
-.esriPopup .titleButton.close {
-  /*  
-    top: 3px;
-    height: 16px;
-    background: no-repeat url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAb5JREFUeNqkUzFLw0AU/s5UsUUs2VVcKkXcDnFSBJd2sUMREcShS12E0qEuHfMXBOcu/oWi4OLa0kEDgp2k0iWoSBxsE+N7l0uNVqcGXu/ufe/77st7qQiCAJM8U5jwSfDPhRAQtBpAjhaLou4DTS9W9Btj3wfkPu4gR4C1d3oq/bAw9xvbrVTGMCVASdBt1n6tJm3bRrFald53YY73O6WS7Ha72Dw8VJivBQQ3sSGEuoVsWYVyWXY6HWSzWVw2Gm0GNgoF2e/3kU6ncXt11abqOqWbR8QdCQShCyWyXSzK7sODIriui6deD7PJJNzHR0WmnjT5yjGBYfg6SmQxk5HPjqNsGoaBN8dRZGpmc5qtawE1hSedmNEd5/3w9RWpqFO+r8S1Swz0fuw7CHTDVkxTJj0Pc5SLgnOMBT+n83OMdIu1QYURqfPy0uaIzowN/xqjF76/lY+Rr4lI+TrHdUwkr0W8kW1qxBKt+6RaBVr3phnwyudlyi//gy1prpqCEGKBzikJbK0BxzZw1gJuKPdB8cn9XSdsFTi5A87bIfZO3F4kMK+HEE3I0+Hrhht6QAltnIcyIO6bmPTv/CXAACPM0BMSi5H+AAAAAElFTkSuQmCC');
-    background-color: white;
-    */ }
+.esriPopup .nav-tabs .tab-content .tab-pane {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 230px; }
 
-/*.esriPopup .titleButton.arrow {
-    top: 4px;
-    right: 189px;
-    width: 16px;
-    height: 4px;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAYCAIAAABWchv0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuNWWFMmUAAAAUSURBVChTY/iPAUaFYGDICP3/DwBXea5gXEFFlgAAAABJRU5ErkJggg==) no-repeat !important;
-}*/
-/*.esriPopup .titleButton.prev {
-    top: 41px;
-    left: 67px;
-    width: 30px;
-    height: 30px;
-    background-image: none;
-}*/
-/*.esriPopup .titleButton.next {
-    top: 41px;
-    right: 67px;
-    width: 30px;
-    height: 30px;
-    background-image: none;
-}*/
-/*.esriPopup .titlePane .footer {
-    color: rgba(0, 81, 165, 0);
-}*/
 .esriSimpleSlider div {
   width: 40px;
   height: 40px;

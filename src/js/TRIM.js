@@ -949,23 +949,23 @@ var TRIM = (function ($, window, document, undefined) {
                             workArray[i] = parseInt(workArray[i]); // convert string to integers to sort them correctly
                         }
                         var rtList = _bubbleSort(workArray);
-                        var routestring = "<div class=\"routelist\"><b>Routes served:</b><br/>";
-                        var html = "";
+                        var routestring = '<div class="routelist">';
+                        var html = '';
                         for (i = 0, len = rtList.length; i < len && i < cutoff; i++) {
-                            if (i > 0) { routestring += "<br/>"; }
+                            if (i > 0) { routestring += '<br/>'; }
                             var rt = rtList[i];
-                            var rtName = "";
+                            var rtName = '';
                             if (ROUTENAMES) rtName = ROUTENAMES[rt];
-                            html = "<input id=\"cb" + rt + "\"";
-                            html += "dojotype=\"dijit.form.RadioButton\"";
-                            html += "onclick=\"javascript:TRIM.drawRoutes([" + rt + "]);TRIM.drawRouteStops([" + rt + "]);return true;\"";
-                            html += "name=\"optRoute\" type=\"radio\" />";
-                            html += "<label for=\"cb" + rt + "\">" + rtName + "</label>";
+                            html = '<input id="cb' + rt + '"';
+                            html += 'dojotype="dijit.form.RadioButton"';
+                            html += 'onclick="javascript:TRIM.drawRoutes([' + rt + ']);TRIM.drawRouteStops(['+ rt + ']);return true;"';
+                            html += 'name="optRoute" type="radio" />';
+                            html += '<label for="cb' + rt + '">' + rtName + '</label>';
                             routestring += html;
                         }
-                        routestring += "</div>";
+                        routestring += '</div>';
                         if (rtList.length > cutoff) {
-                            routestring += "<div class=\"routelistMoreLink\"><a href=#><b>More routes</b></a></div>";
+                            routestring += '<div class="routelistMoreLink"><a href=#><b>More routes</b></a></div>';
                         }
                         //console.log(routestring);
                         return routestring;
@@ -1053,11 +1053,31 @@ var TRIM = (function ($, window, document, undefined) {
 
                                 var nRoutes = atts.NROUTES < routeListCutoff ? atts.NROUTES : 10;
 
-                                var content = atts.site_on + " & " + atts.site_at + "<br/>";
-                                content += routeHTML;
+                                var layout = atts.site_on + " & " + atts.site_at
+                                layout += '<div class="container">';
+                                layout += '<ul class="nav nav-tabs nav-justified">';
+                                layout += '<li class="nav-item">';
+                                layout += '<a class="nav-link active" data-toggle="tab" href="#mapPopUpTabRoutes">Routes</a>';
+                                layout += '</li>';
+                                layout += '<li class="nav-item">';
+                                layout += '<a class="nav-link" data-toggle="tab" href="#mapPopUpTabNexTrip">NexTrip</a>';
+                                layout += '</li>';
+                                layout += '</ul>';
+                                layout += '<div class="tab-content">';
+                                layout += '<div class="tab-pane container active" id="mapPopUpTabRoutes">'
+                                layout += routeHTML;
+                                layout += '</div>'; // mapPopUpTabRoutes
+                                layout += '<div class="tab-pane container" id="mapPopUpTabNexTrip">'
+                                layout += '<div class="stop-departures">';
+                                layout += '<div>' + 'Whole latta NexTrip content' + '<br/>' + '</div>';
+                                layout += '</div>'; // stop-departures
+                                layout += '</div>'; // mapPopUpTabNexTrip
+                                layout += '</div>'; // tab-content
+                                layout += '</div>'; // container
 
+                                //MAP.infoWindow.setFeatures([feature]); //adds a Zoom To Actione
                                 MAP.infoWindow.setTitle("Stop Number: " + atts.siteid);
-                                MAP.infoWindow.setContent(content);
+                                MAP.infoWindow.setContent(layout);
                                 MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
                             }
                         });
@@ -1082,8 +1102,6 @@ var TRIM = (function ($, window, document, undefined) {
                     //    console.warn(e);
                     //}
                     var popUpDiv = document.createElement("div");
-                   // var popup = new PopupMobile({}, popUpDiv);
-
                     var mapPopup = new Popup(
                        {
                            zoomFactor: 4,
