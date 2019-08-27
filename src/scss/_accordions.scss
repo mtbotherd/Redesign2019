@@ -1,41 +1,43 @@
 .accordion {
-    .card .card-header {
-        padding: 0 !important;
+  .card .card-header {
+    padding: 0 !important;
 
-        .btn {
-            color: $gray-600;
-            @include fontSize(18);
-            background-color: #d8ecfd;
+    .btn {
+      color: $gray-600;
+      @include fontSize(18);
+      background-color: #d8ecfd;
 
-            @include media-breakpoint-up(lg) {
-                @include fontSize(23);
-            }
+      @include media-breakpoint-up(lg) {
+        @include fontSize(23);
+      }
 
-            &.collapsed {
-                background-color: $gray-100;
+      &.collapsed {
+        background-color: $gray-100;
+      }
 
-
-            }
-        }
-
-        .icon {
-            width: 2.25rem;
-            height: 2.25rem;
-
-            @include media-breakpoint-up(lg) {
-                width: 2.5rem;
-                height: 2.5rem;
-            }
-
-            &.chevron-down-blue {
-                width: 1rem;
-                height: 1rem;
-
-                @include media-breakpoint-up(lg) {
-                    width: 1rem;
-                    height: 1rem;
-                }
-            }
-        }
+      &:focus {
+        color: #626462;
+      }
     }
+
+    .icon {
+      width: 2.25rem;
+      height: 2.25rem;
+
+      @include media-breakpoint-up(lg) {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+
+      &.chevron-down-blue {
+        width: 1rem;
+        height: 1rem;
+
+        @include media-breakpoint-up(lg) {
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+    }
+  }
 }

@@ -3,116 +3,115 @@
 ***************************************************/
 // Tab styles
 #tripToolsTabs {
+  .nav-tabs {
+    margin-bottom: 2rem;
 
-	.nav-tabs {
-		margin-bottom: 2rem;
+    .nav-item {
+      position: relative;
+      flex-basis: 0;
+      flex-grow: 1;
+      text-align: center;
+      background-color: $cyan;
+      margin-bottom: 0;
 
-		.nav-item {
-			position: relative;
-			flex-basis: 0;
-			flex-grow: 1;
-			text-align: center;
-			background-color: $cyan;
-			margin-bottom: 0;
+      .icon {
+        width: 35px;
+        height: 35px;
 
-			.icon {
-				width: 35px;
-				height: 35px;
+        @include media-breakpoint-up(md) {
+          position: absolute;
+          top: 1rem;
+        }
 
-				@include media-breakpoint-up(md) {
-					position: absolute;
-					top: 1rem;
-				}
+        @include media-breakpoint-up(xl) {
+          width: 48px;
+          height: 48px;
+        }
+      }
 
-				@include media-breakpoint-up(xl) {
-					width: 48px;
-					height: 48px;
-				}
-			}
+      @include media-breakpoint-up(md) {
+        &:nth-child(1) .icon {
+          left: 10px;
+        }
+        &:nth-child(2) .icon {
+          left: 32px;
+        }
+        &:nth-child(3) .icon {
+          left: 38px;
+        }
+      }
 
-			@include media-breakpoint-up(md) {
-				&:nth-child(1) .icon {
-					left: 10px;
-				}
-				&:nth-child(2) .icon {
-					left: 32px;
-				}
-				&:nth-child(3) .icon {
-					left: 38px;
-				}
-			}
+      @include media-breakpoint-up(lg) {
+        &:nth-child(1) .icon {
+          left: 48px;
+        }
+        &:nth-child(2) .icon {
+          left: 66px;
+        }
+        &:nth-child(3) .icon {
+          left: 77px;
+        }
+      }
 
-			@include media-breakpoint-up(lg) {
-				&:nth-child(1) .icon {
-					left: 48px;
-				}
-				&:nth-child(2) .icon {
-					left: 66px;
-				}
-				&:nth-child(3) .icon {
-					left: 77px;
-				}
-			}
+      @include media-breakpoint-up(xl) {
+        &:nth-child(1) .icon {
+          left: 42px;
+        }
+        &:nth-child(2) .icon {
+          left: 77px;
+        }
+        &:nth-child(3) .icon {
+          left: 86px;
+        }
+      }
 
-			@include media-breakpoint-up(xl) {
-				&:nth-child(1) .icon {
-					left: 42px;
-				}
-				&:nth-child(2) .icon {
-					left: 77px;
-				}
-				&:nth-child(3) .icon {
-					left: 86px;
-				}
-			}
+      .nav-link {
+        background-color: $cyan;
+        color: $white;
+        @include fontSize(14);
+        font-weight: $font-weight-bold;
+        padding: 0.5rem;
+        text-decoration: none;
 
-			.nav-link {
-				background-color: $cyan;
-				color: $white;
-				@include fontSize(14);
-				font-weight: $font-weight-bold;
-				padding: 0.5rem;
-				text-decoration: none;
+        @include media-breakpoint-up(md) {
+          @include fontSize(22);
+        }
 
-				@include media-breakpoint-up(md) {
-					@include fontSize(22);
-				}
+        @include media-breakpoint-up(lg) {
+          .inactive {
+            display: block !important;
+          }
+        }
 
-				@include media-breakpoint-up(lg) {
-					.inactive {
-						display: block !important;
-					}
-				}
+        @include media-breakpoint-up(xl) {
+          @include fontSize(32);
+        }
 
-				@include media-breakpoint-up(xl) {
-					@include fontSize(32);
-				}
+        .active {
+          display: none !important;
+        }
 
-				.active {
-					display: none !important;
-				}
+        .inactive {
+          display: block !important;
+        }
 
-				.inactive {
-					display: block !important;
-				}
+        &.active {
+          background-color: $white;
+          color: $cyan;
+          text-decoration: none;
 
-				&.active {
-					background-color: $white;
-					color: $cyan;
-					text-decoration: none;
+          .active {
+            display: block !important;
+          }
 
-					.active {
-						display: block !important;
-					}
-
-					.inactive {
-						display: none !important;
-					}
-				}
-			}
-		}
-		.nav-item.active {
-			background-color: $white;
-		}
-	}
+          .inactive {
+            display: none !important;
+          }
+        }
+      }
+    }
+    .nav-item.active {
+      background-color: $white;
+    }
+  }
 }
