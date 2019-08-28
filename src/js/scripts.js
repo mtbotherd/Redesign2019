@@ -78,7 +78,7 @@ $(function() {
             inputDiv is a string with ID name of the input element 
             UTMout is a boolean - if true, coordinates for the address are
                 returned in UTM projection (needed for Trip Planner), otherwise
-                coordinates are geographic Lat/Long
+                coordinates are geographic WGS84 Lat/Long
 	============================================================================*/
     var addressAutoComplete = function(/*string*/inputDiv,/*boolean*/UTMout) {
         $("#" + inputDiv).devbridgeAutocomplete({
@@ -149,11 +149,26 @@ $(function() {
             }
         });
     }
+    // =========================================================
+    // Here are the routines that set the INPUT field to use the 
+    // ADDRESS AUTOCOMPLETE function defined above.
+    // 
+    // Each routine passes the result of the autocomplete
+    // to a global variable (UPPERCASE).
+    //
+    // For the trip planner, both TO and FROM need be set
+    // for validation.
+    // 
+    // This one handles the 'fromLocation' for the Trip Planner
     var TRIPFROMLOCATION = null;
-    var TRIPTOLOCATION = null;
     addressAutoComplete("fromLocation",/*UTMout*/true);
+    // This one handles the 'toLocation' for the Trip Planner
+    var TRIPTOLOCATION = null;
     addressAutoComplete("toLocation",/*UTMout*/true);
+    // This one loads the Search field in the schedules-maps page -- the search result
+    // automatically sets the map to zoom to the requested location
     addressAutoComplete("schedulesMaps", /*UTMout*/false);
+    //===========================================================
 
     // ----------------------------------------------------
     // schedules-maps
@@ -174,6 +189,13 @@ $(function() {
     });
     // ---------------------------------------------------
     // routes
+    //
+    // TODO: the '21' hard-coded below needs to be converted
+    // to a variable that is passed along when the user
+    // selects a route. 
+    // 
+    // The 'routemap' is a static display of the particular
+    // route's geography.
     // ---------------------------------------------------
     if ($('#routeMap').attr('maptype') === 'route') {
         TRIM.init('routeMap').then(function() {
@@ -181,10 +203,16 @@ $(function() {
             TRIM.drawRoutes(routes, /*zoom*/true);
         });
     }
+    // TODO: the '21' hardcoded below needs to be converted
+    // to a variable passed when the user selects a route.
+    // 
+    // This version of the "Show My BUs" map displays 
+    // all the vehicles for a particular route. 
+    //
     if ($('#routeBOM').attr('maptype') === 'BOM') {
         let parms = {
            stopID: null, // optional stop, if route too then show just the one route
-           routeID: "21", // optional route, if no stop - show all on route, if 0 - show all
+           routeID: "21", // optional route, if no stop - show vehicles on route, if 0 - show all
            zoomToNearestBus: true, // when drawing buses the first time, zoom out until you find a bus to show
            stopZoomLevel: 16 // Web Mercator level to intially zoom the stop extent, if stopID has a value
         };
