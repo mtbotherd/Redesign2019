@@ -430,98 +430,93 @@
 																</div>
 															</div>
 														</div>
-														<div class="btn-container text-center">
-															<button type="submit" id="planMyTrip" class="btn mt-2 btn-warning" name="planMyTrip">Plan my trip</button>
+														<div class="btn-wrapper mb-1 mb-lg-5 text-center">
+															<button type="submit" id="planMyTrip" class="btn btn-warning" name="planMyTrip">Plan my trip</button>
 														</div>
 														<div id="tripPlannerResults">
-														<h2>Suggested trips</h2>
-														<p class="mb-0">
-															<strong>Start:&nbsp;</strong>225 Farrington
-															<abbr title="street">St.</abbr>,
-															<abbr title="Saint">St.</abbr> Paul, MN 55102
-														</p>
-														<p>
-															<strong>End:&nbsp;</strong>560 6th
-															<abbr title="avenue">Ave.</abbr> N, Minneapolis, MN 55411
-														</p>
-														<div class="tp-results" role="tablist">
-															<div class="card">
-																<a href="/trip-plan" class="border">
-																	<span class="d-flex" role="link">
-																		<span class="d-flex align-items-center tp-time">56 min</span>
-																		<span class="align-items-center tp-route">
-																			<img class="icon" src="/img/svg/pedestrian-gray.svg">
-																			<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
-																			<img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
-																			<span class="route mr-1">21</span>
-																			<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
-																			<span class="d-flex align-items-center badge badge-success mr-1">
-																				<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
-																				<span class="caps">Green</span>
-																			</span>
-																			<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
-																			<img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
-																			<img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
-																		</span>
-																	</span>
-																</a>
+															<div class="no-trips-found mb-1 mb-lg-5">
+																<div class="alert alert-primary" role="alert">
+																	<h2 class="h4">No trips found</h2>
+																	<p>We’re sorry, no results are available for this trip plan. Please try a specific thing for better results or call or text Transit information at 612-373-3333. (this language needs to be written.)</p>
+																</div>
 															</div>
-															<div class="card">
-																<a href="/trip-plan" class="border">
-																	<span class="d-flex" role="link">
-																		<span class="d-flex align-items-center tp-time">1 hr 2 min</span>
-																		<span class="align-items-center tp-route">
-																			<img class="icon" src="/img/svg/pedestrian-gray.svg">
-																			<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
-																			<img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
-																			<span class="route mr-1">21</span>
-																			<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
-																			<img class="icon" src="/img/svg/pedestrian-gray.svg">
-																			<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
-																			<span class="d-flex align-items-center badge badge-secondary mr-1">
-																				<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
-																				<span class="caps">Blue</span>
+															<div class="trips-found">
+																<h2 class="h4">We found 3 trips for you</h2>
+																<p class="mb-0">We found 3 trips for you Trips shown are based on your selections and closest departure to 3:25 PM, Friday, August 30th.</p>
+																<div class="tp-results mb-1 mb-lg-5" role="tablist">
+																	<div class="card">
+																		<a href="/trip-plan" class="border">
+																			<span class="d-flex" role="link">
+																				<span class="d-flex align-items-center tp-time">56 min</span>
+																				<span class="align-items-center tp-route">
+																					<img class="icon" src="/img/svg/pedestrian-gray.svg">
+																					<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+																					<img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
+																					<span class="route mr-1">21</span>
+																					<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
+																					<span class="d-flex align-items-center badge badge-success mr-1">
+																						<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+																						<span class="caps">Green</span>
+																					</span>
+																					<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
+																					<img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
+																					<img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
+																				</span>
 																			</span>
-																			<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
-																			<img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
-																			<img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
-																		</span>
-																	</span>
-																</a>
-															</div>
-															<div class="card">
-																<a href="/trip-plan" class="border">
-																	<span class="d-flex" role="link">
-																		<span class="d-flex align-items-center tp-time">1 hr 6 min</span>
-																		<span class="align-items-center tp-route">
-																			<img class="icon" src="/img/svg/pedestrian-gray.svg">
-																			<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
-																			<img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
-																			<span class="route mr-1">21</span>
-																			<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
-																			<span class="d-flex align-items-center badge badge-success mr-1">
-																				<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
-																				<span class="caps">Green</span>
+																		</a>
+																	</div>
+																	<div class="card">
+																		<a href="/trip-plan" class="border">
+																			<span class="d-flex" role="link">
+																				<span class="d-flex align-items-center tp-time">1 hr 2 min</span>
+																				<span class="align-items-center tp-route">
+																					<img class="icon" src="/img/svg/pedestrian-gray.svg">
+																					<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
+																					<img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
+																					<span class="route mr-1">21</span>
+																					<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
+																					<img class="icon" src="/img/svg/pedestrian-gray.svg">
+																					<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
+																					<span class="d-flex align-items-center badge badge-secondary mr-1">
+																						<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+																						<span class="caps">Blue</span>
+																					</span>
+																					<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
+																					<img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
+																					<img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
+																				</span>
 																			</span>
-																			<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
-																			<img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
-																			<img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
-																		</span>
-																	</span>
-																</a>
+																		</a>
+																	</div>
+																	<div class="card">
+																		<a href="/trip-plan" class="border">
+																			<span class="d-flex" role="link">
+																				<span class="d-flex align-items-center tp-time">1 hr 6 min</span>
+																				<span class="align-items-center tp-route">
+																					<img class="icon" src="/img/svg/pedestrian-gray.svg">
+																					<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+																					<img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
+																					<span class="route mr-1">21</span>
+																					<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+																					<span class="d-flex align-items-center badge badge-success mr-1">
+																						<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+																						<span class="caps">Green</span>
+																					</span>
+																					<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
+																					<img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
+																					<img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
+																				</span>
+																			</span>
+																		</a>
+																	</div>
+																</div>
+																<div class="text-center">
+																	<button type="submit" class="btn btn-warning" name="planMyTrip">
+																		Edit my trip
+																		<img class="icon edit-blue" src="/img/svg/edit-blue.svg">
+																	</button>
+																</div>
 															</div>
-														</div>
-														<h2>No trips found</h2>
-														<div class="card border p-4">
-															<p>We’re sorry, no results are available for this trip plan. Please try a specific thing for better results or call or text Transit information at 612-373-3333. (this language needs to be written.)</p>
-														</div>
-														</div>
-
-														<div class="btn-container text-center">
-															<button type="submit" class="btn mt-2 btn-warning" name="planMyTrip">
-																Edit my trip
-																<img class="icon edit-blue" src="/img/svg/edit-blue.svg">
-															</button>
 														</div>
 													</div>
 												</div>
