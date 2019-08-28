@@ -8277,7 +8277,7 @@ form .is-valid .form-control-feedback {
   right: 1.5rem; }
 
 .accordion {
-  margin-bottom: 0.5rem; }
+  margin-bottom: 1rem; }
   .accordion .card .card-header {
     padding: 0 !important; }
     .accordion .card .card-header .btn {
@@ -8892,6 +8892,12 @@ footer.section {
     height: 3rem;
     margin-right: 0.5rem; } }
 
+#secondaryPage .page-content .btn-outline-secondary {
+  width: 17.5rem; }
+  @media (min-width: 992px) {
+    #secondaryPage .page-content .btn-outline-secondary {
+      width: 23.125rem; } }
+
 #interactiveMap .btn-outline-primary {
   width: 100%; }
 
@@ -8901,6 +8907,9 @@ footer.section {
     #interactiveMap .map-container {
       width: 100%;
       height: 788px; } }
+
+.route .schedule-days h3 {
+  font-weight: normal !important; }
 
 .autocomplete-suggestions {
   border: 2px solid #999;

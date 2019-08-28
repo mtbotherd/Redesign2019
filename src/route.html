@@ -267,465 +267,520 @@
 			</div>
 
 			<div class="page-content">
-				<!-- Main page content -->
-				<section class="section pt-0 pb-4 pb-md-5">
-					<div class="container">
-						<div id="showMyBus"
-							 class="accordion">
-							<div class="card">
-								<div class="card-header">
-									<button type="button"
-											class="btn d-flex align-items-center btn-block text-left collapsed"
-											data-toggle="collapse"
-											data-target="#collapseMap"
-											aria-expanded="false">
-										<img class="icon mr-2"
-											 src="/img/svg/bus-broadcast-color.svg">
-										<p class="h4 mb-0">Show my bus</p>
-										<img class="icon chevron-down-blue ml-auto"
-											 src="/img/svg/chevron-down-blue.svg">
-									</button>
+					<div class="route">
+						<!-- Main page content -->
+						<section class="section pt-0 pb-4 pb-md-5">
+							<div class="container">
+								<div id="showMyBus"
+									class="accordion">
+									<div class="card">
+										<div class="card-header">
+											<button type="button"
+													class="btn d-flex align-items-center btn-block text-left collapsed"
+													data-toggle="collapse"
+													data-target="#collapseMap"
+													aria-expanded="false">
+												<img class="icon mr-3"
+													src="/img/svg/bus-broadcast-color.svg">
+												<p class="h4 mb-0">Show my bus</p>
+												<img class="icon chevron-down-blue ml-auto"
+													src="/img/svg/chevron-down-blue.svg">
+											</button>
+										</div>
+										<div id="collapseMap"
+											class="collapse">
+											<div class="card-body p-0">
+												<div class="map-container border">
+													<div id="routeBOM" class="map" maptype="BOM" role="application" aria-label="interactive map of vehicle locations">
+														<div id="bombanner" class="mapbanner"></div>
+														<div id="bomticker" class="bomticker"></div>
+														<div id="bomlocate"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
-								<div id="collapseMap"
-									 class="collapse">
-									<div class="card-body p-0">
-										<div class="map-container border">
-											<div id="routeBOM" class="map" maptype="BOM" role="application" aria-label="interactive map of vehicle locations">
-												<div id="bombanner" class="mapbanner"></div>
-												<div id="bomticker" class="bomticker"></div>
-												<div id="bomlocate"></div>
+								<div id="alerts"
+									class="accordion service-alerts">
+									<div class="card">
+										<div class="card-header">
+											<button type="button"
+													class="btn d-flex align-items-center btn-block text-left collapsed"
+													data-toggle="collapse"
+													data-target="#collapseAlert"
+													aria-expanded="false">
+												<img class="icon mr-3"
+													src="/img/svg/alerts-color.svg">
+												<p class="h4 mb-0">ALerts</p>
+												<img class="icon chevron-down-blue ml-auto"
+													src="/img/svg/chevron-down-blue.svg">
+											</button>
+										</div>
+										<div id="collapseAlert"
+											class="collapse">
+											<div class="card-body p-0">
+												<div class="border">
+													<p class="">Insert alerts here</p>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-				</section>
+						</section>
 
-				<section class="section">
-					<div class="container">
-						<h2>Schedule</h2>
-					</div>
-				</section>
-
-				<section class="section">
-					<div class="container">
-						<p>Monday — Friday from Uptown to downtown St Paul</p>
-
-						<table class="table-responsive-sm table-header-rotated">
-							<thead>
-								<tr>
-									<th class="rotate"><div><span>Route number &amp; letter</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-									<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
-								</tr>
-							</thead>
-							<thead>
-								<tr class="sub-header">
-									<th></th>
-									<th><div>1</div></th>
-									<th><div>2</th>
-									<th><div>3</th>
-									<th><div>4</th>
-									<th><div>5</th>
-									<th><div>6</th>
-									<th><div>7</th>
-									<th><div>8</th>
-									<th><div>9</th>
-									<th><div>10</th>
-									<th><div>11</th>
-									<th><div>12</th>
-									<th><div>13</th>
-									<th><div>14</th>
-									<th><div>15</th>
-									<th><div>16</th>
-								</tr>
-							</thead>
-							<thead class="ampm">
-								<tr>
-									<th colspan="17" class="text-center">AM</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th class="row-header">21A<br/>21A</th>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-								</tr>
-								<tr>
-									<th class="row-header">21A<br/>21A</th>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-								</tr>
-								<tr>
-									<th class="row-header">21A<br/>21A</th>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-								</tr>
-								<tr>
-									<th class="row-header">21A<br/>21A</th>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-								</tr>
-								<tr>
-									<th class="row-header">21A<br/>21A</th>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-								</tr>
-								<tr>
-									<th class="row-header">21A<br/>21A</th>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-								</tr>
-								<tr>
-									<th class="row-header">21A<br/>21A</th>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-								</tr>
-							</tbody>
-							<thead class="ampm">
-								<tr>
-									<th colspan="17" class="text-center">PM</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th class="row-header">21A<br/>21A</th>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-									<td>4:01<br/>4:44</td>
-								</tr>
-								<tr>
-									<th class="row-header">21A<br/>21A</th>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-									<td>5:15<br/>5:33</td>
-								</tr>
-								<tr>
-									<th class="row-header">21A<br/>21A</th>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-									<td>5:50<br/>6:06</td>
-								</tr>
-								<tr>
-									<th class="row-header">21A<br/>21A</th>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-									<td>6:20<br/>6:34</td>
-								</tr>
-								<tr>
-									<th class="row-header">21A<br/>21A</th>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-									<td>6:48<br/>7:03</td>
-								</tr>
-								<tr>
-									<th class="row-header">21A<br/>21A</th>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-									<td>7:16<br/>7:32</td>
-								</tr>
-								<tr>
-									<th class="row-header">21A<br/>21A</th>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-									<td>7:46<br/>7:55</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<p>Shaded times denote rush hour service<br />
-							<a href="">Download PDF of full schedule</a></p>
-					</div>
-				</section>
-
-				<section class="section">
-					<div class="container">
-						<img class="img-fluid mb-2 mb-md-4"
-							 src="/img/route-21.png" />
-						<p><a href="">Download PDF of detailed route map</a></p>
-					</div>
-				</section>
-
-				<section class="section">
-					<div id="tripPlan"
-						 class="container">
-						<div class="tt-trip-plan">
-							<div class="card">
-								<div class="card-body border-0">
-									<div class="row flex-row">
-										<div class="col-lg-6 d-none d-md-block">
-											<h3>Key destinations</h3>
-											<div class="d-block tp-results">
-												<div class="leg-item">
-													<div class="d-table-cell leg-mode bus">
-														<div class="d-table-cell leg-mode-icon">
-															<img class="icon"
-																 src="/img/svg/circle-gray-outline-bus.svg">
-														</div>
-														<p>
-															<strong>Walk</strong> 0.12 miles to Selby
-															<abbr title="avenue">Ave</abbr> &amp; Farrington
-															<abbr title="street">St</abbr>
-															<br>
-															<small>
-																(about 4
-																<abbr title="minutes">min</abbr>)
-															</small>
-														</p>
-													</div>
-												</div>
-												<div class="leg-item">
-													<div class="d-table-cell leg-mode arrive">
-														<div class="d-table-cell leg-mode-icon">
-															<img class="icon"
-																 src="/img/svg/circle-red-outline-pin.svg">
-														</div>
-														<p>
-															<strong>Arrive</strong>
-															at
-															<abbr title="Fred T. Heywood">FTH</abbr>, Minneapolis, MN
-														</p>
-													</div>
-												</div>
-											</div>
+						<section class="section">
+							<div class="container">
+								<h2>
+									<img class="icon date-time-color" src="/img/svg/date-time-color.svg">
+									Schedule
+								</h2>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="schedule-days">
+											<h3>Weekday</h3>
+											<button type="button" class="btn btn-outline-secondary mb-4">Eastbound</button>
+											<button type="button" class="btn btn-outline-secondary">Westbound</button>
 										</div>
-										<div class="col-lg-6">
-											<h3>Route map</h3>
-											<div class="tp-basemap">
-													<div class="map-container border">
-														<div id="routeMap" class="map" mapType="route" role="application" aria-label="display map of transit route">
-																<div id="trimLocate"></div>
-																<div class="mapLoading"></div>
+									</div>
+									<div class="col-md-4">
+										<div class="schedule-days">
+											<h3>Saturday</h3>
+											<button type="button" class="btn btn-outline-secondary mb-4">Eastbound</button>
+											<button type="button" class="btn btn-outline-secondary">Westbound</button>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="schedule-days">
+											<h3>Sunday</h3>
+											<button type="button" class="btn btn-outline-secondary mb-4">Eastbound</button>
+											<button type="button" class="btn btn-outline-secondary">Westbound</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section class="section">
+							<div class="container">
+								<p>Monday — Friday from Uptown to downtown St Paul</p>
+
+								<table class="table-responsive-sm table-header-rotated">
+									<thead>
+										<tr>
+											<th class="rotate"><div><span>Route number &amp; letter</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+											<th class="rotate"><div><span>Uptown Transit Station</span></div></th>
+										</tr>
+									</thead>
+									<thead>
+										<tr class="sub-header">
+											<th></th>
+											<th><div>1</div></th>
+											<th><div>2</th>
+											<th><div>3</th>
+											<th><div>4</th>
+											<th><div>5</th>
+											<th><div>6</th>
+											<th><div>7</th>
+											<th><div>8</th>
+											<th><div>9</th>
+											<th><div>10</th>
+											<th><div>11</th>
+											<th><div>12</th>
+											<th><div>13</th>
+											<th><div>14</th>
+											<th><div>15</th>
+											<th><div>16</th>
+										</tr>
+									</thead>
+									<thead class="ampm">
+										<tr>
+											<th colspan="17" class="text-center">AM</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th class="row-header">21A<br/>21A</th>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+										</tr>
+										<tr>
+											<th class="row-header">21A<br/>21A</th>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+										</tr>
+										<tr>
+											<th class="row-header">21A<br/>21A</th>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+										</tr>
+										<tr>
+											<th class="row-header">21A<br/>21A</th>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+										</tr>
+										<tr>
+											<th class="row-header">21A<br/>21A</th>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+										</tr>
+										<tr>
+											<th class="row-header">21A<br/>21A</th>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+										</tr>
+										<tr>
+											<th class="row-header">21A<br/>21A</th>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+										</tr>
+									</tbody>
+									<thead class="ampm">
+										<tr>
+											<th colspan="17" class="text-center">PM</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th class="row-header">21A<br/>21A</th>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+											<td>4:01<br/>4:44</td>
+										</tr>
+										<tr>
+											<th class="row-header">21A<br/>21A</th>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+											<td>5:15<br/>5:33</td>
+										</tr>
+										<tr>
+											<th class="row-header">21A<br/>21A</th>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+											<td>5:50<br/>6:06</td>
+										</tr>
+										<tr>
+											<th class="row-header">21A<br/>21A</th>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+											<td>6:20<br/>6:34</td>
+										</tr>
+										<tr>
+											<th class="row-header">21A<br/>21A</th>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+											<td>6:48<br/>7:03</td>
+										</tr>
+										<tr>
+											<th class="row-header">21A<br/>21A</th>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+											<td>7:16<br/>7:32</td>
+										</tr>
+										<tr>
+											<th class="row-header">21A<br/>21A</th>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+											<td>7:46<br/>7:55</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<p>Shaded times denote rush hour service<br />
+									<a href="">Download PDF of full schedule</a></p>
+							</div>
+						</section>
+
+						<section class="section">
+							<div class="container">
+								<img class="img-fluid mb-2 mb-md-4"
+									src="/img/route-21.png" />
+								<p><a href="">Download PDF of detailed route map</a></p>
+							</div>
+						</section>
+
+						<section class="section">
+							<div id="tripPlan"
+								class="container">
+								<div class="tt-trip-plan">
+									<div class="card">
+										<div class="card-body border-0">
+											<div class="row flex-row">
+												<div class="col-lg-6 d-none d-md-block">
+													<h3>Key destinations</h3>
+													<div class="d-block tp-results">
+														<div class="leg-item">
+															<div class="d-table-cell leg-mode bus">
+																<div class="d-table-cell leg-mode-icon">
+																	<img class="icon"
+																		src="/img/svg/circle-gray-outline-bus.svg">
+																</div>
+																<p>
+																	<strong>Walk</strong> 0.12 miles to Selby
+																	<abbr title="avenue">Ave</abbr> &amp; Farrington
+																	<abbr title="street">St</abbr>
+																	<br>
+																	<small>
+																		(about 4
+																		<abbr title="minutes">min</abbr>)
+																	</small>
+																</p>
+															</div>
+														</div>
+														<div class="leg-item">
+															<div class="d-table-cell leg-mode arrive">
+																<div class="d-table-cell leg-mode-icon">
+																	<img class="icon"
+																		src="/img/svg/circle-red-outline-pin.svg">
+																</div>
+																<p>
+																	<strong>Arrive</strong>
+																	at
+																	<abbr title="Fred T. Heywood">FTH</abbr>, Minneapolis, MN
+																</p>
+															</div>
 														</div>
 													</div>
+												</div>
+												<div class="col-lg-6">
+													<h3>Route map</h3>
+													<div class="tp-basemap">
+															<div class="map-container border">
+																<div id="routeMap" class="map" mapType="route" role="application" aria-label="display map of transit route">
+																		<div id="trimLocate"></div>
+																		<div class="mapLoading"></div>
+																</div>
+															</div>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-				</section>
+						</section>
 
-				<section class="cyan-bg">
-					<div class="container">
-						<div class="text-center pt-4 pb-4 pt-lg-5 pb-lg-5">
-							<a class="btn btn-outline-white"
-							   href="https://public.govdelivery.com/accounts/MNMETRO/subscriber/new">Sign up for
-								alerts
-								<img class="icon inactive"
-									 src="/img/svg/arrow-right-white.svg" />
-								<img class="icon active"
-									 src="/img/svg/arrow-right-blue.svg" />
-							</a>
-						</div>
+						<section class="cyan-bg">
+							<div class="container">
+								<div class="text-center pt-4 pb-4 pt-lg-5 pb-lg-5">
+									<a class="btn btn-outline-white"
+									href="https://public.govdelivery.com/accounts/MNMETRO/subscriber/new">Sign up for
+										alerts
+										<img class="icon inactive"
+											src="/img/svg/arrow-right-white.svg" />
+										<img class="icon active"
+											src="/img/svg/arrow-right-blue.svg" />
+									</a>
+								</div>
+							</div>
+						</section>
 					</div>
-				</section>
+				</div>
 			</div>
 		</div>
 	</section>
