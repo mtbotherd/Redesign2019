@@ -7749,108 +7749,31 @@ abbr {
   -webkit-transition: .3s transform ease-in-out;
   transition: .3s transform ease-in-out; }
 
-@media (min-width: 1200px) {
-  .utilities {
-    margin-left: auto;
-    padding-left: 1.25rem;
-    border-left: 1px solid #e3e3e0; } }
+.autocomplete-suggestions {
+  border: 2px solid #999;
+  background: #fff;
+  overflow: auto; }
 
-@media (min-width: 768px) {
-  .utilities .nav-link .icon {
-    width: 1.5rem !important;
-    height: 1.5rem !important; } }
+.autocomplete-suggestion {
+  cursor: pointer;
+  padding: 2px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  font: 400 16px; }
 
-a.skip-to-content {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  -webkit-transition: top 1s ease-out;
-  transition: top 1s ease-out; }
-  a.skip-to-content:focus {
-    background-color: #ed1b2e;
-    color: #fff;
-    left: 0;
-    padding: 1rem;
-    text-decoration: underline;
-    top: 0;
-    -webkit-transition: top 0.1s ease-in;
-    transition: top 0.1s ease-in; }
+.autocomplete-selected {
+  background: #f0f0f0; }
 
-@media (min-width: 1200px) {
-  #header .navbar {
-    padding: 0 !important; } }
+.autocomplete-suggestions strong {
+  font-weight: 600;
+  color: #000; }
 
-#header .navbar-nav .nav-item:hover {
-  background-color: #0097d0; }
-  #header .navbar-nav .nav-item:hover .nav-link {
-    color: #fff; }
+.autocomplete-group {
+  padding: 2px 5px; }
 
-@media (min-width: 1200px) {
-  #header .navbar-nav .nav-item .nav-link {
-    padding-top: 1.25rem;
-    padding-right: 0.85rem !important;
-    padding-bottom: 1.25rem;
-    padding-left: 0.85rem !important; } }
-
-#header .navbar-nav .nav-item .nav-link .icon {
-  width: 0.75rem;
-  width: 0.75rem; }
-  @media (min-width: 768px) {
-    #header .navbar-nav .nav-item .nav-link .icon {
-      width: 1rem;
-      height: 1rem; } }
-
-#header .navbar-nav .nav-item .nav-link:active, #header .navbar-nav .nav-item .nav-link:hover {
-  color: #fff; }
-
-#header .navbar-nav .nav-item .dropdown-toggle::after {
-  border: none !important; }
-
-#header .navbar-nav .nav-item .dropdown-menu {
-  background-color: #f5f5f4; }
-  @media (min-width: 1200px) {
-    #header .navbar-nav .nav-item .dropdown-menu {
-      margin-top: 0;
-      border: none; } }
-  #header .navbar-nav .nav-item .dropdown-menu .dropdown-item {
-    color: #0097d0; }
-    @media (min-width: 992px) {
-      #header .navbar-nav .nav-item .dropdown-menu .dropdown-item {
-        font-size: 18px !important;
-        font-size: 1.125rem !important; } }
-    #header .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover, #header .navbar-nav .nav-item .dropdown-menu .dropdown-item:active {
-      color: #0053a0;
-      text-decoration: underline; }
-
-.hero {
-  background-size: cover;
-  background-position: 90%;
-  background-repeat: no-repeat;
-  height: 10rem;
-  margin-bottom: 1rem; }
-  @media (min-width: 768px) {
-    .hero {
-      height: 15rem; } }
-  @media (min-width: 992px) {
-    .hero {
-      height: 17rem;
-      margin-bottom: 3rem; } }
-  @media (min-width: 1200px) {
-    .hero {
-      height: 20rem; } }
-
-.home-bg,
-.placeholder-bg {
-  background-image: url("../../../../../img/mt-header-lrt-2000x457.jpg"); }
-
-.trip-planner-bg {
-  background-image: url("../../../../../img/trip-planner.jpg"); }
-
-.nextrip-bg {
-  background-image: url("../../../../../img/nextrip.jpg"); }
-
-.schedules-maps-bg {
-  background-image: url("../../../../../img/schedules-maps.jpg"); }
+.autocomplete-group strong {
+  display: block;
+  border-bottom: 1px solid #000; }
 
 a:focus,
 button:focus,
@@ -7861,11 +7784,9 @@ input:focus,
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 151, 208, 0.25); }
 
-.btn-container {
-  padding-top: 1rem; }
-  @media (min-width: 768px) {
-    .btn-container {
-      padding-top: 3rem; } }
+@media (min-width: 992px) {
+  .btn-wrapper {
+    margin-top: 2rem; } }
 
 .btn-warning {
   position: relative;
@@ -8063,65 +7984,118 @@ input:focus,
         top: 1.25rem;
         right: 0.75rem; } }
 
-table {
-  margin: 2rem 0 1rem 0; }
+.hero {
+  background-size: cover;
+  background-position: 90%;
+  background-repeat: no-repeat;
+  height: 10rem;
+  margin-bottom: 1rem; }
+  @media (min-width: 768px) {
+    .hero {
+      height: 15rem; } }
+  @media (min-width: 992px) {
+    .hero {
+      height: 17rem;
+      margin-bottom: 3rem; } }
+  @media (min-width: 1200px) {
+    .hero {
+      height: 20rem; } }
 
-.table-bordered thead th {
-  border: none; }
+.home-bg,
+.placeholder-bg {
+  background-image: url("../../../../../img/mt-header-lrt-2000x457.jpg"); }
 
-.table-header-rotated {
-  border-collapse: collapse; }
-  .table-header-rotated th.rotate {
-    font-weight: normal;
-    height: 140px;
-    white-space: nowrap; }
-    .table-header-rotated th.rotate:first-child {
-      font-weight: 700; }
-    .table-header-rotated th.rotate div {
-      -webkit-transform: translate(34px, 37px) rotate(-45deg);
-              transform: translate(34px, 37px) rotate(-45deg);
-      width: 55px; }
-      @media (min-width: 768px) {
-        .table-header-rotated th.rotate div {
-          -webkit-transform: translate(34px, 36px) rotate(-45deg);
-                  transform: translate(34px, 36px) rotate(-45deg); } }
-      @media (min-width: 992px) {
-        .table-header-rotated th.rotate div {
-          -webkit-transform: translate(32px, 35px) rotate(-45deg);
-                  transform: translate(32px, 35px) rotate(-45deg); } }
-      .table-header-rotated th.rotate div span {
-        border-bottom: 1px solid #8a8b8a;
-        padding: 0.75rem 0; }
-  .table-header-rotated tr.sub-header th {
-    border: 1px solid #8a8b8a;
-    border-top: none;
-    height: 57px;
-    text-align: center; }
-    .table-header-rotated tr.sub-header th:first-child {
-      border-left: none; }
-    .table-header-rotated tr.sub-header th div {
-      border: 1px solid #8a8b8a;
-      border-radius: 50%;
-      width: 2rem;
-      height: 2rem;
-      padding: 5px;
-      margin: 0 auto; }
-      @media (min-width: 992px) {
-        .table-header-rotated tr.sub-header th div {
-          line-height: 1; } }
-  .table-header-rotated thead.ampm {
-    background-color: #f5f5f4;
-    border-right: 1px solid #8a8b8a;
-    border-left: 1px solid #8a8b8a; }
-  .table-header-rotated th.row-header {
-    padding: 0 10px;
-    border-top: 1px solid #8a8b8a;
-    border-bottom: 1px solid #8a8b8a;
-    border-left: 1px solid #8a8b8a; }
-  .table-header-rotated td {
-    border: 1px solid #8a8b8a;
-    text-align: center;
-    padding: 10px 5px; }
+.trip-planner-bg {
+  background-image: url("../../../../../img/trip-planner.jpg"); }
+
+.nextrip-bg {
+  background-image: url("../../../../../img/nextrip.jpg"); }
+
+.schedules-maps-bg {
+  background-image: url("../../../../../img/schedules-maps.jpg"); }
+
+@media (min-width: 1200px) {
+  .utilities {
+    margin-left: auto;
+    padding-left: 1.25rem;
+    border-left: 1px solid #e3e3e0; } }
+
+@media (min-width: 768px) {
+  .utilities .nav-link .icon {
+    width: 1.5rem !important;
+    height: 1.5rem !important; } }
+
+a.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  -webkit-transition: top 1s ease-out;
+  transition: top 1s ease-out; }
+  a.skip-to-content:focus {
+    background-color: #ed1b2e;
+    color: #fff;
+    left: 0;
+    padding: 1rem;
+    text-decoration: underline;
+    top: 0;
+    -webkit-transition: top 0.1s ease-in;
+    transition: top 0.1s ease-in; }
+
+@media (min-width: 1200px) {
+  #header .navbar {
+    padding: 0 !important; } }
+
+#header .navbar-nav .nav-item:hover {
+  background-color: #0097d0; }
+  #header .navbar-nav .nav-item:hover .nav-link {
+    color: #fff; }
+
+@media (min-width: 1200px) {
+  #header .navbar-nav .nav-item .nav-link {
+    padding-top: 1.25rem;
+    padding-right: 0.85rem !important;
+    padding-bottom: 1.25rem;
+    padding-left: 0.85rem !important; } }
+
+#header .navbar-nav .nav-item .nav-link .icon {
+  width: 0.75rem;
+  width: 0.75rem; }
+  @media (min-width: 768px) {
+    #header .navbar-nav .nav-item .nav-link .icon {
+      width: 1rem;
+      height: 1rem; } }
+
+#header .navbar-nav .nav-item .nav-link:active, #header .navbar-nav .nav-item .nav-link:hover {
+  color: #fff; }
+
+#header .navbar-nav .nav-item .dropdown-toggle::after {
+  border: none !important; }
+
+#header .navbar-nav .nav-item .dropdown-menu {
+  background-color: #f5f5f4; }
+  @media (min-width: 1200px) {
+    #header .navbar-nav .nav-item .dropdown-menu {
+      margin-top: 0;
+      border: none; } }
+  #header .navbar-nav .nav-item .dropdown-menu .dropdown-item {
+    color: #0097d0; }
+    @media (min-width: 992px) {
+      #header .navbar-nav .nav-item .dropdown-menu .dropdown-item {
+        font-size: 18px !important;
+        font-size: 1.125rem !important; } }
+    #header .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover, #header .navbar-nav .nav-item .dropdown-menu .dropdown-item:active {
+      color: #0053a0;
+      text-decoration: underline; }
+
+#interactiveMap .btn-outline-primary {
+  width: 100%; }
+
+#interactiveMap .map-container {
+  height: 600px; }
+  @media (min-width: 1200px) {
+    #interactiveMap .map-container {
+      width: 100%;
+      height: 788px; } }
 
 /**********************************************
     Form styles
@@ -8308,6 +8282,218 @@ form .is-valid .form-control-feedback {
             width: 1rem;
             height: 1rem; } }
 
+table {
+  margin: 2rem 0 1rem 0; }
+
+.table-bordered thead th {
+  border: none; }
+
+.table-header-rotated {
+  border-collapse: collapse; }
+  .table-header-rotated th.rotate {
+    font-weight: normal;
+    height: 140px;
+    white-space: nowrap; }
+    .table-header-rotated th.rotate:first-child {
+      font-weight: 700; }
+    .table-header-rotated th.rotate div {
+      -webkit-transform: translate(34px, 37px) rotate(-45deg);
+              transform: translate(34px, 37px) rotate(-45deg);
+      width: 55px; }
+      @media (min-width: 768px) {
+        .table-header-rotated th.rotate div {
+          -webkit-transform: translate(34px, 36px) rotate(-45deg);
+                  transform: translate(34px, 36px) rotate(-45deg); } }
+      @media (min-width: 992px) {
+        .table-header-rotated th.rotate div {
+          -webkit-transform: translate(32px, 35px) rotate(-45deg);
+                  transform: translate(32px, 35px) rotate(-45deg); } }
+      .table-header-rotated th.rotate div span {
+        border-bottom: 1px solid #8a8b8a;
+        padding: 0.75rem 0; }
+  .table-header-rotated tr.sub-header th {
+    border: 1px solid #8a8b8a;
+    border-top: none;
+    height: 57px;
+    text-align: center; }
+    .table-header-rotated tr.sub-header th:first-child {
+      border-left: none; }
+    .table-header-rotated tr.sub-header th div {
+      border: 1px solid #8a8b8a;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      padding: 5px;
+      margin: 0 auto; }
+      @media (min-width: 992px) {
+        .table-header-rotated tr.sub-header th div {
+          line-height: 1; } }
+  .table-header-rotated thead.ampm {
+    background-color: #f5f5f4;
+    border-right: 1px solid #8a8b8a;
+    border-left: 1px solid #8a8b8a; }
+  .table-header-rotated th.row-header {
+    padding: 0 10px;
+    border-top: 1px solid #8a8b8a;
+    border-bottom: 1px solid #8a8b8a;
+    border-left: 1px solid #8a8b8a; }
+  .table-header-rotated td {
+    border: 1px solid #8a8b8a;
+    text-align: center;
+    padding: 10px 5px; }
+
+/*
+*  Transit REDESIGN Map stylesheet
+*  ~/iMap/style/TRIM.css
+*
+*/
+.map {
+  font-size: 10pt;
+  line-height: 1.3;
+  height: 100%;
+  width: 100%;
+  position: relative; }
+
+.map > .LocateButton {
+  position: absolute;
+  right: 20px;
+  bottom: 140px;
+  z-index: 6; }
+
+.map > .LocateButton .zoomLocateButton {
+  width: 42px;
+  height: 42px;
+  padding: 0; }
+
+.map > .mapLoading {
+  position: absolute;
+  background-image: url("data:image/gif;base64,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");
+  right: 50%;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  z-index: 100; }
+
+.map > .bomticker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  font-size: 0.8em;
+  text-rendering: optimizeLegibility; }
+
+.map > .mapbanner {
+  position: absolute;
+  line-height: 30px;
+  width: 70%;
+  text-align: center;
+  z-index: 30;
+  top: 15%;
+  left: 15%;
+  background-color: white;
+  border: solid 2px black;
+  font-size: large;
+  font-weight: bold;
+  color: black;
+  display: none; }
+
+.esriScalebar {
+  position: absolute;
+  bottom: 2em; }
+
+.esriScalebarLabel {
+  padding-top: 0.3em;
+  font-size: 1em;
+  width: auto; }
+
+.esriPopup {
+  font-family: inherit; }
+
+.esriPopup .sizer {
+  width: 410px; }
+
+.esriPopup .stop-description {
+  font: white;
+  background-color: #0097d0;
+  font-size: 1.2em;
+  color: white;
+  padding: 3px; }
+
+.esriPopup .route-list {
+  background-color: #fff; }
+
+.esriPopup .route-list,
+label {
+  margin-bottom: 0;
+  margin-left: 3px;
+  line-height: 20px;
+  white-space: nowrap; }
+
+.esriPopup .titlePane {
+  height: 21px;
+  font-size: 1.1em; }
+
+.esriPopup .contentPane {
+  /*max-height: 300px;*/
+  overflow: hidden;
+  font-size: 1.1em;
+  background-color: #ededef; }
+
+.esriPopup .actionsPane {
+  background-color: #ededef; }
+
+.esriPopup .nav-link {
+  font-size: large; }
+
+.esriPopup a[href] {
+  text-decoration: none; }
+
+.esriPopup .route-list input {
+  margin: 3px; }
+
+.esriPopup .tab-pane {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 280px; }
+
+.esriSimpleSlider div {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0;
+  color: #555555 !important;
+  font-size: 2.4em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 600; }
+
+.esriPopup .stop-departures {
+  background-color: #fff; }
+
+#mapPopUpTabNexTrip {
+  font-size: 1.2em;
+  background-color: #f5f5f4 !important; }
+
+#mapPopUpTabNexTrip .route-number {
+  font-weight: 700; }
+
+#mapPopUpTabNexTrip .route-name {
+  max-width: 280px; }
+
+#mapPopUpTabNexTrip .depart-time {
+  font-weight: 700; }
+
+#mapPopUpTabNexTrip .list-group-item {
+  display: -webkit-box;
+  display: flex;
+  padding: .5em; }
+
+#mapPopUpTabNexTrip .list-group-item {
+  background-color: transparent;
+  border-color: #8a8b8a;
+  border-right: none;
+  border-left: none; }
+
 #homeContent {
   position: relative;
   top: -4.62rem;
@@ -8318,54 +8504,6 @@ form .is-valid .form-control-feedback {
   @media (min-width: 1200px) {
     #homeContent {
       top: -5.12rem; } }
-
-/***************************************************
-    News & Updates
-***************************************************/
-#news .row:first-child .col-6 {
-  padding-bottom: 1.5rem; }
-  @media (min-width: 768px) {
-    #news .row:first-child .col-6 {
-      padding-bottom: 0; } }
-
-#news .card {
-  border: 1px solid #e3e3e0; }
-
-#news .card-body,
-#news .card-footer {
-  text-align: center;
-  padding: 0.75rem; }
-
-#news .card-footer {
-  background-color: transparent;
-  border-top: 0; }
-  #news .card-footer .btn-warning {
-    position: relative;
-    color: #626462;
-    font-size: 18px !important;
-    font-size: 1.125rem !important;
-    font-weight: 700;
-    width: 100%; }
-    @media (min-width: 768px) {
-      #news .card-footer .btn-warning {
-        padding: 0.375rem 0.75rem; } }
-    @media (min-width: 992px) {
-      #news .card-footer .btn-warning {
-        width: 100%;
-        font-size: 23px !important;
-        font-size: 1.4375rem !important; } }
-    #news .card-footer .btn-warning .icon {
-      position: absolute;
-      top: 0.75rem;
-      right: 0.25rem;
-      width: 0.75rem;
-      height: 0.75rem; }
-      @media (min-width: 992px) {
-        #news .card-footer .btn-warning .icon {
-          top: 1rem;
-          right: 0.75rem;
-          width: 1rem;
-          height: 1rem; } }
 
 /***************************************************
     Nav Tabs
@@ -8506,9 +8644,6 @@ form .is-valid .form-control-feedback {
     #tripPlannerModule .more-options .card-body .accessible-gray {
       width: 1rem;
       height: 1rem; }
-  @media (min-width: 1200px) {
-    #tripPlannerModule .more-options {
-      margin-bottom: 1.5rem; } }
 
 .chevron-right-gray {
   width: 0.5rem;
@@ -8802,6 +8937,54 @@ form .is-valid .form-control-feedback {
 #alerts .service-alerts .number-alerts {
   font-weight: 700; }
 
+/***************************************************
+    News & Updates
+***************************************************/
+#news .row:first-child .col-6 {
+  padding-bottom: 1.5rem; }
+  @media (min-width: 768px) {
+    #news .row:first-child .col-6 {
+      padding-bottom: 0; } }
+
+#news .card {
+  border: 1px solid #e3e3e0; }
+
+#news .card-body,
+#news .card-footer {
+  text-align: center;
+  padding: 0.75rem; }
+
+#news .card-footer {
+  background-color: transparent;
+  border-top: 0; }
+  #news .card-footer .btn-warning {
+    position: relative;
+    color: #626462;
+    font-size: 18px !important;
+    font-size: 1.125rem !important;
+    font-weight: 700;
+    width: 100%; }
+    @media (min-width: 768px) {
+      #news .card-footer .btn-warning {
+        padding: 0.375rem 0.75rem; } }
+    @media (min-width: 992px) {
+      #news .card-footer .btn-warning {
+        width: 100%;
+        font-size: 23px !important;
+        font-size: 1.4375rem !important; } }
+    #news .card-footer .btn-warning .icon {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.25rem;
+      width: 0.75rem;
+      height: 0.75rem; }
+      @media (min-width: 992px) {
+        #news .card-footer .btn-warning .icon {
+          top: 1rem;
+          right: 0.75rem;
+          width: 1rem;
+          height: 1rem; } }
+
 footer.section {
   background-color: #f5f5f4; }
   footer.section .card-title {
@@ -8898,195 +9081,7 @@ footer.section {
     #secondaryPage .page-content .btn-outline-secondary {
       width: 23.125rem; } }
 
-#interactiveMap .btn-outline-primary {
-  width: 100%; }
-
-#interactiveMap .map-container {
-  height: 600px; }
-  @media (min-width: 1200px) {
-    #interactiveMap .map-container {
-      width: 100%;
-      height: 788px; } }
-
 .route .schedule-days h3 {
   font-weight: normal !important; }
-
-.autocomplete-suggestions {
-  border: 2px solid #999;
-  background: #fff;
-  overflow: auto; }
-
-.autocomplete-suggestion {
-  cursor: pointer;
-  padding: 2px 5px;
-  white-space: nowrap;
-  overflow: hidden;
-  font: 400 16px; }
-
-.autocomplete-selected {
-  background: #f0f0f0; }
-
-.autocomplete-suggestions strong {
-  font-weight: 600;
-  color: #000; }
-
-.autocomplete-group {
-  padding: 2px 5px; }
-
-.autocomplete-group strong {
-  display: block;
-  border-bottom: 1px solid #000; }
-
-/*
-*  Transit REDESIGN Map stylesheet
-*  ~/iMap/style/TRIM.css
-*
-*/
-.map {
-  font-size: 10pt;
-  line-height: 1.3;
-  height: 100%;
-  width: 100%;
-  position: relative; }
-
-.map > .LocateButton {
-  position: absolute;
-  right: 20px;
-  bottom: 140px;
-  z-index: 6; }
-
-.map > .LocateButton .zoomLocateButton {
-  width: 42px;
-  height: 42px;
-  padding: 0; }
-
-.map > .mapLoading {
-  position: absolute;
-  background-image: url("data:image/gif;base64,R0lGODlhNgA3APMAAP///wAAAHh4eBwcHA4ODtjY2FRUVNzc3MTExEhISIqKigAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAANgA3AAAEzBDISau9OOvNu/9gKI5kaZ4lkhBEgqCnws6EApMITb93uOqsRC8EpA1Bxdnx8wMKl51ckXcsGFiGAkamsy0LA9pAe1EFqRbBYCAYXXUGk4DWJhZN4dlAlMSLRW80cSVzM3UgB3ksAwcnamwkB28GjVCWl5iZmpucnZ4cj4eWoRqFLKJHpgSoFIoEe5ausBeyl7UYqqw9uaVrukOkn8LDxMXGx8ibwY6+JLxydCO3JdMg1dJ/Is+E0SPLcs3Jnt/F28XXw+jC5uXh4u89EQAh+QQJCgAAACwAAAAANgA3AAAEzhDISau9OOvNu/9gKI5kaZ5oqhYGQRiFWhaD6w6xLLa2a+iiXg8YEtqIIF7vh/QcarbB4YJIuBKIpuTAM0wtCqNiJBgMBCaE0ZUFCXpoknWdCEFvpfURdCcM8noEIW82cSNzRnWDZoYjamttWhphQmOSHFVXkZecnZ6foKFujJdlZxqELo1AqQSrFH1/TbEZtLM9shetrzK7qKSSpryixMXGx8jJyifCKc1kcMzRIrYl1Xy4J9cfvibdIs/MwMue4cffxtvE6qLoxubk8ScRACH5BAkKAAAALAAAAAA2ADcAAATOEMhJq7046827/2AojmRpnmiqrqwwDAJbCkRNxLI42MSQ6zzfD0Sz4YYfFwyZKxhqhgJJeSQVdraBNFSsVUVPHsEAzJrEtnJNSELXRN2bKcwjw19f0QG7PjA7B2EGfn+FhoeIiYoSCAk1CQiLFQpoChlUQwhuBJEWcXkpjm4JF3w9P5tvFqZsLKkEF58/omiksXiZm52SlGKWkhONj7vAxcbHyMkTmCjMcDygRNAjrCfVaqcm11zTJrIjzt64yojhxd/G28XqwOjG5uTxJhEAIfkECQoAAAAsAAAAADYANwAABM0QyEmrvTjrzbv/YCiOZGmeaKqurDAMAlsKRE3EsjjYxJDrPN8PRLPhhh8XDMk0KY/OF5TIm4qKNWtnZxOWuDUvCNw7kcXJ6gl7Iz1T76Z8Tq/b7/i8qmCoGQoacT8FZ4AXbFopfTwEBhhnQ4w2j0GRkgQYiEOLPI6ZUkgHZwd6EweLBqSlq6ytricICTUJCKwKkgojgiMIlwS1VEYlspcJIZAkvjXHlcnKIZokxJLG0KAlvZfAebeMuUi7FbGz2z/Rq8jozavn7Nev8CsRACH5BAkKAAAALAAAAAA2ADcAAATLEMhJq7046827/2AojmRpnmiqrqwwDAJbCkRNxLI42MSQ6zzfD0Sz4YYfFwzJNCmPzheUyJuKijVrZ2cTlrg1LwjcO5HFyeoJeyM9U++mfE6v2+/4PD6O5F/YWiqAGWdIhRiHP4kWg0ONGH4/kXqUlZaXmJlMBQY1BgVuUicFZ6AhjyOdPAQGQF0mqzauYbCxBFdqJao8rVeiGQgJNQkIFwdnB0MKsQrGqgbJPwi2BMV5wrYJetQ129x62LHaedO21nnLq82VwcPnIhEAIfkECQoAAAAsAAAAADYANwAABMwQyEmrvTjrzbv/YCiOZGmeaKqurDAMAlsKRE3EsjjYxJDrPN8PRLPhhh8XDMk0KY/OF5TIm4qKNWtnZxOWuDUvCNw7kcXJ6gl7Iz1T76Z8Tq/b7/g8Po7kX9haKoAZZ0iFGIc/iRaDQ40Yfj+RepSVlpeYAAgJNQkIlgo8NQqUCKI2nzNSIpynBAkzaiCuNl9BIbQ1tl0hraewbrIfpq6pbqsioaKkFwUGNQYFSJudxhUFZ9KUz6IGlbTfrpXcPN6UB2cHlgfcBuqZKBEAIfkECQoAAAAsAAAAADYANwAABMwQyEmrvTjrzbv/YCiOZGmeaKqurDAMAlsKRE3EsjjYxJDrPN8PRLPhhh8XDMk0KY/OF5TIm4qKNWtnZxOWuDUvCNw7kcXJ6gl7Iz1T76Z8Tq/b7yJEopZA4CsKPDUKfxIIgjZ+P3EWe4gECYtqFo82P2cXlTWXQReOiJE5bFqHj4qiUhmBgoSFho59rrKztLVMBQY1BgWzBWe8UUsiuYIGTpMglSaYIcpfnSHEPMYzyB8HZwdrqSMHxAbath2MsqO0zLLorua05OLvJxEAIfkECQoAAAAsAAAAADYANwAABMwQyEmrvTjrzbv/YCiOZGmeaKqurDAMAlsKRE3EsjjYxJDrPN8PRLPhfohELYHQuGBDgIJXU0Q5CKqtOXsdP0otITHjfTtiW2lnE37StXUwFNaSScXaGZvm4r0jU1RWV1hhTIWJiouMjVcFBjUGBY4WBWw1A5RDT3sTkVQGnGYYaUOYPaVip3MXoDyiP3k3GAeoAwdRnRoHoAa5lcHCw8TFxscduyjKIrOeRKRAbSe3I9Um1yHOJ9sjzCbfyInhwt3E2cPo5dHF5OLvJREAOwAAAAAAAAAAAA==");
-  right: 50%;
-  top: 50%;
-  width: 60px;
-  height: 60px;
-  z-index: 100; }
-
-.map > .bomticker {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
-  font-size: 0.8em;
-  text-rendering: optimizeLegibility; }
-
-.map > .mapbanner {
-  position: absolute;
-  line-height: 30px;
-  width: 70%;
-  text-align: center;
-  z-index: 30;
-  top: 15%;
-  left: 15%;
-  background-color: white;
-  border: solid 2px black;
-  font-size: large;
-  font-weight: bold;
-  color: black;
-  display: none; }
-
-.esriScalebar {
-  position: absolute;
-  bottom: 2em; }
-
-.esriScalebarLabel {
-  padding-top: 0.3em;
-  font-size: 1em;
-  width: auto; }
-
-.esriPopup {
-  font-family: inherit; }
-
-.esriPopup .sizer {
-  width: 410px; }
-
-.esriPopup .stop-description {
-  font: white;
-  background-color: #0097d0;
-  font-size: 1.2em;
-  color: white;
-  padding: 3px; }
-
-.esriPopup .route-list {
-  background-color: #fff; }
-
-.esriPopup .route-list,
-label {
-  margin-bottom: 0;
-  margin-left: 3px;
-  line-height: 20px;
-  white-space: nowrap; }
-
-.esriPopup .titlePane {
-  height: 21px;
-  font-size: 1.1em; }
-
-.esriPopup .contentPane {
-  /*max-height: 300px;*/
-  overflow: hidden;
-  font-size: 1.1em;
-  background-color: #ededef; }
-
-.esriPopup .actionsPane {
-  background-color: #ededef; }
-
-.esriPopup .nav-link {
-  font-size: large; }
-
-.esriPopup a[href] {
-  text-decoration: none; }
-
-.esriPopup .route-list input {
-  margin: 3px; }
-
-.esriPopup .tab-pane {
-  overflow-y: auto;
-  overflow-x: hidden;
-  max-height: 280px; }
-
-.esriSimpleSlider div {
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  margin: 0;
-  color: #555555 !important;
-  font-size: 2.4em;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-weight: 600; }
-
-.esriPopup .stop-departures {
-  background-color: #fff; }
-
-#mapPopUpTabNexTrip {
-  font-size: 1.2em;
-  background-color: #f5f5f4 !important; }
-
-#mapPopUpTabNexTrip .route-number {
-  font-weight: 700; }
-
-#mapPopUpTabNexTrip .route-name {
-  max-width: 280px; }
-
-#mapPopUpTabNexTrip .depart-time {
-  font-weight: 700; }
-
-#mapPopUpTabNexTrip .list-group-item {
-  display: -webkit-box;
-  display: flex;
-  padding: .5em; }
-
-#mapPopUpTabNexTrip .list-group-item {
-  background-color: transparent;
-  border-color: #8a8b8a;
-  border-right: none;
-  border-left: none; }
 
 /*# sourceMappingURL=maps/app.css.map */

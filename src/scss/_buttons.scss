@@ -12,11 +12,10 @@ input,
 }
 
 // Wrap buttons in this class for consistent vertical spacing.
-.btn-container {
-  padding-top: 1rem;
+.btn-wrapper {
 
-  @include media-breakpoint-up(md) {
-    padding-top: 3rem;
+  @include media-breakpoint-up(lg) {
+	  margin-top: 2rem;
   }
 }
 
