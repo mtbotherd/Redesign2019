@@ -1,41 +1,45 @@
 .accordion {
-    .card .card-header {
-        padding: 0 !important;
+  margin-bottom: 1rem;
 
-        .btn {
-            color: $gray-600;
-            @include fontSize(18);
-            background-color: #d8ecfd;
+  .card .card-header {
+    padding: 0 !important;
 
-            @include media-breakpoint-up(lg) {
-                @include fontSize(23);
-            }
+    .btn {
+      color: $gray-600;
+      @include fontSize(18);
+      background-color: #d8ecfd;
 
-            &.collapsed {
-                background-color: $gray-100;
+      @include media-breakpoint-up(lg) {
+        @include fontSize(23);
+      }
 
+      &.collapsed {
+        background-color: $gray-100;
+      }
 
-            }
-        }
-
-        .icon {
-            width: 2.25rem;
-            height: 2.25rem;
-
-            @include media-breakpoint-up(lg) {
-                width: 2.5rem;
-                height: 2.5rem;
-            }
-
-            &.chevron-down-blue {
-                width: 1rem;
-                height: 1rem;
-
-                @include media-breakpoint-up(lg) {
-                    width: 1.5rem;
-                    height: 1.5rem;
-                }
-            }
-        }
+      &:focus {
+        color: #626462;
+      }
     }
+
+    .icon {
+      width: 2.25rem;
+      height: 2.25rem;
+
+      @include media-breakpoint-up(lg) {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+
+      &.chevron-down-blue {
+        width: 1rem;
+        height: 1rem;
+
+        @include media-breakpoint-up(lg) {
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+    }
+  }
 }

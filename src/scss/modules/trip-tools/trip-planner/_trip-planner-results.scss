@@ -1,90 +1,99 @@
 #tripPlannerResults {
-	.card {
-		margin-bottom: 0.75rem;
-		background-color: transparent;
-		padding: 0;
+  //display: none;
 
-		a {
-			color: $body-color;
+  .no-trips-found {
+  }
 
-			.tp-time {
-				border-right: 1px solid $border-color;
-				@include fontSize(12);
-				font-weight: $font-weight-bold;
-				padding: 0.5rem;
-				width: 6rem;
+  .trips-found {
+  }
 
-				@include media-breakpoint-up(md) {
-					width: 10rem;
-				}
+  .tp-results {
+  }
+  .card {
+    margin-bottom: 0.75rem;
+    background-color: transparent;
+    padding: 0;
 
-				@include media-breakpoint-up(md) {
-					@include fontSize(23);
-				}
-			}
+    a {
+      color: $body-color;
 
-			.tp-route {
-				display: flex;
-				padding: 0.5rem 0.75rem;
-				width: 100%;
+      .tp-time {
+        border-right: 1px solid $border-color;
+        @include fontSize(12);
+        font-weight: $font-weight-bold;
+        padding: 0.5rem;
+        width: 6rem;
 
-				@include media-breakpoint-up(md) {
-					.pedestrian-gray,
-					.bus-gray {
-						width: 1.5rem;
-						height: 1.5rem;
-					}
-				}
+        @include media-breakpoint-up(md) {
+          width: 10rem;
+        }
 
-				.route {
-				  	@include fontSize(8)
-					line-height: 1;
+        @include media-breakpoint-up(md) {
+          @include fontSize(23);
+        }
+      }
 
-					@include media-breakpoint-up(md) {
-						@include fontSize(18);
-					}
-				}
+      .tp-route {
+        display: flex;
+        padding: 0.5rem 0.75rem;
+        width: 100%;
 
-				.badge {
-					border-radius: 0.25rem;
-					@include fontSize(8);
-					padding-right: 0.5rem;
+        @include media-breakpoint-up(md) {
+          .pedestrian-gray,
+          .bus-gray {
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
 
-					@include media-breakpoint-up(md) {
-						@include fontSize(16);
+        .route {
+          @include fontSize(8) line-height: 1;
 
-						.icon {
-							width: 1rem;
-							height: 1.5rem;
-							margin-right: 0.25rem;
-						}
-					}
-				}
+          @include media-breakpoint-up(md) {
+            @include fontSize(18);
+          }
+        }
 
-				.arrow-right-blue {
-					@include media-breakpoint-up(md) {
-						width: 1.25rem;
-						height: 1.25rem;
-					}
-				}
-			}
+        .badge {
+          border-radius: 0.25rem;
+          @include fontSize(8);
+          padding-right: 0.5rem;
 
-			&:hover {
-				border: 1px solid $cyan !important;
+          @include media-breakpoint-up(md) {
+            @include fontSize(16);
 
-				.tp-time {
-					background-color: $cyan;
-					color: $white;
-				}
+            .icon {
+              width: 1rem;
+              height: 1.5rem;
+              margin-right: 0.25rem;
+            }
+          }
+        }
 
-				.tp-route {
-					background-color: $teal;
-				}
-			}
-		}
+        .arrow-right-blue {
+          @include media-breakpoint-up(md) {
+            width: 1.25rem;
+            height: 1.25rem;
+          }
+        }
+      }
 
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
+      &:hover {
+        border: 1px solid $cyan !important;
+
+        .tp-time {
+          background-color: $cyan;
+          color: $white;
+        }
+
+        .tp-route {
+          background-color: $teal;
+        }
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }

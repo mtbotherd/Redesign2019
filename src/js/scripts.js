@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
 
     'use strict';
 
@@ -23,112 +23,208 @@ $(document).ready(function() {
     		Trip Planner
     ***********************************************/
     // location switcher
-    var inputs = $('.from-location, .to-location'),
-        tmp
+    var inputs = $('.from-location, .to-location'), tmp, loctmp;
+
     $('.location-toggler').click(function() {
-        tmp = inputs[0].value
-        inputs[0].value = inputs[1].value
-        inputs[1].value = tmp
-    })
+        tmp = inputs[0].value;
+        loctmp = TRIPFROMLOCATION;
+        inputs[0].value = inputs[1].value;
+        TRIPFROMLOCATION = TRIPTOLOCATION;
+        inputs[1].value = tmp;
+        TRIPTOLOCATION = loctmp;
+    });
 
     // time & date inputs
     $('.time-elements').hide();
     $('#selectTime').on('change', function() {
         if (this.value == 'depart-at' || this.value == 'arrive-by') {
-            $('.time-elements').show();
+            $('.time-elements').slideDown();
         } else {
-            $('.time-elements').hide();
+            $('.time-elements').slideUp();
         }
     });
 
-    // Get json data
-    // var JSONPLAN = null;
-    // $.ajax({
-    //     type: 'get',
-    //     url: 'TripPlan.json',
-    //     dataType: 'json'
-    // })
-    // .done(function(result, status, xhr) {
-    //     console.dir(result);
-    //     JSONPLAN = result;
-    // })
-    // .fail(function(err) {
-    //     console.warn('Fetch TripPlan - No trip found ' + err);
-    // });
-
-    /***********************************************
-			NexTrip
-	***********************************************/
-    // Select route
-    $('.select-route-direction, .select-route-stop').hide();
-    $('.select-route').change(function() {
-        if ($('select').val() != null) {
-            $('.select-route-direction').fadeIn('slow').css('display', 'flex');
-        } else {
-            $('.select-route-direction, .select-route-stop').hide();
-        }
-    });
-
-    // Select selectDirection
-    $('.select-route-direction').change(function() {
-        if ($('select').val() != null) {
-            $('.select-route-stop').fadeIn('slow').css('display', 'flex');
-        } else {
-            $('.select-route-stop').hide();
-        }
-    });
-
-    // Get json data
-
-    // var ntRouteOptions;
-    // var ntDirectionOptions;
+	/***********************************************
+    		Begin Autocomplete
+    ***********************************************/
+    const LOCATOR =
+    "https://arcgistest.metctest.state.mn.us/transit/rest/services/metro_transit/GeocodeServer/";
     //
-    // $.ajax ({
-    //     type: 'get',
-    //     //url: 'http://svc.metrotransit.org/NexTrip/Routes?format=json',
-    //     url: 'https://svc.metrotransittest.org/nextripv2/routes',
-    //     dataType: 'json',
-    //     success: function(result) {
-    //         $.each(result, function(i,ntRoute) {
-    //             //console.log(ntRoute.Description);
-    //             //<option value="Route">Route</option>
-    //             ntRouteOptions += "<option value='" +  ntRoute.Route + "'>" + ntRoute.Description + "</option>";
-    //         });
-    //         $('#ntRoute').html(ntRouteOptions);
-    //     }
-    // });
-    // $('#ntRoute').change(function() {
-    //     if($(this).val() != null) {
-    //         $.ajax ({
-    //             type: 'get',
-    //             url: 'http://svc.metrotransit.org/NexTrip/Directions/5?format=json',
-    //             dataType: 'json',
-    //             success: function(result) {
-    //                 $.each(result, function(directionText,directionValue) {
-    //                     //console.log(ntRoute.Description);
-    //                     //<option value="Route">Route</option>
-    //                     ntDirectionOptions += "<option value='" +  directionValue.Value + "'>" + directionText.Text + "</option>";
-    //                 });
-    //                 $('#ntDirection').html(ntDirectionOptions);
-    //             }
-    //         });
-    //     }
-    // });
+    //  Get current location
+    // 
+    var MYLOCATION = null;
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                MYLOCATION = { 
+                    x : position.coords.longitude,
+                    y : position.coords.latitude,
+                    spatialReference: { wkid: 4326 }
+                };
+            },
+            function(error) {
+                console.warn("getLocation failed: " + error);
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            }
+        );
+    }
+    /* ===========================================================================
+        addressAutoComplete
+        Parms:
+            inputDiv is a string with ID name of the input element 
+            UTMout is a boolean - if true, coordinates for the address are
+                returned in UTM projection (needed for Trip Planner), otherwise
+                coordinates are geographic WGS84 Lat/Long
+	============================================================================*/
+    var addressAutoComplete = function(/*string*/inputDiv,/*boolean*/UTMout) {
+        $("#" + inputDiv).devbridgeAutocomplete({
+            noCache: true,
+            autoSelectFirst: true,
+            minChars: 1,
+            width: "flex",
+            lookup: function(query, returnSuggestions) {
+                $.ajax({
+                    type: "get",
+                    url: LOCATOR + "suggest",
+                    data: {
+                        Text: query.replace(/[.,\/#!$%\^\*;:{}=\_`~()]/g, ""),
+                        maxSuggestions: 10,
+                        location: MYLOCATION ? JSON.stringify(MYLOCATION) : null,
+                        distance: MYLOCATION ? 4000 : null, // meters ~ 2.5 miles
+                        f: "json"
+                    },
+                    dataType: "json"
+                })
+                    .done(function(r) {
+                        returnSuggestions({
+                            suggestions: $.map(r.suggestions, function(c) {
+                                return { value: c.text, data: c.magicKey };
+                            })
+                        });
+                    })
+                    .fail(function(e) {
+                        console.warn("Address locator failed for: " + query);
+                    });
+            },
+            onSelect: function(suggest) {
+                $.ajax({
+                    type: "get",
+                    url: LOCATOR + "findAddressCandidates",
+                        data: {
+                        SingleLine: suggest.value,
+                        outFields: "Addr_type, LongLabel, PlaceName, Place_addr, ATIS_ID", 
+                        maxLocations: 6,
+                        magicKey: suggest.data,
+                        outSR: UTMout ? 26915 : 4326,
+                        f: "json"
+                    },
+                    dataType: "json"
+                })
+                    .done(function(r) {
+                        if (r.error) {
+                            console.warn("Call to FindCandidate failed for: " + suggest.value);
+                        } else {
+                            if (r.candidates.length > 0) {
+                                var choice = r.candidates[0];
+                                console.log(inputDiv + ": " + JSON.stringify(choice));
+                                if (inputDiv === "fromLocation") {
+                                    TRIPFROMLOCATION = choice;
+                                }
+                                if (inputDiv === "toLocation") {
+                                    TRIPTOLOCATION = choice;
+                                }
+                                if (inputDiv === "schedulesMaps") {
+                                    TRIM.centerMarkerAtPoint(choice.location.x,choice.location.y);
+                                }
+                            }
+                        }
+                    })
+                    .fail(function(e) {
+                        console.warn("Call to FindCandidate failed for: " + suggest.value);
+                    });
+            }
+        });
+    }
+    // =========================================================
+    // Here are the routines that set the INPUT field to use the 
+    // ADDRESS AUTOCOMPLETE function defined above.
+    // 
+    // Each routine passes the result of the autocomplete
+    // to a global variable (UPPERCASE).
+    //
+    // For the trip planner, both TO and FROM need be set
+    // for validation.
+    // 
+    // This one handles the 'fromLocation' for the Trip Planner
+    var TRIPFROMLOCATION = null;
+    addressAutoComplete("fromLocation",/*UTMout*/true);
+    // This one handles the 'toLocation' for the Trip Planner
+    var TRIPTOLOCATION = null;
+    addressAutoComplete("toLocation",/*UTMout*/true);
+    // This one loads the Search field in the schedules-maps page -- the search result
+    // automatically sets the map to zoom to the requested location
+    addressAutoComplete("schedulesMaps", /*UTMout*/false);
+    //===========================================================
 
-    /*************************************************
-    * Trip Plans
-    ************************************************/
-    // var JSONPLAN = null;
-    // $.ajax({
-    //     type: 'get',
-    //     url: 'TripPlan.json',
-    //     dataType: 'json'
-    // })
-    // .done(function(result, status, xhr) {
-    //     console.dir(result);
-    //     JSONPLAN = result;
-    // })
-    // .fail(function(err) {
-    //     console.warn('Fetch TripPlan - No trip found ' + err);
-    // });
+    // ----------------------------------------------------
+    // schedules-maps
+    // ----------------------------------------------------
+    if ($('#TRIMap').attr('maptype') === 'full') {
+        TRIM.init('TRIMap').then(function() {
+            TRIM.geoLocate();
+        });
+    }
+    $('#stopsStations').click(function(){
+        TRIM.toggleLayer('allStops');
+    });
+    $('#parkRide').click(function(){
+        TRIM.toggleLayer('parkAndRides');
+    });
+    $('#niceRide').click(function(){
+        TRIM.toggleLayer('niceRides');
+    });
+    // ---------------------------------------------------
+    // routes
+    //
+    // TODO: the '21' hard-coded below needs to be converted
+    // to a variable that is passed along when the user
+    // selects a route. 
+    // 
+    // The 'routemap' is a static display of the particular
+    // route's geography.
+    // ---------------------------------------------------
+    if ($('#routeMap').attr('maptype') === 'route') {
+        TRIM.init('routeMap').then(function() {
+            var routes = ["21"];
+            TRIM.drawRoutes(routes, /*zoom*/true);
+        });
+    }
+    // TODO: the '21' hardcoded below needs to be converted
+    // to a variable passed when the user selects a route.
+    // 
+    // This version of the "Show My BUs" map displays 
+    // all the vehicles for a particular route. 
+    //
+    if ($('#routeBOM').attr('maptype') === 'BOM') {
+        let parms = {
+           stopID: null, // optional stop, if route too then show just the one route
+           routeID: "21", // optional route, if no stop - show vehicles on route, if 0 - show all
+           zoomToNearestBus: true, // when drawing buses the first time, zoom out until you find a bus to show
+           stopZoomLevel: 16 // Web Mercator level to intially zoom the stop extent, if stopID has a value
+        };
+        BOM.init('routeBOM').then(function () {
+           BOM.startBusesOnMap(parms);
+        });
+        $('#collapseMap').on('shown.bs.collapse', function () {
+           BOM.geoLocate();
+        });
+        $('#collapseMap').on('hidden.bs.collapse', function () {
+            BOM.stopBusesOnMap();
+        });
+   }
 });
+

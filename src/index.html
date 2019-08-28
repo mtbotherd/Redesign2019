@@ -6,829 +6,661 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Metro Transit</title>
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<!-- build:css app.min.css -->
-<link rel="stylesheet" href="app.css">
-<!-- endbuild -->
+<link rel="stylesheet" href="/css/app.css">
 
 </head>
 
 <body>
 
-	<!-- Begin Header -->
-	<header id="header">
-    <nav class="navbar navbar-expand-xl navbar-light">
-        <a href="#mainContent" class="skip-to-content">Skip to main content</a>
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+	<form id="aspnetForm" novalidate>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-xl-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/trip-planner" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Trip Tools
-                            <img src="/img/svg/chevron-down-gray.svg" class="icon inactive">
-                            <img src="/img/svg/chevron-down-white.svg" class="icon active">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/trip-planner">Trip Planner</a>
-                            <a class="dropdown-item" href="/nextrip">NexTrip</a>
-                            <a class="dropdown-item" href="/alerts">Alerts</a>
-                            <a class="dropdown-item" href="/park-ride">Find a Park &amp; Ride</a>
-                            <a class="dropdown-item" href="/planner/servicesfinder.aspx">
-                                Find a Stop or Station
-                            </a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="schedules-maps">
-                            Schedules &amp; Maps
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Fares
-                            <img src="/img/svg/chevron-down-gray.svg" class="icon inactive">
-                            <img src="/img/svg/chevron-down-white.svg" class="icon active">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/fares">Fares</a>
-                            <a class="dropdown-item" href="/go-to-card">Go-To Card</a>
-                            <a class="dropdown-item" href="/pass-programs">Pass Programs</a>
-                            <a class="dropdown-item" href="https://store.metrotransit.org/">Store</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            More
-                            <img src="/img/svg/chevron-down-gray.svg" class="icon inactive">
-                            <img src="/img/svg/chevron-down-white.svg" class="icon active">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/carpool">Carpool &amp; Vanpool</a>
-                            <a class="dropdown-item" href="/transit-link">Transit Link</a>
-                            <a class="dropdown-item" href="/guaranteed-ride-home">Guaranteed Ride Home</a>
-                            <a class="dropdown-item" href="/bicycle">Bicycle</a>
-                            <a class="dropdown-item" href="/news">News &amp; Events</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Help
-                            <img src="/img/svg/chevron-down-gray.svg" class="icon inactive">
-                            <img src="/img/svg/chevron-down-white.svg" class="icon active">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/how-to-ride">How to Ride Guide</a>
-                            <a class="dropdown-item" href="contact-us">Contact Us</a>
-                            <a class="dropdown-item" href="/lost-found">Lost &amp; Found</a>
-                            <a class="dropdown-item" href="/accessibility">Accessibility</a>
-                            <a class="dropdown-item" href="/languages">Languages</a>
-                            <a class="dropdown-item" href="/police">Transit Police</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            En
-                            <img src="/img/svg/chevron-down-gray.svg" class="icon inactive">
-                            <img src="/img/svg/chevron-down-white.svg" class="icon active">
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Link</a>
-                            <a class="dropdown-item" href="#">Link</a>
-                            <a class="dropdown-item" href="#">Link</a>
-                            <a class="dropdown-item" href="#">Link</a>
-                            <a class="dropdown-item" href="#">Link</a>
-                            <a class="dropdown-item" href="#">Link</a>
-                            <a class="dropdown-item" href="#">Link</a>
-                            <a class="dropdown-item" href="#">Link</a>
-                            <a class="dropdown-item" href="#">Link</a>
-                            <a class="dropdown-item" href="#">Link</a>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="navbar-nav utilities">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://store.metrotransit.org">
-                            <img src="/img/svg/shopping-cart-green.svg" class="icon inactive">
-                            <img src="/img/svg/shopping-cart-white.svg" class="icon active">
-                        </a>
-                    </li>
-                    <li class="nav-item position-relative">
-                        <div class="nav-link site-search">
-                            <img src="/img/svg/search-gray.svg" class="icon  inactive">
-                            <img src="/img/svg/search-white.svg" class="icon active">
-                        </div>
-                        <div id="siteSearchBox" class="site-search-box">
-                            <div class="input-group">
-                                <input type="search" id="siteSearch" class="form-control"
-                                    placeholder="Search for routes and information" aria-label="Search for routes and information"
-                                    aria-describedby="siteSearchButton">
-                                    <label for="siteSearch" class="sr-only">Search for routes and information</label>
-									<div class="input-group-append mr-auto">
-										<button id="siteSearchButton" type="search" class="btn btn-primary">
-											<span class="sr-only">Search button</span>
-											<img class="icon" src="/img/svg/search-gray.svg">
-										</button>
+		<!-- Begin Header -->
+		<header id="header">
+			<nav class="navbar navbar-expand-xl navbar-light">
+				<a href="#mainContent" class="skip-to-content">Skip to main content</a>
+				<div class="container">
+					<a class="navbar-brand" href="/">
+						<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-xl-auto">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="/trip-planner" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Trip Tools
+									<img src="/img/svg/chevron-down-gray.svg" class="icon inactive">
+									<img src="/img/svg/chevron-down-white.svg" class="icon active">
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/trip-planner">Trip Planner</a>
+									<a class="dropdown-item" href="/nextrip">NexTrip</a>
+									<a class="dropdown-item" href="/alerts">Alerts</a>
+									<a class="dropdown-item" href="/park-ride">Find a Park &amp; Ride</a>
+									<a class="dropdown-item" href="/planner/servicesfinder.aspx">
+										Find a Stop or Station
+									</a>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="schedules-maps">
+									Schedules &amp; Maps
+								</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Fares
+									<img src="/img/svg/chevron-down-gray.svg" class="icon inactive">
+									<img src="/img/svg/chevron-down-white.svg" class="icon active">
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/fares">Fares</a>
+									<a class="dropdown-item" href="/go-to-card">Go-To Card</a>
+									<a class="dropdown-item" href="/pass-programs">Pass Programs</a>
+									<a class="dropdown-item" href="https://store.metrotransit.org/">Store</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									More
+									<img src="/img/svg/chevron-down-gray.svg" class="icon inactive">
+									<img src="/img/svg/chevron-down-white.svg" class="icon active">
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/carpool">Carpool &amp; Vanpool</a>
+									<a class="dropdown-item" href="/transit-link">Transit Link</a>
+									<a class="dropdown-item" href="/guaranteed-ride-home">Guaranteed Ride Home</a>
+									<a class="dropdown-item" href="/bicycle">Bicycle</a>
+									<a class="dropdown-item" href="/news">News &amp; Events</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Help
+									<img src="/img/svg/chevron-down-gray.svg" class="icon inactive">
+									<img src="/img/svg/chevron-down-white.svg" class="icon active">
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/how-to-ride">How to Ride Guide</a>
+									<a class="dropdown-item" href="contact-us">Contact Us</a>
+									<a class="dropdown-item" href="/lost-found">Lost &amp; Found</a>
+									<a class="dropdown-item" href="/accessibility">Accessibility</a>
+									<a class="dropdown-item" href="/languages">Languages</a>
+									<a class="dropdown-item" href="/police">Transit Police</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									En
+									<img src="/img/svg/chevron-down-gray.svg" class="icon inactive">
+									<img src="/img/svg/chevron-down-white.svg" class="icon active">
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="#">Link</a>
+									<a class="dropdown-item" href="#">Link</a>
+									<a class="dropdown-item" href="#">Link</a>
+									<a class="dropdown-item" href="#">Link</a>
+									<a class="dropdown-item" href="#">Link</a>
+									<a class="dropdown-item" href="#">Link</a>
+									<a class="dropdown-item" href="#">Link</a>
+									<a class="dropdown-item" href="#">Link</a>
+									<a class="dropdown-item" href="#">Link</a>
+									<a class="dropdown-item" href="#">Link</a>
+								</div>
+							</li>
+						</ul>
+						<ul class="navbar-nav utilities">
+							<li class="nav-item">
+								<a class="nav-link" href="https://store.metrotransit.org">
+									<img src="/img/svg/shopping-cart-green.svg" class="icon inactive">
+									<img src="/img/svg/shopping-cart-white.svg" class="icon active">
+								</a>
+							</li>
+							<li class="nav-item position-relative">
+								<div class="nav-link site-search">
+									<img src="/img/svg/search-gray.svg" class="icon  inactive">
+									<img src="/img/svg/search-white.svg" class="icon active">
+								</div>
+								<div id="siteSearchBox" class="site-search-box">
+									<div class="input-group">
+										<input
+											type="search"
+											id="siteSearch"
+											name="siteSearch"
+											class="form-control"
+											placeholder="Search for routes and information"
+											aria-label="Search for routes and information"
+											aria-describedby="siteSearchButton">
+										<label for="siteSearch" class="sr-only">Search for routes and information</label>
+										<div class="input-group-append mr-auto">
+											<button id="siteSearchButton" type="search" class="btn btn-primary">
+												<span class="sr-only">Search button</span>
+												<img class="icon" src="/img/svg/search-gray.svg">
+											</button>
+										</div>
 									</div>
 								</div>
-							</div>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="">
-								<img src="/img/svg/avatar-gray.svg" class="icon inactive">
-								<img src="/img/svg/avatar-white.svg" class="icon active">
-							</a>
-						</li>
-					</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="">
+									<img src="/img/svg/avatar-gray.svg" class="icon inactive">
+									<img src="/img/svg/avatar-white.svg" class="icon active">
+								</a>
+							</li>
+						</ul>
+					</div>
 				</div>
-			</div>
-		</nav>
-	</header>
+			</nav>
+		</header>
 
-	<!-- End Header -->
+		<!-- End Header -->
 
-	<!-- Begin Main Content -->
-	<section id="mainContent">
-		<div id="homePage">
-			<div class="hero home-bg mb-0 pt-3 pt-md-0 pt-lg-3">
-				<div class="container">
-					<div id="findSchedulesByRoute" class="auto-complete-search-box d-none d-md-block">
-						<div class="row justify-content-md-center">
-							<div class="col-md-8 col-lg-6 mt-2 mt-md-5">
-								<div class="input-group">
-									<input type="search" id="schedulesByRoute" class="form-control form-control-lg border-0"
-										placeholder="Find schedules by route" aria-label="Find schedules by route"
-										aria-describedby="searchRoutesButton">
-									<label for="schedulesByRoute" class="sr-only">Find schedules by route</label>
-									<div class="input-group-append">
-										<button id="searchRoutesButton" type="search" class="btn btn-primary">
-											<span class="sr-only">Search button</span>
-											<img class="icon" src="/img/svg/search-gray.svg">
-										</button>
+		<!-- Begin Main Content -->
+		<section id="mainContent">
+			<div id="homePage">
+				<div class="hero home-bg mb-0 pt-3 pt-md-0 pt-lg-3">
+					<div class="container">
+						<div id="findSchedulesByRoute" class="auto-complete-search-box d-none d-md-block">
+							<div class="row justify-content-md-center">
+								<div class="col-md-8 col-lg-6 mt-2 mt-md-5">
+									<div class="input-group">
+										<input 
+											type="text"
+											id="schedulesByRoute"
+											name="schedulesByRoute"
+											class="form-control form-control-lg border-0"
+											placeholder="Find schedules by route"
+											aria-label="Find schedules by route"
+											aria-describedby="searchRoutesButton">
+										<label for="schedulesByRoute" class="sr-only">Find schedules by route</label>
+										<div class="input-group-append">
+											<button id="searchRoutesButton" type="submit" class="btn btn-primary">
+												<span class="sr-only">Search button</span>
+												<img class="icon" src="/img/svg/search-gray.svg">
+											</button>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="cta-link-white mt-md-2 mt-xl-4">
-						<a class="d-inline-flex nav-link" href="schedules-maps">
-							View all Schedules &amp; Maps
-						</a>
-						<img class="icon" src="/img/svg/arrow-right-white.svg">
+						<div class="cta-link-white mt-md-2 mt-xl-4">
+							<a class="d-inline-flex nav-link" href="schedules-maps">
+								View all Schedules &amp; Maps
+							</a>
+							<img class="icon" src="/img/svg/arrow-right-white.svg">
+						</div>
 					</div>
 				</div>
-			</div>
-			<div id="homeContent">
-				<main class="section pt-0 pb-4 pb-md-5">
-					<div class="container">
-						<div id="tripToolsTabs" class="trip-tools-tabs">
-							<div class="card">
-								<div class="tabs">
-									<ul class="nav nav-tabs" role="tab-list">
-										<li class="nav-item mr-2" role="presentation">
-											<a id="tpTab" class="nav-link active p-md-3" data-toggle="tab" href="#tripPlanner" role="tab" aria-controls="tripPlanner" aria-selected="true">
-													<img class="icon mx-auto active" src="/img/svg/trip-planner-color.svg">
-													<img class="icon mx-auto inactive" src="/img/svg/trip-planner-white.svg">
-												Trip Planner
-											</a>
-										</li>
-										<li class="nav-item mr-2" role="presentation">
-											<a id="nTab" class="nav-link p-md-3" data-toggle="tab" href="#nextrip" role="tab" aria-controls="nextrip" aria-selected="true">
-												<img class="icon mx-auto active" src="/img/svg/nextrip-color.svg">
-												<img class="icon mx-auto inactive" src="/img/svg/nextrip-white.svg">
-												NexTrip
-											</a>
-										</li>
-										<li class="nav-item" role="presentation">
-											<a id="aTab" class="nav-link p-md-3" data-toggle="tab" href="#alerts" role="tab" aria-controls="alerts" aria-selected="true">
-												<img class="icon mx-auto active" src="/img/svg/alerts-color.svg">
-												<img class="icon mx-auto inactive" src="/img/svg/alerts-white.svg">
-												Alerts
-											</a>
-										</li>
-									</ul>
-									<div class="tab-content">
-										<div id="tripPlanner" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tripPlannerTab">
-											<div id="tripPlannerModule">
-												<h1 class="sr-only">Trip Planner</h1>
-												<div class="card">
-													<div class="form-group mb-0">
-														<input id="fromLocation" type="text"
-															class="form-control form-control-lg from-location"
-															name="fromLocation" required>
-														<label for="fromLocation" class="floating-label">From</label>
-													</div>
-													<button class="location-toggler ml-auto">
-														<img class="icon location-switcher-blue" src="/img/svg/location-switcher-blue.svg">
+				<div id="homeContent">
+					<section class="section pt-0 pb-4 pb-md-5">
+						<div class="container">
+							<div id="tripToolsTabs" class="trip-tools-tabs">
+								<div class="card">
+									<div class="tabs">
+										<ul class="nav nav-tabs" role="tab-list">
+											<li class="nav-item mr-2" role="presentation">
+												<a id="tpTab" class="nav-link active p-md-3" data-toggle="tab" href="#tripPlanner" role="tab" aria-controls="tripPlanner" aria-selected="true">
+														<img class="icon mx-auto active" src="/img/svg/trip-planner-color.svg">
+														<img class="icon mx-auto inactive" src="/img/svg/trip-planner-white.svg">
+													Trip Planner
+												</a>
+											</li>
+											<li class="nav-item mr-2" role="presentation">
+												<a id="nTab" class="nav-link p-md-3" data-toggle="tab" href="#nextrip" role="tab" aria-controls="nextrip" aria-selected="true">
+													<img class="icon mx-auto active" src="/img/svg/nextrip-color.svg">
+													<img class="icon mx-auto inactive" src="/img/svg/nextrip-white.svg">
+													NexTrip
+												</a>
+											</li>
+											<li class="nav-item" role="presentation">
+												<a id="aTab" class="nav-link p-md-3" data-toggle="tab" href="#alerts" role="tab" aria-controls="alerts" aria-selected="true">
+													<img class="icon mx-auto active" src="/img/svg/alerts-color.svg">
+													<img class="icon mx-auto inactive" src="/img/svg/alerts-white.svg">
+													Alerts
+												</a>
+											</li>
+										</ul>
+										<div class="tab-content">
+											<div id="tripPlanner" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tripPlannerTab">
+												<div id="tripPlannerModule">
+													<h1 class="sr-only">Trip Planner</h1>
+													<div class="card">
+														<div class="form-group mb-0">
+															<input id="fromLocation" type="text"
+																class="form-control form-control-lg from-location"
+																name="fromLocation" required>
+															<label for="fromLocation" class="floating-label">From</label>
+														</div>
+														<button type="button" class="location-toggler ml-auto">
+															<img class="icon location-switcher-blue" src="/img/svg/location-switcher-blue.svg">
 
-													</button>
-													<div class="form-group">
-														<input id="toLocation" type="text" name="toLocation"
-															class="form-control form-control-lg to-location"
-															required>
-														<label for="toLocation" class="floating-label">To</label>
-													</div>
-													<div class="row">
-														<div class="col-md-6">
-															<div class="form-group">
-																<label for="selectTime" class="sr-only">Select
-																	time</label>
-																<select id="selectTime" name="selectTime"
-																	class="custom-select custom-select-lg">
-																	<option value="leave-now">Leave now</option>
-																	<option value="depart-at">Depart at</option>
-																	<option value="arrive-by">Arrive by</option>
-																</select>
-															</div>
-															<div class="row time-elements">
-																<div class="col-xl-6">
-																	<div class="input-group mb-3">
-																		<label for="time" class="sr-only">Depart/arrival
-																			time</label>
-																		<input id="time" type="time" name="time"
-																			class="form-control border-right-0"
-																			aria-label="depart/arrive by time"
-																			aria-describedby="time">
-																		<div class="input-group-append border">
-																			<img class="icon clock-gray mt-1 mt-md-2" src="/img/svg/clock-gray.svg">
+														</button>
+														<div class="form-group">
+															<input id="toLocation" type="text" name="toLocation"
+																class="form-control form-control-lg to-location" required>
+															<label for="toLocation" class="floating-label">To</label>
+														</div>
+														<div class="row">
+															<div class="col-md-6">
+																<div class="form-group">
+																	<label for="selectTime" class="sr-only">Select
+																		time</label>
+																	<select id="selectTime" name="selectTime"
+																		class="custom-select custom-select-lg">
+																		<option value="leave-now">Leave now</option>
+																		<option value="depart-at">Depart at</option>
+																		<option value="arrive-by">Arrive by</option>
+																	</select>
+																</div>
+																<div class="row time-elements">
+																	<div class="col-xl-6">
+																		<div class="input-group mb-3">
+																			<label for="time" class="sr-only">Depart/arrival
+																				time</label>
+																			<input id="time" type="time" name="time"
+																				class="form-control border-right-0"
+																				aria-label="depart/arrive by time"
+																				aria-describedby="time">
+																			<div class="input-group-append border">
+																				<img class="icon clock-gray mt-1 mt-md-2" src="/img/svg/clock-gray.svg">
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-xl-6">
+																		<div class="input-group mb-3">
+																			<label for="date" class="sr-only">Depart/arrival
+																				date</label>
+																			<input id="date" type="date" name="date"
+																				class="form-control border-right-0"
+																				aria-label="depart/arrive by time"
+																				aria-describedby="date">
+																			<div class="input-group-append border">
+																				<img class="icon calendar-gray mt-1 mt-md-2" src="/img/svg/calendar-gray.svg">
+																			</div>
 																		</div>
 																	</div>
 																</div>
-																<div class="col-xl-6">
-																	<div class="input-group mb-3">
-																		<label for="date" class="sr-only">Depart/arrival
-																			date</label>
-																		<input id="date" type="date" name="date"
-																			class="form-control border-right-0"
-																			aria-label="depart/arrive by time"
-																			aria-describedby="date">
-																		<div class="input-group-append border">
-																			<img class="icon calendar-gray mt-1 mt-md-2" src="/img/svg/calendar-gray.svg">
+															</div>
+															<div class="col-md-6">
+																<div class="accordion more-options" role="tablist">
+																	<div class="card">
+																		<div class="card-header d-flex border">
+																			<a href="#tpMoreOptions" data-toggle="collapse" class="btn d-flex align-items-center text-left btn-link btn-block collapsed" aria-controls="tpMoreOptions" aria-expanded="false" role="button">
+																				More options
+																				<img class="icon plus-blue ml-auto inactive" src="/img/svg/plus-blue.svg">
+																			</a>
+																		</div>
+																		<div id="tpMoreOptions" class="collapse" role="tabpanel">
+																			<div class="card-body border">
+																				<p class="card-text mb-0">
+																					<strong>I'm willing to walk:</strong>
+																				</p>
+																				<div class="custom-control custom-radio">
+																					<input id="quarterMile" type="radio" name="walkingDistance" class="custom-control-input">
+																					<label for="quarterMile" class="custom-control-label">1/4 mile</label>
+																				</div>
+																				<div class="custom-control custom-radio">
+																					<input id="halfMile" type="radio" name="walkingDistance" class="custom-control-input" checked>
+																					<label for="halfMile" class="custom-control-label">1/2 mile</label>
+																				</div>
+																				<div class="custom-control custom-radio">
+																					<input id="oneMile" type="radio" name="walkingDistance" class="custom-control-input">
+																					<label for="oneMile" class="custom-control-label">1 mile</label>
+																				</div>
+																				<div class="custom-control custom-radio">
+																					<input
+																					id="anyType"
+																					type="radio"
+																					name="serviceType"
+																					class="custom-control-input"
+																					checked
+																					>
+																					<label
+																					class="custom-control-label"
+																					for="anyType"
+																					>Any service type</label>
+																				</div>
+																				<div class="custom-control custom-radio">
+																					<input
+																					id="railOnly"
+																					type="radio"
+																					name="serviceType"
+																					class="custom-control-input"
+																					>
+																					<label class="custom-control-label" for="railOnly">Rail only</label>
+																				</div>
+																				<div class="custom-control custom-radio">
+																					<input
+																					id="busOnly"
+																					type="radio"
+																					name="serviceType"
+																					class="custom-control-input"
+																					>
+																					<label class="custom-control-label" for="busOnly">Bus only</label>
+																				</div>
+																				<div class="custom-control custom-radio">
+																					<input
+																					id="noExpress"
+																					type="radio"
+																					name="serviceType"
+																					class="custom-control-input"
+																					>
+																					<label
+																					class="custom-control-label"
+																					for="noExpress"
+																					>No express</label>
+																				</div>
+																				<hr>
+																				<div class="custom-control custom-radio">
+																					<input
+																					id="fasterTrip"
+																					type="radio"
+																					name="convenience"
+																					class="custom-control-input"
+																					checked
+																					>
+																					<label
+																					class="custom-control-label"
+																					for="fasterTrip"
+																					>Faster trip</label>
+																				</div>
+																				<div class="custom-control custom-radio">
+																					<input
+																					id="fewerTransfers"
+																					type="radio"
+																					name="convenience"
+																					class="custom-control-input"
+																					>
+																					<label
+																					class="custom-control-label"
+																					for="fewerTransfers"
+																					>Fewer transfers</label>
+																				</div>
+																				<div class="custom-control custom-radio">
+																					<input
+																					id="lessWalking"
+																					type="radio"
+																					name="convenience"
+																					class="custom-control-input"
+																					>
+																					<label
+																					class="custom-control-label"
+																					for="lessWalking"
+																					>Less walking</label>
+																				</div>
+
+																				<hr>
+
+																				<p class="m-0">
+																					<strong>
+																					<img class="icon accessible-gray" src="/img/svg/accessible-gray.svg">&nbsp;Accessible stops
+																					</strong>
+																				</p>
+																				<div class="custom-control custom-radio custom-control-inline">
+																					<input
+																					id="accessibleYes"
+																					type="radio"
+																					name="accessible"
+																					class="custom-control-input"
+																					>
+																					<label class="custom-control-label" for="accessibleYes">Yes</label>
+																				</div>
+																				<div class="custom-control custom-radio custom-control-inline">
+																					<input
+																					id="accessibleNo"
+																					type="radio"
+																					name="accessible"
+																					class="custom-control-input"
+																					checked
+																					>
+																					<label class="custom-control-label" for="accessibleNo">No</label>
+																				</div>
+																			</div>
 																		</div>
 																	</div>
 																</div>
 															</div>
 														</div>
-														<div class="col-md-6">
-															<div class="accordion more-options" role="tablist">
-																<div class="card">
-																	<div class="card-header d-flex border">
-																		<a href="#tpMoreOptions" data-toggle="collapse" class="btn d-flex align-items-center text-left btn-link btn-block collapsed" aria-controls="tpMoreOptions" aria-expanded="false" role="button">
-																			More options
-																			<img class="icon plus-blue ml-auto inactive" src="/img/svg/plus-blue.svg">
+														<div class="btn-wrapper mb-1 mb-lg-5 text-center">
+															<button type="submit" id="planMyTrip" class="btn btn-warning" name="planMyTrip">Plan my trip</button>
+														</div>
+														<div id="tripPlannerResults">
+															<div class="no-trips-found mb-1 mb-lg-5">
+																<div class="alert alert-primary" role="alert">
+																	<h2 class="h4">No trips found</h2>
+																	<p>We’re sorry, no results are available for this trip plan. Please try a specific thing for better results or call or text Transit information at 612-373-3333. (this language needs to be written.)</p>
+																</div>
+															</div>
+															<div class="trips-found">
+																<h2 class="h4">We found 3 trips for you</h2>
+																<p class="mb-0">We found 3 trips for you Trips shown are based on your selections and closest departure to 3:25 PM, Friday, August 30th.</p>
+																<div class="tp-results mb-1 mb-lg-5" role="tablist">
+																	<div class="card">
+																		<a href="/trip-plan" class="border">
+																			<span class="d-flex" role="link">
+																				<span class="d-flex align-items-center tp-time">56 min</span>
+																				<span class="align-items-center tp-route">
+																					<img class="icon" src="/img/svg/pedestrian-gray.svg">
+																					<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+																					<img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
+																					<span class="route mr-1">21</span>
+																					<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
+																					<span class="d-flex align-items-center badge badge-success mr-1">
+																						<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+																						<span class="caps">Green</span>
+																					</span>
+																					<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
+																					<img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
+																					<img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
+																				</span>
+																			</span>
 																		</a>
 																	</div>
-																	<div id="tpMoreOptions" class="collapse" role="tabpanel">
-																		<div class="card-body border">
-																			<p class="card-text mb-0">
-																				<strong>I'm willing to walk:</strong>
-																			</p>
-																			<div class="custom-control custom-radio">
-																				<input id="quarterMile" type="radio" name="walkingDistance" class="custom-control-input">
-																				<label for="quarterMile" class="custom-control-label">1/4 mile</label>
-																			</div>
-																			<div class="custom-control custom-radio">
-																				<input id="halfMile" type="radio" name="walkingDistance" class="custom-control-input" checked>
-																				<label for="halfMile" class="custom-control-label">1/2 mile</label>
-																			</div>
-																			<div class="custom-control custom-radio">
-																				<input id="oneMile" type="radio" name="walkingDistance" class="custom-control-input">
-																				<label for="oneMile" class="custom-control-label">1 mile</label>
-																			</div>
-																			<div class="custom-control custom-radio">
-																				<input
-																				id="anyType"
-																				type="radio"
-																				name="serviceType"
-																				class="custom-control-input"
-																				checked
-																				>
-																				<label
-																				class="custom-control-label"
-																				for="anyType"
-																				>Any service type</label>
-																			</div>
-																			<div class="custom-control custom-radio">
-																				<input
-																				id="railOnly"
-																				type="radio"
-																				name="serviceType"
-																				class="custom-control-input"
-																				>
-																				<label class="custom-control-label" for="railOnly">Rail only</label>
-																			</div>
-																			<div class="custom-control custom-radio">
-																				<input
-																				id="busOnly"
-																				type="radio"
-																				name="serviceType"
-																				class="custom-control-input"
-																				>
-																				<label class="custom-control-label" for="busOnly">Bus only</label>
-																			</div>
-																			<div class="custom-control custom-radio">
-																				<input
-																				id="noExpress"
-																				type="radio"
-																				name="serviceType"
-																				class="custom-control-input"
-																				>
-																				<label
-																				class="custom-control-label"
-																				for="noExpress"
-																				>No express</label>
-																			</div>
-																			<hr>
-																			<div class="custom-control custom-radio">
-																				<input
-																				id="fasterTrip"
-																				type="radio"
-																				name="convenience"
-																				class="custom-control-input"
-																				checked
-																				>
-																				<label
-																				class="custom-control-label"
-																				for="fasterTrip"
-																				>Faster trip</label>
-																			</div>
-																			<div class="custom-control custom-radio">
-																				<input
-																				id="fewerTransfers"
-																				type="radio"
-																				name="convenience"
-																				class="custom-control-input"
-																				>
-																				<label
-																				class="custom-control-label"
-																				for="fewerTransfers"
-																				>Fewer transfers</label>
-																			</div>
-																			<div class="custom-control custom-radio">
-																				<input
-																				id="lessWalking"
-																				type="radio"
-																				name="convenience"
-																				class="custom-control-input"
-																				>
-																				<label
-																				class="custom-control-label"
-																				for="lessWalking"
-																				>Less walking</label>
-																			</div>
-
-																			<hr>
-
-																			<p class="m-0">
-																				<strong>
-																				<img class="icon accessible-gray" src="/img/svg/accessible-gray.svg">&nbsp;Accessible stops
-																				</strong>
-																			</p>
-																			<div class="custom-control custom-radio custom-control-inline">
-																				<input
-																				id="accessibleYes"
-																				type="radio"
-																				name="accessible"
-																				class="custom-control-input"
-																				>
-																				<label class="custom-control-label" for="accessibleYes">Yes</label>
-																			</div>
-																			<div class="custom-control custom-radio custom-control-inline">
-																				<input
-																				id="accessibleNo"
-																				type="radio"
-																				name="accessible"
-																				class="custom-control-input"
-																				checked
-																				>
-																				<label class="custom-control-label" for="accessibleNo">No</label>
-																			</div>
-																		</div>
+																	<div class="card">
+																		<a href="/trip-plan" class="border">
+																			<span class="d-flex" role="link">
+																				<span class="d-flex align-items-center tp-time">1 hr 2 min</span>
+																				<span class="align-items-center tp-route">
+																					<img class="icon" src="/img/svg/pedestrian-gray.svg">
+																					<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
+																					<img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
+																					<span class="route mr-1">21</span>
+																					<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
+																					<img class="icon" src="/img/svg/pedestrian-gray.svg">
+																					<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
+																					<span class="d-flex align-items-center badge badge-secondary mr-1">
+																						<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+																						<span class="caps">Blue</span>
+																					</span>
+																					<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
+																					<img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
+																					<img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
+																				</span>
+																			</span>
+																		</a>
 																	</div>
+																	<div class="card">
+																		<a href="/trip-plan" class="border">
+																			<span class="d-flex" role="link">
+																				<span class="d-flex align-items-center tp-time">1 hr 6 min</span>
+																				<span class="align-items-center tp-route">
+																					<img class="icon" src="/img/svg/pedestrian-gray.svg">
+																					<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+																					<img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
+																					<span class="route mr-1">21</span>
+																					<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+																					<span class="d-flex align-items-center badge badge-success mr-1">
+																						<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+																						<span class="caps">Green</span>
+																					</span>
+																					<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
+																					<img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
+																					<img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
+																				</span>
+																			</span>
+																		</a>
+																	</div>
+																</div>
+																<div class="text-center">
+																	<button type="submit" class="btn btn-warning" name="planMyTrip">
+																		Edit my trip
+																		<img class="icon edit-blue" src="/img/svg/edit-blue.svg">
+																	</button>
 																</div>
 															</div>
 														</div>
 													</div>
-													<div class="btn-container text-center">
-														<button type="submit" class="btn mt-2 btn-warning" name="planMyTrip">Plan my trip</button>
-													</div>
-													<div id="tripPlannerResults">
-													<h2>Suggested trips</h2>
-													<p class="mb-0">
-														<strong>Start:&nbsp;</strong>225 Farrington
-														<abbr title="street">St.</abbr>,
-														<abbr title="Saint">St.</abbr> Paul, MN 55102
-													</p>
-													<p>
-														<strong>End:&nbsp;</strong>560 6th
-														<abbr title="avenue">Ave.</abbr> N, Minneapolis, MN 55411
-													</p>
-													<div class="tp-results" role="tablist">
-														<div class="card">
-															<a href="/trip-plan" class="border">
-																<span class="d-flex" role="link">
-																	<span class="d-flex align-items-center tp-time">56 min</span>
-																	<span class="align-items-center tp-route">
-																		<img class="icon" src="/img/svg/pedestrian-gray.svg">
-																		<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
-																		<img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
-																		<span class="route mr-1">21</span>
-																		<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
-																		<span class="d-flex align-items-center badge badge-success mr-1">
-																			<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
-																			<span class="caps">Green</span>
-																		</span>
-																		<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
-																		<img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
-																		<img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
-																	</span>
-																</span>
-															</a>
-														</div>
-														<div class="card">
-															<a href="/trip-plan" class="border">
-																<span class="d-flex" role="link">
-																	<span class="d-flex align-items-center tp-time">1 hr 2 min</span>
-																	<span class="align-items-center tp-route">
-																		<img class="icon" src="/img/svg/pedestrian-gray.svg">
-																		<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
-																		<img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
-																		<span class="route mr-1">21</span>
-																		<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
-																		<img class="icon" src="/img/svg/pedestrian-gray.svg">
-																		<img class="icon chevron-right-gray mr-1" src="/img/svg/chevron-right-gray.svg">
-																		<span class="d-flex align-items-center badge badge-secondary mr-1">
-																			<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
-																			<span class="caps">Blue</span>
-																		</span>
-																		<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
-																		<img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
-																		<img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
-																	</span>
-																</span>
-															</a>
-														</div>
-														<div class="card">
-															<a href="/trip-plan" class="border">
-																<span class="d-flex" role="link">
-																	<span class="d-flex align-items-center tp-time">1 hr 6 min</span>
-																	<span class="align-items-center tp-route">
-																		<img class="icon" src="/img/svg/pedestrian-gray.svg">
-																		<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
-																		<img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
-																		<span class="route mr-1">21</span>
-																		<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
-																		<span class="d-flex align-items-center badge badge-success mr-1">
-																			<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
-																			<span class="caps">Green</span>
-																		</span>
-																		<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">
-																		<img class="icon mr-1" src="/img/svg/pedestrian-gray.svg">
-																		<img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
-																	</span>
-																</span>
-															</a>
-														</div>
-													</div>
-													<h2>No trips found</h2>
-													<div class="card border p-4">
-														<p>We’re sorry, no results are available for this trip plan. Please try a specific thing for better results or call or text Transit information at 612-373-3333. (this language needs to be written.)</p>
-													</div>
-													</div>
-
-													<div class="btn-container text-center">
-														<button type="submit" class="btn mt-2 btn-warning" name="planMyTrip">
-															Edit my trip
-															<img class="icon edit-blue" src="/img/svg/edit-blue.svg">
-														</button>
-													</div>
 												</div>
 											</div>
-										</div>
-										<div id="nextrip" class="tt-nextrip tab-pane fade" role="tabpanel" aria-labelledby="nextripTab">
-											<div id="nextripModule">
-												<div class="card mb-4">
-													<h2 class="text-center mb-4 mb-lg-5">Real-time Departures</h2>
-													<div class="row">
-														<div class="col-md-5">
-															<div class="form-group select-route">
-																<label for="ntRoute" class="sr-only">Select route</label>
-																<select
-																	id="ntRoute"
-																	name="ntRoute"
-																	class="custom-select custom-select-lg"
-																>
-																	<option value="">Select route</option>
-																</select>
-															</div>
-															<div class="form-group select-route-direction">
-																<label for="ntDirection" class="sr-only">Select direction</label>
-																<select
-																	id="ntDirection"
-																	name="ntDirection"
-																	class="custom-select custom-select-lg"
-																>
-																	<option value="">Select direction</option>
-																</select>
-															</div>
-															<div class="form-group select-route-stop">
-																<label for="ntStop" class="sr-only">Select stop</label>
-																<select
-																	id="ntStop"
-																	name="ntStop"
-																	class="custom-select custom-select-lg"
-																>
-																	<option value="">Select stop</option>
-																</select>
-															</div>
-														</div>
-														<div class="col-md-2">
-															<p class="text-center or">or</p>
-														</div>
-														<div class="col-md-5">
-															<div class="auto-complete-search-box">
-																<div class="input-group">
-																	<input type="search"
-																		id="stopNumber"
-																		name="stopNumber"
-																		class="form-control form-control-lg"
-																		placeholder="Enter stop number"
-																		aria-describedby="searchStopsButton"
-																		required
+											<div id="nextrip" class="tt-nextrip tab-pane fade" role="tabpanel" aria-labelledby="nextripTab">
+												<div id="nextripModule">
+													<div class="card mb-4">
+														<h2 class="text-center mb-4 mb-lg-5">Real-time Departures</h2>
+														<div class="row">
+															<div class="col-md-5">
+																<div class="form-group select-route">
+																	<label for="ntRoute" class="sr-only">Select route</label>
+																	<select
+																		id="ntRoute"
+																		name="ntRoute"
+																		class="custom-select custom-select-lg"
 																	>
-																	<label for="stopNumber" class="sr-only">Enter stop number</label>
-																	<div class="input-group-append">
-																		<button id="searchStopsButton" type="search" class="btn btn-primary border-top border-right border-bottom">
-																			<span class="sr-only">Search button</span>
-																			<img class="icon" src="/img/svg/search-gray.svg">
-																		</button>
+																		<option value="">Select route</option>
+																	</select>
+																</div>
+																<div class="form-group select-route-direction">
+																	<label for="ntDirection" class="sr-only">Select direction</label>
+																	<select
+																		id="ntDirection"
+																		name="ntDirection"
+																		class="custom-select custom-select-lg"
+																	>
+																		<option value="">Select direction</option>
+																	</select>
+																</div>
+																<div class="form-group select-route-stop">
+																	<label for="ntStop" class="sr-only">Select stop</label>
+																	<select
+																		id="ntStop"
+																		name="ntStop"
+																		class="custom-select custom-select-lg"
+																	>
+																		<option value="">Select stop</option>
+																	</select>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<p class="text-center or">or</p>
+															</div>
+															<div class="col-md-5">
+																<div class="auto-complete-search-box">
+																	<div class="input-group">
+																		<input type="number"
+																			id="stopNumber"
+																			name="stopNumber"
+																			class="form-control form-control-lg"
+																			placeholder="Enter stop number"
+																			aria-describedby="searchStopsButton">
+																		<label for="stopNumber"
+																			class="sr-only">Enter stop number</label>
+																		<div class="input-group-append">
+																			<button id="searchStopsButton"
+																					type="submit"
+																					name="submit"
+																					class="btn btn-primary border-top border-right border-bottom">
+																				<span class="sr-only">Search button</span>
+																				<img class="icon"
+																					src="/img/svg/search-gray.svg">
+																			</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div id="nextripDepartures" class="nextrip-departures">
+														<div class="card mb-3 p-2 p-md-4">
+															<h2>Departures</h2>
+															<div class="stop-description"></div>
+															<div class="list-group mb-2">
+
+																<!-- Departures list container -->
+																<div class="stop-departures"></div>
+																<div class="show more">
+																	<img class="icon mr-2" src="/img/svg/circle-plus-blue.svg">
+																	<span class="h4">Show more departure times</span>
+																</div>
+																<div class="show less">
+																	<img class="icon mr-2" src="/img/svg/circle-plus-blue.svg">
+																	<span class="h4">Show less departure times</span>
+																</div>
+															</div>
+														</div>
+
+														<div id="showMyBus" class="accordion nt-show-my-bus">
+															<div class="card">
+																<div class="card-header">
+																	<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false">
+																		<img class="icon mr-2" src="/img/svg/bus-broadcast-color.svg">
+																		<h2 class="mb-0">Show my bus</h2>
+																		<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+																	</button>
+																</div>
+																<div id="collapseMap" class="collapse">
+																	<div class="card-body p-0">
+																	<div class="map-container border">
+																			<div id="NexTripMap" class="map" maptype="BOM" role="application" aria-label="interactive map of vehicle locations">
+																				<div id="bombanner" class="mapbanner"></div>
+																				<div id="bomticker" class="bomticker"></div>
+																				<div id="bomlocate"></div>
+																			</div>
+																	</div>
 																	</div>
 																</div>
 															</div>
 														</div>
 													</div>
 												</div>
-												<div id="nextripDepartures">
-													<div class="card mb-3 p-2 p-md-4">
-														<h2>Departures</h2>
-														<div class="stop-description"></div>
-														<div class="list-group mb-2">
 
-															<!-- Departures list container -->
-															<div class="stop-departures"></div>
-														</div>
-														<a href="" class="nt-show-more-link">
-															<img class="icon mr-2" src="/img/svg/circle-plus-blue.svg">
-															<span class="h2 nt-show-more">Show more</span>
-														</a>
-													</div>
-												</div>
-												<!-- <div id="nextripDepartures">
-													<div class="card mb-3 p-2">
-														<p>
-															Selby
-															<abbr title="avenue">Ave</abbr>. and Dale
-															<abbr title="street">St</abbr>.
-															<br>Stop 17023
-														</p>
-														<div class="list-group mb-2">
-															<div class="d-flex list-group-item pr-0 pl-0">
-																<span class="nt-route-number mr-2">21 A</span>
-																<span class="nt-route-name">Shelby-Lake / Uptown</span>
-																<span class="nt-depart-time ml-auto">
-																	<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg">
-																	6
-																	<abbr title="minutes">min</abbr>
-																</span>
-															</div>
-															<div class="d-flex list-group-item pr-0 pl-0">
-																<span class="nt-route-number mr-2">21 A</span>
-																<span class="nt-route-name">Shelby-Lake / Uptown</span>
-																<span class="nt-depart-time ml-auto">
-																	<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg">
-																	6
-																	<abbr title="minutes">min</abbr>
-																</span>
-															</div>
-															<div class="d-flex list-group-item pr-0 pl-0">
-																<span class="nt-route-number mr-2">21 A</span>
-																<span class="nt-route-name mr-2">SW Transit - Express - Chaska - Chanhassen Mpls</span>
-																<span class="nt-depart-time ml-auto">10:00 p.m.</span>
-															</div>
-														</div>
-														<a href="" class="nt-show-more-link">
-															<img class="icon mr-2" src="/img/svg/circle-plus-blue.svg">
-															<span class="h2 nt-show-more">Show more</span>
-														</a> -->
-													</div>
-
-													<!-- <div id="showMyBus" class="accordion nt-show-my-bus">
-														<div class="card">
-															<div class="card-header">
-																<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false">
-																	<img class="icon mr-2" src="/img/svg/bus-broadcast-color.svg">
-																	<h2 class="mb-0">Show my bus</h2>
-																	<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
-																</button>
-															</div>
-															<div id="collapseMap" class="collapse">
-																<div class="card-body p-0">
-																	<img class="img-fluid" src="/img/TripPlanMap1.png">
-																</div>
-															</div>
-														</div>
-													</div> -->
-												</div>
 											</div>
-
-										</div>
-										<div id="alerts" class="tt-alerts tab-pane fade" role="tabpanel" aria-labelledby="alertsTab">
-											<div id="alertsModule">
-												<div class="card">
-													<h1 class="sr-only">Alerts</h1>
-													<h2 class="text-center">Check planned detours, bus stop, service changes, and disruptions</h2>
-													<div class="text-center mt-4 mb-4 mx-auto">
-														<a href="how-to-ride-guide" class="btn btn-outline-primary">Sign up for alerts
-															<img class="icon arrow-right-blue inactive" src="/img/svg/arrow-right-blue.svg">
-															<img class="icon arrow-right-white active" src="/img/svg/arrow-right-white.svg">
-														</a>
-													</div>
-													<div class="accordion service-alerts">
-														<div class="card">
-															<div class="card-header">
-																<h3 class="mb-0">
-																	<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#metroBlueLrt" aria-expanded="false">
-																		<img class="icon circle-blue-lrt mr-2" src="/img/svg/circle-blue-lrt.svg">
-																		<span class="route-alert">
-																			<strong>METRO</strong>&nbsp;Blue Line
-																		</span>
-																		<div class="ml-auto">
-																			<span class="number-alerts">1 Alert(s)</span>
-																			<img class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
-																		</div>
+											<div id="alerts" class="tt-alerts tab-pane fade" role="tabpanel" aria-labelledby="alertsTab">
+												<div id="alertsModule">
+													<div class="modal fade" id="alertTextModal" tabindex="-1" role="dialog" aria-labelledby="alertsModalLabel" aria-hidden="true">
+														<div class="modal-dialog" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button type="button" class="close" data-dismiss="modal" aria-label="close">
+																		<span aria-idden="true">X</span>
 																	</button>
-																</h3>
-															</div>
-															<div id="metroBlueLrt" class="collapse" style="">
-																<div class="card-body border">
-																	<p><a href="/rider-alerts/901">Station closed</a><br />Starting Jan 22 at 9 AM - 8th St between 3rd Ave and 4th Ave</p>
+																</div>
+																<div class="modal-body">
+																	<div id="alertText"></div>
+																	<div class="text-center">
+																		<button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">Close</button>
+																	</div>
 																</div>
 															</div>
 														</div>
 													</div>
-													<div class="accordion service-alerts">
-														<div class="card">
-															<div class="card-header">
-																<h3 class="mb-0">
-																	<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#metroGreenLrt" aria-expanded="false">
-																		<img class="icon circle-green-lrt mr-2" src="/img/svg/circle-green-lrt.svg">
-																		<span class="route-alert">
-																			<strong>METRO</strong>&nbsp;Green Line
-																		</span>
-																		<div class="ml-auto">
-																			<span class="number-alerts">3 Alert(s)</span>
-																			<img class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
-																		</div>
-																	</button>
-																</h3>
-															</div>
-															<div id="metroGreenLrt" class="collapse" style="">
-																<div class="card-body border">
-																	<p><a href="/rider-alerts/902">Station closed</a><br />Starting Jan 22 at 9 AM - 8th St between 3rd Ave and 4th Ave</p>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="accordion service-alerts">
-														<div class="card">
-															<div class="card-header">
-																<h3 class="mb-0">
-																	<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#metroRedBrt" aria-expanded="false">
-																		<img class="icon circle-red-bus mr-2" src="/img/svg/circle-red-bus.svg">
-																		<span class="route-alert">
-																			<strong>METRO</strong>&nbsp;Red Line
-																		</span>
-																		<div class="ml-auto">
-																			<span class="number-alerts">3 Alert(s)</span>
-																			<img class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
-																		</div>
-																	</button>
-																</h3>
-															</div>
-															<div id="metroRedBrt" class="collapse" style="">
-																<div class="card-body border">
-																	<p><a href="/rider-alerts/923">Station closed</a><br />Starting Jan 22 at 9 AM - 8th St between 3rd Ave and 4th Ave</p>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="accordion service-alerts">
-														<div class="card">
-															<div class="card-header">
-																<h3 class="mb-0">
-																	<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#metroABrt" aria-expanded="false">
-																		<img class="icon circle-gray-bus mr-2" src="/img/svg/circle-gray-bus.svg">
-																		<span class="route-alert">
-																			<strong>METRO</strong>&nbsp;A Line
-																		</span>
-																		<div class="ml-auto">
-																			<span class="number-alerts">15 Alert(s)</span>
-																			<img class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
-																		</div>
-																	</button>
-																</h3>
-															</div>
-															<div id="metroABrt" class="collapse" style="">
-																<div class="card-body border">
-																	<p><a href="/rider-alerts/921">Station closed</a><br />Starting Jan 22 at 9 AM - 8th St between 3rd Ave and 4th Ave</p>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="accordion service-alerts">
-														<div class="card">
-															<div class="card-header">
-																<h3 class="mb-0">
-																	<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#metroCBrt" aria-expanded="false">
-																		<img class="icon circle-gray-bus mr-2" src="/img/svg/circle-gray-bus.svg">
-																		<span class="route-alert">
-																			<strong>METRO</strong>&nbsp;C Line
-																		</span>
-																		<div class="ml-auto">
-																			<span class="number-alerts">3 Alert(s)</span>
-																			<img class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
-																		</div>
-																	</button>
-																</h3>
-															</div>
-															<div id="metroCBrt" class="collapse" style="">
-																<div class="card-body border">
-																	<p><a href="/rider-alerts/923">Station closed</a><br />Starting Jan 22 at 9 AM - 8th St between 3rd Ave and 4th Ave</p>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="accordion service-alerts">
-														<div class="card">
-															<div class="card-header">
-																<h3 class="mb-0">
-																	<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#northstarRail" aria-expanded="false">
-																		<img class="icon circle-gray-outline-train mr-2" src="/img/svg/circle-gray-outline-train.svg">
-																		<span class="route-alert">
-																			<strong>Northstar</strong>&nbsp;community rail
-																		</span>
-																		<div class="ml-auto">
-																			<span class="number-alerts">1 Alert(s)</span>
-																			<img class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
-																		</div>
-																	</button>
-																</h3>
-															</div>
-															<div id="northstarRail" class="collapse" style="">
-																<div class="card-body border">
-																	<p><a href="/rider-alerts/888">Station closed</a><br />Starting Jan 22 at 9 AM - 8th St between 3rd Ave and 4th Ave</p>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="accordion service-alerts">
-														<div class="card">
-															<div class="card-header">
-																<h3 class="mb-0">
-																	<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#busRt3" aria-expanded="false">
-																		<img class="icon circle-gray-outline-bus mr-2" src="/img/svg/circle-gray-outline-bus.svg">
-																		<span class="route-alert">
-																			<strong>Route 3</strong>&nbsp;U of M / Como / Maryland
-																		</span>
-																		<div class="ml-auto">
-																			<span class="number-alerts">1 Alert(s)</span>
-																			<img class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
-																		</div>
-																	</button>
-																</h3>
-															</div>
-															<div id="busRt3" class="collapse" style="">
-																<div class="card-body border">
-																	<p><a href="/rider-alerts/3">Bus Stop Closed</a><br />Starting Jan 22 at 9 AM - 8th St between 3rd Ave and 4th Ave</p>
-																	<p><a href="/rider-alerts/3">Bus Stops Closed</a><br />Starting Nov 30 at 5:30 PM - Southbound Brooklyn Blvd at 51st Ave, 50th Ave & 49th Ave</p>
-																	<p><a href="/rider-alerts/3">Bus Stop Closed</a><br />Starting Nov 30 at 9 AM - 8th St at Nicollet</p>
-																	<p><a href="/rider-alerts/3">Route 5 changes begin Dec. 1</a></p>
-																	<p><a href="/rider-alerts/3">Bus Stop Closed</a><br />Starting Oct 1 at 3 PM (School Days Only) - Southbound 44th Ave at James</p>
-																	<p><a href="/rider-alerts/3">Bus Stop Closed</a><br />Starts June 4 @ 9 AM - 7th St just past 5th Ave</p>
-																</div>
-															</div>
+													<!-- Alerts list (expand/collapse) -->
+													<div id="alertsCard" class="card">
+														<h1 class="sr-only">Alerts</h1>
+														<h2 class="text-center">Check planned detours, bus stop, service changes, and disruptions</h2>
+														<div class="text-center mt-4 mb-4 mx-auto">
+															<a href="how-to-ride-guide" class="btn btn-outline-primary">
+																Sign up for alerts
+																<img class="icon arrow-right-blue inactive" src="/img/svg/arrow-right-blue.svg">
+																<img class="icon arrow-right-white active" src="/img/svg/arrow-right-white.svg">
+															</a>
 														</div>
 													</div>
 												</div>
@@ -838,250 +670,255 @@
 								</div>
 							</div>
 						</div>
-					</div>
-				</main>
-				<section class="section">
-				    <div class="container">
-				        <div id="howToRide" class="text-center mx-auto">
-							<div class="icon-wrapper">
-			            		<img class="icon" src="/img/svg/circle-blue-outline-question.svg">
+					</section>
+					<section class="section">
+						<div class="container">
+							<div id="howToRide" class="text-center mx-auto">
+								<div class="icon-wrapper">
+									<img class="icon" src="/img/svg/circle-blue-outline-question.svg">
+								</div>
+								<a href="/how-to-ride-guide" class="btn btn-outline-primary">
+									How to ride
+									<img class="icon arrow-right-blue inactive" src="/img/svg/arrow-right-blue.svg">
+									<img class="icon arrow-right-white active" src="/img/svg/arrow-right-white.svg">
+								</a>
 							</div>
-			            	<a href="/how-to-ride-guide" class="btn btn-outline-primary">How to ride
-								<img class="icon arrow-right-blue inactive" src="/img/svg/arrow-right-blue.svg">
-								<img class="icon arrow-right-white active" src="/img/svg/arrow-right-white.svg">
-							</a>
 						</div>
-				    </div>
-				</section>
-				<section class="section">
-					<div class="container">
-						<div id="news">
-							<div class="row">
-								<div class="col-6 col-md-3">
-									<div class="card">
-										<img src="/img/placeholder-300x300.png" class="card-img-top" />
-										<div class="card-body">
-											<h4 class="card-title">Article 1</h4>
+					</section>
+					<section class="section">
+						<div class="container">
+							<div id="news">
+								<div class="row">
+									<div class="col-6 col-md-3">
+										<div class="card">
+											<img src="/img/placeholder-300x300.png" class="card-img-top" />
+											<div class="card-body">
+												<h4 class="card-title">Article 1</h4>
+											</div>
+											<div class="card-footer">
+												<div class="text-center">
+													<a href="/" class="btn btn-warning">
+														Learn more
+														<img class="icon" src="/img/svg/arrow-right-blue.svg">
+													</a>
+												</div>
+											</div>
 										</div>
-										<div class="card-footer">
-											<div class="text-center">
-												<a href="/" class="btn btn-warning">Learn more
-													<img class="icon" src="/img/svg/arrow-right-blue.svg">
-												</a>
+									</div>
+									<div class="col-6 col-md-3">
+										<div class="card">
+											<img src="/img/placeholder-300x300.png" class="card-img-top" />
+											<div class="card-body">
+												<h4 class="card-title">Article 1</h4>
+											</div>
+											<div class="card-footer">
+												<div class="text-center">
+													<a href="/" class="btn btn-warning">Learn more
+														<img class="icon" src="/img/svg/arrow-right-blue.svg">
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-6 col-md-3">
+										<div class="card">
+											<img src="/img/placeholder-300x300.png" class="card-img-top" />
+											<div class="card-body">
+												<h4 class="card-title">Article 3</h4>
+											</div>
+											<div class="card-footer">
+												<div class="text-center">
+													<a href="/" class="btn btn-warning">Learn more
+														<img class="icon" src="/img/svg/arrow-right-blue.svg">
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-6 col-md-3">
+										<div class="card">
+											<img src="/img/placeholder-300x300.png" class="card-img-top" />
+											<div class="card-body">
+												<h4 class="card-title">Article 4</h4>
+											</div>
+											<div class="card-footer">
+												<div class="text-center">
+													<a href="/" class="btn btn-warning">Learn more
+														<img class="icon" src="/img/svg/arrow-right-blue.svg">
+													</a>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="col-6 col-md-3">
-									<div class="card">
-										<img src="/img/placeholder-300x300.png" class="card-img-top" />
-										<div class="card-body">
-											<h4 class="card-title">Article 1</h4>
-										</div>
-										<div class="card-footer">
-											<div class="text-center">
-												<a href="/" class="btn btn-warning">Learn more
-													<img class="icon" src="/img/svg/arrow-right-blue.svg">
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-6 col-md-3">
-									<div class="card">
-										<img src="/img/placeholder-300x300.png" class="card-img-top" />
-										<div class="card-body">
-											<h4 class="card-title">Article 3</h4>
-										</div>
-										<div class="card-footer">
-											<div class="text-center">
-												<a href="/" class="btn btn-warning">Learn more
-													<img class="icon" src="/img/svg/arrow-right-blue.svg">
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-6 col-md-3">
-									<div class="card">
-										<img src="/img/placeholder-300x300.png" class="card-img-top" />
-										<div class="card-body">
-											<h4 class="card-title">Article 4</h4>
-										</div>
-										<div class="card-footer">
-											<div class="text-center">
-												<a href="/" class="btn btn-warning">Learn more
-													<img class="icon" src="/img/svg/arrow-right-blue.svg">
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
 							</div>
 						</div>
-					</div>
-				</section>
-			</div>
-		</div>
-	</section>
-	<!-- End Main Content -->
-
-	<!-- Begin Footer -->
-	<footer class="section">
-		<div class="container">
-			<div class="mb-5">
-				<div class="text-center">
-					<a href="/contact-us" class="btn btn-outline-primary">Contact us
-						<img class="icon arrow-right-blue inactive" src="/img/svg/arrow-right-blue.svg" />
-						<img class="icon arrow-right-white active" src="/img/svg/arrow-right-white.svg" />
-					</a>
-				</div>
-				<div class="d-none d-md-block social-media text-center">
-					<a href="https://www.twitter.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/twitter-gray.svg"></a>
-					<a href="https://www.facebook.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/facebook-gray.svg"></a>
-					<a href="https://www.youtube.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/youtube-gray.svg"></a>
-					<a href="https://instagram.com/metrotransitmn"><img class="icon mr-2" src="/img/svg/instagram-gray.svg"></a>
-					<a href="https://www.linkedin.com/company/metro-transit"><img class="icon mr-2" src="/img/svg/linkedin-gray.svg"></a>
-					<a href="https://www.flickr.com/photos/metrotransitmn/"><img class="icon" src="/img/svg/flickr-gray.svg"></a>
-				</div>
-				<div class="footer d-none d-md-block pt-5">
-					<div class="card-deck pb-4">
-						<div class="card border-0">
-							<div class="card-body">
-								<h4 class="card-title">About Metro Transit</h4>
-								<ul class="nav flex-column">
-									<li class="nav-item">
-										<a href="/transit-initiatives" class="nav-link">Transit Initiatives</a>
-									</li>
-									<li class="nav-item">
-										<a href="/facilities" class="nav-link">Facilities</a>
-									</li>
-									<li class="nav-item">
-										<a href="/riders-almanac-blog" class="nav-link">Riders Almanac</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="card border-0">
-							<div class="card-body">
-								<h4 class="card-title">Media Relations</h4>
-								<ul class="nav flex-column">
-									<li class="nav-item">
-										<a href="/contacts" class="nav-link">Contacts</a>
-									</li>
-									<li class="nav-item">
-										<a href="/press" class="nav-link">Press Releases</a>
-									</li>
-									<li class="nav-item">
-										<a href="/awards" class="nav-link">Awards</a>
-									</li>
-									<li class="nav-item">
-										<a href="/" class="nav-link">Images &amp; Logos</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="card border-0">
-							<div class="card-body">
-								<h4 class="card-title">Careers</h4>
-								<ul class="nav flex-column">
-									<li class="nav-item">
-										<a href="/jobs" class="nav-link">Available Job Opportunities</a>
-									</li>
-									<li class="nav-item">
-										<a href="/drive" class="nav-link">Become a Bus Driver</a>
-									</li>
-									<li class="nav-item">
-										<a href="/transit-police-careers" class="nav-link">Join the Transit Police</a>
-									</li>
-									<li class="nav-item">
-										<a href="/job-seekers" class="nav-link">Career Fairs</a>
-									</li>
-									<li class="nav-item">
-										<a href="/internships" class="nav-link">Internships</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="card border-0">
-							<div class="card-body">
-								<h4 class="card-title">Policies</h4>
-								<ul class="nav flex-column">
-									<li class="nav-item">
-										<a href="/social-media-policy" class="nav-link">Social Media Policy</a>
-									</li>
-									<li class="nav-item">
-										<a href="https://metrocouncil.org/Privacy-Policy.aspx" class="nav-link" target="_blank">Privacy Policy</a>
-									</li>
-									<li class="nav-item">
-										<a href="/code-of-conduct" class="nav-link">Code of Conduct</a>
-									</li>
-									<li class="nav-item">
-										<a href="/titlevi" class="nav-link">Title VI: Commitment to Fairness</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="card-deck">
-						<div class="card border-0">
-							<div class="card-body">
-								<h4 class="card-title">Mission &amp; Impact</h4>
-								<ul class="nav flex-column">
-									<li class="nav-item">
-										<a href="/commitment-to-fairness" class="nav-link">Commitment to Fairness</a>
-									</li>
-									<li class="nav-item">
-										<a href="/impact-programs" class="nav-link">Impact Programs</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="card border-0">
-							<div class="card-body">
-								<h4 class="card-title">Resources</h4>
-								<ul class="nav flex-column">
-									<li class="nav-item">
-										<a href="/app" class="nav-link">Try the Metro Transit App</a>
-									</li>
-									<li class="nav-item">
-										<a href="/advertise-with-metro-transit" class="nav-link">Advertise with Us</a>
-									</li>
-									<li class="nav-item">
-										<a href="/apps" class="nav-link">API Resources for Developers</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="card border-0"></div>
-						<div class="card border-0"></div>
-					</div>
+					</section>
 				</div>
 			</div>
-			<p class="text-center">
-				<small>
-					Metro Transit is a service of the Metropolitan Council.
-					<span class="d-block d-md-none"> <br /> </span>&copy; 2019 Metro
-					Transit
-				</small>
-			</p>
-		</div>
-	</footer>
+		</section>
+		<!-- End Main Content -->
 
-	<!-- End Footer -->
+		<!-- Begin Footer -->
+		<footer class="section">
+			<div class="container">
+				<div class="mb-5">
+					<div class="text-center">
+						<a href="/contact-us" class="btn btn-outline-primary">Contact us
+							<img class="icon arrow-right-blue inactive" src="/img/svg/arrow-right-blue.svg" />
+							<img class="icon arrow-right-white active" src="/img/svg/arrow-right-white.svg" />
+						</a>
+					</div>
+					<div class="d-none d-md-block social-media text-center">
+						<a href="https://www.twitter.com/MetroTransitMN"><img class="icon" src="/img/svg/twitter-gray.svg"></a>
+						<a href="https://www.facebook.com/MetroTransitMN"><img class="icon" src="/img/svg/facebook-gray.svg"></a>
+						<a href="https://www.youtube.com/MetroTransitMN"><img class="icon" src="/img/svg/youtube-gray.svg"></a>
+						<a href="https://instagram.com/metrotransitmn"><img class="icon" src="/img/svg/instagram-gray.svg"></a>
+						<a href="https://www.linkedin.com/company/metro-transit"><img class="icon" src="/img/svg/linkedin-gray.svg"></a>
+						<a href="https://www.flickr.com/photos/metrotransitmn/"><img class="icon" src="/img/svg/flickr-gray.svg"></a>
+					</div>
+					<div class="footer d-none d-md-block pt-5">
+						<div class="card-deck pb-4">
+							<div class="card border-0">
+								<div class="card-body">
+									<h4 class="card-title">About Metro Transit</h4>
+									<ul class="nav flex-column">
+										<li class="nav-item">
+											<a href="/transit-initiatives" class="nav-link">Transit Initiatives</a>
+										</li>
+										<li class="nav-item">
+											<a href="/facilities" class="nav-link">Facilities</a>
+										</li>
+										<li class="nav-item">
+											<a href="/riders-almanac-blog" class="nav-link">Riders Almanac</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="card border-0">
+								<div class="card-body">
+									<h4 class="card-title">Media Relations</h4>
+									<ul class="nav flex-column">
+										<li class="nav-item">
+											<a href="/contacts" class="nav-link">Contacts</a>
+										</li>
+										<li class="nav-item">
+											<a href="/press" class="nav-link">Press Releases</a>
+										</li>
+										<li class="nav-item">
+											<a href="/awards" class="nav-link">Awards</a>
+										</li>
+										<li class="nav-item">
+											<a href="/" class="nav-link">Images &amp; Logos</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="card border-0">
+								<div class="card-body">
+									<h4 class="card-title">Careers</h4>
+									<ul class="nav flex-column">
+										<li class="nav-item">
+											<a href="/jobs" class="nav-link">Available Job Opportunities</a>
+										</li>
+										<li class="nav-item">
+											<a href="/drive" class="nav-link">Become a Bus Driver</a>
+										</li>
+										<li class="nav-item">
+											<a href="/transit-police-careers" class="nav-link">Join the Transit Police</a>
+										</li>
+										<li class="nav-item">
+											<a href="/job-seekers" class="nav-link">Career Fairs</a>
+										</li>
+										<li class="nav-item">
+											<a href="/internships" class="nav-link">Internships</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="card border-0">
+								<div class="card-body">
+									<h4 class="card-title">Policies</h4>
+									<ul class="nav flex-column">
+										<li class="nav-item">
+											<a href="/social-media-policy" class="nav-link">Social Media Policy</a>
+										</li>
+										<li class="nav-item">
+											<a href="https://metrocouncil.org/Privacy-Policy.aspx" class="nav-link" target="_blank">Privacy Policy</a>
+										</li>
+										<li class="nav-item">
+											<a href="/code-of-conduct" class="nav-link">Code of Conduct</a>
+										</li>
+										<li class="nav-item">
+											<a href="/titlevi" class="nav-link">Title VI: Commitment to Fairness</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="card-deck">
+							<div class="card border-0">
+								<div class="card-body">
+									<h4 class="card-title">Mission &amp; Impact</h4>
+									<ul class="nav flex-column">
+										<li class="nav-item">
+											<a href="/commitment-to-fairness" class="nav-link">Commitment to Fairness</a>
+										</li>
+										<li class="nav-item">
+											<a href="/impact-programs" class="nav-link">Impact Programs</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="card border-0">
+								<div class="card-body">
+									<h4 class="card-title">Resources</h4>
+									<ul class="nav flex-column">
+										<li class="nav-item">
+											<a href="/app" class="nav-link">Try the Metro Transit App</a>
+										</li>
+										<li class="nav-item">
+											<a href="/advertise-with-metro-transit" class="nav-link">Advertise with Us</a>
+										</li>
+										<li class="nav-item">
+											<a href="/apps" class="nav-link">API Resources for Developers</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="card border-0"></div>
+							<div class="card border-0"></div>
+						</div>
+					</div>
+				</div>
+				<p class="text-center">
+					<small>
+						Metro Transit is a service of the Metropolitan Council.
+						<span class="d-block d-md-none"> <br /> </span>&copy; 2019 Metro
+						Transit
+					</small>
+				</p>
+			</div>
+		</footer>
+		<!-- End Footer -->
+	</form>
 
-	<!-- Vendor scripts -->
-	<script src="js/jquery.js"></script>
-	<script src="js/popper.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/jquery.exlink.js"></script>
-	<script src="js/svgxuse.js"></script>
-	<script src="js/nextrip.js"></script>
-
-	<!-- End vendor scripts -->
-	<!-- build:js js/app.min.js -->
-	<script src="js/scripts.js"></script>
-	<!-- endbuild -->
+	<!-- scripts -->
+	<script src="/js/jquery.js"></script>
+	<script src="/js/popper.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/jquery.exlink.js"></script>
+	<script src="/js/jquery.autocomplete.js"></script>
+	<script src="/js/jquery.validate.js"></script>
+	<!-- <script src="/js/additional-methods.js"></script> -->
+	<script src="/js/tripplan.js"></script>
+	<script src="/js/nextrip.js"></script>
+	<script src="/js/alerts.js"></script>
+	<script src="/js/form-validation.js"></script>
+	<script src="https://js.arcgis.com/3.28/"></script>
+	<script src="/js/TRIM.js"></script>
+	<script src="/js/scripts.js"></script>
+	<!-- End scripts -->
 </body>
 
 </html>
