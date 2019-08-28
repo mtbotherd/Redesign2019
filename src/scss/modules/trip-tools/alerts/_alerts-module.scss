@@ -1,25 +1,23 @@
 #alerts {
-    .service-alerts {
-        margin-bottom: 0.5rem;
+  .service-alerts {
+    .route-alert {
+      max-width: 165px;
 
-        .route-alert {
-            max-width: 165px;
+      @include media-breakpoint-up(md) {
+        max-width: 540px;
+      }
 
-            @include media-breakpoint-up(md) {
-                max-width: 540px
-            }
+      @include media-breakpoint-up(lg) {
+        max-width: 730px;
+      }
 
-            @include media-breakpoint-up(lg) {
-                max-width: 730px
-            }
-
-            @include media-breakpoint-up(xl) {
-                max-width: 910px
-            }
-        }
-
-        .number-alerts {
-            font-weight: $font-weight-bold;
-        }
+      @include media-breakpoint-up(xl) {
+        max-width: 910px;
+      }
     }
+
+    .number-alerts {
+      font-weight: $font-weight-bold;
+    }
+  }
 }

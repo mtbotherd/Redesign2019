@@ -8276,35 +8276,37 @@ form .is-valid .form-control-feedback {
   top: 2.75rem;
   right: 1.5rem; }
 
-.accordion .card .card-header {
-  padding: 0 !important; }
-  .accordion .card .card-header .btn {
-    color: #626462;
-    font-size: 18px !important;
-    font-size: 1.125rem !important;
-    background-color: #d8ecfd; }
-    @media (min-width: 992px) {
-      .accordion .card .card-header .btn {
-        font-size: 23px !important;
-        font-size: 1.4375rem !important; } }
-    .accordion .card .card-header .btn.collapsed {
-      background-color: #f5f5f4; }
-    .accordion .card .card-header .btn:focus {
-      color: #626462; }
-  .accordion .card .card-header .icon {
-    width: 2.25rem;
-    height: 2.25rem; }
-    @media (min-width: 992px) {
-      .accordion .card .card-header .icon {
-        width: 2.5rem;
-        height: 2.5rem; } }
-    .accordion .card .card-header .icon.chevron-down-blue {
-      width: 1rem;
-      height: 1rem; }
+.accordion {
+  margin-bottom: 0.5rem; }
+  .accordion .card .card-header {
+    padding: 0 !important; }
+    .accordion .card .card-header .btn {
+      color: #626462;
+      font-size: 18px !important;
+      font-size: 1.125rem !important;
+      background-color: #d8ecfd; }
       @media (min-width: 992px) {
-        .accordion .card .card-header .icon.chevron-down-blue {
-          width: 1rem;
-          height: 1rem; } }
+        .accordion .card .card-header .btn {
+          font-size: 23px !important;
+          font-size: 1.4375rem !important; } }
+      .accordion .card .card-header .btn.collapsed {
+        background-color: #f5f5f4; }
+      .accordion .card .card-header .btn:focus {
+        color: #626462; }
+    .accordion .card .card-header .icon {
+      width: 2.25rem;
+      height: 2.25rem; }
+      @media (min-width: 992px) {
+        .accordion .card .card-header .icon {
+          width: 2.5rem;
+          height: 2.5rem; } }
+      .accordion .card .card-header .icon.chevron-down-blue {
+        width: 1rem;
+        height: 1rem; }
+        @media (min-width: 992px) {
+          .accordion .card .card-header .icon.chevron-down-blue {
+            width: 1rem;
+            height: 1rem; } }
 
 #homeContent {
   position: relative;
@@ -8785,21 +8787,20 @@ form .is-valid .form-control-feedback {
   width: 1rem;
   height: 1rem; }
 
-#alerts .service-alerts {
-  margin-bottom: 0.5rem; }
-  #alerts .service-alerts .route-alert {
-    max-width: 165px; }
-    @media (min-width: 768px) {
-      #alerts .service-alerts .route-alert {
-        max-width: 540px; } }
-    @media (min-width: 992px) {
-      #alerts .service-alerts .route-alert {
-        max-width: 730px; } }
-    @media (min-width: 1200px) {
-      #alerts .service-alerts .route-alert {
-        max-width: 910px; } }
-  #alerts .service-alerts .number-alerts {
-    font-weight: 700; }
+#alerts .service-alerts .route-alert {
+  max-width: 165px; }
+  @media (min-width: 768px) {
+    #alerts .service-alerts .route-alert {
+      max-width: 540px; } }
+  @media (min-width: 992px) {
+    #alerts .service-alerts .route-alert {
+      max-width: 730px; } }
+  @media (min-width: 1200px) {
+    #alerts .service-alerts .route-alert {
+      max-width: 910px; } }
+
+#alerts .service-alerts .number-alerts {
+  font-weight: 700; }
 
 footer.section {
   background-color: #f5f5f4; }
