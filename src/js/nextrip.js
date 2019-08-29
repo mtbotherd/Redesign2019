@@ -219,77 +219,6 @@ var NexTrip = (function ($, window, document, undefined) {
 			//console.dir(mapParms);
 			BOM.startBusesOnMap(mapParms);
 		});
-<<<<<<< HEAD
-};
-
-// Two methods for getting departures handle stopId vs timepoint queries.
-// The result set is the same for either method so can be handled in one place.
-function loadDepartures(result) {
-	$('#nextripDepartures').show();
-	let list = $('.stop-departures');
-	list.empty();
-	let stop = result.Stop;
-	//let route = result.Route;
-	let departures = result.Departures.sort(function (a, b) {
-		a = new Date(a.DeartureTime);
-		b = new Date(b.DepartureTime);
-		return a < b ? -1 : a > b ? 1 : 0;
-	});
-	$('.stop-description').html('<p>' + stop.Description + '<br/>' + 'Stop ' + stop.StopId + '</p>');
-	// $.each(departures, function (i, depart) {
-	// 	list.append($('<div class="d-flex list-group-item pr-0 pl-0"/>')
-	// 		.html(
-	// 			'<span class="route-id mr-2">' 
-	// 			+ depart.RouteId 
-	// 			+ depart.Terminal 
-	// 			+ '</span>'
-	// 			+ '<span class="route-name">'
-	// 			+ depart.Description
-	// 			+ '</span>'
-	// 			+ '<span class="depart-time ml-auto">'
-	// 			+ depart.DepartureText
-	// 			+ '</span>'
-	// 	));
-	// 	if (depart.Actual === true) {
-	// 		$('.depart-time').prepend('<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg"/> ');
-	// 		console.log(depart,i)
-	// 	}
-	// });
-	$.each(departures, function (i, depart) {
-		if (depart.Actual === true) {
-			list.append($('<div class="d-flex list-group-item pr-0 pl-0"/>')
-			.html(
-				'<span class="route-id mr-2">' 
-				+ depart.RouteId 
-				+ depart.Terminal 
-				+ '</span>'
-				+ '<span class="route-name">'
-				+ depart.Description
-				+ '</span>'
-				+ '<span class="depart-time ml-auto">'
-				+'<img class="icon blink mr-1" src="/img/svg/broadcast-red.svg"/>'
-				+ depart.DepartureText
-				+ '</span>'
-			));
-		}
-		else{
-			list.append($('<div class="d-flex list-group-item pr-0 pl-0"/>')
-			.html(
-				'<span class="route-id mr-2">' 
-				+ depart.RouteId 
-				+ depart.Terminal 
-				+ '</span>'
-				+ '<span class="route-name">'
-				+ depart.Description
-				+ '</span>'
-				+ '<span class="depart-time ml-auto">'
-				+ depart.DepartureText
-				+ '</span>'
-			));
-		}
-	});
-};
-=======
 		$('#collapseMap').on('hidden.bs.collapse', function () {
 			BOM.stopBusesOnMap();
 		});
@@ -304,4 +233,3 @@ function loadDepartures(result) {
 $(function () {
 	NexTrip.init();
 });
->>>>>>> 2a7019b4942b2f0a15a20dbeb7427387c85a4992
