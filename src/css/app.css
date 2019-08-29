@@ -7693,6 +7693,15 @@ abbr {
 .card-header {
   background-color: #f5f5f4; }
 
+.cyanFont {
+  color: #0097d0; }
+
+.blueFont {
+  color: #0053a0; }
+
+hr {
+  border-color: #e3e3e0; }
+
 /***************************************************************
     CSS Animations
 ***************************************************************/
