@@ -9093,4 +9093,10 @@ footer.section {
 .route .schedule-days h3 {
   font-weight: normal !important; }
 
+.paginations span.h4, .paginations span.h3, .paginations span.h2, .paginations span.h1 {
+  font-weight: normal !important; }
+
+.paginations .icon-sm {
+  width: 1.25rem; }
+
 /*# sourceMappingURL=maps/app.css.map */
