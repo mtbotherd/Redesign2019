@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Metro Transit</title>
+	<link rel="shortcut icon"
+		  href="favicon.ico"
+		  type="image/x-icon">
+	<link rel="stylesheet"
+		  href="/css/app.css">
+
+</head>
+
+<body>
+
+	<!-- Begin Header -->
+	<header id="header">
+		<nav class="navbar navbar-expand-xl navbar-light">
+			<a href="#mainContent"
+			   class="skip-to-content">Skip to main content</a>
+			<div class="container">
+				<a class="navbar-brand"
+				   href="/">
+					<img alt="metro transit logo"
+						 src="/img/MetroTransitLogo.svg"
+						 class="logo d-inline-block">
+				</a>
+				<button class="navbar-toggler"
+						type="button"
+						data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent"
+						aria-expanded="false"
+						aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse"
+					 id="navbarSupportedContent">
+					<ul class="navbar-nav ml-xl-auto">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle"
+							   href="/trip-planner"
+							   id="navbarDropdown"
+							   role="button"
+							   data-toggle="dropdown"
+							   aria-haspopup="true"
+							   aria-expanded="false">
+								Trip Tools
+								<img src="/img/svg/chevron-down-gray.svg"
+									 class="icon inactive">
+								<img src="/img/svg/chevron-down-white.svg"
+									 class="icon active">
+							</a>
+							<div class="dropdown-menu"
+								 aria-labelledby="navbarDropdown">
+								<a class="dropdown-item"
+								   href="/trip-planner">Trip Planner</a>
+								<a class="dropdown-item"
+								   href="/nextrip">NexTrip</a>
+								<a class="dropdown-item"
+								   href="/alerts">Alerts</a>
+								<a class="dropdown-item"
+								   href="/park-ride">Find a Park &amp; Ride</a>
+								<a class="dropdown-item"
+								   href="/planner/servicesfinder.aspx">
+									Find a Stop or Station
+								</a>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link"
+							   href="schedules-maps">
+								Schedules &amp; Maps
+							</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle"
+							   href="#"
+							   id="navbarDropdown"
+							   role="button"
+							   data-toggle="dropdown"
+							   aria-haspopup="true"
+							   aria-expanded="false">
+								Fares
+								<img src="/img/svg/chevron-down-gray.svg"
+									 class="icon inactive">
+								<img src="/img/svg/chevron-down-white.svg"
+									 class="icon active">
+							</a>
+							<div class="dropdown-menu"
+								 aria-labelledby="navbarDropdown">
+								<a class="dropdown-item"
+								   href="/fares">Fares</a>
+								<a class="dropdown-item"
+								   href="/go-to-card">Go-To Card</a>
+								<a class="dropdown-item"
+								   href="/pass-programs">Pass Programs</a>
+								<a class="dropdown-item"
+								   href="https://store.metrotransit.org/">Store</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle"
+							   href="#"
+							   id="navbarDropdown"
+							   role="button"
+							   data-toggle="dropdown"
+							   aria-haspopup="true"
+							   aria-expanded="false">
+								More
+								<img src="/img/svg/chevron-down-gray.svg"
+									 class="icon inactive">
+								<img src="/img/svg/chevron-down-white.svg"
+									 class="icon active">
+							</a>
+							<div class="dropdown-menu"
+								 aria-labelledby="navbarDropdown">
+								<a class="dropdown-item"
+								   href="/carpool">Carpool &amp; Vanpool</a>
+								<a class="dropdown-item"
+								   href="/transit-link">Transit Link</a>
+								<a class="dropdown-item"
+								   href="/guaranteed-ride-home">Guaranteed Ride Home</a>
+								<a class="dropdown-item"
+								   href="/bicycle">Bicycle</a>
+								<a class="dropdown-item"
+								   href="/news">News &amp; Events</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle"
+							   href="#"
+							   id="navbarDropdown"
+							   role="button"
+							   data-toggle="dropdown"
+							   aria-haspopup="true"
+							   aria-expanded="false">
+								Help
+								<img src="/img/svg/chevron-down-gray.svg"
+									 class="icon inactive">
+								<img src="/img/svg/chevron-down-white.svg"
+									 class="icon active">
+							</a>
+							<div class="dropdown-menu"
+								 aria-labelledby="navbarDropdown">
+								<a class="dropdown-item"
+								   href="/how-to-ride">How to Ride Guide</a>
+								<a class="dropdown-item"
+								   href="contact-us">Contact Us</a>
+								<a class="dropdown-item"
+								   href="/lost-found">Lost &amp; Found</a>
+								<a class="dropdown-item"
+								   href="/accessibility">Accessibility</a>
+								<a class="dropdown-item"
+								   href="/languages">Languages</a>
+								<a class="dropdown-item"
+								   href="/police">Transit Police</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle"
+							   href="#"
+							   id="navbarDropdown"
+							   role="button"
+							   data-toggle="dropdown"
+							   aria-haspopup="true"
+							   aria-expanded="false">
+								En
+								<img src="/img/svg/chevron-down-gray.svg"
+									 class="icon inactive">
+								<img src="/img/svg/chevron-down-white.svg"
+									 class="icon active">
+							</a>
+							<div class="dropdown-menu"
+								 aria-labelledby="navbarDropdown">
+								<a class="dropdown-item"
+								   href="#">Link</a>
+								<a class="dropdown-item"
+								   href="#">Link</a>
+								<a class="dropdown-item"
+								   href="#">Link</a>
+								<a class="dropdown-item"
+								   href="#">Link</a>
+								<a class="dropdown-item"
+								   href="#">Link</a>
+								<a class="dropdown-item"
+								   href="#">Link</a>
+								<a class="dropdown-item"
+								   href="#">Link</a>
+								<a class="dropdown-item"
+								   href="#">Link</a>
+								<a class="dropdown-item"
+								   href="#">Link</a>
+								<a class="dropdown-item"
+								   href="#">Link</a>
+							</div>
+						</li>
+					</ul>
+					<ul class="navbar-nav utilities">
+						<li class="nav-item">
+							<a class="nav-link"
+							   href="https://store.metrotransit.org">
+								<img src="/img/svg/shopping-cart-green.svg"
+									 class="icon inactive">
+								<img src="/img/svg/shopping-cart-white.svg"
+									 class="icon active">
+							</a>
+						</li>
+						<li class="nav-item position-relative">
+							<div class="nav-link site-search">
+								<img src="/img/svg/search-gray.svg"
+									 class="icon  inactive">
+								<img src="/img/svg/search-white.svg"
+									 class="icon active">
+							</div>
+							<div id="siteSearchBox"
+								 class="site-search-box">
+								<div class="input-group">
+									<input type="search"
+										   id="siteSearch"
+										   class="form-control"
+										   placeholder="Search for routes and information"
+										   aria-label="Search for routes and information"
+										   aria-describedby="siteSearchButton">
+									<label for="siteSearch"
+										   class="sr-only">Search for routes and information</label>
+									<div class="input-group-append mr-auto">
+										<button id="siteSearchButton"
+												type="search"
+												class="btn btn-primary">
+											<span class="sr-only">Search button</span>
+											<img class="icon"
+												 src="/img/svg/search-gray.svg">
+										</button>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link"
+							   href="">
+								<img src="/img/svg/avatar-gray.svg"
+									 class="icon inactive">
+								<img src="/img/svg/avatar-white.svg"
+									 class="icon active">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- End Header -->
+
+	<!-- Begin Main Content -->
+	<section id="mainContent">
+		<div id="secondaryPage">
+			<div class="page-title">
+				<div class="container">
+					<h1>C Line Project</h1>
+				</div>
+			</div>
+
+			<div class="page-content">
+				<!-- Main page content -->
+				<section class="section pt-0 pb-4 pb-md-5">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="">
+									<p class="">
+										<h2>Upcoming Meetings & Events </h2>
+										<span class='cyanFont'>Sign up</span> for email updates to get notified about future opportunities. <br>
+										<p class='h2'>Past Meetings and Presentations </p>
+										Metro Transit has shared C Line presentations at these meetings. Click the links below to download presentations 
+										or handouts. ​<br>
+										<p class="h2">2018</p>Monthly Community Construction Meetings 
+										• July 11, 2018 <br>
+										• Jun. 13, 2018 <br>
+										• May 9, 2018 <br>
+										• April. 11 2018 <br>
+										<p class='h2'>Open Houses </p>
+										• Penn Avenue Improvements Project Construction Kick-Off - Mar. 22, 2018 <br>
+										Facebook Live Video | Handouts | Q&A Summary <br>
+										Community Events 
+										• West Broadway Open Streets - Sep. 15, 2018 
+										• Juneteenth - Jun. 16, 2018 
+										• Northside Housing Fair - Mar. 24, 2018 
+										• NorthPoint Community Info Session - Feb. 20, 2018 
+										• Community Connections Conference - Feb. 10, 2018 
+										<p class='h2'>Neighborhood Associations </p>
+										• Northside Residents Redevelopment Council (NRRC) Residential and Commercial Task Force - Mar. 12, 2018 
+										• West Broadway Business Committee - Feb. 14, 2018 
+										• Cleveland Neighborhood Association, Community Development Committee - Feb. 13, 2018 
+										<p class='h2'>Metropolitan Council </p>
+										• Metropolitan Council Transportation Committee - Feb. 12, 2018 Metropolitan Council Transportation Accessibility Advisory Committee • Transportation Accessibility Advisory Committee - Jan. 3, 2018 2017 Open Houses • Penn Avenue Community Works Open House - Jun. 21, 2017 • Brooklyn Boulevard Reconstruction Project Open House - Jun. 20, 2017 Community Events • Southeast Asian Narrative on Transit - Dec. 20, 2017 • West Broadway Open Streets - Sep. 9, 2017 • Take Back the Community Art and Cultural Celebration - Sep. 2, 2017 • Redeemer Lutheran Block Party - Aug. 16, 2017 • Jordan Week of Kindness Health and Resource Fair - Jul. 22, 2017 • Juneteenth Celebration - Jun. 17. 2017 Neighborhood Associations • Victory Neighborhood Association - Dec. 13, 2017 • Heritage Park Neighborhood Association Townhall Event - Nov. 2, 2017 • Cleveland Neighborhood Association - Jan. 10, 2017 • Webber-Camden Neighborhood Association - Jan. 9, 2017 • Northside Residents Redevelopment Council, RCTF Committee - Jan. 9, 2017 • Folwell Neighborhood Association - Jan. 5, 2017 • Downtown Minneapolis Neighborhood Association, Land Use Committee - Jan. 3, 2017 Metropolitan Council • Metropolitan Council Transportation Committee - Jul. 10, 2017 • Metropolitan Council Transportation Committee - Jan. 9, 2017 Metropolitan Council Transportation Accessibility Advisory Committee • Transportation Accessibility Advisory Committee - Aug. 2, 2017 • Transportation Accessibility Advisory Committee - Feb. 1, 2017 2016 C Line Open House - Oct. 18, 2016 • Video recording of presentation (Facebook live) • Project information handout • Information boards • Comment sheet (comments accepted through Oct. 31) Neighborhood Associations • Cleveland Neighborhood Association Board - Nov. 15, 2016 • Victory Neighborhood Association Board - Oct. 26, 2016 • West Broadway Business and Area Coalition, Business Committee - Oct. 20, 2016 • North Loop Neighborhood Association, Planning and Zoning Meeting - Oct. 19, 2016 • Heritage Commons, Residents Council - Oct. 19, 2016 • Harrison Neighborhood Association Board - Oct. 17, 2016 • Bryn Mawr Neighborhood Association Board - Oct. 12, 2016 • Shingle Creek Neighborhood Association Board - Oct. 11, 2016 • Northside Residents Redevelopment Council - Oct. 10, 2016 • Folwell Neighborhood Association Board - Oct. 3, 2016 • North Loop Neighborhood Association Planning and Zoning Meeting - Jul. 20, 2016 • Bryn Mawr Neighborhood Association Board - Jul. 13, 2016 • Heritage Park Neighborhood Association Board - Jul. 11, 2016 • Harrison Neighborhood Association Glenwood Revitalization Team - Jun. 29, 2016 • Downtown Minneapolis Neighborhood Association Land Use Committee - Jun. 7, 2016 Metropolitan Council • Metropolitan Council Transportation Committee - Nov. 14, 2016 • Metropolitan Council Transportation Committee - Sept. 26, 2016 • Metropolitan Council (Regional Transitway Corridor Status Update) - Sept. 14, 2016 • Metropolitan Council Transportation Committee - Jul. 11, 2016 • Metropolitan Council Transportation Committee - Apr. 11, 2016 • Metropolitan Council Transportation Committee - Jan. 25, 2016 Metropolitan Council Transportation Accessibility Advisory Committee • Transportation Accessibility Advisory Committee - Oct. 5, 2016 Penn Avenue Community Works • PIC Wrap-Up Meeting - Mar. 24, 2016 Other • City of Minneapolis Bicycle Advisory Committee, Engineering Subcommittee - Aug. 16, 2016 • Hennepin County Bicycle Advisory Committee - Aug. 15, 2016 2015 Neighborhood Associations • Harrison Neighborhood Association Board - Dec. 14, 2015 • Webber-Camden Neighborhood Association Board - Dec. 10, 2015 • Victory Neighborhood Association - Dec. 9, 2015 • Cleveland Neighborhood Community Development Committee - Nov. 9, 2015 • Heritage Park Neighborhood Association Board - Nov. 9, 2015 • Folwell Neighborhood Association - Nov. 2, 2015 Metropolitan Council • Metropolitan Council Transportation Committee - Sep. 28, 2015 • Metropolitan Council Transportation Committee - Mar. 23, 2015 Other • Minneapolis Parks and Recreation Board - Dec. 18, 2015 • West Broadway Business Committee Luncheon - Nov. 19, 2015 Station Plan Open House Materials In November and December 2015, project staff hosted five open houses to share the Draft Station Plan and receive comments. Comments received informed the final plan for C Line stations adopted by the Metropolitan Council in April 2016. Nov. 17-19, 2015 Dec. 5, 2015 • Open House Information Flyer • Boards • Comment Form • Examples of A Line Station Improvements • Layout Maps • Osseo & Victory Area Alternatives Summary
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Additional content sections -->
+				<!-- <section class="section">
+				    <div class="container">
+				    </div>
+				</section>
+
+				<section class="section">
+					<div class="container">
+					</div>
+				</section> -->
+			</div>
+		</div>
+	</section>
+	<!-- End Main Content -->
+
+	<!-- Begin Footer -->
+	<footer class="section">
+		<div class="container">
+			<div class="mb-5">
+				<div class="text-center">
+					<a href="/contact-us"
+					   class="btn btn-outline-primary">Contact us
+						<img class="icon arrow-right-blue inactive"
+							 src="/img/svg/arrow-right-blue.svg" />
+						<img class="icon arrow-right-white active"
+							 src="/img/svg/arrow-right-white.svg" />
+					</a>
+				</div>
+				<div class="d-none d-md-block social-media text-center">
+					<a href="https://www.twitter.com/MetroTransitMN"><img class="icon mr-2"
+							 src="/img/svg/twitter-gray.svg"></a>
+					<a href="https://www.facebook.com/MetroTransitMN"><img class="icon mr-2"
+							 src="/img/svg/facebook-gray.svg"></a>
+					<a href="https://www.youtube.com/MetroTransitMN"><img class="icon mr-2"
+							 src="/img/svg/youtube-gray.svg"></a>
+					<a href="https://instagram.com/metrotransitmn"><img class="icon mr-2"
+							 src="/img/svg/instagram-gray.svg"></a>
+					<a href="https://www.linkedin.com/company/metro-transit"><img class="icon mr-2"
+							 src="/img/svg/linkedin-gray.svg"></a>
+					<a href="https://www.flickr.com/photos/metrotransitmn/"><img class="icon"
+							 src="/img/svg/flickr-gray.svg"></a>
+				</div>
+				<div class="footer d-none d-md-block pt-5">
+					<div class="card-deck pb-4">
+						<div class="card border-0">
+							<div class="card-body">
+								<h4 class="card-title">About Metro Transit</h4>
+								<ul class="nav flex-column">
+									<li class="nav-item">
+										<a href="/transit-initiatives"
+										   class="nav-link">Transit Initiatives</a>
+									</li>
+									<li class="nav-item">
+										<a href="/facilities"
+										   class="nav-link">Facilities</a>
+									</li>
+									<li class="nav-item">
+										<a href="/riders-almanac-blog"
+										   class="nav-link">Riders Almanac</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card border-0">
+							<div class="card-body">
+								<h4 class="card-title">Media Relations</h4>
+								<ul class="nav flex-column">
+									<li class="nav-item">
+										<a href="/contacts"
+										   class="nav-link">Contacts</a>
+									</li>
+									<li class="nav-item">
+										<a href="/press"
+										   class="nav-link">Press Releases</a>
+									</li>
+									<li class="nav-item">
+										<a href="/awards"
+										   class="nav-link">Awards</a>
+									</li>
+									<li class="nav-item">
+										<a href="/"
+										   class="nav-link">Images &amp; Logos</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card border-0">
+							<div class="card-body">
+								<h4 class="card-title">Careers</h4>
+								<ul class="nav flex-column">
+									<li class="nav-item">
+										<a href="/jobs"
+										   class="nav-link">Available Job Opportunities</a>
+									</li>
+									<li class="nav-item">
+										<a href="/drive"
+										   class="nav-link">Become a Bus Driver</a>
+									</li>
+									<li class="nav-item">
+										<a href="/transit-police-careers"
+										   class="nav-link">Join the Transit Police</a>
+									</li>
+									<li class="nav-item">
+										<a href="/job-seekers"
+										   class="nav-link">Career Fairs</a>
+									</li>
+									<li class="nav-item">
+										<a href="/internships"
+										   class="nav-link">Internships</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card border-0">
+							<div class="card-body">
+								<h4 class="card-title">Policies</h4>
+								<ul class="nav flex-column">
+									<li class="nav-item">
+										<a href="/social-media-policy"
+										   class="nav-link">Social Media Policy</a>
+									</li>
+									<li class="nav-item">
+										<a href="https://metrocouncil.org/Privacy-Policy.aspx"
+										   class="nav-link"
+										   target="_blank">Privacy Policy</a>
+									</li>
+									<li class="nav-item">
+										<a href="/code-of-conduct"
+										   class="nav-link">Code of Conduct</a>
+									</li>
+									<li class="nav-item">
+										<a href="/titlevi"
+										   class="nav-link">Title VI: Commitment to Fairness</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="card-deck">
+						<div class="card border-0">
+							<div class="card-body">
+								<h4 class="card-title">Mission &amp; Impact</h4>
+								<ul class="nav flex-column">
+									<li class="nav-item">
+										<a href="/commitment-to-fairness"
+										   class="nav-link">Commitment to Fairness</a>
+									</li>
+									<li class="nav-item">
+										<a href="/impact-programs"
+										   class="nav-link">Impact Programs</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card border-0">
+							<div class="card-body">
+								<h4 class="card-title">Resources</h4>
+								<ul class="nav flex-column">
+									<li class="nav-item">
+										<a href="/app"
+										   class="nav-link">Try the Metro Transit App</a>
+									</li>
+									<li class="nav-item">
+										<a href="/advertise-with-metro-transit"
+										   class="nav-link">Advertise with Us</a>
+									</li>
+									<li class="nav-item">
+										<a href="/apps"
+										   class="nav-link">API Resources for Developers</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card border-0"></div>
+						<div class="card border-0"></div>
+					</div>
+				</div>
+			</div>
+			<p class="text-center">
+				<small>
+					Metro Transit is a service of the Metropolitan Council.
+					<span class="d-block d-md-none"> <br /> </span>&copy; 2019 Metro
+					Transit
+				</small>
+			</p>
+		</div>
+	</footer>
+	<!-- End Footer -->
+
+	<!-- scripts -->
+	<script src="/js/jquery.js"></script>
+	<script src="/js/popper.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/jquery.exlink.js"></script>
+	<script src="/js/jquery.autocomplete.js"></script>
+	<script src="/js/jquery.validate.js"></script>
+	<!-- <script src="/js/additional-methods.js"></script> -->
+	<script src="/js/nextrip.js"></script>
+	<script src="/js/form-validation.js"></script>
+	<script src="https://js.arcgis.com/3.28/"></script>
+	<script src="/js/TRIM.js"></script>
+	<script src="/js/scripts.js"></script>
+	<!-- End scripts -->
+</body>
+
+</html>
