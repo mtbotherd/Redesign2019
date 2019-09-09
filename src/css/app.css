@@ -9099,4 +9099,10 @@ footer.section {
 .route .schedule-days h3 {
   font-weight: normal !important; }
 
+#cLineNav .nav-link {
+  color: #e3e3e0; }
+
+#cLineNav .active {
+  color: #777777; }
+
 /*# sourceMappingURL=maps/app.css.map */
