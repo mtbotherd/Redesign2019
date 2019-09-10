@@ -161,6 +161,21 @@ abbr {
 .blueFont{
   color:$blue;
 }
+.grey100-bg{
+  background-color:$gray-100
+}
+.white-bg{
+  background-color:$white !important;
+}
+.tabBorder{
+  border-top:1px solid black;
+  border-left:1px solid black;
+  border-right:1px solid black;
+  border-bottom:1px solid $white;
+}
+.icon-sm{
+  width:1rem;
+}
 span.h4, span.h3, span.h2, span.h1{
   font-weight: normal !important;
 }
