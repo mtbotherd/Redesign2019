@@ -325,16 +325,16 @@
 									  <div class="card-header white-bg">
 										 <ul class="nav nav-tabs card-header-tabs" style="border-bottom:1px solid black">
 											<!-- to switch between active and not you need to put tabBorder so li and active to A tag -->
-									      <li class="nav-item station-item-1 tabBorder">
+									      <li class="nav-item station-item-1 tabBorder" data-first="true">
 									        <a class="nav-link active" href="#">Station Example</a>
 									      </li>
-									      <li class="nav-item station-item-2">
+									      <li class="nav-item station-item-2" data-first="false">
 									        <a class="nav-link" href="#">Station</a>
 									      </li>
 									    </ul>
 									  </div>
 									  <div class="card-body">
-									    <img src="img/busStop.png" class="img-fluid" />
+									    <img src="img/busStop.png" id="stationImage" class="img-fluid" />
 									  </div>
 									</div>
 									<hr>
@@ -561,6 +561,9 @@
 			e.preventDefault();
 			$(".nav-item").removeClass('tabBorder')
 			$(this).addClass('tabBorder')
+			if($(this).attr('data-first')==='true'){
+				$("#stationImage").attr('src','/img/busStop.png')
+			}else{$("#stationImage").attr('src','/img/skyview.png')}
 		}
 		$('.station-item-1').on('click',tabEvent)
 		$('.station-item-2').on('click',tabEvent)
