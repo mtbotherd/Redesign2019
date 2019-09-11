@@ -226,5 +226,15 @@ $(function() {
             BOM.stopBusesOnMap();
         });
    }
+   function tabEvent(e){
+    e.preventDefault();
+    $(".nav-item").removeClass('tabBorder')
+    $(this).addClass('tabBorder')
+    if($(this).attr('data-first')==='true'){
+        $("#stationImage").attr('src','/img/busStop.png')
+    }else{$("#stationImage").attr('src','/img/skyview.png')}
+}
+$('.station-item-1').on('click',tabEvent)
+$('.station-item-2').on('click',tabEvent)
 });
 
