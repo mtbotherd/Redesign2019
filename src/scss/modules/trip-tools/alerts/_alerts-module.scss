@@ -1,0 +1,35 @@
+#alertsModule {
+  h2,
+  .btn-outline-primary {
+    margin-bottom: 30px !important;
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 60px !important;
+    }
+  }
+  
+  .service-alerts {
+    .icon {
+      margin-right: 0.5rem;
+    }
+    .route-alert {
+      width: 160px;
+
+      @include media-breakpoint-up(md) {
+        width: 535px;
+      }
+
+      @include media-breakpoint-up(lg) {
+        width: 745px;
+      }
+
+      @include media-breakpoint-up(xl) {
+        width: 920px;
+      }
+    }
+
+    .number-alerts {
+      font-weight: $font-weight-bold;
+	}
+}
+}

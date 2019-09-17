@@ -1,0 +1,39 @@
+// Name hero backgounds based on module/page name.
+// Home page
+.hero {
+  background-size: cover;
+  background-position: 90%;
+  background-repeat: no-repeat;
+  height: 10rem;
+
+  @include media-breakpoint-up(md) {
+    height: 15rem;
+  }
+  @include media-breakpoint-up(lg) {
+    height: 17rem;
+  }
+  @include media-breakpoint-up(xl) {
+    height: 20rem;
+  }
+}
+
+.home-bg,
+.placeholder-bg {
+  background-image: url("../../../../../img/mt-header-lrt-2000x457.jpg");
+}
+
+.trip-planner-bg {
+  background-image: url("../../../../../img/trip-planner.jpg");
+}
+
+.nextrip-bg {
+  background-image: url("../../../../../img/nextrip.jpg");
+}
+
+.alerts-bg {
+  background-image: url("../../../../../img/alerts.jpg");
+}
+
+.schedules-maps-bg {
+  background-image: url("../../../../../img/schedules-maps.jpg");
+}

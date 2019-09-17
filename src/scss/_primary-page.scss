@@ -1,0 +1,57 @@
+#primaryPage {
+  // refer to _hero-badckgrounds.scss for styles relating to the hero image.
+  .page-title {
+    position: relative;
+    width: 100%;
+    height: 160px;
+
+    @include media-breakpoint-up(md) {
+      height: 240px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      height: 275px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      height: 320px;
+    }
+  }
+  h1 {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    background-color: $white;
+    color: $gray-300;
+    //display: inline-flex;
+    @include font-size(36);
+    opacity: 0.9;
+    margin-bottom: 0;
+    padding: 1rem;
+    width: auto;
+
+    @include media-breakpoint-up(lg) {
+      bottom: 45px;
+      @include font-size(45);
+      padding: 1.125rem;
+    }
+  }
+
+  section.section {
+    h2 {
+      margin-bottom: 15px;
+
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 30px;
+      }
+
+      .icon {
+        @include media-breakpoint-up(lg) {
+          width: 3rem;
+          height: 3rem;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+// /*************************************
+//     Mixins
+// *************************************/
+
+// mixin for font-size with base size of 16 pixels.
+@mixin font-size($size: 16) {
+  font-size: $size + px !important;
+  font-size: ($size / 16) + rem !important;
+}

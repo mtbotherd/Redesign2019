@@ -1,0 +1,99 @@
+#tripPlannerResults {
+  //display: none;
+
+  .no-trips-found {
+  }
+
+  .trips-found {
+  }
+
+  .tp-results {
+  }
+  .card {
+    margin-bottom: 0.75rem;
+    background-color: transparent;
+    padding: 0;
+
+    a {
+      color: $body-color;
+
+      .tp-time {
+        border-right: 1px solid $border-color;
+        @include font-size(12);
+        font-weight: $font-weight-bold;
+        padding: 0.5rem;
+        width: 6rem;
+
+        @include media-breakpoint-up(md) {
+          width: 10rem;
+        }
+
+        @include media-breakpoint-up(md) {
+          @include font-size(23);
+        }
+      }
+
+      .tp-route {
+        display: flex;
+        padding: 0.5rem 0.75rem;
+        width: 100%;
+
+        @include media-breakpoint-up(md) {
+          .pedestrian-gray,
+          .bus-gray {
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+
+        .route {
+          @include font-size(8) line-height: 1;
+
+          @include media-breakpoint-up(md) {
+            @include font-size(18);
+          }
+        }
+
+        .badge {
+          border-radius: 0.25rem;
+          @include font-size(8);
+          padding-right: 0.5rem;
+
+          @include media-breakpoint-up(md) {
+            @include font-size(16);
+
+            .icon {
+              width: 1rem;
+              height: 1.5rem;
+              margin-right: 0.25rem;
+            }
+          }
+        }
+
+        .arrow-right-blue {
+          @include media-breakpoint-up(md) {
+            width: 1.25rem;
+            height: 1.25rem;
+          }
+        }
+      }
+
+      &:hover {
+        border: 1px solid $cyan !important;
+
+        .tp-time {
+          background-color: $cyan;
+          color: $white;
+        }
+
+        .tp-route {
+          background-color: $teal;
+        }
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
