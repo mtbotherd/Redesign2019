@@ -8206,69 +8206,58 @@ a.skip-to-content {
       margin-bottom: 0;
       line-height: 1; } }
 
-/**************************************************
-    Form validation styles
-**************************************************/
-#aspnetForm legend {
-  font-size: initial; }
-
-#aspnetForm .custom-file-input:lang(en) ~ .custom-file-label::after {
-  display: inline-block;
-  vertical-align: middle;
-  font-weight: 900; }
-
-#aspnetForm .is-invalid .form-control,
-#aspnetForm .is-invalid .custom-select {
-  border-color: #ed1b2e !important; }
-
-#aspnetForm .is-invalid .form-control:focus,
-#aspnetForm .is-invalid .custom-select:focus,
-#aspnetForm .is-invalid .custom-file-input:focus ~ .custom-file-label {
-  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25), 0 0 6px #ed1b2e;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25), 0 0 6px #ed1b2e; }
-
-#aspnetForm .is-invalid .custom-file-input:lang(en) ~ .custom-file-label::after {
-  border-left: 1px solid #ed1b2e; }
-
-#aspnetForm .is-invalid .custom-file-label {
-  border-color: #ed1b2e !important; }
-
-#aspnetForm .is-invalid .form-control-feedback {
-  margin-right: 0.25rem; }
-
-#aspnetForm .is-invalid .help-block {
+.site-search-box {
+  background: #f5f5f4;
   position: absolute;
-  top: 2.5rem;
-  left: 1.5rem;
-  color: #ed1b2e;
-  font-style: italic; }
-  @media (min-width: 768px) {
-    #aspnetForm .is-invalid .help-block {
-      top: 3.15rem; } }
-
-#aspnetForm .input-group.is-invalid .alert-red {
-  position: absolute;
-  top: 3.35rem;
-  left: 0; }
-
-#aspnetForm .is-valid .form-control,
-#aspnetForm .is-valid .custom-select {
-  border-color: #008244; }
-
-#aspnetForm .is-valid .form-control:focus,
-#aspnetForm .is-valid .custom-select:focus,
-#aspnetForm .is-valid .custom-file-input:focus {
-  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25), 0 0 6px #008244;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25), 0 0 6px #008244; }
-
-#aspnetForm .is-valid .custom-file-label {
-  border-color: #008244 !important; }
-
-#aspnetForm .is-valid .form-control-feedback {
+  top: 67px;
+  right: 0;
+  width: 420px;
+  padding: 1rem;
   display: none;
-  position: absolute;
-  top: 2.75rem;
-  right: 1.5rem; }
+  z-index: 3; }
+  .site-search-box .form-control {
+    color: #626462;
+    font-size: 18px !important;
+    font-size: 1.125rem !important; }
+  .site-search-box .input-group-append {
+    background-color: #fff; }
+    .site-search-box .input-group-append .btn-primary {
+      background-color: #fff;
+      border: 1px solid #e3e3e0;
+      border-left: 0;
+      font-size: 18px !important;
+      font-size: 1.125rem !important; }
+
+@media (min-width: 768px) {
+  button[type="search"] .icon {
+    width: 24px !important;
+    height: 24px !important; } }
+
+.auto-complete-search-box {
+  position: relative; }
+  @media (min-width: 992px) {
+    .auto-complete-search-box .icon.date-time-color {
+      position: absolute;
+      top: 0.25rem;
+      left: 13.75rem;
+      width: 3rem;
+      height: 3rem; } }
+  @media (min-width: 992px) {
+    .auto-complete-search-box .input-group {
+      max-width: 570px; } }
+  @media (min-width: 992px) {
+    .auto-complete-search-box .input-group .form-control {
+      font-size: 23px !important;
+      font-size: 1.4375rem !important; } }
+  .auto-complete-search-box .btn-primary {
+    background-color: #fff;
+    border: 1px solid #e3e3e0;
+    border-left: none; }
+    @media (min-width: 992px) {
+      .auto-complete-search-box .btn-primary .icon {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle; } }
 
 .accordion {
   margin-bottom: 15px; }

@@ -261,14 +261,10 @@
 
 	<!-- Begin Main Content -->
 	<section id="mainContent">
-		<div id="primaryPage">
-
-			<!-- When adding a new page, also add new background image styles in _hero-backgrounds.scss. Change the class below to match that of the hero background. -->
-			<div class="hero placeholder-bg">
+		<div id="secondaryPage">
+			<div class="page-title mb-3">
 				<div class="container">
-					<div class="position-relative">
-						<h1>Page Title</h1>
-					</div>
+					<h1>C Line Project</h1>
 				</div>
 			</div>
 
@@ -276,7 +272,87 @@
 				<!-- Main page content -->
 				<section class="section pt-0 pb-4 pb-md-5">
 					<div class="container">
-						Content goes here.
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="nav" id="cLineNav">
+									<li class="nav-item">
+									  <a class="nav-link cLineNav-item" href="#">C Line Penn</a>
+									</li>
+									<li class="nav-item">
+									  <a class="nav-link cLineNav-item" href="#">Construction</a>
+									</li>
+									<li class="nav-item">
+									  <a class="nav-link cLineNav-item" href="#">Mettings & Events</a>
+									</li>
+									<li class="nav-item">
+									  <a class="nav-link cLineNav-item" href="#">Project Library</a>
+									</li>
+									<li class="nav-item">
+									  <a class="nav-link cLineNav-item" href="#">Project FAQs</a>
+									</li>
+									<li class="nav-item">
+									  <a class="nav-link cLineNav-item active" href="#">Design Development</a>
+									</li>
+									<li class="nav-item">
+									  <a class="nav-link cLineNav-item" href="#">Station Plan</a>
+									</li>
+									<li class="nav-item">
+									  <a class="nav-link cLineNav-item" href="#">Last Item</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+                  <div class="row">
+							<div class="col-md-12 d-flex justify-content-center">
+								<div class="w-75">
+									<button type="button" class="btn btn-outline-primary mb-4 mt-4">
+										<img src="/img/svg/arrow-left-blue.svg" class="icon-sm" />
+										Back to stations
+									</button>
+									<div>
+										<h2>The Xerxes & 56th Avenue</h2>
+										<p class="">
+											The Xerxes & 56th Avenue Station will include a northbound and a southbound 
+											platform. The northbound station will be sited on the southeast corner of the 
+											intersection and the southbound station will be sited on the northwest corner 
+											of the intersection. The northbound platform will feature an information pylon
+											with a real-time bus arrival display, a bench, a trash / recycling receptacle, 
+											ticket machines and a Go-To Card reader. The southbound platform will include an 
+											enhanced shelter with heat and light, an information pylon with a real-time bus 
+											arrival display, a bench, a trash / recycling receptacle, bike parking, security 
+											features, ticket machines and a Go-To Card reader.
+										</p>
+									</div>
+									<div class="card text-center">
+									  <div class="card-header white-bg">
+										 <ul class="nav nav-tabs card-header-tabs" style="border-bottom:1px solid black">
+											<!-- to switch between active and not you need to put tabBorder so li and active to A tag -->
+									      <li class="nav-item station-item-1 tabBorder" data-first="true">
+									        <a class="nav-link active" href="#">Station Example</a>
+									      </li>
+									      <li class="nav-item station-item-2" data-first="false">
+									        <a class="nav-link" href="#">Station</a>
+									      </li>
+									    </ul>
+									  </div>
+									  <div class="card-body">
+									    <img src="img/busStop.png" id="stationImage" class="img-fluid" />
+									  </div>
+									</div>
+									<hr>
+									<h2 class="mb-1">Contact Us</h2>
+									<p class="">
+										Karyssa Jackson <br>
+										Community Outreach and Engagement <br>
+										612-349-7396 <br>
+										cline@metrotransit.org <br>
+										MEDIA CONTACT <br>
+										Howie Padilla <br>
+										Public Relations Manager
+									</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</section>
 
@@ -310,35 +386,35 @@
 				</div>
 				<div class="d-none d-md-block social-media text-center">
 					<a href="https://www.twitter.com/MetroTransitMN"><img class="icon mr-2"
-								src="/img/svg/twitter-gray.svg"></a>
+							 src="/img/svg/twitter-gray.svg"></a>
 					<a href="https://www.facebook.com/MetroTransitMN"><img class="icon mr-2"
-								src="/img/svg/facebook-gray.svg"></a>
+							 src="/img/svg/facebook-gray.svg"></a>
 					<a href="https://www.youtube.com/MetroTransitMN"><img class="icon mr-2"
-								src="/img/svg/youtube-gray.svg"></a>
+							 src="/img/svg/youtube-gray.svg"></a>
 					<a href="https://instagram.com/metrotransitmn"><img class="icon mr-2"
-								src="/img/svg/instagram-gray.svg"></a>
+							 src="/img/svg/instagram-gray.svg"></a>
 					<a href="https://www.linkedin.com/company/metro-transit"><img class="icon mr-2"
-								src="/img/svg/linkedin-gray.svg"></a>
+							 src="/img/svg/linkedin-gray.svg"></a>
 					<a href="https://www.flickr.com/photos/metrotransitmn/"><img class="icon"
-								src="/img/svg/flickr-gray.svg"></a>
+							 src="/img/svg/flickr-gray.svg"></a>
 				</div>
-				<div class="footer d-none d-md-block">
-					<div class="card-deck">
+				<div class="footer d-none d-md-block pt-5">
+					<div class="card-deck pb-4">
 						<div class="card border-0">
 							<div class="card-body">
 								<h4 class="card-title">About Metro Transit</h4>
 								<ul class="nav flex-column">
 									<li class="nav-item">
 										<a href="/transit-initiatives"
-											class="nav-link">Transit Initiatives</a>
+										   class="nav-link">Transit Initiatives</a>
 									</li>
 									<li class="nav-item">
 										<a href="/facilities"
-											class="nav-link">Facilities</a>
+										   class="nav-link">Facilities</a>
 									</li>
 									<li class="nav-item">
 										<a href="/riders-almanac-blog"
-											class="nav-link">Riders Almanac</a>
+										   class="nav-link">Riders Almanac</a>
 									</li>
 								</ul>
 							</div>
@@ -349,19 +425,19 @@
 								<ul class="nav flex-column">
 									<li class="nav-item">
 										<a href="/contacts"
-											class="nav-link">Contacts</a>
+										   class="nav-link">Contacts</a>
 									</li>
 									<li class="nav-item">
 										<a href="/press"
-											class="nav-link">Press Releases</a>
+										   class="nav-link">Press Releases</a>
 									</li>
 									<li class="nav-item">
 										<a href="/awards"
-											class="nav-link">Awards</a>
+										   class="nav-link">Awards</a>
 									</li>
 									<li class="nav-item">
 										<a href="/"
-											class="nav-link">Images &amp; Logos</a>
+										   class="nav-link">Images &amp; Logos</a>
 									</li>
 								</ul>
 							</div>
@@ -372,23 +448,23 @@
 								<ul class="nav flex-column">
 									<li class="nav-item">
 										<a href="/jobs"
-											class="nav-link">Available Job Opportunities</a>
+										   class="nav-link">Available Job Opportunities</a>
 									</li>
 									<li class="nav-item">
 										<a href="/drive"
-											class="nav-link">Become a Bus Driver</a>
+										   class="nav-link">Become a Bus Driver</a>
 									</li>
 									<li class="nav-item">
 										<a href="/transit-police-careers"
-											class="nav-link">Join the Transit Police</a>
+										   class="nav-link">Join the Transit Police</a>
 									</li>
 									<li class="nav-item">
 										<a href="/job-seekers"
-											class="nav-link">Career Fairs</a>
+										   class="nav-link">Career Fairs</a>
 									</li>
 									<li class="nav-item">
 										<a href="/internships"
-											class="nav-link">Internships</a>
+										   class="nav-link">Internships</a>
 									</li>
 								</ul>
 							</div>
@@ -399,20 +475,20 @@
 								<ul class="nav flex-column">
 									<li class="nav-item">
 										<a href="/social-media-policy"
-											class="nav-link">Social Media Policy</a>
+										   class="nav-link">Social Media Policy</a>
 									</li>
 									<li class="nav-item">
 										<a href="https://metrocouncil.org/Privacy-Policy.aspx"
-											class="nav-link"
-											target="_blank">Privacy Policy</a>
+										   class="nav-link"
+										   target="_blank">Privacy Policy</a>
 									</li>
 									<li class="nav-item">
 										<a href="/code-of-conduct"
-											class="nav-link">Code of Conduct</a>
+										   class="nav-link">Code of Conduct</a>
 									</li>
 									<li class="nav-item">
 										<a href="/titlevi"
-											class="nav-link">Title VI: Commitment to Fairness</a>
+										   class="nav-link">Title VI: Commitment to Fairness</a>
 									</li>
 								</ul>
 							</div>
@@ -425,11 +501,11 @@
 								<ul class="nav flex-column">
 									<li class="nav-item">
 										<a href="/commitment-to-fairness"
-											class="nav-link">Commitment to Fairness</a>
+										   class="nav-link">Commitment to Fairness</a>
 									</li>
 									<li class="nav-item">
 										<a href="/impact-programs"
-											class="nav-link">Impact Programs</a>
+										   class="nav-link">Impact Programs</a>
 									</li>
 								</ul>
 							</div>
@@ -440,15 +516,15 @@
 								<ul class="nav flex-column">
 									<li class="nav-item">
 										<a href="/app"
-											class="nav-link">Try the Metro Transit App</a>
+										   class="nav-link">Try the Metro Transit App</a>
 									</li>
 									<li class="nav-item">
 										<a href="/advertise-with-metro-transit"
-											class="nav-link">Advertise with Us</a>
+										   class="nav-link">Advertise with Us</a>
 									</li>
 									<li class="nav-item">
 										<a href="/apps"
-											class="nav-link">API Resources for Developers</a>
+										   class="nav-link">API Resources for Developers</a>
 									</li>
 								</ul>
 							</div>
@@ -483,8 +559,6 @@
 	<script src="/js/TRIM.js"></script>
 	<script src="/js/scripts.js"></script>
 	<!-- End scripts -->
-
-	<script src="/js/scripts.js"></script>
 </body>
 
 </html>

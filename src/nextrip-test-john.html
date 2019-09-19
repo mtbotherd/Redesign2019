@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Metro Transit</title>
+	<link rel="shortcut icon"
+		  href="favicon.ico"
+		  type="image/x-icon">
+	<link rel="stylesheet"
+		  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		  crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container pt-5">
+		<div class="form-group select-route">
+			<label for="ntRoute"
+				   class="sr-only">Select route</label>
+			<select id="ntRoute"
+					name="ntRoute"
+					class="custom-select custom-select-lg">
+				<option value=""
+						selected>Select route</option>
+			</select>
+		</div>
+		<div class="form-group select-route-direction">
+			<label for="ntDirection"
+				   class="sr-only">Select direction</label>
+			<select id="ntDirection"
+					name="ntDirection"
+					class="custom-select custom-select-lg">
+				<option value="">Select direction</option>
+			</select>
+		</div>
+		<div class="form-group select-route-stop">
+			<label for="ntStop"
+				   class="sr-only">Select stop</label>
+			<select id="ntStop"
+					name="ntStop"
+					class="custom-select custom-select-lg">
+				<option value="">Select stop</option>
+			</select>
+		</div>
+
+		<div class="stop-description"></div>
+		<div class="nextrip-departures">
+
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="js/nt-test-john.js"></script>
+</body>
+
+</html>
