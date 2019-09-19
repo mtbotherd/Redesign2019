@@ -1,5 +1,6 @@
 .btn {
   @include font-size(16);
+
   @include media-breakpoint-up(lg) {
     @include font-size(23);
   }
