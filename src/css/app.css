@@ -7827,6 +7827,9 @@ abbr {
 .blog-bg {
   background-image: url("../../../../../img/blog.jpg"); }
 
+.police-bg {
+  background-image: url("../../../../../img/police.jpg"); }
+
 @media (min-width: 1200px) {
   .utilities {
     margin-left: auto;
