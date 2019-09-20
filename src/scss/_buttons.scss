@@ -345,3 +345,95 @@ input,
     }
   }
 }
+
+.link-container-icon-left {
+  position: relative;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  @include media-breakpoint-up(lg) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .btn-link {
+    position: relative;
+    padding-left: 1.25rem;
+
+    @include media-breakpoint-up(lg) {
+      padding-left: 2rem;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      background-image: url("../img/svg/arrow-left-blue.svg");
+      background-size: 1rem;
+      background-repeat: no-repeat;
+      top: 0.6rem;
+      left: 0;
+      width: 1rem;
+      height: 1rem;
+
+      @include media-breakpoint-up(lg) {
+        background-size: 1.5rem;
+        top: 0.75rem;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    &:hover {
+      &::before {
+        background-image: url("../img/svg/arrow-left-white.svg");
+      }
+    }
+  }
+}
+
+.link-container-icon-right {
+  position: relative;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  @include media-breakpoint-up(lg) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .btn-link {
+    position: relative;
+    padding-right: 1.25rem;
+
+    @include media-breakpoint-up(lg) {
+      padding-right: 2rem;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      background-image: url("../img/svg/arrow-right-blue.svg");
+      background-size: 1rem;
+      background-repeat: no-repeat;
+      top: 0.6rem;
+      right: 0;
+      width: 1rem;
+      height: 1rem;
+
+      @include media-breakpoint-up(lg) {
+        background-size: 1.5rem;
+        top: 0.75rem;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    &:hover {
+      &::before {
+        background-image: url("../img/svg/arrow-right-white.svg");
+      }
+    }
+  }
+}

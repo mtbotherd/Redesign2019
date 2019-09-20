@@ -26,25 +26,25 @@
     }
   }
 
-  .previous,
-  .next {
-    margin-top: 15px;
+  //   .previous,
+  //   .next {
+  //     margin-top: 15px;
 
-    @include media-breakpoint-up(lg) {
-      margin-top: 30px;
-    }
-    a {
-      padding-right: 0;
-      padding-left: 0;
+  //     @include media-breakpoint-up(lg) {
+  //       margin-top: 30px;
+  //     }
+  //     a {
+  //       padding-right: 0;
+  //       padding-left: 0;
 
-      .icon {
-        width: 1rem;
-        height: 1rem;
-        @include media-breakpoint-up(lg) {
-          width: 1.5rem;
-          height: 1.5rem;
-        }
-      }
-    }
-  }
+  //       .icon {
+  //         width: 1rem;
+  //         height: 1rem;
+  //         @include media-breakpoint-up(lg) {
+  //           width: 1.5rem;
+  //           height: 1.5rem;
+  //         }
+  //       }
+  //     }
+  //   }
 }
