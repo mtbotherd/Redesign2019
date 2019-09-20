@@ -8552,8 +8552,10 @@ input:focus,
           top: 0.75rem;
           width: 1.5rem;
           height: 1.5rem; } }
-    .link-container-icon-left .btn-link:hover::before {
-      background-image: url("../img/svg/arrow-left-white.svg"); }
+    .link-container-icon-left .btn-link:hover {
+      color: #0053a0; }
+      .link-container-icon-left .btn-link:hover::before {
+        background-image: url("../img/svg/arrow-left-dark-blue.svg"); }
 
 .link-container-icon-right {
   position: relative;
@@ -8586,8 +8588,10 @@ input:focus,
           top: 0.75rem;
           width: 1.5rem;
           height: 1.5rem; } }
-    .link-container-icon-right .btn-link:hover::before {
-      background-image: url("../img/svg/arrow-right-white.svg"); }
+    .link-container-icon-right .btn-link:hover {
+      color: #0053a0; }
+      .link-container-icon-right .btn-link:hover::after {
+        background-image: url("../img/svg/arrow-right-dark-blue.svg"); }
 
 /**********************************************
     Form styles

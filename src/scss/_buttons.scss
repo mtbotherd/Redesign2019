@@ -385,8 +385,9 @@ input,
     }
 
     &:hover {
+      color: $blue;
       &::before {
-        background-image: url("../img/svg/arrow-left-white.svg");
+        background-image: url("../img/svg/arrow-left-dark-blue.svg");
       }
     }
   }
@@ -431,8 +432,9 @@ input,
     }
 
     &:hover {
-      &::before {
-        background-image: url("../img/svg/arrow-right-white.svg");
+      color: $blue;
+      &::after {
+        background-image: url("../img/svg/arrow-right-dark-blue.svg");
       }
     }
   }
