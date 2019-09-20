@@ -8228,6 +8228,12 @@ footer.section {
 .route .schedule-days h3 {
   font-weight: normal !important; }
 
+.route .list-group-item:first-child {
+  border-top: none; }
+
+.route .list-group-item .frequency {
+  width: 450px; }
+
 .accordion {
   margin-bottom: 15px; }
   .accordion .card .card-header {
@@ -8404,6 +8410,7 @@ input:focus,
   color: #626462;
   background-color: #fff;
   border: 2px solid #8a8b8a;
+  border-radius: 4px;
   font-weight: 700; }
   @media (min-width: 992px) {
     .btn-outline-secondary {
@@ -8696,6 +8703,15 @@ input:focus,
         width: 24px;
         height: 24px;
         vertical-align: middle; } }
+
+.list-group {
+  display: -webkit-box;
+  display: flex; }
+  .list-group .list-group-item {
+    background-color: transparent;
+    border-color: #8a8b8a;
+    border-right: none;
+    border-left: none; }
 
 .modal .modal-body {
   padding: 30px; }
@@ -9146,11 +9162,6 @@ table {
       display: flex; }
       #nextripModule #nextripDepartures .card .list-group-item:nth-child(n + 4) {
         display: none !important; }
-  #nextripModule #nextripDepartures .list-group-item {
-    background-color: transparent;
-    border-color: #8a8b8a;
-    border-right: none;
-    border-left: none; }
   #nextripModule #nextripDepartures .show {
     cursor: pointer;
     padding-top: 1rem;

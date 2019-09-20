@@ -1,0 +1,10 @@
+.list-group {
+  display: flex;
+
+  .list-group-item {
+    background-color: transparent;
+    border-color: $gray-300;
+    border-right: none;
+    border-left: none;
+  }
+}

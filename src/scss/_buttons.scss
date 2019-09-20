@@ -26,6 +26,7 @@ input,
   }
 }
 
+// Yellow button
 .btn-warning {
   position: relative;
   font-weight: $font-weight-bold;
@@ -119,6 +120,7 @@ input,
   }
 }
 
+// White button with blue border
 .btn-outline-primary {
   font-weight: $font-weight-bold;
   color: $body-color;
@@ -178,10 +180,12 @@ input,
   }
 }
 
+// White button with gray border
 .btn-outline-secondary {
   color: $gray-600;
   background-color: $white;
   border: 2px solid $gray-300;
+  border-radius: 4px;
   font-weight: $font-weight-bold;
 
   @include media-breakpoint-up(lg) {
