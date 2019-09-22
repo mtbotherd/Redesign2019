@@ -26,10 +26,19 @@
   }
 
   .page-content {
-    h2 {
+    .secondary-hero {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+
       @include media-breakpoint-up(lg) {
-        margin-bottom: 2rem;
+        margin-bottom: 30px;
       }
+    }
+    h2 {
+      //   @include media-breakpoint-up(lg) {
+      //     margin-bottom: 2rem;
+      //   }
 
       .icon {
         @include media-breakpoint-up(lg) {

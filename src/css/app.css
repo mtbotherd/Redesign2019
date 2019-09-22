@@ -8209,9 +8209,13 @@ footer.section {
     color: #ffd200;
     text-transform: uppercase; }
 
-@media (min-width: 992px) {
-  #secondaryPage .page-content h2 {
-    margin-bottom: 2rem; } }
+#secondaryPage .page-content .secondary-hero {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px; }
+  @media (min-width: 992px) {
+    #secondaryPage .page-content .secondary-hero {
+      margin-bottom: 30px; } }
 
 @media (min-width: 992px) {
   #secondaryPage .page-content h2 .icon {
@@ -8789,18 +8793,23 @@ table {
     text-align: center;
     padding: 10px 5px; }
 
-.secondary-nav .nav-item {
-  padding: 0.5rem 1rem; }
-  .secondary-nav .nav-item .nav-link {
-    color: #b0b1b0;
-    padding: 0;
-    -webkit-transition: -webkit-transform 0.8s;
-    transition: -webkit-transform 0.8s;
-    transition: transform 0.8s;
-    transition: transform 0.8s, -webkit-transform 0.8s; }
-  .secondary-nav .nav-item .active {
-    color: #626462;
-    border-bottom: 2px solid #0097d0; }
+.secondary-nav {
+  margin-bottom: 15px; }
+  @media (min-width: 992px) {
+    .secondary-nav {
+      margin-bottom: 30px; } }
+  .secondary-nav .nav-item {
+    padding: 0.5rem 1rem; }
+    .secondary-nav .nav-item .nav-link {
+      color: #b0b1b0;
+      padding: 0;
+      -webkit-transition: -webkit-transform 0.8s;
+      transition: -webkit-transform 0.8s;
+      transition: transform 0.8s;
+      transition: transform 0.8s, -webkit-transform 0.8s; }
+    .secondary-nav .nav-item .active {
+      color: #626462;
+      border-bottom: 2px solid #0097d0; }
 
 /***************************************************
     Nav Tabs
