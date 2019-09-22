@@ -1,11 +1,9 @@
 #secondaryPage {
   .page-title {
     background-color: $blue;
-    margin-bottom: 1rem;
 
     @include media-breakpoint-up(lg) {
       height: 170px;
-      margin-bottom: 3rem;
     }
 
     h1 {

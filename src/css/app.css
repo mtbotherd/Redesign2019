@@ -8200,12 +8200,10 @@ footer.section {
       margin-right: 0.5rem; } }
 
 #secondaryPage .page-title {
-  background-color: #0053a0;
-  margin-bottom: 1rem; }
+  background-color: #0053a0; }
   @media (min-width: 992px) {
     #secondaryPage .page-title {
-      height: 170px;
-      margin-bottom: 3rem; } }
+      height: 170px; } }
   #secondaryPage .page-title h1 {
     color: #fff;
     margin-bottom: 0;
@@ -8819,6 +8817,10 @@ table {
     .secondary-nav .nav-item .active {
       color: #626462;
       border-bottom: 2px solid #0097d0; }
+    .secondary-nav .nav-item:first-child {
+      padding-left: 0; }
+    .secondary-nav .nav-item:last-child {
+      padding-right: 0; }
 
 /***************************************************
     Nav Tabs

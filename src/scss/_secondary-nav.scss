@@ -17,5 +17,12 @@
       color: $gray-600;
       border-bottom: 2px solid $cyan;
     }
+
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
   }
 }
