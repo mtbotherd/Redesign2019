@@ -110,6 +110,16 @@ p.lead {
   }
 }
 
+.reverse {
+  &:nth-child(odd) {
+    background-color: $gray-100;
+  }
+
+  &:nth-child(even) {
+    background-color: $white;
+  }
+}
+
 .blue-bg {
   background-color: $blue;
   color: $white;

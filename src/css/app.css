@@ -7660,6 +7660,12 @@ p.lead {
   .section:nth-child(even) {
     background-color: #f5f5f4; }
 
+.reverse:nth-child(odd) {
+  background-color: #f5f5f4; }
+
+.reverse:nth-child(even) {
+  background-color: #fff; }
+
 .blue-bg {
   background-color: #0053a0;
   color: #fff; }
@@ -7829,6 +7835,9 @@ abbr {
 
 .police-bg {
   background-image: url("../../../../../img/police.jpg"); }
+
+.transit-initiatives-bg {
+  background-image: url("../../../../../img/transit-initiatives.jpg"); }
 
 @media (min-width: 1200px) {
   .utilities {
