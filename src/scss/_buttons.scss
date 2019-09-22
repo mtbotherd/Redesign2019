@@ -443,3 +443,49 @@ input,
     }
   }
 }
+
+.text-link-container-icon-right {
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  @include media-breakpoint-up(lg) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .text-link {
+    position: relative;
+    padding-right: 1.5rem;
+
+    // @include media-breakpoint-up(lg) {
+    //   padding-right: 1.5rem;
+    // }
+
+    &::after {
+      position: absolute;
+      content: "";
+      background-image: url("../img/svg/arrow-right-blue.svg");
+      background-size: 0.875rem;
+      background-repeat: no-repeat;
+      top: 0.125rem;
+      right: 0;
+      width: 0.875rem;
+      height: 0.875rem;
+
+      @include media-breakpoint-up(lg) {
+        background-size: 1rem;
+        top: 0.25rem;
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+
+    &:hover {
+      color: $blue;
+      &::after {
+        background-image: url("../img/svg/arrow-right-dark-blue.svg");
+      }
+    }
+  }
+}
