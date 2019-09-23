@@ -4,18 +4,39 @@
   @include media-breakpoint-up(lg) {
     margin-bottom: 30px;
   }
+
+  .nav {
+    display: block;
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+    }
+  }
   .nav-item {
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 0;
+
+    @include media-breakpoint-up(lg) {
+      //   display: inline-block;
+      padding: 0.5rem 1rem;
+    }
 
     .nav-link {
       color: #b0b1b0;
-      //   font-size: 1rem;
+      @include font-size(18);
       padding: 0;
+      margin-left: 0.25rem;
       transition: transform 0.8s;
     }
     .active {
       color: $gray-600;
-      border-bottom: 2px solid $cyan;
+      border-left: 2px solid $cyan;
+      padding-left: 0.25rem;
+      margin-left: -0.25rem;
+
+      @include media-breakpoint-up(lg) {
+        border-bottom: 2px solid $cyan;
+        border-left: none;
+      }
     }
 
     &:first-child {
