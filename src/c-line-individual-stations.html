@@ -272,85 +272,77 @@
 				<!-- Main page content -->
 				<section class="section">
 					<div class="container">
+						<nav class="secondary-nav">
+							<ul class="nav">
+								<li class="nav-item">
+									<a class="nav-link secondary-nav-item" href="#">C Line Penn</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link secondary-nav-item" href="#">Construction</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link secondary-nav-item" href="#">Mettings & Events</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link secondary-nav-item" href="#">Project Library</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link secondary-nav-item" href="#">Project FAQs</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link secondary-nav-item active" href="#">Design Development</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link secondary-nav-item" href="#">Station Plan</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link secondary-nav-item" href="#">Last Item</a>
+								</li>
+							</ul>
+						</nav>
 						<div class="row">
-							<div class="col-md-12">
-								<ul class="nav">
+							<div class="col col-lg-8 offset-lg-2">
+								<button type="button" class="btn btn-outline-primary mb-4 mt-4">
+									<img src="/img/svg/arrow-left-blue.svg" class="icon-sm" />
+									Back to stations
+								</button>
+								<h2>The Xerxes & 56th Avenue</h2>
+								<p class="mb-4 mb-lg-5">
+									The Xerxes & 56th Avenue Station will include a northbound and a southbound 
+									platform. The northbound station will be sited on the southeast corner of the 
+									intersection and the southbound station will be sited on the northwest corner 
+									of the intersection. The northbound platform will feature an information pylon
+									with a real-time bus arrival display, a bench, a trash / recycling receptacle, 
+									ticket machines and a Go-To Card reader. The southbound platform will include an 
+									enhanced shelter with heat and light, an information pylon with a real-time bus 
+									arrival display, a bench, a trash / recycling receptacle, bike parking, security 
+									features, ticket machines and a Go-To Card reader.
+								</p>
+								<ul id="stations" class="nav nav-tabs" role="tablist">
 									<li class="nav-item">
-									  <a class="nav-link secondary-nav-item" href="#">C Line Penn</a>
+										<a id="station-example-tab" class="nav-link active" data-toggle="tab" href="#stationExample" role="tab" aria-controls="stationExample" aria-selected="true">Station Example</a>
 									</li>
 									<li class="nav-item">
-									  <a class="nav-link secondary-nav-item" href="#">Construction</a>
-									</li>
-									<li class="nav-item">
-									  <a class="nav-link secondary-nav-item" href="#">Mettings & Events</a>
-									</li>
-									<li class="nav-item">
-									  <a class="nav-link secondary-nav-item" href="#">Project Library</a>
-									</li>
-									<li class="nav-item">
-									  <a class="nav-link secondary-nav-item" href="#">Project FAQs</a>
-									</li>
-									<li class="nav-item">
-									  <a class="nav-link secondary-nav-item active" href="#">Design Development</a>
-									</li>
-									<li class="nav-item">
-									  <a class="nav-link secondary-nav-item" href="#">Station Plan</a>
-									</li>
-									<li class="nav-item">
-									  <a class="nav-link secondary-nav-item" href="#">Last Item</a>
+										<a id="station-tab" class="nav-link" data-toggle="tab" href="#station" role="tab" aria-controls="station" aria-selected="false">Station</a>
 									</li>
 								</ul>
-							</div>
-						</div>
-                  <div class="row">
-							<div class="col-md-12 d-flex justify-content-center">
-								<div class="w-75">
-									<button type="button" class="btn btn-outline-primary mb-4 mt-4">
-										<img src="/img/svg/arrow-left-blue.svg" class="icon-sm" />
-										Back to stations
-									</button>
-									<div>
-										<h2>The Xerxes & 56th Avenue</h2>
-										<p class="">
-											The Xerxes & 56th Avenue Station will include a northbound and a southbound 
-											platform. The northbound station will be sited on the southeast corner of the 
-											intersection and the southbound station will be sited on the northwest corner 
-											of the intersection. The northbound platform will feature an information pylon
-											with a real-time bus arrival display, a bench, a trash / recycling receptacle, 
-											ticket machines and a Go-To Card reader. The southbound platform will include an 
-											enhanced shelter with heat and light, an information pylon with a real-time bus 
-											arrival display, a bench, a trash / recycling receptacle, bike parking, security 
-											features, ticket machines and a Go-To Card reader.
-										</p>
+								<div class="tab-content" id="stations">
+									<div class="tab-pane fade show active" id="stationExample" role="tabpanel" aria-labeledby="station-example-tab">
+										<img src="/img/busStop.png" class="img-fluid" />
 									</div>
-									<div class="card text-center">
-									  <div class="card-header white-bg">
-										 <ul class="nav nav-tabs card-header-tabs" style="border-bottom:1px solid black">
-											<!-- to switch between active and not you need to put tabBorder so li and active to A tag -->
-									      <li class="nav-item station-item-1 tabBorder" data-first="true">
-									        <a class="nav-link active" href="#">Station Example</a>
-									      </li>
-									      <li class="nav-item station-item-2" data-first="false">
-									        <a class="nav-link" href="#">Station</a>
-									      </li>
-									    </ul>
-									  </div>
-									  <div class="card-body">
-									    <img src="img/busStop.png" id="stationImage" class="img-fluid" />
-									  </div>
-									</div>
-									<hr>
-									<h2 class="mb-1">Contact Us</h2>
-									<p class="">
-										Karyssa Jackson <br>
-										Community Outreach and Engagement <br>
-										612-349-7396 <br>
-										cline@metrotransit.org <br>
-										MEDIA CONTACT <br>
-										Howie Padilla <br>
-										Public Relations Manager
-									</p>
+									<div class="tab-pane fade" id="station" role="tabpanel" aria-labeledby="station-tab">Tab 2</div>
 								</div>
+								<hr>
+								<h2 class="mb-1">Contact Us</h2>
+								<p class="">
+									Karyssa Jackson <br>
+									Community Outreach and Engagement <br>
+									612-349-7396 <br>
+									cline@metrotransit.org <br>
+									MEDIA CONTACT <br>
+									Howie Padilla <br>
+									Public Relations Manager
+								</p>
 							</div>
 						</div>
 					</div>
