@@ -2,4 +2,14 @@
   .schedule-days h3 {
     font-weight: normal !important;
   }
+
+  .list-group-item {
+    &:first-child {
+      border-top: none;
+    }
+
+    .frequency {
+      width: 450px;
+    }
+  }
 }

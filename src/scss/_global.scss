@@ -63,15 +63,6 @@ h2,
 
 h3,
 .h3 {
-  @include font-size(19);
-
-  @include media-breakpoint-up(lg) {
-    @include font-size(28);
-  }
-}
-
-h4,
-.h4 {
   @include font-size(18);
 
   @include media-breakpoint-up(lg) {
@@ -79,8 +70,17 @@ h4,
   }
 }
 
+h4,
+.h4 {
+  @include font-size(16);
+
+  @include media-breakpoint-up(lg) {
+    @include font-size(18);
+  }
+}
+
 hr {
-  border-top: 1px solid $gray-600;
+  border-top: 1px solid $gray-200;
   margin: 15px 0;
 
   @include media-breakpoint-up(lg) {
@@ -92,18 +92,6 @@ p.lead {
   @include font-size(18);
   @include media-breakpoint-up(lg) {
     @include font-size(20);
-  }
-}
-
-a:visited {
-  color: $blue;
-}
-
-.btn {
-  @include font-size(16);
-
-  @include media-breakpoint-up(lg) {
-    @include font-size(23);
   }
 }
 
@@ -122,6 +110,16 @@ a:visited {
   }
 }
 
+.reverse {
+  &:nth-child(odd) {
+    background-color: $gray-100;
+  }
+
+  &:nth-child(even) {
+    background-color: $white;
+  }
+}
+
 .blue-bg {
   background-color: $blue;
   color: $white;
@@ -130,6 +128,10 @@ a:visited {
 .cyan-bg {
   background-color: $cyan;
   color: $white;
+}
+
+.gray-100 {
+  background-color: $gray-100;
 }
 
 //  Misc Styles
