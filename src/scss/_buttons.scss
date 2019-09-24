@@ -293,7 +293,7 @@ input,
     &::after {
       position: absolute;
       content: "";
-      background-image: url("../img/svg/arrow-right-blue.svg");
+      background-image: url("../../../../../img/svg/arrow-right-blue.svg");
       background-repeat: no-repeat;
       top: 0.65rem;
       right: 0.75rem;
@@ -307,7 +307,7 @@ input,
 
     &:hover {
       &::after {
-        background-image: url("../img/svg/arrow-right-white.svg");
+        background-image: url("../../../../../img/svg/arrow-right-white.svg");
       }
     }
   }
@@ -328,7 +328,7 @@ input,
     &::before {
       position: absolute;
       content: "";
-      background-image: url("../img/svg/arrow-left-blue.svg");
+      background-image: url("../../../../../img/svg/arrow-left-blue.svg");
       background-repeat: no-repeat;
       top: 0.6rem;
       left: 0.75rem;
@@ -344,7 +344,7 @@ input,
 
     &:hover {
       &::before {
-        background-image: url("../img/svg/arrow-left-white.svg");
+        background-image: url("../../../../../img/svg/arrow-left-white.svg");
       }
     }
   }
@@ -372,7 +372,7 @@ input,
     &::before {
       position: absolute;
       content: "";
-      background-image: url("../img/svg/arrow-left-blue.svg");
+      background-image: url("../../../../../img/svg/arrow-left-blue.svg");
       background-size: 1rem;
       background-repeat: no-repeat;
       top: 0.6rem;
@@ -391,7 +391,7 @@ input,
     &:hover {
       color: $blue;
       &::before {
-        background-image: url("../img/svg/arrow-left-dark-blue.svg");
+        background-image: url("../../../../../img/svg/arrow-left-dark-blue.svg");
       }
     }
   }
@@ -419,7 +419,7 @@ input,
     &::after {
       position: absolute;
       content: "";
-      background-image: url("../img/svg/arrow-right-blue.svg");
+      background-image: url("../../../../../img/svg/arrow-right-blue.svg");
       background-size: 1rem;
       background-repeat: no-repeat;
       top: 0.6rem;
@@ -438,7 +438,7 @@ input,
     &:hover {
       color: $blue;
       &::after {
-        background-image: url("../img/svg/arrow-right-dark-blue.svg");
+        background-image: url("../../../../../img/svg/arrow-right-dark-blue.svg");
       }
     }
   }
@@ -464,7 +464,7 @@ input,
     &::after {
       position: absolute;
       content: "";
-      background-image: url("../img/svg/arrow-right-blue.svg");
+      background-image: url("../../../../../img/svg/arrow-right-blue.svg");
       background-size: 1rem;
       background-repeat: no-repeat;
       top: 0.75rem;
@@ -483,7 +483,7 @@ input,
     &:hover {
       color: $blue;
       &::after {
-        background-image: url("../img/svg/arrow-right-dark-blue.svg");
+        background-image: url("../../../../../img/svg/arrow-right-dark-blue.svg");
       }
     }
   }
@@ -500,7 +500,7 @@ input,
 //     &::after {
 //       position: absolute;
 //       content: "";
-//       background-image: url("../img/svg/arrow-right-blue.svg");
+//       background-image: url("../../../../../img/svg/arrow-right-blue.svg");
 //       background-size: 0.875rem;
 //       background-repeat: no-repeat;
 //       top: 0.125rem;
@@ -519,7 +519,7 @@ input,
 //     &:hover {
 //       color: $blue;
 //       &::after {
-//         background-image: url("../img/svg/arrow-right-dark-blue.svg");
+//         background-image: url("../../../../../img/svg/arrow-right-dark-blue.svg");
 //       }
 //     }
 //   }
@@ -532,7 +532,7 @@ input,
   &::after {
     position: absolute;
     content: "";
-    background-image: url("../img/svg/arrow-right-blue.svg");
+    background-image: url("../../../../../img/svg/arrow-right-blue.svg");
     background-size: 0.875rem;
     background-repeat: no-repeat;
     //top: 0.125rem;
@@ -552,7 +552,7 @@ input,
   &:hover {
     color: $blue;
     &::after {
-      background-image: url("../img/svg/arrow-right-dark-blue.svg");
+      background-image: url("../../../../../img/svg/arrow-right-dark-blue.svg");
     }
   }
 }
