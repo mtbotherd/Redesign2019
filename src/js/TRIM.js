@@ -849,7 +849,7 @@ var TRIM = (function ($, window, document, undefined) {
             // mapType property on the <div>
             var pType = document.getElementById(mapElementID).getAttribute("maptype");
             var mapType = pType !== null ? pType : "route";
-            console.log(mapElementID + " functionality is " + mapType);
+            //console.log(mapElementID + " functionality is " + mapType);
 
             var ROUTENAMES = null;
             $.ajax({
@@ -1134,7 +1134,8 @@ var TRIM = (function ($, window, document, undefined) {
                     };
                     esriBasemaps.transitVector = {
                         title: "TransitVector",
-                        baseMapLayers: [{ url: "https://www.arcgis.com/sharing/rest/content/items/878d0cd87fb64588952143e0db6abd72/resources/styles/root.json", type: "VectorTile" }]
+                        //baseMapLayers: [{ url: "https://www.arcgis.com/sharing/rest/content/items/878d0cd87fb64588952143e0db6abd72/resources/styles/root.json", type: "VectorTile" }]
+                        baseMapLayers: [{ url: "https://metrocouncil.maps.arcgis.com/sharing/rest/content/items/8cbdf505cd3f4dc39c4e5da6f5b49d95/resources/styles/root.json", type: "VectorTile" }]
                     };
 
                     MAP = new Map(mapElementID, {
@@ -1398,7 +1399,7 @@ var BOM = (function ($, window, document, undefined) {
 
     var geoLocate = function () {
         _GEOLOCATE.locate();
-    }
+    };
     var BOMStatus = function () {
         return _BOMRUNNING;
     };
@@ -1779,7 +1780,7 @@ var BOM = (function ($, window, document, undefined) {
             // mapType property on the <div>
             var pType = document.getElementById(mapElementID).getAttribute("maptype");
             var mapType = pType !== null ? pType : "BOM";
-            console.log(mapElementID + " functionality is " + mapType);
+            //console.log(mapElementID + " functionality is " + mapType);
             require(
                 ["esri/map",
                     "esri/config",
@@ -1802,7 +1803,8 @@ var BOM = (function ($, window, document, undefined) {
                     };
                     esriBasemaps.transitVector = {
                         title: "TransitVector",
-                        baseMapLayers: [{ url: "https://www.arcgis.com/sharing/rest/content/items/878d0cd87fb64588952143e0db6abd72/resources/styles/root.json", type: "VectorTile" }]
+                        //baseMapLayers: [{ url: "https://www.arcgis.com/sharing/rest/content/items/878d0cd87fb64588952143e0db6abd72/resources/styles/root.json", type: "VectorTile" }]
+                        baseMapLayers: [{ url: "https://metrocouncil.maps.arcgis.com/sharing/rest/content/items/8cbdf505cd3f4dc39c4e5da6f5b49d95/resources/styles/root.json", type: "VectorTile" }]
                     };
                     _MAP = new Map(mapElementID, {
                         //autoResize: true,
@@ -2035,6 +2037,7 @@ var BOM = (function ($, window, document, undefined) {
 	 * 
 	 */
     var startBusesOnMap = function (/*object*/parms) {
+        _GEOLOCATE.clear();
         if (parms.routeID) {
             if (parms.routeID === "0") {
                 _SHOWALLBUSES = true;
