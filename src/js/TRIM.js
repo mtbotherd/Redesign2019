@@ -1006,7 +1006,7 @@ var TRIM = (function ($, window, document, undefined) {
                         var query = new Query();
                         var queryTask = new QueryTask("https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/1");
                         var pixelWidth = MAP.extent.getWidth() / MAP.width;
-                        var toleraceInMapCoords = 10 * pixelWidth;
+                        var toleraceInMapCoords = 20 * pixelWidth;
                         query.returnGeometry = true;
                         query.spatialRelationship = Query.SPATIAL_REL_INTERSECTS;
                         query.where = "NROUTES <> 0";
@@ -1033,6 +1033,10 @@ var TRIM = (function ($, window, document, undefined) {
                                 var feature = fSet.featureSet.features[0];
 
                                 var atts = feature.attributes;
+                                MAP.infoWindow.setTitle("Stop Number: " + atts.siteid);
+                                MAP.infoWindow.setContent($('#trimPopUp')[0]);
+                                $('#trimPopUp').show();
+                                MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
 
                                 var stopGraphic = new Graphic();
                                 var stopSymbol;
@@ -1081,10 +1085,6 @@ var TRIM = (function ($, window, document, undefined) {
                                 });
 
                                 //MAP.infoWindow.setFeatures([feature]); //adds a Zoom-To Action
-                                MAP.infoWindow.setTitle("Stop Number: " + atts.siteid);
-                                MAP.infoWindow.setContent($('#trimPopUp')[0]);
-                                $('#trimPopUp').show();
-                                MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
 
 
 
