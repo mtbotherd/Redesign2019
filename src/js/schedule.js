@@ -30,11 +30,9 @@
                 zoomToNearestBus: true, // when drawing buses the first time, zoom out until you find a bus to show
                 stopZoomLevel: 16 // Web Mercator level to intially zoom the stop extent, if stopID has a value
             };
-            BOM.init("routeBOM").then(function () {
-                BOM.startBusesOnMap(parms);
-            });
+            BOM.init("routeBOM");
             $("#collapseMap").on("shown.bs.collapse", function () {
-                BOM.geoLocate();
+                BOM.startBusesOnMap(parms);
             });
             $("#collapseMap").on("hidden.bs.collapse", function () {
                 BOM.stopBusesOnMap();
