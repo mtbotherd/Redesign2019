@@ -1534,7 +1534,7 @@ select.form-control:focus::-ms-value {
 .col-form-label-sm {
   padding-top: calc(0.25rem + 1px);
   padding-bottom: calc(0.25rem + 1px);
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5; }
 
 .form-control-plaintext {
@@ -1555,7 +1555,7 @@ select.form-control:focus::-ms-value {
 .form-control-sm {
   height: calc(1.5em + 0.5rem + 2px);
   padding: 0.25rem 0.5rem;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5;
   border-radius: 0; }
 
@@ -1633,7 +1633,7 @@ textarea.form-control {
   max-width: 100%;
   padding: 0.25rem 0.5rem;
   margin-top: .1rem;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5;
   color: #fff;
   background-color: rgba(0, 130, 68, 0.9);
@@ -1730,7 +1730,7 @@ textarea.form-control {
   max-width: 100%;
   padding: 0.25rem 0.5rem;
   margin-top: .1rem;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5;
   color: #fff;
   background-color: rgba(237, 27, 46, 0.9);
@@ -2286,7 +2286,7 @@ fieldset:disabled a.btn {
 
 .btn-sm, .btn-group-sm > .btn {
   padding: 0.25rem 0.5rem;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5;
   border-radius: 0; }
 
@@ -2518,7 +2518,7 @@ input[type="button"].btn-block {
   display: block;
   padding: 0.5rem 1.5rem;
   margin-bottom: 0;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   color: #626462;
   white-space: nowrap; }
 
@@ -2755,7 +2755,7 @@ input[type="button"].btn-block {
 .input-group-sm > .input-group-prepend > .btn,
 .input-group-sm > .input-group-append > .btn {
   padding: 0.25rem 0.5rem;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5;
   border-radius: 0; }
 
@@ -2937,7 +2937,7 @@ input[type="button"].btn-block {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   padding-left: 0.5rem;
-  font-size: 0.76562rem; }
+  font-size: 0.76563rem; }
 
 .custom-select-lg {
   height: calc(1.5em + 1rem + 2px);
@@ -3773,7 +3773,7 @@ input[type="button"].btn-block {
 
 .pagination-sm .page-link {
   padding: 0.25rem 0.5rem;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5; }
 
 .pagination-sm .page-item:first-child .page-link {
@@ -4556,7 +4556,7 @@ a.close.disabled {
   word-spacing: normal;
   white-space: normal;
   line-break: auto;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   word-wrap: break-word;
   opacity: 0; }
   .tooltip.show {
@@ -4641,7 +4641,7 @@ a.close.disabled {
   word-spacing: normal;
   white-space: normal;
   line-break: auto;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: padding-box;
@@ -7570,6 +7570,9 @@ a.text-dark:hover, a.text-dark:focus {
 /***************************************************************
     Application styles
 ***************************************************************/
+body {
+  overflow-x: hidden; }
+
 @media (max-width: 767) {
   body {
     font-size: 16px !important;
@@ -7584,6 +7587,13 @@ a.text-dark:hover, a.text-dark:focus {
   .container {
     padding-right: 0;
     padding-left: 0; } }
+
+.section-full {
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
+  overflow-x: hidden; }
 
 b,
 strong {
@@ -8193,21 +8203,21 @@ footer.section {
     text-decoration: none;
     padding: 0.25rem 0; }
 
-#primaryPage .page-title {
+.primary .page-title {
   position: relative;
   width: 100%;
   height: 160px; }
   @media (min-width: 768px) {
-    #primaryPage .page-title {
+    .primary .page-title {
       height: 240px; } }
   @media (min-width: 992px) {
-    #primaryPage .page-title {
+    .primary .page-title {
       height: 275px; } }
   @media (min-width: 1200px) {
-    #primaryPage .page-title {
+    .primary .page-title {
       height: 320px; } }
 
-#primaryPage h1 {
+.primary h1 {
   position: absolute;
   bottom: 15px;
   left: 0;
@@ -8220,59 +8230,56 @@ footer.section {
   padding: 1rem;
   width: auto; }
   @media (min-width: 992px) {
-    #primaryPage h1 {
+    .primary h1 {
       bottom: 45px;
       font-size: 45px !important;
       font-size: 2.8125rem !important;
       padding: 1.125rem; } }
 
-#primaryPage section.section h2 {
+.primary section.section h2 {
   margin-bottom: 15px; }
   @media (min-width: 992px) {
-    #primaryPage section.section h2 {
+    .primary section.section h2 {
       margin-bottom: 30px; } }
   @media (min-width: 992px) {
-    #primaryPage section.section h2 .icon {
+    .primary section.section h2 .icon {
       width: 3rem;
       height: 3rem;
       margin-right: 0.5rem; } }
 
-#secondaryPage .page-title {
+.secondary {
   background-color: #0053a0; }
   @media (min-width: 992px) {
-    #secondaryPage .page-title {
+    .secondary .page-title {
       height: 170px; } }
-  #secondaryPage .page-title h1 {
+  .secondary .page-title h1 {
     color: #fff;
     margin-bottom: 0;
     padding: 0.75rem 0; }
     @media (min-width: 768px) {
-      #secondaryPage .page-title h1 {
+      .secondary .page-title h1 {
         padding-top: 6rem;
         padding-bottom: 1.5rem; } }
-  #secondaryPage .page-title .route-number {
+  .secondary .page-title .route-number {
     color: #ffd200;
     text-transform: uppercase; }
-
-#secondaryPage .page-content .secondary-hero {
-  width: 100%;
-  height: auto;
-  margin-bottom: 15px; }
+  .secondary .page-content .secondary-hero {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px; }
+    @media (min-width: 992px) {
+      .secondary .page-content .secondary-hero {
+        margin-bottom: 30px; } }
   @media (min-width: 992px) {
-    #secondaryPage .page-content .secondary-hero {
-      margin-bottom: 30px; } }
-
-@media (min-width: 992px) {
-  #secondaryPage .page-content h2 .icon {
-    width: 3rem;
-    height: 3rem;
-    margin-right: 0.5rem; } }
-
-#secondaryPage .page-content .btn-outline-secondary {
-  width: 17.5rem; }
-  @media (min-width: 992px) {
-    #secondaryPage .page-content .btn-outline-secondary {
-      width: 23.125rem; } }
+    .secondary .page-content h2 .icon {
+      width: 3rem;
+      height: 3rem;
+      margin-right: 0.5rem; } }
+  .secondary .page-content .btn-outline-secondary {
+    width: 17.5rem; }
+    @media (min-width: 992px) {
+      .secondary .page-content .btn-outline-secondary {
+        width: 23.125rem; } }
 
 .route .schedule-days h3 {
   font-weight: normal !important; }
