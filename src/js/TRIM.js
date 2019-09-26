@@ -2100,3 +2100,93 @@ var BOM = (function ($, window, document, undefined) {
     };
 
 })(jQuery, window, document);
+
+$(function() {
+	
+	  // This triggers planning a new trip when the
+	  // button on the Trip Planner page is clicked
+	  // TODO: Test for errors in the result
+	  // TODO: Test for FROM address = TO address
+	  // TODO: Trigger display of 'No Trips Found' message if error occurs
+	  //
+	  $('button[name="planMyTrip"]').click(function () {
+		if (TRIPFROMLOCATION && TRIPTOLOCATION) {
+		  // set default trip plan value here and override from inputs
+		  // TODO find all the input source for the parameters and format them correctly for the trip planner
+		  let tripProperties = {
+			fromLocation: TRIPFROMLOCATION,
+			toLocation: TRIPTOLOCATION,
+			arrdep: "Depart", // source from
+			walkdist: "1.0", //source from
+			minimize: "Time", // source from
+			accessible: "False", // source from
+			datetime: "10/1/2019 07:30:00 AM" // soure from
+		  }
+		  TripPlan.newTrip(tripProperties)
+			  .then(function () {
+				let plan = TripPlan.getTrip();
+				console.log("Have a Plan");
+				console.dir(plan);
+			  })
+			.fail(function(err) {
+				  console.warn("Trip Plan Failed: " + err.Message);
+				  console.dir(err);
+			  });
+		}
+	  });
+	
+	  // This loads the map into the resulting Trip Plan page.
+	  // Once the map loads, trips can be displayed.
+	  //
+	  // TODO: this is currently in DEMO mode.
+	  // Need to add routines that trigger when user
+	  // clicks the 'trip summary' button to show on the
+	  // map just that trip option.
+	  //
+	  // Format for the call:
+	  // TRIM.drawTrip(<trip option>, <entire trip plan>, <zoom to trip>)
+	  if ($("#tripPlanMap").attr("maptype") === "trip") {
+		TRIM.init("tripPlanMap").then(function() {
+		  let tripPlan = TripPlan.getTrip();
+		  if (tripPlan) {
+			if (tripPlan.PlannerItin) {
+			  if (tripPlan.PlannerItin.PlannerOptions.length > 0) {
+				console.log("Draw TripPlan 0");
+				TRIM.drawTrip(0, tripPlan, /*zoom*/ true);
+			  }
+			  if (tripPlan.PlannerItin.PlannerOptions.length > 1) {
+				setTimeout(function() {
+				  console.log("Draw TripPlan 1");
+				  TRIM.drawTrip(1, tripPlan, /*zoom*/ true);
+				}, 5000);
+			  }
+			  if (tripPlan.PlannerItin.PlannerOptions.length > 2) {
+				setTimeout(function() {
+				  console.log("Draw TripPlan 2");
+				  TRIM.drawTrip(2, tripPlan, /*zoom*/ true);
+				}, 10000);
+			  }
+			}
+		  }
+		});
+	  }
+	
+	  // ----------------------------------------------------
+	  // schedules-maps
+	  // ----------------------------------------------------
+	  if ($("#TRIMap").attr("maptype") === "full") {
+		TRIM.init("TRIMap").then(function() {
+		  TRIM.geoLocate();
+		});
+	  }
+	  $("#stopsStations").click(function() {
+		TRIM.toggleLayer("allStops");
+	  });
+	  $("#parkRide").click(function() {
+		TRIM.toggleLayer("parkAndRides");
+	  });
+	  $("#niceRide").click(function() {
+		TRIM.toggleLayer("niceRides");
+	  });
+
+})
