@@ -8304,7 +8304,7 @@ div.timetable-container {
 tr.downtown {
   position: relative; }
 
-th.zone {
+div.zone {
   background-color: #fff;
   position: absolute;
   margin: 3rem 0 0 9rem;
