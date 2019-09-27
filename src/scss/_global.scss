@@ -25,14 +25,6 @@ body {
   }
 }
 
-.section-full {
-  width: 100vw;
-  position: relative;
-  margin-left: -50vw;
-  left: 50%;
-  overflow-x: hidden;
-}
-
 b,
 strong {
   font-weight: $font-weight-bold;
@@ -119,6 +111,14 @@ p.lead {
   &:nth-child(even) {
     background-color: $gray-100;
   }
+}
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
+  overflow-x: hidden;
 }
 
 .reverse {
