@@ -91,35 +91,6 @@ input,
   }
 }
 
-// How to ride
-#howToRide {
-  width: 345px;
-
-  @include media-breakpoint-up(md) {
-    width: 410px;
-  }
-
-  .icon-wrapper {
-    position: relative;
-    margin: 0 auto;
-
-    .icon {
-      position: absolute;
-      top: 0.25rem;
-      left: 1rem;
-      width: 32px;
-      height: 32px;
-
-      @include media-breakpoint-up(md) {
-        top: 0.45rem;
-        left: 0;
-        width: 50px;
-        height: 50px;
-      }
-    }
-  }
-}
-
 // White button with blue border
 .btn-outline-primary {
   font-weight: $font-weight-bold;
@@ -285,6 +256,20 @@ input,
 
   @include media-breakpoint-up(lg) {
     margin-bottom: 30px;
+  }
+
+  .circle-blue-outline-question {
+    position: absolute;
+    left: 0rem;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    @include media-breakpoint-up(lg) {
+      left: 22.5rem;
+      top: 0.5rem;
+      width: 3rem;
+      height: 3rem;
+    }
   }
 
   .btn-outline-primary {
