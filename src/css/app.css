@@ -8253,23 +8253,23 @@ footer.section {
     color: #ffd200;
     text-transform: uppercase; }
 
-.section h2 {
+.page-content h2 {
   margin-bottom: 15px; }
   @media (min-width: 992px) {
-    .section h2 {
+    .page-content h2 {
       margin-bottom: 30px; } }
   @media (min-width: 992px) {
-    .section h2 .icon {
+    .page-content h2 .icon {
       width: 3rem;
       height: 3rem;
       margin-right: 0.5rem; } }
 
-.section .secondary-hero {
+.page-content .secondary-hero {
   width: 100%;
   height: auto;
   margin-bottom: 15px; }
   @media (min-width: 992px) {
-    .section .secondary-hero {
+    .page-content .secondary-hero {
       margin-bottom: 30px; } }
 
 .route .schedule-days h3 {
@@ -8988,13 +8988,13 @@ input:focus,
     .secondary-nav .nav-item:last-child {
       padding-right: 0; }
 
-#secondaryPage .page-content .nav-tabs {
+.page-content .nav-tabs {
   border-bottom: 1px solid #e3e3e0;
   margin-bottom: 15px; }
   @media (min-width: 992px) {
-    #secondaryPage .page-content .nav-tabs {
+    .page-content .nav-tabs {
       margin-bottom: 30px; } }
-  #secondaryPage .page-content .nav-tabs .nav-item .nav-link.active {
+  .page-content .nav-tabs .nav-item .nav-link.active {
     border-top: 1px solid #e3e3e0;
     border-right: 1px solid #e3e3e0;
     border-bottom: 2px solid #fff;
