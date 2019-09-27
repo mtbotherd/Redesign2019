@@ -2101,7 +2101,6 @@ var BOM = (function ($, window, document, undefined) {
 })(jQuery, window, document);
 
 $(function() {
-	
 	  // This triggers planning a new trip when the
 	  // button on the Trip Planner page is clicked
 	  // TODO: Test for errors in the result
@@ -2109,6 +2108,8 @@ $(function() {
 	  // TODO: Trigger display of 'No Trips Found' message if error occurs
 	  //
 	  $('button[name="planMyTrip"]').click(function () {
+        var TRIPFROMLOCATION = AutocompleteAddress.getChoice('fromLocation');
+        var TRIPTOLOCATION = AutocompleteAddress.getChoice('toLocation');
 		if (TRIPFROMLOCATION && TRIPTOLOCATION) {
 		  // set default trip plan value here and override from inputs
 		  // TODO find all the input source for the parameters and format them correctly for the trip planner
