@@ -23,6 +23,14 @@
     };
 
     var init = function (routeAbbr) {
+        loadTimetable();
+
+        Alerts.getAlertsForRoute(routeAbbr);
+
+        $('.schedule-days>button').on('click', scheduleSelect);
+        $('#maplink').on('click', function () { window.location.href = $(this).data('link'); });
+        $('#printlink').on('click', function () { window.print(); });
+
         if ($("#routeBOM").attr("maptype") === "BOM") {
             let parms = {
                 stopID: null, // optional stop, if route too then show just the one route
@@ -38,12 +46,6 @@
                 BOM.stopBusesOnMap();
             });
         }
-
-        Alerts.getAlertsForRoute(routeAbbr);
-
-        $('.schedule-days>button').on('click', scheduleSelect);
-
-        loadTimetable();
     };
 
     return {

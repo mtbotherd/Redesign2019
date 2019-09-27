@@ -5,19 +5,20 @@ var Alerts = (function ($, window, document, undefined) {
     var allAlerts = [];
     //array to hold route list and references to alerts
     var alertsByRoute = [];
+    var singleRoute = false;
 
     //build the array list of alerts ordered by route
-    var buildAlerts = function (result) {
+    var buildAlerts = function (routeAbbr) {
 
         //first sort all the alerts from newest to oldest
-        result.sort(function (a, b) {
+        allAlerts.sort(function (a, b) {
             a = parseInt(a.active_period.start);
             b = parseInt(b.active_period.start);
             return a > b ? -1 : a < b ? 1 : 0;
         });
 
         //loop through each alert from the Ajax result to build the alertsByRoute array
-        result.forEach(function (alert, index) {
+        allAlerts.forEach(function (alert, index) {
             //an array of "informed_entity" lists all the routes for this alert
             alert.informed_entity.forEach(function (entity, idx) {
                 //the jQuery grep method will find the route of this informed_entity if it has
@@ -64,12 +65,16 @@ var Alerts = (function ($, window, document, undefined) {
         });
 
         //now that the alertsByRoute array is fully populated, build the HTML output
-        outputAlerts(alertsByRoute, result);
+        if (singleRoute) {
+            outputAlertsForRoute(routeAbbr);
+        } else {
+            outputAlerts();
+        }
     };
 
-    var outputAlerts = function (list, alerts) {
+    var outputAlertsForRoute = function (routeAbbr) {
         //first sort the alertsByRoute array by the sort_order assigned in the previous function
-        list.sort(function (a, b) {
+        alertsByRoute.sort(function (a, b) {
             a = a.sort_order;
             b = b.sort_order;
             return a < b ? -1 : a > b ? 1 : 0;
@@ -77,7 +82,33 @@ var Alerts = (function ($, window, document, undefined) {
 
         //loop through the array and output the route label, then loop through the alert_index array
         //and get the alert information for each alert for each route
-        list.forEach(function (route, index) {
+        alertsByRoute.forEach(function (route, index) {
+            if (routeAbbr !== route.route_id) return;
+
+            var alertList = $('<div/>', { class: 'border' });
+
+            route.alert_index.forEach(function (alertIndex, idx) {
+                alertList.append($('<p/>').append($('<a/>', { href: '#', id: 'this' + alertIndex + idx }).attr('data-index', alertIndex)
+                    .text(allAlerts[alertIndex].header_text.translation[0].text)
+                    .on('click', showAlertText)
+                ));
+            });
+
+            $('#collapseAlert>div').append(alertList);
+        });
+    };
+
+    var outputAlerts = function () {
+        //first sort the alertsByRoute array by the sort_order assigned in the previous function
+        alertsByRoute.sort(function (a, b) {
+            a = a.sort_order;
+            b = b.sort_order;
+            return a < b ? -1 : a > b ? 1 : 0;
+        });
+
+        //loop through the array and output the route label, then loop through the alert_index array
+        //and get the alert information for each alert for each route
+        alertsByRoute.forEach(function (route, index) {
             var alertsDiv = $('<div/>', { class: 'accordion service-alerts' });
             var card = $('<div/>', { class: 'card' });
 
@@ -94,7 +125,7 @@ var Alerts = (function ($, window, document, undefined) {
             var alertList = $('<div/>', { class: 'card-body border' });
             route.alert_index.forEach(function (alertIndex, idx) {
                 alertList.append($('<p/>').append($('<a/>', { href: '#', id: 'this' + alertIndex + idx }).attr('data-index', alertIndex)
-                    .text(alerts[alertIndex].header_text.translation[0].text)
+                    .text(allAlerts[alertIndex].header_text.translation[0].text)
                     .on('click', showAlertText)
                 ));
             });
@@ -103,8 +134,6 @@ var Alerts = (function ($, window, document, undefined) {
             alertsDiv.append(card);
             $('#alertsCard').append(alertsDiv);
         });
-
-        allAlerts = alerts;
     };
 
     var showAlertText = function () {
@@ -133,18 +162,33 @@ var Alerts = (function ($, window, document, undefined) {
         return routeList.map(function (el) { return el.route_label }).join(',');
     };
 
+    var getAlertsForRoute = function (routeAbbr) {
+        singleRoute = true;
+        $.get('https://svc.metrotransittest.org/alerts/' + routeAbbr)
+            .done(function (result) {
+                allAlerts = JSON.parse(JSON.stringify(result));
+                buildAlerts(routeAbbr);
+            })
+            .fail(function (result) {
+                $('#alerts').hide();
+            });
+    };
+
+    //This init method is for displaying all alerts
     var init = function () {
         //don't call web service if we already have alerts
         if (allAlerts.length > 0) return;
         //get all the alerts, convert to Json object and pass to buildAlerts method
         $.get('https://svc.metrotransittest.org/alerts/all')
             .done(function (result) {
-                buildAlerts(JSON.parse(JSON.stringify(result)));
+                allAlerts = JSON.parse(JSON.stringify(result));
+                buildAlerts();
             });
     };
 
     return {
-        init: init
+        init: init,
+        getAlertsForRoute: getAlertsForRoute
     };
 
 })(jQuery, window, document);
