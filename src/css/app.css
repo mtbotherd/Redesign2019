@@ -7681,7 +7681,7 @@ p.lead {
   color: #fff; }
 
 .cyan-bg {
-  background-color: #0097d0;
+  background-color: #0097d0 !important;
   color: #fff; }
 
 .gray-100 {
