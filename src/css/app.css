@@ -7570,6 +7570,9 @@ a.text-dark:hover, a.text-dark:focus {
 /***************************************************************
     Application styles
 ***************************************************************/
+body {
+  overflow-x: hidden; }
+
 @media (max-width: 767) {
   body {
     font-size: 16px !important;
@@ -7660,6 +7663,13 @@ p.lead {
   .section:nth-child(even) {
     background-color: #f5f5f4; }
 
+.full-width {
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
+  overflow-x: hidden; }
+
 .reverse:nth-child(odd) {
   background-color: #f5f5f4; }
 
@@ -7671,7 +7681,7 @@ p.lead {
   color: #fff; }
 
 .cyan-bg {
-  background-color: #0097d0;
+  background-color: #0097d0 !important;
   color: #fff; }
 
 .gray-100 {
@@ -8193,21 +8203,21 @@ footer.section {
     text-decoration: none;
     padding: 0.25rem 0; }
 
-#primaryPage .page-title {
+.primary .page-title {
   position: relative;
   width: 100%;
   height: 160px; }
   @media (min-width: 768px) {
-    #primaryPage .page-title {
+    .primary .page-title {
       height: 240px; } }
   @media (min-width: 992px) {
-    #primaryPage .page-title {
+    .primary .page-title {
       height: 275px; } }
   @media (min-width: 1200px) {
-    #primaryPage .page-title {
+    .primary .page-title {
       height: 320px; } }
 
-#primaryPage h1 {
+.primary h1 {
   position: absolute;
   bottom: 15px;
   left: 0;
@@ -8220,59 +8230,47 @@ footer.section {
   padding: 1rem;
   width: auto; }
   @media (min-width: 992px) {
-    #primaryPage h1 {
+    .primary h1 {
       bottom: 45px;
       font-size: 45px !important;
       font-size: 2.8125rem !important;
       padding: 1.125rem; } }
 
-#primaryPage section.section h2 {
-  margin-bottom: 15px; }
-  @media (min-width: 992px) {
-    #primaryPage section.section h2 {
-      margin-bottom: 30px; } }
-  @media (min-width: 992px) {
-    #primaryPage section.section h2 .icon {
-      width: 3rem;
-      height: 3rem;
-      margin-right: 0.5rem; } }
-
-#secondaryPage .page-title {
+.secondary {
   background-color: #0053a0; }
   @media (min-width: 992px) {
-    #secondaryPage .page-title {
+    .secondary .page-title {
       height: 170px; } }
-  #secondaryPage .page-title h1 {
+  .secondary .page-title h1 {
     color: #fff;
     margin-bottom: 0;
     padding: 0.75rem 0; }
     @media (min-width: 768px) {
-      #secondaryPage .page-title h1 {
+      .secondary .page-title h1 {
         padding-top: 6rem;
         padding-bottom: 1.5rem; } }
-  #secondaryPage .page-title .route-number {
+  .secondary .page-title .route-number {
     color: #ffd200;
     text-transform: uppercase; }
 
-#secondaryPage .page-content .secondary-hero {
+.page-content h2 {
+  margin-bottom: 15px; }
+  @media (min-width: 992px) {
+    .page-content h2 {
+      margin-bottom: 30px; } }
+  @media (min-width: 992px) {
+    .page-content h2 .icon {
+      width: 3rem;
+      height: 3rem;
+      margin-right: 0.5rem; } }
+
+.page-content .secondary-hero {
   width: 100%;
   height: auto;
   margin-bottom: 15px; }
   @media (min-width: 992px) {
-    #secondaryPage .page-content .secondary-hero {
+    .page-content .secondary-hero {
       margin-bottom: 30px; } }
-
-@media (min-width: 992px) {
-  #secondaryPage .page-content h2 .icon {
-    width: 3rem;
-    height: 3rem;
-    margin-right: 0.5rem; } }
-
-#secondaryPage .page-content .btn-outline-secondary {
-  width: 17.5rem; }
-  @media (min-width: 992px) {
-    #secondaryPage .page-content .btn-outline-secondary {
-      width: 23.125rem; } }
 
 .route .schedule-days h3 {
   font-weight: normal !important; }
@@ -8288,7 +8286,7 @@ footer.section {
   max-width: 23.125rem;
   text-transform: capitalize; }
 
-section.section > .container .schedule-days button.active {
+article.striped > .container .schedule-days button.active {
   color: #0097d0 !important;
   background-color: #dbf4fd !important;
   border: 2px solid #0097d0 !important; }
@@ -8590,54 +8588,27 @@ input:focus,
 
 .btn-outline-white {
   position: relative;
-  color: #fff;
-  background-color: transparent;
   border: 2px solid #fff;
-  font-weight: 700;
-  margin-right: 0; }
-  @media (min-width: 992px) {
-    .btn-outline-white {
-      font-size: 23px !important;
-      font-size: 1.4375rem !important;
-      width: 270px;
-      padding: 0.75rem; } }
-  .btn-outline-white:hover, .btn-outline-white:focus {
-    background-color: #fff;
-    color: #0097d0;
-    border: 2px solid #fff; }
-    .btn-outline-white:hover .inactive, .btn-outline-white:focus .inactive {
-      display: none; }
-    .btn-outline-white:hover .active, .btn-outline-white:focus .active {
-      display: -webkit-inline-box;
-      display: inline-flex; }
-  .btn-outline-white .inactive {
-    display: -webkit-inline-box;
-    display: inline-flex; }
-  .btn-outline-white .active {
-    display: none; }
-  @media (min-width: 768px) {
-    .btn-outline-white {
-      width: 17.5rem;
-      padding: 0.75rem; } }
-  .btn-outline-white .icon {
+  color: #fff;
+  padding: 0.688rem 0;
+  width: 270px; }
+  .btn-outline-white::after {
     position: absolute;
-    margin-right: 0; }
+    content: "";
+    background-image: url("../../../../../img/svg/arrow-right-white.svg");
+    background-repeat: no-repeat;
+    top: 0.65rem;
+    right: 0.75rem;
+    width: 1.25rem;
+    height: 1.25rem; }
     @media (min-width: 992px) {
-      .btn-outline-white .icon {
-        top: 1.25rem;
-        right: 0.75rem;
-        width: 1.25rem !important;
-        height: 1.25rem !important; } }
-  .btn-outline-white .arrow-right-blue,
-  .btn-outline-white .arrow-right-white {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.75rem; }
-    @media (min-width: 768px) {
-      .btn-outline-white .arrow-right-blue,
-      .btn-outline-white .arrow-right-white {
-        top: 1.25rem;
-        right: 0.75rem; } }
+      .btn-outline-white::after {
+        top: 1.25rem; } }
+  .btn-outline-white:hover {
+    color: #0097d0;
+    background-color: #fff; }
+    .btn-outline-white:hover::after {
+      background-image: url("../../../../../img/svg/arrow-right-blue.svg"); }
 
 .button-container-icon-right {
   position: relative;
@@ -8676,7 +8647,6 @@ input:focus,
 
 .button-container-icon-left {
   position: relative;
-  text-align: center;
   margin-bottom: 15px; }
   @media (min-width: 992px) {
     .button-container-icon-left {
@@ -9017,13 +8987,13 @@ input:focus,
     .secondary-nav .nav-item:last-child {
       padding-right: 0; }
 
-#secondaryPage .page-content .nav-tabs {
+.page-content .nav-tabs {
   border-bottom: 1px solid #e3e3e0;
   margin-bottom: 15px; }
   @media (min-width: 992px) {
-    #secondaryPage .page-content .nav-tabs {
+    .page-content .nav-tabs {
       margin-bottom: 30px; } }
-  #secondaryPage .page-content .nav-tabs .nav-item .nav-link.active {
+  .page-content .nav-tabs .nav-item .nav-link.active {
     border-top: 1px solid #e3e3e0;
     border-right: 1px solid #e3e3e0;
     border-bottom: 2px solid #fff;

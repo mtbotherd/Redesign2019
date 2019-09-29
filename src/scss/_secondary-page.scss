@@ -1,7 +1,7 @@
-#secondaryPage {
-  .page-title {
-    background-color: $blue;
+.secondary {
+  background-color: $blue;
 
+  .page-title {
     @include media-breakpoint-up(lg) {
       height: 170px;
     }
@@ -20,40 +20,6 @@
     .route-number {
       color: $yellow;
       text-transform: uppercase;
-    }
-  }
-
-  .page-content {
-    .secondary-hero {
-      width: 100%;
-      height: auto;
-      margin-bottom: 15px;
-
-      @include media-breakpoint-up(lg) {
-        margin-bottom: 30px;
-      }
-    }
-    h2 {
-      //   @include media-breakpoint-up(lg) {
-      //     margin-bottom: 2rem;
-      //   }
-
-      .icon {
-        @include media-breakpoint-up(lg) {
-          width: 3rem;
-          height: 3rem;
-          margin-right: 0.5rem;
-        }
-      }
-    }
-
-    .btn-outline-secondary {
-      width: 17.5rem;
-
-      @include media-breakpoint-up(lg) {
-        width: 23.125rem;
-        //padding: 1rem;
-      }
     }
   }
 }

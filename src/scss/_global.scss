@@ -1,6 +1,9 @@
 /***************************************************************
     Application styles
 ***************************************************************/
+body {
+  overflow-x: hidden;
+}
 // Reset default font size for tablet and up. Base default (mobile first) is set to 14px.
 @media (max-width: 767) {
   body {
@@ -110,6 +113,14 @@ p.lead {
   }
 }
 
+.full-width {
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
+  overflow-x: hidden;
+}
+
 .reverse {
   &:nth-child(odd) {
     background-color: $gray-100;
@@ -126,7 +137,7 @@ p.lead {
 }
 
 .cyan-bg {
-  background-color: $cyan;
+  background-color: $cyan !important;
   color: $white;
 }
 
