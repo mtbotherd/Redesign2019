@@ -1,16 +1,25 @@
 .utilities {
-    @include media-breakpoint-up(xl) {
-        margin-left: auto;
-        padding-left: 1.25rem;
-        border-left: 1px solid $border-color;
-    }
+  @include media-breakpoint-up(xl) {
+    margin-left: auto;
+    padding-left: 1.25rem;
+    border-left: 1px solid $border-color;
+  }
 
-    .nav-link {
-        .icon {
-            @include media-breakpoint-up(md) {
-                width: 1.5rem !important;
-                height: 1.5rem !important;
-            }
-        }
+  // Navbar - rotate icon on show/hide
+  .dropdown .active {
+    transform: none;
+  }
+
+  .dropdown.show .active {
+    transform: none;
+  }
+
+  .nav-link {
+    .icon {
+      @include media-breakpoint-up(md) {
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+      }
     }
+  }
 }

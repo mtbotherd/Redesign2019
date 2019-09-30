@@ -59,7 +59,10 @@ a.skip-to-content {
 
       .dropdown-toggle {
         &::after {
-          border: none !important; // Removed Bootstraps default arrow.
+          // Reset bootstrap styles for .dropdown-toggle::after
+          border: none;
+          display: block;
+          margin-left: 0;
         }
       }
 

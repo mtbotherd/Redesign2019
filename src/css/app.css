@@ -7899,6 +7899,14 @@ abbr {
     padding-left: 1.25rem;
     border-left: 1px solid #e3e3e0; } }
 
+.utilities .dropdown .active {
+  -webkit-transform: none;
+          transform: none; }
+
+.utilities .dropdown.show .active {
+  -webkit-transform: none;
+          transform: none; }
+
 @media (min-width: 768px) {
   .utilities .nav-link .icon {
     width: 1.5rem !important;
@@ -7948,7 +7956,9 @@ a.skip-to-content {
   color: #fff; }
 
 #header .navbar-nav .nav-item .dropdown-toggle::after {
-  border: none !important; }
+  border: none;
+  display: block;
+  margin-left: 0; }
 
 #header .navbar-nav .nav-item .dropdown-menu {
   background-color: #f5f5f4; }
