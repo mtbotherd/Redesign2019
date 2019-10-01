@@ -39,11 +39,9 @@ $(function() {
   
 	$(".location-toggler").click(function() {
 	  tmp = inputs[0].value;
-	  loctmp = TRIPFROMLOCATION;
 	  inputs[0].value = inputs[1].value;
-	  TRIPFROMLOCATION = TRIPTOLOCATION;
 	  inputs[1].value = tmp;
-	  TRIPTOLOCATION = loctmp;
+	  AutocompleteAddress.exchangeValues("fromLocation", "toLocation");
 	});
   
 	// time & date inputs

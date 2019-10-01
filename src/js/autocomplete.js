@@ -124,11 +124,17 @@ var AutocompleteAddress = (function($, window, document, undefined) {
   var getChoice = function(/*string*/ inputDiv) {
     return inputResults[inputDiv];
   };
+  var exchangeValues = function(inputDiv1, inputDiv2) {
+    let t = inputResults[inputDiv1];
+    inputResults[inputDiv1] = inputResults[inputDiv2];
+    inputResults[inputDiv2] = t;
+  }
 
   return {
     init: init,
     getChoice: getChoice,
-    getUserLocation: getUserLocation
+    getUserLocation: getUserLocation,
+    exchangeValues: exchangeValues
   };
 })(jQuery, window, document);
 
