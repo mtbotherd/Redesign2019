@@ -116,17 +116,25 @@ var AutocompleteAddress = (function($, window, document, undefined) {
           .fail(function(e) {
             console.warn("Call to FindCandidate failed for: " + suggest.value);
           });
+
       }
     });
+
   };
   var getChoice = function(/*string*/ inputDiv) {
     return inputResults[inputDiv];
   };
+  var exchangeValues = function(inputDiv1, inputDiv2) {
+    let t = inputResults[inputDiv1];
+    inputResults[inputDiv1] = inputResults[inputDiv2];
+    inputResults[inputDiv2] = t;
+  }
 
   return {
     init: init,
     getChoice: getChoice,
-    getUserLocation: getUserLocation
+    getUserLocation: getUserLocation,
+    exchangeValues: exchangeValues
   };
 })(jQuery, window, document);
 
@@ -144,19 +152,17 @@ var AutocompleteAddress = (function($, window, document, undefined) {
 // For the trip planner, both TO and FROM need be set
 // for validation.
 //
-AutocompleteAddress.getUserLocation().then(function(userPos){
+AutocompleteAddress.getUserLocation()
+.then(function(userPos){
   AutocompleteAddress.init("fromLocation", /*UTMout*/ true, userPos);
   AutocompleteAddress.init("toLocation", /*UTMout*/ true, userPos);
   // This one loads the Search field in the schedules-maps page -- the search result
   // automatically sets the map to zoom to the requested location
-  AutocompleteAddress.init(
-    "schedulesMaps",
-    /*UTMout*/ false,
-    userPos,
-    /*callback*/ (function() {
-      var choice = AutocompleteAddress.getChoice("schedulesMaps");
+  AutocompleteAddress.init("interactiveMapSearch",/*UTMout*/ false,userPos,
+    function() {
+      var choice = AutocompleteAddress.getChoice("interactiveMapSearch");
       TRIM.centerMarkerAtPoint(choice.location.x, choice.location.y);
-    })
+    }
   );
 })
 .fail(function(err) {
@@ -165,13 +171,10 @@ AutocompleteAddress.getUserLocation().then(function(userPos){
   AutocompleteAddress.init("toLocation", /*UTMout*/ true, /*userPos*/null);
   // This one loads the Search field in the schedules-maps page -- the search result
   // automatically sets the map to zoom to the requested location
-  AutocompleteAddress.init(
-    "schedulesMaps",
-    /*UTMout*/ false,
-    /*userPos*/ null,
-    /*callback*/ (function() {
-      var choice = AutocompleteAddress.getChoice("schedulesMaps");
+  AutocompleteAddress.init("interactiveMapSearch",/*UTMout*/ false,/*userPos*/ null,
+    function() {
+      var choice = AutocompleteAddress.getChoice("interactiveMapSearch");
       TRIM.centerMarkerAtPoint(choice.location.x, choice.location.y);
-    })
+    }
   );
 });
