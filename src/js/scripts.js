@@ -55,4 +55,7 @@ $(function() {
 		$(".time-elements").slideUp();
 	  }
 	});
+
+	// Bootstrap Popover with HTML
+	$('[data-toggle="popover"]').popover();
 });

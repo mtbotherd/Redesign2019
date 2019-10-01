@@ -7676,6 +7676,9 @@ p.lead {
 .reverse:nth-child(even) {
   background-color: #fff; }
 
+.cyan {
+  color: #0097d0; }
+
 .blue-bg {
   background-color: #0053a0;
   color: #fff; }
@@ -7686,6 +7689,13 @@ p.lead {
 
 .gray-100 {
   background-color: #f5f5f4; }
+
+.green-bg {
+  background-color: #008244;
+  color: #fff; }
+
+.yellow-bg {
+  background-color: #ffd200 !important; }
 
 .caps {
   text-transform: uppercase; }
@@ -7892,6 +7902,9 @@ abbr {
 
 .how-to-ride-bg {
   background-image: url("../../../../../img/how-to-ride.jpg"); }
+
+.fares-bg {
+  background-image: url("../../../../../img/fares.jpg"); }
 
 @media (min-width: 1200px) {
   .utilities {
@@ -8420,6 +8433,59 @@ tr.alt th.row-header {
 
 #howToRide h2 {
   margin-bottom: 0 !important; }
+
+#fares .card {
+  margin-bottom: 15px; }
+  @media (min-width: 992px) {
+    #fares .card {
+      margin-bottom: 30px; } }
+  @media (min-width: 992px) {
+    #fares .card .card-header {
+      height: 165px; } }
+  #fares .card .card-body {
+    background-color: #fff; }
+    @media (min-width: 992px) {
+      #fares .card .card-body {
+        padding-right: 5rem;
+        padding-left: 5rem; } }
+    #fares .card .card-body h3 {
+      margin-bottom: 1rem; }
+  #fares .card .card-footer {
+    background-color: #fff; }
+
+#fares .btn-outline-primary {
+  width: 17.5rem; }
+  @media (min-width: 992px) {
+    #fares .btn-outline-primary {
+      width: 22rem; } }
+
+#fares .accordion .card {
+  margin-bottom: 0; }
+
+#fares .accordion .card-header {
+  height: auto; }
+  #fares .accordion .card-header .icon {
+    width: 2.25rem;
+    height: 2.25rem; }
+    @media (min-width: 992px) {
+      #fares .accordion .card-header .icon {
+        width: 2.5rem;
+        height: 2.5rem; } }
+  #fares .accordion .card-header .chevron-down-blue {
+    width: 1rem;
+    height: 1rem; }
+  #fares .accordion .card-header .northstar-station-fares .northstar-oneway-fare {
+    width: 160px; }
+    @media (min-width: 992px) {
+      #fares .accordion .card-header .northstar-station-fares .northstar-oneway-fare {
+        width: 920px; } }
+
+#fares .accordion .card-body {
+  padding: 1.25rem; }
+  #fares .accordion .card-body .h3 {
+    font-weight: 300 !important; }
+  #fares .accordion .card-body .h4 {
+    margin-bottom: 0.25rem; }
 
 .accordion {
   margin-bottom: 15px; }
