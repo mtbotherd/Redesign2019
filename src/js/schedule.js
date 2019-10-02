@@ -28,7 +28,7 @@
         Alerts.getAlertsForRoute(routeAbbr);
 
         $('.schedule-days>button').on('click', scheduleSelect);
-        $('#maplink').on('click', function () { window.location.href = $(this).data('link'); });
+        $('#maplink').on('click', function () { window.location.href = '/imap/' + $(this).data('link'); });
         $('#printlink').on('click', function () { window.print(); });
 
         if ($("#routeBOM").attr("maptype") === "BOM") {

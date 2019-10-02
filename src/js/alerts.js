@@ -85,7 +85,7 @@ var Alerts = (function ($, window, document, undefined) {
         alertsByRoute.forEach(function (route, index) {
             if (routeAbbr !== route.route_id) return;
 
-            var alertList = $('<div/>', { class: 'border' });
+            var alertList = $('<div/>', { class: 'border p-4' });
 
             route.alert_index.forEach(function (alertIndex, idx) {
                 alertList.append($('<p/>').append($('<a/>', { href: '#', id: 'this' + alertIndex + idx }).attr('data-index', alertIndex)
