@@ -8439,9 +8439,14 @@ tr.alt th.row-header {
   @media (min-width: 992px) {
     #fares .card {
       margin-bottom: 30px; } }
-  @media (min-width: 992px) {
-    #fares .card .card-header {
-      height: 165px; } }
+  #fares .card .card-header {
+    padding: 1.344rem 1.25rem; }
+    @media (min-width: 992px) {
+      #fares .card .card-header {
+        height: 165px;
+        padding: 1.625rem 1.25rem; } }
+    #fares .card .card-header [data-toggle="popover"] {
+      cursor: pointer; }
   #fares .card .card-body {
     background-color: #fff; }
     @media (min-width: 992px) {

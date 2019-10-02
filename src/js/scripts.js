@@ -55,5 +55,8 @@ $(function() {
 	});
 
 	// Bootstrap Popover with HTML
-	$('[data-toggle="popover"]').popover();
+	$('[data-toggle="popover"]').popover({
+		html: true,
+		trigger: 'click'
+	});
 });

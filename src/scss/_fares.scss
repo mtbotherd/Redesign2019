@@ -6,8 +6,15 @@
       margin-bottom: 30px;
     }
     .card-header {
+      padding: 1.344rem 1.25rem;
+
       @include media-breakpoint-up(lg) {
         height: 165px;
+        padding: 1.625rem 1.25rem;
+      }
+
+      [data-toggle="popover"] {
+        cursor: pointer;
       }
     }
     .card-body {
