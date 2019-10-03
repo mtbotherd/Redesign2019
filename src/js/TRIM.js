@@ -512,7 +512,7 @@ var TRIM = (function ($, window, document, undefined) {
     var geoLocate = function () {
         GEOLOCATE.locate();
     };
-    var centerMarkerAtPoint = function (x, y) {  // x = longitude, y = latitude
+    var centerMarkerAtPoint = function (x, y, zoomLevel) {  // x = longitude, y = latitude
         MAP.graphics.clear();
         require([
             "esri/graphic",
@@ -526,10 +526,10 @@ var TRIM = (function ($, window, document, undefined) {
                 //var stopSymbol = new PictureMarkerSymbol('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFQjBBNTJGNjgyMTgxMUUzOUU5OUI1RjJEQjVCRkE0QyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFQjk3MjdFNDgyMTgxMUUzOUU5OUI1RjJEQjVCRkE0QyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkVCMEE1MkY0ODIxODExRTM5RTk5QjVGMkRCNUJGQTRDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkVCMEE1MkY1ODIxODExRTM5RTk5QjVGMkRCNUJGQTRDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Mp+ygwAAA2VJREFUeNqsVs9PU0EQ3vejVLEoUhAQUOMFCIn1YVJ6MHLzRk3gbEpMkIjGu/8Fh1ZN0JrGM2n0wMGjF8REbKuJ8WJEQ4vFKAGFltI+Z5rZZljfg4JO8uX1bd/ut7M7881owt00lyf/bbMxm73bboua+xBJ6Oy3SqiiomxiT0K+qM5gKO98wQqhTE+Nno7emg5kGiMxFRjMW8HIdhSU2QZ2kZoOZAbBA2hQwEltRlYCbDOUmCO7SNUjlZ7h4l7AEcBRenojkUjP2NjYYHt7ewd+nM/nc8lk8k08Hv8CrwUFwo1UHqFJCx8HnAKcAwwAgtPT03ez2exioVCwEa8//6hCvudyucVoNHobvrUAvYBugB/go40b8hrUO2sg0kZAE2J+fn7Ssqzxl0sbIvpqRTz/+HPX1sO9J8WdUIe4crZJZDKZeDAYvA/Dvwhb5G2J7tTWWOSZCtkJILuFZBPPPomn6e9iL7seaBUz186LdDodHxoaisHQOpFu0r1Wg8lggWKS+3hnPjjGyyMjI/fqIUPLfNsUS2tFMTHcb3V2dmbm5uayLFplxNqcDI/zGN1hM9zZw/cbHutq4oM4iL2I9IsB33aqq6vrJryukac1L3WWFrXcw2hsaWmx8M4OajjH7/dfHB8f7yEnPCxoNF1JiSophj4OqAFSj8k5o6Ojl5S81YWLRuqYZ5mVTXFYw7ltbW2nneRQd/jeFv/fbE6oKn0FFeRCR+OhV8e5q6urWaa1tdKlO6j+DsqVTOqDmpwzOzu7yIS8wmXNYCojk74Z5Grm3br5L2kxqaRFUaaFdLdMO8J8KcAOH6NcoYLUa/gtzoETekSSVlS9NJTyVIsqUIp8OBz2TAz3WaggqCT1SFsqlXoCKZGEod/Ms5K8MrUOekjeGknpfQsLC1OBQOBGPeKNZKFQ6AEMbzAdLTLxrvBqbxCZj0pLN5WawVgsNrW8vPzWrTzhf1SeMNn7AGcArRQPXt4paA5Hyj2VBbhahFGuUEEoqauhj9GYSCS+0p1tsZIkPdvhqaE59DS6Q4vhVdoMnVVy2WIUCbLF4MdYcWoxbKUdUBc0mRBzwjJrnkpKI2WryqW59KWqtzrLV11RKN4mltlvx8ZYq6Pr1h2ewqERrrg0xmI/D/frwt3E2XZo/f+yPwIMACLRpTLsc+73AAAAAElFTkSuQmCC', 30, 30);
                 // MyGPS_location.png the blue dot
                 var stopSymbol = new PictureMarkerSymbol('/img/svg/map-icons/pin-red.svg', 20, 24);
-                stopSymbol.setOffset(0, 10);
+                stopSymbol.setOffset(0, 15);
                 g.setSymbol(stopSymbol);
                 MAP.graphics.add(g);
-                MAP.centerAt(p);
+                MAP.centerAndZoom(p, zoomLevel);
             });
     };
     var toggleLayer = function (/*string*/layer) {
@@ -1244,13 +1244,13 @@ var TRIM = (function ($, window, document, undefined) {
                     parkAndRidesLayer.setImageFormat("svg");
                     parkAndRidesLayer.setVisibleLayers([8]);
 
-                    var allRoutesLayer = new ArcGISDynamicMapServiceLayer(TRIM_MapServer,
-                        {
-                            id: "allRoutes",
-                            opacity: 0.35
-                        });
-                    allRoutesLayer.setImageFormat("svg");
-                    allRoutesLayer.setVisibleLayers([5]);
+                    //var allRoutesLayer = new ArcGISDynamicMapServiceLayer(TRIM_MapServer,
+                    //    {
+                    //        id: "allRoutes",
+                    //        opacity: 0.35
+                    //    });
+                    //allRoutesLayer.setImageFormat("svg");
+                    //allRoutesLayer.setVisibleLayers([5]);
 
                     var routestopLayer = new ArcGISDynamicMapServiceLayer(TRIM_MapServer,
                         {
@@ -1294,13 +1294,13 @@ var TRIM = (function ($, window, document, undefined) {
                         opacity: 0.6,
                         visible: false,
                         maxScale: 1200,
-                        minScale: 10000
+                        minScale: 25000
                     });
 
                     var mapLayers = [];
                     if (mapType === "full") {
                         mapLayers = [
-                            allRoutesLayer,
+                            //allRoutesLayer,
                             allStopLayer,
                             goToLayer,
                             parkAndRidesLayer,
@@ -1316,7 +1316,7 @@ var TRIM = (function ($, window, document, undefined) {
                         ];
                     } else if (mapType === "trip") {
                         mapLayers = [
-                            allRoutesLayer,
+                            //allRoutesLayer,
                             allStopLayer,
                             tripLayer,
                             tripStopLayer,
@@ -1330,7 +1330,55 @@ var TRIM = (function ($, window, document, undefined) {
             );
         }).promise();
     };
-    var fullPageSetup = function (mapDiv, route) {
+    var findStop = function (stopID) {
+        var queryWhere = "siteid = " + stopID;
+        return $.Deferred(function (dfd) {
+            $.ajax({
+                type: "get",
+                url: "https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/1/query",
+                data: {
+                    where: queryWhere
+                    , returnGeometry: true
+                    , outFields: "site_on, site_at, ROUTES, ROUTEDIRS"
+                    , outSR: 4326
+                    , f: "json"
+                },
+                dataType: "json"
+            })
+                .done(function (r) {
+                    if (r.error) {
+                        console.warn("Stop lookup failed");
+                        dfd.reject();
+                    } else {
+                        // convert the WM X, Y to Lat/Lng
+                        if (r.features.length > 0) {
+                            var feature = r.features[0];
+                            let x = feature.geometry.x;
+                            let y = feature.geometry.y;
+                            dfd.resolve(x, y);
+                        }
+                        else {
+                            console.warn("stops query returned no results: " + stopID);
+                            dfd.reject();
+                        }
+                    }
+                })
+                .fail(function () {
+                    console.warn("Stop service failed");
+                    dfd.reject();
+                });
+        }).promise();
+    };
+    // ---------------------------------------------------------------
+    // This runs from iMap/InteractiveMap.aspx
+    // and uses this routing: "/imap/<route>/<stop>
+    // where <route> is required and a valid transit route number or zero
+    // and <stop> is optional and is a valid stop number
+    // Page will open and show the interactive map. If route provided,
+    // the route line will draw and route stops will be highlighted.
+    // If the stop provided, the map will mark the stop and zoom there.
+    // ----------------------------------------------------------------
+    var fullPageSetup = function (mapDiv, route, stop) {
         var h = $(window).height();
         if (h > 600) {
             $('.map').css({ 'height': h - 240 });
@@ -1339,6 +1387,23 @@ var TRIM = (function ($, window, document, undefined) {
             if (route) {
                 drawRoutes([route], true);
                 drawRouteStops([route]);
+                if (stop) {
+                    findStop(stop)
+                        .then(function (x, y) {
+                            centerMarkerAtPoint(x, y,/*zoomLevel*/ 17);
+                        }).fail(function () {
+                            console.warn('Requested stop ' + stop + ' not found.');
+                        });
+                }
+            } else {
+                if (stop) {
+                    findStop(stop)
+                        .then(function (x, y) {
+                            centerMarkerAtPoint(x, y,/*zoomLevel*/ 17);
+                        }).fail(function () {
+                            console.warn('Requested stop ' + stop + ' not found.');
+                        });
+                }
             }
         });
     };
@@ -1503,7 +1568,7 @@ var BOM = (function ($, window, document, undefined) {
                         //textSym.setColor( new Color( [88, 211, 255, 1] ) );
                         textSym.setText("BLUE");
                     } else
-                        if (route === "902") {
+                        if (route === "902" || route === "992") {
                             //textSym.setColor( new Color( [0, 255, 0, 1] ) );
                             textSym.setText("GRN");
                         } else
@@ -2097,11 +2162,21 @@ var BOM = (function ($, window, document, undefined) {
             }
         }
 
-    };
+    }; 
+    // ===================================================================
+    // This runs from iMap/ShowMyBus.aspx
+    // and uses the routing /imap/<stop>/<route> where
+    // <stop> is required and is either a valid stop number or zero
+    // <route> is optional. If stop is zero and the route number valid, 
+    // it display the route line and shows all bus locations on route.
+    // If stop is a valid stop number, it will zoom to the stop and 
+    // show just the buses for the specified route, or busses for all
+    // routes that service that stop.
+    // ====================================================================
     var fullPageBOM = function (/*string*/mapDiv,/*string*/stop,/*string*/route) {
         var h = $(window).height();
         if (h > 600) {
-            $('.map').css({ 'height': h - 200 });
+            $('.map').css({ 'height': h - 210 });
         }
         var parms = {
             stopID: stop,
@@ -2129,93 +2204,93 @@ var BOM = (function ($, window, document, undefined) {
 
 })(jQuery, window, document);
 
-$(function() {
-	  // This triggers planning a new trip when the
-	  // button on the Trip Planner page is clicked
-	  // TODO: Test for errors in the result
-	  // TODO: Test for FROM address = TO address
-	  // TODO: Trigger display of 'No Trips Found' message if error occurs
-	  //
-	  $('button[name="planMyTrip"]').click(function () {
+$(function () {
+    // This triggers planning a new trip when the
+    // button on the Trip Planner page is clicked
+    // TODO: Test for errors in the result
+    // TODO: Test for FROM address = TO address
+    // TODO: Trigger display of 'No Trips Found' message if error occurs
+    //
+    $('button[name="planMyTrip"]').click(function () {
         var tripFromLocation = AutocompleteAddress.getChoice('fromLocation');
         var tripToLocation = AutocompleteAddress.getChoice('toLocation');
-		if (tripFromLocation && tripToLocation) {
-		  // set default trip plan value here and override from inputs
-		  // TODO find all the input source for the parameters and format them correctly for the trip planner
-		  let tripProperties = {
-			fromLocation: tripFromLocation,
-			toLocation: tripToLocation,
-			arrdep: "Depart",
-			walkdist: "1.0", 
-			minimize: "Time",
-			accessible: "False", 
-			datetime: "10/10/2019 07:30:00 AM" 
-		  }
-		  TripPlan.newTrip(tripProperties)
-			  .then(function () {
-				let plan = TripPlan.getTrip();
-				console.log("Have a Plan");
-				console.dir(plan);
-			  })
-			.fail(function(err) {
-				  console.warn("Trip Plan Failed: " + err.Message);
-				  console.dir(err);
-			  });
-		}
-	  });
-	
-	  // This loads the map into the resulting Trip Plan page.
-	  // Once the map loads, trips can be displayed.
-	  //
-	  // TODO: this is currently in DEMO mode.
-	  // Need to add routines that trigger when user
-	  // clicks the 'trip summary' button to show on the
-	  // map just that trip option.
-	  //
-	  // Format for the call:
-	  // TRIM.drawTrip(<trip option>, <entire trip plan>, <zoom to trip>)
-	  if ($("#tripPlanMap").attr("maptype") === "trip") {
-		TRIM.init("tripPlanMap").then(function() {
-		  let tripPlan = TripPlan.getTrip();
-		  if (tripPlan) {
-			if (tripPlan.PlannerItin) {
-			  if (tripPlan.PlannerItin.PlannerOptions.length > 0) {
-				console.log("Draw TripPlan 0");
-				TRIM.drawTrip(0, tripPlan, /*zoom*/ true);
-			  }
-			  if (tripPlan.PlannerItin.PlannerOptions.length > 1) {
-				setTimeout(function() {
-				  console.log("Draw TripPlan 1");
-				  TRIM.drawTrip(1, tripPlan, /*zoom*/ true);
-				}, 5000);
-			  }
-			  if (tripPlan.PlannerItin.PlannerOptions.length > 2) {
-				setTimeout(function() {
-				  console.log("Draw TripPlan 2");
-				  TRIM.drawTrip(2, tripPlan, /*zoom*/ true);
-				}, 10000);
-			  }
-			}
-		  }
-		});
-	  }
-	
-	  // ----------------------------------------------------
-	  // schedules-maps
-	  // ----------------------------------------------------
-	  if ($("#TRIMap").attr("maptype") === "full") {
-		TRIM.init("TRIMap").then(function() {
-		  TRIM.geoLocate();
-		});
-	  }
-	  $("#stopsStations").click(function() {
-		TRIM.toggleLayer("allStops");
-	  });
-	  $("#parkRide").click(function() {
-		TRIM.toggleLayer("parkAndRides");
-	  });
-	  $("#niceRide").click(function() {
-		TRIM.toggleLayer("niceRides");
-	  });
+        if (tripFromLocation && tripToLocation) {
+            // set default trip plan value here and override from inputs
+            // TODO find all the input source for the parameters and format them correctly for the trip planner
+            let tripProperties = {
+                fromLocation: tripFromLocation,
+                toLocation: tripToLocation,
+                arrdep: "Depart",
+                walkdist: "1.0",
+                minimize: "Time",
+                accessible: "False",
+                datetime: "10/10/2019 07:30:00 AM"
+            };
+            TripPlan.newTrip(tripProperties)
+                .then(function () {
+                    let plan = TripPlan.getTrip();
+                    console.log("Have a Plan");
+                    console.dir(plan);
+                })
+                .fail(function (err) {
+                    console.warn("Trip Plan Failed: " + err.Message);
+                    console.dir(err);
+                });
+        }
+    });
 
-})
+    // This loads the map into the resulting Trip Plan page.
+    // Once the map loads, trips can be displayed.
+    //
+    // TODO: this is currently in DEMO mode.
+    // Need to add routines that trigger when user
+    // clicks the 'trip summary' button to show on the
+    // map just that trip option.
+    //
+    // Format for the call:
+    // TRIM.drawTrip(<trip option>, <entire trip plan>, <zoom to trip>)
+    if ($("#tripPlanMap").attr("maptype") === "trip") {
+        TRIM.init("tripPlanMap").then(function () {
+            let tripPlan = TripPlan.getTrip();
+            if (tripPlan) {
+                if (tripPlan.PlannerItin) {
+                    if (tripPlan.PlannerItin.PlannerOptions.length > 0) {
+                        console.log("Draw TripPlan 0");
+                        TRIM.drawTrip(0, tripPlan, /*zoom*/ true);
+                    }
+                    if (tripPlan.PlannerItin.PlannerOptions.length > 1) {
+                        setTimeout(function () {
+                            console.log("Draw TripPlan 1");
+                            TRIM.drawTrip(1, tripPlan, /*zoom*/ true);
+                        }, 5000);
+                    }
+                    if (tripPlan.PlannerItin.PlannerOptions.length > 2) {
+                        setTimeout(function () {
+                            console.log("Draw TripPlan 2");
+                            TRIM.drawTrip(2, tripPlan, /*zoom*/ true);
+                        }, 10000);
+                    }
+                }
+            }
+        });
+    }
+
+    // ----------------------------------------------------
+    // schedules-maps
+    // ----------------------------------------------------
+    if ($("#TRIMap").attr("maptype") === "full") {
+        TRIM.init("TRIMap").then(function () {
+            //TRIM.geoLocate();
+        });
+    }
+    $("#stopsStations").click(function () {
+        TRIM.toggleLayer("allStops");
+    });
+    $("#parkRide").click(function () {
+        TRIM.toggleLayer("parkAndRides");
+    });
+    $("#niceRide").click(function () {
+        TRIM.toggleLayer("niceRides");
+    });
+
+});
