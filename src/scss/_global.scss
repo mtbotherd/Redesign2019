@@ -46,7 +46,7 @@ h1,
 .h1 {
   @include font-size(32);
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     @include font-size(42);
   }
 
@@ -101,11 +101,11 @@ p.lead {
 // Application global styles
 .section {
   padding-top: 30px;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
 
   @include media-breakpoint-up(lg) {
     padding-top: 60px;
-    padding-bottom: 75px;
+    padding-bottom: 60px;
   }
 
   &:nth-child(even) {

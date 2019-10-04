@@ -7606,7 +7606,7 @@ h4,
 h1, .h1 {
   font-size: 32px !important;
   font-size: 2rem !important; }
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     h1, .h1 {
       font-size: 42px !important;
       font-size: 2.625rem !important; } }
@@ -7655,11 +7655,11 @@ p.lead {
 
 .section {
   padding-top: 30px;
-  padding-bottom: 60px; }
+  padding-bottom: 30px; }
   @media (min-width: 992px) {
     .section {
       padding-top: 60px;
-      padding-bottom: 75px; } }
+      padding-bottom: 60px; } }
   .section:nth-child(even) {
     background-color: #f5f5f4; }
 
@@ -7906,6 +7906,9 @@ abbr {
 .fares-bg {
   background-image: url("../../../../../img/fares.jpg"); }
 
+.goto-card-bg {
+  background-image: url("../../../../../img/goto-card.jpg"); }
+
 @media (min-width: 1200px) {
   .utilities {
     margin-left: auto;
@@ -7993,8 +7996,8 @@ a.skip-to-content {
   width: 100%; }
 
 #interactiveMap .map-container {
-  height: 600px; }
-  @media (min-width: 1200px) {
+  height: 400px; }
+  @media (min-width: 992px) {
     #interactiveMap .map-container {
       width: 100%;
       height: 788px; } }
@@ -8246,8 +8249,6 @@ footer.section {
   left: 0;
   background-color: #fff;
   color: #8a8b8a;
-  font-size: 36px !important;
-  font-size: 2.25rem !important;
   opacity: 0.9;
   margin-bottom: 0;
   padding: 1rem;
@@ -8255,8 +8256,6 @@ footer.section {
   @media (min-width: 992px) {
     .primary h1 {
       bottom: 45px;
-      font-size: 45px !important;
-      font-size: 2.8125rem !important;
       padding: 1.125rem; } }
 
 .secondary {
@@ -8524,6 +8523,61 @@ footer.section {
   #fares .accordion .card-body .h4 {
     margin-bottom: 0.25rem; }
 
+#schedulesMaps .icon {
+  width: 2.5rem;
+  height: 2.5rem; }
+
+#schedulesMaps .search-gray {
+  width: 1rem;
+  height: 1rem; }
+
+#schedulesMaps .schedules-by-route .input-group {
+  margin-left: auto; }
+  @media (min-width: 992px) {
+    #schedulesMaps .schedules-by-route .input-group {
+      margin: 0 auto; } }
+  #schedulesMaps .schedules-by-route .input-group::before {
+    content: "";
+    background-image: url("../../../../../img/svg/date-time-color.svg");
+    background-repeat: no-repeat;
+    background-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.5rem; }
+    @media (min-width: 992px) {
+      #schedulesMaps .schedules-by-route .input-group::before {
+        background-size: 3rem;
+        width: 3rem;
+        height: 3rem; } }
+
+#schedulesMaps .popular-routes {
+  margin-bottom: 1rem; }
+  #schedulesMaps .popular-routes .routes {
+    margin-right: 1.12rem;
+    margin-bottom: 1.12rem; }
+    @media (min-width: 992px) {
+      #schedulesMaps .popular-routes .routes {
+        margin-right: 0.48rem;
+        margin-bottom: 0.48rem; } }
+    #schedulesMaps .popular-routes .routes:nth-child(4n) {
+      margin-right: 0; }
+      @media (min-width: 992px) {
+        #schedulesMaps .popular-routes .routes:nth-child(4n) {
+          margin-right: 0.48rem; } }
+    @media (min-width: 992px) {
+      #schedulesMaps .popular-routes .routes:nth-child(9n) {
+        margin-right: 0; } }
+
+#schedulesMaps .metro-brt .btn-outline-secondary,
+#schedulesMaps .commuter-rail .btn-outline-secondary {
+  display: block;
+  margin-bottom: 1rem; }
+  @media (min-width: 992px) {
+    #schedulesMaps .metro-brt .btn-outline-secondary,
+    #schedulesMaps .commuter-rail .btn-outline-secondary {
+      display: inline-block;
+      margin-bottom: 0; } }
+
 .accordion {
   margin-bottom: 15px; }
   .accordion .card .card-header {
@@ -8696,29 +8750,36 @@ input:focus,
       width: 170px;
       height: 50px;
       margin-right: 1rem; } }
-  .btn-outline-secondary:hover {
+  .btn-outline-secondary:hover, .btn-outline-secondary:not(:disabled):not(.disabled):active {
     background-color: #dbf4fd;
     border: 2px solid #0097d0;
     color: #0097d0; }
-  .btn-outline-secondary.routes {
+  .btn-outline-secondary.routes, .btn-outline-secondary.dollar-amount {
     width: 70px;
-    height: 50px; }
-  .btn-outline-secondary.dollar-amount {
-    width: 69px;
-    height: 50px; }
+    height: 40px; }
+    @media (min-width: 992px) {
+      .btn-outline-secondary.routes, .btn-outline-secondary.dollar-amount {
+        height: 50px; } }
 
 .btn-outline-white {
   position: relative;
   border: 2px solid #fff;
   color: #fff;
-  padding: 0.688rem 0;
+  font-size: 20px !important;
+  font-size: 1.25rem !important;
+  font-weight: 700;
   width: 270px; }
+  @media (min-width: 992px) {
+    .btn-outline-white {
+      font-size: 23px !important;
+      font-size: 1.4375rem !important;
+      padding: 0.75rem; } }
   .btn-outline-white::after {
     position: absolute;
     content: "";
     background-image: url("../../../../../img/svg/arrow-right-white.svg");
     background-repeat: no-repeat;
-    top: 0.65rem;
+    top: 0.75rem;
     right: 0.75rem;
     width: 1.25rem;
     height: 1.25rem; }
@@ -8782,7 +8843,7 @@ input:focus,
       content: "";
       background-image: url("../../../../../img/svg/arrow-right-blue.svg");
       background-repeat: no-repeat;
-      top: 0.65rem;
+      top: 0.75rem;
       right: 0.75rem;
       width: 1.25rem;
       height: 1.25rem; }
@@ -8964,7 +9025,7 @@ input:focus,
     height: 40px;
     font-size: 18px !important;
     font-size: 1.125rem !important; }
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
       .form-group .form-control,
       .form-group .custom-select,
       .input-group .form-control,
@@ -8991,7 +9052,7 @@ input:focus,
   transition: 0.3s ease all;
   font-size: 16px !important;
   font-size: 1rem !important; }
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     .floating-label {
       top: 16px;
       left: 1.25rem;
@@ -9022,7 +9083,7 @@ input:focus,
       font-size: 18px !important;
       font-size: 1.125rem !important; }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   button[type="search"] .icon {
     width: 24px !important;
     height: 24px !important; } }
@@ -9263,7 +9324,7 @@ input:focus,
       color: #626462;
       font-weight: 500;
       padding: 0.375rem 0.75rem; }
-      @media (min-width: 768px) {
+      @media (min-width: 992px) {
         #tripPlannerModule .more-options .card-header .btn-link {
           font-size: 23px !important;
           font-size: 1.4375rem !important;
@@ -9289,7 +9350,7 @@ input:focus,
 .chevron-right-gray {
   width: 0.5rem;
   height: 0.5rem; }
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     .chevron-right-gray {
       width: 0.75rem;
       height: 0.75rem; } }

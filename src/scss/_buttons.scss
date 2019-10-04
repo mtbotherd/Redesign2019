@@ -167,20 +167,21 @@ input,
     margin-right: 1rem;
   }
 
-  &:hover {
+  &:hover,
+  &:not(:disabled):not(.disabled):active {
     background-color: $teal;
     border: 2px solid $cyan;
     color: $cyan;
   }
 
-  &.routes {
-    width: 70px;
-    height: 50px;
-  }
-
+  &.routes,
   &.dollar-amount {
-    width: 69px;
-    height: 50px;
+    width: 70px;
+    height: 40px;
+
+    @include media-breakpoint-up(lg) {
+      height: 50px;
+    }
   }
 }
 
@@ -188,15 +189,21 @@ input,
   position: relative;
   border: 2px solid $white;
   color: $white;
-  padding: 0.688rem 0;
+  @include font-size(20);
+  font-weight: $font-weight-bold;
   width: 270px;
+
+  @include media-breakpoint-up(lg) {
+    @include font-size(23);
+    padding: 0.75rem;
+  }
 
   &::after {
     position: absolute;
     content: "";
     background-image: url("../../../../../img/svg/arrow-right-white.svg");
     background-repeat: no-repeat;
-    top: 0.65rem;
+    top: 0.75rem;
     right: 0.75rem;
     width: 1.25rem;
     height: 1.25rem;
@@ -283,7 +290,7 @@ input,
       content: "";
       background-image: url("../../../../../img/svg/arrow-right-blue.svg");
       background-repeat: no-repeat;
-      top: 0.65rem;
+      top: 0.75rem;
       right: 0.75rem;
       width: 1.25rem;
       height: 1.25rem;
