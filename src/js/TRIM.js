@@ -919,19 +919,10 @@ var TRIM = (function ($, window, document, undefined) {
                                 var stations = result.data.stations;
                                 if (stations) {
                                     var layer = MAP.getLayer("niceRides");
-                                    if (!layer) {
-                                        layer = new GraphicsLayer({
-                                            id: "niceRides",
-                                            opacity: 0.7,
-                                            visible: false
-                                        });
-                                        MAP.addLayer(layer);
-                                    }
-
                                     for (var i = 0, sl = stations.length; i < sl; i++) {
                                         var station = stations[i];
                                         var thePoint = new Point(station.lon, station.lat);
-                                        var theMarker = new PictureMarkerSymbol('/img/svg/map-icons/NiceRideGreen.svg', 20, 20);
+                                        var theMarker = new PictureMarkerSymbol('/img/svg/map-icons/NiceRideGreen.svg', 30, 23);
                                         var attr = { "id": station.station_id, "name": station.name, "capacity": station.capacity };
                                         var g = new Graphic(thePoint, theMarker, attr);
                                         layer.add(g);
@@ -1291,7 +1282,7 @@ var TRIM = (function ($, window, document, undefined) {
                     // this holds the NiceRide station locations
                     var niceRidesLayer = new GraphicsLayer({
                         id: "niceRides",
-                        opacity: 0.6,
+                        opacity: 0.75,
                         visible: false,
                         maxScale: 1200,
                         minScale: 25000
