@@ -8304,31 +8304,53 @@ footer.section {
 .route .list-group-item .frequency {
   width: 450px; }
 
-.schedule-days button {
-  width: 95% !important;
-  max-width: 23.125rem;
-  text-transform: capitalize; }
+.route .date-time-color {
+  width: 1.5rem;
+  height: 1.5rem; }
 
-article.striped > .container .schedule-days button.active {
+.route .button-container-icon-right,
+.route .link-pdf-container,
+.route .btn-wrapper {
+  text-align: center !important; }
+
+.route .btn-block {
+  display: block;
+  width: 100%; }
+  @media (min-width: 992px) {
+    .route .btn-block {
+      display: inline-block; } }
+
+.route .btn-ouline-secondary article.striped > .container .schedule-days button.active {
   color: #0097d0 !important;
   background-color: #dbf4fd !important;
   border: 2px solid #0097d0 !important; }
 
-div.timetables {
+.route .text-link {
+  font-size: 18px !important;
+  position: relative; }
+  .route .text-link::after {
+    position: absolute;
+    right: -0.5rem;
+    background-image: url("../../../../../img/svg/pdf.svg");
+    background-size: 1rem;
+    width: 1.5rem;
+    height: 1.5rem; }
+
+.route div.timetables {
   min-height: 45rem; }
 
-div.timetable-container {
+.route div.timetable-container {
   margin-top: -2.5rem; }
 
-.timetable-container table {
+.route .timetable-container table {
   margin: 0;
   font-size: 0.8rem;
   border-bottom: 1px solid #8a8b8a; }
 
-tr.downtown {
+.route tr.downtown {
   position: relative; }
 
-div.zone {
+.route div.zone {
   background-color: #fff;
   position: absolute;
   margin: 3rem 0 0 8.5rem;
@@ -8337,14 +8359,14 @@ div.zone {
   z-index: 10;
   border-radius: 2rem; }
 
-div.timetable-times {
+.route div.timetable-times {
   height: 30rem;
   overflow: auto; }
 
-div.timetable-times table {
+.route div.timetable-times table {
   border-bottom: 1px solid #8a8b8a; }
 
-.table-header-rotated th.rotate {
+.route .table-header-rotated th.rotate {
   font-weight: normal;
   height: 12rem;
   white-space: nowrap;
@@ -8352,28 +8374,28 @@ div.timetable-times table {
   min-width: 2.75rem;
   max-width: 2.75rem; }
 
-.table-header-rotated th:first-child {
+.route .table-header-rotated th:first-child {
   font-weight: 700;
   min-width: 3rem;
   max-width: 3rem;
   padding-left: 0.2rem; }
 
-.table-header-rotated th.rotate div {
+.route .table-header-rotated th.rotate div {
   -webkit-transform: translate(1.7rem, 4.4rem) rotate(-45deg);
   transform: translate(1.7rem, 4.4rem) rotate(-45deg);
   width: 100%; }
 
 @media (min-width: 768px) {
-  .table-header-rotated th.rotate div {
+  .route .table-header-rotated th.rotate div {
     -webkit-transform: translate(1.7rem, 4.4rem) rotate(-45deg);
     transform: translate(1.7rem, 4.4rem) rotate(-45deg); } }
 
 @media (min-width: 992px) {
-  .table-header-rotated th.rotate div {
+  .route .table-header-rotated th.rotate div {
     -webkit-transform: translate(1.7rem, 4.4rem) rotate(-45deg);
     transform: translate(1.7rem, 4.4rem) rotate(-45deg); } }
 
-.table-header-rotated th.rotate div span {
+.route .table-header-rotated th.rotate div span {
   display: inline-block;
   width: 12rem;
   height: 2rem;
@@ -8382,19 +8404,19 @@ div.timetable-times table {
   text-indent: -1rem;
   padding: 0.2rem 0 0 0.5rem; }
 
-.table-header-rotated th.rotate span.single-line {
+.route .table-header-rotated th.rotate span.single-line {
   padding: 0.5rem 0 0 1rem; }
 
-.table-header-rotated tr.sub-header th:first-child {
+.route .table-header-rotated tr.sub-header th:first-child {
   border-left: none; }
 
-.table-header-rotated tr.sub-header th {
+.route .table-header-rotated tr.sub-header th {
   border: 1px solid #8a8b8a;
   border-top: none;
   height: 2.5rem;
   text-align: center; }
 
-.table-header-rotated tr.sub-header th div {
+.route .table-header-rotated tr.sub-header th div {
   border: 1px solid #8a8b8a;
   border-radius: 50%;
   width: 1.75rem;
@@ -8402,12 +8424,12 @@ div.timetable-times table {
   margin: auto;
   padding-top: 0.3em; }
 
-.table-header-rotated thead.ampm {
+.route .table-header-rotated thead.ampm {
   background-color: #f5f5f4;
   border: 1px solid #8a8b8a;
   border-top: none; }
 
-.table-header-rotated th.row-header {
+.route .table-header-rotated th.row-header {
   border: 1px solid #8a8b8a;
   border-right: none;
   border-bottom: none;
@@ -8415,7 +8437,7 @@ div.timetable-times table {
   min-width: 3rem;
   max-width: 3rem; }
 
-.table-header-rotated td {
+.route .table-header-rotated td {
   border: 1px solid #8a8b8a;
   border-bottom: none;
   text-align: center;
@@ -8423,12 +8445,12 @@ div.timetable-times table {
   min-width: 2.75rem;
   max-width: 2.75rem; }
 
-tr.alt td,
-tr.alt th.row-header {
+.route tr.alt td,
+.route tr.alt th.row-header {
   border-top: none;
   padding-top: 0; }
 
-.rush {
+.route .rush {
   background-color: #ddd; }
 
 #howToRide h2 {
@@ -8533,6 +8555,13 @@ tr.alt th.row-header {
           .accordion .card .card-header .icon.chevron-down-blue {
             width: 1rem;
             height: 1rem; } }
+      .accordion .card .card-header .icon.bus-broadcast-color, .accordion .card .card-header .icon.alerts-color {
+        width: 1.625rem;
+        height: 1.625rem; }
+        @media (min-width: 992px) {
+          .accordion .card .card-header .icon.bus-broadcast-color, .accordion .card .card-header .icon.alerts-color {
+            width: 2.5rem;
+            height: 2.5rem; } }
 
 .btn {
   font-size: 16px !important;
