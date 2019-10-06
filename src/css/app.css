@@ -7921,6 +7921,9 @@ abbr {
 .goto-card-bg {
   background-image: url("../../../../../img/goto-card.jpg"); }
 
+.pass-programs-bg {
+  background-image: url("../../../../../img/pass-programs.jpg"); }
+
 @media (min-width: 1200px) {
   .utilities {
     margin-left: auto;
@@ -8709,6 +8712,23 @@ footer.section {
   @media (min-width: 992px) {
     #gotoCards .northstar-passes h2 {
       padding: 0; } }
+
+#passPrograms h2 {
+  margin-bottom: 15px; }
+
+#passPrograms img {
+  margin-bottom: 1rem; }
+
+#passPrograms .link-container,
+#passPrograms .button-container-icon-right {
+  display: block;
+  margin-bottom: 1rem;
+  text-align: center; }
+  @media (min-width: 992px) {
+    #passPrograms .link-container,
+    #passPrograms .button-container-icon-right {
+      display: inline-block;
+      margin-right: 1rem; } }
 
 .accordion {
   margin-bottom: 15px; }
