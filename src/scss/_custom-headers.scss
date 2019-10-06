@@ -1,0 +1,56 @@
+.page-content {
+  h2 {
+    position: relative;
+  }
+
+  h2.add-value-to-card::before {
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+    content: "";
+    background-image: url("../../../../../img/svg/add-value-gray.svg");
+    background-repeat: no-repeat;
+    background-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    @include media-breakpoint-up(lg) {
+      top: -0.25rem;
+      left: 22rem;
+    }
+  }
+
+  h2.multiday-passes::before {
+    position: absolute;
+    top: -0.5rem;
+    left: 2rem;
+    content: "";
+    background-image: url("../../../../../img/svg/purchase-gray.svg");
+    background-repeat: no-repeat;
+    background-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    @include media-breakpoint-up(lg) {
+      top: 0;
+      left: 24.5rem;
+    }
+  }
+
+  h2.northstar-family-pass::before {
+    position: absolute;
+    top: -0.5rem;
+    left: 0.75rem;
+    content: "";
+    background-image: url("../../../../../img/svg/circle-gray-outline-train.svg");
+    background-repeat: no-repeat;
+    background-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    @include media-breakpoint-up(lg) {
+      top: 0;
+      left: 15.5rem;
+    }
+  }
+}
