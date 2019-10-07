@@ -1,5 +1,5 @@
 // TripPLan encapsulates the call to generate the trip plan
-var TripPlan = (function() {
+var TripPlan = (function($, window, document, undefined) {
 	var TripPlanJSON = {};
 	//
 	// newTrip generates a trip from two address locations
@@ -84,11 +84,100 @@ var TripPlan = (function() {
 		}).promise();
 	};
 	var getTrip = function() {
-	return TripPlanJSON;
+		return TripPlanJSON;
 	};
 
 	return {
-	newTrip: newTrip,
-	getTrip: getTrip
+		newTrip: newTrip,
+		getTrip: getTrip
 	};
-})();
+})(jQuery, window, document);
+
+$(function () {
+    // This triggers planning a new trip when the
+    // button on the Trip Planner page is clicked
+    // TODO: Test for errors in the result
+    // TODO: Test for FROM address = TO address
+    // TODO: Trigger display of 'No Trips Found' message if error occurs
+    //
+    $('button[name="planMyTrip"]').click(function () {
+		$('#tripPlannerResults').hide();
+        var tripFromLocation = AutocompleteAddress.getChoice('fromLocation');
+		var tripToLocation = AutocompleteAddress.getChoice('toLocation');
+		var selectTime = $('#selectTime').val();
+		var walkingDistance = $("input[name='walkingDistance']:checked").val();
+		var serviceType = $("input[name='serviceType']:checked").val();
+		console.log("walk: " + walkingDistance + " service: " + serviceType + " time: " + selectTime);
+        if (tripFromLocation && tripToLocation) {
+            // set default trip plan value here and override from inputs
+            // TODO find all the input source for the parameters and format them correctly for the trip planner
+            let tripProperties = {
+                fromLocation: tripFromLocation,
+                toLocation: tripToLocation,
+                arrdep: "Depart",
+                walkdist: "1.0",
+                minimize: "Time",
+                accessible: "False",
+                datetime: "10/10/2019 03:30:00 PM"
+            };
+            TripPlan.newTrip(tripProperties)
+                .then(function () {
+                    let plan = TripPlan.getTrip();
+                    console.log("Have a Plan");
+					console.dir(plan);
+					if (plan.PlannerItin.PlannerOptions.length > 0) {
+						$('.trips-found').show();
+						$('.no-trips-found').hide();
+						$('#tripPlannerResults').show();
+					} else {
+						$('.trips-found').hide();
+						$('.no-trips-found').show();
+						$('#tripPlannerResults').show();
+					}
+                })
+                .fail(function (err) {
+                    console.warn("Trip Plan Failed: " + err.Message);
+					console.dir(err);
+					$('.trips-found').hide();
+					$('.no-trips-found').show();
+					$('#tripPlannerResults').show();
+                });
+        }
+    });
+
+    // This loads the map into the resulting Trip Plan page.
+    // Once the map loads, trips can be displayed.
+    //
+    // TODO: this is currently in DEMO mode.
+    // Need to add routines that trigger when user
+    // clicks the 'trip summary' button to show on the
+    // map just that trip option.
+    //
+    // Format for the call:
+    // TRIM.drawTrip(<trip option>, <entire trip plan>, <zoom to trip>)
+    if ($("#tripPlanMap").attr("maptype") === "trip") {
+        TRIM.init("tripPlanMap").then(function () {
+            let tripPlan = TripPlan.getTrip();
+            if (tripPlan) {
+                if (tripPlan.PlannerItin) {
+                    if (tripPlan.PlannerItin.PlannerOptions.length > 0) {
+                        console.log("Draw TripPlan 0");
+                        TRIM.drawTrip(0, tripPlan, /*zoom*/ true);
+                    }
+                    if (tripPlan.PlannerItin.PlannerOptions.length > 1) {
+                        setTimeout(function () {
+                            console.log("Draw TripPlan 1");
+                            TRIM.drawTrip(1, tripPlan, /*zoom*/ true);
+                        }, 5000);
+                    }
+                    if (tripPlan.PlannerItin.PlannerOptions.length > 2) {
+                        setTimeout(function () {
+                            console.log("Draw TripPlan 2");
+                            TRIM.drawTrip(2, tripPlan, /*zoom*/ true);
+                        }, 10000);
+                    }
+                }
+            }
+        });
+    }
+});

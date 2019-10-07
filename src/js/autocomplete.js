@@ -107,7 +107,7 @@ var AutocompleteAddress = (function($, window, document, undefined) {
             } else {
               if (r.candidates.length > 0) {
                 var choice = r.candidates[0];
-                //console.log(inputDiv + ": " + JSON.stringify(choice));
+                console.log(inputDiv + ": " + JSON.stringify(choice));
                 inputResults[inputDiv] = choice;
                 if (callback) callback();
               }

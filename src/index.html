@@ -311,15 +311,15 @@
 																					<strong>I'm willing to walk:</strong>
 																				</p>
 																				<div class="custom-control custom-radio">
-																					<input id="quarterMile" type="radio" name="walkingDistance" class="custom-control-input">
+																					<input id="quarterMile" type="radio" name="walkingDistance" value='0.25' class="custom-control-input">
 																					<label for="quarterMile" class="custom-control-label">1/4 mile</label>
 																				</div>
 																				<div class="custom-control custom-radio">
-																					<input id="halfMile" type="radio" name="walkingDistance" class="custom-control-input" checked>
+																					<input id="halfMile" type="radio" name="walkingDistance" value='0.5' class="custom-control-input" checked>
 																					<label for="halfMile" class="custom-control-label">1/2 mile</label>
 																				</div>
 																				<div class="custom-control custom-radio">
-																					<input id="oneMile" type="radio" name="walkingDistance" class="custom-control-input">
+																					<input id="oneMile" type="radio" name="walkingDistance" value='1' class="custom-control-input">
 																					<label for="oneMile" class="custom-control-label">1 mile</label>
 																				</div>
 																				<div class="custom-control custom-radio">
@@ -443,7 +443,8 @@
 															<div class="no-trips-found mb-1 mb-lg-5">
 																<div class="alert alert-primary" role="alert">
 																	<h2 class="h4">No trips found</h2>
-																	<p>We’re sorry, no results are available for this trip plan. Please try a specific thing for better results or call or text Transit information at 612-373-3333. (this language needs to be written.)</p>
+																	<p>We’re sorry, there is no transit service available for this trip plan. Please enter
+																		new selections or call or text Transit information at 612-373-3333.</p>
 																</div>
 															</div>
 															<div class="trips-found">
