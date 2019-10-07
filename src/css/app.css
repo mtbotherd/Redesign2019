@@ -9030,6 +9030,12 @@ input:focus,
     .button-container-icon-left .btn-outline-primary:hover::before {
       background-image: url("../../../../../img/svg/arrow-left-white.svg"); }
 
+.btn-extend {
+  width: 18rem; }
+  @media (min-width: 992px) {
+    .btn-extend {
+      width: 23rem; } }
+
 .link-container-icon-left {
   position: relative;
   text-align: center;

@@ -344,6 +344,14 @@ input,
   }
 }
 
+.btn-extend {
+  width: 18rem;
+
+  @include media-breakpoint-up(lg) {
+    width: 23rem;
+  }
+}
+
 .link-container-icon-left {
   position: relative;
   text-align: center;
