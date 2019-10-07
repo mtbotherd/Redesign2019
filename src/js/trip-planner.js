@@ -53,11 +53,11 @@ var TripPlan = (function($, window, document, undefined) {
 			let tripData = {
 			's-orig': fromLoc,
 			's-dest': toLoc,
-			'arrdep': 'Depart', // tripProperties.arrdep
-			'walkdist': '1.0', // tripProperties.walkdist
-			'minimize': 'Time', // tripProperties.minimize
-			'accessible': 'False', // tripProperties.accessible
-			'xmode': 'BCLTX', // tripProperties.xmode
+			'arrdep': tripProperties.arrdep,
+			'walkdist': tripProperties.walkdist,
+			'minimize': tripProperties.minimize,
+			'accessible': tripProperties.accessible,
+			'xmode': tripProperties.xmode,
 			'datetime': TRIM.convertDateTimeToDotNet(TRIM.convertUTCDateToLocalDate(datetime))
 			};
 			console.dir(tripData);
@@ -103,22 +103,33 @@ $(function () {
     $('button[name="planMyTrip"]').click(function () {
 		$('#tripPlannerResults').hide();
         var tripFromLocation = AutocompleteAddress.getChoice('fromLocation');
+		var userPos = AutocompleteAddress.fetchUserLoc(); // this get the user GPS location, if you need it
 		var tripToLocation = AutocompleteAddress.getChoice('toLocation');
+		var dateTime = new Date();
+		var selectTimeType = 'Depart';
 		var selectTime = $('#selectTime').val();
+		if (selectTime === 'arrive-by') {
+			selectTimeType = 'Arrive'
+		}
+		if (selectTime !== 'leave-now') {
+			var pickDate = $('#date').val();
+			var pickTime = $('#time').val();
+			dateTime = pickDate + ' ' + pickTime;
+		}
 		var walkingDistance = $("input[name='walkingDistance']:checked").val();
 		var serviceType = $("input[name='serviceType']:checked").val();
-		console.log("walk: " + walkingDistance + " service: " + serviceType + " time: " + selectTime);
+		var convenience = $("input[name='convenience']:checked").val();
+		var accessible = $("input[name='accessible']:checked").val();
         if (tripFromLocation && tripToLocation) {
-            // set default trip plan value here and override from inputs
-            // TODO find all the input source for the parameters and format them correctly for the trip planner
             let tripProperties = {
                 fromLocation: tripFromLocation,
-                toLocation: tripToLocation,
-                arrdep: "Depart",
-                walkdist: "1.0",
-                minimize: "Time",
-                accessible: "False",
-                datetime: "10/10/2019 03:30:00 PM"
+				toLocation: tripToLocation,
+				xmode: serviceType,
+                arrdep: selectTimeType,
+                walkdist: walkingDistance,
+                minimize: convenience,
+                accessible: accessible,
+                datetime: dateTime
             };
             TripPlan.newTrip(tripProperties)
                 .then(function () {

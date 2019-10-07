@@ -8,21 +8,38 @@
 // ____________________________________________
 "use strict";
 var AutocompleteAddress = (function($, window, document, undefined) {
-  // These are two globals used by functions here and
-  // in the TRIM.js file
   var inputResults = {};
+  var USERLOC = null;
+  //format USERLOC = { 'LatLon': { 'x': -93, 'y': 45, 'spatialReference': { 'wkid': 4326 }}, 
+  //                    'UTM': { 'x': 49999, 'y': '4979999', 'spatialReference': { 'wkid': 26915}} }
+
+  var fetchUserLoc = function() {
+    return USERLOC;
+  }
 
   var getUserLocation = function() {
     return $.Deferred(function(dfd){
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           function (position) {
-            var userPosition = {
-              x: position.coords.longitude,
-              y: position.coords.latitude,
-              spatialReference: { wkid: 4326 }
-            }; 
-            dfd.resolve(userPosition);
+            var UTMxy=[];
+            CoordinateConversion.LatLonToUTMXY(
+              CoordinateConversion.DegToRad(position.coords.latitude), 
+              CoordinateConversion.DegToRad(position.coords.longitude), 
+              15, UTMxy);
+            USERLOC = {
+              LatLon:  {
+                x: position.coords.longitude,
+                y: position.coords.latitude,
+                spatialReference: { wkid: 4326 }
+              },
+              UTM: {
+                x: UTMxy[0],
+                y: UTMxy[1],
+                spatialReference: { wkid: 26915 }
+              }
+          };
+            dfd.resolve(USERLOC);
           },
           function(error) {
             console.warn("getLocation failed: " + error);
@@ -68,7 +85,7 @@ var AutocompleteAddress = (function($, window, document, undefined) {
           data: {
             Text: query.replace(/[.,\/#!$%\^\*;:{}=\_`~()]/g, ""),
             maxSuggestions: 10,
-            location: userPosition ? JSON.stringify(userPosition) : null,
+            location: userPosition ? JSON.stringify(userPosition.LatLon) : null,
             distance: userPosition ? 4000 : null, // meters ~ 2.5 miles
             f: "json"
           },
@@ -133,6 +150,7 @@ var AutocompleteAddress = (function($, window, document, undefined) {
   return {
     init: init,
     getChoice: getChoice,
+    fetchUserLoc: fetchUserLoc,
     getUserLocation: getUserLocation,
     exchangeValues: exchangeValues
   };
