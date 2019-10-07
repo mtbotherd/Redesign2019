@@ -265,133 +265,138 @@
 				<div class="primary schedules-maps-bg">
 					<div class="container">
 						<div class="page-title">
-							<h1>Schedules and Maps</h1>
+							<h1>Schedules &amp; Maps</h1>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="page-content">
-				<!-- Main page content -->
+			<div id="schedulesMaps" class="page-content">
 				<article class="section full-width">
-					<div class="container">
-						<div id="findSchedulesByRoute"
-								class="auto-complete-search-box">
-							<img class="icon date-time-color"
-									src="/img/svg/date-time-color.svg" />
-							<div class="input-group mx-auto border">
-								<input type="search"
-										id="schedulesByRoute"
-										class="form-control"
-										placeholder="Find schedules by route"
-										aria-label="Find schedules by route"
-										aria-describedby="searchRoutesButton">
-								<label for="schedulesByRoute"
-										class="sr-only">Find schedules by route</label>
-								<div class="input-group-append">
-									<button id="searchRoutesButton"
-											type="search"
-											class="btn btn-primary">
-										<span class="sr-only">Search button</span>
-										<img class="icon"
-												src="/img/svg/search-gray.svg">
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</article>
-
-				<!-- Additional content sections -->
-				<article class="section full-width">
-					<div class="container">
-						<div id="schedulesMaps">
-							<div class="row">
-								<div class="col-lg-4">
-									<h2>
-										<img class="icon"
-												src="/img/svg/circle-gray-train.svg" />
-										<span class="align-middle">METRO Light Rail</span>
-									</h2>
-									<button type="button"
-											class="btn btn-outline-secondary d-block mb-4">Blue Line</button>
-									<button type="button"
-											class="btn btn-outline-secondary d-block">Green Line</button>
-								</div>
-								<div class="col-lg-8">
-									<h2>
-										<img class="icon"
-												src="/img/svg/circle-gray-outline-bus.svg" />
-										<span class="align-middle">Popular bus routes</span>
-									</h2>
-									<div class="mb-4">
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">1</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">10</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">100</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">2</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">20</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">200</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">3</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">30</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">300</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">4</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">40</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">400</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">5</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">50</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">500</button>
-										<button type="button"
-												class="btn btn-outline-secondary routes mb-4">888</button>
+						<div class="container">
+							<div id="findSchedulesByRoute"
+									class="auto-complete-search-box schedules-by-route">
+								<div class="input-group">
+									<input type="search"
+											id="schedulesByRoute"
+											class="form-control"
+											placeholder="Find schedules by route"
+											aria-label="Find schedules by route"
+											aria-describedby="searchRoutesButton">
+									<label for="schedulesByRoute"
+											class="sr-only">Find schedules by route</label>
+									<div class="input-group-append">
+										<button id="searchRoutesButton"
+												type="search"
+												class="btn btn-primary">
+											<span class="sr-only">Search button</span>
+											<img class="icon search-gray"
+													src="/img/svg/search-gray.svg">
+										</button>
 									</div>
-									<button type="button"
-											class="btn btn-warning">View all routes</button>
+								</div>
+							</div>
+						</div>
+				</article>
+				
+				<article class="section full-width">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-4">
+								<h2>
+									<img class="icon" src="/img/svg/circle-gray-lrt.svg" />
+									<span class="align-middle">METRO Light Rail</span>
+								</h2>
+								<a href="/route/901"
+									class="btn btn-outline-secondary d-block mb-4">Blue Line</a>
+								<a href="/route/902"
+									class="btn btn-outline-secondary d-block mb-4">Green Line</a>
+							</div>
+							<div class="col-lg-8">
+								<h2>
+									<img class="icon"
+											src="/img/svg/circle-gray-outline-bus.svg" />
+									<span class="align-middle">Popular bus routes</span>
+								</h2>
+								<div class="popular-routes">
+									<a href="/route/2"
+										class="btn btn-outline-secondary routes">2</a>
+									<a href="/route/3"
+										class="btn btn-outline-secondary routes">3</a>
+									<a href="/route/4"
+										class="btn btn-outline-secondary routes">4</a>
+									<a href="/route/5"
+										class="btn btn-outline-secondary routes">5</a>
+									<a href="/route/6"
+										class="btn btn-outline-secondary routes">6</a>
+									<a href="/route/9"
+										class="btn btn-outline-secondary routes">9</a>
+									<a href="/route/10"
+										class="btn btn-outline-secondary routes">10</a>
+									<a href="/route/11"
+										class="btn btn-outline-secondary routes">11</a>
+									<a href="/route/14"
+										class="btn btn-outline-secondary routes">14</a>
+									<a href="/route/17"
+										class="btn btn-outline-secondary routes">17</a>
+									<a href="/route/18"
+										class="btn btn-outline-secondary routes">18</a>
+									<a href="/route/21"
+										class="btn btn-outline-secondary routes">21</a>
+									<a href="/route/22"
+										class="btn btn-outline-secondary routes">22</a>
+									<a href="/route/54"
+										class="btn btn-outline-secondary routes">54</a>
+									<a href="/route/61"
+										class="btn btn-outline-secondary routes">61</a>
+									<a href="/route/62"
+										class="btn btn-outline-secondary routes">62</a>
+									<a href="/route/63"
+										class="btn btn-outline-secondary routes">63</a>
+									<a href="/route/64"
+										class="btn btn-outline-secondary routes">64</a>
+									<a href="/route/68"
+										class="btn btn-outline-secondary routes">68</a>
+									<a href="/route/74"
+										class="btn btn-outline-secondary routes">74</a>
+								</div>
+								<div class="text-center">
+									<a href="/bus-schedule-maps"
+										class="btn btn-warning">View all routes</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</article>
-
+				
 				<article class="section full-width">
 					<div class="container">
-						<h2>
-							<img class="icon" src="/img/svg/circle-gray-bus.svg" />
-							<span class="align-middle">METRO Bus Rapid Transit</span>
-						</h2>
-						<a href="" class="btn btn-outline-secondary">A Line</a>
-						<a href="" class="btn btn-outline-secondary">C Line</a>
-						<a href="" class="btn btn-outline-secondary">Red Line</a>
+						<div class="metro-brt">
+							<h2>
+								<img class="icon" src="/img/svg/circle-gray-bus.svg" />
+								<span class="align-middle">METRO Bus Rapid Transit</span>
+							</h2>
+							<a href="/route/921" class="btn btn-outline-secondary">A Line</a>
+							<a href="/route/923" class="btn btn-outline-secondary">C Line</a>
+							<a href="/route/903" class="btn btn-outline-secondary">Red Line</a>
+						</div>
 					</div>
 				</article>
-
+				
 				<article class="section full-width">
 					<div class="container">
-						<div id="commuterRail">
+						<div class="commuter-rail">
 							<h2>
 								<img class="icon"
 										src="/img/svg/circle-gray-train.svg" />
 								<span class="align-middle">Commuter Rail</span>
 							</h2>
-							<button type="button"
-									class="btn btn-outline-secondary">Northstar</button>
+							<a href="/route/888"
+								class="btn btn-outline-secondary">Northstar</a>
 						</div>
 					</div>
 				</article>
-
+				
 				<article class="section full-width">
 					<div class="container">
 						<div id="interactiveMap">
@@ -413,7 +418,7 @@
 									<div class="input-group-append">
 										<span id="searchButton" class="btn btn-primary">
 											<span class="sr-only">Search button</span>
-											<img class="icon"
+											<img class="icon search-gray"
 													src="/img/svg/search-gray.svg">
 										</span>
 									</div>
@@ -488,27 +493,29 @@
 						</div>
 					</div>
 				</article>
-
+				
 				<article class="section full-width">
 					<div class="container">
 						<div id="systemMaps">
 							<h2>System Maps</h2>
 							<div class="row">
-								<div class="col-md-6">
-									<img alt="Entire system map"
-											src="" />
+								<div class="col-md-6 mb-4">
+									<a href="/pdfs/system-map.pdf">
+										<img alt="Entire system map" src="/img/system-map-cropped.png" class="img-fluid mb-2" />
+									</a>
 									<p class="h4">Entire system (PDF)</p>
 								</div>
-								<div class="col-md-6">
-									<img alt="METRO network map"
-											src="" />
+								<div class="col-md-6 mb-4">
+									<a href="/pdfs/metro-diagram-map_final-cline.pdf">
+										<img alt="METRO network map" src="/img/metro-network-map-cropped.png" class="img-fluid mb-2" />
+									</a>
 									<p class="h4">METRO Network Map</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</article>
-
+				
 				<article class="section full-width cyan-bg">
 					<div class="container">
 						<div class="text-center">

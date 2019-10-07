@@ -40,6 +40,17 @@
           height: 1rem;
         }
       }
+
+      &.bus-broadcast-color,
+      &.alerts-color {
+        width: 1.625rem;
+        height: 1.625rem;
+
+        @include media-breakpoint-up(lg) {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+      }
     }
   }
 }
