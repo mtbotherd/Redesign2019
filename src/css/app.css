@@ -7924,6 +7924,9 @@ abbr {
 .pass-programs-bg {
   background-image: url("../../../../../img/pass-programs.jpg"); }
 
+.news-bg {
+  background-image: url(""); }
+
 @media (min-width: 1200px) {
   .utilities {
     margin-left: auto;
