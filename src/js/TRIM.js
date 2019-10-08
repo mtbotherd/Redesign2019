@@ -1691,7 +1691,7 @@ var BOM = (function ($, window, document, undefined) {
                                     // draw only buses for routes that match route AND terminal letter
                                     // direction filter removed Dec 2018 to show more buses - helps circulator and bus turnaround situations
                                     //testRouteTerm += this.Direction === 1 ? ":SB" : this.Direction === 2 ? ":EB" : this.Direction === 3 ? ":WB" : this.Direction === 4 ? ":NB" : "";
-                                    if (_ROUTESFORSTOP.includes(this.RouteId + this.Terminal) || _SHOWALLBUSES) {
+                                    if (_ROUTESFORSTOP.indexOf(this.RouteId + this.Terminal)>0 || _SHOWALLBUSES) {
                                         pnt = newPointFromLatLong(this.Latitude, this.Longitude);  // create a point from the bus location LAT/LONG
                                         d++;
                                         drawVehicleOnMap(pnt, this.RouteId, this.Terminal, this.DirectionId, this.LocationTime, this.BlockNumber);
