@@ -9568,70 +9568,72 @@ input:focus,
       width: 0.75rem;
       height: 0.75rem; } }
 
-#tripPlannerResults .card {
-  margin-bottom: 0.75rem;
-  background-color: transparent;
-  padding: 0; }
-  #tripPlannerResults .card a {
-    color: #626462; }
-    #tripPlannerResults .card a .tp-time {
-      border-right: 1px solid #e3e3e0;
-      font-size: 12px !important;
-      font-size: 0.75rem !important;
-      font-weight: 700;
-      padding: 0.5rem;
-      width: 6rem; }
-      @media (min-width: 768px) {
-        #tripPlannerResults .card a .tp-time {
-          width: 10rem; } }
-      @media (min-width: 768px) {
-        #tripPlannerResults .card a .tp-time {
-          font-size: 23px !important;
-          font-size: 1.4375rem !important; } }
-    #tripPlannerResults .card a .tp-route {
-      display: -webkit-box;
-      display: flex;
-      padding: 0.5rem 0.75rem;
-      width: 100%; }
-      @media (min-width: 768px) {
-        #tripPlannerResults .card a .tp-route .pedestrian-gray,
-        #tripPlannerResults .card a .tp-route .bus-gray {
-          width: 1.5rem;
-          height: 1.5rem; } }
-      #tripPlannerResults .card a .tp-route .route {
-        font-size: 8px !important;
-        font-size: 0.5rem !important;
-        line-height: 1; }
+#tripPlannerResults {
+  display: none; }
+  #tripPlannerResults .card {
+    margin-bottom: 0.75rem;
+    background-color: transparent;
+    padding: 0; }
+    #tripPlannerResults .card a {
+      color: #626462; }
+      #tripPlannerResults .card a .tp-time {
+        border-right: 1px solid #e3e3e0;
+        font-size: 12px !important;
+        font-size: 0.75rem !important;
+        font-weight: 700;
+        padding: 0.5rem;
+        width: 6rem; }
         @media (min-width: 768px) {
-          #tripPlannerResults .card a .tp-route .route {
-            font-size: 18px !important;
-            font-size: 1.125rem !important; } }
-      #tripPlannerResults .card a .tp-route .badge {
-        border-radius: 0.25rem;
-        font-size: 8px !important;
-        font-size: 0.5rem !important;
-        padding-right: 0.5rem; }
+          #tripPlannerResults .card a .tp-time {
+            width: 10rem; } }
         @media (min-width: 768px) {
-          #tripPlannerResults .card a .tp-route .badge {
-            font-size: 16px !important;
-            font-size: 1rem !important; }
-            #tripPlannerResults .card a .tp-route .badge .icon {
-              width: 1rem;
-              height: 1.5rem;
-              margin-right: 0.25rem; } }
-      @media (min-width: 768px) {
-        #tripPlannerResults .card a .tp-route .arrow-right-blue {
-          width: 1.25rem;
-          height: 1.25rem; } }
-    #tripPlannerResults .card a:hover {
-      border: 1px solid #0097d0 !important; }
-      #tripPlannerResults .card a:hover .tp-time {
-        background-color: #0097d0;
-        color: #fff; }
-      #tripPlannerResults .card a:hover .tp-route {
-        background-color: #dbf4fd; }
-  #tripPlannerResults .card:last-child {
-    margin-bottom: 0; }
+          #tripPlannerResults .card a .tp-time {
+            font-size: 23px !important;
+            font-size: 1.4375rem !important; } }
+      #tripPlannerResults .card a .tp-route {
+        display: -webkit-box;
+        display: flex;
+        padding: 0.5rem 0.75rem;
+        width: 100%; }
+        @media (min-width: 768px) {
+          #tripPlannerResults .card a .tp-route .pedestrian-gray,
+          #tripPlannerResults .card a .tp-route .bus-gray {
+            width: 1.5rem;
+            height: 1.5rem; } }
+        #tripPlannerResults .card a .tp-route .route {
+          font-size: 8px !important;
+          font-size: 0.5rem !important;
+          line-height: 1; }
+          @media (min-width: 768px) {
+            #tripPlannerResults .card a .tp-route .route {
+              font-size: 18px !important;
+              font-size: 1.125rem !important; } }
+        #tripPlannerResults .card a .tp-route .badge {
+          border-radius: 0.25rem;
+          font-size: 8px !important;
+          font-size: 0.5rem !important;
+          padding-right: 0.5rem; }
+          @media (min-width: 768px) {
+            #tripPlannerResults .card a .tp-route .badge {
+              font-size: 16px !important;
+              font-size: 1rem !important; }
+              #tripPlannerResults .card a .tp-route .badge .icon {
+                width: 1rem;
+                height: 1.5rem;
+                margin-right: 0.25rem; } }
+        @media (min-width: 768px) {
+          #tripPlannerResults .card a .tp-route .arrow-right-blue {
+            width: 1.25rem;
+            height: 1.25rem; } }
+      #tripPlannerResults .card a:hover {
+        border: 1px solid #0097d0 !important; }
+        #tripPlannerResults .card a:hover .tp-time {
+          background-color: #0097d0;
+          color: #fff; }
+        #tripPlannerResults .card a:hover .tp-route {
+          background-color: #dbf4fd; }
+    #tripPlannerResults .card:last-child {
+      margin-bottom: 0; }
 
 #tripPlan .tt-trip-plan {
   margin-bottom: 1rem; }

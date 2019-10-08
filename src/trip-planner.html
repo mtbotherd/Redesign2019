@@ -305,10 +305,8 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label for="selectTime" class="sr-only">Select time</label>
-											<select id="selectTime"
-													name="selectTime"
-													class="custom-select custom-select-lg">
+											<label for="selectTime"	class="sr-only">Select	time</label>
+											<select id="selectTime"	name="selectTime" class="custom-select custom-select-lg">
 												<option value="leave-now">Leave now</option>
 												<option value="depart-at">Depart at</option>
 												<option value="arrive-by">Arrive by</option>
@@ -378,6 +376,7 @@
 															<input id="quarterMile"
 																	type="radio"
 																	name="walkingDistance"
+																	value="0.25"
 																	class="custom-control-input">
 															<label for="quarterMile"
 																	class="custom-control-label">1/4 mile</label>
@@ -386,6 +385,7 @@
 															<input id="halfMile"
 																	type="radio"
 																	name="walkingDistance"
+																	value="0.5"
 																	class="custom-control-input"
 																	checked>
 															<label for="halfMile"
@@ -395,6 +395,7 @@
 															<input id="oneMile"
 																	type="radio"
 																	name="walkingDistance"
+																	value="1"
 																	class="custom-control-input">
 															<label for="oneMile"
 																	class="custom-control-label">1 mile</label>
@@ -403,6 +404,7 @@
 															<input id="anyType"
 																	type="radio"
 																	name="serviceType"
+																	value="BCLTX"
 																	class="custom-control-input"
 																	checked>
 															<label class="custom-control-label"
@@ -412,6 +414,7 @@
 															<input id="railOnly"
 																	type="radio"
 																	name="serviceType"
+																	value="CLT"
 																	class="custom-control-input">
 															<label class="custom-control-label"
 																	for="railOnly">Rail only</label>
@@ -420,6 +423,7 @@
 															<input id="busOnly"
 																	type="radio"
 																	name="serviceType"
+																	value="BX"
 																	class="custom-control-input">
 															<label class="custom-control-label"
 																	for="busOnly">Bus only</label>
@@ -428,6 +432,7 @@
 															<input id="noExpress"
 																	type="radio"
 																	name="serviceType"
+																	value="BCLT"
 																	class="custom-control-input">
 															<label class="custom-control-label"
 																	for="noExpress">No express</label>
@@ -437,6 +442,7 @@
 															<input id="fasterTrip"
 																	type="radio"
 																	name="convenience"
+																	value="Time"
 																	class="custom-control-input"
 																	checked>
 															<label class="custom-control-label"
@@ -446,6 +452,7 @@
 															<input id="fewerTransfers"
 																	type="radio"
 																	name="convenience"
+																	value="Xfers"
 																	class="custom-control-input">
 															<label class="custom-control-label"
 																	for="fewerTransfers">Fewer transfers</label>
@@ -454,6 +461,7 @@
 															<input id="lessWalking"
 																	type="radio"
 																	name="convenience"
+																	value="Walking"
 																	class="custom-control-input">
 															<label class="custom-control-label"
 																	for="lessWalking">Less walking</label>
@@ -473,6 +481,7 @@
 															<input id="accessibleYes"
 																	type="radio"
 																	name="accessible"
+																	value="True"
 																	class="custom-control-input">
 															<label class="custom-control-label"
 																	for="accessibleYes">Yes</label>
@@ -482,6 +491,7 @@
 															<input id="accessibleNo"
 																	type="radio"
 																	name="accessible"
+																	value="False"
 																	class="custom-control-input"
 																	checked>
 															<label class="custom-control-label"
@@ -504,20 +514,16 @@
 										<div class="alert alert-primary"
 												role="alert">
 											<h2 class="h4">No trips found</h2>
-											<p>We’re sorry, no results are available for this trip plan. Please try
-												a specific thing for better results or call or text Transit
-												information at 612-373-3333. (this language needs to be written.)
-											</p>
+											<p>We’re sorry, there is no transit service available for this trip plan. Please enter
+												new selections or call or text Transit information at 612-373-3333.											</p>
 										</div>
 									</div>
 									<div class="trips-found">
-										<h2 class="h4 mb-4">We found 3 trips for you</h2>
-										<p>Trips shown are based on your
-											selections and closest departure to 3:25 PM, Friday, August 30th.</p>
+										<h2 class="h4"><span id="trips-amount"></span></h2>
 										<div class="tp-results mb-1 mb-lg-5"
 												role="tablist">
 											<div class="card">
-												<!-- <a href="/trip-plan"
+												<a href="/trip-plan"
 													class="border">
 													<span class="d-flex"
 															role="link">
@@ -547,7 +553,7 @@
 																	src="/img/svg/arrow-right-blue.svg">
 														</span>
 													</span>
-												</a> -->
+												</a>
 											</div>
 											<div class="card">
 												<a href="/trip-plan"
