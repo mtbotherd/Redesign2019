@@ -95,12 +95,13 @@ var TripPlan = (function($, window, document, undefined) {
 
 var formatTripPlan = function(plan) {
 	var tripCount = plan.PlannerItin.PlannerOptions.length;
-	var tripMsg = 'We have ' + tripCount.toString() + 'trip';
+	var tripMsg = 'We have ' + tripCount.toString() + ' trip';
 	if (tripCount > 1) {
 		tripMsg+= 's';
 	}
 	tripMsg += ' for you.';
-	$("#trips-amount").html(`We have ${plan.PlannerItin.PlannerOptions.length} trips for you.`);
+	$("#trip-result-count").html(tripMsg);
+	$("#trip-result-msg").html(tripMsg);
 	//<p class="mb-0">We found 3 trips for you Trips shown are based on your selections and closest departure to 3:25 PM, Friday, August 30th.</p>
     $(".tp-results").empty();
     plan.PlannerItin.PlannerOptions.forEach(function(l,i){
