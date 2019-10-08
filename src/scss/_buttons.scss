@@ -284,6 +284,11 @@ input,
 
   .btn-outline-primary {
     position: relative;
+    @include font-size(20);
+
+    @include media-breakpoint-up(lg) {
+      @include font-size(23);
+    }
 
     &::after {
       position: absolute;
@@ -345,7 +350,7 @@ input,
 }
 
 .btn-extend {
-  width: 18rem;
+  width: 20rem;
 
   @include media-breakpoint-up(lg) {
     width: 23rem;
