@@ -92,7 +92,7 @@ var TripPlan = (function($, window, document, undefined) {
     let minutes = time.getMinutes();
     minutes = minutes<10 ? '0' + minutes.toString(): minutes.toString();
     let hour = time.getHours();
-    let AMPM = (hour > 11 ? ' PM' :  ' AM');
+    let AMPM = hour < 12 ? 'AM' : 'PM';
     hour = hour > 12 ? hour - 12 : hour;
     hour = hour === 0 ? 12 : hour;
     return hour + ':' + minutes + ' ' + AMPM;
@@ -133,8 +133,8 @@ var TripPlan = (function($, window, document, undefined) {
   };
   var checkIfLate = function(Adherance){
     if(Adherance<0){
-      return '<img class="icon blink"msrc="/img/svg/broadcast-red.svg">&nbsp;<strong>Currently ' 
-        + Adherance + '<abbr title="minutes">min</abbr> late</strong><br>';
+      return '<img class="icon blink" src="/img/svg/broadcast-red.svg">&nbsp;<strong>Currently ' 
+        + Adherance*-1 + '<abbr title="minutes"> min</abbr> late</strong><br>';
     } else { 
       return ' ';
     }
@@ -180,7 +180,7 @@ var TripPlan = (function($, window, document, undefined) {
             list.push(`<img class="icon" src="/img/svg/pedestrian-gray.svg">`)
             break;
           case 4:
-           list.push(`<img class="icon" src="/img/svg/circle-gray-outline-train.svg">`)
+           //list.push(`<img class="icon" src="/img/svg/pedestrian-gray.svg">`)
            break;
           default:
             console.warn('Invalid segment type: '+ li.SegmentType);
@@ -189,56 +189,37 @@ var TripPlan = (function($, window, document, undefined) {
       l.Segments.forEach(function(li,ii){
           let timeOfDay = "";
           switch(li.SegmentType){
-            case 0:
-              secondList.push(`<div class="leg-item">
-              <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)} ${timeOfDay}</div>
-              <div class="d-table-cell leg-mode bus">
-                <div class="d-table-cell leg-mode-icon">
-                <img class="icon" src="/img/svg/circle-gray-outline-train.svg">
-                </div>
-                <p>
-                ${checkIfLate(li.Adherance)}
-                  Route ${li.Route} ${li.OffStop.StopLocation.LocationName}
-                  <br>
-                  <a href="/home/#ServiceAlerts">
-                    <small>view alerts</small>
-                  </a>
-                </p>
-                <p>
-                  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName}</br>
-                  <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName}
-                </p>
+            case 0: // Bus
+            secondList.push(`<div class="leg-item">
+            <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
+            <div class="d-table-cell leg-mode bus">
+              <div class="d-table-cell leg-mode-icon">
+                <img class="icon"
+                  src="/img/svg/circle-gray-outline-bus.svg">
               </div>
-            </div>`)
+              <p>
+                ${checkIfLate(li.Adherance)}
+                <strong>Route ${li.Headsign}</strong><br>
+                <a href="/home/#ServiceAlerts">
+                  <small>view alerts</small>
+                </a>
+              </p>
+              <p>
+                <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName}</br>
+                <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName}
+              </p>
+            </div>
+          </div>`)
               break;
-            case 1:
+            case 1: // Light-Rail
               secondList.push(`<div class="leg-item">
-              <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)} ${timeOfDay} </div>
+              <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
               <div class="d-table-cell leg-mode metro-${li.PublicRoute.split(" ", 1)}">
                 <div class="d-table-cell leg-mode-icon">
-                  ${li.PublicRoute=== "Blue Line"?'<img class="icon" src="/img/svg/circle-green-outline-lrt.svg"/>':'<img class="icon" src="/img/svg/circle-blue-lrt.svg"/>'}
+                  ${li.PublicRoute==="Green Line"?'<img class="icon" src="/img/svg/circle-green-outline-lrt.svg"/>':'<img class="icon" src="/img/svg/circle-blue-outline-lrt.svg"/>'}
                 </div>
                 <p>
                   <strong>${li.Headsign}</strong>
-                </p>
-                <p>
-                  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName}</br>
-                  <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName}
-                </p>
-              </div>
-            </div>`)
-              break;
-            case 2:
-              secondList.push(`<div class="leg-item">
-              <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)} ${timeOfDay} </div>
-              <div class="d-table-cell leg-mode bus">
-                <div class="d-table-cell leg-mode-icon">
-                  <img class="icon"
-                    src="/img/svg/circle-gray-outline-bus.svg">
-                </div>
-                <p>
-                  ${checkIfLate(li.Adherance)}
-                  Route ${li.Route} ${li.SegmentDestination}
                   <br>
                   <a href="/home/#ServiceAlerts">
                     <small>view alerts</small>
@@ -251,9 +232,31 @@ var TripPlan = (function($, window, document, undefined) {
               </div>
             </div>`)
               break;
-            case 3:
+            case 2: // Train
+            secondList.push(`<div class="leg-item">
+            <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
+            <div class="d-table-cell leg-mode bus">
+              <div class="d-table-cell leg-mode-icon">
+              <img class="icon" src="/img/svg/circle-gray-outline-train.svg">
+              </div>
+              <p>
+              ${checkIfLate(li.Adherance)}
+              <strong>${li.Headsign}</strong>
+                <br>
+                <a href="/home/#ServiceAlerts">
+                  <small>view alerts</small>
+                </a>
+              </p>
+              <p>
+                <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName}</br>
+                <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName}
+              </p>
+            </div>
+          </div>`)
+              break;
+            case 3: // WALK
               secondList.push(`<div class="leg-item">
-              <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)} ${timeOfDay} </div>
+              <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
               <div class="d-table-cell leg-mode walk">
                 <div class="d-table-cell leg-mode-icon">
                   <img class="icon"
@@ -264,7 +267,7 @@ var TripPlan = (function($, window, document, undefined) {
               </div>
             </div>`)
               break;
-            case 4:
+            case 4: // ALERT MESSAGE for USER
               secondList.push(`<div class="leg-item">
               <div class="d-table-cell leg-time"></div>
               <div class="d-table-cell leg-mode walk">
@@ -311,7 +314,37 @@ var TripPlan = (function($, window, document, undefined) {
         </div>
         `)
     });
-
+    var esriMapDOM = function() {
+      return `
+        <div class="map-container border">
+          <div id="tripPlanMap" class="map" mapType="trip" role="application" aria-label="interactive map of transit trip plan">
+            <div id="trimLocate"></div>
+            <div class="mapLoading"></div>
+            <div id="trimPopUp" style="display:none;">
+              <div id="mapPopUpStopDescription" class="stop-description"></div>
+              <div class="container">
+                <ul class="nav nav-tabs nav-justified">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#mapPopUpTabRoutes">Routes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#mapPopUpTabNexTrip">NexTrip</a>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane container active" id="mapPopUpTabRoutes">
+                    <div id="mapPopUpRoutes" class="route-list"></div>
+                  </div>
+                  <div class="tab-pane container" id="mapPopUpTabNexTrip">
+                    <div id="mapPopUpDepartures" class="stop-departures"></div>
+                  </div>
+                </div>
+              </div>
+            </div>     
+          </div>
+        </div> 
+      `;
+    };
     $("#collapseTrip0").on('hide.bs.collapse', function(){
       if (MAPLOADED) {
         TRIM.destroy();
@@ -320,14 +353,7 @@ var TripPlan = (function($, window, document, undefined) {
       }
     });    
     $("#collapseTrip0").on('shown.bs.collapse', function(){
-      $('.esrimap0').append(`
-          <div class="map-container border">
-          <div id="tripPlanMap" class="map" mapType="trip" role="application" aria-label="interactive map of transit trip plan">
-            <div id="trimLocate"></div>
-            <div class="mapLoading"></div>
-          </div>
-        </div>
-      `);
+      $('.esrimap0').append(esriMapDOM);
       TRIM.init("tripPlanMap").then(function () {
         MAPLOADED = true;
         TRIM.drawTrip(0, getTrip(), /*zoom*/ true);
@@ -341,14 +367,7 @@ var TripPlan = (function($, window, document, undefined) {
       }
     });    
     $("#collapseTrip1").on('shown.bs.collapse', function(){
-      $('.esrimap1').append(`
-          <div class="map-container border">
-          <div id="tripPlanMap" class="map" mapType="trip" role="application" aria-label="interactive map of transit trip plan">
-            <div id="trimLocate"></div>
-            <div class="mapLoading"></div>
-          </div>
-        </div>
-      `);
+      $('.esrimap1').append(esriMapDOM);
       TRIM.init("tripPlanMap").then(function () {
         MAPLOADED = true;
         TRIM.drawTrip(1, getTrip(), /*zoom*/ true);
@@ -362,14 +381,7 @@ var TripPlan = (function($, window, document, undefined) {
       }
     });    
     $("#collapseTrip2").on('shown.bs.collapse', function(){
-      $('.esrimap2').append(`
-          <div class="map-container border">
-          <div id="tripPlanMap" class="map" mapType="trip" role="application" aria-label="interactive map of transit trip plan">
-            <div id="trimLocate"></div>
-            <div class="mapLoading"></div>
-          </div>
-        </div>
-      `);
+      $('.esrimap2').append(esriMapDOM);
       TRIM.init("tripPlanMap").then(function () {
         MAPLOADED = true;
         TRIM.drawTrip(2, getTrip(), /*zoom*/ true);

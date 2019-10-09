@@ -675,6 +675,7 @@ var TRIM = (function ($, window, document, undefined) {
                 * stopGraphicType = "Transfer,Board,Exit"
                 */
                 var drawTripStop = function (StopObj, /*string*/stopGraphicType) {
+                    console.log("Draw stop: " + JSON.stringify(StopObj));
                     //var originMarker = new PictureMarkerSymbol('images/SVG/map-location-ring-green.svg', 24, 24);
                     var originMarker = new PictureMarkerSymbol('/img/svg/map-icons/circle-gray-outline-green.svg', 24, 24);
                     //var destinationMarker = new PictureMarkerSymbol('images/SVG/map-location-ring-red.svg', 24, 24);
@@ -714,6 +715,7 @@ var TRIM = (function ($, window, document, undefined) {
                     return;
                 }
                 var segs = tripPlan.PlannerItin.PlannerOptions[tripToDraw].Segments;
+                console.dir(segs);
                 var segExt;
                 var tripExt;
                 //The first non-walking segment should have a board symbol.
@@ -1013,7 +1015,7 @@ var TRIM = (function ($, window, document, undefined) {
                             console.warn("Bus Stop Query Error: " + err);
                         });
                         queryTask.on("complete", function (fSet) {
-
+                            
                             if (fSet.featureSet.features.length === 0) {
                                 //if there are no features, do a generic reverse geocode.
                                 //locateAddress();
@@ -1043,7 +1045,6 @@ var TRIM = (function ($, window, document, undefined) {
                                 $('#mapPopUpDepartures').empty();
                                 $('#mapPopUpStopDescription').html(atts.site_on + ' & ' + atts.site_at);
                                 $('#mapPopUpRoutes').html(formatRouteList(atts.ROUTES));
-
                                 $.get('https://svc.metrotransittest.org/nextripv2/' + atts.siteid)
                                 .done(function (result) {
                                     if (result.Departures.length > 0) {
@@ -1403,6 +1404,7 @@ var TRIM = (function ($, window, document, undefined) {
         GEOLOCATE.destroy();
         GEOLOCATE = null;
         MAP.destroy();
+        MAP = null;
     };
     return {
         fullPageSetup: fullPageSetup,
