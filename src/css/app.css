@@ -8614,6 +8614,9 @@ footer.section {
   width: 1rem;
   height: 1rem; }
 
+#schedulesMaps .input-group-append .btn {
+  padding: 0 0.75rem; }
+
 #schedulesMaps .schedules-by-route .input-group {
   margin-left: auto; }
   @media (min-width: 992px) {
@@ -8790,8 +8793,8 @@ footer.section {
             height: 2.5rem; } }
 
 .btn {
-  font-size: 16px !important;
-  font-size: 1rem !important; }
+  font-size: 20px !important;
+  font-size: 1.25rem !important; }
   @media (min-width: 992px) {
     .btn {
       font-size: 23px !important;
@@ -8815,13 +8818,12 @@ input:focus,
   border: 2px solid #ffd200;
   font-weight: 700;
   color: #626462;
-  width: 14.063rem; }
+  width: 13.75rem;
+  padding: 0.188rem 0.75rem; }
   @media (min-width: 992px) {
     .btn-warning {
-      font-size: 23px !important;
-      font-size: 1.4375rem !important;
-      width: 17.5rem;
-      padding: 0.75rem; } }
+      width: 16.875rem;
+      padding: 0.688rem; } }
   .btn-warning .icon {
     position: absolute;
     top: 0.5rem;
@@ -8869,7 +8871,7 @@ input:focus,
   color: #626462;
   position: relative;
   border: 2px solid #0097d0;
-  width: 14.063rem; }
+  width: 13.75rem; }
   .btn-outline-primary:hover, .btn-outline-primary:focus {
     background-color: #0053a0;
     color: #fff;
@@ -8887,7 +8889,7 @@ input:focus,
   @media (min-width: 992px) {
     .btn-outline-primary {
       width: 17.5rem;
-      padding: 0.75rem; } }
+      padding: 0.688rem 0.75rem; } }
   .btn-outline-primary .arrow-right-blue,
   .btn-outline-primary .arrow-right-white {
     position: absolute;
@@ -8917,12 +8919,10 @@ input:focus,
   font-weight: 700; }
   @media (min-width: 992px) {
     .btn-outline-secondary {
-      font-size: 20px !important;
-      font-size: 1.25rem !important;
       width: 170px;
       height: 50px;
       margin-right: 1rem; } }
-  .btn-outline-secondary:hover, .btn-outline-secondary:not(:disabled):not(.disabled):active {
+  .btn-outline-secondary:hover, .btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active {
     background-color: #dbf4fd;
     border: 2px solid #0097d0;
     color: #0097d0; }
@@ -8937,21 +8937,18 @@ input:focus,
   position: relative;
   border: 2px solid #fff;
   color: #fff;
-  font-size: 20px !important;
-  font-size: 1.25rem !important;
   font-weight: 700;
-  width: 270px; }
+  width: 270px;
+  padding: 0.188rem 0.75rem; }
   @media (min-width: 992px) {
     .btn-outline-white {
-      font-size: 23px !important;
-      font-size: 1.4375rem !important;
-      padding: 0.75rem; } }
+      padding: 0.688rem 0.75rem; } }
   .btn-outline-white::after {
     position: absolute;
     content: "";
     background-image: url("../../../../../img/svg/arrow-right-white.svg");
     background-repeat: no-repeat;
-    top: 0.75rem;
+    top: 0.6rem;
     right: 0.75rem;
     width: 1.25rem;
     height: 1.25rem; }
@@ -9009,13 +9006,7 @@ input:focus,
         width: 3rem;
         height: 3rem; } }
   .button-container-icon-right .btn-outline-primary {
-    position: relative;
-    font-size: 20px !important;
-    font-size: 1.25rem !important; }
-    @media (min-width: 992px) {
-      .button-container-icon-right .btn-outline-primary {
-        font-size: 23px !important;
-        font-size: 1.4375rem !important; } }
+    position: relative; }
     .button-container-icon-right .btn-outline-primary::after {
       position: absolute;
       content: "";
