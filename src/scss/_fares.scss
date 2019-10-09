@@ -1,88 +1,116 @@
 #fares {
-  .card {
+  .button-container-icon-right {
+    margin-bottom: 30px !important;
+  }
+
+  .card-deck {
     margin-bottom: 15px;
 
     @include media-breakpoint-up(lg) {
       margin-bottom: 30px;
     }
-    .card-header {
-      padding: 1.344rem 1.25rem;
+
+    &.last {
+      margin-bottom: 30px;
 
       @include media-breakpoint-up(lg) {
-        height: 165px;
-        padding: 1.625rem 1.25rem;
-      }
-
-      [data-toggle="popover"] {
-        cursor: pointer;
+        margin-bottom: 45px;
       }
     }
-    .card-body {
-      background-color: $white;
 
-      @include media-breakpoint-up(lg) {
-        padding-right: 5rem;
-        padding-left: 5rem;
+    .card {
+      //margin-bottom: 15px;
+
+      .card-header {
+        padding: 1.344rem 1.25rem;
+
+        @include media-breakpoint-up(lg) {
+          height: 165px;
+          padding: 1.625rem 1.25rem;
+        }
+
+        [data-toggle="popover"] {
+          cursor: pointer;
+        }
+
+        &.reduced-fare {
+          .gray-circle-info {
+            position: absolute;
+            top: 1.25rem;
+            right: 3rem;
+
+            @include media-breakpoint-up(lg) {
+              top: -0.15rem;
+              right: 4rem;
+            }
+          }
+        }
+
+        &.mobility-fare {
+          .gray-circle-info {
+            position: absolute;
+            top: 0;
+            right: 2.5rem;
+
+            @include media-breakpoint-up(lg) {
+              top: -0.15rem;
+              right: 7.5rem;
+            }
+          }
+        }
       }
+      .card-body {
+        background-color: $white;
 
-      h3 {
-        margin-bottom: 1rem;
+        @include media-breakpoint-up(lg) {
+          padding-right: 5rem;
+          padding-left: 5rem;
+        }
+
+        h3 {
+          margin-bottom: 1rem;
+        }
       }
-    }
-    .card-footer {
-      background-color: $white;
-    }
-  }
-
-  .btn-outline-primary {
-    width: 17.5rem;
-    @include media-breakpoint-up(lg) {
-      width: 22rem;
+      .card-footer {
+        background-color: $white;
+      }
     }
   }
 
   .accordion {
-    .card {
-      margin-bottom: 0;
-    }
-    .card-header {
-      height: auto;
+    h3 {
+      max-width: 260px;
 
-      .icon {
-        width: 2.25rem;
-        height: 2.25rem;
+      @include media-breakpoint-up(lg) {
+        max-width: 1030px;
+      }
+
+      &.extend {
+        max-width: 290px;
 
         @include media-breakpoint-up(lg) {
-          width: 2.5rem;
-          height: 2.5rem;
-        }
-      }
-
-      .chevron-down-blue {
-        width: 1rem;
-        height: 1rem;
-      }
-
-      .northstar-station-fares {
-        .northstar-oneway-fare {
-          width: 160px;
-
-          @include media-breakpoint-up(lg) {
-            width: 920px;
-          }
+          max-width: 1030px;
         }
       }
     }
 
-    .card-body {
-      padding: 1.25rem;
+    p.h3 {
+      font-weight: 400 !important;
+      margin-bottom: 1rem;
 
-      .h3 {
-        font-weight: 300 !important;
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 0;
       }
+    }
 
-      .h4 {
-        margin-bottom: 0.25rem;
+    .mobility {
+      border-top: 1px solid $border-color;
+      padding-top: 1rem;
+
+      @include media-breakpoint-up(lg) {
+        border-top: none;
+        border-left: 1px solid $border-color;
+        padding-top: 0;
       }
     }
   }

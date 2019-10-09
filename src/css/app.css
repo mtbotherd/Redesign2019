@@ -7924,6 +7924,9 @@ abbr {
 .pass-programs-bg {
   background-image: url("../../../../../img/pass-programs.jpg"); }
 
+.news-bg {
+  background-image: url(""); }
+
 @media (min-width: 1200px) {
   .utilities {
     margin-left: auto;
@@ -8518,73 +8521,99 @@ footer.section {
 #howToRide h2 {
   margin-bottom: 0 !important; }
 
-#howToRide .btn-wrapper .btn-warning {
+#howToRide .btn-wrapper,
+#howToRide .button-container-icon-right {
+  display: block;
+  text-align: center !important; }
+  @media (min-width: 992px) {
+    #howToRide .btn-wrapper,
+    #howToRide .button-container-icon-right {
+      display: inline-block;
+      text-align: left !important; } }
+
+#howToRide .btn-wrapper {
   margin-bottom: 1rem; }
   @media (min-width: 992px) {
-    #howToRide .btn-wrapper .btn-warning {
-      margin-bottom: 0;
-      margin-right: 1rem; } }
+    #howToRide .btn-wrapper {
+      margin-bottom: 0; } }
 
 #howToRide .embed-responsive {
   margin-bottom: 1rem; }
 
-#fares .card {
+#fares .button-container-icon-right {
+  margin-bottom: 30px !important; }
+
+#fares .card-deck {
   margin-bottom: 15px; }
   @media (min-width: 992px) {
-    #fares .card {
+    #fares .card-deck {
       margin-bottom: 30px; } }
-  #fares .card .card-header {
+  #fares .card-deck.last {
+    margin-bottom: 30px; }
+    @media (min-width: 992px) {
+      #fares .card-deck.last {
+        margin-bottom: 45px; } }
+  #fares .card-deck .card .card-header {
     padding: 1.344rem 1.25rem; }
     @media (min-width: 992px) {
-      #fares .card .card-header {
+      #fares .card-deck .card .card-header {
         height: 165px;
         padding: 1.625rem 1.25rem; } }
-    #fares .card .card-header [data-toggle="popover"] {
+    #fares .card-deck .card .card-header [data-toggle="popover"] {
       cursor: pointer; }
-  #fares .card .card-body {
+    #fares .card-deck .card .card-header.reduced-fare .gray-circle-info {
+      position: absolute;
+      top: 1.25rem;
+      right: 3rem; }
+      @media (min-width: 992px) {
+        #fares .card-deck .card .card-header.reduced-fare .gray-circle-info {
+          top: -0.15rem;
+          right: 4rem; } }
+    #fares .card-deck .card .card-header.mobility-fare .gray-circle-info {
+      position: absolute;
+      top: 0;
+      right: 2.5rem; }
+      @media (min-width: 992px) {
+        #fares .card-deck .card .card-header.mobility-fare .gray-circle-info {
+          top: -0.15rem;
+          right: 7.5rem; } }
+  #fares .card-deck .card .card-body {
     background-color: #fff; }
     @media (min-width: 992px) {
-      #fares .card .card-body {
+      #fares .card-deck .card .card-body {
         padding-right: 5rem;
         padding-left: 5rem; } }
-    #fares .card .card-body h3 {
+    #fares .card-deck .card .card-body h3 {
       margin-bottom: 1rem; }
-  #fares .card .card-footer {
+  #fares .card-deck .card .card-footer {
     background-color: #fff; }
 
-#fares .btn-outline-primary {
-  width: 17.5rem; }
+#fares .accordion h3 {
+  max-width: 260px; }
   @media (min-width: 992px) {
-    #fares .btn-outline-primary {
-      width: 22rem; } }
-
-#fares .accordion .card {
-  margin-bottom: 0; }
-
-#fares .accordion .card-header {
-  height: auto; }
-  #fares .accordion .card-header .icon {
-    width: 2.25rem;
-    height: 2.25rem; }
+    #fares .accordion h3 {
+      max-width: 1030px; } }
+  #fares .accordion h3.extend {
+    max-width: 290px; }
     @media (min-width: 992px) {
-      #fares .accordion .card-header .icon {
-        width: 2.5rem;
-        height: 2.5rem; } }
-  #fares .accordion .card-header .chevron-down-blue {
-    width: 1rem;
-    height: 1rem; }
-  #fares .accordion .card-header .northstar-station-fares .northstar-oneway-fare {
-    width: 160px; }
-    @media (min-width: 992px) {
-      #fares .accordion .card-header .northstar-station-fares .northstar-oneway-fare {
-        width: 920px; } }
+      #fares .accordion h3.extend {
+        max-width: 1030px; } }
 
-#fares .accordion .card-body {
-  padding: 1.25rem; }
-  #fares .accordion .card-body .h3 {
-    font-weight: 300 !important; }
-  #fares .accordion .card-body .h4 {
-    margin-bottom: 0.25rem; }
+#fares .accordion p.h3 {
+  font-weight: 400 !important;
+  margin-bottom: 1rem; }
+  @media (min-width: 992px) {
+    #fares .accordion p.h3 {
+      margin-bottom: 0; } }
+
+#fares .accordion .mobility {
+  border-top: 1px solid #e3e3e0;
+  padding-top: 1rem; }
+  @media (min-width: 992px) {
+    #fares .accordion .mobility {
+      border-top: none;
+      border-left: 1px solid #e3e3e0;
+      padding-top: 0; } }
 
 #schedulesMaps .icon {
   width: 2.5rem;
@@ -8593,6 +8622,9 @@ footer.section {
 #schedulesMaps .search-gray {
   width: 1rem;
   height: 1rem; }
+
+#schedulesMaps .input-group-append .btn {
+  padding: 0 0.75rem; }
 
 #schedulesMaps .schedules-by-route .input-group {
   margin-left: auto; }
@@ -8770,8 +8802,8 @@ footer.section {
             height: 2.5rem; } }
 
 .btn {
-  font-size: 16px !important;
-  font-size: 1rem !important; }
+  font-size: 20px !important;
+  font-size: 1.25rem !important; }
   @media (min-width: 992px) {
     .btn {
       font-size: 23px !important;
@@ -8795,13 +8827,12 @@ input:focus,
   border: 2px solid #ffd200;
   font-weight: 700;
   color: #626462;
-  width: 14.063rem; }
+  width: 13.75rem;
+  padding: 0.188rem 0.75rem; }
   @media (min-width: 992px) {
     .btn-warning {
-      font-size: 23px !important;
-      font-size: 1.4375rem !important;
-      width: 17.5rem;
-      padding: 0.75rem; } }
+      width: 16.875rem;
+      padding: 0.688rem; } }
   .btn-warning .icon {
     position: absolute;
     top: 0.5rem;
@@ -8849,7 +8880,7 @@ input:focus,
   color: #626462;
   position: relative;
   border: 2px solid #0097d0;
-  width: 14.063rem; }
+  width: 13.75rem; }
   .btn-outline-primary:hover, .btn-outline-primary:focus {
     background-color: #0053a0;
     color: #fff;
@@ -8867,7 +8898,7 @@ input:focus,
   @media (min-width: 992px) {
     .btn-outline-primary {
       width: 17.5rem;
-      padding: 0.75rem; } }
+      padding: 0.688rem 0.75rem; } }
   .btn-outline-primary .arrow-right-blue,
   .btn-outline-primary .arrow-right-white {
     position: absolute;
@@ -8897,12 +8928,10 @@ input:focus,
   font-weight: 700; }
   @media (min-width: 992px) {
     .btn-outline-secondary {
-      font-size: 20px !important;
-      font-size: 1.25rem !important;
       width: 170px;
       height: 50px;
       margin-right: 1rem; } }
-  .btn-outline-secondary:hover, .btn-outline-secondary:not(:disabled):not(.disabled):active {
+  .btn-outline-secondary:hover, .btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active {
     background-color: #dbf4fd;
     border: 2px solid #0097d0;
     color: #0097d0; }
@@ -8917,21 +8946,18 @@ input:focus,
   position: relative;
   border: 2px solid #fff;
   color: #fff;
-  font-size: 20px !important;
-  font-size: 1.25rem !important;
   font-weight: 700;
-  width: 270px; }
+  width: 270px;
+  padding: 0.188rem 0.75rem; }
   @media (min-width: 992px) {
     .btn-outline-white {
-      font-size: 23px !important;
-      font-size: 1.4375rem !important;
-      padding: 0.75rem; } }
+      padding: 0.688rem 0.75rem; } }
   .btn-outline-white::after {
     position: absolute;
     content: "";
     background-image: url("../../../../../img/svg/arrow-right-white.svg");
     background-repeat: no-repeat;
-    top: 0.75rem;
+    top: 0.6rem;
     right: 0.75rem;
     width: 1.25rem;
     height: 1.25rem; }
@@ -8972,7 +8998,6 @@ input:focus,
 
 .button-container-icon-right {
   position: relative;
-  text-align: center;
   margin-bottom: 15px; }
   @media (min-width: 992px) {
     .button-container-icon-right {
@@ -9031,7 +9056,7 @@ input:focus,
       background-image: url("../../../../../img/svg/arrow-left-white.svg"); }
 
 .btn-extend {
-  width: 18rem; }
+  width: 20rem; }
   @media (min-width: 992px) {
     .btn-extend {
       width: 23rem; } }
@@ -9565,70 +9590,72 @@ input:focus,
       width: 0.75rem;
       height: 0.75rem; } }
 
-#tripPlannerResults .card {
-  margin-bottom: 0.75rem;
-  background-color: transparent;
-  padding: 0; }
-  #tripPlannerResults .card a {
-    color: #626462; }
-    #tripPlannerResults .card a .tp-time {
-      border-right: 1px solid #e3e3e0;
-      font-size: 12px !important;
-      font-size: 0.75rem !important;
-      font-weight: 700;
-      padding: 0.5rem;
-      width: 6rem; }
-      @media (min-width: 768px) {
-        #tripPlannerResults .card a .tp-time {
-          width: 10rem; } }
-      @media (min-width: 768px) {
-        #tripPlannerResults .card a .tp-time {
-          font-size: 23px !important;
-          font-size: 1.4375rem !important; } }
-    #tripPlannerResults .card a .tp-route {
-      display: -webkit-box;
-      display: flex;
-      padding: 0.5rem 0.75rem;
-      width: 100%; }
-      @media (min-width: 768px) {
-        #tripPlannerResults .card a .tp-route .pedestrian-gray,
-        #tripPlannerResults .card a .tp-route .bus-gray {
-          width: 1.5rem;
-          height: 1.5rem; } }
-      #tripPlannerResults .card a .tp-route .route {
-        font-size: 8px !important;
-        font-size: 0.5rem !important;
-        line-height: 1; }
+#tripPlannerResults {
+  display: none; }
+  #tripPlannerResults .card {
+    margin-bottom: 0.75rem;
+    background-color: transparent;
+    padding: 0; }
+    #tripPlannerResults .card a {
+      color: #626462; }
+      #tripPlannerResults .card a .tp-time {
+        border-right: 1px solid #e3e3e0;
+        font-size: 12px !important;
+        font-size: 0.75rem !important;
+        font-weight: 700;
+        padding: 0.5rem;
+        width: 6rem; }
         @media (min-width: 768px) {
-          #tripPlannerResults .card a .tp-route .route {
-            font-size: 18px !important;
-            font-size: 1.125rem !important; } }
-      #tripPlannerResults .card a .tp-route .badge {
-        border-radius: 0.25rem;
-        font-size: 8px !important;
-        font-size: 0.5rem !important;
-        padding-right: 0.5rem; }
+          #tripPlannerResults .card a .tp-time {
+            width: 10rem; } }
         @media (min-width: 768px) {
-          #tripPlannerResults .card a .tp-route .badge {
-            font-size: 16px !important;
-            font-size: 1rem !important; }
-            #tripPlannerResults .card a .tp-route .badge .icon {
-              width: 1rem;
-              height: 1.5rem;
-              margin-right: 0.25rem; } }
-      @media (min-width: 768px) {
-        #tripPlannerResults .card a .tp-route .arrow-right-blue {
-          width: 1.25rem;
-          height: 1.25rem; } }
-    #tripPlannerResults .card a:hover {
-      border: 1px solid #0097d0 !important; }
-      #tripPlannerResults .card a:hover .tp-time {
-        background-color: #0097d0;
-        color: #fff; }
-      #tripPlannerResults .card a:hover .tp-route {
-        background-color: #dbf4fd; }
-  #tripPlannerResults .card:last-child {
-    margin-bottom: 0; }
+          #tripPlannerResults .card a .tp-time {
+            font-size: 23px !important;
+            font-size: 1.4375rem !important; } }
+      #tripPlannerResults .card a .tp-route {
+        display: -webkit-box;
+        display: flex;
+        padding: 0.5rem 0.75rem;
+        width: 100%; }
+        @media (min-width: 768px) {
+          #tripPlannerResults .card a .tp-route .pedestrian-gray,
+          #tripPlannerResults .card a .tp-route .bus-gray {
+            width: 1.5rem;
+            height: 1.5rem; } }
+        #tripPlannerResults .card a .tp-route .route {
+          font-size: 8px !important;
+          font-size: 0.5rem !important;
+          line-height: 1; }
+          @media (min-width: 768px) {
+            #tripPlannerResults .card a .tp-route .route {
+              font-size: 18px !important;
+              font-size: 1.125rem !important; } }
+        #tripPlannerResults .card a .tp-route .badge {
+          border-radius: 0.25rem;
+          font-size: 8px !important;
+          font-size: 0.5rem !important;
+          padding-right: 0.5rem; }
+          @media (min-width: 768px) {
+            #tripPlannerResults .card a .tp-route .badge {
+              font-size: 16px !important;
+              font-size: 1rem !important; }
+              #tripPlannerResults .card a .tp-route .badge .icon {
+                width: 1rem;
+                height: 1.5rem;
+                margin-right: 0.25rem; } }
+        @media (min-width: 768px) {
+          #tripPlannerResults .card a .tp-route .arrow-right-blue {
+            width: 1.25rem;
+            height: 1.25rem; } }
+      #tripPlannerResults .card a:hover {
+        border: 1px solid #0097d0 !important; }
+        #tripPlannerResults .card a:hover .tp-time {
+          background-color: #0097d0;
+          color: #fff; }
+        #tripPlannerResults .card a:hover .tp-route {
+          background-color: #dbf4fd; }
+    #tripPlannerResults .card:last-child {
+      margin-bottom: 0; }
 
 #tripPlan .tt-trip-plan {
   margin-bottom: 1rem; }
