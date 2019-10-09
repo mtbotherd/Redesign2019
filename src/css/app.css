@@ -8521,12 +8521,21 @@ footer.section {
 #howToRide h2 {
   margin-bottom: 0 !important; }
 
-#howToRide .btn-wrapper .btn-warning {
+#howToRide .btn-wrapper,
+#howToRide .button-container-icon-right {
+  display: block;
+  text-align: center !important; }
+  @media (min-width: 992px) {
+    #howToRide .btn-wrapper,
+    #howToRide .button-container-icon-right {
+      display: inline-block;
+      text-align: left !important; } }
+
+#howToRide .btn-wrapper {
   margin-bottom: 1rem; }
   @media (min-width: 992px) {
-    #howToRide .btn-wrapper .btn-warning {
-      margin-bottom: 0;
-      margin-right: 1rem; } }
+    #howToRide .btn-wrapper {
+      margin-bottom: 0; } }
 
 #howToRide .embed-responsive {
   margin-bottom: 1rem; }
@@ -8989,7 +8998,6 @@ input:focus,
 
 .button-container-icon-right {
   position: relative;
-  text-align: center;
   margin-bottom: 15px; }
   @media (min-width: 992px) {
     .button-container-icon-right {

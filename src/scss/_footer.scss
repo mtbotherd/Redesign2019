@@ -1,60 +1,59 @@
 footer.section {
-	padding-top: 30px;
-	padding-bottom: 30px;
-  
-	@include media-breakpoint-up(lg) {
-	  padding-top: 45px;
-	  padding-bottom: 45px;
-	}
-	background-color: $gray-100;
-	.card-title {
-	  @include font-size(16);
-	  font-weight: $font-weight-bold;
-	  margin-bottom: 0.25rem;
-	  text-transform: uppercase;
-	}
-	.card-body {
-	  padding: 0;
-	}
-  
-	.btn {
-	  font-size: 20px !important;
-  
-	  @include media-breakpoint-up(lg) {
-		font-size: 23px !important;
-	  }
-	}
-  
-	.social-media {
-	  margin-bottom: 30px;
-  
-	  @include media-breakpoint-up(lg) {
-		margin-bottom: 45px;
-	  }
-	  a {
-		padding: 0.875rem 0;
-		margin-right: 0.25rem;
-	  }
-  
-	  .icon {
-		@include media-breakpoint-up(xl) {
-		  width: 50px;
-		  height: 50px;
-		}
-	  }
-	}
-  
-	.card-deck {
-	  margin-bottom: 30px;
-	  &:first-child {
-		margin-bottom: 75px;
-	  }
-	}
-	.nav-link {
-	  @include font-size(16);
-	  font-weight: $font-weight-bold;
-	  text-decoration: none;
-	  padding: 0.25rem 0;
-	}
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 45px;
+    padding-bottom: 45px;
   }
-  
+  background-color: $gray-100;
+  .card-title {
+    @include font-size(16);
+    font-weight: $font-weight-bold;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+  }
+  .card-body {
+    padding: 0;
+  }
+
+  .btn {
+    font-size: 20px !important;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 23px !important;
+    }
+  }
+
+  .social-media {
+    margin-bottom: 30px;
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 45px;
+    }
+    a {
+      padding: 0.875rem 0;
+      margin-right: 0.25rem;
+    }
+
+    .icon {
+      @include media-breakpoint-up(xl) {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+  .card-deck {
+    margin-bottom: 30px;
+    &:first-child {
+      margin-bottom: 75px;
+    }
+  }
+  .nav-link {
+    @include font-size(16);
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+    padding: 0.25rem 0;
+  }
+}
