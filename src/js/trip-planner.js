@@ -1,6 +1,7 @@
 // TripPLan encapsulates the call to generate the trip plan
 var TripPlan = (function($, window, document, undefined) {
-	var TripPlanJSON = {};
+  var TripPlanJSON = {};
+  var MAPLOADED = false;
 	//
 	// newTrip generates a trip from two address locations
 	// getTrip returns the JSON for the current trip or nothing if no trip created
@@ -22,8 +23,8 @@ var TripPlan = (function($, window, document, undefined) {
 				tripProperties.fromLocation.address +
 				" to " +
 				tripProperties.toLocation.address
-			);
-			let datetime = new Date(tripProperties.datetime);
+      );
+      let datetime = new Date(tripProperties.datetime);
 			// ATIS_ID have format "ENT;35;MPL;AWIS;P;N" - we want the second value converted to a number (i.e. 35)
 			// NOTE: the order of location.y then location.x is intentional 
 			let fromLoc =
@@ -78,13 +79,47 @@ var TripPlan = (function($, window, document, undefined) {
 				}
 				})
 				.fail(function(err) {
-					dfd.reject("Fetch TripPlan - No trip found " + err);
+					dfd.reject("TripPlan failed - No trip found " + err);
 				});
 
 		}).promise();
 	};
 	const getTrip = function() {
 		return TripPlanJSON;
+  };
+  var returnTime = function(Time,vari){
+    let time = new Date(Time);
+    let minutes = time.getMinutes();
+    minutes = minutes<10 ? '0' + minutes.toString(): minutes.toString();
+    let hour = time.getHours();
+    let AMPM = (hour > 11 ? ' PM' :  ' AM');
+    hour = hour > 12 ? hour - 12 : hour;
+    hour = hour === 0 ? 12 : hour;
+    return hour + ':' + minutes + ' ' + AMPM;
+  };
+  var formatTimeMonthDay = function(dateString) {
+    var d = new Date(dateString);
+    var t = returnTime(dateString);
+    var dayNames = ["Sunday", "Monday",
+      "Tuesday", "Wednesday", "Thursday",
+      "Friday", "Saturday"];
+    var monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+    var day = d.getDate();  
+    return t + ', ' + dayNames[d.getDay()] + ', ' + monthNames[d.getMonth()] + ' ' + day;
+  }
+  var returnTripTime = function(Time){
+    let time = new Date(Time);
+    let minutes = time.getMinutes();
+    minutes = minutes>0 ? minutes.toString() + ' min' : '';
+    let hour = time.getHours();
+    if(hour>=1) hour = hour + ' hr';
+    else hour = ' ';
+    return hour + ' ' + minutes;
   };
   var listFunction = function(li,i,ii,vari,initTime){
     //console.log(li,i,ii,vari,initTime)
@@ -96,42 +131,25 @@ var TripPlan = (function($, window, document, undefined) {
     else if(li.length===ii) return returnTime(li.Segments[ii].OffTime,vari)
     else return returnTime(li.Segments[ii].OnTime,vari)
   };
-  var returnTime = function(Time,vari){
-    Time+"-05:00";
-    let time = new Date(Time);
-    let minutes = time.getMinutes();
-    if(minutes<10)minutes=`0${minutes}`;
-    let hour = time.getHours();
-    if(hour<13) vari = ' p.m';
-    else vari = ' a.m';
-    return `${hour}:${minutes} ${vari}`;
-  };
-  var returnTripTime = function(Time){
-    let time = new Date(Time);
-    let minutes = time.getMinutes();
-    //if(minutes<10) minutes=`0${minutes}`;
-    let hour = time.getHours();
-    if(hour>=1) hour = hour+" hr"
-    else hour = ' ';
-    return `${hour} ${minutes} min`;
-  };
   var checkIfLate = function(Adherance){
     if(Adherance<0){
-      return `<img class="icon blink"msrc="/img/svg/broadcast-red.svg">&nbsp;<strong>Currently ${Adherance}
-      <abbr title="minutes">min</abbr> late</strong>
-      <br>`
+      return '<img class="icon blink"msrc="/img/svg/broadcast-red.svg">&nbsp;<strong>Currently ' 
+        + Adherance + '<abbr title="minutes">min</abbr> late</strong><br>';
     } else { 
-      return " "
+      return ' ';
     }
   };
   const formatTrip = function(plan) {
     let tripCount = plan.PlannerItin.PlannerOptions.length;
-    let tripMsg = 'We have ' + tripCount.toString() + ' trip';
+    let tripMsg = 'We found ' + tripCount.toString() + ' trip';
     tripMsg += tripCount > 1 ? 's':'';
     tripMsg += ' for you.';
     $("#trip-result-count").html(tripMsg);
-    $("#trip-result-msg").html(tripMsg);
-    //<p class="mb-0">We found 3 trips for you Trips shown are based on your selections and closest departure to 3:25 PM, Friday, August 30th.</p>
+    let tmsg = 'Trips shown are based on your selections and closest ';
+    tmsg += plan.ArrDep === 1 ? 'departure to ' : 'arrival to ';
+    tmsg += formatTimeMonthDay(plan.ItinDateTime);
+    tmsg += '.';
+    $("#trip-result-msg").html(tmsg);
       
     $('.tp-results').empty();
     plan.PlannerItin.PlannerOptions.forEach(function(l,i) {
@@ -187,9 +205,7 @@ var TripPlan = (function($, window, document, undefined) {
                   </a>
                 </p>
                 <p>
-                  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName}
-                </p>
-                <p>
+                  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName}</br>
                   <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName}
                 </p>
               </div>
@@ -206,9 +222,7 @@ var TripPlan = (function($, window, document, undefined) {
                   <strong>${li.Headsign}</strong>
                 </p>
                 <p>
-                  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName}
-                </p>
-                <p>
+                  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName}</br>
                   <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName}
                 </p>
               </div>
@@ -231,9 +245,7 @@ var TripPlan = (function($, window, document, undefined) {
                   </a>
                 </p>
                 <p>
-                  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName}
-                </p>
-                <p>
+                  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName}</br>
                   <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName}
                 </p>
               </div>
@@ -247,25 +259,20 @@ var TripPlan = (function($, window, document, undefined) {
                   <img class="icon"
                     src="/img/svg/circle-green-outline-pedestrian.svg">
                 </div>
-                <p>
-                  <strong>Walk</strong>${li.WalkTextOverview}
-                  <br>
-                  <small>(about 6 <abbr title="minutes">min</abbr>)</small>
+                <p>${li.WalkTextOverview}
                 </p>
               </div>
             </div>`)
               break;
             case 4:
               secondList.push(`<div class="leg-item">
-              <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)} ${timeOfDay} </div>
+              <div class="d-table-cell leg-time"></div>
               <div class="d-table-cell leg-mode walk">
                 <div class="d-table-cell leg-mode-icon">
                   <img class="icon"
                     src="/img/svg/alerts-color.svg">
                 </div>
-                <p>
-                  <strong>Walk</strong>${li.WalkTextOverview}
-                </p>
+                <p>${li.WalkTextOverview}</p>
               </div>
             </div>`)
               break;
@@ -275,7 +282,7 @@ var TripPlan = (function($, window, document, undefined) {
 
       $('.tp-results').append(`
         <div class="card mb-4">
-        <a class="border" data-toggle="collapse" href="#collapseTrip${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
+        <a class="border" data-toggle="collapse" href="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
           <span class="d-flex" role="link">
             <span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
             <span class="align-items-center tp-route">${list.join('<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">')}
@@ -285,7 +292,7 @@ var TripPlan = (function($, window, document, undefined) {
         </a>
         </div>
 
-        <div id="collapseTrip${i}" class="collapse" aria-labelledby="">
+        <div id="collapseTrip${i}" class="collapse" data-parent="#tripPlannerResults" aria-labelledby="tripPlannerResults">
           <div class="card-body">
             <div class="row flex-row">
                   <div class="col-lg-5">
@@ -296,13 +303,7 @@ var TripPlan = (function($, window, document, undefined) {
                     <hr class="d-block d-lg-none">
                   </div>
                   <div class="col-lg-7">
-                    <div class="tp-basemap">
-                      <div class="map-container border">
-                        <div id="tripPlanMap" class="map" mapType="trip" role="application" aria-label="interactive map of transit trip plan">
-                          <div id="trimLocate"></div>
-                          <div class="mapLoading"></div>
-                        </div>
-                      </div>
+                    <div class="tp-basemap esrimap${i}">
                     </div>
                   </div>
             </div>
@@ -310,22 +311,81 @@ var TripPlan = (function($, window, document, undefined) {
         </div>
         `)
     });
+
+    $("#collapseTrip0").on('hide.bs.collapse', function(){
+      if (MAPLOADED) {
+        TRIM.destroy();
+        $('.esrimap0').empty();
+        MAPLOADED = false;
+      }
+    });    
+    $("#collapseTrip0").on('shown.bs.collapse', function(){
+      $('.esrimap0').append(`
+          <div class="map-container border">
+          <div id="tripPlanMap" class="map" mapType="trip" role="application" aria-label="interactive map of transit trip plan">
+            <div id="trimLocate"></div>
+            <div class="mapLoading"></div>
+          </div>
+        </div>
+      `);
+      TRIM.init("tripPlanMap").then(function () {
+        MAPLOADED = true;
+        TRIM.drawTrip(0, getTrip(), /*zoom*/ true);
+      });
+    });
+    $("#collapseTrip1").on('hide.bs.collapse', function(){
+      if (MAPLOADED) {
+        TRIM.destroy();
+        $('.esrimap1').empty();
+        MAPLOADED = false;
+      }
+    });    
+    $("#collapseTrip1").on('shown.bs.collapse', function(){
+      $('.esrimap1').append(`
+          <div class="map-container border">
+          <div id="tripPlanMap" class="map" mapType="trip" role="application" aria-label="interactive map of transit trip plan">
+            <div id="trimLocate"></div>
+            <div class="mapLoading"></div>
+          </div>
+        </div>
+      `);
+      TRIM.init("tripPlanMap").then(function () {
+        MAPLOADED = true;
+        TRIM.drawTrip(1, getTrip(), /*zoom*/ true);
+      });
+    });
+    $("#collapseTrip2").on('hide.bs.collapse', function(){
+      if (MAPLOADED) {
+        TRIM.destroy();
+        $('.esrimap2').empty();
+        MAPLOADED = false;
+      }
+    });    
+    $("#collapseTrip2").on('shown.bs.collapse', function(){
+      $('.esrimap2').append(`
+          <div class="map-container border">
+          <div id="tripPlanMap" class="map" mapType="trip" role="application" aria-label="interactive map of transit trip plan">
+            <div id="trimLocate"></div>
+            <div class="mapLoading"></div>
+          </div>
+        </div>
+      `);
+      TRIM.init("tripPlanMap").then(function () {
+        MAPLOADED = true;
+        TRIM.drawTrip(2, getTrip(), /*zoom*/ true);
+      });
+    });
   };
   const init = function() {
-    // This triggers planning a new trip when the
-    // button on the Trip Planner page is clicked
-    // TODO: Test for errors in the result
-    // TODO: Test for FROM address = TO address
-    // TODO: Trigger display of 'No Trips Found' message if error occurs
-    //
-    $('#collapseTrip0').on('shown.bs.collapse'),function() {
-      console.log('Trip 0 open');
-    };
-    $('#collapseTrip0').on('hidden.bs.collapse'), function() {
-      console.log('Trip 0 close');
-    };
+    const DestroyAllMaps = function() {
+      if (MAPLOADED) {
+        TRIM.destroy();
+      }
+    }
     $('button[name="planMyTrip"]').click(function () {
       $('#tripPlannerResults').hide();
+      DestroyAllMaps();
+
       var tripFromLocation = AutocompleteAddress.getChoice('fromLocation');
       var userPos = AutocompleteAddress.fetchUserLoc(); // this gets the user GPS location, if you need it
       var tripToLocation = AutocompleteAddress.getChoice('toLocation');
@@ -338,7 +398,7 @@ var TripPlan = (function($, window, document, undefined) {
       if (selectTime !== 'leave-now') {
         var pickDate = $('#date').val();
         var pickTime = $('#time').val();
-        dateTime = pickDate + ' ' + pickTime;
+        dateTime = new Date(pickDate + ' ' + pickTime);
       }
       var walkingDistance = $("input[name='walkingDistance']:checked").val();
       var serviceType = $("input[name='serviceType']:checked").val();
@@ -380,42 +440,6 @@ var TripPlan = (function($, window, document, undefined) {
               });
       }
     });
-  
-    // This loads the map into the resulting Trip Plan page.
-    // Once the map loads, trips can be displayed.
-    //
-    // TODO: this is currently in DEMO mode.
-    // Need to add routines that trigger when user
-    // clicks the 'trip summary' button to show on the
-    // map just that trip option.
-    //
-    // Format for the call:
-    // TRIM.drawTrip(<trip option>, <entire trip plan>, <zoom to trip>)
-    if ($("#tripPlanMap").attr("maptype") === "trip") {
-        TRIM.init("tripPlanMap").then(function () {
-            let tripPlan = getTrip();
-            if (tripPlan) {
-                if (tripPlan.PlannerItin) {
-                    if (tripPlan.PlannerItin.PlannerOptions.length > 0) {
-                        console.log("Draw TripPlan 0");
-                        TRIM.drawTrip(0, tripPlan, /*zoom*/ true);
-                    }
-                    if (tripPlan.PlannerItin.PlannerOptions.length > 1) {
-                        setTimeout(function () {
-                            console.log("Draw TripPlan 1");
-                            TRIM.drawTrip(1, tripPlan, /*zoom*/ true);
-                        }, 5000);
-                    }
-                    if (tripPlan.PlannerItin.PlannerOptions.length > 2) {
-                        setTimeout(function () {
-                            console.log("Draw TripPlan 2");
-                            TRIM.drawTrip(2, tripPlan, /*zoom*/ true);
-                        }, 10000);
-                    }
-                }
-            }
-        });
-    }
   };
 
 	return {

@@ -71,8 +71,8 @@ var AutocompleteAddress = (function($, window, document, undefined) {
     /*object*/ userPosition,
     /*function*/ callback
   ) {
-    const LOCATOR =
-      "https://arcgistest.metctest.state.mn.us/transit/rest/services/metro_transit/GeocodeServer/";
+    const LOCATOR = // trailing slash on URL is IMPORTANT
+      "https://arcgis.metc.state.mn.us/transit/rest/services/mt_suggest/GeocodeServer/";
     $("#" + inputDiv).devbridgeAutocomplete({
       noCache: true,
       autoSelectFirst: true,

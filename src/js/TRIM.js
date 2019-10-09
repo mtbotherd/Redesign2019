@@ -433,8 +433,8 @@
 })();
 
 var TRIM = (function ($, window, document, undefined) {
-    var MAP; // this is the main MAP object 
-    var GEOLOCATE; // this is the locate button object
+    var MAP = null; // this is the main MAP object 
+    var GEOLOCATE = null; // this is the locate button object
 
     var convertDateTimeToDotNet = function (ticks) {
         return 621355968000000000 + ticks * 10000;
@@ -843,8 +843,8 @@ var TRIM = (function ($, window, document, undefined) {
     //@@@@@@@@@@@@@@@@@@@@
     //@@@@@@@@@@@@@@@@@@@@
     var init = function (mapElementID) {
+        
         return $.Deferred(function (dfd) {
-
             // mapType property on the <div>
             var pType = document.getElementById(mapElementID).getAttribute("maptype");
             var mapType = pType !== null ? pType : "route";
@@ -1196,8 +1196,9 @@ var TRIM = (function ($, window, document, undefined) {
                     });
 
                     MAP.on("layers-add-result", function (result) {
-
-                        drawNiceRides();
+                        if (mapType === 'full') {
+                            drawNiceRides();
+                        }
                         //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                         dfd.resolve();
                         //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1398,6 +1399,11 @@ var TRIM = (function ($, window, document, undefined) {
             }
         });
     };
+    var mapDestroy = function() {
+        GEOLOCATE.destroy();
+        GEOLOCATE = null;
+        MAP.destroy();
+    };
     return {
         fullPageSetup: fullPageSetup,
         centerMarkerAtPoint: centerMarkerAtPoint,
@@ -1408,6 +1414,7 @@ var TRIM = (function ($, window, document, undefined) {
         drawRoutes: drawRoutes,
         geoLocate: geoLocate,
         toggleLayer: toggleLayer,
+        destroy: mapDestroy,
         init: init
     };
 })(jQuery, window, document);
