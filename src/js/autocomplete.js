@@ -5,6 +5,7 @@
 // as results of an autocomplete field input
 //
 // dependencies: jquery.autocomplete.js
+// GIS service on arcgis.metc.state.mn.us
 // ____________________________________________
 "use strict";
 var AutocompleteAddress = (function($, window, document, undefined) {
@@ -13,10 +14,15 @@ var AutocompleteAddress = (function($, window, document, undefined) {
   //format USERLOC = { 'LatLon': { 'x': -93, 'y': 45, 'spatialReference': { 'wkid': 4326 }}, 
   //                    'UTM': { 'x': 49999, 'y': '4979999', 'spatialReference': { 'wkid': 26915}} }
 
+  // fetchUserLoc returns the location we already loaded 
+  // using 'getUserLocation' when the application started
   var fetchUserLoc = function() {
     return USERLOC;
   }
-
+  // getUserLocation returns a PROMISE while determining the user's location 
+  // If the user does not run the app with 'HTTPS' or the user chooses not
+  // to reveal their location, the routine returns 'fail'.
+  // User location is stored in USERLOC having both Lat/Lon and UTM coordinates.
   var getUserLocation = function() {
     return $.Deferred(function(dfd){
       if (navigator.geolocation) {
@@ -138,9 +144,13 @@ var AutocompleteAddress = (function($, window, document, undefined) {
     });
 
   };
+  // Autocomplete results (user's last choice) are stored with a 
+  // key field equal to the id of the input div.
   var getChoice = function(/*string*/ inputDiv) {
     return inputResults[inputDiv];
   };
+  // This is a special function to support swapping the 
+  // from/to location choices for the trip planner entry
   var exchangeValues = function(inputDiv1, inputDiv2) {
     let t = inputResults[inputDiv1];
     inputResults[inputDiv1] = inputResults[inputDiv2];
@@ -156,7 +166,7 @@ var AutocompleteAddress = (function($, window, document, undefined) {
   };
 })(jQuery, window, document);
 
-// =========================================================
+// ==========================================================================
 // Here are the routines that set the INPUT fields to use the
 // ADDRESS AUTOCOMPLETE function defined above.
 //
@@ -165,11 +175,11 @@ var AutocompleteAddress = (function($, window, document, undefined) {
 // is used to obtain geocoder results in geospatial order relative
 // to the user's position.
 // If no position is passed because it could not be gotten,
-// the geocoder passes back results in basically alphabetic order.
+// the geocoder returns results in alphabetic order.
 //
 // For the trip planner, both TO and FROM need be set
 // for validation.
-//
+// ===========================================================================
 AutocompleteAddress.getUserLocation()
 .then(function(userPos){
   AutocompleteAddress.init("fromLocation", /*UTMout*/ true, userPos);
