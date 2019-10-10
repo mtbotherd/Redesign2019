@@ -7755,6 +7755,17 @@ abbr {
 .embed-responsive {
   margin-bottom: 1rem !important; }
 
+.result-msg {
+  font-size: 18px !important;
+  font-size: 1.125rem !important;
+  font-weight: 700;
+  margin-bottom: 15px; }
+  @media (min-width: 992px) {
+    .result-msg {
+      font-size: 23px !important;
+      font-size: 1.4375rem !important;
+      margin-bottom: 30px; } }
+
 /***************************************************************
     CSS Animations
 ***************************************************************/
@@ -8405,17 +8416,6 @@ footer.section {
           width: 3rem;
           height: 3rem; } }
 
-#parkRides .result-msg {
-  font-size: 18px !important;
-  font-size: 1.125rem !important;
-  font-weight: 700;
-  margin-bottom: 15px; }
-  @media (min-width: 992px) {
-    #parkRides .result-msg {
-      font-size: 23px !important;
-      font-size: 1.4375rem !important;
-      margin-bottom: 30px; } }
-
 #parkRides .accordion .chevron-down-blue {
   width: 1rem;
   height: 1rem; }
@@ -8423,6 +8423,132 @@ footer.section {
 #parkRides .accordion .pin-gray {
   width: 1.5rem;
   height: 1.5rem; }
+
+#stopsStations .icon {
+  width: 2.5rem;
+  height: 2.5rem; }
+
+#stopsStations .search-gray {
+  width: 1rem;
+  height: 1rem; }
+
+#stopsStations .input-group-append .btn {
+  padding: 0 0.75rem; }
+
+#stopsStations .auto-complete-search-box {
+  margin-bottom: 30px; }
+  @media (min-width: 992px) {
+    #stopsStations .auto-complete-search-box {
+      margin-bottom: 60px; } }
+  #stopsStations .auto-complete-search-box .input-group {
+    margin-left: auto; }
+    @media (min-width: 992px) {
+      #stopsStations .auto-complete-search-box .input-group {
+        margin: 0 auto; } }
+    #stopsStations .auto-complete-search-box .input-group::before {
+      content: "";
+      background-image: url("../../../../../img/svg/bus-stop-color.svg");
+      background-repeat: no-repeat;
+      background-size: 2.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-right: 0.5rem; }
+      @media (min-width: 992px) {
+        #stopsStations .auto-complete-search-box .input-group::before {
+          background-size: 3rem;
+          width: 3rem;
+          height: 3rem; } }
+
+#stopsStations .gray-100 h2 {
+  margin-bottom: 0; }
+
+#stopsStations .gray-100 .stop-id {
+  font-size: 18px !important;
+  font-size: 1.125rem !important; }
+  @media (min-width: 992px) {
+    #stopsStations .gray-100 .stop-id {
+      font-size: 23px !important;
+      font-size: 1.4375rem !important; } }
+
+#stopsStations .gray-100 .map {
+  text-align: right; }
+  #stopsStations .gray-100 .map .map-link {
+    position: relative;
+    font-size: 18px !important;
+    font-size: 1.125rem !important;
+    margin-right: 0.25rem; }
+    @media (min-width: 992px) {
+      #stopsStations .gray-100 .map .map-link {
+        top: 0;
+        font-size: 23px !important;
+        font-size: 1.4375rem !important;
+        margin-right: 1.5rem; } }
+    #stopsStations .gray-100 .map .map-link::after {
+      position: absolute;
+      top: 0.25rem;
+      content: "";
+      background-image: url("../../../../../img/svg/pin-gray.svg");
+      background-repeat: no-repeat;
+      background-size: 1rem;
+      width: 1rem;
+      height: 1rem;
+      margin-left: 0.15rem; }
+      @media (min-width: 992px) {
+        #stopsStations .gray-100 .map .map-link::after {
+          background-size: 1.5rem;
+          width: 1.5rem;
+          height: 1.5rem;
+          margin-left: 0.25rem; } }
+
+#stopsStations .gray-100 .icon {
+  width: 3rem;
+  height: 3rem; }
+
+#stopsStations .gray-100 .transit-service .routes {
+  font-size: 18px !important;
+  font-size: 1.125rem !important;
+  margin-right: 0;
+  margin-bottom: 0.4rem !important;
+  width: 96px;
+  height: 40px;
+  line-height: 0.9;
+  padding: 0.1rem 1.2rem; }
+  @media (min-width: 992px) {
+    #stopsStations .gray-100 .transit-service .routes {
+      font-size: 20px !important;
+      font-size: 1.25rem !important;
+      margin-right: 0.6rem;
+      margin-bottom: 1.145rem !important;
+      width: 100px;
+      height: 45px;
+      padding: 0.1rem 1.25rem; } }
+  #stopsStations .gray-100 .transit-service .routes:nth-child(3n) {
+    margin-right: 0; }
+    @media (min-width: 992px) {
+      #stopsStations .gray-100 .transit-service .routes:nth-child(3n) {
+        margin-right: 0.6rem; } }
+  @media (min-width: 992px) {
+    #stopsStations .gray-100 .transit-service .routes:nth-child(8n) {
+      margin-right: 0; } }
+
+#stopsStations .gray-100 .lrt-service .routes {
+  font-size: 18px !important;
+  font-size: 1.125rem !important;
+  margin-right: 0.05rem;
+  margin-bottom: 0.4rem !important;
+  width: 96px;
+  height: 40px;
+  line-height: 0.9;
+  padding: 0.1rem 0.5rem; }
+  @media (min-width: 992px) {
+    #stopsStations .gray-100 .lrt-service .routes {
+      font-size: 20px !important;
+      font-size: 1.25rem !important;
+      margin-right: 0.92rem;
+      margin-bottom: 1.145rem !important;
+      width: 100px;
+      height: 45px;
+      padding: 0.2rem 0; } }
 
 .route .schedule-days h3 {
   font-weight: normal !important; }
