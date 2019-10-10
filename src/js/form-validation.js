@@ -23,8 +23,8 @@ $(function () {
 				equalTo: '#emailAddress'
 			},
 			// Trip Tools
-			fromLocation: 'required',
-			toLocation: 'required'
+			// fromLocation: 'required',
+			// toLocation: 'required'
 		},
 		messages: {
 			firstName: 'Please enter your first name.',
@@ -56,7 +56,7 @@ $(function () {
 		validClass: 'is-valid'
 	});
 
-	$('#aspnetForm').validate({
+	$('form').validate({
 
 		errorElement: 'div',
 	
