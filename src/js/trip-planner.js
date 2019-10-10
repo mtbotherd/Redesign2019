@@ -325,18 +325,18 @@ var TripPlan = (function($, window, document, undefined) {
               <div class="container">
                 <ul class="nav nav-tabs nav-justified">
                   <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#mapPopUpTabRoutes">Routes</a>
+                    <a class="nav-link active" data-toggle="tab" href="#mapPopUpTabNexTrip">NexTrip</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#mapPopUpTabNexTrip">NexTrip</a>
+                    <a class="nav-link" data-toggle="tab" href="#mapPopUpTabRoutes">Routes</a>
                   </li>
                 </ul>
                 <div class="tab-content">
-                  <div class="tab-pane container active" id="mapPopUpTabRoutes">
+                <div class="tab-pane container active" id="mapPopUpTabNexTrip">
+                  <div id="mapPopUpDepartures" class="stop-departures"></div>
+                </div>
+                  <div class="tab-pane container" id="mapPopUpTabRoutes">
                     <div id="mapPopUpRoutes" class="route-list"></div>
-                  </div>
-                  <div class="tab-pane container" id="mapPopUpTabNexTrip">
-                    <div id="mapPopUpDepartures" class="stop-departures"></div>
                   </div>
                 </div>
               </div>

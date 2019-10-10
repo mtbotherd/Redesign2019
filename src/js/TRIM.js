@@ -1342,7 +1342,9 @@ var TRIM = (function ($, window, document, undefined) {
                             var feature = r.features[0];
                             let x = feature.geometry.x;
                             let y = feature.geometry.y;
-                            dfd.resolve(x, y);
+                            let name = feature.attributes.site_on.trim();
+                            name += feature.attributes.site_at ? ' & ' + feature.attributes.site_at : '';
+                            dfd.resolve(x, y, name);
                         }
                         else {
                             console.warn("stops query returned no results: " + stopID);
@@ -1376,7 +1378,9 @@ var TRIM = (function ($, window, document, undefined) {
                 drawRouteStops([route]);
                 if (stop) {
                     findStop(stop)
-                        .then(function (x, y) {
+                        .then(function (x, y, name) {
+                            let title = 'Stop ' + stop + ' / ' + name;
+                            $('#page-title-text').html(title);
                             centerMarkerAtPoint(x, y,/*zoomLevel*/ 17);
                         }).fail(function () {
                             console.warn('Requested stop ' + stop + ' not found.');
@@ -1385,7 +1389,9 @@ var TRIM = (function ($, window, document, undefined) {
             } else {
                 if (stop) {
                     findStop(stop)
-                        .then(function (x, y) {
+                        .then(function (x, y, name) {
+                            let title = 'Stop ' + stop + ' / ' + name;
+                            $('#page-title-text').html(title);
                             centerMarkerAtPoint(x, y,/*zoomLevel*/ 17);
                         }).fail(function () {
                             console.warn('Requested stop ' + stop + ' not found.');
