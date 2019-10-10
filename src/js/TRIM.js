@@ -675,7 +675,7 @@ var TRIM = (function ($, window, document, undefined) {
                 * stopGraphicType = "Transfer,Board,Exit"
                 */
                 var drawTripStop = function (StopObj, /*string*/stopGraphicType) {
-                    console.log("Draw stop: " + JSON.stringify(StopObj));
+                    //console.log('Draw ' + stopGraphicType + ' ' + JSON.stringify(StopObj));
                     //var originMarker = new PictureMarkerSymbol('images/SVG/map-location-ring-green.svg', 24, 24);
                     var originMarker = new PictureMarkerSymbol('/img/svg/map-icons/circle-gray-outline-green.svg', 24, 24);
                     //var destinationMarker = new PictureMarkerSymbol('images/SVG/map-location-ring-red.svg', 24, 24);
@@ -715,7 +715,6 @@ var TRIM = (function ($, window, document, undefined) {
                     return;
                 }
                 var segs = tripPlan.PlannerItin.PlannerOptions[tripToDraw].Segments;
-                console.dir(segs);
                 var segExt;
                 var tripExt;
                 //The first non-walking segment should have a board symbol.
@@ -726,6 +725,7 @@ var TRIM = (function ($, window, document, undefined) {
                 var routesInSegments = [];
                 for (let i = 0, sl = segs.length; i < sl; i++) {
                     var seg = segs[i];
+                    //console.log("Doing Segment " + seg.SegmentNumber + " index " + i + " Type " + seg.SegmentType);
                     if (seg.Geometry) {
                         var cls1, attr;
                         try {
@@ -770,18 +770,12 @@ var TRIM = (function ($, window, document, undefined) {
                                 infoTemplate = new InfoTemplate("Title", "Content");
                                 attr = {};
                                 break;
-                            case 2:
-                                //Heavy Rail needs two trip lines - bottom one is 00539F (0,83,159) top one is FFD200 (255, 210,0)
-                                var theNSLine = new Polyline(MAP.spatialReference);
-                                clsNS1 = new CartographicLineSymbol(CartographicLineSymbol.STYLE_SOLID, new Color([0, 83, 159]), 10, CartographicLineSymbol.CAP_ROUND, CartographicLineSymbol.JOIN_ROUND);
-                                theNSLine.addPath(rearrangeTripGeom(seg.Geometry));
-                                var graphic = new Graphic(theNSLine, clsNS1, attr, null);
-                                MAP.getLayer("trip").add(graphic);
-                                cls1 = new CartographicLineSymbol(CartographicLineSymbol.STYLE_SOLID, new Color([255, 210, 0]), 6, CartographicLineSymbol.CAP_ROUND, CartographicLineSymbol.JOIN_ROUND);
+                            case 2: // NorthStar Train  BROWN LINE
+                                cls1 = new CartographicLineSymbol(CartographicLineSymbol.STYLE_SOLID, new Color([119, 29, 29]), 8, CartographicLineSymbol.CAP_ROUND, CartographicLineSymbol.JOIN_ROUND);
                                 infoTemplate = new InfoTemplate("Title", "Content");
                                 attr = {};
                                 break;
-                            case 3: //Walk
+                            case 3: //Walk  DASHED LINE
                                 cls1 = new CartographicLineSymbol(CartographicLineSymbol.STYLE_SHORTDOT, new Color([0, 180, 210, .77]), 8, CartographicLineSymbol.CAP_ROUND, CartographicLineSymbol.JOIN_ROUND);
                                 infoTemplate = new InfoTemplate("Title", "Content");
                                 attr = {};
@@ -810,7 +804,7 @@ var TRIM = (function ($, window, document, undefined) {
                         }
                         theTripLine.addPath(newPoints);
                         graphic = new Graphic(theTripLine, cls1, attr, null);
-                        MAP.getLayer("tripStop").add(graphic);
+                        MAP.getLayer("trip").add(graphic);
                         segExt = new Extent({ "xmin": graphic.geometry.getExtent().xmin, "ymin": graphic.geometry.getExtent().ymin, "xmax": graphic.geometry.getExtent().xmax, "ymax": graphic.geometry.getExtent().ymax, "spatialReference": { "wkid": 3857 } });
                         if (tripExt) {
                             if (segExt.xmin < tripExt.xmin) { tripExt.xmin = segExt.xmin; }
@@ -1348,7 +1342,9 @@ var TRIM = (function ($, window, document, undefined) {
                             var feature = r.features[0];
                             let x = feature.geometry.x;
                             let y = feature.geometry.y;
-                            dfd.resolve(x, y);
+                            let name = feature.attributes.site_on.trim();
+                            name += feature.attributes.site_at ? ' & ' + feature.attributes.site_at : '';
+                            dfd.resolve(x, y, name);
                         }
                         else {
                             console.warn("stops query returned no results: " + stopID);
@@ -1382,7 +1378,9 @@ var TRIM = (function ($, window, document, undefined) {
                 drawRouteStops([route]);
                 if (stop) {
                     findStop(stop)
-                        .then(function (x, y) {
+                        .then(function (x, y, name) {
+                            let title = 'Stop ' + stop + ' / ' + name;
+                            $('#page-title-text').html(title);
                             centerMarkerAtPoint(x, y,/*zoomLevel*/ 17);
                         }).fail(function () {
                             console.warn('Requested stop ' + stop + ' not found.');
@@ -1391,7 +1389,9 @@ var TRIM = (function ($, window, document, undefined) {
             } else {
                 if (stop) {
                     findStop(stop)
-                        .then(function (x, y) {
+                        .then(function (x, y, name) {
+                            let title = 'Stop ' + stop + ' / ' + name;
+                            $('#page-title-text').html(title);
                             centerMarkerAtPoint(x, y,/*zoomLevel*/ 17);
                         }).fail(function () {
                             console.warn('Requested stop ' + stop + ' not found.');
