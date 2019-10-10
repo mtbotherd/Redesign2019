@@ -6,7 +6,7 @@
         var newsStories = [];
         var titles = $('.articleDisplayTitle>a');
         var links = $('.articleDisplayTitle>a');
-        var imgs = $('.articleDisplayAbstract img');
+        var imgs = $('.articleDisplayAbstract img:first-child');
 
         for (var i = 0; i < 4; i++) {
             let title = titles[i] != undefined ? titles[i].text : 'Article';
@@ -20,7 +20,13 @@
             }
         }
 
-        //TODO: add news to home page
+        var newsDisplay = $('#news>div.row>div');
+
+        $.each(newsDisplay, function (index, item) {
+            $(item).find('img.card-img-top').attr('src', newsStories[index].img);
+            $(item).find('h4.card-title').text(newsStories[index].title);
+            $(item).find('.card-footer a.btn').attr('href', newsStories[index].link);
+        });
     };
 
     return {

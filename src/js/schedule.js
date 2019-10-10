@@ -22,6 +22,31 @@
         }
     };
 
+    var searchSchedules = function () {
+        var term = $('#schedulesByRoute').val().toLowerCase().trim().split(" ");
+        var dict = {
+            north: 888,
+            northstar: 888,
+            blue: 901,
+            green: 902,
+            red: 903,
+            a: 921,
+            c: 923
+        };
+        var notFound = true;
+        term.forEach(function (item) {
+            if (Number.isInteger(Number(item))) {
+                location.assign("/route/" + item);
+                notFound = false;
+            } else if (Number.isInteger(dict[item])) {
+                location.assign("/route/" + dict[item]);
+                notFound = false;
+            }
+        });
+
+        if(notFound) location.assign("/route/0");
+    };
+
     var init = function (routeAbbr) {
         loadTimetable();
 
@@ -49,7 +74,8 @@
     };
 
     return {
-        init: init
+        init: init,
+        searchSchedules: searchSchedules
     };
 
 })(jQuery, window, document);

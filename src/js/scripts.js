@@ -28,7 +28,18 @@ $(function() {
 	  $("#siteSearchBox").slideToggle();
 	  $("#siteSearch").focus();
 	});
-  
+
+    //Newsletter signup button
+    if ($('.createsend-button').length) {
+        var e = document.createElement('script');
+        e.type = 'text/javascript';
+        e.async = true;
+        e.src = 'https://btn.createsend1.com/js/sb.min.js?v=3';
+        e.className = 'createsend-script';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(e, s);
+    }
+
 	/***********************************************
 			  Trip Planner
 	  ***********************************************/
