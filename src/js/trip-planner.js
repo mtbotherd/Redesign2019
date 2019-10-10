@@ -139,7 +139,7 @@ var TripPlan = (function($, window, document, undefined) {
       return ' ';
     }
   };
-  const formatTrip = function(plan) {
+  const formatTripResults = function(plan) {
     let tripCount = plan.PlannerItin.PlannerOptions.length;
     let tripMsg = 'We found ' + tripCount.toString() + ' trip';
     tripMsg += tripCount > 1 ? 's':'';
@@ -153,34 +153,34 @@ var TripPlan = (function($, window, document, undefined) {
       
     $('.tp-results').empty();
     plan.PlannerItin.PlannerOptions.forEach(function(l,i) {
-      let list = [],secondList = [];
+      let tpSummary = [],tpDetail = [];
       l.Segments.forEach(function(li,ii){
         switch (li.SegmentType) {
           case 0:
-            list.push(`<img class="icon"src="/img/svg/bus-gray.svg">&nbsp;
+            tpSummary.push(`<img class="icon"src="/img/svg/bus-gray.svg">&nbsp;
             <span class="route mr-1">${li.Route}</span>`)
             break;
           case 1:
             if(li.PublicRoute==="Blue Line"){
-              list.push(`<span class="d-flex align-items-center badge badge-secondary mr-1">
+              tpSummary.push(`<span class="d-flex align-items-center badge badge-secondary mr-1">
                 <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
                 <span class="caps">Blue</span>
               </span>`)
             } else if(li.PublicRoute==="Green Line"){
-              list.push(`<span class="d-flex align-items-center badge badge-success mr-1">
+              tpSummary.push(`<span class="d-flex align-items-center badge badge-success mr-1">
                 <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
                 <span class="caps">Green</span>
               </span>`)
             }
             break;
           case 2:
-            list.push(`<img class="icon" src="/img/svg/circle-gray-outline-train.svg">`)
+            tpSummary.push(`<img class="icon" src="/img/svg/circle-gray-outline-train.svg">`)
             break;
           case 3:
-            list.push(`<img class="icon" src="/img/svg/pedestrian-gray.svg">`)
+            tpSummary.push(`<img class="icon" src="/img/svg/pedestrian-gray.svg">`)
             break;
           case 4:
-           //list.push(`<img class="icon" src="/img/svg/pedestrian-gray.svg">`)
+           //tpSummary.push(`<img class="icon" src="/img/svg/pedestrian-gray.svg">`)
            break;
           default:
             console.warn('Invalid segment type: '+ li.SegmentType);
@@ -190,7 +190,7 @@ var TripPlan = (function($, window, document, undefined) {
           let timeOfDay = "";
           switch(li.SegmentType){
             case 0: // Bus
-            secondList.push(`<div class="leg-item">
+            tpDetail.push(`<div class="leg-item">
             <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
             <div class="d-table-cell leg-mode bus">
               <div class="d-table-cell leg-mode-icon">
@@ -212,7 +212,7 @@ var TripPlan = (function($, window, document, undefined) {
           </div>`)
               break;
             case 1: // Light-Rail
-              secondList.push(`<div class="leg-item">
+              tpDetail.push(`<div class="leg-item">
               <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
               <div class="d-table-cell leg-mode metro-${li.PublicRoute.split(" ", 1)}">
                 <div class="d-table-cell leg-mode-icon">
@@ -233,7 +233,7 @@ var TripPlan = (function($, window, document, undefined) {
             </div>`)
               break;
             case 2: // Train
-            secondList.push(`<div class="leg-item">
+            tpDetail.push(`<div class="leg-item">
             <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
             <div class="d-table-cell leg-mode bus">
               <div class="d-table-cell leg-mode-icon">
@@ -255,7 +255,7 @@ var TripPlan = (function($, window, document, undefined) {
           </div>`)
               break;
             case 3: // WALK
-              secondList.push(`<div class="leg-item">
+              tpDetail.push(`<div class="leg-item">
               <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
               <div class="d-table-cell leg-mode walk">
                 <div class="d-table-cell leg-mode-icon">
@@ -268,7 +268,7 @@ var TripPlan = (function($, window, document, undefined) {
             </div>`)
               break;
             case 4: // ALERT MESSAGE for USER
-              secondList.push(`<div class="leg-item">
+              tpDetail.push(`<div class="leg-item">
               <div class="d-table-cell leg-time"></div>
               <div class="d-table-cell leg-mode walk">
                 <div class="d-table-cell leg-mode-icon">
@@ -288,7 +288,7 @@ var TripPlan = (function($, window, document, undefined) {
         <a class="border" data-toggle="collapse" href="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
           <span class="d-flex" role="link">
             <span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
-            <span class="align-items-center tp-route">${list.join('<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">')}
+            <span class="align-items-center tp-route">${tpSummary.join('<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">')}
               <img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
             </span>
           </span>
@@ -300,7 +300,7 @@ var TripPlan = (function($, window, document, undefined) {
             <div class="row flex-row">
                   <div class="col-lg-5">
                     <div class="d-block">
-                      `+ secondList.join(" ")+`
+                      `+ tpDetail.join(" ")+`
                     </div>
                     <div class="clearfix"></div>
                     <hr class="d-block d-lg-none">
@@ -392,6 +392,7 @@ var TripPlan = (function($, window, document, undefined) {
     const DestroyAllMaps = function() {
       if (MAPLOADED) {
         TRIM.destroy();
+        MAPLOADED = false;
       }
     }
     $('button[name="planMyTrip"]').click(function () {
@@ -430,10 +431,9 @@ var TripPlan = (function($, window, document, undefined) {
           newTrip(tripProperties)
               .then(function () {
                   let tripPlan = getTrip();
-                  console.log('Have a Plan');
                   console.dir(tripPlan);
                   if (tripPlan.PlannerItin.PlannerOptions.length > 0) {
-                    formatTrip(tripPlan)
+                    formatTripResults(tripPlan)
                     $('.trips-found').show();
                     $('.no-trips-found').hide();
                     $('#tripPlannerResults').show();
@@ -445,7 +445,6 @@ var TripPlan = (function($, window, document, undefined) {
               })
               .fail(function (err) {
                   console.warn('Trip Plan Failed: ' + err.Message);
-                  //console.dir(err);
                   $('.trips-found').hide();
                   $('.no-trips-found').show();
                   $('#tripPlannerResults').show();
