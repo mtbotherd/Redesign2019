@@ -770,19 +770,12 @@ var TRIM = (function ($, window, document, undefined) {
                                 infoTemplate = new InfoTemplate("Title", "Content");
                                 attr = {};
                                 break;
-                            case 2:
-                                //Heavy Rail needs two trip lines - bottom one is 00539F (0,83,159) top one is FFD200 (255, 210,0)
-                                // var theNSLine = new Polyline(MAP.spatialReference);
-                                // clsNS1 = new CartographicLineSymbol(CartographicLineSymbol.STYLE_SOLID, new Color([0, 83, 159]), 10, CartographicLineSymbol.CAP_ROUND, CartographicLineSymbol.JOIN_ROUND);
-                                // theNSLine.addPath(rearrangeTripGeom(seg.Geometry));
-                                // var graphic = new Graphic(theNSLine, clsNS1, attr, null);
-                                // MAP.getLayer("trip").add(graphic);
-
+                            case 2: // NorthStar Train  BROWN LINE
                                 cls1 = new CartographicLineSymbol(CartographicLineSymbol.STYLE_SOLID, new Color([119, 29, 29]), 8, CartographicLineSymbol.CAP_ROUND, CartographicLineSymbol.JOIN_ROUND);
                                 infoTemplate = new InfoTemplate("Title", "Content");
                                 attr = {};
                                 break;
-                            case 3: //Walk
+                            case 3: //Walk  DASHED LINE
                                 cls1 = new CartographicLineSymbol(CartographicLineSymbol.STYLE_SHORTDOT, new Color([0, 180, 210, .77]), 8, CartographicLineSymbol.CAP_ROUND, CartographicLineSymbol.JOIN_ROUND);
                                 infoTemplate = new InfoTemplate("Title", "Content");
                                 attr = {};
