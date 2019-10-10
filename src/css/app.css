@@ -7703,6 +7703,9 @@ p.small {
   background-color: #008244;
   color: #fff; }
 
+.teal-bg {
+  background-color: #dbf4fd; }
+
 .yellow-bg {
   background-color: #ffd200 !important; }
 
@@ -7900,6 +7903,9 @@ abbr {
 .alerts-bg {
   background-image: url("../../../../../img/alerts.jpg"); }
 
+.park-ride-bg {
+  background-image: url("../../../../../img/park-ride.jpg"); }
+
 .schedules-maps-bg {
   background-image: url("../../../../../img/schedules-maps.jpg"); }
 
@@ -7918,14 +7924,14 @@ abbr {
 .fares-bg {
   background-image: url("../../../../../img/fares.jpg"); }
 
-.goto-card-bg {
+.go-to-card-bg {
   background-image: url("../../../../../img/goto-card.jpg"); }
 
 .pass-programs-bg {
   background-image: url("../../../../../img/pass-programs.jpg"); }
 
 .news-bg {
-  background-image: url(""); }
+  background-image: url("../../../../../img/news.jpg"); }
 
 @media (min-width: 1200px) {
   .utilities {
@@ -8274,11 +8280,8 @@ footer.section {
     text-transform: uppercase; }
   footer.section .card-body {
     padding: 0; }
-  footer.section .btn {
-    font-size: 20px !important; }
-    @media (min-width: 992px) {
-      footer.section .btn {
-        font-size: 23px !important; } }
+  footer.section .button-container-icon-right {
+    text-align: center; }
   footer.section .social-media {
     margin-bottom: 30px; }
     @media (min-width: 992px) {
@@ -8366,6 +8369,60 @@ footer.section {
   @media (min-width: 992px) {
     .page-content .secondary-hero {
       margin-bottom: 30px; } }
+
+#parkRides .icon {
+  width: 2.5rem;
+  height: 2.5rem; }
+
+#parkRides .search-gray {
+  width: 1rem;
+  height: 1rem; }
+
+#parkRides .input-group-append .btn {
+  padding: 0 0.75rem; }
+
+#parkRides .auto-complete-search-box {
+  margin-bottom: 30px; }
+  @media (min-width: 992px) {
+    #parkRides .auto-complete-search-box {
+      margin-bottom: 60px; } }
+  #parkRides .auto-complete-search-box .input-group {
+    margin-left: auto; }
+    @media (min-width: 992px) {
+      #parkRides .auto-complete-search-box .input-group {
+        margin: 0 auto; } }
+    #parkRides .auto-complete-search-box .input-group::before {
+      content: "";
+      background-image: url("../../../../../img/svg/car-color.svg");
+      background-repeat: no-repeat;
+      background-size: 2.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-right: 0.5rem; }
+      @media (min-width: 992px) {
+        #parkRides .auto-complete-search-box .input-group::before {
+          background-size: 3rem;
+          width: 3rem;
+          height: 3rem; } }
+
+#parkRides .result-msg {
+  font-size: 18px !important;
+  font-size: 1.125rem !important;
+  font-weight: 700;
+  margin-bottom: 15px; }
+  @media (min-width: 992px) {
+    #parkRides .result-msg {
+      font-size: 23px !important;
+      font-size: 1.4375rem !important;
+      margin-bottom: 30px; } }
+
+#parkRides .accordion .chevron-down-blue {
+  width: 1rem;
+  height: 1rem; }
+
+#parkRides .accordion .pin-gray {
+  width: 1.5rem;
+  height: 1.5rem; }
 
 .route .schedule-days h3 {
   font-weight: normal !important; }
@@ -8633,12 +8690,12 @@ footer.section {
 #schedulesMaps .input-group-append .btn {
   padding: 0 0.75rem; }
 
-#schedulesMaps .schedules-by-route .input-group {
+#schedulesMaps .auto-complete-search-box .input-group {
   margin-left: auto; }
   @media (min-width: 992px) {
-    #schedulesMaps .schedules-by-route .input-group {
+    #schedulesMaps .auto-complete-search-box .input-group {
       margin: 0 auto; } }
-  #schedulesMaps .schedules-by-route .input-group::before {
+  #schedulesMaps .auto-complete-search-box .input-group::before {
     content: "";
     background-image: url("../../../../../img/svg/date-time-color.svg");
     background-repeat: no-repeat;
@@ -8647,7 +8704,7 @@ footer.section {
     height: 2.5rem;
     margin-right: 0.5rem; }
     @media (min-width: 992px) {
-      #schedulesMaps .schedules-by-route .input-group::before {
+      #schedulesMaps .auto-complete-search-box .input-group::before {
         background-size: 3rem;
         width: 3rem;
         height: 3rem; } }
