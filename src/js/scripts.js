@@ -54,6 +54,9 @@ $(function() {
 	  inputs[1].value = tmp;
 	  AutocompleteAddress.exchangeValues("fromLocation", "toLocation");
 	});
+
+	// Drop down for "From" input
+	$("input.dropdown").dropdown();
   
 	// time & date inputs
 	$(".time-elements").hide();
