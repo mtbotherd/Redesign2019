@@ -2216,13 +2216,13 @@ $(function () {
             //TRIM.geoLocate();
         });
     }
-    $("#stopsStations").click(function () {
+    $("#stopsStationsMapLayer").click(function () {
         TRIM.toggleLayer("allStops");
     });
-    $("#parkRide").click(function () {
+    $("#parkRideMApLayer").click(function () {
         TRIM.toggleLayer("parkAndRides");
     });
-    $("#niceRide").click(function () {
+    $("#niceRideMapLayer").click(function () {
         TRIM.toggleLayer("niceRides");
     });
 

@@ -182,6 +182,7 @@ var AutocompleteAddress = (function($, window, document, undefined) {
 // ===========================================================================
 AutocompleteAddress.getUserLocation()
 .then(function(userPos){
+  // TripPlanner input fields
   AutocompleteAddress.init("fromLocation", /*UTMout*/ true, userPos);
   AutocompleteAddress.init("toLocation", /*UTMout*/ true, userPos);
   // This one loads the Search field in the schedules-maps page -- the search result
@@ -192,7 +193,22 @@ AutocompleteAddress.getUserLocation()
       TRIM.centerMarkerAtPoint(choice.location.x, choice.location.y);
     }
   );
+  AutocompleteAddress.init("stopsStationsSearch",/*UTMout*/ true, userPos,
+    function() {
+      var choice = AutocompleteAddress.getChoice("stopsStationsSearch");
+      StopServices.formatPage(choice);
+    }
+  );
+  AutocompleteAddress.init("parkRidesSearch",/*UTMout*/ true, userPos,
+    function() {
+      var choice = AutocompleteAddress.getChoice("parkRidesSearch");
+      ParkRideServices.formatPage(choice);
+    }
+  );
+
 })
+// we can't find the user's position so we'll return results 
+// in alphabetic order
 .fail(function(err) {
   // TripPlanner input fields
   AutocompleteAddress.init("fromLocation", /*UTMout*/ true, /*userPos*/null);
@@ -203,6 +219,18 @@ AutocompleteAddress.getUserLocation()
     function() {
       var choice = AutocompleteAddress.getChoice("interactiveMapSearch");
       TRIM.centerMarkerAtPoint(choice.location.x, choice.location.y);
+    }
+  );
+  AutocompleteAddress.init("stopsStationsSearch",/*UTMout*/ true, /*userPos*/ null,
+    function() {
+      var choice = AutocompleteAddress.getChoice("stopsStationsSearch");
+      StopServices.formatPage(choice);
+    }
+  );
+  AutocompleteAddress.init("parkRidesSearch",/*UTMout*/ true, /*userPos*/null,
+    function() {
+      var choice = AutocompleteAddress.getChoice("parkRidesSearch");
+      ParkRideServices.formatPage(choice);
     }
   );
 });
