@@ -62,7 +62,7 @@ var ParkRideServices = (function($,  window, document, undefined) {
         $('#pr-finder-results').empty();
         findNearestParkRides(addressChoice)
         .then(function(results){
-            console.dir(results);
+            //console.dir(results);
             $('#pr-finder-results').append('<p class="result-msg">Nearest Park & Rides to '+addressChoice.attributes.LongLabel+'</p>');
 
             for (let i=0, l=results.length;i < l; i++) {

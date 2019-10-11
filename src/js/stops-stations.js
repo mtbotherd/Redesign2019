@@ -57,12 +57,76 @@ var StopServices = (function($,  window, document, undefined) {
         }).promise();
     }
     function formatPage (addressChoice) {
-        console.log("Formatting page");
+        $('#stop-finder-results').empty();
         findNearestStops(addressChoice) 
         .then(function(result){
-            console.dir(result);
+            //console.dir(result);
+            $('#stop-finder-results').append('<p class="result-msg">Transit service near ' + addressChoice.attributes.LongLabel +'</p>');
+            for (let i = 0, l = result.length; i < l; i++) {
+                let stop = result[i];
+                let mapLink = '/imap/0/'+ stop.StopId;
+                let serviceDetail = [];
+                serviceDetail.push(`
+                <div class="row">
+                    <div class="col-lg-1">
+                `);
+                if (stop.Services[0].ServiceType === 0 || stop.Services[0].ServiceType === 1) {
+                    serviceDetail.push('<img class="icon mb-4 mb-lg-0" src="/img/svg/circle-gray-outline-bus.svg" />');
+                } else if (stop.Services[0].ServiceType === 2) {
+                    if (stop.Services[0].Route === '901') {
+                        serviceDetail.push('<img class="icon mb-4 mb-lg-0" src="/img/svg/circle-gray-lrt.svg" />');
+                    } else if (stop.Services[0].Route === '902') {
+                        serviceDetail.push('<img class="icon mb-4 mb-lg-0" src="/img/svg/circle-gray-lrt.svg" />');
+                    }
+                } else if (stop.Services[0].ServiceType === 3) {
+                    serviceDetail.push('<img class="icon mb-4 mb-lg-0" src="/img/svg/circle-gray-outline-train.svg" />');
+                }
+                serviceDetail.push(`
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="transit-service">
+                `);
+                for (let j = 0, jl = stop.Services.length; j < jl; j++) {
+                    let service = stop.Services[j];
+                    let route = service.Route;
+                    if (service.Route === '901') route = 'Blue';
+                    if (service.Route === '902') route = 'Green';
+                    if (service.Route === '903') route = 'Red';
+                    if (service.Route === '904') route = 'Orange';
+                    //if (service.Route === '888' || service.Route === '887' ) route = 'NorthStar';
+                    //  src="/img/svg/circle-gray-outline-train.svg">
+                    // img/svg/circle-green-outline-lrt.svg"/>':'<img class="icon" src="/img/svg/circle-blue-outline-lrt.svg"/>'}
+                    serviceDetail.push(`<a href="/route/${service.Route}" class="btn btn-outline-secondary routes">${route} ${service.Direction}</a>`);
+                }
+                serviceDetail.push('</div></div></div>');
+                $('#stop-finder-results').append(`
+                <div class="gray-100 p-4 mb-4">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <h2>${stop.StopDescription}</h2>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="stop-id"><strong>Stop ID:</strong> ${stop.StopId}</p>
+                                </div>
+                                <div class="col-6 map">
+                                    <p><a class="map-link" href="${mapLink}">Map</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    ${serviceDetail.join('')}
+                </div>
+                `);
+            }
+            if (result.length === 0) {
+                $('#stop-finder-results').append('<p class="result-msg">No transit service available near ' + addressChoice.attributes.LongLabel +'</p>');
+            }
         })
-        .fail(function(err) {});
+        .fail(function(err) {
+            console.warn("StopServices failed to return results correctly");
+        });
     }
 
     return {
