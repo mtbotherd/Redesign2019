@@ -9837,7 +9837,6 @@ input:focus,
 #tripPlannerResults {
   display: none; }
   #tripPlannerResults .card {
-    margin-bottom: 0.75rem;
     background-color: transparent;
     padding: 0; }
     #tripPlannerResults .card a {
@@ -9888,7 +9887,7 @@ input:focus,
                 height: 1.5rem;
                 margin-right: 0.25rem; } }
         @media (min-width: 768px) {
-          #tripPlannerResults .card a .tp-route .arrow-right-blue {
+          #tripPlannerResults .card a .tp-route .chevron-down-blue {
             width: 1.25rem;
             height: 1.25rem; } }
       #tripPlannerResults .card a:hover {

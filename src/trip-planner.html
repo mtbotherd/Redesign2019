@@ -16,8 +16,7 @@
 
 <body>
 
-	<form id="aspnetForm"
-		  novalidate>
+	<form id="aspnetForm">
 
 	<!-- Begin Header -->
 	<header id="header">
@@ -277,16 +276,16 @@
 				<article class="section">
 					<div class="container">
 						<div id="tripPlannerModule">
-							<div class="card">
+							<div id="planTrip" class="card">
 								<div class="form-group mb-0">
 									<input id="fromLocation"
 										type="text"
 										class="form-control from-location dropdown"
 										name="fromLocation"
 										required>
-										<div class="dropdown-menu">
+										<!-- <div class="dropdown-menu">
 											<a href="">Use my location</a>
-										</div>
+										</div> -->
 									<label for="fromLocation"
 										class="floating-label">From</label>
 								</div>
@@ -512,31 +511,32 @@
 											class="btn btn-warning"
 											name="planMyTrip">Plan my trip</button>
 								</div>
-								<div id="tripPlannerResults">
-									<div class="no-trips-found mb-1 mb-lg-5">
-										<div class="alert alert-primary"
-												role="alert">
-											<h2 class="h4">No trips found</h2>
-											<p>We’re sorry, there is no transit service available for this trip plan. Please enter
-												new selections or call or text Transit information at 612-373-3333.</p>
-										</div>
-									</div>
-									<div class="trips-found">
-										<h2 class="h4"><span id="trip-result-count"></span></h2>
-										<p class="mb=0"><span id="trip-result-msg"></span></p>
-										<div class="tp-results mb-1 mb-lg-5" role="tablist">
-										</div>
-										<div class="text-center">
-											<button type="submit"
-													class="btn btn-warning"
-													name="planMyTrip">
-												Edit my trip
-												<img class="icon edit-blue"
-														src="/img/svg/edit-blue.svg">
-											</button>
-										</div>
+							</div>
+							<div id="tripPlannerResults" class="card">
+								<div class="no-trips-found mb-1 mb-lg-5">
+									<div class="alert alert-primary"
+											role="alert">
+										<h2>No trips found</h2>
+										<p>We’re sorry, there is no transit service available for this trip plan. Please enter
+											new selections or call or text Transit information at 612-373-3333.</p>
 									</div>
 								</div>
+								<div class="trips-found">
+									<h2><span id="trip-result-count"></span></h2>
+									<p class="mb=0"><span id="trip-result-msg"></span></p>
+									<div class="tp-results mb-1 mb-lg-5" role="tablist">
+									</div>
+									<div class="text-center">
+										<button type="submit"
+												class="btn btn-warning"
+												name="planMyTrip">
+											Edit my trip
+											<img class="icon edit-blue"
+													src="/img/svg/edit-blue.svg">
+										</button>
+									</div>
+								</div>
+							</div>
 							</div>
 						</div>
 					</div>
@@ -689,14 +689,14 @@
 		<script src="/js/bootstrap.js"></script>
 		<script src="/js/jquery.exlink.js"></script>
 		<script src="/js/jquery.autocomplete.js"></script>
-		<!-- <script src="/js/jquery.validate.js"></script> -->
+		<script src="/js/jquery.validate.js"></script>
 		<!-- <script src="/js/additional-methods.js"></script> -->
 		<script src="https://js.arcgis.com/3.28/"></script>
 		<script src="/js/TRIM.js"></script>
 		<script src="/js/autocomplete.js"></script>
 		<script src="/js/trip-planner.js"></script>
 		<script src="/js/nextrip.js"></script>
-		<!-- <script src="/js/form-validation.js"></script> -->
+		<script src="/js/form-validation.js"></script>
 		<script src="/js/scripts.js"></script>
 		<!-- End scripts -->
 	</form>
