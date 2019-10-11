@@ -1167,7 +1167,7 @@ var TRIM = (function ($, window, document, undefined) {
                     });
 
                     MAP.on("click", function (evt) {
-                        if (mapType !== "route") {
+                        if (mapType === "full") {
                             if (MAP.infoWindow.isShowing) {
                                 MAP.infoWindow.hide();
                                 // clear these layers for any displays by passing nothing in the parameter

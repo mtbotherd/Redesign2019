@@ -319,28 +319,7 @@ var TripPlan = (function($, window, document, undefined) {
         <div class="map-container border">
           <div id="tripPlanMap" class="map" mapType="trip" role="application" aria-label="interactive map of transit trip plan">
             <div id="trimLocate"></div>
-            <div class="mapLoading"></div>
-            <div id="trimPopUp" style="display:none;">
-              <div id="mapPopUpStopDescription" class="stop-description"></div>
-              <div class="container">
-                <ul class="nav nav-tabs nav-justified">
-                  <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#mapPopUpTabNexTrip">NexTrip</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#mapPopUpTabRoutes">Routes</a>
-                  </li>
-                </ul>
-                <div class="tab-content">
-                <div class="tab-pane container active" id="mapPopUpTabNexTrip">
-                  <div id="mapPopUpDepartures" class="stop-departures"></div>
-                </div>
-                  <div class="tab-pane container" id="mapPopUpTabRoutes">
-                    <div id="mapPopUpRoutes" class="route-list"></div>
-                  </div>
-                </div>
-              </div>
-            </div>     
+            <div class="mapLoading"></div> 
           </div>
         </div> 
       `;
