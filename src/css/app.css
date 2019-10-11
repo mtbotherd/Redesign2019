@@ -8250,13 +8250,6 @@ label {
     padding-left: 0;
     padding-right: 0; } }
 
-#tripPlanMap .esriPopup .sizer {
-  width: 250px; }
-
-#tripPlanMap.esriPopup .container {
-  padding-left: 0;
-  padding-right: 0; }
-
 @media (max-width: 576px) {
   .esriPopup .sizer {
     width: 250px; }
