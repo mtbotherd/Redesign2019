@@ -285,32 +285,31 @@ var TripPlan = (function($, window, document, undefined) {
 
       $('.tp-results').append(`
         <div class="card mb-4">
-        <a class="border" data-toggle="collapse" href="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
-          <span class="d-flex" role="link">
-            <span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
-            <span class="align-items-center tp-route">${tpSummary.join('<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">')}
-              <img class="icon icon-arrow-right-blue ml-auto" src="/img/svg/arrow-right-blue.svg">
-            </span>
-          </span>
-        </a>
-        </div>
-
-        <div id="collapseTrip${i}" class="collapse" data-parent="#tripPlannerResults" aria-labelledby="tripPlannerResults">
-          <div class="card-body">
-            <div class="row flex-row">
-                  <div class="col-lg-5">
-                    <div class="d-block">
-                      `+ tpDetail.join(" ")+`
-                    </div>
-                    <div class="clearfix"></div>
-                    <hr class="d-block d-lg-none">
-                  </div>
-                  <div class="col-lg-7">
-                    <div class="tp-basemap esrimap${i}">
-                    </div>
-                  </div>
-            </div>
-          </div>
+			<a class="border" data-toggle="collapse" href="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
+			<span class="d-flex" role="link">
+				<span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
+				<span class="align-items-center tp-route">${tpSummary.join('<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">')}
+				<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+				</span>
+			</span>
+			</a>
+			<div id="collapseTrip${i}" class="collapse" data-parent="#tripPlannerResults" aria-labelledby="tripPlannerResults">
+			<div class="card-body">
+				<div class="row flex-row">
+					<div class="col-lg-5">
+						<div class="d-block">
+						`+ tpDetail.join(" ")+`
+						</div>
+						<div class="clearfix"></div>
+						<hr class="d-block d-lg-none">
+					</div>
+					<div class="col-lg-7">
+						<div class="tp-basemap esrimap${i}">
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
         </div>
         `)
     });
