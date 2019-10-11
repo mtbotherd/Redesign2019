@@ -2219,7 +2219,7 @@ $(function () {
     $("#stopsStationsMapLayer").click(function () {
         TRIM.toggleLayer("allStops");
     });
-    $("#parkRideMApLayer").click(function () {
+    $("#parkRideMapLayer").click(function () {
         TRIM.toggleLayer("parkAndRides");
     });
     $("#niceRideMapLayer").click(function () {

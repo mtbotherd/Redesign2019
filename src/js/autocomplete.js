@@ -83,7 +83,12 @@ var AutocompleteAddress = (function($, window, document, undefined) {
       noCache: true,
       autoSelectFirst: true,
       minChars: 1,
+      showNoSuggestionNotice: true,
+      noSuggestionNotice: 'No results',
       width: "flex",
+      // onSearchStart: function(params) {
+      //   delete 
+      // },
       lookup: function(query, returnSuggestions) {
         $.ajax({
           type: "get",
@@ -149,6 +154,9 @@ var AutocompleteAddress = (function($, window, document, undefined) {
   var getChoice = function(/*string*/ inputDiv) {
     return inputResults[inputDiv];
   };
+  var deleteChoice = function(/*string*/ inputDiv) {
+    delete inputResults[inputDiv];
+  }
   // This is a special function to support swapping the 
   // from/to location choices for the trip planner entry
   var exchangeValues = function(inputDiv1, inputDiv2) {
@@ -160,6 +168,7 @@ var AutocompleteAddress = (function($, window, document, undefined) {
   return {
     init: init,
     getChoice: getChoice,
+    deleteChoice: deleteChoice,
     fetchUserLoc: fetchUserLoc,
     getUserLocation: getUserLocation,
     exchangeValues: exchangeValues
@@ -201,6 +210,7 @@ AutocompleteAddress.getUserLocation()
   );
   AutocompleteAddress.init("parkRidesSearch",/*UTMout*/ true, userPos,
     function() {
+      console.log("doing it");
       var choice = AutocompleteAddress.getChoice("parkRidesSearch");
       ParkRideServices.formatPage(choice);
     }

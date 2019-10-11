@@ -59,12 +59,41 @@ var ParkRideServices = (function($,  window, document, undefined) {
         }).promise();
     }
     function formatPage (addressChoice) {
-        console.log("Formatting page");
+        $('#pr-finder-results').empty();
         findNearestParkRides(addressChoice)
-        .then(function(result){
-            console.dir(result);
+        .then(function(results){
+            console.dir(results);
+            $('#pr-finder-results').append('<p class="result-msg">Nearest Park & Rides to '+addressChoice.attributes.LongLabel+'</p>');
+
+            for (let i=0, l=results.length;i < l; i++) {
+                let stop = results[i];
+                // create map link
+                let ptlatlon = [];
+                CoordinateConversion.UTMXYToLatLon(parseFloat(stop.Y), parseFloat(stop.X), 15, false, ptlatlon);
+                var longitude = CoordinateConversion.RadToDeg(ptlatlon[1]).toFixed(4);
+                var latitude = CoordinateConversion.RadToDeg(ptlatlon[0]).toFixed(4);
+                let mapLink = '/imap/0/0/'+longitude+'/'+latitude;
+
+                $('#pr-finder-results').append(`
+                <div class="card">
+                    <a href="${mapLink}" class="d-flex btn">
+                        <span class="d-flex pr-location">${stop.LocationName}&nbsp;(${stop.Distance}&nbsp;mi.)</span>
+                        <div class="d-flex ml-auto">
+                            <span class="cyan map">Map</span>
+                            <img class="icon arrow-right-blue mr-0" src="./img/svg/arrow-right-blue.svg"/>
+                        </div>
+                    </a>
+                </div>							
+                `);
+            }
+            if (results.length === 0) {
+                $('#pr-finder-results').append('<p class="result-msg">No Park & Rides close to '+addressChoice.address+'</p>');
+            }
+
         })
-        .fail(function(err) {});
+        .fail(function(err) {
+            $('#pr-finder-results').append('<p class="result-msg">No Park & Rides close to '+addressChoice.address+'</p>');
+        });
     }
 
     return {
