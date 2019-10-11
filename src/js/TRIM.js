@@ -1374,9 +1374,9 @@ var TRIM = (function ($, window, document, undefined) {
         }
         init(mapDiv).then(function () {
             if (route) {
-                drawRoutes([route], true);
-                drawRouteStops([route]);
                 if (stop) {
+                    drawRoutes([route], false);
+                    drawRouteStops([route]);
                     findStop(stop)
                         .then(function (x, y, name) {
                             let title = 'Stop ' + stop + ' / ' + name;
@@ -1385,6 +1385,9 @@ var TRIM = (function ($, window, document, undefined) {
                         }).fail(function () {
                             console.warn('Requested stop ' + stop + ' not found.');
                         });
+                } else {
+                    drawRoutes([route], true);
+                    drawRouteStops([route]);
                 }
             } else {
                 if (stop) {
