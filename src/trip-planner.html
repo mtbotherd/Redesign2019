@@ -280,9 +280,9 @@
 								<div class="form-group mb-0">
 									<input id="fromLocation"
 										type="text"
-										class="form-control from-location dropdown"
+										class="form-control from-location"
 										name="fromLocation"
-										required>
+										required> <!-- re add .dropdown class when ready to finish building this. -->
 										<!-- <div class="dropdown-menu">
 											<a href="">Use my location</a>
 										</div> -->
@@ -471,15 +471,8 @@
 
 														<hr>
 
-														<p class="m-0">
-															<strong>
-																<img class="icon accessible-gray"
-																		src="/img/svg/accessible-gray.svg">&nbsp;Accessible
-																stops
-															</strong>
-														</p>
-														<div
-																class="custom-control custom-radio custom-control-inline">
+														<p class="m-0"><strong><img class="icon accessible-gray" src="/img/svg/accessible-gray.svg">&nbsp;Accessible stops</strong></p>
+														<div class="custom-control custom-radio custom-control-inline">
 															<input id="accessibleYes"
 																	type="radio"
 																	name="accessible"
@@ -488,8 +481,7 @@
 															<label class="custom-control-label"
 																	for="accessibleYes">Yes</label>
 														</div>
-														<div
-																class="custom-control custom-radio custom-control-inline">
+														<div class="custom-control custom-radio custom-control-inline">
 															<input id="accessibleNo"
 																	type="radio"
 																	name="accessible"
@@ -512,6 +504,8 @@
 											name="planMyTrip">Plan my trip</button>
 								</div>
 							</div>
+
+							<!-- Trip planner results -->
 							<div id="tripPlannerResults" class="card">
 								<div class="no-trips-found mb-1 mb-lg-5">
 									<div class="alert alert-primary"
@@ -520,12 +514,7 @@
 										<p>We’re sorry, there is no transit service available for this trip plan. Please enter
 											new selections or call or text Transit information at 612-373-3333.</p>
 									</div>
-								</div>
-								<div class="trips-found">
-									<h2><span id="trip-result-count"></span></h2>
-									<p class="mb=0"><span id="trip-result-msg"></span></p>
-									<div class="tp-results mb-1 mb-lg-5" role="tablist">
-									</div>
+
 									<div class="text-center">
 										<button type="submit"
 												class="btn btn-warning"
@@ -536,7 +525,300 @@
 										</button>
 									</div>
 								</div>
-							</div>
+
+								<div class="trips-found">
+									<h2 id="trips-found-count"></h2>
+									<p id="trips-found-msg" class="mb=0"></p>
+
+									<div class="tp-results mb-1 mb-lg-5">
+										<div class="card mb-4">
+											<a class="border collapsed" data-toggle="collapse" href="#collapseTrip0" name="thisName0" role="button" aria-expanded="false" aria-controls="collapseTrip0">
+												<span class="d-flex" role="link">
+													<span class="d-flex align-items-center tp-time">  39 min</span>
+													<span class="align-items-center tp-route"><img class="icon" src="/img/svg/pedestrian-gray.svg"><img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg"><span class="d-flex align-items-center badge badge-secondary mr-1">
+													<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+													<span class="caps">Blue</span>
+													</span>
+													<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+													</span>
+												</span>
+											</a>
+											<div id="collapseTrip0" class="collapse" data-parent="#tripPlannerResults" aria-labelledby="tripPlannerResults" style="">
+												<div class="card-body">
+													<div class="row flex-row">
+														<div class="col-lg-5">
+															<div class="d-block">
+																<div class="leg-item">
+																	<div class="d-table-cell leg-time">11:05 AM</div>
+																	<div class="d-table-cell leg-mode walk">
+																		<div class="d-table-cell leg-mode-icon">
+																			<img class="icon" src="/img/svg/circle-green-outline-pedestrian.svg">
+																		</div>
+																		<p>Walk 0.25 miles E from FTH to Target Field Station Platform 1</p>
+																	</div>
+																</div>
+																<div class="leg-item">
+																	<div class="d-table-cell leg-time">11:15 AM</div>
+																	<div class="d-table-cell leg-mode metro-Blue">
+																		<div class="d-table-cell leg-mode-icon">
+																			<img class="icon" src="/img/svg/circle-blue-outline-lrt.svg">
+																		</div>
+																		<p><strong>Blue Line to Mall of America</strong>
+																			<br>
+																			<a href="/home/#ServiceAlerts">
+																			<small>view alerts</small>
+																			</a></p>
+																		<p><strong>Depart</strong> from Target Field Station Platform 1<br>
+																			<strong>Arrive</strong> at MOA Transit Station</p>
+																	</div>
+																</div>
+															</div>
+
+															<div class="clearfix"></div>
+															<hr class="d-block d-lg-none">
+
+														</div>
+														<div class="col-lg-7">
+															<div class="tp-basemap esrimap0"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										<div id="tripPlan" class="accordion">
+											<div class="card mb-4">
+
+												<div id="" class="card-header">
+													<h3 class="mb-0">
+														<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#tp1" aria-expanded="false" aria-controls="tp1">
+															<span class="d-flex">
+																<span class="d-flex align-items-center tp-time">39 min</span>
+																	<span class="align-items-center tp-route">
+																		<img class="icon pedestrian-gray" src="/img/svg/pedestrian-gray.svg">
+																		<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+																		<span class="d-flex align-items-center badge badge-secondary mr-1">
+																			<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+																			<span class="caps">Blue</span>
+																		</span>
+																		<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+																	</span>
+																</span>
+															</span>
+														</button>
+													</h3>
+												</div>
+												
+												<div id="tp1" class="collapse" aria-labelledby="" data-parent="#tripPlan">
+													<div class="card-body">
+														<div class="row flex-row">
+															<div class="col-lg-5">
+																<div class="d-block">
+																	<div class="leg-item">
+																		<div class="d-table-cell leg-time">11:05 AM</div>
+																		<div class="d-table-cell leg-mode walk">
+																			<div class="d-table-cell leg-mode-icon">
+																				<img class="icon" src="/img/svg/circle-green-outline-pedestrian.svg">
+																			</div>
+																			<p>Walk 0.25 miles E from FTH to Target Field Station Platform 1
+																			</p>
+																		</div>
+																	</div>
+																	<div class="leg-item">
+																		<div class="d-table-cell leg-time">11:25 AM</div>
+																		<div class="d-table-cell leg-mode metro-Blue">
+																			<div class="d-table-cell leg-mode-icon">
+																				<img class="icon" src="/img/svg/circle-blue-outline-lrt.svg">
+																			</div>
+																			<p>
+																				<strong>Blue Line to Mall of America</strong>
+																				<br>
+																				<a href="/home/#ServiceAlerts">
+																				<small>view alerts</small>
+																				</a>
+																			</p>
+																			<p>
+																				<strong>Depart</strong> from Target Field Station Platform 1<br>
+																				<strong>Arrive</strong> at MOA Transit Station
+																			</p>
+																		</div>
+																	</div>
+																</div>
+	
+																<div class="clearfix"></div>
+																<hr class="d-block d-lg-none">
+	
+															</div>
+															<div class="col-lg-7">
+																<div class="tp-basemap esrimap1"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="card mb-4">
+											<div class="card-header" id="tp1">
+												<a class="border collapsed" data-toggle="collapse" href="#collapseTrip1" name="thisName1" role="button" aria-expanded="false" aria-controls="collapseTrip1">
+													<span class="d-flex" role="link">
+														<span class="d-flex align-items-center tp-time">  39 min</span>
+															<span class="align-items-center tp-route">
+																<img class="icon" src="/img/svg/pedestrian-gray.svg">
+																<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+																<span class="d-flex align-items-center badge badge-secondary mr-1">
+																	<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+																	<span class="caps">Blue</span>
+																</span>
+															<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+														</span>
+													</span>
+												</a>
+												<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#route901alerts" aria-expanded="false">
+													<span class="d-flex" role="link">
+														<span class="d-flex align-items-center tp-time">  39 min</span>
+															<span class="align-items-center tp-route">
+																<img class="icon" src="/img/svg/pedestrian-gray.svg">
+																<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+																<span class="d-flex align-items-center badge badge-secondary mr-1">
+																	<img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+																	<span class="caps">Blue</span>
+																</span>
+															<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+														</span>
+													</span>
+												</button>
+											</div>
+											<div id="collapseTrip1" class="collapse" data-parent="#tp1" aria-labelledby="">
+												<div class="card-body">
+													<div class="row flex-row">
+														<div class="col-lg-5">
+															<div class="d-block">
+																<div class="leg-item">
+																	<div class="d-table-cell leg-time">11:05 AM</div>
+																	<div class="d-table-cell leg-mode walk">
+																		<div class="d-table-cell leg-mode-icon">
+																			<img class="icon" src="/img/svg/circle-green-outline-pedestrian.svg">
+																		</div>
+																		<p>Walk 0.25 miles E from FTH to Target Field Station Platform 1
+																		</p>
+																	</div>
+																</div>
+																<div class="leg-item">
+																	<div class="d-table-cell leg-time">11:25 AM</div>
+																	<div class="d-table-cell leg-mode metro-Blue">
+																		<div class="d-table-cell leg-mode-icon">
+																			<img class="icon" src="/img/svg/circle-blue-outline-lrt.svg">
+																		</div>
+																		<p>
+																			<strong>Blue Line to Mall of America</strong>
+																			<br>
+																			<a href="/home/#ServiceAlerts">
+																			<small>view alerts</small>
+																			</a>
+																		</p>
+																		<p>
+																			<strong>Depart</strong> from Target Field Station Platform 1<br>
+																			<strong>Arrive</strong> at MOA Transit Station
+																		</p>
+																	</div>
+																</div>
+															</div>
+
+															<div class="clearfix"></div>
+															<hr class="d-block d-lg-none">
+
+														</div>
+														<div class="col-lg-7">
+															<div class="tp-basemap esrimap1"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									
+										<div class="card mb-4">
+											<a class="border collapsed" data-toggle="collapse" href="#collapseTrip2" name="thisName2" role="button" aria-expanded="false" aria-controls="collapseTrip2">
+												<span class="d-flex" role="link">
+													<span class="d-flex align-items-center tp-time">57 min</span>
+													<span class="align-items-center tp-route">
+														<img class="icon" src="/img/svg/pedestrian-gray.svg">
+														<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+														<img class="icon" src="/img/svg/bus-gray.svg">&nbsp;
+														<span class="route mr-1">5</span>
+														<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">
+														<img class="icon" src="/img/svg/pedestrian-gray.svg">
+														<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+													</span>
+												</span>
+											</a>
+											<div id="collapseTrip2" class="collapse" data-parent="#tripPlannerResults" aria-labelledby="tripPlannerResults" style="">
+												<div class="card-body">
+													<div class="row flex-row">
+														<div class="col-lg-5">
+															<div class="d-block">
+																<div class="leg-item">
+																	<div class="d-table-cell leg-time">11:05 AM</div>
+																	<div class="d-table-cell leg-mode walk">
+																		<div class="d-table-cell leg-mode-icon">
+																			<img class="icon" src="/img/svg/circle-green-outline-pedestrian.svg">
+																		</div>
+																		<p>Walk 0.12 miles W from FTH to 7th St N &amp; Olson Memorial Hwy</p>
+																	</div>
+																</div>
+																<div class="leg-item">
+																	<div class="d-table-cell leg-time">11:14 AM</div>
+																	<div class="d-table-cell leg-mode bus">
+																		<div class="d-table-cell leg-mode-icon">
+																			<img class="icon" src="/img/svg/circle-gray-outline-bus.svg">
+																		</div>
+																		<p>
+																			<img class="icon blink" src="/img/svg/broadcast-red.svg">&nbsp;<strong>Currently 2<abbr title="minutes"> min</abbr> late</strong><br>
+																			<strong>Route 5E Chicago / Mall of Amer</strong><br>
+																			<a href="/home/#ServiceAlerts">
+																				<small>view alerts</small>
+																			</a>
+																		</p>
+																		<p>
+																			<strong>Depart</strong> from 7th St N &amp; Olson Memorial Hwy<br>
+																			<strong>Arrive</strong> at MOA Transit Station Gate A
+																		</p>
+																	</div>
+																</div> 	
+																<div class="leg-item">
+																	<div class="d-table-cell leg-time">12:11 PM</div>
+																	<div class="d-table-cell leg-mode walk">
+																		<div class="d-table-cell leg-mode-icon">
+																			<img class="icon" src="/img/svg/circle-green-outline-pedestrian.svg">
+																		</div>
+																		<p>Walk a short distance N to MOA</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="clearfix"></div>
+														<hr class="d-block d-lg-none">
+
+													</div>
+													<div class="col-lg-7">
+														<div class="tp-basemap esrimap2"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="text-center">
+										<button type="submit"
+												class="btn btn-warning"
+												name="planMyTrip">
+											Edit my trip
+											<img class="icon edit-blue"
+													src="/img/svg/edit-blue.svg">
+										</button>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

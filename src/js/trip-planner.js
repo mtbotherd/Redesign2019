@@ -144,12 +144,12 @@ var TripPlan = (function($, window, document, undefined) {
     let tripMsg = 'We found ' + tripCount.toString() + ' trip';
     tripMsg += tripCount > 1 ? 's':'';
     tripMsg += ' for you.';
-    $("#trip-result-count").html(tripMsg);
+    $("#trips-found-count").html(tripMsg);
     let tmsg = 'Trips shown are based on your selections and closest ';
     tmsg += plan.ArrDep === 1 ? 'departure to ' : 'arrival to ';
     tmsg += formatTimeMonthDay(plan.ItinDateTime);
     tmsg += '.';
-    $("#trip-result-msg").html(tmsg);
+    $("#trips-found-msg").html(tmsg);
       
     $('.tp-results').empty();
     plan.PlannerItin.PlannerOptions.forEach(function(l,i) {
@@ -281,37 +281,73 @@ var TripPlan = (function($, window, document, undefined) {
               break;
             default:
           };
-      });
-
-      $('.tp-results').append(`
-        <div class="card mb-4">
-			<a class="border" data-toggle="collapse" href="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
-			<span class="d-flex" role="link">
-				<span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
-				<span class="align-items-center tp-route">${tpSummary.join('<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">')}
-				<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
-				</span>
-			</span>
-			</a>
-			<div id="collapseTrip${i}" class="collapse" data-parent="#tripPlannerResults" aria-labelledby="tripPlannerResults">
-			<div class="card-body">
-				<div class="row flex-row">
-					<div class="col-lg-5">
-						<div class="d-block">
-						`+ tpDetail.join(" ")+`
+	  });
+	  
+	  $('.tp-results').append(`
+		<div id="tripPlan" class="accordion">
+			<div class="card mb-4">
+				<div id="" class="card-header">
+					<h3 class="mb-0">
+						<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
+							<span class="d-flex">
+								<span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
+								<span class="align-items-center tp-route">${tpSummary.join('<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">')}
+									<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+								</span>
+							</span>
+						</button>
+					</h3>
+				</div>
+				<div id="collapseTrip${i}" class="collapse" aria-labelledby="" data-parent="#tripPlan">
+				<div class="card-body">
+					<div class="row flex-row">
+						<div class="col-lg-5">
+							<div class="d-block">
+							`+ tpDetail.join(" ")+`
+							</div>
+							<div class="clearfix"></div>
+							<hr class="d-block d-lg-none">
 						</div>
-						<div class="clearfix"></div>
-						<hr class="d-block d-lg-none">
-					</div>
-					<div class="col-lg-7">
-						<div class="tp-basemap esrimap${i}">
+						<div class="col-lg-7">
+							<div class="tp-basemap esrimap${i}">
+							</div>
 						</div>
 					</div>
 				</div>
+				</div>
 			</div>
-			</div>
-        </div>
+		</div>
         `)
+
+	//   $('.tp-results').append(`
+	// 	<div class="card mb-4">
+	// 		<a class="border" data-toggle="collapse" href="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
+	// 		<span class="d-flex" role="link">
+	// 			<span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
+	// 			<span class="align-items-center tp-route">${tpSummary.join('<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">')}
+	// 			<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+	// 			</span>
+	// 		</span>
+	// 		</a>
+	// 		<div id="collapseTrip${i}" class="collapse" data-parent="#tripPlannerResults" aria-labelledby="tripPlannerResults">
+	// 		<div class="card-body">
+	// 			<div class="row flex-row">
+	// 				<div class="col-lg-5">
+	// 					<div class="d-block">
+	// 					`+ tpDetail.join(" ")+`
+	// 					</div>
+	// 					<div class="clearfix"></div>
+	// 					<hr class="d-block d-lg-none">
+	// 				</div>
+	// 				<div class="col-lg-7">
+	// 					<div class="tp-basemap esrimap${i}">
+	// 					</div>
+	// 				</div>
+	// 			</div>
+	// 		</div>
+	// 		</div>
+	// 	</div>
+    //     `)
     });
     var esriMapDOM = function() {
       return `
