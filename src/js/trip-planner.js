@@ -145,12 +145,12 @@ var TripPlan = (function($, window, document, undefined) {
     let tripMsg = 'We found ' + tripCount.toString() + ' trip';
     tripMsg += tripCount > 1 ? 's':'';
     tripMsg += ' for you.';
-    $("#trips-found-count").html(tripMsg);
+    $("#trip-result-count").html(tripMsg);
     let tmsg = 'Trips shown are based on your selections and closest ';
     tmsg += plan.ArrDep === 1 ? 'departure to ' : 'arrival to ';
     tmsg += formatTimeMonthDay(plan.ItinDateTime);
     tmsg += '.';
-    $("#trips-found-msg").html(tmsg);
+    $("#trip-result-msg").html(tmsg);
       
     $('.tp-results').empty();
     plan.PlannerItin.PlannerOptions.forEach(function(l,i) {
