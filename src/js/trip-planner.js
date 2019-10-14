@@ -16,6 +16,7 @@ var TripPlan = (function($, window, document, undefined) {
 	//  datetime: "10/1/2019 07:30:00 AM"
 	//
 	const newTrip = function(tripProperties) {
+    $('#spinnerDiv').removeClass('d-none')
 		return $.Deferred(function (dfd) { 
 			TripPlanJSON = {}; // clear the old one
 			console.log(
@@ -450,6 +451,8 @@ var TripPlan = (function($, window, document, undefined) {
                     formatTripResults(tripPlan)
                     $('.trips-found').show();
                     $('.no-trips-found').hide();
+                    $('#spinnerDiv').addClass('d-none')
+                    $('#planTrip').hide('slow');
                     $('#tripPlannerResults').show();
                   } else {
                     $('.trips-found').hide();
@@ -466,7 +469,12 @@ var TripPlan = (function($, window, document, undefined) {
       }
     });
   };
+  $("#editMyTrip").on('click',function(e){
+    // e.preventDefault();
+    $('#tripPlannerResults').hide('slow');
+    $('#planTrip').show('slow');
 
+  })
 	return {
     init: init
 	};
