@@ -16,7 +16,7 @@ var TripPlan = (function($, window, document, undefined) {
 	//  datetime: "10/1/2019 07:30:00 AM"
 	//
 	const newTrip = function(tripProperties) {
-    $('#spinnerDiv').removeClass('d-none')
+		$("#spinner").removeClass("d-none");
 		return $.Deferred(function (dfd) { 
 			TripPlanJSON = {}; // clear the old one
 			console.log(
@@ -158,8 +158,8 @@ var TripPlan = (function($, window, document, undefined) {
       l.Segments.forEach(function(li,ii){
         switch (li.SegmentType) {
           case 0:
-            tpSummary.push(`<img class="icon"src="/img/svg/bus-gray.svg">&nbsp;
-            <span class="route mr-1">${li.Route}</span>`)
+            tpSummary.push(`<img class="icon bus-gray" src="/img/svg/bus-gray.svg">&nbsp;
+            <span class="route mr-2">${li.Route}</span>`)
             break;
           case 1:
             if(li.PublicRoute==="Blue Line"){
@@ -178,7 +178,7 @@ var TripPlan = (function($, window, document, undefined) {
             tpSummary.push(`<img class="icon" src="/img/svg/circle-gray-outline-train.svg">`)
             break;
           case 3:
-            tpSummary.push(`<img class="icon" src="/img/svg/pedestrian-gray.svg">`)
+            tpSummary.push(`<img class="icon pedestrian-gray" src="/img/svg/pedestrian-gray.svg">`)
             break;
           case 4:
            //tpSummary.push(`<img class="icon" src="/img/svg/pedestrian-gray.svg">`)
@@ -260,7 +260,7 @@ var TripPlan = (function($, window, document, undefined) {
               <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
               <div class="d-table-cell leg-mode walk">
                 <div class="d-table-cell leg-mode-icon">
-                  <img class="icon"
+                  <img class="icon pedestrian-gray"
                     src="/img/svg/circle-green-outline-pedestrian.svg">
                 </div>
                 <p>${li.WalkTextOverview}
@@ -286,7 +286,7 @@ var TripPlan = (function($, window, document, undefined) {
 	  
 	  $('.tp-results').append(`
 		<div id="tripPlan" class="accordion">
-			<div class="card mb-4">
+			<div class="card">
 				<div id="" class="card-header">
 					<h3 class="mb-0">
 						<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
@@ -450,13 +450,13 @@ var TripPlan = (function($, window, document, undefined) {
                   if (tripPlan.PlannerItin.PlannerOptions.length > 0) {
                     formatTripResults(tripPlan)
                     $('.trips-found').show();
-                    $('.no-trips-found').hide();
-                    $('#spinnerDiv').addClass('d-none')
+					$('.no-trips-found').hide();
+					$('#spinner').addClass('d-none')
                     $('#planTrip').hide('slow');
                     $('#tripPlannerResults').show();
                   } else {
                     $('.trips-found').hide();
-                    $('.no-trips-found').show();
+					$('.no-trips-found').show();
                     $('#tripPlannerResults').show();
                   }
               })
@@ -469,12 +469,12 @@ var TripPlan = (function($, window, document, undefined) {
       }
     });
   };
-  $("#editMyTrip").on('click',function(e){
-    // e.preventDefault();
+
+  $("#editMyTrip").on('click', function(){
     $('#tripPlannerResults').hide('slow');
     $('#planTrip').show('slow');
+  });
 
-  })
 	return {
     init: init
 	};

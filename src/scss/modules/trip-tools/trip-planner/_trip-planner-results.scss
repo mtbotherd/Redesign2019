@@ -48,7 +48,7 @@
               @include font-size(12);
               font-weight: $font-weight-bold;
               padding: 0.5rem;
-              width: 6rem;
+              width: 5rem;
 
               @include media-breakpoint-up(lg) {
                 width: 10rem;
@@ -62,24 +62,31 @@
             .tp-route {
               display: flex;
               padding: 0.5rem 0.75rem;
-              width: 61rem;
+              width: 16.3rem;
 
               @include media-breakpoint-up(lg) {
-                .pedestrian-gray,
-                .bus-gray {
+                width: 61rem;
+              }
+
+              .pedestrian-gray,
+              .bus-gray {
+                width: 1rem;
+                height: 1rem;
+
+                @include media-breakpoint-up(lg) {
                   width: 1.5rem;
                   height: 1.5rem;
                 }
               }
 
               .chevron-right-gray {
-                width: 1rem;
-                height: 1rem;
+                width: 0.75rem;
+                height: 0.75rem;
               }
             }
 
             .route {
-              @include font-size(8);
+              @include font-size(12);
               line-height: 1;
 
               @include media-breakpoint-up(lg) {
@@ -92,10 +99,12 @@
               @include font-size(8);
               padding-right: 0.5rem;
 
-              @include media-breakpoint-up(lg) {
-                @include font-size(16);
+              .icon {
+                width: 1rem;
+                height: 1rem;
 
-                .icon {
+                @include media-breakpoint-up(lg) {
+                  @include font-size(16);
                   width: 1rem;
                   height: 1.5rem;
                   margin-right: 0.25rem;
@@ -113,9 +122,8 @@
         }
 
         .card-body {
-          padding-right: 0;
-          padding-left: 0;
-
+          border: 2px solid $border-color;
+          border-top: none;
           @include media-breakpoint-up(lg) {
             border: 1px solid $border-color;
             padding: 1.75rem 1rem 1rem;
@@ -124,7 +132,8 @@
           .leg-time {
             font-weight: $font-weight-bold;
             margin-right: 1rem;
-            width: 115px;
+            width: 5rem;
+            padding: 0.5rem;
 
             @include media-breakpoint-up(md) {
               margin-right: 1rem;
@@ -173,7 +182,7 @@
               height: 2rem;
               position: absolute;
               top: -0.25rem;
-              left: -1.2rem;
+              left: -0.95rem;
 
               @include media-breakpoint-up(lg) {
                 top: -0.25rem;
@@ -194,8 +203,35 @@
             }
           }
 
-          .walk {
+          .walk,
+          .bus {
             border-left: 4px dotted #7dcae7;
+
+            .leg-mode-icon {
+              background-color: $white;
+              width: 2rem;
+              height: 2rem;
+              position: absolute;
+              top: -0.25rem;
+              left: -1.2rem;
+
+              @include media-breakpoint-up(lg) {
+                top: -0.25rem;
+                left: -1.3rem;
+                width: 2.25rem;
+                height: 2.25rem;
+              }
+
+              .icon {
+                width: 2rem;
+                height: 2rem;
+
+                @include media-breakpoint-up(lg) {
+                  width: 2.25rem;
+                  height: 2.25rem;
+                }
+              }
+            }
           }
 
           .bus {
