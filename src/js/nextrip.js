@@ -65,7 +65,7 @@ var NexTrip = (function ($, window, document, undefined) {
 	// Two methods for getting departures handle stopId vs timepoint queries.
 	// The result set is the same for either method so can be handled in one place.
 	function loadDepartures(result) {
-		$('#nextripDepartures').show();
+		$('#nextripDepartures').show('slow');
 		let list = $('.stop-departures');
 		list.empty();
 		let stop = result.Stop;

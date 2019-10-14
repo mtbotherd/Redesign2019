@@ -7766,6 +7766,28 @@ abbr {
       font-size: 1.4375rem !important;
       margin-bottom: 30px; } }
 
+.minus-icon {
+  -webkit-animation-name: plusMinus;
+          animation-name: plusMinus;
+  -webkit-animation-duration: 550ms;
+          animation-duration: 550ms; }
+
+@-webkit-keyframes plusMinus {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes plusMinus {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
 /***************************************************************
     CSS Animations
 ***************************************************************/

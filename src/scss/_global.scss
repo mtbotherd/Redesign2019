@@ -250,3 +250,11 @@ abbr {
     margin-bottom: 30px;
   }
 }
+.minus-icon{
+  animation-name: plusMinus;
+  animation-duration: 550ms;
+}
+@keyframes plusMinus{
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}
