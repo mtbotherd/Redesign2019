@@ -68,6 +68,16 @@ a.skip-to-content {
         }
       }
 
+      .dropdown-toggle {
+        &.avatar::after {
+          content: "";
+          background-image: none;
+          background-size: 0;
+          width: 0;
+          height: 0;
+        }
+      }
+
       .dropdown-menu {
         border: none;
         margin-top: 0;
@@ -120,13 +130,21 @@ a.skip-to-content {
               width: 1rem;
               height: 1rem;
               border: none;
-              margin-left: 0;
             }
+
+            // &.avatar::after {
+            //   content: "";
+            //   background-image: none;
+            //   background-size: 0;
+            //   width: 0;
+            //   height: 0;
+            // }
           }
 
           .dropdown-menu {
             background-color: $gray-100;
             margin-top: 0;
+            padding-top: 0.5rem;
             border: none;
 
             .dropdown-item {

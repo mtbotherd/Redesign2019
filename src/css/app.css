@@ -8028,6 +8028,12 @@ a.skip-to-content {
       transition: 0.3s -webkit-transform ease-in-out;
       transition: 0.3s transform ease-in-out;
       transition: 0.3s transform ease-in-out, 0.3s -webkit-transform ease-in-out; }
+    #header .navbar .nav-item .dropdown-toggle.avatar::after {
+      content: "";
+      background-image: none;
+      background-size: 0;
+      width: 0;
+      height: 0; }
     #header .navbar .nav-item .dropdown-menu {
       border: none;
       margin-top: 0;
@@ -8061,11 +8067,11 @@ a.skip-to-content {
         background-size: 1rem;
         width: 1rem;
         height: 1rem;
-        border: none;
-        margin-left: 0; }
+        border: none; }
       #header .navbar .navbar-nav .nav-item .dropdown-menu {
         background-color: #f5f5f4;
         margin-top: 0;
+        padding-top: 0.5rem;
         border: none; }
         #header .navbar .navbar-nav .nav-item .dropdown-menu .dropdown-item {
           color: #0097d0; }
