@@ -8644,6 +8644,9 @@ footer.section {
 .route .btn-wrapper {
   text-align: center !important; }
 
+.route .btn-outline-secondary {
+  text-transform: capitalize; }
+
 .route .btn-block {
   display: block;
   width: 100%; }

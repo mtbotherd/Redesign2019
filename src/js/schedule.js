@@ -1,4 +1,4 @@
-﻿var Schedule = (function ($, window, document, undefined) {
+var Schedule = (function ($, window, document, undefined) {
 
     'use strict';
 
