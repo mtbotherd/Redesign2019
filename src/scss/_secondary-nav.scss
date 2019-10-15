@@ -30,7 +30,6 @@
       .active {
         color: $gray-600;
         border-left: 2px solid $cyan;
-        padding-left: 0.25rem;
         margin-left: -0.25rem;
 
         @include media-breakpoint-up(lg) {

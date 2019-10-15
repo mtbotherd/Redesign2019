@@ -30,7 +30,7 @@ $(function() {
 	});
 
     // Secondary nav set active item
-    $('.secondary-nav > ul > li > a[href=' + location.pathname.replace('/', '\\/') + ']').addClass('active');
+    // $('.secondary-nav > ul > li > a[href=' + location.pathname.replace('/', '\\/') + ']').addClass('active');
 
    //Newsletter signup button
     //if ($('.createsend-button').length) {
