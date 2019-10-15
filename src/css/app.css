@@ -9670,34 +9670,36 @@ input:focus,
       .secondary-nav .nav {
         display: -webkit-box;
         display: flex; } }
-  .secondary-nav .nav-item {
-    padding: 0.25rem 0; }
-    @media (min-width: 992px) {
-      .secondary-nav .nav-item {
-        padding: 0.5rem 1rem; } }
-    .secondary-nav .nav-item .nav-link {
-      color: #b0b1b0;
-      font-size: 18px !important;
-      font-size: 1.125rem !important;
-      padding: 0;
-      margin-left: 0.25rem;
-      -webkit-transition: -webkit-transform 0.8s;
-      transition: -webkit-transform 0.8s;
-      transition: transform 0.8s;
-      transition: transform 0.8s, -webkit-transform 0.8s; }
-    .secondary-nav .nav-item .active {
-      color: #626462;
-      border-left: 2px solid #0097d0;
-      padding-left: 0.25rem;
-      margin-left: -0.25rem; }
+    .secondary-nav .nav .nav-item {
+      padding: 0.25rem 0; }
       @media (min-width: 992px) {
-        .secondary-nav .nav-item .active {
-          border-bottom: 2px solid #0097d0;
-          border-left: none; } }
-    .secondary-nav .nav-item:first-child {
-      padding-left: 0; }
-    .secondary-nav .nav-item:last-child {
-      padding-right: 0; }
+        .secondary-nav .nav .nav-item {
+          padding: 0.5rem 1rem; } }
+      .secondary-nav .nav .nav-item .nav-link {
+        color: #b0b1b0;
+        font-size: 18px !important;
+        font-size: 1.125rem !important;
+        padding: 0;
+        margin-left: 0.25rem;
+        -webkit-transition: -webkit-transform 0.8s;
+        transition: -webkit-transform 0.8s;
+        transition: transform 0.8s;
+        transition: transform 0.8s, -webkit-transform 0.8s; }
+      .secondary-nav .nav .nav-item .active {
+        color: #626462;
+        border-left: 2px solid #0097d0;
+        padding-left: 0.25rem;
+        margin-left: -0.25rem; }
+        @media (min-width: 992px) {
+          .secondary-nav .nav .nav-item .active {
+            border-bottom: 2px solid #0097d0;
+            border-left: none; } }
+      .secondary-nav .nav .nav-item:first-child {
+        padding-left: 0; }
+        .secondary-nav .nav .nav-item:first-child .nav-link {
+          margin-left: 0; }
+      .secondary-nav .nav .nav-item:last-child {
+        padding-right: 0; }
 
 .page-content .nav-tabs {
   border-bottom: 1px solid #e3e3e0;
