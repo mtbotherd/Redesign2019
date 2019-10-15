@@ -8048,10 +8048,7 @@ a.skip-to-content {
         #header .navbar .navbar-nav .nav-item:hover .nav-link {
           color: #fff; }
       #header .navbar .navbar-nav .nav-item .nav-link {
-        padding-top: 1.25rem;
-        padding-right: 0.85rem !important;
-        padding-bottom: 1.25rem;
-        padding-left: 0.85rem !important; }
+        padding: 1.25rem; }
         #header .navbar .navbar-nav .nav-item .nav-link .icon {
           width: 1rem;
           height: 1rem; }
