@@ -56,6 +56,14 @@ var Schedule = (function ($, window, document, undefined) {
         $('#maplink').on('click', function () { window.location.href = '/imap/' + $(this).data('link'); });
         $('#printlink').on('click', function () { window.print(); });
 
+        $(document).on('keydown', function (event) {
+            if ($('body').hasClass('purgeable')) {
+                if (event.ctrlKey && event.key == 'y') {
+                    document.forms[0].submit();
+                }
+            }
+        });
+
         if ($("#routeBOM").attr("maptype") === "BOM") {
             let parms = {
                 stopID: null, // optional stop, if route too then show just the one route
