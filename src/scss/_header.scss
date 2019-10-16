@@ -194,45 +194,51 @@ a.skip-to-content {
             width: 0 !important;
             height: 0 !important;
           }
+        }
 
+        &.dropdown {
           .dropdown-menu {
-            background-color: $gray-100;
-            margin-top: 0;
-            padding-top: 0.5rem;
             border: none;
 
             .dropdown-item {
+              @include font-size(18);
               color: $cyan;
-
-              &:hover,
-              &:active {
-                color: $secondary;
-                text-decoration: underline;
-              }
+              padding: 0.25rem 2rem;
             }
           }
         }
-      }
 
-      .navbar-collapse {
-        left: 0;
-        margin-top: 0;
-        margin-left: 0;
-        overflow-x: visible;
+        &.show {
+          .nav-link::after {
+            transform: rotate(-180deg);
+            transition: 0.3s transform ease-in-out;
+          }
+        }
       }
 
       .utilities {
         padding-left: 1.25rem;
         border-left: 1px solid $border-color;
 
-        // Navbar - rotate icon on show/hide
-        .dropdown .active {
-          transform: none;
-        }
+        .nav-item {
+          .nav-link {
+            .store {
+              display: block;
+              background-image: url("../../../../../img/svg/shopping-cart-green.svg");
+              background-repeat: no-repeat;
+              background-size: 1.5rem;
+              width: 1.5rem;
+              height: 1.5rem;
+            }
 
-        .dropdown.show .active {
-          transform: none;
-        }
+            .site-search {
+              display: block;
+              background-image: url("../../../../../img/svg/search-gray.svg");
+              background-repeat: no-repeat;
+              background-size: 1.5rem;
+              width: 1.5rem;
+              height: 1.5rem;
+            }
 
         .nav-link {
           .icon {
@@ -243,4 +249,106 @@ a.skip-to-content {
       }
     }
   }
-}
+
+  //   @include media-breakpoint-up(xl) {
+  //     .navbar {
+  //       padding: 0 !important;
+
+  //       .navbar-nav {
+  //         border-top: none;
+
+  //         .nav-item {
+  //           &:hover {
+  //             background-color: $cyan;
+
+  //             .nav-link {
+  //               color: $white;
+  //             }
+  //           }
+  //           .nav-link {
+  //             padding: 1.25rem;
+
+  //             .icon {
+  //               width: 1rem;
+  //               height: 1rem;
+  //             }
+
+  //             &:active,
+  //             &:hover {
+  //               color: $white;
+  //             }
+  //           }
+
+  //           .dropdown-toggle {
+  //             &:hover::after {
+  //               content: "";
+  //               background-image: url("../../../../../img/svg/chevron-down-white.svg");
+  //               background-repeat: no-repeat;
+  //               background-size: 1rem;
+  //               width: 1rem;
+  //               height: 1rem;
+  //               border: none;
+  //             }
+
+  //             // &.avatar::after {
+  //             //   content: "";
+  //             //   background-image: none;
+  //             //   background-size: 0;
+  //             //   width: 0;
+  //             //   height: 0;
+  //             // }
+  //           }
+
+  //           .dropdown-menu {
+  //             background-color: $gray-100;
+  //             margin-top: 0;
+  //             padding-top: 0.5rem;
+  //             border: none;
+
+  //             .dropdown-item {
+  //               color: $cyan;
+
+  //               &:hover,
+  //               &:active {
+  //                 color: $secondary;
+  //                 text-decoration: underline;
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+
+  //       .navbar-collapse {
+  //         left: 0;
+  //         margin-top: 0;
+  //         margin-left: 0;
+  //         overflow-x: visible;
+  //       }
+
+  //       .utilities {
+  //         @include media-breakpoint-up(xl) {
+  //           //margin-left: auto;
+  //           padding-left: 1.25rem;
+  //           border-left: 1px solid $border-color;
+  //         }
+
+  //         // Navbar - rotate icon on show/hide
+  //         .dropdown .active {
+  //           transform: none;
+  //         }
+
+  //         .dropdown.show .active {
+  //           transform: none;
+  //         }
+
+  //         .nav-link {
+  //           .icon {
+  //             @include media-breakpoint-up(md) {
+  //               width: 1.5rem !important;
+  //               height: 1.5rem !important;
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
