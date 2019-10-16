@@ -92,7 +92,7 @@ input,
   }
 }
 
-// White button with blue border
+// White button with cyan border
 .btn-outline-primary {
   font-weight: $font-weight-bold;
   color: $body-color;
@@ -218,6 +218,28 @@ input,
     &::after {
       background-image: url("../../../../../img/svg/arrow-right-blue.svg");
     }
+  }
+}
+
+// White button with blue border
+.btn-outline-info {
+  font-weight: $font-weight-bold;
+  color: $body-color;
+  position: relative;
+  border: 2px solid $blue;
+  width: 13.75rem;
+
+  &:hover,
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    background-color: $teal;
+    border: 2px solid $cyan;
+    color: $cyan;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 17.5rem;
+    padding: 0.688rem 0.75rem;
   }
 }
 
