@@ -221,6 +221,27 @@ input,
   }
 }
 
+.btn-outline-info {
+  font-weight: $font-weight-bold;
+  color: $body-color;
+  position: relative;
+  border: 2px solid $blue;
+  width: 13.75rem;
+  background-color: $white;
+  &:hover,
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    background-color: $teal;
+    border: 2px solid $cyan;
+    color: $cyan;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 17.5rem;
+    padding: 0.688rem 0.75rem;
+  }
+}
+
 .button-container-icon-left {
   position: relative;
   text-align: center;
