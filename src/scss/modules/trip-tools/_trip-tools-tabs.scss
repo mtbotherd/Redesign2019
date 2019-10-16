@@ -4,7 +4,7 @@
 // Tab styles
 #tripToolsTabs {
   .nav-tabs {
-    margin-bottom: 2rem;
+    //margin-bottom: 2rem;
 
     .nav-item {
       position: relative;
@@ -112,6 +112,14 @@
     }
     .nav-item.active {
       background-color: $white;
+    }
+  }
+
+  .tab-content {
+    padding-top: 30px;
+
+    @include media-breakpoint-up(lg) {
+      padding-top: 60px;
     }
   }
 }
