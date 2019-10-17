@@ -7712,6 +7712,9 @@ p.small {
 .yellow-bg {
   background-color: #ffd200 !important; }
 
+.white-bg {
+  background-color: #fff; }
+
 .caps {
   text-transform: uppercase; }
 
@@ -8674,7 +8677,23 @@ footer.section {
   min-height: 45rem; }
 
 .route div.timetable-container {
-  margin-top: -2.5rem; }
+  margin-top: -2.5rem;
+  overflow: scroll;
+  position: relative; }
+  @media (max-width: 1199.98px) {
+    .route div.timetable-container .table-responsive-sm {
+      overflow: visible;
+      -webkit-overflow-scrolling: touch; } }
+
+.route .time-table {
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
+  z-index: 10; }
+
+.route div.timetable-times {
+  height: 30rem;
+  z-index: 1; }
 
 .route .timetable-container table {
   margin: 0;
@@ -8692,10 +8711,6 @@ footer.section {
   white-space: nowrap;
   z-index: 10;
   border-radius: 2rem; }
-
-.route div.timetable-times {
-  height: 30rem;
-  overflow: auto; }
 
 .route div.timetable-times table {
   border-bottom: 1px solid #8a8b8a; }
@@ -8733,10 +8748,10 @@ footer.section {
   display: inline-block;
   width: 12rem;
   height: 2rem;
-  border-bottom: 1px solid #8a8b8a;
   line-height: 0.8rem;
   text-indent: -1rem;
-  padding: 0.2rem 0 0 0.5rem; }
+  padding: 0.2rem 0 0 0.5rem;
+  border-bottom: 1px solid #8a8b8a; }
 
 .route .table-header-rotated th.rotate span.single-line {
   padding: 0.5rem 0 0 1rem; }
@@ -8760,7 +8775,6 @@ footer.section {
 
 .route .table-header-rotated thead.ampm {
   background-color: #f5f5f4;
-  border: 1px solid #8a8b8a;
   border-top: none; }
 
 .route .table-header-rotated th.row-header {
@@ -8778,6 +8792,8 @@ footer.section {
   padding: 5px 0;
   min-width: 2.75rem;
   max-width: 2.75rem; }
+  .route .table-header-rotated td:nth-child(16) {
+    border-right: 0px; }
 
 .route tr.alt td,
 .route tr.alt th.row-header {
