@@ -50,11 +50,9 @@
     position: sticky;
     top:-1px;
     z-index: 10;
-    // span{
-    // background-color:white;
-    // border-top: 1px solid #8a8b8a;
-    // border-bottom: 1px solid #8a8b8a;
-    // }
+    thead{
+      background-color:$white;
+    }
   }
   
   div.timetable-times {
@@ -83,6 +81,7 @@
 
   div.timetable-times table {
     border-bottom: 1px solid #8a8b8a;
+    
   }
   // .rotate{
   //   background-color:white;

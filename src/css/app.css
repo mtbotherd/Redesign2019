@@ -8690,6 +8690,8 @@ footer.section {
   position: sticky;
   top: -1px;
   z-index: 10; }
+  .route .time-table thead {
+    background-color: #fff; }
 
 .route div.timetable-times {
   height: 30rem;
