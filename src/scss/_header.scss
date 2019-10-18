@@ -36,9 +36,11 @@ a.skip-to-content {
         border-bottom: 1px solid $border-color;
 
         .nav-link {
-          @include font-size(18);
-          padding-right: 1rem;
-          padding-left: 1rem;
+          &:link {
+            @include font-size(18);
+            padding-right: 1rem;
+            padding-left: 1rem;
+          }
         }
 
         .dropdown-toggle {
@@ -192,14 +194,13 @@ a.skip-to-content {
           .nav-link {
             padding: 1.25rem;
 
-            .icon {
-              width: 1rem;
-              height: 1rem;
+            &:hover,
+            &:active {
+              color: $white;
             }
 
-            &:active,
-            &:hover {
-              color: $white;
+            &:focus {
+              color: $body-color;
             }
 
             &.store-icon:hover::before {
@@ -254,7 +255,8 @@ a.skip-to-content {
               height: 1.5rem;
             }
 
-            &:hover::after {
+            &:hover::after,
+            &:focus::after {
               content: "";
               background-image: url("../../../../../img/svg/chevron-down-white.svg");
               background-repeat: no-repeat;

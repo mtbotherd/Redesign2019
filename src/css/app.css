@@ -7991,7 +7991,7 @@ a.skip-to-content {
     border-top: 1px solid #e3e3e0; }
     #header .navbar .navbar-nav .nav-item {
       border-bottom: 1px solid #e3e3e0; }
-      #header .navbar .navbar-nav .nav-item .nav-link {
+      #header .navbar .navbar-nav .nav-item .nav-link:link {
         font-size: 18px !important;
         font-size: 1.125rem !important;
         padding-right: 1rem;
@@ -8081,11 +8081,10 @@ a.skip-to-content {
             color: #fff; }
         #header .navbar .navbar-nav .nav-item .nav-link {
           padding: 1.25rem; }
-          #header .navbar .navbar-nav .nav-item .nav-link .icon {
-            width: 1rem;
-            height: 1rem; }
-          #header .navbar .navbar-nav .nav-item .nav-link:active, #header .navbar .navbar-nav .nav-item .nav-link:hover {
+          #header .navbar .navbar-nav .nav-item .nav-link:hover, #header .navbar .navbar-nav .nav-item .nav-link:active {
             color: #fff; }
+          #header .navbar .navbar-nav .nav-item .nav-link:focus {
+            color: #626462; }
           #header .navbar .navbar-nav .nav-item .nav-link.store-icon:hover::before {
             display: block;
             content: "";
@@ -8126,7 +8125,7 @@ a.skip-to-content {
           background-size: 1.5rem;
           width: 1.5rem;
           height: 1.5rem; }
-        #header .navbar .navbar-nav .nav-item .dropdown-toggle:hover::after {
+        #header .navbar .navbar-nav .nav-item .dropdown-toggle:hover::after, #header .navbar .navbar-nav .nav-item .dropdown-toggle:focus::after {
           content: "";
           background-image: url("../../../../../img/svg/chevron-down-white.svg");
           background-repeat: no-repeat;
