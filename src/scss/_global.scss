@@ -159,6 +159,10 @@ p.small {
   background-color: $gray-100;
 }
 
+.gray-300-font {
+  color: $gray-300;
+}
+
 .green-bg {
   background-color: $green;
   color: $white;
@@ -170,6 +174,9 @@ p.small {
 
 .yellow-bg {
   background-color: $yellow !important;
+}
+.white-bg {
+  background-color:$white;
 }
 
 //  Misc Styles
@@ -258,3 +265,8 @@ abbr {
   from {transform: rotate(0deg)}
   to {transform: rotate(360deg)}
 }
+// .route-btn{
+//   border: 2px solid #0053A0 !important;
+//   border-radius: 0% !important;
+//   padding: 0.45rem 1.75rem;
+// }

@@ -221,14 +221,13 @@ input,
   }
 }
 
-// White button with blue border
 .btn-outline-info {
   font-weight: $font-weight-bold;
   color: $body-color;
   position: relative;
   border: 2px solid $blue;
   width: 13.75rem;
-
+  background-color: $white;
   &:hover,
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active {
