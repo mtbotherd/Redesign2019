@@ -44,13 +44,13 @@ a.skip-to-content {
         .dropdown-toggle {
           &::after {
             position: relative;
-            top: 0.5rem;
+            top: 0.25rem;
             content: "";
             background-image: url("../../../../../img/svg/chevron-down-gray.svg");
             background-repeat: no-repeat;
-            background-size: 1rem;
-            width: 1rem;
-            height: 1rem;
+            background-size: 0.75rem;
+            width: 0.75rem;
+            height: 0.75rem;
             border: none;
             transform: rotate(0deg);
             transition: 0.3s transform ease-in-out;
@@ -258,9 +258,9 @@ a.skip-to-content {
               content: "";
               background-image: url("../../../../../img/svg/chevron-down-white.svg");
               background-repeat: no-repeat;
-              background-size: 1rem;
-              width: 1rem;
-              height: 1rem;
+              background-size: 0.75rem;
+              width: 0.75rem;
+              height: 0.75rem;
               border: none;
             }
           }
