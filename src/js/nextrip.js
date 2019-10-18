@@ -6,6 +6,7 @@ var NexTrip = (function ($, window, document, undefined) {
         placeCode,
         stopId,
         timer;
+    var threshold = 3;
 
     function getRoutes() {
         $.get(window.serviceHostUrl + '/nextripv2/routes')
@@ -23,7 +24,6 @@ var NexTrip = (function ($, window, document, undefined) {
             .done(function (result) {
                 let directions = JSON.parse(JSON.stringify(result));
                 let directiondrop = $('#ntDirection');
-                //let selectOption = directiondrop
                 directiondrop.find("option:gt(0)").remove(); // Clear previously set value.
                 $.each(directions, function (i, directions) {
                     directiondrop.append($('<option/>').val(directions.DirectionId).text(directions.DirectionName));
@@ -58,26 +58,38 @@ var NexTrip = (function ($, window, document, undefined) {
                 loadDepartures(JSON.parse(JSON.stringify(result)));
             })
             .fail(function () {
-                $('.nextrip-departures').empty();
+                $('.stop-departures').empty();
+                $('#nextripDepartures').show();
                 $('.stop-description').text('Invalid StopId');
+                $('.more').hide();
+                clearInterval(timer);
             });
     };
 
     // Two methods for getting departures handle stopId vs timepoint queries.
     // The result set is the same for either method so can be handled in one place.
     function loadDepartures(result) {
-        $('#nextripDepartures').show('slow');
+        $('#nextripDepartures').show();
+        var showAll = $('.less').is(':visible');
         let list = $('.stop-departures');
         list.empty();
         let stop = result.Stop;
         stopId = stop.StopId;  // needed for the map 
-        //let route = result.Route;
+
+        $('.stop-description').html('<p>' + stop.Description + '<br/>' + 'Stop ' + stop.StopId + '</p>');
+
+        if (result.Departures.length === 0) {
+            $('<p><strong>No departures at this time</strong></p>').appendTo(list);
+            $('.more').hide();
+            return;
+        }
+
         let departures = result.Departures.sort(function (a, b) {
             a = new Date(a.DeartureTime);
             b = new Date(b.DepartureTime);
             return a < b ? -1 : a > b ? 1 : 0;
         });
-        $('.stop-description').html('<p>' + stop.Description + '<br/>' + 'Stop ' + stop.StopId + '</p>');
+
         $.each(departures, function (i, depart) {
             var departRow = $('<div/>', { class: 'list-group-item pr-0 pl-0' }).appendTo(list);
             departRow.append($('<span/>', { class: 'route-number mr-2' }).text(depart.RouteId + depart.Terminal));
@@ -90,13 +102,101 @@ var NexTrip = (function ($, window, document, undefined) {
             departTime.append(depart.DepartureText);
         });
 
-        var threshold = 3;
-
-        if (departures.length > threshold) {
+        if (!showAll && departures.length > threshold) {
             $('.more').show();
+        } else if (showAll && departures.length > threshold) {
+            $('.stop-departures .list-group-item').attr('style', 'display: flex !important');
+            $('.more').hide();
         } else {
             $('.more').hide();
+            $('.less').hide();
         }
+    };
+
+    var resetUI = function () {
+        clearInterval(timer);
+        $('#ntRoute').val('');
+        $('#ntDirection').val('');
+        $('.select-route-direction').hide();
+        $('#ntStop').val('');
+        $('.select-route-stop').hide();
+        $('#stopNumber').val('');
+        $('#collapseMap').collapse('hide');
+        $('#nextripDepartures').hide();
+    };
+
+    var departuresOnEnterKey = function () {
+        $(document).on('keydown', function (event) {
+            if ($('#stopNumber').val() == '') return;
+            if (event.which == 13) {
+                event.preventDefault();
+                $('#searchStopsButton').trigger('click');
+            }
+        });
+    };
+
+    var init = function () {
+        $('#stopNumber').on('focus', departuresOnEnterKey);
+        $('#stopNumber').on('blur', function () { $(document).off('keydown'); });
+
+        // Get routes when the page loads and populate the Routes dropdown
+        getRoutes();
+
+        // When route dropdown changes, get direction
+        $('#ntRoute').change(function () {
+            routeId = this.value;
+            if (routeId != '') {
+                clearInterval(timer);
+                $('#stopNumber').val('');
+                $('#ntStop').val('');
+                $('.select-route-stop').hide();
+                $('#collapseMap').collapse('hide');
+                $('#nextripDepartures').hide();
+                getDirections(routeId);
+            } else {
+                resetUI();
+            }
+        });
+
+        // When direction dropdown changes, get stops.
+        $('#ntDirection').change(function () {
+            directionId = this.value;
+            if (directionId != '') {
+                clearInterval(timer);
+                $('#collapseMap').collapse('hide');
+                $('#nextripDepartures').hide();
+                getStops(routeId, directionId);
+            } else {
+                resetUI();
+            }
+        });
+
+        // When stop dropdown changes, get Timepoint departures.
+        $('#ntStop').change(function () {
+            placeCode = this.value;
+            $('#collapseMap').collapse('hide');
+            clearInterval(timer);
+            if (placeCode !== '') {
+                timer = setInterval(function () {
+                    getTimepointDepartures(routeId, directionId, placeCode);
+                }, 30000);
+
+                getTimepointDepartures(routeId, directionId, placeCode);
+            } else {
+                $('#nextripDepartures').hide();
+            }
+        });
+
+        $('#searchStopsButton').click(function () {
+            stopId = $('#stopNumber').val();
+            resetUI();
+            timer = setInterval(function () {
+                getStopDepartures(stopId);
+            }, 30000);
+
+            getStopDepartures(stopId);
+            $('#stopNumber').focus();
+        });
 
         $('.more').click(function () {
             $('.stop-departures .list-group-item').slideDown().attr('style', 'display: flex !important');
@@ -109,69 +209,10 @@ var NexTrip = (function ($, window, document, undefined) {
             $(this).hide();
             $('.more').show();
         });
-    };
-
-    var init = function () {
-
-        // Get routes when the page loads and populate the Routes dropdown
-        getRoutes();
-
-        // When route dropdown changes, get direction
-        $('#ntRoute').change(function () {
-            routeId = this.value;
-            if (routeId != '') {
-                getDirections(routeId);
-                $('.select-route-stop').hide();
-            } else {
-                $('.select-route-direction').hide();
-                $('.select-route-stop').hide();
-            }
-        });
-
-        // When direction dropdown changes, get stops.
-        $('#ntDirection').change(function () {
-            directionId = this.value;
-            if (directionId != '') {
-                getStops(routeId, directionId);
-            } else {
-                $('.select-route-stop').hide();
-            }
-        });
-
-        // When stop dropdown changes, get Timepoint departures.
-        $('#ntStop').change(function () {
-            $('#collapseMap').collapse('hide');
-            placeCode = this.value;
-            if (placeCode !== '') {
-                if (timer > 0) {
-                    clearInterval(timer);
-                }
-                timer = setInterval(function () {
-                    getTimepointDepartures(routeId, directionId, placeCode);
-                    $('#nextripDepartures .list-group .less').hide();
-                }, 30000);
-
-                getTimepointDepartures(routeId, directionId, placeCode);
-            }
-        });
-
-        $('#searchStopsButton').click(function () {
-            $('#collapseMap').collapse('hide');
-            stopId = $('#stopNumber').val();
-            if (timer > 0) {
-                clearInterval(timer);
-            }
-            timer = setInterval(function () {
-                getStopDepartures(stopId);
-            }, 30000);
-
-            // Call getStopDepartures with entered stopId.
-            getStopDepartures(stopId);
-        });
 
         if ($('#NexTripMap').attr('maptype') === 'BOM')
-            BOM.init('NexTripMap').then(function () {
-            });
+            BOM.init('NexTripMap').then(function () { });
+
         $('#collapseMap').on('shown.bs.collapse', function () {
             var mapParms = {
                 stopID: stopId, // optional stop, if route too then show just the one route
@@ -182,6 +223,7 @@ var NexTrip = (function ($, window, document, undefined) {
             //console.dir(mapParms);
             BOM.startBusesOnMap(mapParms);
         });
+
         $('#collapseMap').on('hidden.bs.collapse', function () {
             BOM.stopBusesOnMap();
         });
