@@ -289,6 +289,10 @@ a.skip-to-content {
         .dropdown {
           position: relative;
 
+          .dropdown-menu {
+            margin-top: 0;
+          }
+
           .search-dropdown-menu {
             position: absolute;
             left: -17.1rem;
