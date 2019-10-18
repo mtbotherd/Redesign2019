@@ -860,6 +860,11 @@
 		<script src="/js/form-validation.js"></script>
 		<script src="/js/scripts.js"></script>
 		<script>
+			(function (window) {
+				window.serviceHostUrl = 'https://svc.metrotransit.org';
+			})(window);
+		</script>
+		<script>
 			$(function () {
 				NexTrip.init();
 				$('#aTab').on('click', Alerts.init);

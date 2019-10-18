@@ -8075,24 +8075,19 @@ a.skip-to-content {
       height: 68.58px; }
       #header .navbar .navbar-nav .nav-item {
         border-bottom: none; }
-        #header .navbar .navbar-nav .nav-item:hover {
-          background-color: #0097d0; }
-          #header .navbar .navbar-nav .nav-item:hover .nav-link {
-            color: #fff; }
         #header .navbar .navbar-nav .nav-item .nav-link {
-          padding: 1.25rem; }
-          #header .navbar .navbar-nav .nav-item .nav-link:hover, #header .navbar .navbar-nav .nav-item .nav-link:active {
-            color: #fff; }
-          #header .navbar .navbar-nav .nav-item .nav-link:focus {
-            color: #626462; }
-          #header .navbar .navbar-nav .nav-item .nav-link.store-icon:hover::before {
-            display: block;
-            content: "";
-            background-image: url("../../../../../img/svg/shopping-cart-white.svg");
-            background-repeat: no-repeat;
-            background-size: 1.5rem;
-            width: 1.5rem;
-            height: 1.5rem; }
+          padding: 1.3rem 1.25rem; }
+          #header .navbar .navbar-nav .nav-item .nav-link:hover, #header .navbar .navbar-nav .nav-item .nav-link:focus, #header .navbar .navbar-nav .nav-item .nav-link:focus-within {
+            color: #fff;
+            background-color: #0097d0; }
+        #header .navbar .navbar-nav .nav-item .nav-link.store-icon:hover::before {
+          display: block;
+          content: "";
+          background-image: url("../../../../../img/svg/shopping-cart-white.svg");
+          background-repeat: no-repeat;
+          background-size: 1.5rem;
+          width: 1.5rem;
+          height: 1.5rem; }
         #header .navbar .navbar-nav .nav-item .dropdown-toggle.search-icon::before {
           display: block;
           content: "";
@@ -8146,6 +8141,32 @@ a.skip-to-content {
     #header .navbar .utilities {
       border-left: 1px solid #e3e3e0;
       padding-left: 1.5rem; }
+      #header .navbar .utilities .nav-item .nav-link {
+        padding: 1.4rem 1.25rem; }
+      #header .navbar .utilities .nav-item .store-icon:focus::before {
+        display: block;
+        content: "";
+        background-image: url("../../../../../img/svg/shopping-cart-white.svg");
+        background-repeat: no-repeat;
+        background-size: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem; }
+      #header .navbar .utilities .dropdown-toggle.search-icon:focus::before {
+        display: block;
+        content: "";
+        background-image: url("../../../../../img/svg/search-white.svg");
+        background-repeat: no-repeat;
+        background-size: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem; }
+      #header .navbar .utilities .dropdown-toggle.avatar-icon:focus::before {
+        display: block;
+        content: "";
+        background-image: url("../../../../../img/svg/avatar-white.svg");
+        background-repeat: no-repeat;
+        background-size: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem; }
       #header .navbar .utilities .dropdown {
         position: relative; }
         #header .navbar .utilities .dropdown .search-dropdown-menu {

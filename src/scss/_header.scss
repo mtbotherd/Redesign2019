@@ -94,16 +94,6 @@ a.skip-to-content {
             width: 1.5rem;
             height: 1.5rem;
           }
-
-          // &.store-icon:hover::before {
-          //   display: block;
-          //   content: "";
-          //   background-image: url("../../../../../img/svg/shopping-cart-white.svg");
-          //   background-repeat: no-repeat;
-          //   background-size: 1.5rem;
-          //   width: 1.5rem;
-          //   height: 1.5rem;
-          // }
         }
         .dropdown-toggle {
           &.search-icon::before {
@@ -116,16 +106,6 @@ a.skip-to-content {
             height: 1.5rem;
           }
 
-          // &.search-icon:hover::before {
-          //   display: block;
-          //   content: "";
-          //   background-image: url("../../../../../img/svg/search-white.svg");
-          //   background-repeat: no-repeat;
-          //   background-size: 1.5rem;
-          //   width: 1.5rem;
-          //   height: 1.5rem;
-          // }
-
           &.avatar-icon::before {
             display: block;
             content: "";
@@ -135,16 +115,6 @@ a.skip-to-content {
             width: 1.5rem;
             height: 1.5rem;
           }
-
-          // &.avatar-icon:hover::before {
-          //   display: block;
-          //   content: "";
-          //   background-image: url("../../../../../img/svg/avatar-white.svg");
-          //   background-repeat: no-repeat;
-          //   background-size: 1.5rem;
-          //   width: 1.5rem;
-          //   height: 1.5rem;
-          // }
 
           &::after {
             display: none;
@@ -184,25 +154,18 @@ a.skip-to-content {
 
         .nav-item {
           border-bottom: none;
-          &:hover {
-            background-color: $cyan;
 
-            .nav-link {
+          .nav-link {
+            padding: 1.3rem 1.25rem;
+
+            &:hover,
+            &:focus,
+            &:focus-within {
               color: $white;
+              background-color: $cyan;
             }
           }
           .nav-link {
-            padding: 1.25rem;
-
-            &:hover,
-            &:active {
-              color: $white;
-            }
-
-            &:focus {
-              color: $body-color;
-            }
-
             &.store-icon:hover::before {
               display: block;
               content: "";
@@ -289,6 +252,44 @@ a.skip-to-content {
       .utilities {
         border-left: 1px solid $border-color;
         padding-left: 1.5rem;
+
+        .nav-item {
+          .nav-link {
+            padding: 1.4rem 1.25rem;
+          }
+
+          .store-icon:focus::before {
+            display: block;
+            content: "";
+            background-image: url("../../../../../img/svg/shopping-cart-white.svg");
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+
+        .dropdown-toggle {
+          &.search-icon:focus::before {
+            display: block;
+            content: "";
+            background-image: url("../../../../../img/svg/search-white.svg");
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+
+          &.avatar-icon:focus::before {
+            display: block;
+            content: "";
+            background-image: url("../../../../../img/svg/avatar-white.svg");
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
 
         .dropdown {
           position: relative;
