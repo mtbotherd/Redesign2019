@@ -8075,11 +8075,11 @@ a.skip-to-content {
       height: 68.58px; }
       #header .navbar .navbar-nav .nav-item {
         border-bottom: none; }
-        #header .navbar .navbar-nav .nav-item .nav-link {
-          padding: 1.3rem 1.25rem; }
-          #header .navbar .navbar-nav .nav-item .nav-link:hover, #header .navbar .navbar-nav .nav-item .nav-link:focus, #header .navbar .navbar-nav .nav-item .nav-link:focus-within {
-            color: #fff;
-            background-color: #0097d0; }
+        #header .navbar .navbar-nav .nav-item .nav-link:link {
+          padding: 1.25rem 1.3rem; }
+        #header .navbar .navbar-nav .nav-item .nav-link:hover, #header .navbar .navbar-nav .nav-item .nav-link:focus, #header .navbar .navbar-nav .nav-item .nav-link:focus-within {
+          color: #fff;
+          background-color: #0097d0; }
         #header .navbar .navbar-nav .nav-item .nav-link.store-icon:hover::before {
           display: block;
           content: "";

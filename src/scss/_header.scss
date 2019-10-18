@@ -154,9 +154,10 @@ a.skip-to-content {
 
         .nav-item {
           border-bottom: none;
-
           .nav-link {
-            padding: 1.3rem 1.25rem;
+            &:link {
+              padding: 1.25rem 1.3rem;
+            }
 
             &:hover,
             &:focus,
@@ -164,8 +165,6 @@ a.skip-to-content {
               color: $white;
               background-color: $cyan;
             }
-          }
-          .nav-link {
             &.store-icon:hover::before {
               display: block;
               content: "";
