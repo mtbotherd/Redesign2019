@@ -231,7 +231,7 @@ a.skip-to-content {
 
           .dropdown-menu {
             background-color: $gray-100;
-            margin-top: 0;
+            margin-top: -3px;
             padding-top: 0.5rem;
             border: none;
 
@@ -253,10 +253,6 @@ a.skip-to-content {
         padding-left: 1rem;
 
         .nav-item {
-          .nav-link {
-            //padding: 1.4rem;
-          }
-
           .store-icon:focus::before {
             display: block;
             content: "";
@@ -295,7 +291,8 @@ a.skip-to-content {
 
           .search-dropdown-menu {
             position: absolute;
-            left: -17.5rem;
+            left: -17.1rem;
+            margin-top: 0;
           }
         }
       }
