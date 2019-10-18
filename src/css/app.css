@@ -8076,7 +8076,7 @@ a.skip-to-content {
       #header .navbar .navbar-nav .nav-item {
         border-bottom: none; }
         #header .navbar .navbar-nav .nav-item .nav-link:link {
-          padding: 1.25rem 1.3rem; }
+          padding: 1.4rem; }
         #header .navbar .navbar-nav .nav-item .nav-link:hover, #header .navbar .navbar-nav .nav-item .nav-link:focus, #header .navbar .navbar-nav .nav-item .nav-link:focus-within {
           color: #fff;
           background-color: #0097d0; }
@@ -8140,9 +8140,7 @@ a.skip-to-content {
               text-decoration: underline; }
     #header .navbar .utilities {
       border-left: 1px solid #e3e3e0;
-      padding-left: 1.5rem; }
-      #header .navbar .utilities .nav-item .nav-link {
-        padding: 1.4rem 1.25rem; }
+      padding-left: 1rem; }
       #header .navbar .utilities .nav-item .store-icon:focus::before {
         display: block;
         content: "";
