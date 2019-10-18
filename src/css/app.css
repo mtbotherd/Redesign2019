@@ -9891,7 +9891,8 @@ input:focus,
     #tripToolsTabs .nav-tabs .nav-item .nav-link.active {
       background-color: #fff;
       color: #0097d0;
-      text-decoration: none; }
+      text-decoration: none;
+      border-color: #fff; }
       #tripToolsTabs .nav-tabs .nav-item .nav-link.active .active {
         display: block !important; }
       #tripToolsTabs .nav-tabs .nav-item .nav-link.active .inactive {
