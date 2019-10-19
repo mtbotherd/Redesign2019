@@ -144,7 +144,7 @@ var TripPlan = (function($, window, document, undefined) {
     let tripCount = plan.PlannerItin.PlannerOptions.length;
     let tripMsg = 'We found ' + tripCount.toString() + ' trip';
     tripMsg += tripCount > 1 ? 's':'';
-    tripMsg += ' for you.';
+    tripMsg += ' for you';
     $("#trip-result-count").html(tripMsg);
     let tmsg = 'Trips shown are based on your selections and closest ';
     tmsg += plan.ArrDep === 1 ? 'departure to ' : 'arrival to ';
@@ -202,7 +202,7 @@ var TripPlan = (function($, window, document, undefined) {
                 ${checkIfLate(li.Adherance)}
                 <strong>Route ${li.Headsign}</strong><br>
                 <a href="/home/#ServiceAlerts">
-                  <small>view alerts</small>
+                  <small>View alerts</small>
                 </a>
               </p>
               <p>

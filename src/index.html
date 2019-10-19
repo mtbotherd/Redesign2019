@@ -328,6 +328,7 @@
 																					<label for="oneMile"
 																							class="custom-control-label">1 mile</label>
 																				</div>
+																				<hr>
 																				<div class="custom-control custom-radio">
 																					<input id="anyType"
 																							type="radio"
@@ -859,6 +860,11 @@
 		<script src="/js/alerts.js"></script>
 		<script src="/js/form-validation.js"></script>
 		<script src="/js/scripts.js"></script>
+		<script>
+			(function (window) {
+				window.serviceHostUrl = 'https://svc.metrotransit.org';
+			})(window);
+		</script>
 		<script>
 			$(function () {
 				NexTrip.init();

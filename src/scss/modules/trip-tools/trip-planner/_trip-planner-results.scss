@@ -124,6 +124,8 @@
         .card-body {
           border: 2px solid $border-color;
           border-top: none;
+          padding: 1.25rem 0;
+
           @include media-breakpoint-up(lg) {
             border: 1px solid $border-color;
             padding: 1.75rem 1rem 1rem;
@@ -132,7 +134,7 @@
           .leg-time {
             font-weight: $font-weight-bold;
             margin-right: 1rem;
-            width: 5rem;
+            width: 6rem;
             padding: 0.5rem;
 
             @include media-breakpoint-up(md) {
@@ -181,11 +183,10 @@
               width: 2rem;
               height: 2rem;
               position: absolute;
-              top: -0.25rem;
+              top: 0;
               left: -0.95rem;
 
               @include media-breakpoint-up(lg) {
-                top: -0.25rem;
                 left: -1.3rem;
                 width: 2.25rem;
                 height: 2.25rem;
@@ -212,11 +213,10 @@
               width: 2rem;
               height: 2rem;
               position: absolute;
-              top: -0.25rem;
+              top: 0;
               left: -1.2rem;
 
               @include media-breakpoint-up(lg) {
-                top: -0.25rem;
                 left: -1.3rem;
                 width: 2.25rem;
                 height: 2.25rem;

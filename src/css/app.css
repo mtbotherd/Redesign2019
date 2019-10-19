@@ -8081,24 +8081,19 @@ a.skip-to-content {
       height: 68.58px; }
       #header .navbar .navbar-nav .nav-item {
         border-bottom: none; }
-        #header .navbar .navbar-nav .nav-item:hover {
+        #header .navbar .navbar-nav .nav-item .nav-link:link {
+          padding: 1.4rem; }
+        #header .navbar .navbar-nav .nav-item .nav-link:hover, #header .navbar .navbar-nav .nav-item .nav-link:focus, #header .navbar .navbar-nav .nav-item .nav-link:focus-within {
+          color: #fff;
           background-color: #0097d0; }
-          #header .navbar .navbar-nav .nav-item:hover .nav-link {
-            color: #fff; }
-        #header .navbar .navbar-nav .nav-item .nav-link {
-          padding: 1.25rem; }
-          #header .navbar .navbar-nav .nav-item .nav-link:hover, #header .navbar .navbar-nav .nav-item .nav-link:active {
-            color: #fff; }
-          #header .navbar .navbar-nav .nav-item .nav-link:focus {
-            color: #626462; }
-          #header .navbar .navbar-nav .nav-item .nav-link.store-icon:hover::before {
-            display: block;
-            content: "";
-            background-image: url("../../../../../img/svg/shopping-cart-white.svg");
-            background-repeat: no-repeat;
-            background-size: 1.5rem;
-            width: 1.5rem;
-            height: 1.5rem; }
+        #header .navbar .navbar-nav .nav-item .nav-link.store-icon:hover::before {
+          display: block;
+          content: "";
+          background-image: url("../../../../../img/svg/shopping-cart-white.svg");
+          background-repeat: no-repeat;
+          background-size: 1.5rem;
+          width: 1.5rem;
+          height: 1.5rem; }
         #header .navbar .navbar-nav .nav-item .dropdown-toggle.search-icon::before {
           display: block;
           content: "";
@@ -8141,7 +8136,7 @@ a.skip-to-content {
           border: none; }
         #header .navbar .navbar-nav .nav-item .dropdown-menu {
           background-color: #f5f5f4;
-          margin-top: 0;
+          margin-top: -3px;
           padding-top: 0.5rem;
           border: none; }
           #header .navbar .navbar-nav .nav-item .dropdown-menu .dropdown-item {
@@ -8151,12 +8146,39 @@ a.skip-to-content {
               text-decoration: underline; }
     #header .navbar .utilities {
       border-left: 1px solid #e3e3e0;
-      padding-left: 1.5rem; }
+      padding-left: 1rem; }
+      #header .navbar .utilities .nav-item .store-icon:focus::before {
+        display: block;
+        content: "";
+        background-image: url("../../../../../img/svg/shopping-cart-white.svg");
+        background-repeat: no-repeat;
+        background-size: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem; }
+      #header .navbar .utilities .dropdown-toggle.search-icon:focus::before {
+        display: block;
+        content: "";
+        background-image: url("../../../../../img/svg/search-white.svg");
+        background-repeat: no-repeat;
+        background-size: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem; }
+      #header .navbar .utilities .dropdown-toggle.avatar-icon:focus::before {
+        display: block;
+        content: "";
+        background-image: url("../../../../../img/svg/avatar-white.svg");
+        background-repeat: no-repeat;
+        background-size: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem; }
       #header .navbar .utilities .dropdown {
         position: relative; }
+        #header .navbar .utilities .dropdown .dropdown-menu {
+          margin-top: 0; }
         #header .navbar .utilities .dropdown .search-dropdown-menu {
           position: absolute;
-          left: -17.5rem; } }
+          left: -17.1rem;
+          margin-top: 0; } }
 
 .page-content h2 {
   position: relative; }
@@ -9891,7 +9913,8 @@ input:focus,
     #tripToolsTabs .nav-tabs .nav-item .nav-link.active {
       background-color: #fff;
       color: #0097d0;
-      text-decoration: none; }
+      text-decoration: none;
+      border-color: #fff; }
       #tripToolsTabs .nav-tabs .nav-item .nav-link.active .active {
         display: block !important; }
       #tripToolsTabs .nav-tabs .nav-item .nav-link.active .inactive {
@@ -9931,7 +9954,8 @@ input:focus,
   font-weight: 700; }
 
 #tripPlannerModule .custom-select {
-  font-weight: 500; }
+  font-weight: 500;
+  line-height: 1; }
 
 #tripPlannerModule .more-options {
   margin-bottom: 1rem; }
@@ -10062,7 +10086,8 @@ input:focus,
           height: 1.25rem; } }
   #tripPlannerResults .trips-found .tp-results .card .card-body {
     border: 2px solid #e3e3e0;
-    border-top: none; }
+    border-top: none;
+    padding: 1.25rem 0; }
     @media (min-width: 992px) {
       #tripPlannerResults .trips-found .tp-results .card .card-body {
         border: 1px solid #e3e3e0;
@@ -10070,7 +10095,7 @@ input:focus,
     #tripPlannerResults .trips-found .tp-results .card .card-body .leg-time {
       font-weight: 700;
       margin-right: 1rem;
-      width: 5rem;
+      width: 6rem;
       padding: 0.5rem; }
       @media (min-width: 768px) {
         #tripPlannerResults .trips-found .tp-results .card .card-body .leg-time {
@@ -10108,11 +10133,10 @@ input:focus,
         width: 2rem;
         height: 2rem;
         position: absolute;
-        top: -0.25rem;
+        top: 0;
         left: -0.95rem; }
         @media (min-width: 992px) {
           #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode .leg-mode-icon {
-            top: -0.25rem;
             left: -1.3rem;
             width: 2.25rem;
             height: 2.25rem; } }
@@ -10132,12 +10156,11 @@ input:focus,
         width: 2rem;
         height: 2rem;
         position: absolute;
-        top: -0.25rem;
+        top: 0;
         left: -1.2rem; }
         @media (min-width: 992px) {
           #tripPlannerResults .trips-found .tp-results .card .card-body .walk .leg-mode-icon,
           #tripPlannerResults .trips-found .tp-results .card .card-body .bus .leg-mode-icon {
-            top: -0.25rem;
             left: -1.3rem;
             width: 2.25rem;
             height: 2.25rem; } }
