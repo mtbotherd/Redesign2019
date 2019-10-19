@@ -7929,39 +7929,14 @@ abbr {
     .hero {
       height: 20rem; } }
 
-.home-bg,
-.placeholder-bg {
-  background-image: url("../../../../../img/mt-header-lrt-2000x457.jpg"); }
-
-.trip-planner-bg {
-  background-image: url("../../../../../img/trip-planner.jpg"); }
-
-.nextrip-bg {
-  background-image: url("../../../../../img/nextrip.jpg"); }
-
 .alerts-bg {
   background-image: url("../../../../../img/alerts.jpg"); }
-
-.park-ride-bg {
-  background-image: url("../../../../../img/park-ride.jpg"); }
-
-.stops-stations-bg {
-  background-image: url("../../../../../img/stops-stations.jpg"); }
-
-.schedules-maps-bg {
-  background-image: url("../../../../../img/schedules-maps.jpg"); }
 
 .blog-bg {
   background-image: url("../../../../../img/blog.jpg"); }
 
-.police-bg {
-  background-image: url("../../../../../img/police.jpg"); }
-
-.transit-initiatives-bg {
-  background-image: url("../../../../../img/transit-initiatives.jpg"); }
-
-.how-to-ride-bg {
-  background-image: url("../../../../../img/how-to-ride.jpg"); }
+.contact-us-bg {
+  background-image: url("../../../../../img/contact-us.jpg"); }
 
 .fares-bg {
   background-image: url("../../../../../img/fares.jpg"); }
@@ -7969,11 +7944,39 @@ abbr {
 .go-to-card-bg {
   background-image: url("../../../../../img/goto-card.jpg"); }
 
-.pass-programs-bg {
-  background-image: url("../../../../../img/pass-programs.jpg"); }
+.home-bg,
+.placeholder-bg {
+  background-image: url("../../../../../img/mt-header-lrt-2000x457.jpg"); }
+
+.how-to-ride-bg {
+  background-image: url("../../../../../img/how-to-ride.jpg"); }
 
 .news-bg {
   background-image: url("../../../../../img/news.jpg"); }
+
+.nextrip-bg {
+  background-image: url("../../../../../img/nextrip.jpg"); }
+
+.park-ride-bg {
+  background-image: url("../../../../../img/park-ride.jpg"); }
+
+.pass-programs-bg {
+  background-image: url("../../../../../img/pass-programs.jpg"); }
+
+.police-bg {
+  background-image: url("../../../../../img/police.jpg"); }
+
+.schedules-maps-bg {
+  background-image: url("../../../../../img/schedules-maps.jpg"); }
+
+.stops-stations-bg {
+  background-image: url("../../../../../img/stops-stations.jpg"); }
+
+.transit-initiatives-bg {
+  background-image: url("../../../../../img/transit-initiatives.jpg"); }
+
+.trip-planner-bg {
+  background-image: url("../../../../../img/trip-planner.jpg"); }
 
 a.skip-to-content {
   position: absolute;
@@ -8507,6 +8510,13 @@ footer.section {
   .secondary .page-title .route-number {
     color: #ffd200;
     text-transform: uppercase; }
+
+.page-content .htmlmodule {
+  width: 770px;
+  margin: 0 auto; }
+
+.page-content .content-full-width .htmlmodule {
+  width: 1140px !important; }
 
 .page-content h2 {
   margin-bottom: 15px; }
