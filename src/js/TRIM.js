@@ -1,4 +1,4 @@
-﻿var CoordinateConversion = (function () {
+var CoordinateConversion = (function () {
     /* Code found here: http://home.hiwaay.net/~taylorc/toolbox/geography/geoutm.html
        Copyright 1997-1998 by Charles L. Taylor 
     */

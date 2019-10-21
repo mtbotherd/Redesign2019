@@ -16,6 +16,7 @@ var TripPlan = (function($, window, document, undefined) {
 	//  datetime: "10/1/2019 07:30:00 AM"
 	//
 	const newTrip = function(tripProperties) {
+		$("#spinner").removeClass("d-none");
 		return $.Deferred(function (dfd) { 
 			TripPlanJSON = {}; // clear the old one
 			console.log(
@@ -143,7 +144,7 @@ var TripPlan = (function($, window, document, undefined) {
     let tripCount = plan.PlannerItin.PlannerOptions.length;
     let tripMsg = 'We found ' + tripCount.toString() + ' trip';
     tripMsg += tripCount > 1 ? 's':'';
-    tripMsg += ' for you.';
+    tripMsg += ' for you';
     $("#trip-result-count").html(tripMsg);
     let tmsg = 'Trips shown are based on your selections and closest ';
     tmsg += plan.ArrDep === 1 ? 'departure to ' : 'arrival to ';
@@ -157,8 +158,8 @@ var TripPlan = (function($, window, document, undefined) {
       l.Segments.forEach(function(li,ii){
         switch (li.SegmentType) {
           case 0:
-            tpSummary.push(`<img class="icon"src="/img/svg/bus-gray.svg">&nbsp;
-            <span class="route mr-1">${li.Route}</span>`)
+            tpSummary.push(`<img class="icon bus-gray" src="/img/svg/bus-gray.svg">&nbsp;
+            <span class="route mr-2">${li.Route}</span>`)
             break;
           case 1:
             if(li.PublicRoute==="Blue Line"){
@@ -177,7 +178,7 @@ var TripPlan = (function($, window, document, undefined) {
             tpSummary.push(`<img class="icon" src="/img/svg/circle-gray-outline-train.svg">`)
             break;
           case 3:
-            tpSummary.push(`<img class="icon" src="/img/svg/pedestrian-gray.svg">`)
+            tpSummary.push(`<img class="icon pedestrian-gray" src="/img/svg/pedestrian-gray.svg">`)
             break;
           case 4:
            //tpSummary.push(`<img class="icon" src="/img/svg/pedestrian-gray.svg">`)
@@ -201,7 +202,7 @@ var TripPlan = (function($, window, document, undefined) {
                 ${checkIfLate(li.Adherance)}
                 <strong>Route ${li.Headsign}</strong><br>
                 <a href="/home/#ServiceAlerts">
-                  <small>view alerts</small>
+                  <small>View alerts</small>
                 </a>
               </p>
               <p>
@@ -259,7 +260,7 @@ var TripPlan = (function($, window, document, undefined) {
               <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
               <div class="d-table-cell leg-mode walk">
                 <div class="d-table-cell leg-mode-icon">
-                  <img class="icon"
+                  <img class="icon pedestrian-gray"
                     src="/img/svg/circle-green-outline-pedestrian.svg">
                 </div>
                 <p>${li.WalkTextOverview}
@@ -281,37 +282,73 @@ var TripPlan = (function($, window, document, undefined) {
               break;
             default:
           };
-      });
-
-      $('.tp-results').append(`
-        <div class="card mb-4">
-			<a class="border" data-toggle="collapse" href="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
-			<span class="d-flex" role="link">
-				<span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
-				<span class="align-items-center tp-route">${tpSummary.join('<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">')}
-				<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
-				</span>
-			</span>
-			</a>
-			<div id="collapseTrip${i}" class="collapse" data-parent="#tripPlannerResults" aria-labelledby="tripPlannerResults">
-			<div class="card-body">
-				<div class="row flex-row">
-					<div class="col-lg-5">
-						<div class="d-block">
-						`+ tpDetail.join(" ")+`
+	  });
+	  
+	  $('.tp-results').append(`
+		<div id="tripPlan" class="accordion">
+			<div class="card">
+				<div id="" class="card-header">
+					<h3 class="mb-0">
+						<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
+							<span class="d-flex">
+								<span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
+								<span class="align-items-center tp-route">${tpSummary.join('<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">')}
+									<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+								</span>
+							</span>
+						</button>
+					</h3>
+				</div>
+				<div id="collapseTrip${i}" class="collapse" aria-labelledby="" data-parent="#tripPlan">
+				<div class="card-body">
+					<div class="row flex-row">
+						<div class="col-lg-5">
+							<div class="d-block">
+							`+ tpDetail.join(" ")+`
+							</div>
+							<div class="clearfix"></div>
+							<hr class="d-block d-lg-none">
 						</div>
-						<div class="clearfix"></div>
-						<hr class="d-block d-lg-none">
-					</div>
-					<div class="col-lg-7">
-						<div class="tp-basemap esrimap${i}">
+						<div class="col-lg-7">
+							<div class="tp-basemap esrimap${i}">
+							</div>
 						</div>
 					</div>
 				</div>
+				</div>
 			</div>
-			</div>
-        </div>
+		</div>
         `)
+
+	//   $('.tp-results').append(`
+	// 	<div class="card mb-4">
+	// 		<a class="border" data-toggle="collapse" href="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
+	// 		<span class="d-flex" role="link">
+	// 			<span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
+	// 			<span class="align-items-center tp-route">${tpSummary.join('<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">')}
+	// 			<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+	// 			</span>
+	// 		</span>
+	// 		</a>
+	// 		<div id="collapseTrip${i}" class="collapse" data-parent="#tripPlannerResults" aria-labelledby="tripPlannerResults">
+	// 		<div class="card-body">
+	// 			<div class="row flex-row">
+	// 				<div class="col-lg-5">
+	// 					<div class="d-block">
+	// 					`+ tpDetail.join(" ")+`
+	// 					</div>
+	// 					<div class="clearfix"></div>
+	// 					<hr class="d-block d-lg-none">
+	// 				</div>
+	// 				<div class="col-lg-7">
+	// 					<div class="tp-basemap esrimap${i}">
+	// 					</div>
+	// 				</div>
+	// 			</div>
+	// 		</div>
+	// 		</div>
+	// 	</div>
+    //     `)
     });
     var esriMapDOM = function() {
       return `
@@ -413,11 +450,13 @@ var TripPlan = (function($, window, document, undefined) {
                   if (tripPlan.PlannerItin.PlannerOptions.length > 0) {
                     formatTripResults(tripPlan)
                     $('.trips-found').show();
-                    $('.no-trips-found').hide();
+					$('.no-trips-found').hide();
+					$('#spinner').addClass('d-none')
+                    $('#planTrip').hide('slow');
                     $('#tripPlannerResults').show();
                   } else {
                     $('.trips-found').hide();
-                    $('.no-trips-found').show();
+					$('.no-trips-found').show();
                     $('#tripPlannerResults').show();
                   }
               })
@@ -430,6 +469,11 @@ var TripPlan = (function($, window, document, undefined) {
       }
     });
   };
+
+  $("#editMyTrip").on('click', function(){
+    $('#tripPlannerResults').hide('slow');
+    $('#planTrip').show('slow');
+  });
 
 	return {
     init: init

@@ -164,7 +164,7 @@ var Alerts = (function ($, window, document, undefined) {
 
     var getAlertsForRoute = function (routeAbbr) {
         singleRoute = true;
-        $.get('https://svc.metrotransittest.org/alerts/' + routeAbbr)
+        $.get(window.serviceHostUrl + '/alerts/' + routeAbbr)
             .done(function (result) {
                 allAlerts = JSON.parse(JSON.stringify(result));
                 buildAlerts(routeAbbr);
@@ -179,7 +179,7 @@ var Alerts = (function ($, window, document, undefined) {
         //don't call web service if we already have alerts
         if (allAlerts.length > 0) return;
         //get all the alerts, convert to Json object and pass to buildAlerts method
-        $.get('https://svc.metrotransittest.org/alerts/all')
+        $.get(window.serviceHostUrl + '/alerts/all')
             .done(function (result) {
                 allAlerts = JSON.parse(JSON.stringify(result));
                 buildAlerts();

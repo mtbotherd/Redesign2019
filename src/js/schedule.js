@@ -1,4 +1,4 @@
-﻿var Schedule = (function ($, window, document, undefined) {
+var Schedule = (function ($, window, document, undefined) {
 
     'use strict';
 
@@ -55,6 +55,14 @@
         $('.schedule-days>button').on('click', scheduleSelect);
         $('#maplink').on('click', function () { window.location.href = '/imap/' + $(this).data('link'); });
         $('#printlink').on('click', function () { window.print(); });
+
+        $(document).on('keydown', function (event) {
+            if ($('body').hasClass('purgeable')) {
+                if (event.ctrlKey && event.key == 'y') {
+                    document.forms[0].submit();
+                }
+            }
+        });
 
         if ($("#routeBOM").attr("maptype") === "BOM") {
             let parms = {

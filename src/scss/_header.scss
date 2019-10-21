@@ -17,72 +17,286 @@ a.skip-to-content {
   }
 }
 #header {
-  @include media-breakpoint-up(xl) {
-    .navbar {
-      padding: 0 !important;
+  .navbar {
+    padding-bottom: 0;
+
+    // .navbar-collapse {
+    //   width: 100vw;
+    //   position: relative;
+    //   margin-left: -50vw;
+    //   left: 50%;
+    //   overflow-x: hidden;
+    //   margin-top: 0.5rem;
+    // }
+
+    .navbar-nav {
+      border-top: 1px solid $border-color;
+
+      .nav-item {
+        border-bottom: 1px solid $border-color;
+
+        .nav-link {
+          &:link {
+            @include font-size(18);
+            padding-right: 1rem;
+            padding-left: 1rem;
+          }
+        }
+
+        .dropdown-toggle {
+          &::after {
+            position: relative;
+            top: 0.25rem;
+            content: "";
+            background-image: url("../../../../../img/svg/chevron-down-gray.svg");
+            background-repeat: no-repeat;
+            background-size: 0.75rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            border: none;
+            transform: rotate(0deg);
+            transition: 0.3s transform ease-in-out;
+          }
+        }
+
+        &.dropdown {
+          .dropdown-menu {
+            border: none;
+
+            .dropdown-item {
+              @include font-size(18);
+              color: $cyan;
+              padding: 0.25rem 2rem;
+            }
+          }
+        }
+
+        &.show {
+          .nav-link::after {
+            transform: rotate(-180deg);
+            transition: 0.3s transform ease-in-out;
+          }
+        }
+      }
+    }
+
+    .utilities {
+      border-top: none;
+
+      .nav-item {
+        .nav-link {
+          &.store-icon::before {
+            display: block;
+            content: "";
+            background-image: url("../../../../../img/svg/shopping-cart-green.svg");
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+        .dropdown-toggle {
+          &.search-icon::before {
+            display: block;
+            content: "";
+            background-image: url("../../../../../img/svg/search-gray.svg");
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+
+          &.avatar-icon::before {
+            display: block;
+            content: "";
+            background-image: url("../../../../../img/svg/avatar-gray.svg");
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+
+          &::after {
+            display: none;
+          }
+        }
+
+        .search-dropdown-menu {
+          padding-right: 15px;
+          padding-left: 15px;
+
+          .input-group {
+            width: 313px;
+
+            .form-control {
+              border-right: none;
+            }
+
+            .input-group-append .btn {
+              background-color: $white;
+              border-color: $border-color;
+              border-left: none;
+              padding: 0 0.75rem;
+            }
+          }
+        }
+      }
     }
   }
 
-  .navbar-nav {
-    .nav-item {
-      &:hover {
-        background-color: $cyan;
+  @include media-breakpoint-up(xl) {
+    .navbar {
+      padding: 0 !important;
 
-        .nav-link {
-          color: $white;
+      .navbar-nav {
+        border-top: none;
+        height: 68.58px;
+
+        .nav-item {
+          border-bottom: none;
+          .nav-link {
+            &:link {
+              padding: 1.4rem;
+            }
+
+            &:hover,
+            &:focus,
+            &:focus-within {
+              color: $white;
+              background-color: $cyan;
+            }
+            &.store-icon:hover::before {
+              display: block;
+              content: "";
+              background-image: url("../../../../../img/svg/shopping-cart-white.svg");
+              background-repeat: no-repeat;
+              background-size: 1.5rem;
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+          }
+
+          .dropdown-toggle {
+            &.search-icon::before {
+              display: block;
+              content: "";
+              background-image: url("../../../../../img/svg/search-gray.svg");
+              background-repeat: no-repeat;
+              background-size: 1.5rem;
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+
+            &.search-icon:hover::before {
+              display: block;
+              content: "";
+              background-image: url("../../../../../img/svg/search-white.svg");
+              background-repeat: no-repeat;
+              background-size: 1.5rem;
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+
+            &.avatar-icon::before {
+              display: block;
+              content: "";
+              background-image: url("../../../../../img/svg/avatar-gray.svg");
+              background-repeat: no-repeat;
+              background-size: 1.5rem;
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+
+            &.avatar-icon:hover::before {
+              display: block;
+              content: "";
+              background-image: url("../../../../../img/svg/avatar-white.svg");
+              background-repeat: no-repeat;
+              background-size: 1.5rem;
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+
+            &:hover::after,
+            &:focus::after {
+              content: "";
+              background-image: url("../../../../../img/svg/chevron-down-white.svg");
+              background-repeat: no-repeat;
+              background-size: 0.75rem;
+              width: 0.75rem;
+              height: 0.75rem;
+              border: none;
+            }
+          }
+
+          .dropdown-menu {
+            background-color: $gray-100;
+            margin-top: -3px;
+            padding-top: 0.5rem;
+            border: none;
+
+            .dropdown-item {
+              color: $cyan;
+
+              &:hover,
+              &:active {
+                color: $secondary;
+                text-decoration: underline;
+              }
+            }
+          }
         }
       }
-      .nav-link {
-        // padding: 0;
-        @include media-breakpoint-up(xl) {
-          padding-top: 1.25rem;
-          padding-right: 0.85rem !important;
-          padding-bottom: 1.25rem;
-          padding-left: 0.85rem !important;
-        }
 
-        .icon {
-          width: 0.75rem;
-          width: 0.75rem;
+      .utilities {
+        border-left: 1px solid $border-color;
+        padding-left: 1rem;
 
-          @include media-breakpoint-up(md) {
-            width: 1rem;
-            height: 1rem;
+        .nav-item {
+          .store-icon:focus::before {
+            display: block;
+            content: "";
+            background-image: url("../../../../../img/svg/shopping-cart-white.svg");
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
           }
         }
 
-        &:active,
-        &:hover {
-          color: $white;
-        }
-      }
-
-      .dropdown-toggle {
-        &::after {
-          // Reset bootstrap styles for .dropdown-toggle::after
-          border: none;
-          display: block;
-          margin-left: 0;
-        }
-      }
-
-      .dropdown-menu {
-        background-color: $gray-100;
-        @include media-breakpoint-up(xl) {
-          margin-top: 0;
-          border: none;
-        }
-
-        .dropdown-item {
-          color: $cyan;
-          @include media-breakpoint-up(lg) {
-            @include font-size(18);
+        .dropdown-toggle {
+          &.search-icon:focus::before {
+            display: block;
+            content: "";
+            background-image: url("../../../../../img/svg/search-white.svg");
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
           }
 
-          &:hover,
-          &:active {
-            color: $secondary;
-            text-decoration: underline;
+          &.avatar-icon:focus::before {
+            display: block;
+            content: "";
+            background-image: url("../../../../../img/svg/avatar-white.svg");
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+
+        .dropdown {
+          position: relative;
+
+          .dropdown-menu {
+            margin-top: 0;
+          }
+
+          .search-dropdown-menu {
+            position: absolute;
+            left: -17.1rem;
+            margin-top: 0;
           }
         }
       }

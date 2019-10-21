@@ -1,25 +1,25 @@
-.utilities {
-  @include media-breakpoint-up(xl) {
-    margin-left: auto;
-    padding-left: 1.25rem;
-    border-left: 1px solid $border-color;
-  }
+// .utilities {
+//   @include media-breakpoint-up(xl) {
+//     margin-left: auto;
+//     padding-left: 1.25rem;
+//     border-left: 1px solid $border-color;
+//   }
 
-  // Navbar - rotate icon on show/hide
-  .dropdown .active {
-    transform: none;
-  }
+//   // Navbar - rotate icon on show/hide
+//   .dropdown .active {
+//     transform: none;
+//   }
 
-  .dropdown.show .active {
-    transform: none;
-  }
+//   .dropdown.show .active {
+//     transform: none;
+//   }
 
-  .nav-link {
-    .icon {
-      @include media-breakpoint-up(md) {
-        width: 1.5rem !important;
-        height: 1.5rem !important;
-      }
-    }
-  }
-}
+//   .nav-link {
+//     .icon {
+//       @include media-breakpoint-up(md) {
+//         width: 1.5rem !important;
+//         height: 1.5rem !important;
+//       }
+//     }
+//   }
+// }

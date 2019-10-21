@@ -1,4 +1,4 @@
-﻿var News = (function ($, window, document, undefined) {
+var News = (function ($, window, document, undefined) {
 
     'use strict';
 

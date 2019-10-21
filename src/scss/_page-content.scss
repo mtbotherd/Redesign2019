@@ -1,4 +1,19 @@
 .page-content {
+  .htmlmodule {
+    @include media-breakpoint-up(lg) {
+      width: 770px;
+      margin: 0 auto;
+    }
+  }
+
+  .content-full-width {
+    .htmlmodule {
+      @include media-breakpoint-up(xl) {
+        width: 1140px !important;
+      }
+    }
+  }
+
   h2 {
     margin-bottom: 15px;
 

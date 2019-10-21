@@ -57,11 +57,11 @@ var StopServices = (function($,  window, document, undefined) {
         }).promise();
     }
     function formatPage (addressChoice) {
-        $('#stop-finder-results').empty();
+        $('#stopFinderResults').empty();
         findNearestStops(addressChoice) 
         .then(function(result){
             //console.dir(result);
-            $('#stop-finder-results').append('<p class="result-msg">Transit service near ' + addressChoice.attributes.LongLabel +'</p>');
+            $('#stopFinderResults').append('<p class="result-msg">Transit service near ' + addressChoice.attributes.LongLabel +'</p>');
             for (let i = 0, l = result.length; i < l; i++) {
                 let stop = result[i];
                 let mapLink = '/imap/0/'+ stop.StopId;
@@ -101,7 +101,7 @@ var StopServices = (function($,  window, document, undefined) {
                     serviceDetail.push(`<a href="/route/${service.Route}" class="btn btn-outline-secondary routes">${route} ${service.Direction}</a>`);
                 }
                 serviceDetail.push('</div></div></div>');
-                $('#stop-finder-results').append(`
+                $('#stopFinderResults').append(`
                 <div class="gray-100 p-4 mb-4">
                     <div class="row">
                         <div class="col-lg-7">
@@ -123,7 +123,7 @@ var StopServices = (function($,  window, document, undefined) {
                 `);
             }
             if (result.length === 0) {
-                $('#stop-finder-results').append('<p class="result-msg">No transit service available near ' + addressChoice.attributes.LongLabel +'</p>');
+                $('#stopFinderResults').append('<p class="result-msg">No transit service available near ' + addressChoice.attributes.LongLabel +'</p>');
             }
         })
         .fail(function(err) {

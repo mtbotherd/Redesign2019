@@ -159,6 +159,10 @@ p.small {
   background-color: $gray-100;
 }
 
+.gray-300-font {
+  color: $gray-300;
+}
+
 .green-bg {
   background-color: $green;
   color: $white;
@@ -170,6 +174,9 @@ p.small {
 
 .yellow-bg {
   background-color: $yellow !important;
+}
+.white-bg {
+  background-color: $white;
 }
 
 //  Misc Styles
@@ -240,13 +247,7 @@ abbr {
   margin-bottom: 1rem !important;
 }
 
-.result-msg {
-  @include font-size(18);
-  font-weight: $font-weight-bold;
-  margin-bottom: 15px;
-
-  @include media-breakpoint-up(lg) {
-    @include font-size(23);
-    margin-bottom: 30px;
-  }
+.minus-icon {
+  animation-name: plusMinus;
+  animation-duration: 550ms;
 }
