@@ -93,6 +93,8 @@ var StopServices = (function($,  window, document, undefined) {
                     if (service.Route === '902') route = 'Green';
                     if (service.Route === '903') route = 'Red';
                     if (service.Route === '904') route = 'Orange';
+                    if (service.Route === '921') route = 'A Line';
+                    if (service.Route === '923') route = 'C Line';
                     //if (service.Route === '888' || service.Route === '887' ) route = 'NorthStar';
                     //  src="/img/svg/circle-gray-outline-train.svg">
                     // img/svg/circle-green-outline-lrt.svg"/>':'<img class="icon" src="/img/svg/circle-blue-outline-lrt.svg"/>'}
