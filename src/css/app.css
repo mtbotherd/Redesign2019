@@ -9950,6 +9950,22 @@ input:focus,
     #tripToolsTabs .tab-content {
       padding-top: 60px; } }
 
+#tripPlannerModule .dropdown-menu {
+  background-color: #dbf4fd; }
+  #tripPlannerModule .dropdown-menu .my-location {
+    posittion: relative;
+    margin-left: 2rem; }
+    #tripPlannerModule .dropdown-menu .my-location::before {
+      position: absolute;
+      top: 0.65rem;
+      left: 0.5rem;
+      content: "";
+      background-image: url("../../../../../img/svg/pin-gray.svg");
+      background-repeat: no-repeat;
+      background-size: 1rem;
+      width: 1rem;
+      height: 1rem; }
+
 #tripPlannerModule button.location-toggler {
   background-color: transparent;
   border: none;

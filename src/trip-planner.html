@@ -157,12 +157,12 @@
 									<div class="form-group mb-0">
 										<input id="fromLocation"
 											type="text"
-											class="form-control from-location"
+											class="form-control from-location dropdown"
 											name="fromLocation"
 											required>
-											<!-- <div class="dropdown-menu">
-												<a href="">Use my location</a>
-											</div> -->
+											<div class="dropdown-menu">
+												<a class="my-location" href="#">Use my location</a>
+											</div>
 										<label for="fromLocation"
 											class="floating-label">From</label>
 									</div>
@@ -406,7 +406,7 @@
 									<div class="trips-found">
 										<h2 id="trip-result-count"></h2>
 										<p id="trip-result-msg" class="mb=0"></p>
-										<div class="tp-results mb-1 mb-lg-5" role="tablist">
+										<div id="tripPlan" class="tp-results accordion mb-1 mb-lg-5" role="tablist">
 										</div>
 										<div class="text-center">
 											<button type="button"
