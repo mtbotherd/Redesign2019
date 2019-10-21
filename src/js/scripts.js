@@ -56,14 +56,37 @@ $(function() {
 	$("input.dropdown").dropdown();
   
 	// time & date inputs
+	// time & date inputs
 	$(".time-elements").hide();
 	$("#selectTime").on("change", function() {
 	  if (this.value == "depart-at" || this.value == "arrive-by") {
+		$("#date").attr('value',currentDate().date)
+		$("#time").attr('value',currentDate().time)
 		$(".time-elements").slideDown();
 	  } else {
 		$(".time-elements").slideUp();
 	  }
 	});
+	function currentDate(){
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; 
+		var yyyy = today.getFullYear();
+		var min = today.getMinutes();
+		if(min<10)min='0'+min;
+		if(dd<10)dd='0'+dd;
+		if(mm<10) mm='0'+mm;
+		today = { date:yyyy+'-'+mm+'-'+dd, time:today.getHours() + ":" + min };
+		return today;
+	}
+	// $(".time-elements").hide();
+	// $("#selectTime").on("change", function() {
+	//   if (this.value == "depart-at" || this.value == "arrive-by") {
+	// 	$(".time-elements").slideDown();
+	//   } else {
+	// 	$(".time-elements").slideUp();
+	//   }
+	// });
 
 	// Bootstrap Popover with HTML
 	$('[data-toggle="popover"]').popover({
