@@ -7924,6 +7924,9 @@ abbr {
 .blog-bg {
   background-image: url("../../../../../img/blog.jpg"); }
 
+.carpool-vanpool-bg {
+  background-image: url("../../../../../img/carpool-vanpool.jpg"); }
+
 .contact-us-bg {
   background-image: url("../../../../../img/contact-us.jpg"); }
 
@@ -9553,7 +9556,8 @@ input:focus,
       margin-bottom: 30px; } }
   .link-container-icon-right .btn-link {
     position: relative;
-    padding-right: 1.25rem; }
+    padding-right: 1.25rem;
+    padding-left: 0; }
     @media (min-width: 992px) {
       .link-container-icon-right .btn-link {
         padding-right: 2rem; } }
