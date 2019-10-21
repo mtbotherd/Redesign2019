@@ -433,6 +433,7 @@ input,
   .btn-link {
     position: relative;
     padding-right: 1.25rem;
+    padding-left: 0;
 
     @include media-breakpoint-up(lg) {
       padding-right: 2rem;

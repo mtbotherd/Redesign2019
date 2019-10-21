@@ -7761,22 +7761,21 @@ abbr {
 .embed-responsive {
   margin-bottom: 1rem !important; }
 
-.result-msg {
-  font-size: 18px !important;
-  font-size: 1.125rem !important;
-  font-weight: 700;
-  margin-bottom: 15px; }
-  @media (min-width: 992px) {
-    .result-msg {
-      font-size: 23px !important;
-      font-size: 1.4375rem !important;
-      margin-bottom: 30px; } }
-
 .minus-icon {
   -webkit-animation-name: plusMinus;
           animation-name: plusMinus;
   -webkit-animation-duration: 550ms;
           animation-duration: 550ms; }
+
+/***************************************************************
+    CSS Animations
+***************************************************************/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; } }
 
 @-webkit-keyframes plusMinus {
   from {
@@ -7793,16 +7792,6 @@ abbr {
   to {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
-
-/***************************************************************
-    CSS Animations
-***************************************************************/
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0; } }
-@keyframes fadeIn {
-  from {
-    opacity: 0; } }
 
 .blink {
   -webkit-animation: fadeIn 1s infinite alternate;
@@ -8511,12 +8500,14 @@ footer.section {
     color: #ffd200;
     text-transform: uppercase; }
 
-.page-content .htmlmodule {
-  width: 770px;
-  margin: 0 auto; }
+@media (min-width: 992px) {
+  .page-content .htmlmodule {
+    width: 770px;
+    margin: 0 auto; } }
 
-.page-content .content-full-width .htmlmodule {
-  width: 1140px !important; }
+@media (min-width: 1200px) {
+  .page-content .content-full-width .htmlmodule {
+    width: 1140px !important; } }
 
 .page-content h2 {
   margin-bottom: 15px; }
@@ -8673,6 +8664,16 @@ footer.section {
           width: 3rem;
           height: 3rem; } }
 
+#stopsStations .result-msg {
+  font-size: 18px !important;
+  font-size: 1.125rem !important;
+  margin-bottom: 15px; }
+  @media (min-width: 992px) {
+    #stopsStations .result-msg {
+      font-size: 23px !important;
+      font-size: 1.4375rem !important;
+      margin-bottom: 30px; } }
+
 #stopsStations .gray-100 h2 {
   margin-bottom: 0; }
 
@@ -8690,13 +8691,15 @@ footer.section {
     position: relative;
     font-size: 18px !important;
     font-size: 1.125rem !important;
-    margin-right: 0.25rem; }
+    margin-right: 0.25rem;
+    padding-right: 1rem; }
     @media (min-width: 992px) {
       #stopsStations .gray-100 .map .map-link {
         top: 0;
         font-size: 23px !important;
         font-size: 1.4375rem !important;
-        margin-right: 1.5rem; } }
+        margin-right: 1.5rem;
+        padding-right: 0; } }
     #stopsStations .gray-100 .map .map-link::after {
       position: absolute;
       top: 0.25rem;
@@ -8715,32 +8718,36 @@ footer.section {
           margin-left: 0.25rem; } }
 
 #stopsStations .gray-100 .icon {
-  width: 3rem;
-  height: 3rem; }
+  width: 2rem;
+  height: 2rem; }
+  @media (min-width: 992px) {
+    #stopsStations .gray-100 .icon {
+      width: 3rem;
+      height: 3rem; } }
 
 #stopsStations .gray-100 .transit-service .routes {
-  font-size: 18px !important;
-  font-size: 1.125rem !important;
-  margin-right: 0;
-  margin-bottom: 0.4rem !important;
+  font-size: 16px !important;
+  font-size: 1rem !important;
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem !important;
   width: 96px;
-  height: 40px;
-  line-height: 0.9;
-  padding: 0.1rem 1.2rem; }
+  height: 36px;
+  line-height: 1;
+  padding: 0.25rem 1.2rem; }
   @media (min-width: 992px) {
     #stopsStations .gray-100 .transit-service .routes {
       font-size: 20px !important;
       font-size: 1.25rem !important;
-      margin-right: 0.6rem;
-      margin-bottom: 1.145rem !important;
+      margin-right: 30px;
+      margin-bottom: 30px !important;
       width: 100px;
       height: 45px;
-      padding: 0.1rem 1.25rem; } }
+      padding: 0.15rem 1.2rem; } }
   #stopsStations .gray-100 .transit-service .routes:nth-child(3n) {
     margin-right: 0; }
     @media (min-width: 992px) {
       #stopsStations .gray-100 .transit-service .routes:nth-child(3n) {
-        margin-right: 0.6rem; } }
+        margin-right: 30px; } }
   @media (min-width: 992px) {
     #stopsStations .gray-100 .transit-service .routes:nth-child(8n) {
       margin-right: 0; } }

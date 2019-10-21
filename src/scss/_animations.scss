@@ -7,6 +7,15 @@
   }
 }
 
+@keyframes plusMinus {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 // Animate broadcast icon
 .blink {
   animation: fadeIn 1s infinite alternate;
