@@ -56,7 +56,6 @@ $(function() {
 	$("input.dropdown").dropdown();
   
 	// time & date inputs
-	// time & date inputs
 	$(".time-elements").hide();
 	$("#selectTime").on("change", function() {
 	  if (this.value == "depart-at" || this.value == "arrive-by") {
