@@ -7583,7 +7583,28 @@ body {
     font-size: 18px !important;
     font-size: 1.125rem !important; } }
 
-@media (min-width: 768px) {
+a.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  -webkit-transition: top 1s ease-out;
+  transition: top 1s ease-out; }
+  a.skip-to-content:focus {
+    background-color: #ed1b2e;
+    color: #fff;
+    left: 0;
+    padding: 1rem;
+    text-decoration: underline;
+    top: 0;
+    -webkit-transition: top 0.1s ease-in;
+    transition: top 0.1s ease-in;
+    z-index: 10; }
+
+.alert-topmargin {
+  padding: 1rem;
+  margin-bottom: 0; }
+
+@media (min-width: 992px) {
   .container {
     padding-right: 0;
     padding-left: 0; } }
@@ -7969,22 +7990,6 @@ abbr {
 
 .trip-planner-bg {
   background-image: url("../../../../../img/trip-planner.jpg"); }
-
-a.skip-to-content {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  -webkit-transition: top 1s ease-out;
-  transition: top 1s ease-out; }
-  a.skip-to-content:focus {
-    background-color: #ed1b2e;
-    color: #fff;
-    left: 0;
-    padding: 1rem;
-    text-decoration: underline;
-    top: 0;
-    -webkit-transition: top 0.1s ease-in;
-    transition: top 0.1s ease-in; }
 
 #header .navbar {
   padding-bottom: 0; }
@@ -9057,12 +9062,17 @@ footer.section {
   width: 2.5rem;
   height: 2.5rem; }
 
-#schedulesMaps .search-gray {
-  width: 1rem;
-  height: 1rem; }
+#schedulesMaps .input-group .form-control {
+  border-right: none; }
 
-#schedulesMaps .input-group-append .btn {
-  padding: 0 0.75rem; }
+#schedulesMaps .input-group .input-group-text,
+#schedulesMaps .input-group .btn {
+  background-color: transparent;
+  border-left: none; }
+  #schedulesMaps .input-group .input-group-text .icon,
+  #schedulesMaps .input-group .btn .icon {
+    width: 1.5rem;
+    height: 1.5rem; }
 
 #schedulesMaps .auto-complete-search-box .input-group {
   margin-left: auto; }
