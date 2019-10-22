@@ -849,7 +849,7 @@ var TRIM = (function ($, window, document, undefined) {
             var ROUTENAMES = null;
             $.ajax({
                 type: "get",
-                url: "https://svc.metrotransitTEST.org/nextripv2/routes",
+                url: "https://svc.metrotransitorg/nextripv2/routes",
                 dataType: "json"
             })
                 .done(function (result, status, xhr) {
@@ -1039,7 +1039,7 @@ var TRIM = (function ($, window, document, undefined) {
                                 $('#mapPopUpDepartures').empty();
                                 $('#mapPopUpStopDescription').html(atts.site_on + ' & ' + atts.site_at);
                                 $('#mapPopUpRoutes').html(formatRouteList(atts.ROUTES));
-                                $.get('https://svc.metrotransittest.org/nextripv2/' + atts.siteid)
+                                $.get('https://svc.metrotransit.org/nextripv2/' + atts.siteid)
                                 .done(function (result) {
                                     if (result.Departures.length > 0) {
                                         let departures = result.Departures.sort(function (a, b) {
@@ -1367,7 +1367,7 @@ var TRIM = (function ($, window, document, undefined) {
     // the route line will draw and route stops will be highlighted.
     // If the stop provided, the map will mark the stop and zoom there.
     // ----------------------------------------------------------------
-    var fullPageSetup = function (mapDiv, route, stop) {
+    var fullPageSetup = function (mapDiv, route, stop, x, y) {
         var h = $(window).height();
         if (h > 600) {
             $('.map').css({ 'height': h - 240 });
@@ -1399,6 +1399,11 @@ var TRIM = (function ($, window, document, undefined) {
                         }).fail(function () {
                             console.warn('Requested stop ' + stop + ' not found.');
                         });
+                } else {
+                    if (x && y) {
+                        //console.log("Coordinates: " + x + ", " + y);
+                        centerMarkerAtPoint(parseFloat(x), parseFloat(y),14);
+                    }
                 }
             }
         });
@@ -1464,7 +1469,7 @@ var BOM = (function ($, window, document, undefined) {
     var _ROUTEID = null; // these are requested routes from the URL parameter
     var _ROUTESFORSHOW = null; // these are route number only for the requested stop
     var _ROUTESFORSTOP = null; // these have route number plus terminal letter for the requested stop
-    var _LOCATION_SERVICE = "https://svc.metrotransitTEST.org/nextripv2/vehicles/";
+    var _LOCATION_SERVICE = "https://svc.metrotransit.org/nextripv2/vehicles/";
     var _STOPS_QUERY_LAYER = "https://arcgis.metc.state.mn.us/transit/rest/services/transit/BOM_Points/MapServer/0";
     var _ROUTE_SERVICE = "https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer";
     var _ROUTE_LAYER = 4; // service layer ID for TRIM routes

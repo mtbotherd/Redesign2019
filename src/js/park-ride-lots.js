@@ -42,7 +42,7 @@ var ParkRideServices = (function($,  window, document, undefined) {
             }
             $.ajax({
 				type: 'get',
-				url: 'https://www.metrotransittest.org/Services/FinderSvc.ashx',
+				url: 'https://wwwtest.metrotransit.org/Services/FinderSvc.ashx',
 				data: serviceData,
 				dataType: "json"
             })
@@ -72,7 +72,7 @@ var ParkRideServices = (function($,  window, document, undefined) {
                 CoordinateConversion.UTMXYToLatLon(parseFloat(stop.Y), parseFloat(stop.X), 15, false, ptlatlon);
                 var longitude = CoordinateConversion.RadToDeg(ptlatlon[1]).toFixed(4);
                 var latitude = CoordinateConversion.RadToDeg(ptlatlon[0]).toFixed(4);
-                let mapLink = '/imap/0/0/'+longitude+'/'+latitude;
+                let mapLink = 'https://wwwtest.metrotransit.org/imap/interactivemap.aspx?x='+longitude+'&y='+latitude;
 
                 $('#pr-finder-results').append(`
                 <div class="card">

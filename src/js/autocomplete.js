@@ -18,7 +18,7 @@ var AutocompleteAddress = (function($, window, document, undefined) {
   // using 'getUserLocation' when the application started
   var fetchUserLoc = function() {
     return USERLOC;
-  }
+    };
   // getUserLocation returns a PROMISE while determining the user's location 
   // If the user does not run the app with 'HTTPS' or the user chooses not
   // to reveal their location, the routine returns 'fail'.
@@ -62,7 +62,10 @@ var AutocompleteAddress = (function($, window, document, undefined) {
       }
     }).promise();
   };
-  
+    var deleteChoice = function (/*string*/ inputDiv) {
+        delete inputResults[inputDiv];
+        $("#planMyTrip").attr('disabled', 'disabled');
+    };
   /* ===========================================================================
 		addressAutoComplete
 		Parms:
@@ -86,9 +89,10 @@ var AutocompleteAddress = (function($, window, document, undefined) {
       showNoSuggestionNotice: true,
       noSuggestionNotice: 'No results',
       width: "flex",
-      // onSearchStart: function(params) {
-      //   delete 
-      // },
+            onInvalidateSelection: function(params) {
+                deleteChoice(inputDiv);
+                $("#" + inputDiv).val('');
+             },
       lookup: function(query, returnSuggestions) {
         $.ajax({
           type: "get",
@@ -154,16 +158,13 @@ var AutocompleteAddress = (function($, window, document, undefined) {
   var getChoice = function(/*string*/ inputDiv) {
     return inputResults[inputDiv];
   };
-  var deleteChoice = function(/*string*/ inputDiv) {
-    delete inputResults[inputDiv];
-  }
   // This is a special function to support swapping the 
   // from/to location choices for the trip planner entry
   var exchangeValues = function(inputDiv1, inputDiv2) {
     let t = inputResults[inputDiv1];
     inputResults[inputDiv1] = inputResults[inputDiv2];
     inputResults[inputDiv2] = t;
-  }
+    };
 
   return {
     init: init,
@@ -193,14 +194,17 @@ var AutocompleteAddress = (function($, window, document, undefined) {
 AutocompleteAddress.getUserLocation()
 .then(function(userPos){
   // TripPlanner input fields
-  var readyToEnable = {}
-  AutocompleteAddress.init("fromLocation", /*UTMout*/ true, userPos,function(){
-    readyToEnable.from =true
-  if(readyToEnable.from ===true && readyToEnable.to === true)$("#planMyTrip").removeAttr("disabled")
+        AutocompleteAddress.init("fromLocation", /*UTMout*/ true, userPos,
+            function () {
+                if (AutocompleteAddress.getChoice("toLocation")) {
+                    $("#planMyTrip").removeAttr('disabled');
+                }
   });
-  AutocompleteAddress.init("toLocation", /*UTMout*/ true, userPos,function(){
-    readyToEnable.to =true
-  if(readyToEnable.from ===true && readyToEnable.to === true)$("#planMyTrip").removeAttr("disabled")
+        AutocompleteAddress.init("toLocation", /*UTMout*/ true, userPos,
+            function () {
+                if (AutocompleteAddress.getChoice("fromLocation")) {
+                    $("#planMyTrip").removeAttr('disabled');
+                }
   });
   // This one loads the Search field in the schedules-maps page -- the search result
   // automatically sets the map to zoom to the requested location
@@ -227,8 +231,18 @@ AutocompleteAddress.getUserLocation()
 // in alphabetic order
 .fail(function(err) {
   // TripPlanner input fields
-  AutocompleteAddress.init("fromLocation", /*UTMout*/ true, /*userPos*/null);
-  AutocompleteAddress.init("toLocation", /*UTMout*/ true, /*userPos*/null);
+        AutocompleteAddress.init("fromLocation", /*UTMout*/ true, /*userPos*/null,
+            function () {
+                if (AutocompleteAddress.getChoice("toLocation")) {
+                    $("#planMyTrip").removeAttr('disabled');
+                }
+            });
+        AutocompleteAddress.init("toLocation", /*UTMout*/ true, /*userPos*/null,
+            function () {
+                if (AutocompleteAddress.getChoice("fromLocation")) {
+                    $("#planMyTrip").removeAttr('disabled');
+                }
+            });
   // This one loads the Search field in the schedules-maps page -- the search result
   // automatically sets the map to zoom to the requested location
   AutocompleteAddress.init("interactiveMapSearch",/*UTMout*/ false,/*userPos*/ null,

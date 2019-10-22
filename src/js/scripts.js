@@ -24,8 +24,9 @@ $(function() {
 	);
 
     // Secondary nav set active item
-    //$('.secondary-nav > ul > li > a[href=' + location.pathname.replace('/', '\\/') + ']').addClass('active');
-
+    if ($('.secondary-nav').length) {
+        $('.secondary-nav > ul > li > a[href=' + location.pathname.replace('/', '\\/') + ']').addClass('active');
+    }
    //Newsletter signup button
     //if ($('.createsend-button').length) {
     //    var e = document.createElement('script');
