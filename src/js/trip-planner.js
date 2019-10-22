@@ -62,7 +62,7 @@ var TripPlan = (function($, window, document, undefined) {
 			  'xmode': tripProperties.xmode,
 			  'datetime': TRIM.convertDateTimeToDotNet(TRIM.convertUTCDateToLocalDate(datetime))
 			  };
-			  console.dir(tripData);
+            //console.dir(tripData);
 			  $.ajax({
 				  type: 'get',
 				  url: 'https://www.metrotransittest.org/Services/TripPlannerSvc.ashx',
@@ -159,19 +159,19 @@ var TripPlan = (function($, window, document, undefined) {
 		  switch (li.SegmentType) {
 			case 0:
 			  tpSummary.push(`<img class="icon bus-gray" src="/img/svg/bus-gray.svg">&nbsp;
-			  <span class="route mr-2">${li.Route}</span>`)
+			                            <span class="route mr-2">${li.Route}</span>`);
 			  break;
 			case 1:
 			  if(li.PublicRoute==="Blue Line"){
 				tpSummary.push(`<span class="d-flex align-items-center badge badge-secondary mr-1">
 				  <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
 				  <span class="caps">Blue</span>
-				</span>`)
+				            </span>`);
 			  } else if(li.PublicRoute==="Green Line"){
 				tpSummary.push(`<span class="d-flex align-items-center badge badge-success mr-1">
 				  <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
 				  <span class="caps">Green</span>
-				</span>`)
+				            </span>`);
 			  }
 			  break;
 			case 2:
@@ -210,7 +210,7 @@ var TripPlan = (function($, window, document, undefined) {
 				  <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName}
 				</p>
 			  </div>
-			</div>`)
+			            </div>`);
 				break;
 			  case 1: // Light-Rail
 				tpDetail.push(`<div class="leg-item">
@@ -231,7 +231,7 @@ var TripPlan = (function($, window, document, undefined) {
 					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName}
 				  </p>
 				</div>
-			  </div>`)
+			              </div>`);
 				break;
 			  case 2: // Train
 			  tpDetail.push(`<div class="leg-item">
@@ -253,7 +253,7 @@ var TripPlan = (function($, window, document, undefined) {
 				  <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName}
 				</p>
 			  </div>
-			</div>`)
+			            </div>`);
 				break;
 			  case 3: // WALK
 				tpDetail.push(`<div class="leg-item">
@@ -266,7 +266,7 @@ var TripPlan = (function($, window, document, undefined) {
 				  <p>${li.WalkTextOverview}
 				  </p>
 				</div>
-			  </div>`)
+			              </div>`);
 				break;
 			  case 4: // ALERT MESSAGE for USER
 				tpDetail.push(`<div class="leg-item">
@@ -278,7 +278,7 @@ var TripPlan = (function($, window, document, undefined) {
 				  </div>
 				  <p>${li.WalkTextOverview}</p>
 				</div>
-			  </div>`)
+			              </div>`);
 				break;
 			  default:
 			};
@@ -316,7 +316,7 @@ var TripPlan = (function($, window, document, undefined) {
 				  </div>
 				  </div>
 			  </div>
-		  `)
+		  `);
   
 	  //   $('.tp-results').append(`
 	  // 	<div class="card mb-4">
@@ -444,24 +444,40 @@ var TripPlan = (function($, window, document, undefined) {
 			newTrip(tripProperties)
 				.then(function () {
 					let tripPlan = getTrip();
-					console.dir(tripPlan);
-					if (tripPlan.PlannerItin.PlannerOptions.length > 0) {
-					  formatTripResults(tripPlan)
-					  $('.trips-found').show();
-					  $('.no-trips-found').hide();
-					  $('#spinner').addClass('d-none')
-					  $('#planTrip').hide('slow');
-					  $('#tripPlannerResults').show();
-					} else {
-					  $('.trips-found').hide();
-					  $('.no-trips-found').show();
+                        //console.dir(tripPlan);
+                        if (tripPlan.PlannerItin.PlannerOptions.length > 0) {
+                            formatTripResults(tripPlan);
+                            $('.trips-found').show();
+                            $('.no-trips-found').hide();
+                            $('#spinner').addClass('d-none');
+                            $('#planTrip').hide('slow');
+                            $('#tripPlannerResults').show();
+                        } else {
+                            // clear previous results
+                            $("#trip-result-count").html(''); 
+                            $("#trip-result-msg").html('');
+                            $('.tp-results').empty();
+                            // show error message
+                            $('.trips-found').show();
+                            $('.no-trips-found').show();
+                            // remove busy spinner
+                            $('#spinner').addClass('d-none');
+                            $('#planTrip').hide('slow');
 					  $('#tripPlannerResults').show();
 					}
 				})
 				.fail(function (err) {
 					console.warn('Trip Plan Failed: ' + err.Message);
-					$('.trips-found').hide();
-					$('.no-trips-found').show();
+                        // clear previous results
+                        $("#trip-result-count").html('');
+                        $("#trip-result-msg").html('');
+                        $('.tp-results').empty();
+                        // show error message
+                        $('.trips-found').show();
+                        $('.no-trips-found').show();
+                        // remove busy spinner
+                        $('#spinner').addClass('d-none');
+                        $('#planTrip').hide('slow');
 					$('#tripPlannerResults').show();
 				});
 		}
@@ -478,5 +494,6 @@ var TripPlan = (function($, window, document, undefined) {
   })(jQuery, window, document);
   
   $(function () {
+    $(function () { $("#planMyTrip").attr('disabled', 'disabled'); });
 	TripPlan.init();
   });
