@@ -6,21 +6,15 @@
 
   .input-group {
     .form-control {
-      border-right: none !important;
+      border-right: none;
     }
+    .input-group-text {
+      background-color: transparent;
+      border-left: none;
 
-    .input-group-append {
-      position: relative;
-      border: 1px solid $border-color;
-      border-left: none !important;
-
-      @include media-breakpoint-up(lg) {
-        .search-gray {
-          position: absolute;
-          top: 0.75rem;
-          width: 1.5rem;
-          height: 1.5rem;
-        }
+      .icon {
+        width: 1.5rem;
+        height: 1.5rem;
       }
     }
   }

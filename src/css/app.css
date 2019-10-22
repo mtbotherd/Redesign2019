@@ -8536,18 +8536,14 @@ footer.section {
   height: 2.5rem; }
 
 #parkRides .input-group .form-control {
-  border-right: none !important; }
+  border-right: none; }
 
-#parkRides .input-group .input-group-append {
-  position: relative;
-  border: 1px solid #e3e3e0;
-  border-left: none !important; }
-  @media (min-width: 992px) {
-    #parkRides .input-group .input-group-append .search-gray {
-      position: absolute;
-      top: 0.75rem;
-      width: 1.5rem;
-      height: 1.5rem; } }
+#parkRides .input-group .input-group-text {
+  background-color: transparent;
+  border-left: none; }
+  #parkRides .input-group .input-group-text .icon {
+    width: 1.5rem;
+    height: 1.5rem; }
 
 #parkRides .auto-complete-search-box {
   margin-bottom: 30px; }
