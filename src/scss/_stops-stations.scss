@@ -4,16 +4,21 @@
     height: 2.5rem;
   }
 
-  .search-gray {
-    width: 1rem;
-    height: 1rem;
-  }
+  .input-group {
+    .form-control {
+      border-right: none;
+    }
+    .input-group-text {
+      background-color: transparent;
+      border-left: none;
 
-  .input-group-append {
-    .btn {
-      padding: 0 0.75rem;
+      .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
     }
   }
+
   .auto-complete-search-box {
     margin-bottom: 30px;
 
