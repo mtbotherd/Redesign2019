@@ -189,11 +189,19 @@ var AutocompleteAddress = (function($, window, document, undefined) {
 // For the trip planner, both TO and FROM need be set
 // for validation.
 // ===========================================================================
+
 AutocompleteAddress.getUserLocation()
 .then(function(userPos){
   // TripPlanner input fields
-  AutocompleteAddress.init("fromLocation", /*UTMout*/ true, userPos);
-  AutocompleteAddress.init("toLocation", /*UTMout*/ true, userPos);
+  var readyToEnable = {}
+  AutocompleteAddress.init("fromLocation", /*UTMout*/ true, userPos,function(){
+    readyToEnable.from =true
+  if(readyToEnable.from ===true && readyToEnable.to === true)$("#planMyTrip").removeAttr("disabled")
+  });
+  AutocompleteAddress.init("toLocation", /*UTMout*/ true, userPos,function(){
+    readyToEnable.to =true
+  if(readyToEnable.from ===true && readyToEnable.to === true)$("#planMyTrip").removeAttr("disabled")
+  });
   // This one loads the Search field in the schedules-maps page -- the search result
   // automatically sets the map to zoom to the requested location
   AutocompleteAddress.init("interactiveMapSearch",/*UTMout*/ false,userPos,
@@ -214,7 +222,6 @@ AutocompleteAddress.getUserLocation()
       ParkRideServices.formatPage(choice);
     }
   );
-
 })
 // we can't find the user's position so we'll return results 
 // in alphabetic order
