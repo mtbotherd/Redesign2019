@@ -11,7 +11,8 @@ a,
 button,
 input,
 .btn-link,
-.btn-warning {
+.btn-warning,
+.mt-button {
   &:focus {
     border-color: #51cfff;
     outline: 0;
@@ -93,7 +94,8 @@ input,
 }
 
 // White button with cyan border
-.btn-outline-primary {
+.btn-outline-primary,
+.mt-button {
   font-weight: $font-weight-bold;
   color: $body-color;
   position: relative;
@@ -106,21 +108,21 @@ input,
     color: $white;
     border: 2px solid $blue;
 
-    .inactive {
-      display: none;
-    }
-    .active {
-      display: inline-flex;
-    }
+    // .inactive {
+    //   display: none;
+    // }
+    // .active {
+    //   display: inline-flex;
+    // }
   }
 
-  .inactive {
-    display: inline-flex;
-  }
+  //   .inactive {
+  //     display: inline-flex;
+  //   }
 
-  .active {
-    display: none;
-  }
+  //   .active {
+  //     display: none;
+  //   }
 
   @include media-breakpoint-up(lg) {
     width: 17.5rem;
@@ -302,7 +304,8 @@ input,
     }
   }
 
-  .btn-outline-primary {
+  .btn-outline-primary,
+  .mt-button {
     position: relative;
 
     &::after {

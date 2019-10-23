@@ -1,12 +1,6 @@
 footer.section {
-  padding-top: 30px;
-  padding-bottom: 30px;
-
-  @include media-breakpoint-up(lg) {
-    padding-top: 45px;
-    padding-bottom: 45px;
-  }
   background-color: $gray-100;
+
   .card-title {
     @include font-size(16);
     font-weight: $font-weight-bold;
@@ -18,7 +12,7 @@ footer.section {
   }
 
   .button-container-icon-right {
-	  text-align: center;
+    text-align: center;
   }
 
   .social-media {
