@@ -8,8 +8,8 @@
 // -- Otherwise, it formats HTML with the information and constructs
 //    a link to the interactive map page using the stop number
 //    as a parameter
-// See autocomplete.js for format of the user address location returned. But is should 
-// look like this:
+// See autocomplete.js for format of the user address location returned. But it should 
+// looking like this:
 /* {"address":"MOA",
     "location":{"x":481130.99999983935,"y":4966789.000100248},
     "score":100,
