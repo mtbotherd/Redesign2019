@@ -7907,7 +7907,7 @@ abbr {
   cursor: pointer;
   padding: 2px 5px;
   white-space: nowrap;
-  overflow: hidden;
+  gioverflow: hidden;
   font: 400 16px; }
 
 .autocomplete-selected {
@@ -8782,78 +8782,6 @@ footer.section {
       height: 45px;
       padding: 0.2rem 0; } }
 
-#gotoCardRetailers .icon {
-  width: 2.5rem;
-  height: 2.5rem; }
-
-#gotoCardRetailers .input-group .form-control {
-  border-right: none; }
-
-#gotoCardRetailers .input-group .input-group-text {
-  background-color: transparent;
-  border-left: none; }
-  #gotoCardRetailers .input-group .input-group-text .icon {
-    width: 1.5rem;
-    height: 1.5rem; }
-
-#gotoCardRetailers .auto-complete-search-box {
-  margin-bottom: 30px; }
-  @media (min-width: 992px) {
-    #gotoCardRetailers .auto-complete-search-box {
-      margin-bottom: 60px; } }
-  #gotoCardRetailers .auto-complete-search-box .input-group {
-    margin-left: auto; }
-    @media (min-width: 992px) {
-      #gotoCardRetailers .auto-complete-search-box .input-group {
-        margin: 0 auto; } }
-    #gotoCardRetailers .auto-complete-search-box .input-group::before {
-      content: "";
-      background-image: url("../../../../../img/svg/store-cyan.svg");
-      background-repeat: no-repeat;
-      background-size: 2.5rem;
-      width: 2.5rem;
-      height: 2.5rem;
-      margin-right: 0.5rem; }
-      @media (min-width: 992px) {
-        #gotoCardRetailers .auto-complete-search-box .input-group::before {
-          background-size: 3rem;
-          width: 3rem;
-          height: 3rem; } }
-
-#gotoCardRetailers .more-options {
-  margin-bottom: 1rem; }
-  #gotoCardRetailers .more-options .card-header {
-    border-bottom: 0;
-    padding: 0; }
-    #gotoCardRetailers .more-options .card-header .btn-link {
-      background-color: #fff;
-      text-decoration: none;
-      color: #626462;
-      font-weight: 500;
-      padding: 0.375rem 0.75rem; }
-      @media (min-width: 992px) {
-        #gotoCardRetailers .more-options .card-header .btn-link {
-          font-size: 23px !important;
-          font-size: 1.4375rem !important;
-          padding: 0.375rem 1rem; } }
-      #gotoCardRetailers .more-options .card-header .btn-link:focus {
-        color: #626462;
-        background-color: #fff; }
-      #gotoCardRetailers .more-options .card-header .btn-link .icon {
-        width: 1rem;
-        height: 1rem; }
-      #gotoCardRetailers .more-options .card-header .btn-link .active {
-        -webkit-transform: rotate(45deg);
-                transform: rotate(45deg); }
-  #gotoCardRetailers .more-options .card-body {
-    background-color: #f5f5f4; }
-    #gotoCardRetailers .more-options .card-body hr {
-      border-top: 1px solid #626462;
-      margin: 0.25rem 0; }
-    #gotoCardRetailers .more-options .card-body .accessible-gray {
-      width: 1rem;
-      height: 1rem; }
-
 .route .schedule-days h3 {
   font-weight: normal !important; }
 
@@ -9261,6 +9189,78 @@ footer.section {
   @media (min-width: 992px) {
     #gotoCards .northstar-passes h2 {
       padding: 0; } }
+
+#gotoCardRetailers .icon {
+  width: 2.5rem;
+  height: 2.5rem; }
+
+#gotoCardRetailers .input-group .form-control {
+  border-right: none; }
+
+#gotoCardRetailers .input-group .input-group-text {
+  background-color: transparent;
+  border-left: none; }
+  #gotoCardRetailers .input-group .input-group-text .icon {
+    width: 1.5rem;
+    height: 1.5rem; }
+
+#gotoCardRetailers .auto-complete-search-box {
+  margin-bottom: 30px; }
+  @media (min-width: 992px) {
+    #gotoCardRetailers .auto-complete-search-box {
+      margin-bottom: 60px; } }
+  #gotoCardRetailers .auto-complete-search-box .input-group {
+    margin-left: auto; }
+    @media (min-width: 992px) {
+      #gotoCardRetailers .auto-complete-search-box .input-group {
+        margin: 0 auto; } }
+    #gotoCardRetailers .auto-complete-search-box .input-group::before {
+      content: "";
+      background-image: url("../../../../../img/svg/store-cyan.svg");
+      background-repeat: no-repeat;
+      background-size: 2.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-right: 0.5rem; }
+      @media (min-width: 992px) {
+        #gotoCardRetailers .auto-complete-search-box .input-group::before {
+          background-size: 3rem;
+          width: 3rem;
+          height: 3rem; } }
+
+#gotoCardRetailers .more-options {
+  margin-bottom: 1rem; }
+  #gotoCardRetailers .more-options .card-header {
+    border-bottom: 0;
+    padding: 0; }
+    #gotoCardRetailers .more-options .card-header .btn-link {
+      background-color: #fff;
+      text-decoration: none;
+      color: #626462;
+      font-weight: 500;
+      padding: 0.375rem 0.75rem; }
+      @media (min-width: 992px) {
+        #gotoCardRetailers .more-options .card-header .btn-link {
+          font-size: 23px !important;
+          font-size: 1.4375rem !important;
+          padding: 0.375rem 1rem; } }
+      #gotoCardRetailers .more-options .card-header .btn-link:focus {
+        color: #626462;
+        background-color: #fff; }
+      #gotoCardRetailers .more-options .card-header .btn-link .icon {
+        width: 1rem;
+        height: 1rem; }
+      #gotoCardRetailers .more-options .card-header .btn-link .active {
+        -webkit-transform: rotate(45deg);
+                transform: rotate(45deg); }
+  #gotoCardRetailers .more-options .card-body {
+    background-color: #f5f5f4; }
+    #gotoCardRetailers .more-options .card-body hr {
+      border-top: 1px solid #626462;
+      margin: 0.25rem 0; }
+    #gotoCardRetailers .more-options .card-body .accessible-gray {
+      width: 1rem;
+      height: 1rem; }
 
 #passPrograms h2 {
   margin-bottom: 15px; }
