@@ -10,4 +10,14 @@
   @include media-breakpoint-up(xl) {
     top: -5.12rem;
   }
+
+  .section {
+	  padding-top: 30px;
+	  padding-bottom: 30px;
+
+	  @include media-breakpoint-up(lg) {
+		  padding-top: 60px;
+		  padding-bottom: 60px;
+	  }
+  }
 }

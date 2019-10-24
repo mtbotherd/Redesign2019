@@ -8409,6 +8409,38 @@ label {
   padding-left: 0;
   padding-right: 0; }
 
+@media (min-width: 992px) {
+  .page-content .htmlmodule {
+    width: 770px;
+    margin: 0 auto; } }
+
+@media (min-width: 1200px) {
+  .page-content .content-full-width .htmlmodule {
+    width: 1140px !important; } }
+
+.page-content .section {
+  padding-top: 0;
+  padding-bottom: 0; }
+
+.page-content h2 {
+  margin-bottom: 15px; }
+  @media (min-width: 992px) {
+    .page-content h2 {
+      margin-bottom: 30px; } }
+  @media (min-width: 992px) {
+    .page-content h2 .icon {
+      width: 3rem;
+      height: 3rem;
+      margin-right: 0.5rem; } }
+
+.page-content .secondary-hero {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px; }
+  @media (min-width: 992px) {
+    .page-content .secondary-hero {
+      margin-bottom: 30px; } }
+
 #homeContent {
   position: relative;
   top: -4.62rem;
@@ -8419,6 +8451,13 @@ label {
   @media (min-width: 1200px) {
     #homeContent {
       top: -5.12rem; } }
+  #homeContent .section {
+    padding-top: 30px;
+    padding-bottom: 30px; }
+    @media (min-width: 992px) {
+      #homeContent .section {
+        padding-top: 60px;
+        padding-bottom: 60px; } }
 
 footer.section {
   background-color: #f5f5f4; }
@@ -8500,34 +8539,6 @@ footer.section {
   .secondary .page-title .route-number {
     color: #ffd200;
     text-transform: uppercase; }
-
-@media (min-width: 992px) {
-  .page-content .htmlmodule {
-    width: 770px;
-    margin: 0 auto; } }
-
-@media (min-width: 1200px) {
-  .page-content .content-full-width .htmlmodule {
-    width: 1140px !important; } }
-
-.page-content h2 {
-  margin-bottom: 15px; }
-  @media (min-width: 992px) {
-    .page-content h2 {
-      margin-bottom: 30px; } }
-  @media (min-width: 992px) {
-    .page-content h2 .icon {
-      width: 3rem;
-      height: 3rem;
-      margin-right: 0.5rem; } }
-
-.page-content .secondary-hero {
-  width: 100%;
-  height: auto;
-  margin-bottom: 15px; }
-  @media (min-width: 992px) {
-    .page-content .secondary-hero {
-      margin-bottom: 30px; } }
 
 #parkRides .icon {
   width: 2.5rem;
