@@ -2,3 +2,7 @@ node_modules
 dist
 *.DS_Store
 src/json
+src/js/bootstrap.js
+src/js/popper.js
+src/js/jquery.js
+src/js/jquery.exlink.js

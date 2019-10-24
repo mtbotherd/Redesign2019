@@ -532,15 +532,17 @@ var TRIM = (function ($, window, document, undefined) {
                 MAP.centerAndZoom(p, zoomLevel);
             });
     };
-    var toggleLayer = function (/*string*/layer) {
+    var toggleLayer = function (/*string*/layer, /*integer*/zoomLevel) {
         var l = MAP.getLayer(layer);
         if (l) {
             if (l.visible) {
-                //console.log("Toggle layer: " + layer + " off");
-                MAP.getLayer(layer).hide();
+                l.hide();
             } else {
-                //console.log("Toggle layer: " + layer + " on");
-                MAP.getLayer(layer).show();
+                l.show();
+                if (zoomLevel) {
+                    //MAP.setExtent(l.fullExtent, true);
+                    MAP.setZoom(zoomLevel);
+                }
             }
         } else {
             console.warn("ToggleLayer: " + layer + " not found.");
@@ -849,7 +851,7 @@ var TRIM = (function ($, window, document, undefined) {
             var ROUTENAMES = null;
             $.ajax({
                 type: "get",
-                url: "https://svc.metrotransitorg/nextripv2/routes",
+                url: "https://svc.metrotransit.org/nextripv2/routes",
                 dataType: "json"
             })
                 .done(function (result, status, xhr) {
@@ -1889,7 +1891,8 @@ var BOM = (function ($, window, document, undefined) {
                     esriBasemaps.transitVector = {
                         title: "TransitVector",
                         //baseMapLayers: [{ url: "https://www.arcgis.com/sharing/rest/content/items/878d0cd87fb64588952143e0db6abd72/resources/styles/root.json", type: "VectorTile" }]
-                        baseMapLayers: [{ url: "https://metrocouncil.maps.arcgis.com/sharing/rest/content/items/8cbdf505cd3f4dc39c4e5da6f5b49d95/resources/styles/root.json", type: "VectorTile" }]
+                        //baseMapLayers: [{ url: "https://metrocouncil.maps.arcgis.com/sharing/rest/content/items/8cbdf505cd3f4dc39c4e5da6f5b49d95/resources/styles/root.json", type: "VectorTile" }]
+                        baseMapLayers: [{url:"/js/basemapStylev1.json", type: "VectorTile"}]
                     };
                     _MAP = new Map(mapElementID, {
                         //autoResize: true,
@@ -2217,18 +2220,40 @@ $(function () {
     // schedules-maps
     // ----------------------------------------------------
     if ($("#TRIMap").attr("maptype") === "full") {
+        AutocompleteAddress.getUserLocation()
+            .then(function(userPos){
+            // This one loads the Search field in the schedules-maps page -- the search result
+            // automatically sets the map to zoom to the requested location
+            AutocompleteAddress.init("interactiveMapSearch",/*UTMout*/ false,userPos,
+                function() {
+                var choice = AutocompleteAddress.getChoice("interactiveMapSearch");
+                TRIM.centerMarkerAtPoint(choice.location.x, choice.location.y);
+                }
+            );
+            })
+            // we can't find the user's position so we'll return results 
+            // in alphabetic order
+            .fail(function(err) {
+            // This one loads the Search field in the schedules-maps page -- the search result
+            // automatically sets the map to zoom to the requested location
+            AutocompleteAddress.init("interactiveMapSearch",/*UTMout*/ false,/*userPos*/ null,
+                function() {
+                var choice = AutocompleteAddress.getChoice("interactiveMapSearch");
+                TRIM.centerMarkerAtPoint(choice.location.x, choice.location.y);
+                }
+            );
+            });
         TRIM.init("TRIMap").then(function () {
             //TRIM.geoLocate();
         });
+        $("#stopsStationsMapLayer").click(function () {
+            TRIM.toggleLayer("allStops",/*zoomLevel*/14);
+        });
+        $("#parkRideMapLayer").click(function () {
+            TRIM.toggleLayer("parkAndRides",/*zoomLevel*/10);
+        });
+        $("#niceRideMapLayer").click(function () {
+            TRIM.toggleLayer("niceRides",/*zoomLevel*/14);
+        });
     }
-    $("#stopsStationsMapLayer").click(function () {
-        TRIM.toggleLayer("allStops");
-    });
-    $("#parkRideMapLayer").click(function () {
-        TRIM.toggleLayer("parkAndRides");
-    });
-    $("#niceRideMapLayer").click(function () {
-        TRIM.toggleLayer("niceRides");
-    });
-
 });

@@ -135,3 +135,33 @@ var StopServices = (function($,  window, document, undefined) {
         formatPage: formatPage
     };
 })(jQuery, window, document);
+
+$(function() {
+    // This should execute when /park-ride-lots loads, it sets the autocomplete to trigger 
+    // the page content when user selects a location to search
+    if ($('#stopsStationsSearch').length) {
+        AutocompleteAddress.getUserLocation()
+        .then(function(userPos){
+        // This one loads the Search field in the schedules-maps page -- the search result
+        // automatically sets the map to zoom to the requested location
+        AutocompleteAddress.init("stopsStationsSearch",/*UTMout*/ true, userPos,
+            function() {
+            var choice = AutocompleteAddress.getChoice("stopsStationsSearch");
+            StopServices.formatPage(choice);
+            }
+        );
+        })
+        // we can't find the user's position so we'll return results 
+        // in alphabetic order
+        .fail(function(err) {
+        // This one loads the Search field in the schedules-maps page -- the search result
+        // automatically sets the map to zoom to the requested location
+        AutocompleteAddress.init("stopsStationsSearch",/*UTMout*/ true, /*userPos*/ null,
+            function() {
+            var choice = AutocompleteAddress.getChoice("stopsStationsSearch");
+            StopServices.formatPage(choice);
+            }
+        );
+        });
+    }
+});
