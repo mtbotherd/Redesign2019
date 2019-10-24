@@ -40,7 +40,7 @@ var StopServices = (function($,  window, document, undefined) {
             }
             $.ajax({
 				type: 'get',
-				url: 'https://www.metrotransittest.org/Services/ServiceFinderSvc.ashx',
+				url: 'https://dev.metrotransittest.org/Services/ServiceFinderSvc.ashx',
 				data: serviceData,
 				dataType: "json"
             })
@@ -64,7 +64,7 @@ var StopServices = (function($,  window, document, undefined) {
             $('#stopFinderResults').append('<p class="result-msg">Transit service near ' + addressChoice.attributes.LongLabel +'</p>');
             for (let i = 0, l = result.length; i < l; i++) {
                 let stop = result[i];
-                let mapLink = '/imap/0/'+ stop.StopId;
+                let mapLink = 'https://dev.metrotransittest.org/imap/0/'+ stop.StopId;
                 let serviceDetail = [];
                 serviceDetail.push(`
                 <div class="row">
@@ -98,7 +98,7 @@ var StopServices = (function($,  window, document, undefined) {
                     //if (service.Route === '888' || service.Route === '887' ) route = 'NorthStar';
                     //  src="/img/svg/circle-gray-outline-train.svg">
                     // img/svg/circle-green-outline-lrt.svg"/>':'<img class="icon" src="/img/svg/circle-blue-outline-lrt.svg"/>'}
-                    serviceDetail.push(`<a href="/route/${service.Route}" class="btn btn-outline-secondary routes">${route} ${service.Direction}</a>`);
+                    serviceDetail.push(`<a href="https://dev.metrotransittest.org/route/${service.Route}" class="btn btn-outline-secondary routes">${route} ${service.Direction}</a>`);
                 }
                 serviceDetail.push('</div></div></div>');
                 $('#stopFinderResults').append(`

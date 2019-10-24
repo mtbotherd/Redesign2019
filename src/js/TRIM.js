@@ -1383,7 +1383,7 @@ var TRIM = (function ($, window, document, undefined) {
                         .then(function (x, y, name) {
                             let title = 'Stop ' + stop + ' / ' + name;
                             $('#page-title-text').html(title);
-                            centerMarkerAtPoint(x, y,/*zoomLevel*/ 17);
+                            centerMarkerAtPoint(x, y,/*zoomLevel*/ 19);
                         }).fail(function () {
                             console.warn('Requested stop ' + stop + ' not found.');
                         });

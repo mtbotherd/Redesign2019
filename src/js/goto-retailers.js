@@ -1,13 +1,14 @@
-// ParkRideServices handles formatting the results of an address
-// autocomplete search on the park-ride-lot page.
+// GoTo Retailers handles formatting the results of an address
+// autocomplete search on the /goto-retailers page.
 //
 // formatPage deletes an previous page results then:
-// -- calls the Finder service to get any park-ride lot locations
-//    near the requested address/location.
+// -- calls the Finder service to get any Go-To Card retailt locations
+//    near the requested address/location. Users can set options to determine
+//    the Types of retailers to select.
 // -- If no results, it displays a message to that effect.
 // -- Otherwise, it formats HTML with the information and constructs
 //    a link to the interactive map page using the x/y coordinates
-//    for the park&ride lot.
+//    for the location.
 //
 // See autocomplete.js for format of the user address choice returned. But is should 
 // look like this:
@@ -20,9 +21,9 @@
     }
 */
 
-var ParkRideServices = (function($,  window, document, undefined) {
+var GoToRetailerServices = (function($,  window, document, undefined) {
     // This service requires map coordinates in UTM 
-    function findNearestParkRides (findLoc) {
+    function findNearestGoToRetailers (findLoc, options) {
         return $.Deferred(function (dfd) {
             let address = 
             findLoc.address 
@@ -37,8 +38,12 @@ var ParkRideServices = (function($,  window, document, undefined) {
             }
             address += fromATIS;
             let serviceData = {
-                'category' : 'PR',
+                'category' : options,
                 's-location': address
+            }
+            // if there's more than 1 options, pass an extra parameter
+            if (options.indexOf(',') > -1) { 
+               serviceData.typegroup = 'AND'; 
             }
             $.ajax({
 				type: 'get',
@@ -54,16 +59,22 @@ var ParkRideServices = (function($,  window, document, undefined) {
                 }
             })
             .fail(function(err) {
-                dfd.reject("ParkRideServiceFinder failed - No results " + err);
+                dfd.reject("gotoCard Retailer search failed - No results " + err);
             });
         }).promise();
     }
     function formatPage (addressChoice) {
-        $('#pr-finder-results').empty();
-        findNearestParkRides(addressChoice)
+        $('#goto-finder-results').empty();
+        var work = [];
+        $('#moreOptions input:checked').each(function() {
+            work.push(this.id);
+        });
+        var options = work.join();
+        
+        findNearestGoToRetailers(addressChoice, options)
         .then(function(results){
             //console.dir(results);
-            $('#pr-finder-results').append('<p class="result-msg">Nearest Park & Rides to '+addressChoice.attributes.LongLabel+'</p>');
+            $('#goto-finder-results').append('<p class="result-msg">Nearest Go-To Card Retailers to '+addressChoice.attributes.LongLabel+'</p>');
 
             for (let i=0, l=results.length;i < l; i++) {
                 let stop = results[i];
@@ -74,25 +85,25 @@ var ParkRideServices = (function($,  window, document, undefined) {
                 var latitude = CoordinateConversion.RadToDeg(ptlatlon[0]).toFixed(4);
                 let mapLink = 'https://dev.metrotransittest.org/imap/interactivemap.aspx?x='+longitude+'&y='+latitude;
 
-                $('#pr-finder-results').append(`
+                $('#goto-finder-results').append(`
                 <div class="card">
                     <a href="${mapLink}" class="d-flex btn">
-                        <span class="d-flex pr-location">${stop.LocationName}&nbsp;(${stop.Distance}&nbsp;mi.)</span>
+                        <span class="d-flex">${stop.LocationName}&nbsp;(${stop.Distance}&nbsp;mi.)</span>
                         <div class="d-flex ml-auto">
                             <span class="cyan map">Map</span>
                             <img class="icon arrow-right-blue mr-0" src="./img/svg/arrow-right-blue.svg"/>
                         </div>
-                    </a>
+                    </a> 
                 </div>							
                 `);
             }
             if (results.length === 0) {
-                $('#pr-finder-results').append('<p class="result-msg">No Park & Rides close to '+addressChoice.address+'</p>');
+                $('#pr-finder-results').append('<p class="result-msg">No Go-To Card retailers close to '+addressChoice.address+'</p>');
             }
 
         })
         .fail(function(err) {
-            $('#pr-finder-results').append('<p class="result-msg">No Park & Rides close to '+addressChoice.address+'</p>');
+            $('#pr-finder-results').append('<p class="result-msg">No Go-To Card retailers close to '+addressChoice.address+'</p>');
         });
     }
 
@@ -104,23 +115,23 @@ var ParkRideServices = (function($,  window, document, undefined) {
 $(function() {
     // This should execute when /park-ride-lots loads, it sets the autocomplete to trigger 
     // the page content when user selects a location to search
-    if ($('#parkRides').length) {
+    if ($('#gotoCardRetailers').length) {
         AutocompleteAddress.getUserLocation()
         .then(function(userPos){
-            AutocompleteAddress.init("parkRidesSearch",/*UTMout*/ true, userPos,
+            AutocompleteAddress.init("gotoCardRetailerSearch",/*UTMout*/ true, userPos,
                 function() {
-                    var choice = AutocompleteAddress.getChoice("parkRidesSearch");
-                    ParkRideServices.formatPage(choice);
+                    var choice = AutocompleteAddress.getChoice("gotoCardRetailerSearch");
+                    GoToRetailerServices.formatPage(choice);
                 }
             );
             })
             // we can't find the user's position so we'll return results 
             // in alphabetic order
         .fail(function(err) {
-            AutocompleteAddress.init("parkRidesSearch",/*UTMout*/ true, /*userPos*/null,
+            AutocompleteAddress.init("gotoCardRetailerSearch",/*UTMout*/ true, /*userPos*/null,
                 function() {
-                    var choice = AutocompleteAddress.getChoice("parkRidesSearch");
-                    ParkRideServices.formatPage(choice);
+                    var choice = AutocompleteAddress.getChoice("gotoCardRetailerSearch");
+                    GoToRetailerServices.formatPage(choice);
                 }
             );
         });
