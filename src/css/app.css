@@ -8443,14 +8443,14 @@ label {
 
 #homeContent {
   position: relative;
-  top: -4.62rem;
+  top: -4.68rem;
   margin-bottom: -4.62rem; }
   @media (min-width: 768px) {
     #homeContent {
-      top: -4.2rem; } }
+      top: -4.24rem; } }
   @media (min-width: 1200px) {
     #homeContent {
-      top: -5.12rem; } }
+      top: -5.14rem; } }
   #homeContent .section {
     padding-top: 30px;
     padding-bottom: 30px; }
@@ -10243,81 +10243,83 @@ select.navigator {
 /***************************************************
     Nav Tabs
 ***************************************************/
-#tripToolsTabs .nav-tabs .nav-item {
-  position: relative;
-  flex-basis: 0;
-  -webkit-box-flex: 1;
-          flex-grow: 1;
-  text-align: center;
-  background-color: #0097d0;
+#tripToolsTabs .nav-tabs {
+  border-bottom: none;
   margin-bottom: 0; }
-  #tripToolsTabs .nav-tabs .nav-item .icon {
-    width: 35px;
-    height: 35px; }
-    @media (min-width: 768px) {
-      #tripToolsTabs .nav-tabs .nav-item .icon {
-        position: absolute;
-        top: 1rem; } }
-    @media (min-width: 1200px) {
-      #tripToolsTabs .nav-tabs .nav-item .icon {
-        width: 48px;
-        height: 48px; } }
-  @media (min-width: 768px) {
-    #tripToolsTabs .nav-tabs .nav-item:nth-child(1) .icon {
-      left: 10px; }
-    #tripToolsTabs .nav-tabs .nav-item:nth-child(2) .icon {
-      left: 32px; }
-    #tripToolsTabs .nav-tabs .nav-item:nth-child(3) .icon {
-      left: 38px; } }
-  @media (min-width: 992px) {
-    #tripToolsTabs .nav-tabs .nav-item:nth-child(1) .icon {
-      left: 48px; }
-    #tripToolsTabs .nav-tabs .nav-item:nth-child(2) .icon {
-      left: 66px; }
-    #tripToolsTabs .nav-tabs .nav-item:nth-child(3) .icon {
-      left: 77px; } }
-  @media (min-width: 1200px) {
-    #tripToolsTabs .nav-tabs .nav-item:nth-child(1) .icon {
-      left: 42px; }
-    #tripToolsTabs .nav-tabs .nav-item:nth-child(2) .icon {
-      left: 77px; }
-    #tripToolsTabs .nav-tabs .nav-item:nth-child(3) .icon {
-      left: 86px; } }
-  #tripToolsTabs .nav-tabs .nav-item .nav-link {
+  #tripToolsTabs .nav-tabs .nav-item {
+    position: relative;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+            flex-grow: 1;
+    text-align: center;
     background-color: #0097d0;
-    color: #fff;
-    font-size: 14px !important;
-    font-size: 0.875rem !important;
-    font-weight: 700;
-    padding: 0.5rem;
-    text-decoration: none; }
+    margin-bottom: 0; }
+    #tripToolsTabs .nav-tabs .nav-item .icon {
+      width: 35px;
+      height: 35px; }
+      @media (min-width: 768px) {
+        #tripToolsTabs .nav-tabs .nav-item .icon {
+          position: absolute;
+          top: 1rem; } }
+      @media (min-width: 1200px) {
+        #tripToolsTabs .nav-tabs .nav-item .icon {
+          width: 48px;
+          height: 48px; } }
     @media (min-width: 768px) {
-      #tripToolsTabs .nav-tabs .nav-item .nav-link {
-        font-size: 22px !important;
-        font-size: 1.375rem !important; } }
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(1) .icon {
+        left: 10px; }
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(2) .icon {
+        left: 32px; }
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(3) .icon {
+        left: 38px; } }
     @media (min-width: 992px) {
-      #tripToolsTabs .nav-tabs .nav-item .nav-link .inactive {
-        display: block !important; } }
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(1) .icon {
+        left: 48px; }
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(2) .icon {
+        left: 66px; }
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(3) .icon {
+        left: 77px; } }
     @media (min-width: 1200px) {
-      #tripToolsTabs .nav-tabs .nav-item .nav-link {
-        font-size: 32px !important;
-        font-size: 2rem !important; } }
-    #tripToolsTabs .nav-tabs .nav-item .nav-link .active {
-      display: none !important; }
-    #tripToolsTabs .nav-tabs .nav-item .nav-link .inactive {
-      display: block !important; }
-    #tripToolsTabs .nav-tabs .nav-item .nav-link.active {
-      background-color: #fff;
-      color: #0097d0;
-      text-decoration: none;
-      border-color: #fff; }
-      #tripToolsTabs .nav-tabs .nav-item .nav-link.active .active {
-        display: block !important; }
-      #tripToolsTabs .nav-tabs .nav-item .nav-link.active .inactive {
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(1) .icon {
+        left: 42px; }
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(2) .icon {
+        left: 77px; }
+      #tripToolsTabs .nav-tabs .nav-item:nth-child(3) .icon {
+        left: 86px; } }
+    #tripToolsTabs .nav-tabs .nav-item .nav-link {
+      background-color: #0097d0;
+      color: #fff;
+      font-size: 14px !important;
+      font-size: 0.875rem !important;
+      font-weight: 700;
+      padding: 0.5rem;
+      text-decoration: none; }
+      @media (min-width: 768px) {
+        #tripToolsTabs .nav-tabs .nav-item .nav-link {
+          font-size: 22px !important;
+          font-size: 1.375rem !important; } }
+      @media (min-width: 992px) {
+        #tripToolsTabs .nav-tabs .nav-item .nav-link .inactive {
+          display: block !important; } }
+      @media (min-width: 1200px) {
+        #tripToolsTabs .nav-tabs .nav-item .nav-link {
+          font-size: 32px !important;
+          font-size: 2rem !important; } }
+      #tripToolsTabs .nav-tabs .nav-item .nav-link .active {
         display: none !important; }
-
-#tripToolsTabs .nav-tabs .nav-item.active {
-  background-color: #fff; }
+      #tripToolsTabs .nav-tabs .nav-item .nav-link .inactive {
+        display: block !important; }
+      #tripToolsTabs .nav-tabs .nav-item .nav-link.active {
+        background-color: #fff;
+        color: #0097d0;
+        text-decoration: none;
+        border-color: #fff; }
+        #tripToolsTabs .nav-tabs .nav-item .nav-link.active .active {
+          display: block !important; }
+        #tripToolsTabs .nav-tabs .nav-item .nav-link.active .inactive {
+          display: none !important; }
+  #tripToolsTabs .nav-tabs .nav-item.active {
+    background-color: #fff; }
 
 #tripToolsTabs .tab-content {
   padding-top: 30px; }

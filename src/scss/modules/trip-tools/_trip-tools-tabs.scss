@@ -4,7 +4,8 @@
 // Tab styles
 #tripToolsTabs {
   .nav-tabs {
-    //margin-bottom: 2rem;
+    border-bottom: none;
+    margin-bottom: 0;
 
     .nav-item {
       position: relative;
