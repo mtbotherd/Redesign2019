@@ -407,7 +407,7 @@ var TripPlan = (function($, window, document, undefined) {
 		  TRIM.destroy();
 		  MAPLOADED = false;
 		}
-	  }
+        };
 	  $('button[name="planMyTrip"]').click(function () {
 		$('#tripPlannerResults').hide();
 		DestroyAllMaps();
@@ -419,7 +419,7 @@ var TripPlan = (function($, window, document, undefined) {
 		var selectTimeType = 'Depart';
 		var selectTime = $('#selectTime').val();
 		if (selectTime === 'arrive-by') {
-		  selectTimeType = 'Arrive'
+                selectTimeType = 'Arrive';
 		}
 		if (selectTime !== 'leave-now') {
 		  var pickDate = $('#date').val();
