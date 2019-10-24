@@ -16,10 +16,11 @@
 
 <body>
 
+	<a href="#pageContainer" class="skip-to-content">Skip to main content</a>
+
 	<!-- Begin Header -->
 	<header id="header">
 		<nav class="navbar navbar-expand-xl navbar-light">
-			<a href="#pageContainer" class="skip-to-content">Skip to main content</a>
 			<div class="container">
 				<a class="navbar-brand" href="/">
 					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
@@ -31,68 +32,70 @@
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="nav navbar-nav ml-auto">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="/trip-planner" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Trip Tools
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="/trip-planner">Trip Planner</a>
-								<a class="dropdown-item" href="/nextrip">NexTrip</a>
-								<a class="dropdown-item" href="/rider-alerts">Alerts</a>
-								<a class="dropdown-item" href="/park-rides">Find a Park &amp; Ride</a>
-								<a class="dropdown-item" href="/stops-stations">
-									Find a Stop or Station
+					<section class="section">
+						<ul class="nav navbar-nav mx-auto">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="/trip-planner" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Trip Tools
 								</a>
-							</div>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="schedules-maps">
-								Schedules &amp; Maps
-							</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Fares
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="/fares">Fares</a>
-								<a class="dropdown-item" href="/go-to-card">Go-To Card</a>
-								<a class="dropdown-item" href="/passes">Pass Programs</a>
-								<a class="dropdown-item" href="https://store.metrotransit.org/">Store</a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								More
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="/carpool-vanpool">Carpool &amp; Vanpool</a>
-								<a class="dropdown-item" href="/transit-link">Transit Link</a>
-								<a class="dropdown-item" href="/guaranteed-ride-home">Guaranteed Ride Home</a>
-								<a class="dropdown-item" href="/bicycle">Bicycle</a>
-								<a class="dropdown-item" href="/news">News &amp; Events</a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Help
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="/how-to-ride">How to Ride</a>
-								<a class="dropdown-item" href="contact-us">Contact Us</a>
-								<a class="dropdown-item" href="/lost-found">Lost &amp; Found</a>
-								<a class="dropdown-item" href="/accessibility">Accessibility</a>
-								<a class="dropdown-item" href="/languages">Languages</a>
-								<a class="dropdown-item" href="/police">Transit Police</a>
-							</div>
-						</li>
-					</ul>
-					<ul class="nav navbar-nav ml-auto utilities">
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/trip-planner">Trip Planner</a>
+									<a class="dropdown-item" href="/nextrip">NexTrip</a>
+									<a class="dropdown-item" href="/rider-alerts">Alerts</a>
+									<a class="dropdown-item" href="/park-rides">Find a Park &amp; Ride</a>
+									<a class="dropdown-item" href="/stops-stations">
+										Find a Stop or Station
+									</a>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link no-dropdown" href="schedules-maps">
+									Schedules &amp; Maps
+								</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Fares
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/fares">Fares</a>
+									<a class="dropdown-item" href="/go-to-card">Go-To Card</a>
+									<a class="dropdown-item" href="/passes">Pass Programs</a>
+									<a class="dropdown-item" href="https://store.metrotransit.org/">Store</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									More
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/carpool-vanpool">Carpool &amp; Vanpool</a>
+									<a class="dropdown-item" href="/transit-link">Transit Link</a>
+									<a class="dropdown-item" href="/guaranteed-ride-home">Guaranteed Ride Home</a>
+									<a class="dropdown-item" href="/bicycle">Bicycle</a>
+									<a class="dropdown-item" href="/news">News &amp; Events</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Help
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/how-to-ride">How to Ride</a>
+									<a class="dropdown-item" href="contact-us">Contact Us</a>
+									<a class="dropdown-item" href="/lost-found">Lost &amp; Found</a>
+									<a class="dropdown-item" href="/accessibility">Accessibility</a>
+									<a class="dropdown-item" href="/languages">Languages</a>
+									<a class="dropdown-item" href="/police">Transit Police</a>
+								</div>
+							</li>
+						</ul>
+					</section>
+					<ul class="nav navbar-nav utilities ml-auto">
 						<li class="nav-item">
 							<a class="nav-link store-icon" href="https://store.metrotransit.org">
 								<span class="sr-only">store</span>
@@ -119,8 +122,7 @@
 							<a class="nav-link dropdown-toggle avatar-icon" href="#" id="navbarDropdown" role="button"
 								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<span class="sr-only">Sign in / create account</span>
-								<!-- <img class="icon inactive" src="/img/svg/avatar-gray.svg">
-								<img class="icon active" src="/img/svg/avatar-white.svg"> -->
+
 							</a>
 							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">Sign In</a>
