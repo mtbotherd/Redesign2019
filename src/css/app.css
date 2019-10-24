@@ -8418,10 +8418,6 @@ label {
   .page-content .content-full-width .htmlmodule {
     width: 1140px !important; } }
 
-.page-content .section {
-  padding-top: 0;
-  padding-bottom: 0; }
-
 .page-content h2 {
   margin-bottom: 15px; }
   @media (min-width: 992px) {
