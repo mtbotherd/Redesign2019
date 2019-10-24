@@ -9225,7 +9225,14 @@ footer.section {
           height: 3rem; } }
 
 #gotoCardRetailers .more-options {
-  margin-bottom: 1rem; }
+  margin-bottom: 15px;
+  width: 100%; }
+  @media (min-width: 992px) {
+    #gotoCardRetailers .more-options {
+      margin-bottom: 30px;
+      width: 570px;
+      height: 60px;
+      z-index: 20; } }
   #gotoCardRetailers .more-options .card-header {
     border-bottom: 0;
     padding: 0; }
@@ -9251,12 +9258,10 @@ footer.section {
                 transform: rotate(45deg); }
   #gotoCardRetailers .more-options .card-body {
     background-color: #f5f5f4; }
-    #gotoCardRetailers .more-options .card-body hr {
-      border-top: 1px solid #626462;
-      margin: 0.25rem 0; }
-    #gotoCardRetailers .more-options .card-body .accessible-gray {
-      width: 1rem;
-      height: 1rem; }
+
+#gotoCardRetailers #serviceCenter .arrow-right-blue {
+  width: 1rem;
+  height: 1rem; }
 
 #passPrograms h2 {
   margin-bottom: 15px; }
