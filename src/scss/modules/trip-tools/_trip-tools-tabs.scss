@@ -117,13 +117,11 @@
     }
   }
 
-  .tab-content {
-	padding-top: 30px;
-	padding-bottom: 30px;
+    .tab-content {
+  	padding-top: 30px;
 
-    @include media-breakpoint-up(lg) {
-	  padding-top: 60px;
-	  padding-bottom: 60px;
+      @include media-breakpoint-up(lg) {
+  	  padding-top: 60px;
+      }
     }
-  }
 }
