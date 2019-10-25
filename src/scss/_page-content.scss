@@ -1,10 +1,4 @@
 .page-content {
-  // These styles are for home page only
-  .reset {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
   // These styles sets fixed width on HTML Module fragments in CMS
   .htmlmodule {
     @include media-breakpoint-up(lg) {

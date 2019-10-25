@@ -8404,10 +8404,6 @@ label {
   padding-left: 0;
   padding-right: 0; }
 
-.page-content .reset {
-  padding-top: 0;
-  padding-bottom: 0; }
-
 @media (min-width: 992px) {
   .page-content .htmlmodule {
     width: 770px;
