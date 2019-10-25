@@ -1,4 +1,11 @@
 #schedulesMaps {
+  .row {
+    @include media-breakpoint-up(lg) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
   .icon {
     width: 2.5rem;
     height: 2.5rem;
