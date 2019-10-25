@@ -9571,32 +9571,6 @@ input:focus,
       width: 17.5rem;
       padding: 0.688rem 0.75rem; } }
 
-.button-container-icon-left {
-  position: relative;
-  text-align: center;
-  margin-bottom: 15px; }
-  @media (min-width: 992px) {
-    .button-container-icon-left {
-      margin-bottom: 30px; } }
-  .button-container-icon-left .btn-outline-primary {
-    position: relative; }
-    .button-container-icon-left .btn-outline-primary::before {
-      position: absolute;
-      content: "";
-      background-image: url("/template/img/svg/arrow-left-blue.svg");
-      background-repeat: no-repeat;
-      top: 0.6rem;
-      left: 0.75rem;
-      width: 1.25rem;
-      height: 1.25rem; }
-      @media (min-width: 992px) {
-        .button-container-icon-left .btn-outline-primary::before {
-          top: 1.25rem;
-          width: 1.5rem;
-          height: 1.5rem; } }
-    .button-container-icon-left .btn-outline-primary:hover::before {
-      background-image: url("/template/img/svg/arrow-left-white.svg"); }
-
 .button-container-icon-right {
   position: relative;
   margin-bottom: 15px; }
@@ -9636,11 +9610,7 @@ input:focus,
       background-image: url("../../../../../img/svg/arrow-right-white.svg"); }
 
 .button-container-icon-left {
-  position: relative;
-  margin-bottom: 15px; }
-  @media (min-width: 992px) {
-    .button-container-icon-left {
-      margin-bottom: 30px; } }
+  position: relative; }
   .button-container-icon-left .btn-outline-primary {
     position: relative; }
     .button-container-icon-left .btn-outline-primary::before {
