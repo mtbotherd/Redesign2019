@@ -8973,8 +8973,7 @@ footer.section {
   @media (min-width: 992px) {
     #howToRide .btn-wrapper,
     #howToRide .button-container-icon-right {
-      display: inline-block;
-      text-align: left !important; } }
+      display: inline-block; } }
 
 #howToRide .btn-wrapper {
   margin-bottom: 1rem; }
