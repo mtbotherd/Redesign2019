@@ -8454,35 +8454,35 @@ label {
         padding-top: 60px;
         padding-bottom: 60px; } }
 
-footer.section {
+footer {
   background-color: #f5f5f4; }
-  footer.section .card-title {
+  footer .card-title {
     font-size: 16px !important;
     font-size: 1rem !important;
     font-weight: 700;
     margin-bottom: 0.25rem;
     text-transform: uppercase; }
-  footer.section .card-body {
+  footer .card-body {
     padding: 0; }
-  footer.section .button-container-icon-right {
+  footer .button-container-icon-right {
     text-align: center; }
-  footer.section .social-media {
+  footer .social-media {
     margin-bottom: 30px; }
     @media (min-width: 992px) {
-      footer.section .social-media {
+      footer .social-media {
         margin-bottom: 45px; } }
-    footer.section .social-media a {
+    footer .social-media a {
       padding: 0.875rem 0;
       margin-right: 0.25rem; }
     @media (min-width: 1200px) {
-      footer.section .social-media .icon {
+      footer .social-media .icon {
         width: 50px;
         height: 50px; } }
-  footer.section .card-deck {
+  footer .card-deck {
     margin-bottom: 30px; }
-    footer.section .card-deck:first-child {
+    footer .card-deck:first-child {
       margin-bottom: 75px; }
-  footer.section .nav-link {
+  footer .nav-link {
     font-size: 16px !important;
     font-size: 1rem !important;
     font-weight: 700;
