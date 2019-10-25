@@ -139,10 +139,6 @@ p.small {
     padding-top: 60px;
     padding-bottom: 60px;
   }
-
-  //   &:nth-child(even) {
-  //     background-color: $gray-100;
-  //   }
 }
 
 .full-width {
@@ -153,14 +149,8 @@ p.small {
   overflow-x: hidden;
 }
 
-.reverse {
-  &:nth-child(odd) {
-    background-color: $gray-100;
-  }
-
-  &:nth-child(even) {
-    background-color: $white;
-  }
+.striped {
+  background-color: $gray-100;
 }
 
 // Text colors
