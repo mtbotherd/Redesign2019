@@ -1,13 +1,23 @@
 #homeContent {
   position: relative;
-  top: -4.62rem;
+  top: -4.68rem;
   margin-bottom: -4.62rem;
 
   @include media-breakpoint-up(md) {
-    top: -4.2rem;
+    top: -4.24rem;
   }
 
   @include media-breakpoint-up(xl) {
-    top: -5.12rem;
+    top: -5.14rem;
+  }
+
+  .section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    @include media-breakpoint-up(lg) {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
   }
 }

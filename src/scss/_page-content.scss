@@ -1,4 +1,11 @@
 .page-content {
+  // These styles are for home page only
+  .reset {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  // These styles sets fixed width on HTML Module fragments in CMS
   .htmlmodule {
     @include media-breakpoint-up(lg) {
       width: 770px;
@@ -14,6 +21,7 @@
     }
   }
 
+  // These styles are for all content pages except the home page.
   h2 {
     margin-bottom: 15px;
 

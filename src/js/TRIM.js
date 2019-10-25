@@ -1122,8 +1122,8 @@ var TRIM = (function ($, window, document, undefined) {
                     esriBasemaps.transitVector = {
                         title: "TransitVector",
                         //baseMapLayers: [{ url: "https://www.arcgis.com/sharing/rest/content/items/878d0cd87fb64588952143e0db6abd72/resources/styles/root.json", type: "VectorTile" }]
-                        baseMapLayers: [{ url: "https://metrocouncil.maps.arcgis.com/sharing/rest/content/items/8cbdf505cd3f4dc39c4e5da6f5b49d95/resources/styles/root.json", type: "VectorTile" }]
-                    };
+                        //baseMapLayers: [{ url: "https://metrocouncil.maps.arcgis.com/sharing/rest/content/items/8cbdf505cd3f4dc39c4e5da6f5b49d95/resources/styles/root.json", type: "VectorTile" }]
+                        baseMapLayers: [{url:"/js/basemapStylev1.json", type: "VectorTile"}]                    };
 
                     MAP = new Map(mapElementID, {
                         autoResize: true,
@@ -1383,7 +1383,7 @@ var TRIM = (function ($, window, document, undefined) {
                         .then(function (x, y, name) {
                             let title = 'Stop ' + stop + ' / ' + name;
                             $('#page-title-text').html(title);
-                            centerMarkerAtPoint(x, y,/*zoomLevel*/ 17);
+                            centerMarkerAtPoint(x, y,/*zoomLevel*/ 19);
                         }).fail(function () {
                             console.warn('Requested stop ' + stop + ' not found.');
                         });

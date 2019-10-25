@@ -19,22 +19,22 @@ body {
 }
 
 a.skip-to-content {
-	position: absolute;
-	top: -40px;
-	left: 0;
-	transition: top 1s ease-out;
-  
-	&:focus {
-	  background-color: $red;
-	  color: $white;
-	  left: 0;
-	  padding: 1rem;
-	  text-decoration: underline;
-	  top: 0;
-	  transition: top 0.1s ease-in;
-	  z-index: 10;
-	}
+  position: absolute;
+  top: -40px;
+  left: 0;
+  transition: top 1s ease-out;
+
+  &:focus {
+    background-color: $red;
+    color: $white;
+    left: 0;
+    padding: 1rem;
+    text-decoration: underline;
+    top: 0;
+    transition: top 0.1s ease-in;
+    z-index: 10;
   }
+}
 
 // Top margin alert
 .alert-topmargin {
@@ -140,9 +140,9 @@ p.small {
     padding-bottom: 60px;
   }
 
-  &:nth-child(even) {
-    background-color: $gray-100;
-  }
+  //   &:nth-child(even) {
+  //     background-color: $gray-100;
+  //   }
 }
 
 .full-width {
