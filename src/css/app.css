@@ -10843,12 +10843,10 @@ select.navigator {
 #nextripModule input[type="number"] {
   -moz-appearance: textfield; }
 
-#alertsModule h2,
-#alertsModule .btn-outline-primary {
+#alertsModule h2 {
   margin-bottom: 30px !important; }
   @media (min-width: 992px) {
-    #alertsModule h2,
-    #alertsModule .btn-outline-primary {
+    #alertsModule h2 {
       margin-bottom: 60px !important; } }
 
 #alertsModule .service-alerts .icon {
