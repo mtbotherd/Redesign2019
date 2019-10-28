@@ -7934,6 +7934,9 @@ abbr {
     .hero {
       height: 20rem; } }
 
+.accessiblity-bg {
+  background-image: url("../../../../../img/accessibility.jpg"); }
+
 .alerts-bg {
   background-image: url("../../../../../img/alerts.jpg"); }
 
@@ -7959,6 +7962,9 @@ abbr {
 .how-to-ride-bg {
   background-image: url("../../../../../img/how-to-ride.jpg"); }
 
+.jobs-bg {
+  background-image: url("../../../../../img/jobs.jpg"); }
+
 .news-bg {
   background-image: url("../../../../../img/news.jpg"); }
 
@@ -7973,6 +7979,9 @@ abbr {
 
 .police-bg {
   background-image: url("../../../../../img/police.jpg"); }
+
+.public-art-bg {
+  background-image: url("../../../../../img/public-art.jpg"); }
 
 .schedules-maps-bg {
   background-image: url("../../../../../img/schedules-maps.jpg"); }
