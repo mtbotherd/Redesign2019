@@ -98,12 +98,12 @@ var GoToRetailerServices = (function($,  window, document, undefined) {
                 `);
             }
             if (results.length === 0) {
-                $('#prFinderResults').append('<p class="result-msg">No Go-To Card retailers close to '+addressChoice.address+'</p>');
+                $('#goto-finder-results').append('<p class="result-msg">No Go-To Card retailers close to '+addressChoice.address+'</p>');
             }
 
         })
         .fail(function(err) {
-            $('#prFinderResults').append('<p class="result-msg">No Go-To Card retailers close to '+addressChoice.address+'</p>');
+            $('#goto-finder-results').append('<p class="result-msg">No Go-To Card retailers close to '+addressChoice.address+'</p>');
         });
     }
 
