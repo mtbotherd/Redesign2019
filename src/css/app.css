@@ -10912,27 +10912,30 @@ select.navigator {
           width: 1rem;
           height: 1rem; } }
 
-#blog img {
+.blogmodule .blognavleft {
+  display: none; }
+
+.blogmodule img {
   width: 100%;
   height: auto; }
 
-#blog a.categories {
+.blogmodule a.categories {
   display: block;
   font-weight: 700;
   font-size: 16px !important;
   font-size: 1rem !important;
   padding-bottom: 15px; }
   @media (min-width: 992px) {
-    #blog a.categories {
+    .blogmodule a.categories {
       padding-bottom: 30px; } }
 
-#blog .lead {
+.blogmodule .lead {
   margin-bottom: 0; }
 
-#blog .pagination {
+.blogmodule .pagination {
   margin-top: 15px; }
   @media (min-width: 992px) {
-    #blog .pagination {
+    .blogmodule .pagination {
       margin-top: 30px; } }
 
 /*# sourceMappingURL=maps/app.css.map */
