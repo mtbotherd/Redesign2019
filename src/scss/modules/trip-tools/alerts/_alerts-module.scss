@@ -1,6 +1,5 @@
 #alertsModule {
-  h2,
-  .btn-outline-primary {
+  h2 {
     margin-bottom: 30px !important;
 
     @include media-breakpoint-up(lg) {

@@ -153,36 +153,33 @@
 				<div class="content-full-width">
 					<div class="htmlmodule">
 						<section class="section">
-							<div id="parkRides" class="section full-width">
-								<div class="container">
-									<div id="findParkRideStations"	class="auto-complete-search-box">
-										<div class="input-group">
-											<input type="text"
-									id="parkRidesSearch"
-									name="parkRides"
-									class="form-control"
-									placeholder="Address, Intersection or Landmark"
-									aria-label="Address, Intersction or Landmark"
-												aria-describedby="parkRidesButton">
-											<label for="parkRides"
-												class="sr-only">Find park and rides by address, intersection or landmark</label>
-											<div class="input-group-append">
-												<span class="input-group-text" id="searchIcon">
-													<img class="icon search-gray"
-														src="/img/svg/search-gray.svg">
-												</span>
-											</div>
+							<h2 class="sr-only">Find Park & Rides</h2>
+							<div id="parkRides">
+								<div id="findParkRideStations"	class="auto-complete-search-box">
+									<div class="input-group">
+										<input type="text"
+								id="parkRidesSearch"
+								name="parkRides"
+								class="form-control"
+								placeholder="Address, Intersection or Landmark"
+								aria-label="Address, Intersction or Landmark"
+											aria-describedby="parkRidesButton">
+										<label for="parkRides"
+											class="sr-only">Find park and rides by address, intersection or landmark</label>
+										<div class="input-group-append">
+											<span class="input-group-text" id="searchIcon">
+												<img class="icon search-gray"
+													src="/img/svg/search-gray.svg">
+											</span>
 										</div>
 									</div>
-								
-									<div id="pr-finder-results">
-									</div>
 								</div>
+							
+								<div id="prFinderResults"></div>
 							</div>
 						</section>
 					</div>
-				</div>
-			
+				</div>			
 			</div>
 		</section>
 	</main>

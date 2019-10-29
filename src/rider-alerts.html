@@ -139,8 +139,7 @@
 	<!-- Begin Main Content -->
 	<main id="pageContainer" class="container">
 		<section>
-			<div class="page-content">
-				
+			<div class="page-content">				
 				<div class="full-width">
 					<div class="primary hero alerts-bg">
 						<div class="container">
@@ -153,54 +152,39 @@
 
 				<div class="content-full-width">
 					<div class="htmlmodule">
-
-						<section class="section full-width">
-				<div class="container">
-					<div id="alertsModule">
-						<div class="modal fade"
-								id="alertTextModal"
-								tabindex="-1"
-								role="dialog"
-								aria-labelledby="alertsModalLabel"
-								aria-hidden="true">
-							<div class="modal-dialog"
-									role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button"
-												class="close"
-												data-dismiss="modal"
-												aria-label="close">
-											<img class="icon close-grey"
-													src="/img/svg/close-gray.svg"
-													aria-idden="true">
-										</button>
-									</div>
-									<div class="modal-body">
-										<div id="alertText"></div>
-										<div class="text-center">
-											<button type="button"
-													class="btn btn-warning btn-sm"
-													data-dismiss="modal">Close</button>
+						<section class="section">
+							<div id="alertsModule">
+								<div class="modal fade" id="alertTextModal" tabindex="-1" role="dialog" aria-labelledby="alertsModalLabel" aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-label="close">
+													<span aria-idden="true">X</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												<div id="alertText"></div>
+												<div class="text-center">
+													<button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">Close</button>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
+								<!-- Alerts list (expand/collapse) -->
+								<div id="alertsCard" class="card">
+									<h1 class="sr-only">Alerts</h1>
+									<h2 class="text-center">Check planned detours, bus stop, service changes, and disruptions</h2>
+									<div class="text-center mt-4 mb-4 mx-auto">
+										<a href="how-to-ride-guide" class="btn btn-outline-primary">
+											Sign up for alerts
+											<img class="icon arrow-right-blue inactive" src="/img/svg/arrow-right-blue.svg">
+											<img class="icon arrow-right-white active" src="/img/svg/arrow-right-white.svg">
+										</a>
+									</div>
+								</div>
 							</div>
-						</div>
-						<!-- Alerts list (expand/collapse) -->
-						<div id="alertsCard"
-								class="card">
-							<h2 class="text-center">Check planned detours, bus stop &amp; service changes and
-								disruptions</h2>
-							<div class="button-container-icon-right text-center">
-								<a href="https://public.govdelivery.com/accounts/MNMETRO/subscriber/new"
-								class="btn btn-outline-primary btn-extend">Sign up for alerts</a>
-							</div>
-						</div>
-					</div>
-				</div>
-						</section>
-						
+						</section>						
 					</div>
 				</div>
 			</div>
@@ -359,6 +343,11 @@
 		<script src="https://js.arcgis.com/3.28/"></script>
 		<script src="/js/TRIM.js"></script>
 		<script src="/js/scripts.js"></script>
+		<script>
+			(function (window) {
+				window.serviceHostUrl = 'https://svc.metrotransit.org';
+			})(window);
+		</script>
 		<script>
 			$(function () {
 				Alerts.init();

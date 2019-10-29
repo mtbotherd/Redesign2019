@@ -171,7 +171,7 @@
 
             @include media-breakpoint-up(xl) {
               padding-bottom: 1.5rem;
-              width: 20.64rem;
+              width: 20rem;
             }
 
             p {
@@ -187,7 +187,7 @@
               left: -0.95rem;
 
               @include media-breakpoint-up(lg) {
-                left: -1.3rem;
+                left: -1.1rem;
                 width: 2.25rem;
                 height: 2.25rem;
               }

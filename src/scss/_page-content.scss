@@ -1,4 +1,7 @@
 .page-content {
+  h2.sr-only {
+    margin-bottom: 0;
+  }
   // These styles sets fixed width on HTML Module fragments in CMS
   .htmlmodule {
     @include media-breakpoint-up(lg) {

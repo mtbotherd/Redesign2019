@@ -20,12 +20,6 @@
   }
 
   .auto-complete-search-box {
-    margin-bottom: 30px;
-
-    @include media-breakpoint-up(lg) {
-      margin-bottom: 60px;
-    }
-
     .input-group {
       margin-left: auto;
 
@@ -49,6 +43,14 @@
           height: 3rem;
         }
       }
+    }
+  }
+
+  .result-msg {
+    margin-top: 30px;
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 60px;
     }
   }
 

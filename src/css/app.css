@@ -7937,6 +7937,9 @@ abbr {
 .alerts-bg {
   background-image: url("../../../../../img/alerts.jpg"); }
 
+.accessiblity-bg {
+  background-image: url("../../../../../img/accessibility.jpg"); }
+
 .blog-bg {
   background-image: url("../../../../../img/blog.jpg"); }
 
@@ -7949,7 +7952,7 @@ abbr {
 .fares-bg {
   background-image: url("../../../../../img/fares.jpg"); }
 
-.go-to-card-bg {
+.goto-card-bg {
   background-image: url("../../../../../img/goto-card.jpg"); }
 
 .home-bg,
@@ -7958,6 +7961,9 @@ abbr {
 
 .how-to-ride-bg {
   background-image: url("../../../../../img/how-to-ride.jpg"); }
+
+.jobs-bg {
+  background-image: url("../../../../../img/jobs.jpg"); }
 
 .news-bg {
   background-image: url("../../../../../img/news.jpg"); }
@@ -7973,6 +7979,9 @@ abbr {
 
 .police-bg {
   background-image: url("../../../../../img/police.jpg"); }
+
+.public-art-bg {
+  background-image: url("../../../../../img/public-art.jpg"); }
 
 .schedules-maps-bg {
   background-image: url("../../../../../img/schedules-maps.jpg"); }
@@ -8404,6 +8413,9 @@ label {
   padding-left: 0;
   padding-right: 0; }
 
+.page-content h2.sr-only {
+  margin-bottom: 0; }
+
 @media (min-width: 992px) {
   .page-content .htmlmodule {
     width: 770px;
@@ -8545,29 +8557,30 @@ footer {
     width: 1.5rem;
     height: 1.5rem; }
 
-#parkRides .auto-complete-search-box {
-  margin-bottom: 30px; }
+#parkRides .auto-complete-search-box .input-group {
+  margin-left: auto; }
   @media (min-width: 992px) {
-    #parkRides .auto-complete-search-box {
-      margin-bottom: 60px; } }
-  #parkRides .auto-complete-search-box .input-group {
-    margin-left: auto; }
+    #parkRides .auto-complete-search-box .input-group {
+      margin: 0 auto; } }
+  #parkRides .auto-complete-search-box .input-group::before {
+    content: "";
+    background-image: url("../../../../../img/svg/car-color.svg");
+    background-repeat: no-repeat;
+    background-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.5rem; }
     @media (min-width: 992px) {
-      #parkRides .auto-complete-search-box .input-group {
-        margin: 0 auto; } }
-    #parkRides .auto-complete-search-box .input-group::before {
-      content: "";
-      background-image: url("../../../../../img/svg/car-color.svg");
-      background-repeat: no-repeat;
-      background-size: 2.5rem;
-      width: 2.5rem;
-      height: 2.5rem;
-      margin-right: 0.5rem; }
-      @media (min-width: 992px) {
-        #parkRides .auto-complete-search-box .input-group::before {
-          background-size: 3rem;
-          width: 3rem;
-          height: 3rem; } }
+      #parkRides .auto-complete-search-box .input-group::before {
+        background-size: 3rem;
+        width: 3rem;
+        height: 3rem; } }
+
+#parkRides .result-msg {
+  margin-top: 30px; }
+  @media (min-width: 992px) {
+    #parkRides .result-msg {
+      margin-top: 60px; } }
 
 #parkRides .card {
   background-color: #f5f5f4;
@@ -8649,38 +8662,35 @@ footer {
     width: 1.5rem;
     height: 1.5rem; }
 
-#stopsStations .auto-complete-search-box {
-  margin-bottom: 30px; }
+#stopsStations .auto-complete-search-box .input-group {
+  margin-left: auto; }
   @media (min-width: 992px) {
-    #stopsStations .auto-complete-search-box {
-      margin-bottom: 60px; } }
-  #stopsStations .auto-complete-search-box .input-group {
-    margin-left: auto; }
+    #stopsStations .auto-complete-search-box .input-group {
+      margin: 0 auto; } }
+  #stopsStations .auto-complete-search-box .input-group::before {
+    content: "";
+    background-image: url("../../../../../img/svg/bus-stop-color.svg");
+    background-repeat: no-repeat;
+    background-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.5rem; }
     @media (min-width: 992px) {
-      #stopsStations .auto-complete-search-box .input-group {
-        margin: 0 auto; } }
-    #stopsStations .auto-complete-search-box .input-group::before {
-      content: "";
-      background-image: url("../../../../../img/svg/bus-stop-color.svg");
-      background-repeat: no-repeat;
-      background-size: 2.5rem;
-      width: 2.5rem;
-      height: 2.5rem;
-      margin-right: 0.5rem; }
-      @media (min-width: 992px) {
-        #stopsStations .auto-complete-search-box .input-group::before {
-          background-size: 3rem;
-          width: 3rem;
-          height: 3rem; } }
+      #stopsStations .auto-complete-search-box .input-group::before {
+        background-size: 3rem;
+        width: 3rem;
+        height: 3rem; } }
 
 #stopsStations .result-msg {
   font-size: 18px !important;
   font-size: 1.125rem !important;
+  margin-top: 30px;
   margin-bottom: 15px; }
   @media (min-width: 992px) {
     #stopsStations .result-msg {
       font-size: 23px !important;
       font-size: 1.4375rem !important;
+      margin-top: 60px;
       margin-bottom: 30px; } }
 
 #stopsStations .gray-100 h2 {
@@ -9348,6 +9358,13 @@ footer {
     #passPrograms .button-container-icon-right {
       display: inline-block;
       margin-right: 1rem; } }
+
+.blogpager .modulepager .SelectedPage,
+.blogpager .modulepager .ModulePager {
+  position: relative;
+  border: 1px solid #e3e3e0;
+  padding: 0.5rem 0.75rem;
+  line-height: 1.25; }
 
 .accordion {
   margin-bottom: 15px; }
@@ -10216,10 +10233,7 @@ select.navigator {
   border-bottom-right-radius: 0.25rem; }
 
 .secondary-nav {
-  margin-bottom: 15px; }
-  @media (min-width: 992px) {
-    .secondary-nav {
-      margin-bottom: 30px; } }
+  margin-top: 15px; }
   .secondary-nav .nav {
     display: block; }
     @media (min-width: 992px) {
@@ -10567,7 +10581,7 @@ select.navigator {
       @media (min-width: 1200px) {
         #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode {
           padding-bottom: 1.5rem;
-          width: 20.64rem; } }
+          width: 20rem; } }
       #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode p {
         margin-top: 0.15rem; }
       #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode .leg-mode-icon {
@@ -10579,7 +10593,7 @@ select.navigator {
         left: -0.95rem; }
         @media (min-width: 992px) {
           #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode .leg-mode-icon {
-            left: -1.3rem;
+            left: -1.1rem;
             width: 2.25rem;
             height: 2.25rem; } }
         #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode .leg-mode-icon .icon {
@@ -10839,12 +10853,10 @@ select.navigator {
 #nextripModule input[type="number"] {
   -moz-appearance: textfield; }
 
-#alertsModule h2,
-#alertsModule .btn-outline-primary {
+#alertsModule h2 {
   margin-bottom: 30px !important; }
   @media (min-width: 992px) {
-    #alertsModule h2,
-    #alertsModule .btn-outline-primary {
+    #alertsModule h2 {
       margin-bottom: 60px !important; } }
 
 #alertsModule .service-alerts .icon {
@@ -10913,27 +10925,30 @@ select.navigator {
           width: 1rem;
           height: 1rem; } }
 
-#blog img {
+.blogmodule .blognavleft {
+  display: none; }
+
+.blogmodule img {
   width: 100%;
   height: auto; }
 
-#blog a.categories {
+.blogmodule a.categories {
   display: block;
   font-weight: 700;
   font-size: 16px !important;
   font-size: 1rem !important;
   padding-bottom: 15px; }
   @media (min-width: 992px) {
-    #blog a.categories {
+    .blogmodule a.categories {
       padding-bottom: 30px; } }
 
-#blog .lead {
+.blogmodule .lead {
   margin-bottom: 0; }
 
-#blog .pagination {
+.blogmodule .pagination {
   margin-top: 15px; }
   @media (min-width: 992px) {
-    #blog .pagination {
+    .blogmodule .pagination {
       margin-top: 30px; } }
 
 /*# sourceMappingURL=maps/app.css.map */

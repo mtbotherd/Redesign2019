@@ -59,11 +59,11 @@ var ParkRideServices = (function($,  window, document, undefined) {
         }).promise();
     }
     function formatPage (addressChoice) {
-        $('#pr-finder-results').empty();
+        $('#prFinderResults').empty();
         findNearestParkRides(addressChoice)
         .then(function(results){
             //console.dir(results);
-            $('#pr-finder-results').append('<p class="result-msg">Nearest Park & Rides to '+addressChoice.attributes.LongLabel+'</p>');
+            $('#prFinderResults').append('<p class="result-msg">Nearest Park & Rides to '+addressChoice.attributes.LongLabel+'</p>');
 
             for (let i=0, l=results.length;i < l; i++) {
                 let stop = results[i];
@@ -74,7 +74,7 @@ var ParkRideServices = (function($,  window, document, undefined) {
                 var latitude = CoordinateConversion.RadToDeg(ptlatlon[0]).toFixed(4);
                 let mapLink = 'https://dev.metrotransittest.org/imap/interactivemap.aspx?x='+longitude+'&y='+latitude;
 
-                $('#pr-finder-results').append(`
+                $('#prFinderResults').append(`
                 <div class="card">
                     <a href="${mapLink}" class="d-flex btn">
                         <span class="d-flex pr-location">${stop.LocationName}&nbsp;(${stop.Distance}&nbsp;mi.)</span>
@@ -87,12 +87,12 @@ var ParkRideServices = (function($,  window, document, undefined) {
                 `);
             }
             if (results.length === 0) {
-                $('#pr-finder-results').append('<p class="result-msg">No Park & Rides close to '+addressChoice.address+'</p>');
+                $('#prFinderResults').append('<p class="result-msg">No Park & Rides close to '+addressChoice.address+'</p>');
             }
 
         })
         .fail(function(err) {
-            $('#pr-finder-results').append('<p class="result-msg">No Park & Rides close to '+addressChoice.address+'</p>');
+            $('#prFinderResults').append('<p class="result-msg">No Park & Rides close to '+addressChoice.address+'</p>');
         });
     }
 
