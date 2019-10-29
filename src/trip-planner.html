@@ -160,12 +160,20 @@
 										type="text"
 										class="form-control from-location dropdown"
 										name="fromLocation"
+										aria-label="trip planner from location"
+										aria-expanded="false"
+										aria-autocomplete="list"
+										aria-describedby="fromLocationInstr"
+										aria-owns="fromLocation_autocomplete_suggestions"
+										role="combobox"
 										required>
 										<div class="dropdown-menu">
 											<a class="my-location" href="#">Use my location</a>
 										</div>
 									<label for="fromLocation"
 										class="floating-label">From</label>
+									
+									<span id="fromLocationInstr" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
 								</div>
 								<button type="button"
 										class="location-toggler ml-auto">
@@ -177,10 +185,17 @@
 									<input id="toLocation"
 										type="text"
 										name="toLocation"
+										area-label="trip planner to location"
+										aria-expanded="false"
+										aria-autocomplete="list"
+										aria-describedby="toLocationInstr"
+										aria-owns="toLocation_autocomplete_suggestions"
+										role="combobox"
 										class="form-control to-location"
 										required>
 									<label for="toLocation"
 										class="floating-label">To</label>
+									<span id="toLocationInstr" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
 								</div>
 								<div class="row">
 									<div class="col-md-6">
