@@ -10290,6 +10290,33 @@ select.navigator {
     border-bottom: 2px solid #fff;
     border-left: 1px solid #e3e3e0; }
 
+@media (min-width: 1200px) {
+  .contact-us .col-xl-12 {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+            justify-content: space-between; } }
+
+.contact-us .btn-outline-primary,
+.contact-us .mt-button {
+  display: block;
+  font-weight: 700;
+  color: #626462;
+  position: relative;
+  border: 2px solid #0097d0;
+  width: 345px; }
+  .contact-us .btn-outline-primary:hover, .contact-us .btn-outline-primary:focus,
+  .contact-us .mt-button:hover,
+  .contact-us .mt-button:focus {
+    background-color: #0053a0;
+    color: #fff;
+    border: 2px solid #0053a0; }
+  @media (min-width: 992px) {
+    .contact-us .btn-outline-primary,
+    .contact-us .mt-button {
+      width: 17.5rem;
+      padding: 0.688rem 0.75rem; } }
+
 /***************************************************
     Nav Tabs
 ***************************************************/

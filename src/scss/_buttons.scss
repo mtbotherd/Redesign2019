@@ -107,22 +107,7 @@ input,
     background-color: $blue;
     color: $white;
     border: 2px solid $blue;
-
-    // .inactive {
-    //   display: none;
-    // }
-    // .active {
-    //   display: inline-flex;
-    // }
   }
-
-  //   .inactive {
-  //     display: inline-flex;
-  //   }
-
-  //   .active {
-  //     display: none;
-  //   }
 
   @include media-breakpoint-up(lg) {
     width: 17.5rem;
