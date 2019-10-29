@@ -7934,11 +7934,11 @@ abbr {
     .hero {
       height: 20rem; } }
 
-.accessiblity-bg {
-  background-image: url("../../../../../img/accessibility.jpg"); }
-
 .alerts-bg {
   background-image: url("../../../../../img/alerts.jpg"); }
+
+.accessiblity-bg {
+  background-image: url("../../../../../img/accessibility.jpg"); }
 
 .blog-bg {
   background-image: url("../../../../../img/blog.jpg"); }
@@ -7952,7 +7952,7 @@ abbr {
 .fares-bg {
   background-image: url("../../../../../img/fares.jpg"); }
 
-.go-to-card-bg {
+.goto-card-bg {
   background-image: url("../../../../../img/goto-card.jpg"); }
 
 .home-bg,
@@ -10226,10 +10226,7 @@ select.navigator {
   border-bottom-right-radius: 0.25rem; }
 
 .secondary-nav {
-  margin-bottom: 15px; }
-  @media (min-width: 992px) {
-    .secondary-nav {
-      margin-bottom: 30px; } }
+  margin-top: 15px; }
   .secondary-nav .nav {
     display: block; }
     @media (min-width: 992px) {
