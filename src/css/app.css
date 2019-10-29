@@ -9359,6 +9359,13 @@ footer {
       display: inline-block;
       margin-right: 1rem; } }
 
+.blogpager .modulepager .SelectedPage,
+.blogpager .modulepager .ModulePager {
+  position: relative;
+  border: 1px solid #e3e3e0;
+  padding: 0.5rem 0.75rem;
+  line-height: 1.25; }
+
 .accordion {
   margin-bottom: 15px; }
   .accordion .card .card-header {
