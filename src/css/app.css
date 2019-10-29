@@ -10574,7 +10574,7 @@ select.navigator {
       @media (min-width: 1200px) {
         #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode {
           padding-bottom: 1.5rem;
-          width: 20.64rem; } }
+          width: 20rem; } }
       #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode p {
         margin-top: 0.15rem; }
       #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode .leg-mode-icon {
@@ -10586,7 +10586,7 @@ select.navigator {
         left: -0.95rem; }
         @media (min-width: 992px) {
           #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode .leg-mode-icon {
-            left: -1.3rem;
+            left: -1.1rem;
             width: 2.25rem;
             height: 2.25rem; } }
         #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode .leg-mode-icon .icon {
