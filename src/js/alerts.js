@@ -132,7 +132,7 @@ var Alerts = (function ($, window, document, undefined) {
 
             card.append($('<div/>', { class: 'collapse', id: 'route' + route.route_id + 'alerts' }).append(alertList));
             alertsDiv.append(card);
-            $('#alertsCard').append(alertsDiv);
+            $('#alertSection').append(alertsDiv);
         });
     };
 
