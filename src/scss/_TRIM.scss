@@ -86,6 +86,9 @@
   font-family: inherit;
 }
 
+#trimPopUp .nav-tabs {
+  margin-bottom:0;
+}
 
 .esriPopup .stop-description {
   font: white;
@@ -93,17 +96,12 @@
   font-size: 1.2em;
   color: white;
   padding: 3px;
+  white-space: nowrap;
 }
 
 .esriPopup .route-list {
   background-color: #fff;
-}
-
-.esriPopup .route-list,
-label {
-  margin-bottom: 0;
-    margin-left: 3px;
-  line-height: 20px;
+  line-height: 4px;
   white-space: nowrap;
 }
 
@@ -113,9 +111,8 @@ label {
 }
 
 .esriPopup .contentPane {
-  /*max-height: 300px;*/
   overflow: hidden;
-  font-size: 1.1em;
+  font-size: 1em;
   background-color: #ededef;
 }
 
@@ -125,6 +122,7 @@ label {
 
 .esriPopup .nav-link {
   font-size: large;
+  padding: 0.25rem 0.25rem;
 }
 
 .esriPopup a[href] {
@@ -138,21 +136,22 @@ label {
 .esriPopup .tab-pane {
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 280px;
+  max-height: 230px;
 }
 
 .esriPopup .stop-departures {
   background-color: #fff;
 }
 #mapPopUpTabNexTrip {
-  font-size: 1.2em;
+  font-size: 1em;
   background-color: #f5f5f4 !important;
 }
 #mapPopUpTabNexTrip .route-number {
   font-weight: 700;
 }
 #mapPopUpTabNexTrip .route-name {
-  max-width: 280px;
+  max-width: 120px;
+  white-space: nowrap;
 }
 #mapPopUpTabNexTrip .depart-time {
   font-weight: 700;
@@ -169,29 +168,31 @@ label {
   border-left: none;
 }
 
-@media (min-width: 992px) {
-  .esriPopup .sizer {
-    width: 410px;
-  }
-  }
-
-@media (min-width: 768px) {
-  .esriPopup .sizer {
-    width: 350px;
-  }
-    .esriPopup .stop-description {
-        font-size: 1.2em;
-    }
-  }
-.esriPopup .route-name {
-    font-size: small;
+#mapPopUpDepartures .icon {
+  width: .5rem !important;
+  height: .5rem !important;
 }
 
+.esriPopup .sizer {
+  width: 250px;
+}
+.esriPopup .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 1024px) {
   .esriPopup .sizer {
-    width: 250px;
+    width: 320px;
   }
-  .esriPopup .container {
-    padding-left: 0;
-    padding-right: 0;
+  #mapPopUpTabNexTrip {
+    font-size: 1.1em;
   }
+  .esriPopup .stop-description {
+      font-size: 1.2em;
+  }
+  #mapPopUpTabNexTrip .route-name {
+    max-width: 65%;
+  }
+}
 

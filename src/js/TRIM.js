@@ -845,7 +845,7 @@ var TRIM = (function ($, window, document, undefined) {
         return $.Deferred(function (dfd) {
             // mapType property on the <div>
             var pType = document.getElementById(mapElementID).getAttribute("maptype");
-            var mapType = pType !== null ? pType : "route";
+            var mapType = pType !== null ? pType : "full";
             //console.log(mapElementID + " functionality is " + mapType);
 
             var ROUTENAMES = null;
@@ -1045,12 +1045,12 @@ var TRIM = (function ($, window, document, undefined) {
                                 .done(function (result) {
                                     if (result.Departures.length > 0) {
                                         let departures = result.Departures.sort(function (a, b) {
-                                            a = new Date(a.DeartureTime);
+                                            a = new Date(a.DepartureTime);
                                             b = new Date(b.DepartureTime);
                                             return a < b ? -1 : a > b ? 1 : 0;
                                         });
 
-                                        for (let i=1,l=departures.length; i < l; i++) {
+                                        for (let i=0,l=departures.length; i < l; i++) {
                                             let depart = departures[i];
                                             var departRow = $('<div/>', { class: 'list-group-item' }).appendTo($('#mapPopUpDepartures'));
                                             departRow.append($('<span/>', { class: 'route-number mr-2' }).text(depart.RouteId + depart.Terminal));
@@ -1179,8 +1179,8 @@ var TRIM = (function ($, window, document, undefined) {
                                 // clear these layers for any displays by passing nothing in the parameter
                                 // unless we're showing a particular route on the TRIM map
                                 //if (!mapProps.route) {
-                                    drawRouteStops();
-                                    drawRoutes();
+                                //    drawRouteStops();
+                                //    drawRoutes();
                                 //}
                             }
                             idMap(evt);
@@ -1349,7 +1349,7 @@ var TRIM = (function ($, window, document, undefined) {
                             let x = feature.geometry.x;
                             let y = feature.geometry.y;
                             let name = feature.attributes.site_on.trim();
-                            name += feature.attributes.site_at ? ' & ' + feature.attributes.site_at : '';
+                            name += feature.attributes.site_at.trim() !== 'null' ? ' & ' + feature.attributes.site_at.trim() : '';
                             dfd.resolve(x, y, name);
                         }
                         else {
