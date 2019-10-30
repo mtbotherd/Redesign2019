@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Metro Transit</title>
+	<link rel="shortcut icon"
+		  href="favicon.ico"
+		  type="image/x-icon">
+	<link rel="stylesheet"
+		  href="/css/app.css">
+
+</head>
+
+<body>
+	
+	<a href="#pageContainer" class="skip-to-content">Skip to main content</a>
+
+	<!-- Begin Header -->
+	<header id="header">
+		<nav class="navbar navbar-expand-xl navbar-light">
+			<div class="container">
+				<a class="navbar-brand" href="/">
+					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<section class="section">
+						<ul class="nav navbar-nav mx-auto">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="/trip-planner" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Trip Tools
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/trip-planner">Trip Planner</a>
+									<a class="dropdown-item" href="/nextrip">NexTrip</a>
+									<a class="dropdown-item" href="/rider-alerts">Alerts</a>
+									<a class="dropdown-item" href="/park-rides">Find a Park &amp; Ride</a>
+									<a class="dropdown-item" href="/stops-stations">
+										Find a Stop or Station
+									</a>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link no-dropdown" href="schedules-maps">
+									Schedules &amp; Maps
+								</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Fares
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/fares">Fares</a>
+									<a class="dropdown-item" href="/go-to-card">Go-To Card</a>
+									<a class="dropdown-item" href="/passes">Pass Programs</a>
+									<a class="dropdown-item" href="https://store.metrotransit.org/">Store</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									More
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/carpool-vanpool">Carpool &amp; Vanpool</a>
+									<a class="dropdown-item" href="/transit-link">Transit Link</a>
+									<a class="dropdown-item" href="/guaranteed-ride-home">Guaranteed Ride Home</a>
+									<a class="dropdown-item" href="/bicycle">Bicycle</a>
+									<a class="dropdown-item" href="/news">News &amp; Events</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Help
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/how-to-ride">How to Ride</a>
+									<a class="dropdown-item" href="contact-us">Contact Us</a>
+									<a class="dropdown-item" href="/lost-found">Lost &amp; Found</a>
+									<a class="dropdown-item" href="/accessibility">Accessibility</a>
+									<a class="dropdown-item" href="/languages">Languages</a>
+									<a class="dropdown-item" href="/police">Transit Police</a>
+								</div>
+							</li>
+						</ul>
+					</section>
+					<ul class="nav navbar-nav utilities ml-auto">
+						<li class="nav-item">
+							<a class="nav-link store-icon" href="https://store.metrotransit.org">
+								<span class="sr-only">store</span>
+							</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a data-toggle="dropdown" class="nav-link dropdown-toggle search-icon" href="#">
+								<span class="sr-only">site search</span>
+							</a>
+							<div class="dropdown-menu search-dropdown-menu">
+								<div class="input-group">
+									<label for="siteSearch" class="sr-only">Search</label>
+									<input type="text" id="siteSearch" class="form-control" placeholder="Search our site">
+									<div class="input-group-append">
+										<button type="button" id="siteSearchBtn" class="btn btn-primary">
+											<span class="sr-only">Search button</span>
+											<img class="icon" src="/img/svg/search-gray.svg">
+										</button>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle avatar-icon" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="sr-only">Sign in / create account</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Sign In</a>
+								<a class="dropdown-item" href="#">Create Account</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End Header -->
+
+	<!-- Begin Main Content -->
+	<main id="pageContainer" class="container">
+		<section>
+			<div class="page-content">
+				<div class="full-width">
+					<div class="secondary">
+						<div class="container">
+							<div class="page-title">
+								<h1>Metropass License Request Form</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class=""> <!-- This class gets set in CMS -->
+					<section class="section">
+						<div class="mt-form">
+							<h2>Your information</h2>
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_companyName" id="ctl00_mainContent_ctl03_ctl00_label1" class="required">Company name</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$companyName" type="text" id="ctl00_mainContent_ctl03_ctl00_companyName" class="form-control" placeholder="First name" required="required">
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_taxID" id="ctl00_mainContent_ctl03_ctl00_label2" class="required">Tax ID</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$taxID" type="text" id="ctl00_mainContent_ctl03_ctl00_taxID" class="form-control" placeholder="Tax ID number" required="required">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_companyAddress" id="ctl00_mainContent_ctl03_ctl00_label3" class="required">Company Address</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$companyAddress" type="text" id="ctl00_mainContent_ctl03_ctl00_companyAddress" class="form-control" placeholder="Street address" required="required">
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_city" id="ctl00_mainContent_ctl03_ctl00_label4" class="required">City</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$city" type="text" id="ctl00_mainContent_ctl03_ctl00_city" class="form-control" placeholder="City" required="required">
+									</div>
+								</div>
+							</div>
+							<div class="row>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_state" id="ctl00_mainContent_ctl03_ctl00_label5" class="required">State</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$state" type="text" maxlength="2" id="ctl00_mainContent_ctl03_ctl00_state" class="form-control state" placeholder="State" required="required">
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_zipCode" id="ctl00_mainContent_ctl03_ctl00_label6" class="required">Zip code</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$zipCode" type="text" maxlength="5" id="ctl00_mainContent_ctl03_ctl00_zipCode" class="form-control" placeholder="Zip code" required="required">
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_stateIncorporated" id="ctl00_mainContent_ctl03_ctl00_label7" class="required">State of Incorporation</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$stateIncorporated" type="text" maxlength="2" id="ctl00_mainContent_ctl03_ctl00_stateIncorporated" class="form-control" placeholder="State of Incorporation" required="required">
+									</div>
+								</div>
+							</div>
+							
+							<h3>Administrator information (day-to-day contact person)</h3>
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_adminName" id="ctl00_mainContent_ctl03_ctl00_label8" class="required">Administrator's full name</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$adminName" type="text" id="ctl00_mainContent_ctl03_ctl00_adminName" class="form-control" placeholder="Full name" required="required">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_adminDepartment" id="ctl00_mainContent_ctl03_ctl00_label9" class="required">Department</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$adminDepartment" type="text" id="ctl00_mainContent_ctl03_ctl00_adminDepartment" class="form-control" placeholder="Department" required="required">
+									</div>
+								</div>
+								<div class="col-lg-3">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_adminTitle" id="ctl00_mainContent_ctl03_ctl00_label10" class="required">Title</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$adminTitle" type="text" id="ctl00_mainContent_ctl03_ctl00_adminTitle" class="form-control" placeholder="Title" required="required">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_adminPhone" id="ctl00_mainContent_ctl03_ctl00_label11" class="required">Phone</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$adminPhone" type="text" maxlength="12" id="ctl00_mainContent_ctl03_ctl00_adminPhone" class="form-control" placeholder="xxx-xxx-xxxx" required="required">
+									</div>
+								</div>
+								<div class="col-lg-3">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_adminFax" id="ctl00_mainContent_ctl03_ctl00_label12">Fax</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$adminFax" type="text" maxlength="12" id="ctl00_mainContent_ctl03_ctl00_adminFax" class="form-control" placeholder="xxx-xxx-xxxx">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_adminEmail" id="ctl00_mainContent_ctl03_ctl00_label13" class="required">Email</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$adminEmail" type="email" id="ctl00_mainContent_ctl03_ctl00_adminEmail" class="form-control" placeholder="Email address">
+									</div>
+								</div>
+							</div>
+					
+							
+							<h3>Billing contact information (if different from above)</h3>
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_billingName" id="ctl00_mainContent_ctl03_ctl00_label14">Billing contact full name</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$billingName" type="text" id="ctl00_mainContent_ctl03_ctl00_billingName" class="form-control" placeholder="Full name">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_billingDepartment" id="ctl00_mainContent_ctl03_ctl00_label15">Department</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$billingDepartment" type="text" id="ctl00_mainContent_ctl03_ctl00_billingDepartment" class="form-control" placeholder="Department">
+									</div>
+								</div>
+								<div class="col-lg-3">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_billingTitle" id="ctl00_mainContent_ctl03_ctl00_label16">Title</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$billingTitle" type="text" id="ctl00_mainContent_ctl03_ctl00_billingTitle" class="form-control" placeholder="Title">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_billingPhone" id="ctl00_mainContent_ctl03_ctl00_label17">Phone</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$billingPhone" type="text" maxlength="12" id="ctl00_mainContent_ctl03_ctl00_billingPhone" class="form-control" placeholder="xxx-xxx-xxxx">
+									</div>
+								</div>
+								<div class="col-lg-3">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_billingFax" id="ctl00_mainContent_ctl03_ctl00_label18">Fax</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$billingFax" type="text" maxlength="12" id="ctl00_mainContent_ctl03_ctl00_billingFax" class="form-control" placeholder="xxx-xxx-xxxx">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_billingEmail" id="ctl00_mainContent_ctl03_ctl00_label19">Email</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$billingEmail" type="email" id="ctl00_mainContent_ctl03_ctl00_billingEmail" class="form-control" placeholder="Email address">
+									</div>
+								</div>
+							</div>
+					
+							
+							<h3>Contract official information</h3>
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_contractName" id="ctl00_mainContent_ctl03_ctl00_label20" class="required">Contract signer full name</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$contractName" type="text" id="ctl00_mainContent_ctl03_ctl00_contractName" class="form-control" placeholder="Full name" required="required">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_contractDepartment" id="ctl00_mainContent_ctl03_ctl00_label21" class="required">Department</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$contractDepartment" type="text" id="ctl00_mainContent_ctl03_ctl00_contractDepartment" class="form-control" placeholder="Department" required="required">
+									</div>
+								</div>
+								<div class="col-lg-3">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_contractTitle" id="ctl00_mainContent_ctl03_ctl00_label22" class="required">Title</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$contractTitle" type="text" id="ctl00_mainContent_ctl03_ctl00_contractTitle" class="form-control" placeholder="Title" required="required">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_contractPhone" id="ctl00_mainContent_ctl03_ctl00_label23" class="required">Phone</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$contractPhone" type="text" maxlength="12" id="ctl00_mainContent_ctl03_ctl00_contractPhone" class="form-control" placeholder="xxx-xxx-xxxx" required="required">
+									</div>
+								</div>
+								<div class="col-lg-3">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_contractFax" id="ctl00_mainContent_ctl03_ctl00_label24">Fax</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$contractFax" type="text" maxlength="12" id="ctl00_mainContent_ctl03_ctl00_contractFax" class="form-control" placeholder="xxx-xxx-xxxx">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_contractEmail" id="ctl00_mainContent_ctl03_ctl00_label25" class="required">Email</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$contractEmail" type="email" id="ctl00_mainContent_ctl03_ctl00_contractEmail" class="form-control" placeholder="Email address" required="required">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_numEligibleEmpls" id="ctl00_mainContent_ctl03_ctl00_label26" class="required">Number of eligible employees</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$numEligibleEmpls" type="number" id="ctl00_mainContent_ctl03_ctl00_numEligibleEmpls" class="form-control" required="required">
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_estNumIntlParticipants" id="ctl00_mainContent_ctl03_ctl00_label27" class="required">Estimated number of initial Metropass participants</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$estNumIntlParticipants" type="number" id="ctl00_mainContent_ctl03_ctl00_estNumIntlParticipants" class="form-control" required="required">
+									</div>
+								</div>
+							</div>
+							<p>Many employers subsidize the cost of Metropass for their employees.</p>
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_employerContribution" id="ctl00_mainContent_ctl03_ctl00_label28" class="required">Will you cover/subsidize al or a portion of Metropass for participating employees?</label>
+										<table id="ctl00_mainContent_ctl03_ctl00_employerContribution" required="required">
+											<tbody><tr>
+												<td><input id="ctl00_mainContent_ctl03_ctl00_employerContribution_0" type="radio" name="ctl00$mainContent$ctl03$ctl00$employerContribution" value="yes"><label for="ctl00_mainContent_ctl03_ctl00_employerContribution_0">Yes</label></td>
+											</tr><tr>
+												<td><input id="ctl00_mainContent_ctl03_ctl00_employerContribution_1" type="radio" name="ctl00$mainContent$ctl03$ctl00$employerContribution" value="no"><label for="ctl00_mainContent_ctl03_ctl00_employerContribution_1">No</label></td>
+											</tr>
+										</tbody></table>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-2">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_emplContributionAmount" id="ctl00_mainContent_ctl03_ctl00_label29" class="required">How much?</label>
+										<input name="ctl00$mainContent$ctl03$ctl00$emplContributionAmount" type="number" id="ctl00_mainContent_ctl03_ctl00_emplContributionAmount" class="form-control" placeholder="$" required="required">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl03_ctl00_antStartDate" id="ctl00_mainContent_ctl03_ctl00_label30" class="required">Anticipated Metropass start date</label><br>
+										<div class="date-picker-all input-group">
+											<input name="ctl00$mainContent$ctl03$ctl00$antStartDate" type="text" id="ctl00_mainContent_ctl03_ctl00_antStartDate" class="form-control" date-format="MM/dd/yy" placeholder="mm/dd/yyyy" required="required">
+											<span class="add-on date input-group-addon"><i class="fa fa-calendar icon-calendar" aria-hidden="true"></i></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="checkbox">
+								<span name="copyUser"><input id="ctl00_mainContent_ctl03_ctl00_copy_user" type="checkbox" name="ctl00$mainContent$ctl03$ctl00$copy_user" checked="checked"><label for="ctl00_mainContent_ctl03_ctl00_copy_user">Please send me an email of the information submitted</label></span>
+							</div>
+					
+							<hr>
+					
+							<div class="text-center">
+								<input type="submit" name="ctl00$mainContent$ctl03$ctl00$btnSend" value="Submit" id="ctl00_mainContent_ctl03_ctl00_btnSend" class="mt-button btn btn-outline-primary">
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</section>
+	</main>
+	<!-- End Main Content -->
+
+	<!-- Begin Footer -->
+	<footer class="section">
+		<div class="container">
+			<div class="button-container-icon-right">
+				<a href="/contact-us" class="btn btn-outline-primary">Contact us</a>
+			</div>
+			<div class="d-none d-lg-block social-media text-center">
+				<a href="https://www.twitter.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/twitter-gray.svg"></a>
+				<a href="https://www.facebook.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/facebook-gray.svg"></a>
+				<a href="https://www.youtube.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/youtube-gray.svg"></a>
+				<a href="https://instagram.com/metrotransitmn"><img class="icon mr-2" src="/img/svg/instagram-gray.svg"></a>
+				<a href="https://www.linkedin.com/company/metro-transit"><img class="icon mr-2" src="/img/svg/linkedin-gray.svg"></a>
+				<a href="https://www.flickr.com/photos/metrotransitmn/"><img class="icon" src="/img/svg/flickr-gray.svg"></a>
+			</div>
+			<div class="footer d-none d-lg-block">
+				<div class="card-deck">
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">About Metro Transit</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/transit-initiatives" class="nav-link">Transit Initiatives</a>
+								</li>
+								<li class="nav-item">
+									<a href="/facilities" class="nav-link">Facilities</a>
+								</li>
+								<li class="nav-item">
+									<a href="/riders-almanac-blog" class="nav-link">Riders Almanac</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Media Relations</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/contacts" class="nav-link">Contacts</a>
+								</li>
+								<li class="nav-item">
+									<a href="/press" class="nav-link">Press Releases</a>
+								</li>
+								<li class="nav-item">
+									<a href="/awards" class="nav-link">Awards</a>
+								</li>
+								<li class="nav-item">
+									<a href="/" class="nav-link">Images &amp; Logos</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Careers</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/jobs" class="nav-link">Available Job Opportunities</a>
+								</li>
+								<li class="nav-item">
+									<a href="/drive" class="nav-link">Become a Bus Driver</a>
+								</li>
+								<li class="nav-item">
+									<a href="/transit-police-careers" class="nav-link">Join the Transit Police</a>
+								</li>
+								<li class="nav-item">
+									<a href="/job-seekers" class="nav-link">Career Fairs</a>
+								</li>
+								<li class="nav-item">
+									<a href="/internships" class="nav-link">Internships</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Policies</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/social-media-policy" class="nav-link">Social Media Policy</a>
+								</li>
+								<li class="nav-item">
+									<a href="https://metrocouncil.org/Privacy-Policy.aspx" class="nav-link" target="_blank">Privacy Policy</a>
+								</li>
+								<li class="nav-item">
+									<a href="/code-of-conduct" class="nav-link">Code of Conduct</a>
+								</li>
+								<li class="nav-item">
+									<a href="/titlevi" class="nav-link">Title VI: Commitment to Fairness</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="card-deck">
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Mission &amp; Impact</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/commitment-to-fairness" class="nav-link">Commitment to Fairness</a>
+								</li>
+								<li class="nav-item">
+									<a href="/impact-programs" class="nav-link">Impact Programs</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Resources</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/app" class="nav-link">Try the Metro Transit App</a>
+								</li>
+								<li class="nav-item">
+									<a href="/advertise-with-metro-transit" class="nav-link">Advertise with Us</a>
+								</li>
+								<li class="nav-item">
+									<a href="/apps" class="nav-link">API Resources for Developers</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0"></div>
+					<div class="card border-0"></div>
+				</div>
+			</div>
+			<p class="text-center">
+				<small>
+					Metro Transit is a service of the Metropolitan Council.
+					<span class="d-block d-md-none"> <br> </span>© 2019 Metro
+					Transit
+				</small>
+			</p>
+		</div>
+	</footer>
+	<!-- End Footer -->
+
+	<!-- scripts -->
+	<script src="/js/jquery.js"></script>
+	<script src="/js/popper.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/jquery.exlink.js"></script>
+	<script src="/js/jquery.autocomplete.js"></script>
+	<!-- <script src="/js/jquery.validate.js"></script> -->
+	<!-- <script src="/js/additional-methods.js"></script> -->
+	<!-- <script src="/js/form-validation.js"></script> -->
+	<script src="https://js.arcgis.com/3.28/"></script>
+	<script src="/js/TRIM.js"></script>
+	<script src="/js/scripts.js"></script>
+	<!-- End scripts -->
+	
+</body>
+
+</html>
