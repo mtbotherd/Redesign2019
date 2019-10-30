@@ -1,6 +1,10 @@
 $(function() {
 	"use strict";
   
+    $('[data-toggle="popover"]').popover({
+        html: true,
+        trigger: 'click'
+    });
 	$("#header img.active").hide();
   
 	var navImg = $("#header .nav-item");
@@ -56,41 +60,31 @@ $(function() {
 	// Drop down for "From" input
 	$("input.dropdown").dropdown();
   
-	// time & date inputs
-	$(".time-elements").hide();
-	$("#selectTime").on("change", function() {
-	  if (this.value == "depart-at" || this.value == "arrive-by") {
-		$("#date").attr('value',currentDate().date)
-		$("#time").attr('value',currentDate().time)
-		$(".time-elements").slideDown();
-	  } else {
-		$(".time-elements").slideUp();
-	  }
-	});
-	function currentDate(){
-		var today = new Date();
-		var dd = today.getDate();
-		var mm = today.getMonth()+1; 
-		var yyyy = today.getFullYear();
-		var min = today.getMinutes();
-		if(min<10)min='0'+min;
-		if(dd<10)dd='0'+dd;
-		if(mm<10) mm='0'+mm;
-		today = { date:yyyy+'-'+mm+'-'+dd, time:today.getHours() + ":" + min };
-		return today;
-	}
-	// $(".time-elements").hide();
-	// $("#selectTime").on("change", function() {
-	//   if (this.value == "depart-at" || this.value == "arrive-by") {
-	// 	$(".time-elements").slideDown();
-	//   } else {
-	// 	$(".time-elements").slideUp();
-	//   }
-	// });
+    // time & date inputs
+    $(".time-elements").hide();
+    $("#selectTime").on("change", function () {
+		var currentDate = function () {
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth() + 1;
+			var yyyy = today.getFullYear();
+			var min = today.getMinutes();
+			var hrs = today.getHours();
+			hrs = hrs < 10 ? '0' + hrs : hrs;
+			min = min < 10 ? '0' + min : min;
+			dd = dd < 10 ? '0' + dd : dd;
+			mm = mm < 10 ? '0' + mm : mm;
+			today = { date: yyyy + '-' + mm + '-' + dd, time: hrs + ":" + min };
+			return today;
+		};
+        if (this.value === "depart-at" || this.value === "arrive-by") {
+            $("#date").attr('value', currentDate().date);
+            $("#time").attr('value', currentDate().time);
+            $(".time-elements").slideDown();
+        } else {
+            $(".time-elements").slideUp();
+        }
+    });
 
 	// Bootstrap Popover with HTML
-	$('[data-toggle="popover"]').popover({
-		html: true,
-		trigger: 'click'
-	});
 });
