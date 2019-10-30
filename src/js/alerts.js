@@ -109,7 +109,7 @@ var Alerts = (function ($, window, document, undefined) {
         //loop through the array and output the route label, then loop through the alert_index array
         //and get the alert information for each alert for each route
         alertsByRoute.forEach(function (route, index) {
-            var alertsDiv = $('<div/>', { class: 'accordion service-alerts' });
+            var alertsDiv = $('<div/>', { class: 'accordion service-alerts' }).appendTo($('<section/>', { class: 'section' }));
             var card = $('<div/>', { class: 'card' });
 
             var btn = $('<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#route' + route.route_id + 'alerts" aria-expanded="false" />');
@@ -132,7 +132,7 @@ var Alerts = (function ($, window, document, undefined) {
 
             card.append($('<div/>', { class: 'collapse', id: 'route' + route.route_id + 'alerts' }).append(alertList));
             alertsDiv.append(card);
-            $('#alertsCard').append(alertsDiv);
+            $('#alertSection').append(alertsDiv);
         });
     };
 

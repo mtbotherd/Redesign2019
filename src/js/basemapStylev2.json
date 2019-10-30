@@ -264,7 +264,9 @@
     },
     {
       "id": "Transportation",
-      "layout": {},
+      "layout": {
+        "visibility": "none"
+      },
       "minzoom": 13,
       "paint": {
         "fill-color": "#f5f5f4",
@@ -378,7 +380,9 @@
     },
     {
       "id": "Government",
-      "layout": {},
+      "layout": {
+        "visibility": "visible"
+      },
       "minzoom": 13,
       "paint": {
         "fill-color": "#d5dabe"
@@ -400,7 +404,9 @@
     },
     {
       "id": "Landmark",
-      "layout": {},
+      "layout": {
+        "visibility": "visible"
+      },
       "minzoom": 13,
       "paint": {
         "fill-color": "#f5f5f4"
@@ -411,7 +417,9 @@
     },
     {
       "id": "Pedestrian",
-      "layout": {},
+      "layout": {
+        "visibility": "visible"
+      },
       "minzoom": 13,
       "paint": {
         "fill-color": "#ffffff"
@@ -972,7 +980,9 @@
         15
       ],
       "id": "Special area of interest/Parking",
-      "layout": {},
+      "layout": {
+        "visibility": "visible"
+      },
       "minzoom": 17,
       "paint": {
         "fill-color": "#d5dabe"
@@ -1020,7 +1030,9 @@
         1
       ],
       "id": "Special area of interest/Baseball field or other grounds",
-      "layout": {},
+      "layout": {
+        "visibility": "visible"
+      },
       "minzoom": 15,
       "paint": {
         "fill-color": "#d5dabe",
@@ -1037,7 +1049,9 @@
         5
       ],
       "id": "Special area of interest/Field or court exterior",
-      "layout": {},
+      "layout": {
+        "visibility": "visible"
+      },
       "minzoom": 15,
       "paint": {
         "fill-color": "#d5dabe"
@@ -1053,7 +1067,9 @@
         4
       ],
       "id": "Special area of interest/Football field or court",
-      "layout": {},
+      "layout": {
+        "visibility": "visible"
+      },
       "minzoom": 15,
       "paint": {
         "fill-color": "#d5dabe",
@@ -1070,7 +1086,9 @@
         0
       ],
       "id": "Special area of interest/Athletic track",
-      "layout": {},
+      "layout": {
+        "visibility": "visible"
+      },
       "minzoom": 15,
       "paint": {
         "fill-color": "#d5dabe"
@@ -1086,7 +1104,9 @@
         10
       ],
       "id": "Special area of interest/Hardcourt",
-      "layout": {},
+      "layout": {
+        "visibility": "visible"
+      },
       "minzoom": 15,
       "paint": {
         "fill-color": "#d5dabe",
@@ -1135,7 +1155,9 @@
         12
       ],
       "id": "Special area of interest/Garden path",
-      "layout": {},
+      "layout": {
+        "visibility": "visible"
+      },
       "minzoom": 17,
       "paint": {
         "fill-color": "#d5dabe",
@@ -1153,7 +1175,7 @@
       ],
       "id": "Special area of interest/Bike, walk or pedestrian",
       "layout": {
-        "visibility": "none"
+        "visibility": "visible"
       },
       "minzoom": 17,
       "paint": {
@@ -1188,7 +1210,8 @@
       "id": "Special area of interest line/Dock or pier",
       "layout": {
         "line-cap": "round",
-        "line-join": "round"
+        "line-join": "round",
+        "visibility": "visible"
       },
       "minzoom": 17,
       "paint": {
@@ -1208,7 +1231,8 @@
       "id": "Special area of interest line/Parking lot",
       "layout": {
         "line-cap": "round",
-        "line-join": "round"
+        "line-join": "round",
+        "visibility": "visible"
       },
       "minzoom": 17,
       "paint": {
@@ -1228,7 +1252,8 @@
       "id": "Special area of interest line/Sports field",
       "layout": {
         "line-cap": "round",
-        "line-join": "round"
+        "line-join": "round",
+        "visibility": "visible"
       },
       "minzoom": 17,
       "paint": {
@@ -5337,22 +5362,9 @@
       ],
       "id": "Road/label/Local",
       "layout": {
-        "icon-allow-overlap": false,
-        "icon-anchor": "center",
-        "icon-ignore-placement": false,
-        "icon-offset": [
-          0,
-          0
-        ],
-        "icon-optional": false,
-        "icon-rotate": 0,
-        "icon-rotation-alignment": "auto",
-        "icon-size": 1,
         "symbol-avoid-edges": true,
         "symbol-placement": "line",
         "symbol-spacing": 800,
-        "text-allow-overlap": false,
-        "text-anchor": "center",
         "text-field": "{_name_global}",
         "text-font": [
           "Avenir Next LT Pro Regular",
@@ -5360,42 +5372,15 @@
           "Arial Unicode MS Regular",
           "Arial Unicode MS Regular"
         ],
-        "text-ignore-placement": false,
-        "text-justify": "center",
         "text-letter-spacing": 0.1,
-        "text-line-height": 1.2,
-        "text-max-angle": 45,
         "text-max-width": 8,
-        "text-offset": [
-          0,
-          0
-        ],
-        "text-optional": false,
-        "text-padding": 2,
-        "text-rotate": 0,
-        "text-rotation-alignment": "auto",
-        "text-size": 9.5,
-        "text-transform": "none",
-        "visibility": "visible"
+        "text-size": 9.5
       },
       "minzoom": 12,
       "paint": {
-        "icon-opacity": 1,
-        "icon-translate": [
-          0,
-          0
-        ],
-        "icon-translate-anchor": "map",
         "text-color": "#8A8B8A",
-        "text-halo-blur": 0,
         "text-halo-color": "#ffffff",
-        "text-halo-width": 0.67,
-        "text-opacity": 1,
-        "text-translate": [
-          0,
-          0
-        ],
-        "text-translate-anchor": "map"
+        "text-halo-width": 0.67
       },
       "source": "esri",
       "source-layer": "Road/label",
@@ -5417,22 +5402,9 @@
       ],
       "id": "Road/label/Minor",
       "layout": {
-        "icon-allow-overlap": false,
-        "icon-anchor": "center",
-        "icon-ignore-placement": false,
-        "icon-offset": [
-          0,
-          0
-        ],
-        "icon-optional": false,
-        "icon-rotate": 0,
-        "icon-rotation-alignment": "auto",
-        "icon-size": 1,
         "symbol-avoid-edges": true,
         "symbol-placement": "line",
         "symbol-spacing": 800,
-        "text-allow-overlap": false,
-        "text-anchor": "center",
         "text-field": "{_name_global}",
         "text-font": [
           "Avenir Next LT Pro Regular",
@@ -5440,42 +5412,15 @@
           "Arial Unicode MS Regular",
           "Arial Unicode MS Regular"
         ],
-        "text-ignore-placement": false,
-        "text-justify": "center",
         "text-letter-spacing": 0.1,
-        "text-line-height": 1.2,
-        "text-max-angle": 45,
         "text-max-width": 8,
-        "text-offset": [
-          0,
-          0
-        ],
-        "text-optional": false,
-        "text-padding": 2,
-        "text-rotate": 0,
-        "text-rotation-alignment": "auto",
-        "text-size": 10,
-        "text-transform": "none",
-        "visibility": "visible"
+        "text-size": 10
       },
       "minzoom": 10,
       "paint": {
-        "icon-opacity": 1,
-        "icon-translate": [
-          0,
-          0
-        ],
-        "icon-translate-anchor": "map",
         "text-color": "#8A8B8A",
-        "text-halo-blur": 0,
         "text-halo-color": "#ffffff",
-        "text-halo-width": 1,
-        "text-opacity": 1,
-        "text-translate": [
-          0,
-          0
-        ],
-        "text-translate-anchor": "map"
+        "text-halo-width": 1
       },
       "source": "esri",
       "source-layer": "Road/label",
@@ -9099,7 +9044,8 @@
         "text-letter-spacing": 0.08,
         "text-max-width": 8,
         "text-padding": 5,
-        "text-size": 10
+        "text-size": 10,
+        "visibility": "visible"
       },
       "minzoom": 15,
       "paint": {
@@ -9123,7 +9069,8 @@
         ],
         "text-letter-spacing": 0.05,
         "text-max-width": 8,
-        "text-size": 10
+        "text-size": 10,
+        "visibility": "visible"
       },
       "minzoom": 13,
       "paint": {
@@ -9172,7 +9119,8 @@
         ],
         "text-letter-spacing": 0.05,
         "text-max-width": 8,
-        "text-size": 10
+        "text-size": 10,
+        "visibility": "none"
       },
       "minzoom": 13,
       "paint": {
@@ -9422,7 +9370,8 @@
         "text-letter-spacing": 0.05,
         "text-max-width": 8,
         "text-padding": 20,
-        "text-size": 10
+        "text-size": 10,
+        "visibility": "visible"
       },
       "minzoom": 12,
       "paint": {
@@ -9762,7 +9711,8 @@
               10
             ]
           ]
-        }
+        },
+        "visibility": "visible"
       },
       "minzoom": 9,
       "paint": {
@@ -9796,14 +9746,15 @@
           "stops": [
             [
               9,
-              8.5
+              8.49
             ],
             [
               16,
               10
             ]
           ]
-        }
+        },
+        "visibility": "visible"
       },
       "minzoom": 9,
       "paint": {
@@ -10297,7 +10248,7 @@
           "stops": [
             [
               10,
-              13
+              12.99
             ],
             [
               15,
@@ -10701,7 +10652,8 @@
           0.15,
           0
         ],
-        "text-size": 10
+        "text-size": 10,
+        "visibility": "visible"
       },
       "maxzoom": 10,
       "paint": {
@@ -10867,7 +10819,7 @@
           "stops": [
             [
               1,
-              10
+              9.99
             ],
             [
               10,
@@ -10987,7 +10939,7 @@
           "stops": [
             [
               1,
-              10
+              9.99
             ],
             [
               10,
@@ -11048,7 +11000,7 @@
           "stops": [
             [
               1,
-              10
+              9.99
             ],
             [
               10,
@@ -11272,7 +11224,8 @@
           1
         ],
         "text-size": 11.5,
-        "text-transform": "uppercase"
+        "text-transform": "uppercase",
+        "visibility": "visible"
       },
       "minzoom": 14,
       "paint": {

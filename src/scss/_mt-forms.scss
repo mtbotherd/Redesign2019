@@ -112,12 +112,13 @@ div.mt-form .mt-field span.mt-checkbox label {
 }
 
 .mt-form input[type="text"],
+.mt-form input[type="email"],
 .mt-form input[type="password"],
 .mt-form input[type="number"],
 .mt-form input[type="tel"],
 .mt-form input[type="search"],
 .mt-form select {
-  width: 12em;
+  width: 100%;
   line-height: 1rem;
   height: 24px;
   padding: 0 6px;
@@ -203,7 +204,8 @@ div.mt-form .mt-field .mt-checkbox-space {
 }
 
 div.mt-form div.mt-field label,
-div.mt-form div.mt-field .mt-label {
+div.mt-form div.mt-field .mt-label,
+div.mt-form .form-group label {
   //color: #000;
   //font-style: italic;
   display: inline-block;

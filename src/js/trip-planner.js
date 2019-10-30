@@ -112,7 +112,7 @@ var TripPlan = (function($, window, document, undefined) {
 	  ];
 	  var day = d.getDate();  
 	  return t + ', ' + dayNames[d.getDay()] + ', ' + monthNames[d.getMonth()] + ' ' + day;
-	}
+    };
 	var returnTripTime = function(Time){
 	  let time = new Date(Time);
 	  let minutes = time.getMinutes();
@@ -124,13 +124,13 @@ var TripPlan = (function($, window, document, undefined) {
 	};
 	var listFunction = function(li,i,ii,vari,initTime){
 	  //console.log(li,i,ii,vari,initTime)
-	  if(li.Segments[ii].SegmentType===3&&ii===0)return returnTime(initTime,vari)
+        if (li.Segments[ii].SegmentType === 3 && ii === 0) return returnTime(initTime, vari);
 	  else if(li.Segments[ii].SegmentType===3){
 		let io = ii-1;
-		return returnTime(li.Segments[io].OffTime,vari)
+            return returnTime(li.Segments[io].OffTime, vari);
 	  }
-	  else if(li.length===ii) return returnTime(li.Segments[ii].OffTime,vari)
-	  else return returnTime(li.Segments[ii].OnTime,vari)
+        else if (li.length === ii) return returnTime(li.Segments[ii].OffTime, vari);
+        else return returnTime(li.Segments[ii].OnTime, vari);
 	};
 	var checkIfLate = function(Adherance){
 	  if(Adherance<0){
@@ -175,10 +175,10 @@ var TripPlan = (function($, window, document, undefined) {
 			  }
 			  break;
 			case 2:
-			  tpSummary.push(`<img class="icon" src="/img/svg/circle-gray-outline-train.svg">`)
+                        tpSummary.push(`<img class="icon" src="/img/svg/circle-gray-outline-train.svg">`);
 			  break;
 			case 3:
-			  tpSummary.push(`<img class="icon pedestrian-gray" src="/img/svg/pedestrian-gray.svg">`)
+                        tpSummary.push(`<img class="icon pedestrian-gray" src="/img/svg/pedestrian-gray.svg">`);
 			  break;
 			case 4:
 			 //tpSummary.push(`<img class="icon" src="/img/svg/pedestrian-gray.svg">`)
@@ -281,7 +281,7 @@ var TripPlan = (function($, window, document, undefined) {
 			              </div>`);
 				break;
 			  default:
-			};
+                }
 		});
 		
 		$('.tp-results').append(`
