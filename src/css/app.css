@@ -9954,6 +9954,7 @@ div.mt-form .mt-field span.mt-checkbox label {
 .mt-form input[type="tel"],
 .mt-form input[type="search"],
 .mt-form select {
+  width: 100%;
   line-height: 1rem;
   height: 24px;
   padding: 0 6px;
