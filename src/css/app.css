@@ -9360,20 +9360,26 @@ footer {
       display: inline-block;
       margin-right: 1rem; } }
 
-.blogwrapper {
-  margin-top: 15px;
-  margin-bottom: 15px; }
+.ra-redesign {
+  padding-top: 30px;
+  padding-bottom: 30px; }
   @media (min-width: 992px) {
-    .blogwrapper {
-      margin-top: 30px;
-      margin-bottom: 30px; } }
-
-.blogpager .modulepager .SelectedPage,
-.blogpager .modulepager .ModulePager {
-  position: relative;
-  border: 1px solid #e3e3e0;
-  padding: 0.5rem 0.75rem;
-  line-height: 1.25; }
+    .ra-redesign {
+      padding-top: 60px;
+      padding-bottom: 60px; } }
+  .ra-redesign .blogwrapper {
+    margin-top: 15px;
+    margin-bottom: 15px; }
+    @media (min-width: 992px) {
+      .ra-redesign .blogwrapper {
+        margin-top: 30px;
+        margin-bottom: 30px; } }
+  .ra-redesign .blogpager .modulepager .SelectedPage,
+  .ra-redesign .blogpager .modulepager .ModulePager {
+    position: relative;
+    border: 1px solid #e3e3e0;
+    padding: 0.5rem 0.75rem;
+    line-height: 1.25; }
 
 .accordion {
   margin-bottom: 15px; }

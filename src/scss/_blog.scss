@@ -1,20 +1,29 @@
-.blogwrapper {
-  margin-top: 15px;
-  margin-bottom: 15px;
+.ra-redesign {
+  padding-top: 30px;
+  padding-bottom: 30px;
 
   @include media-breakpoint-up(lg) {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
-}
-.blogpager {
-  .modulepager {
-    .SelectedPage,
-    .ModulePager {
-      position: relative;
-      border: 1px solid $border-color;
-      padding: 0.5rem 0.75rem;
-      line-height: 1.25;
+  .blogwrapper {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  }
+  .blogpager {
+    .modulepager {
+      .SelectedPage,
+      .ModulePager {
+        position: relative;
+        border: 1px solid $border-color;
+        padding: 0.5rem 0.75rem;
+        line-height: 1.25;
+      }
     }
   }
 }
