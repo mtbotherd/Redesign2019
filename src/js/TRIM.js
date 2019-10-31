@@ -2127,6 +2127,10 @@ var BOM = (function ($, window, document, undefined) {
 	 */
     var startBusesOnMap = function (/*object*/parms) {
         _GEOLOCATE.clear();
+        _SHOWALLBUSES = false;
+        _ROUTEID = null;
+        _ROUTESFORSHOW = null;
+        _ROUTESFORSTOP = null;
         if (parms.routeID) {
             if (parms.routeID === "0") {
                 _SHOWALLBUSES = true;
