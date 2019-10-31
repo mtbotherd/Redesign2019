@@ -189,6 +189,7 @@ var NexTrip = (function ($, window, document, undefined) {
 
         $('#searchStopsButton').click(function () {
             stopId = $('#stopNumber').val();
+            routeId = ''; // need to clear value for the map to work properly
             resetUI();
             timer = setInterval(function () {
                 getStopDepartures(stopId);
@@ -216,7 +217,7 @@ var NexTrip = (function ($, window, document, undefined) {
         $('#collapseMap').on('shown.bs.collapse', function () {
             var mapParms = {
                 stopID: stopId, // optional stop, if route too then show just the one route
-                routeID: routeId, // optional route, if no stop - show all on route, if 0 - show all
+                routeID: routeId !== '' ? routeId : null, // 
                 zoomToNearestBus: true, // when drawing buses the first time, zoom out until you find a bus to show
                 stopZoomLevel: 16 // Web Mercator level to intially zoom the stop extent, if stopID has a value
             };
