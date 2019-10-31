@@ -8323,13 +8323,15 @@ abbr {
   font-family: inherit; }
 
 #trimPopUp .nav-tabs {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  padding-right: 1rem;
+  padding-left: 1rem; }
 
 .esriPopup .stop-description {
-  font: white;
   background-color: #0097d0;
   font-size: 1.2em;
   color: white;
+  margin-bottom: 1rem;
   padding: 3px;
   white-space: nowrap; }
 
@@ -8345,10 +8347,14 @@ abbr {
 .esriPopup .contentPane {
   overflow: hidden;
   font-size: 1em;
-  background-color: #ededef; }
+  background-color: #fff; }
 
 .esriPopup .actionsPane {
-  background-color: #ededef; }
+  background-color: #fff; }
+
+.esriPopup .pointer,
+.esriPopup .outerPointer {
+  background-color: #fff; }
 
 .esriPopup .nav-link {
   font-size: large;
@@ -8367,17 +8373,27 @@ abbr {
 
 .esriPopup .stop-departures {
   background-color: #fff; }
+  .esriPopup .stop-departures .list-group-item {
+    border: 1px solid #e3e3e0; }
+    .esriPopup .stop-departures .list-group-item:first-child {
+      border-top: none; }
 
 #mapPopUpTabNexTrip {
   font-size: 1em;
-  background-color: #f5f5f4 !important; }
+  background-color: #fff !important; }
 
 #mapPopUpTabNexTrip .route-number {
-  font-weight: 700; }
+  font-weight: 700;
+  width: 25px; }
 
 #mapPopUpTabNexTrip .route-name {
-  max-width: 120px;
-  white-space: nowrap; }
+  width: 135px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+  @media (min-width: 1200px) {
+    #mapPopUpTabNexTrip .route-name {
+      width: 185px; } }
 
 #mapPopUpTabNexTrip .depart-time {
   font-weight: 700; }
@@ -8385,7 +8401,7 @@ abbr {
 #mapPopUpTabNexTrip .list-group-item {
   display: -webkit-box;
   display: flex;
-  padding: .5em; }
+  padding: 0.5em; }
 
 #mapPopUpTabNexTrip .list-group-item {
   background-color: transparent;
@@ -8394,8 +8410,8 @@ abbr {
   border-left: none; }
 
 #mapPopUpDepartures .icon {
-  width: .5rem !important;
-  height: .5rem !important; }
+  width: 0.5rem !important;
+  height: 0.5rem !important; }
 
 .esriPopup .sizer {
   width: 250px; }
@@ -8410,9 +8426,7 @@ abbr {
   #mapPopUpTabNexTrip {
     font-size: 1.1em; }
   .esriPopup .stop-description {
-    font-size: 1.2em; }
-  #mapPopUpTabNexTrip .route-name {
-    max-width: 65%; } }
+    font-size: 1.2em; } }
 
 .page-content h2.sr-only {
   margin-bottom: 0; }
