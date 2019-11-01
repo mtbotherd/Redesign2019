@@ -11,8 +11,7 @@ a,
 button,
 input,
 .btn-link,
-.btn-warning,
-.mt-button {
+.btn-warning {
   &:focus {
     border-color: #51cfff;
     outline: 0;
@@ -94,8 +93,7 @@ input,
 }
 
 // White button with cyan border
-.btn-outline-primary,
-.mt-button {
+.btn-outline-primary {
   font-weight: $font-weight-bold;
   color: $body-color;
   position: relative;
@@ -252,8 +250,7 @@ input,
     }
   }
 
-  .btn-outline-primary,
-  .mt-button {
+  .btn-outline-primary {
     position: relative;
 
     &::after {

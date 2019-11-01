@@ -7570,6 +7570,9 @@ a.text-dark:hover, a.text-dark:focus {
 /***************************************************************
     Application styles
 ***************************************************************/
+img[src^="//insight.adsrvr.org"] {
+  display: none; }
+
 body {
   overflow-x: hidden; }
 
@@ -8443,9 +8446,6 @@ abbr {
 .page-content h2 {
   margin-bottom: 15px; }
   @media (min-width: 992px) {
-    .page-content h2 {
-      margin-bottom: 30px; } }
-  @media (min-width: 992px) {
     .page-content h2 .icon {
       width: 3rem;
       height: 3rem;
@@ -8549,7 +8549,7 @@ footer {
   .secondary .page-title h1 {
     color: #fff;
     margin-bottom: 0;
-    padding: 0.75rem 0; }
+    padding: 3.125rem 0 0.75rem 0; }
     @media (min-width: 768px) {
       .secondary .page-title h1 {
         padding-top: 6rem;
@@ -8808,11 +8808,24 @@ footer {
 .route .schedule-days h3 {
   font-weight: normal !important; }
 
+.route .schedule-days button {
+  display: block;
+  width: 100%; }
+  @media (min-width: 992px) {
+    .route .schedule-days button {
+      width: 17.5rem; } }
+
+.route .schedule-days button:not(:last-child) {
+  margin-bottom: 1rem !important; }
+
 .route .list-group-item:first-child {
   border-top: none; }
 
 .route .list-group-item .frequency {
-  width: 450px; }
+  width: 270px; }
+  @media (min-width: 992px) {
+    .route .list-group-item .frequency {
+      width: 450px; } }
 
 .route .date-time-color {
   width: 1.5rem;
@@ -9425,8 +9438,7 @@ a:focus,
 button:focus,
 input:focus,
 .btn-link:focus,
-.btn-warning:focus,
-.mt-button:focus {
+.btn-warning:focus {
   border-color: #51cfff;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 151, 208, 0.25); }
@@ -9488,50 +9500,38 @@ input:focus,
       display: block;
       text-align: center; } }
 
-.btn-outline-primary,
-.mt-button {
+.btn-outline-primary {
   font-weight: 700;
   color: #626462;
   position: relative;
   border: 2px solid #0097d0;
   width: 13.75rem; }
-  .btn-outline-primary:hover, .btn-outline-primary:focus,
-  .mt-button:hover,
-  .mt-button:focus {
+  .btn-outline-primary:hover, .btn-outline-primary:focus {
     background-color: #0053a0;
     color: #fff;
     border: 2px solid #0053a0; }
   @media (min-width: 992px) {
-    .btn-outline-primary,
-    .mt-button {
+    .btn-outline-primary {
       width: 17.5rem;
       padding: 0.688rem 0.75rem; } }
   .btn-outline-primary .arrow-right-blue,
-  .btn-outline-primary .arrow-right-white,
-  .mt-button .arrow-right-blue,
-  .mt-button .arrow-right-white {
+  .btn-outline-primary .arrow-right-white {
     position: absolute;
     top: 0.6rem;
     right: 0.75rem; }
     @media (min-width: 992px) {
       .btn-outline-primary .arrow-right-blue,
-      .btn-outline-primary .arrow-right-white,
-      .mt-button .arrow-right-blue,
-      .mt-button .arrow-right-white {
+      .btn-outline-primary .arrow-right-white {
         top: 1rem;
         right: 0.75rem; } }
   .btn-outline-primary .arrow-left-blue,
-  .btn-outline-primary .arrow-left-white,
-  .mt-button .arrow-left-blue,
-  .mt-button .arrow-left-white {
+  .btn-outline-primary .arrow-left-white {
     position: absolute;
     top: 0.65rem;
     left: 0.75rem; }
     @media (min-width: 992px) {
       .btn-outline-primary .arrow-left-blue,
-      .btn-outline-primary .arrow-left-white,
-      .mt-button .arrow-left-blue,
-      .mt-button .arrow-left-white {
+      .btn-outline-primary .arrow-left-white {
         top: 1.25rem;
         left: 0.75rem; } }
 
@@ -9618,11 +9618,9 @@ input:focus,
         top: 0.5rem;
         width: 3rem;
         height: 3rem; } }
-  .button-container-icon-right .btn-outline-primary,
-  .button-container-icon-right .mt-button {
+  .button-container-icon-right .btn-outline-primary {
     position: relative; }
-    .button-container-icon-right .btn-outline-primary::after,
-    .button-container-icon-right .mt-button::after {
+    .button-container-icon-right .btn-outline-primary::after {
       position: absolute;
       content: "";
       background-image: url("../../../../../img/svg/arrow-right-blue.svg");
@@ -9632,11 +9630,9 @@ input:focus,
       width: 1.25rem;
       height: 1.25rem; }
       @media (min-width: 992px) {
-        .button-container-icon-right .btn-outline-primary::after,
-        .button-container-icon-right .mt-button::after {
+        .button-container-icon-right .btn-outline-primary::after {
           top: 1.25rem; } }
-    .button-container-icon-right .btn-outline-primary:hover::after,
-    .button-container-icon-right .mt-button:hover::after {
+    .button-container-icon-right .btn-outline-primary:hover::after {
       background-image: url("../../../../../img/svg/arrow-right-white.svg"); }
 
 .button-container-icon-left {

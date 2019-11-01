@@ -1,6 +1,21 @@
 .route {
-  .schedule-days h3 {
-    font-weight: normal !important;
+  .schedule-days {
+    h3 {
+      font-weight: normal !important;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+
+      @include media-breakpoint-up(lg) {
+        width: 17.5rem;
+      }
+    }
+
+    button:not(:last-child) {
+      margin-bottom: 1rem !important;
+    }
   }
 
   .list-group-item {
@@ -9,7 +24,11 @@
     }
 
     .frequency {
-      width: 450px;
+      width: 270px;
+
+      @include media-breakpoint-up(lg) {
+        width: 450px;
+      }
     }
   }
 
