@@ -10630,7 +10630,7 @@ select.navigator {
         left: -0.95rem; }
         @media (min-width: 992px) {
           #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode .leg-mode-icon {
-            left: -1.1rem;
+            left: -1.3rem;
             width: 2.25rem;
             height: 2.25rem; } }
         #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode .leg-mode-icon .icon {
@@ -10668,9 +10668,9 @@ select.navigator {
               height: 2.25rem; } }
     #tripPlannerResults .trips-found .tp-results .card .card-body .bus {
       border-left: 4px solid #7dcae7; }
-    #tripPlannerResults .trips-found .tp-results .card .card-body .metro-green {
+    #tripPlannerResults .trips-found .tp-results .card .card-body .metro-Green {
       border-left: 4px solid #008244; }
-    #tripPlannerResults .trips-found .tp-results .card .card-body .metro-blue {
+    #tripPlannerResults .trips-found .tp-results .card .card-body .metro-Blue {
       border-left: 4px solid #0053a0; }
     #tripPlannerResults .trips-found .tp-results .card .card-body .metro-red {
       border-left: 4px solid #ed1b2e; }
