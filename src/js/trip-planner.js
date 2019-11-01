@@ -65,7 +65,7 @@ var TripPlan = (function($, window, document, undefined) {
             //console.dir(tripData);
 			  $.ajax({
 				  type: 'get',
-				  url: 'https://dev.metrotransittest.org/Services/TripPlannerSvc.ashx',
+				  url: 'https://wwwtest.metrotransit.org/Services/TripPlannerSvc.ashx',
 				  data: tripData,
 				  dataType: "json"
 			  })
@@ -87,16 +87,6 @@ var TripPlan = (function($, window, document, undefined) {
 	  };
 	  const getTrip = function() {
 		  return TripPlanJSON;
-	};
-	var returnTime = function(Time,vari){
-	  let time = new Date(Time);
-	  let minutes = time.getMinutes();
-	  minutes = minutes<10 ? '0' + minutes.toString(): minutes.toString();
-	  let hour = time.getHours();
-	  let AMPM = hour < 12 ? 'AM' : 'PM';
-	  hour = hour > 12 ? hour - 12 : hour;
-	  hour = hour === 0 ? 12 : hour;
-	  return hour + ':' + minutes + ' ' + AMPM;
 	};
 	var formatTimeMonthDay = function(dateString) {
 	  var d = new Date(dateString);
@@ -122,13 +112,23 @@ var TripPlan = (function($, window, document, undefined) {
 	  else hour = ' ';
 	  return hour + ' ' + minutes;
 	};
+	var returnTime = function(Time,vari){
+		let time = new Date(Time);
+		let minutes = time.getMinutes();
+		minutes = minutes<10 ? '0' + minutes.toString(): minutes.toString();
+		let hour = time.getHours();
+		let AMPM = hour < 12 ? 'AM' : 'PM';
+		hour = hour > 12 ? hour - 12 : hour;
+		hour = hour === 0 ? 12 : hour;
+		return hour + ':' + minutes + ' ' + AMPM;
+	  };
 	var listFunction = function(li,i,ii,vari,initTime){
 	  //console.log(li,i,ii,vari,initTime)
-        if (li.Segments[ii].SegmentType === 3 && ii === 0) return returnTime(initTime, vari);
-	  else if(li.Segments[ii].SegmentType===3){
-		let io = ii-1;
-            return returnTime(li.Segments[io].OffTime, vari);
-	  }
+    	if (li.Segments[ii].SegmentType === 3 && ii === 0) return returnTime(initTime, vari);
+	  	else if(li.Segments[ii].SegmentType===3){
+			let io = ii-1;
+			return returnTime(li.Segments[io].OffTime, vari);
+		}
         else if (li.length === ii) return returnTime(li.Segments[ii].OffTime, vari);
         else return returnTime(li.Segments[ii].OnTime, vari);
 	};
@@ -140,6 +140,12 @@ var TripPlan = (function($, window, document, undefined) {
 		return ' ';
 	  }
 	};
+	var addMinutes = function (date, min) {
+		let x = new Date(date);
+		let y = x.getTime() + min*60000;
+		//console.log("y = " + y);
+		return new Date(y);
+	}
 	const formatTripResults = function(plan) {
 	  let tripCount = plan.PlannerItin.PlannerOptions.length;
 	  let tripMsg = 'We found ' + tripCount.toString() + ' trip';
@@ -155,6 +161,8 @@ var TripPlan = (function($, window, document, undefined) {
 	  $('.tp-results').empty();
 	  plan.PlannerItin.PlannerOptions.forEach(function(l,i) {
 		let tpSummary = [],tpDetail = [];
+		let tpArriveTime = null; // we set this to the arrive time of the last trip segment
+		let tpWalkTIme = 0;
 		l.Segments.forEach(function(li,ii){
 		  switch (li.SegmentType) {
 			case 0:
@@ -187,30 +195,32 @@ var TripPlan = (function($, window, document, undefined) {
 			  console.warn('Invalid segment type: '+ li.SegmentType);
 		  }
 		});
+
 		l.Segments.forEach(function(li,ii){
 			let timeOfDay = "";
 			switch(li.SegmentType){
 			  case 0: // Bus
 			  tpDetail.push(`<div class="leg-item">
 			  <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
-			  <div class="d-table-cell leg-mode bus">
-				<div class="d-table-cell leg-mode-icon">
-				  <img class="icon"
-					src="/img/svg/circle-gray-outline-bus.svg">
+				<div class="d-table-cell leg-mode bus">
+					<div class="d-table-cell leg-mode-icon">
+					<img class="icon"
+						src="/img/svg/circle-gray-outline-bus.svg">
+					</div>
+					<p>
+					${checkIfLate(li.Adherance)}
+					<strong>Route ${li.Headsign}</strong><br>
+					<a href="/home/#ServiceAlerts">
+						<small>view alerts</small>
+					</a>
+					</p>
+					<p>
+					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at ${returnTime(li.OnTime)}</br>
+					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at ${returnTime(li.OffTime)}
+					</p>
 				</div>
-				<p>
-				  ${checkIfLate(li.Adherance)}
-				  <strong>Route ${li.Headsign}</strong><br>
-				  <a href="/home/#ServiceAlerts">
-					<small>view alerts</small>
-				  </a>
-				</p>
-				<p>
-				  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName}</br>
-				  <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName}
-				</p>
-			  </div>
-			            </div>`);
+				</div>`);
+				tpArriveTime = li.OffTime;
 				break;
 			  case 1: // Light-Rail
 				tpDetail.push(`<div class="leg-item">
@@ -227,11 +237,12 @@ var TripPlan = (function($, window, document, undefined) {
 					</a>
 				  </p>
 				  <p>
-					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName}</br>
-					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName}
+					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at ${returnTime(li.OnTime)}</br>
+					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at ${returnTime(li.OffTime)}
 				  </p>
 				</div>
-			              </div>`);
+				 </div>`);
+				 tpArriveTime = li.OffTime;
 				break;
 			  case 2: // Train
 			  tpDetail.push(`<div class="leg-item">
@@ -249,15 +260,16 @@ var TripPlan = (function($, window, document, undefined) {
 				  </a>
 				</p>
 				<p>
-				  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName}</br>
-				  <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName}
+				  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at ${returnTime(li.OnTime)}</br>
+				  <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at ${returnTime(li.OffTime)}
 				</p>
 			  </div>
-			            </div>`);
+				</div>`);
+				tpArriveTime = li.OffTime;
 				break;
 			  case 3: // WALK
 				tpDetail.push(`<div class="leg-item">
-				<div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
+				<div class="d-table-cell leg-time"></div>
 				<div class="d-table-cell leg-mode walk">
 				  <div class="d-table-cell leg-mode-icon">
 					<img class="icon pedestrian-gray"
@@ -266,7 +278,8 @@ var TripPlan = (function($, window, document, undefined) {
 				  <p>${li.WalkTextOverview}
 				  </p>
 				</div>
-			              </div>`);
+				</div>`);
+				if (li.isLastSegment === true) {tpWalkTime = 10;}
 				break;
 			  case 4: // ALERT MESSAGE for USER
 				tpDetail.push(`<div class="leg-item">
@@ -278,12 +291,31 @@ var TripPlan = (function($, window, document, undefined) {
 				  </div>
 				  <p>${li.WalkTextOverview}</p>
 				</div>
-			              </div>`);
+			    </div>`);
 				break;
 			  default:
                 }
 		});
+		// Add a line at the bottom of the plan text to show arriving at the ultimate location
+		try {
+			if (tpWalkTime > 0) {
+				console.log("Add walk minutes ");
+				tpArriveTime = addMinutes(tpArriveTime, tpWalkTime);
+			}
+		}
+		catch { };
 		
+		tpDetail.push(`
+			<div class="leg-item">
+				<div class="d-table-cell leg-time">${returnTime(tpArriveTime)}</div>
+				<div class="d-table-cell leg-mode arrive">
+					<div class="d-table-cell leg-mode-icon">
+						<img class="icon circle-red-outline-pin" src="/img/svg/circle-red-outline-pin.svg">
+					</div>
+					<p>Arrive at ${plan.ToAddress.Address}</p>
+				</div>
+			</div>
+		`);
 		$('.tp-results').append(`
 			  <div class="card mb-4" data-child="collapseTrip${i}" >
 				  <div id="" class="card-header">
@@ -317,37 +349,8 @@ var TripPlan = (function($, window, document, undefined) {
 				  </div>
 			  </div>
 		  `);
-  
-	  //   $('.tp-results').append(`
-	  // 	<div class="card mb-4">
-	  // 		<a class="border" data-toggle="collapse" href="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
-	  // 		<span class="d-flex" role="link">
-	  // 			<span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
-	  // 			<span class="align-items-center tp-route">${tpSummary.join('<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">')}
-	  // 			<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
-	  // 			</span>
-	  // 		</span>
-	  // 		</a>
-	  // 		<div id="collapseTrip${i}" class="collapse" data-parent="#tripPlannerResults" aria-labelledby="tripPlannerResults">
-	  // 		<div class="card-body">
-	  // 			<div class="row flex-row">
-	  // 				<div class="col-lg-5">
-	  // 					<div class="d-block">
-	  // 					`+ tpDetail.join(" ")+`
-	  // 					</div>
-	  // 					<div class="clearfix"></div>
-	  // 					<hr class="d-block d-lg-none">
-	  // 				</div>
-	  // 				<div class="col-lg-7">
-	  // 					<div class="tp-basemap esrimap${i}">
-	  // 					</div>
-	  // 				</div>
-	  // 			</div>
-	  // 		</div>
-	  // 		</div>
-	  // 	</div>
-	  //     `)
-	  });
+
+	});
 	  var esriMapDOM = function() {
 		return `
 		  <div class="map-container border">
@@ -444,7 +447,7 @@ var TripPlan = (function($, window, document, undefined) {
 			newTrip(tripProperties)
 				.then(function () {
 					let tripPlan = getTrip();
-                        //console.dir(tripPlan);
+                        console.dir(tripPlan);
                         if (tripPlan.PlannerItin.PlannerOptions.length > 0) {
                             formatTripResults(tripPlan);
                             $('.trips-found').show();
