@@ -4,6 +4,9 @@
 *
 *  Ajax Autocomplete for jQuery is freely distributable under the terms of an MIT-style license.
 *  For details, see the web site: https://github.com/devbridge/jQuery-Autocomplete
+ 
+---> Local fixes for MetroTransit 10/31/19: assign a unique id= to each Autocomplete-suggestions group to link to input for screen readers.
+
 */
 
 /*jslint  browser: true, white: true, single: true, this: true, multivar: true */
@@ -31,8 +34,9 @@
                 escapeRegExChars: function (value) {
                     return value.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&");
                 },
-                createNode: function (containerClass) {
+                createNode: function (containerClass, elementName) {
                     var div = document.createElement('div');
+                    div.id = elementName; // JAG added 10/31/19
                     div.className = containerClass;
                     div.style.position = 'absolute';
                     div.style.display = 'none';
@@ -162,14 +166,15 @@
                 selected = that.classes.selected,
                 options = that.options,
                 container;
-
+            
             that.element.setAttribute('autocomplete', 'off');
+            var containerClassId = that.element.id + 'Suggestions'; // JAG added 10/31/19
 
             // html() deals with many types: htmlString or Element or Array or jQuery
-            that.noSuggestionsContainer = $('<div class="autocomplete-no-suggestion"></div>')
+            that.noSuggestionsContainer = $('<div ' + 'id=' + that.element.name + ' class="autocomplete-no-suggestion"></div>')
                                           .html(this.options.noSuggestionNotice).get(0);
 
-            that.suggestionsContainer = Autocomplete.utils.createNode(options.containerClass);
+            that.suggestionsContainer = Autocomplete.utils.createNode(options.containerClass, containerClassId); // JAG 10/31/19
 
             container = $(that.suggestionsContainer);
 
