@@ -1,11 +1,4 @@
 #schedulesMaps {
-  .row {
-    @include media-breakpoint-up(lg) {
-      margin-right: 0;
-      margin-left: 0;
-    }
-  }
-
   .icon {
     width: 2.5rem;
     height: 2.5rem;
@@ -19,6 +12,7 @@
     .btn {
       background-color: transparent;
       border-left: none;
+      padding: 0.25rem 0.75rem;
 
       .icon {
         width: 1.5rem;
@@ -91,6 +85,72 @@
       @include media-breakpoint-up(lg) {
         display: inline-block;
         margin-bottom: 0;
+      }
+    }
+  }
+
+  .btn-outline-info {
+    margin-bottom: 1rem;
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      margin-right: 0;
+      width: 16.875rem;
+    }
+  }
+
+  // /bus-schedules-maps.html
+  .bus-routes {
+    margin-bottom: 15px;
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 30px;
+    }
+    .btn-outline-secondary {
+      width: 70px;
+      height: 50px;
+      margin-right: 1.35rem;
+      margin-bottom: 1.35rem;
+
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+
+      @include media-breakpoint-up(md) {
+        margin-right: 1.15rem;
+        margin-bottom: 1.15rem;
+
+        &:nth-child(4n) {
+          margin-right: 1.15rem;
+        }
+
+        &:nth-child(8n) {
+          margin-right: 0;
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        //margin-right: 1.19rem;
+        //margin-bottom: 1.19rem;
+
+        &:nth-child(4n),
+        &:nth-child(8n) {
+          margin-right: 1.15rem;
+        }
+
+        &:nth-child(11n) {
+          margin-right: 0;
+        }
+      }
+
+      @include media-breakpoint-up(xl) {
+        margin-right: 1.215rem;
+        &:nth-child(11n) {
+          margin-right: 1.15rem;
+        }
+
+        &:nth-child(13n) {
+          margin-right: 0;
+        }
       }
     }
   }

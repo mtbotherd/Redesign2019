@@ -9090,11 +9090,6 @@ footer {
       border-left: 1px solid #e3e3e0;
       padding-top: 0; } }
 
-@media (min-width: 992px) {
-  #schedulesMaps .row {
-    margin-right: 0;
-    margin-left: 0; } }
-
 #schedulesMaps .icon {
   width: 2.5rem;
   height: 2.5rem; }
@@ -9105,7 +9100,8 @@ footer {
 #schedulesMaps .input-group .input-group-text,
 #schedulesMaps .input-group .btn {
   background-color: transparent;
-  border-left: none; }
+  border-left: none;
+  padding: 0.25rem 0.75rem; }
   #schedulesMaps .input-group .input-group-text .icon,
   #schedulesMaps .input-group .btn .icon {
     width: 1.5rem;
@@ -9157,6 +9153,47 @@ footer {
     #schedulesMaps .commuter-rail .btn-outline-secondary {
       display: inline-block;
       margin-bottom: 0; } }
+
+#schedulesMaps .btn-outline-info {
+  margin-bottom: 1rem;
+  width: 100%; }
+  @media (min-width: 768px) {
+    #schedulesMaps .btn-outline-info {
+      margin-right: 0;
+      width: 16.875rem; } }
+
+#schedulesMaps .bus-routes {
+  margin-bottom: 15px; }
+  @media (min-width: 992px) {
+    #schedulesMaps .bus-routes {
+      margin-bottom: 30px; } }
+  #schedulesMaps .bus-routes .btn-outline-secondary {
+    width: 70px;
+    height: 50px;
+    margin-right: 1.35rem;
+    margin-bottom: 1.35rem; }
+    #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(4n) {
+      margin-right: 0; }
+    @media (min-width: 768px) {
+      #schedulesMaps .bus-routes .btn-outline-secondary {
+        margin-right: 1.15rem;
+        margin-bottom: 1.15rem; }
+        #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(4n) {
+          margin-right: 1.15rem; }
+        #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(8n) {
+          margin-right: 0; } }
+    @media (min-width: 992px) {
+      #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(4n), #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(8n) {
+        margin-right: 1.15rem; }
+      #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(11n) {
+        margin-right: 0; } }
+    @media (min-width: 1200px) {
+      #schedulesMaps .bus-routes .btn-outline-secondary {
+        margin-right: 1.215rem; }
+        #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(11n) {
+          margin-right: 1.15rem; }
+        #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(13n) {
+          margin-right: 0; } }
 
 @media (min-width: 992px) {
   #gotoCards div.goto-card .btn-group {
