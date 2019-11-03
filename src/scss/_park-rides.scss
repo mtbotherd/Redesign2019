@@ -81,12 +81,23 @@
         width: 1.875rem;
         height: 1.875rem;
         left: 0;
+        top: 0.15rem;
 
         @include media-breakpoint-up(lg) {
           top: 0.25rem;
           background-size: 2.375rem;
           width: 2.375rem;
           height: 2.375rem;
+        }
+      }
+
+      .pr-location {
+        margin-bottom: 0;
+        padding-top: 0.15rem;
+
+        @include media-breakpoint-up(lg) {
+          margin-bottom: 0;
+          padding-top: 0.4rem;
         }
       }
     }

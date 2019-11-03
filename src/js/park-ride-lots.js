@@ -77,7 +77,7 @@ var ParkRideServices = (function($,  window, document, undefined) {
                 $('#prFinderResults').append(`
                 <div class="card">
                     <a href="${mapLink}" class="d-flex btn">
-                        <span class="d-flex pr-location">${stop.LocationName}&nbsp;(${stop.Distance}&nbsp;mi.)</span>
+                        <p class="d-flex pr-location">${stop.LocationName}&nbsp;(${stop.Distance}&nbsp;mi.)</p>
                         <div class="d-flex ml-auto">
                             <span class="cyan map">Map</span>
                             <img class="icon arrow-right-blue mr-0" src="./img/svg/arrow-right-blue.svg"/>
