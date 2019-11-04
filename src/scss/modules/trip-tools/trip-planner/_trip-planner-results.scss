@@ -187,7 +187,7 @@
               left: -0.95rem;
 
               @include media-breakpoint-up(lg) {
-                left: -1.1rem;
+                left: -1.3rem;
                 width: 2.25rem;
                 height: 2.25rem;
               }
@@ -238,11 +238,11 @@
             border-left: 4px solid #7dcae7;
           }
 
-          .metro-green {
+          .metro-Green {
             border-left: 4px solid $green;
           }
 
-          .metro-blue {
+          .metro-Blue {
             border-left: 4px solid $blue;
           }
 

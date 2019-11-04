@@ -1151,7 +1151,7 @@ var TRIM = (function ($, window, document, undefined) {
                             scale: 10000
                         }, 'trimLocate');
                         GEOLOCATE.startup();
-                        GEOLOCATE.on("locate", function () {
+                        GEOLOCATE.on("locate", function (result) {
                             on.once(MAP, "click", function () {
                                 GEOLOCATE.clear();
                             });
@@ -1687,12 +1687,26 @@ var BOM = (function ($, window, document, undefined) {
         $.when.apply($, promises)
             .then(function () {
                 _MAP.getLayer("BusesOnMap").clear();
-                var d = 0; // total drawn vehicle count
-                var e = _MAP.extent; // the current screen map extent
-                //if (_DEBUG) console.log("e.xmin = " + e.xmin + " e.ymin = " + e.ymin + " e.xmax = " + e.xmax + " e.ymax = " + e.ymax);
-                //if (_DEBUG) console.log(" LOD:res = " + _CURRENTLOD.resolution + " LOD:lvl = " + _CURRENTLOD.level);
-
+                var drawnCount = 0;
                 if (response.length > 0) {
+                    $.each(response, function () {
+                        var pnt;
+                        if (_ROUTESFORSTOP) {
+                            if (_ROUTESFORSTOP.indexOf(this.RouteId + this.Terminal) > -1 || _SHOWALLBUSES) {
+                                pnt = newPointFromLatLong(this.Latitude, this.Longitude);  // create a point from the bus location LAT/LONG
+                                drawVehicleOnMap(pnt, this.RouteId, this.Terminal, this.DirectionId, this.LocationTime, this.BlockNumber);
+                                drawnCount++;
+                            }
+                        } else {
+                            pnt = newPointFromLatLong(this.Latitude, this.Longitude);  // create a point from the bus location LAT/LONG
+                            drawVehicleOnMap(pnt, this.RouteId, this.Terminal, this.DirectionId, this.LocationTime, this.BlockNumber);
+                            drawnCount++;
+                        }
+                    });
+                    var d = 0; // total drawn vehicle count
+                    var e = _MAP.extent; // the current screen map extent
+                    //if (_DEBUG) console.log("e.xmin = " + e.xmin + " e.ymin = " + e.ymin + " e.xmax = " + e.xmax + " e.ymax = " + e.ymax);
+                    //if (_DEBUG) console.log(" LOD:res = " + _CURRENTLOD.resolution + " LOD:lvl = " + _CURRENTLOD.level);
                     let i = 0; // total iterations over response
                     do { // if we're not zooming we will 'do' this just once
                         // if we are zooming, the first time through we want to test the current extent -- so NO DELTA needed
@@ -1703,27 +1717,13 @@ var BOM = (function ($, window, document, undefined) {
                         }
                         var xDelta = z * _MAP.width / 2;
                         var yDelta = z * _MAP.height / 2;
-                        //if (_DEBUG) console.log(i + " xD = " + xDelta + " yD = " + yDelta + " z = " + z);
+                        if (_DEBUG) console.log(i + " xD = " + xDelta + " yD = " + yDelta + " z = " + z);
 
                         $.each(response, function () {
                             var p = newWMPointFromLatLong(this.Latitude, this.Longitude);
                             // don't draw buses OUTSIDE the boundaries of the current extent
                             if (p.x > e.xmin - xDelta && p.x < e.xmax + xDelta && p.y > e.ymin - yDelta && p.y < e.ymax + yDelta) {
-                                var pnt;
-                                if (_ROUTESFORSTOP) {
-                                    // draw only buses for routes that match route AND terminal letter
-                                    // direction filter removed Dec 2018 to show more buses - helps circulator and bus turnaround situations
-                                    //testRouteTerm += this.Direction === 1 ? ":SB" : this.Direction === 2 ? ":EB" : this.Direction === 3 ? ":WB" : this.Direction === 4 ? ":NB" : "";
-                                    if (_ROUTESFORSTOP.indexOf(this.RouteId + this.Terminal)>0 || _SHOWALLBUSES) {
-                                        pnt = newPointFromLatLong(this.Latitude, this.Longitude);  // create a point from the bus location LAT/LONG
                                         d++;
-                                        drawVehicleOnMap(pnt, this.RouteId, this.Terminal, this.DirectionId, this.LocationTime, this.BlockNumber);
-                                    }
-                                } else {
-                                    pnt = newPointFromLatLong(this.Latitude, this.Longitude);  // create a point from the bus location LAT/LONG
-                                    d++;
-                                    drawVehicleOnMap(pnt, this.RouteId, this.Terminal, this.DirectionId, this.LocationTime, this.BlockNumber);
-                                }
 
                             }
                         });
@@ -1791,7 +1791,7 @@ var BOM = (function ($, window, document, undefined) {
         }
         var zoomOnce = typeof zoomFlag !== 'undefined' ? zoomFlag : false;
         drawBuses(/*boolean*/zoomOnce, function (busesShowing, busesTotal) {
-            //console.log("++ Buses Showing = " + busesShowing + " Total = " + busesTotal);
+            if (_DEBUG) console.log("++ Buses Showing = " + busesShowing + " Total = " + busesTotal);
             if (busesShowing === null) { // service failure
                 showMapBanner('Real-time locations unavailable at this time.');
                 if (_TICKSTOP) {
@@ -1918,13 +1918,9 @@ var BOM = (function ($, window, document, undefined) {
                         }, 'bomlocate');
                         _GEOLOCATE.startup();
                         _GEOLOCATE.clearOnTrackingStop = true;
-                        _GEOLOCATE.on("locate", function () {
-                            clearMarkerAtPoint();
-                            on.once(_MAP, "click", function () {
-                                _GEOLOCATE.clear();
-                            });
-                            if (_BOMRUNNING) {
-                                drawBusesOnMap();
+                        _GEOLOCATE.on("locate", function (result) {
+                            if (result.error) {
+                                showMapBanner("We're unable to determine your location. Check your browser permissions.", "fade");
                             }
                         });
 
@@ -1949,13 +1945,14 @@ var BOM = (function ($, window, document, undefined) {
                     _MAP.on("extent-change", function (evt) {
                         if (_DEBUG) console.log("extent-change fired");
                         _CURRENTLOD = evt.lod;
-                        if (_BOMRUNNING === false) {
-                            drawBusesOnMap();
-                        }
+                        //if (_BOMRUNNING === false) {
+                        //    drawBusesOnMap();
+                        //}
                     });
                     _MAP.on("click", function (evt) {
+                        if (_DEBUG) console.log("map clicked");
                         if (_BOMRUNNING === false) {
-                            drawBusesOnMap();
+                            drawBusesOnMap(/*zoom*/true);
                         }
                     });
 
@@ -2130,6 +2127,10 @@ var BOM = (function ($, window, document, undefined) {
 	 */
     var startBusesOnMap = function (/*object*/parms) {
         _GEOLOCATE.clear();
+        _SHOWALLBUSES = false;
+        _ROUTEID = null;
+        _ROUTESFORSHOW = null;
+        _ROUTESFORSTOP = null;
         if (parms.routeID) {
             if (parms.routeID === "0") {
                 _SHOWALLBUSES = true;

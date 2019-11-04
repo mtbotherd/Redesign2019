@@ -120,7 +120,8 @@ var Alerts = (function ($, window, document, undefined) {
                 .append($('<img/>', { class: 'icon chevron-down-blue ml-2', src: '/img/svg/chevron-down-blue.svg' }))
             );
 
-            card.append($('<div/>', { class: 'card-header' }).append($('<h3/>', { class: 'mb-0' })).append(btn));
+			// card.append($('<div/>', { class: 'card-header' }).append($('<h3/>', { class: 'mb-0' })).append(btn));
+			card.append($('<div/>', { class: 'card-header' }).append(btn));
 
             var alertList = $('<div/>', { class: 'card-body border' });
             route.alert_index.forEach(function (alertIndex, idx) {
@@ -230,7 +231,6 @@ var Alerts = (function ($, window, document, undefined) {
 
         if ($('#special-alert-notice').hasClass('alert-topmargin')) {
             $('body').prepend($('#special-alert-notice').show());
-            $('#special-alert-notice .fa-close').hide();
         }
     };
 

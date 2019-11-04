@@ -1,6 +1,12 @@
 /***************************************************************
     Application styles
 ***************************************************************/
+
+// Remove pixel image created by GTM
+img[src^="//insight.adsrvr.org"] {
+  display: none;
+}
+
 body {
   overflow-x: hidden;
 }

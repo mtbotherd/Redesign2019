@@ -49,7 +49,8 @@ gulp.task('sass', function () {
 // Copy js to dist
 gulp.task('scripts', function () {
 	return gulp.src([
-		'src/js/**/*.js'
+		'src/js/**/*.js',
+		'src/js/**/*.png'
 	])
 		.pipe(gulp.dest('dist/js'))
 });

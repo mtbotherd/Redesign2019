@@ -109,7 +109,7 @@
 								<div class="input-group">
 									<label for="siteSearch" class="sr-only">Search</label>
 									<input type="text" id="siteSearch" class="form-control" placeholder="Search our site">
-									<div class="input-group-append">
+									<div class="input-group-addon">
 										<button type="button" id="siteSearchBtn" class="btn btn-primary">
 											<span class="sr-only">Search button</span>
 											<img class="icon" src="/img/svg/search-gray.svg">
@@ -143,288 +143,289 @@
 					<div class="secondary">
 						<div class="container">
 							<div class="page-title">
-								<h1>Page title</h1>
+								<h1>Request for Metro Transit At Your Community Event</h1>
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<div class=""> <!-- This class gets set in CMS -->
-					<div class="htmlmodule">
-
-						<section class="section">
-							<div class="mt-form form-redesign">
-								<h1>Request for Metro Transit At Your Community Event</h1>
-								<p>Please submit your request at least 45 days prior to your event date.</p>
-								<p class="required-notice">= Required Field</p>
-						
-								<div class="row">
-									<div class="col-md-6" style="border-right: 1px solid #ccc;">
-										<h2>Event Information</h2>
-										<div class="form-inline">
-											<div class="form-group">
-												<label for="ctl00_mainContent_ctl02_ctl00_currentDate" id="ctl00_mainContent_ctl02_ctl00_label1" class="required">Today's date</label><br>
-												<div class="date-picker input-group">
-													<input name="ctl00$mainContent$ctl02$ctl00$currentDate" type="text" id="ctl00_mainContent_ctl02_ctl00_currentDate" class="form-control" date-format="MM/dd/yyyy" placeholder="mm/dd/yyyy" required="">
-													<span class="add-on date input-group-addon"><i class="fa fa-calendar icon-calendar" aria-hidden="true"></i></span>
-												</div>
+					<section class="section">
+						<div class="mt-form form-redesign">							
+							<p>Please submit your request at least 45 days prior to your event date.</p>
+							<div class="mt-field mt-rightalign">
+								<span class="required-notice">= Required Field</span>
+							</div>
+							<div class="row">
+								<div class="col-md-6" style="border-right: 1px solid #ccc;">
+									<h2>Event Information</h2>
+									<div class="form-inline">
+										<div class="form-group">
+											<label for="ctl00_mainContent_ctl01_ctl00_currentDate" id="ctl00_mainContent_ctl01_ctl00_label1" class="required" aria-required="true">Today's date</label><br>
+											<div class="date-picker input-group">
+												<input name="ctl00$mainContent$ctl01$ctl00$currentDate" type="text" id="ctl00_mainContent_ctl01_ctl00_currentDate" class="form-control" date-format="MM/dd/yyyy" placeholder="mm/dd/yyyy" required="" aria-required="true">
+												<span class="add-on date input-group-addon"><i class="fa fa-calendar icon-calendar" aria-hidden="true"></i></span>
 											</div>
-										</div>
-						
-										<div class="form-group">
-											<label for="ctl00_mainContent_ctl02_ctl00_requestedBy" id="ctl00_mainContent_ctl02_ctl00_label2" class="required">Requested by</label>
-											<input name="ctl00$mainContent$ctl02$ctl00$requestedBy" type="text" id="ctl00_mainContent_ctl02_ctl00_requestedBy" class="form-control" placeholder="Your name" required="">
-										</div>
-									
-										<div class="form-group">
-											<label for="ctl00_mainContent_ctl02_ctl00_contactPhone" id="ctl00_mainContent_ctl02_ctl00_label3" class="required">Contact phone</label>
-											<input name="ctl00$mainContent$ctl02$ctl00$contactPhone" type="text" id="ctl00_mainContent_ctl02_ctl00_contactPhone" class="form-control" placeholder="Phone" required="">
-										</div>
-									
-										<div class="form-group">
-											<label for="ctl00_mainContent_ctl02_ctl00_contactEmail" id="ctl00_mainContent_ctl02_ctl00_label4" class="required">Contact email</label>
-											<input name="ctl00$mainContent$ctl02$ctl00$contactEmail" type="text" id="ctl00_mainContent_ctl02_ctl00_contactEmail" class="form-control" placeholder="Email" required="">
-										</div>
-									
-										<div class="form-group">
-											<label for="ctl00_mainContent_ctl02_ctl00_eventName" id="ctl00_mainContent_ctl02_ctl00_label5" class="required">Event name</label>
-											<input name="ctl00$mainContent$ctl02$ctl00$eventName" type="text" id="ctl00_mainContent_ctl02_ctl00_eventName" class="form-control" placeholder="Name of event" required="">
-										</div>
-						
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="ctl00_mainContent_ctl02_ctl00_eventNumDays" id="ctl00_mainContent_ctl02_ctl00_label6" class="required">How many days is your event?</label><br>
-													<select name="ctl00$mainContent$ctl02$ctl00$eventNumDays" id="ctl00_mainContent_ctl02_ctl00_eventNumDays" class="number-days form-control" required="">
-														<option value="0">Select number of days</option>
-														<option value="one-day">1 day</option>
-														<option value="two-day">2 days</option>
-												
-													</select>
-												</div>
-											</div>
-										</div>
-									
-										<div class="event one-day">
-											<div class="row form-inline">
-												<div class="col-md-6">
-													<div class="form-group">
-														<label for="ctl00_mainContent_ctl02_ctl00_eventDate" id="ctl00_mainContent_ctl02_ctl00_label7" class="required">Event date</label><br>
-														<div class="date-picker input-group">
-															<input name="ctl00$mainContent$ctl02$ctl00$eventDate" type="text" id="ctl00_mainContent_ctl02_ctl00_eventDate" class="form-control" data-format="MM/dd/yyyy" placeholder="mm/dd/yy" required="">
-															<span class="add-on date input-group-addon"><i class="fa fa-calendar icon-calendar" aria-hidden="true"></i></span>
-														</div>
-													</div>
-												</div>
-											</div>
-						
-											<div class="row form-inline">
-												<div class="col-md-6">
-													<div class="form-group">
-														<label for="ctl00_mainContent_ctl02_ctl00_startTime" id="ctl00_mainContent_ctl02_ctl00_label8" class="required">Start time</label><br>
-														<div class="time-picker input-group">
-															<input name="ctl00$mainContent$ctl02$ctl00$startTime" type="text" id="ctl00_mainContent_ctl02_ctl00_startTime" class="form-control" data-format="HH:mm PP" placeholder="hh:mm" required="">
-															<span class="add-on time input-group-addon"><i class="fa fa-clock-o icon-time" aria-hidden="true"></i></span>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<label for="ctl00_mainContent_ctl02_ctl00_endTime" id="ctl00_mainContent_ctl02_ctl00_label9" class="required">End time</label><br>
-														<div class="time-picker input-group">
-															<input name="ctl00$mainContent$ctl02$ctl00$endTime" type="text" id="ctl00_mainContent_ctl02_ctl00_endTime" class="form-control" data-format="HH:mm PP" placeholder="hh:mm" required="">
-															<span class="add-on time input-group-addon"><i class="fa fa-clock-o icon-time" aria-hidden="true"></i></span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-						
-										<div class="event two-day">
-											<div class="row form-inline">
-												<div class="col-md-6">
-													<div class="form-group">
-														<label for="ctl00_mainContent_ctl02_ctl00_eventDateStart" id="ctl00_mainContent_ctl02_ctl00_label10" class="required">Event start date</label><br>
-														<div class="date-picker input-group">
-															<input name="ctl00$mainContent$ctl02$ctl00$eventDateStart" type="text" id="ctl00_mainContent_ctl02_ctl00_eventDateStart" class="form-control" data-format="MM/dd/yyyy" placeholder="mm/dd/yy" required="">
-															<span class="add-on date input-group-addon"><i class="fa fa-calendar icon-calendar" aria-hidden="true"></i></span>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<label for="ctl00_mainContent_ctl02_ctl00_eventDateEnd" id="ctl00_mainContent_ctl02_ctl00_label11" class="required">Event end date</label><br>
-														<div class="date-picker input-group">
-															<input name="ctl00$mainContent$ctl02$ctl00$eventDateEnd" type="text" id="ctl00_mainContent_ctl02_ctl00_eventDateEnd" class="form-control" data-format="MM/dd/yyyy" placeholder="mm/dd/yy" required="">
-															<span class="add-on date input-group-addon"><i class="fa fa-calendar icon-calendar" aria-hidden="true"></i></span>
-														</div>
-													</div>
-												</div>
-											</div>
-						
-											<div class="row form-inline">
-												<div class="col-md-6">
-													<div class="form-group">
-														<label for="ctl00_mainContent_ctl02_ctl00_day1StartTime" id="ctl00_mainContent_ctl02_ctl00_label12" class="required">Day 1 start time</label><br>
-														<div class="time-picker input-group">
-															<input name="ctl00$mainContent$ctl02$ctl00$day1StartTime" type="text" id="ctl00_mainContent_ctl02_ctl00_day1StartTime" class="form-control" data-format="HH:mm PP" placeholder="hh:mm" required="">
-															<span class="add-on time input-group-addon"><i class="fa fa-clock-o icon-time" aria-hidden="true"></i></span>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<label for="ctl00_mainContent_ctl02_ctl00_day1EndTime" id="ctl00_mainContent_ctl02_ctl00_label13" class="required">Day 1 end time</label><br>
-														<div class="time-picker input-group">
-															<input name="ctl00$mainContent$ctl02$ctl00$day1EndTime" type="text" id="ctl00_mainContent_ctl02_ctl00_day1EndTime" class="form-control" data-format="HH:mm PP" placeholder="hh:mm" required="">
-															<span class="add-on time input-group-addon"><i class="fa fa-clock-o icon-time" aria-hidden="true"></i></span>
-														</div>
-													</div>
-												</div>
-											</div>
-						
-											<div class="row form-inline">
-												<div class="col-md-6">
-													<div class="form-group">
-														<label for="ctl00_mainContent_ctl02_ctl00_day2StartTime" id="ctl00_mainContent_ctl02_ctl00_label14" class="required">Day 2 start time</label><br>
-														<div class="time-picker input-group">
-															<input name="ctl00$mainContent$ctl02$ctl00$day2StartTime" type="text" id="ctl00_mainContent_ctl02_ctl00_day2StartTime" class="form-control" data-format="HH:mm PP" placeholder="hh:mm" required="">
-															<span class="add-on time input-group-addon"><i class="fa fa-clock-o icon-time" aria-hidden="true"></i></span>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<label for="ctl00_mainContent_ctl02_ctl00_day2EndTime" id="ctl00_mainContent_ctl02_ctl00_label15" class="required">Day 2 end time</label><br>
-														<div class="time-picker input-group">
-															<input name="ctl00$mainContent$ctl02$ctl00$day2EndTime" type="text" id="ctl00_mainContent_ctl02_ctl00_day2EndTime" class="form-control" data-format="HH:mm PP" placeholder="hh:mm" required="">
-															<span class="add-on time input-group-addon"><i class="fa fa-clock-o icon-time" aria-hidden="true"></i></span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-						
-										<div class="form-group">
-											<label for="ctl00_mainContent_ctl02_ctl00_location" id="ctl00_mainContent_ctl02_ctl00_label16" class="required">Event location</label>
-											<input name="ctl00$mainContent$ctl02$ctl00$location" type="text" id="ctl00_mainContent_ctl02_ctl00_location" class="form-control" placeholder="Location" required="">
-										</div>
-									
-										<div class="form-group">
-											<label for="ctl00_mainContent_ctl02_ctl00_estAttendance" id="ctl00_mainContent_ctl02_ctl00_label17" class="required">Estimated attendance</label>
-											<input name="ctl00$mainContent$ctl02$ctl00$estAttendance" type="text" id="ctl00_mainContent_ctl02_ctl00_estAttendance" class="form-control" placeholder="Number" required="">
-										</div>
-									
-										<div class="form-group">
-											<label for="ctl00_mainContent_ctl02_ctl00_purpose" id="ctl00_mainContent_ctl02_ctl00_label18" class="required">Purpose of event</label>
-											<input name="ctl00$mainContent$ctl02$ctl00$purpose" type="text" id="ctl00_mainContent_ctl02_ctl00_purpose" class="form-control" placeholder="State purpose" required="">
-										</div>
-									
-										<div class="form-group">
-											<label for="ctl00_mainContent_ctl02_ctl00_cost" id="ctl00_mainContent_ctl02_ctl00_label19" class="required">Event cost/fee</label>
-											<input name="ctl00$mainContent$ctl02$ctl00$cost" type="text" id="ctl00_mainContent_ctl02_ctl00_cost" class="form-control" placeholder="Dollar amount" required="">
 										</div>
 									</div>
-						
-									<div class="col-md-6">
-										<h2>Event Type</h2>
-										<div class="row">
-											<div class="col-md-8">
+					
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl01_ctl00_requestedBy" id="ctl00_mainContent_ctl01_ctl00_label2" class="required" aria-required="true">Requested by</label>
+										<input name="ctl00$mainContent$ctl01$ctl00$requestedBy" type="text" id="ctl00_mainContent_ctl01_ctl00_requestedBy" class="form-control" placeholder="Your name" required="" aria-required="true">
+									</div>
+								
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl01_ctl00_contactPhone" id="ctl00_mainContent_ctl01_ctl00_label3" class="required" aria-required="true">Contact phone</label>
+										<input name="ctl00$mainContent$ctl01$ctl00$contactPhone" type="text" id="ctl00_mainContent_ctl01_ctl00_contactPhone" class="form-control" placeholder="Phone" required="" aria-required="true">
+									</div>
+								
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl01_ctl00_contactEmail" id="ctl00_mainContent_ctl01_ctl00_label4" class="required" aria-required="true">Contact email</label>
+										<input name="ctl00$mainContent$ctl01$ctl00$contactEmail" type="text" id="ctl00_mainContent_ctl01_ctl00_contactEmail" class="form-control" placeholder="Email" required="" aria-required="true">
+									</div>
+								
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl01_ctl00_eventName" id="ctl00_mainContent_ctl01_ctl00_label5" class="required" aria-required="true">Event name</label>
+										<input name="ctl00$mainContent$ctl01$ctl00$eventName" type="text" id="ctl00_mainContent_ctl01_ctl00_eventName" class="form-control" placeholder="Name of event" required="" aria-required="true">
+									</div>
+					
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="ctl00_mainContent_ctl01_ctl00_eventNumDays" id="ctl00_mainContent_ctl01_ctl00_label6" class="required" aria-required="true">How many days is your event?</label><br>
+												<select name="ctl00$mainContent$ctl01$ctl00$eventNumDays" id="ctl00_mainContent_ctl01_ctl00_eventNumDays" class="number-days form-control" required="" aria-required="true">
+							<option value="0">Select number of days</option>
+							<option value="one-day">1 day</option>
+							<option value="two-day">2 days</option>
+					
+						</select>
+											</div>
+										</div>
+									</div>
+								
+									<div class="event one-day">
+										<div class="row form-inline">
+											<div class="col-md-6">
 												<div class="form-group">
-													<label for="ctl00_mainContent_ctl02_ctl00_type" id="ctl00_mainContent_ctl02_ctl00_label20" class="required">Type of event</label><br>
-													<select name="ctl00$mainContent$ctl02$ctl00$type" id="ctl00_mainContent_ctl02_ctl00_type" required="">
-														<option value="">Select one...</option>
-														<option value="Community Event">Community Event</option>
-														<option value="Festival/Parade">Festival/Parade</option>
-														<option value="Employment Fair">Employment Fair</option>
-														<option value="Commuter/Transportation Fair">Commuter/Transportation Fair</option>
-														<option value="Resource Health Fair">Resource Health Fair</option>
-														<option value="Environment Fair">Environment Fair</option>
-														<option value="Transit Assistance Program (TAP) Sign-up">Transit Assistance Program (TAP) Sign-up</option>
-												
-													</select>
+													<label for="ctl00_mainContent_ctl01_ctl00_eventDate" id="ctl00_mainContent_ctl01_ctl00_label7" class="required" aria-required="true">Event date</label><br>
+													<div class="date-picker input-group">
+														<input name="ctl00$mainContent$ctl01$ctl00$eventDate" type="text" id="ctl00_mainContent_ctl01_ctl00_eventDate" class="form-control" data-format="MM/dd/yyyy" placeholder="mm/dd/yy" required="" aria-required="true">
+														<span class="add-on date input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+													</div>
 												</div>
 											</div>
 										</div>
-										
-										<div class="checkbox-group">
-											<label for="ctl00_mainContent_ctl02_ctl00_participation" id="ctl00_mainContent_ctl02_ctl00_label21">Requested participation</label>
-											<table id="ctl00_mainContent_ctl02_ctl00_participation">
-												<tbody><tr>
-													<td><input id="ctl00_mainContent_ctl02_ctl00_participation_0" type="checkbox" name="ctl00$mainContent$ctl02$ctl00$participation$0" value="Police (Police car, K-9/officers)"><label for="ctl00_mainContent_ctl02_ctl00_participation_0">Police (Police car, K-9/officers)</label></td>
-												</tr><tr>
-													<td><input id="ctl00_mainContent_ctl02_ctl00_participation_1" type="checkbox" name="ctl00$mainContent$ctl02$ctl00$participation$1" value="Bus"><label for="ctl00_mainContent_ctl02_ctl00_participation_1">Bus</label></td>
-												</tr>
-											</tbody></table>
-										</div>
-						
-										<div class="well">
-											<h3>Do you provide?</h3>
-												<div class="row">
-												<div class="col-md-6">
-													<div class="radio-group">
-														<label for="ctl00_mainContent_ctl02_ctl00_chairTable" id="ctl00_mainContent_ctl02_ctl00_Label22" class="required">Chair/Table provided</label>
-														<table id="ctl00_mainContent_ctl02_ctl00_chairTable" required="">
-															<tbody><tr>
-																<td><input id="ctl00_mainContent_ctl02_ctl00_chairTable_0" type="radio" name="ctl00$mainContent$ctl02$ctl00$chairTable" value="Yes"><label for="ctl00_mainContent_ctl02_ctl00_chairTable_0">Yes</label></td>
-															</tr><tr>
-																<td><input id="ctl00_mainContent_ctl02_ctl00_chairTable_1" type="radio" name="ctl00$mainContent$ctl02$ctl00$chairTable" value="No"><label for="ctl00_mainContent_ctl02_ctl00_chairTable_1">No</label></td>
-															</tr>
-														</tbody></table>
-													</div>
-													<div class="radio-group">
-														<label for="ctl00_mainContent_ctl02_ctl00_canopy" id="ctl00_mainContent_ctl02_ctl00_Label23" class="required">Canopy provided</label>
-														<table id="ctl00_mainContent_ctl02_ctl00_canopy" required="">
-															<tbody><tr>
-																<td><input id="ctl00_mainContent_ctl02_ctl00_canopy_0" type="radio" name="ctl00$mainContent$ctl02$ctl00$canopy" value="Yes"><label for="ctl00_mainContent_ctl02_ctl00_canopy_0">Yes</label></td>
-															</tr><tr>
-																<td><input id="ctl00_mainContent_ctl02_ctl00_canopy_1" type="radio" name="ctl00$mainContent$ctl02$ctl00$canopy" value="No"><label for="ctl00_mainContent_ctl02_ctl00_canopy_1">No</label></td>
-															</tr>
-														</tbody></table>
-													</div>
-													<div class="radio-group">
-														<label for="ctl00_mainContent_ctl02_ctl00_wifi" id="ctl00_mainContent_ctl02_ctl00_Label24" class="required">Wi-Fi available</label>
-														<table id="ctl00_mainContent_ctl02_ctl00_wifi" required="">
-															<tbody><tr>
-																<td><input id="ctl00_mainContent_ctl02_ctl00_wifi_0" type="radio" name="ctl00$mainContent$ctl02$ctl00$wifi" value="Yes"><label for="ctl00_mainContent_ctl02_ctl00_wifi_0">Yes</label></td>
-															</tr><tr>
-																<td><input id="ctl00_mainContent_ctl02_ctl00_wifi_1" type="radio" name="ctl00$mainContent$ctl02$ctl00$wifi" value="No"><label for="ctl00_mainContent_ctl02_ctl00_wifi_1">No</label></td>
-															</tr>
-														</tbody></table>
+					
+										<div class="row form-inline">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="ctl00_mainContent_ctl01_ctl00_startTime" id="ctl00_mainContent_ctl01_ctl00_label8" class="required" aria-required="true">Start time</label><br>
+													<div class="time-picker input-group">
+														<input name="ctl00$mainContent$ctl01$ctl00$startTime" type="text" id="ctl00_mainContent_ctl01_ctl00_startTime" class="form-control" data-format="HH:mm PP" placeholder="hh:mm" required="" aria-required="true">
+														<span class="add-on time input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
 													</div>
 												</div>
-						
-												<div class="col-md-6">
-													<div class="radio-group">
-														<label for="ctl00_mainContent_ctl02_ctl00_parking" id="ctl00_mainContent_ctl02_ctl00_Label25" class="required">Parking available</label>
-														<table id="ctl00_mainContent_ctl02_ctl00_parking" required="">
-															<tbody><tr>
-																<td><input id="ctl00_mainContent_ctl02_ctl00_parking_0" type="radio" name="ctl00$mainContent$ctl02$ctl00$parking" value="Yes"><label for="ctl00_mainContent_ctl02_ctl00_parking_0">Yes</label></td>
-															</tr><tr>
-																<td><input id="ctl00_mainContent_ctl02_ctl00_parking_1" type="radio" name="ctl00$mainContent$ctl02$ctl00$parking" value="No"><label for="ctl00_mainContent_ctl02_ctl00_parking_1">No</label></td>
-															</tr>
-														</tbody></table>	
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="ctl00_mainContent_ctl01_ctl00_endTime" id="ctl00_mainContent_ctl01_ctl00_label9" class="required" aria-required="true">End time</label><br>
+													<div class="time-picker input-group">
+														<input name="ctl00$mainContent$ctl01$ctl00$endTime" type="text" id="ctl00_mainContent_ctl01_ctl00_endTime" class="form-control" data-format="HH:mm PP" placeholder="hh:mm" required="" aria-required="true">
+														<span class="add-on time input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
 													</div>
-													<div class="radio-group">
-														<label for="ctl00_mainContent_ctl02_ctl00_setup" id="ctl00_mainContent_ctl02_ctl00_Label26" class="required">Location/Set up</label>
-														<table id="ctl00_mainContent_ctl02_ctl00_setup" required="">
-															<tbody><tr>
-																<td><input id="ctl00_mainContent_ctl02_ctl00_setup_0" type="radio" name="ctl00$mainContent$ctl02$ctl00$setup" value="Yes"><label for="ctl00_mainContent_ctl02_ctl00_setup_0">Yes</label></td>
-															</tr><tr>
-																<td><input id="ctl00_mainContent_ctl02_ctl00_setup_1" type="radio" name="ctl00$mainContent$ctl02$ctl00$setup" value="No"><label for="ctl00_mainContent_ctl02_ctl00_setup_1">No</label></td>
-															</tr>
-														</tbody></table>
+												</div>
+											</div>
+										</div>
+									</div>
+					
+									<div class="event two-day">
+										<div class="row form-inline">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="ctl00_mainContent_ctl01_ctl00_eventDateStart" id="ctl00_mainContent_ctl01_ctl00_label10" class="required" aria-required="true">Event start date</label><br>
+													<div class="date-picker input-group">
+														<input name="ctl00$mainContent$ctl01$ctl00$eventDateStart" type="text" id="ctl00_mainContent_ctl01_ctl00_eventDateStart" class="form-control" data-format="MM/dd/yyyy" placeholder="mm/dd/yy" required="" aria-required="true">
+														<span class="add-on date input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
 													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="ctl00_mainContent_ctl01_ctl00_eventDateEnd" id="ctl00_mainContent_ctl01_ctl00_label11" class="required" aria-required="true">Event end date</label><br>
+													<div class="date-picker input-group">
+														<input name="ctl00$mainContent$ctl01$ctl00$eventDateEnd" type="text" id="ctl00_mainContent_ctl01_ctl00_eventDateEnd" class="form-control" data-format="MM/dd/yyyy" placeholder="mm/dd/yy" required="" aria-required="true">
+														<span class="add-on date input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+													</div>
+												</div>
+											</div>
+										</div>
+					
+										<div class="row form-inline">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="ctl00_mainContent_ctl01_ctl00_day1StartTime" id="ctl00_mainContent_ctl01_ctl00_label12" class="required" aria-required="true">Day 1 start time</label><br>
+													<div class="time-picker input-group">
+														<input name="ctl00$mainContent$ctl01$ctl00$day1StartTime" type="text" id="ctl00_mainContent_ctl01_ctl00_day1StartTime" class="form-control" data-format="HH:mm PP" placeholder="hh:mm" required="" aria-required="true">
+														<span class="add-on time input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="ctl00_mainContent_ctl01_ctl00_day1EndTime" id="ctl00_mainContent_ctl01_ctl00_label13" class="required" aria-required="true">Day 1 end time</label><br>
+													<div class="time-picker input-group">
+														<input name="ctl00$mainContent$ctl01$ctl00$day1EndTime" type="text" id="ctl00_mainContent_ctl01_ctl00_day1EndTime" class="form-control" data-format="HH:mm PP" placeholder="hh:mm" required="" aria-required="true">
+														<span class="add-on time input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+													</div>
+												</div>
+											</div>
+										</div>
+					
+										<div class="row form-inline">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="ctl00_mainContent_ctl01_ctl00_day2StartTime" id="ctl00_mainContent_ctl01_ctl00_label14" class="required" aria-required="true">Day 2 start time</label><br>
+													<div class="time-picker input-group">
+														<input name="ctl00$mainContent$ctl01$ctl00$day2StartTime" type="text" id="ctl00_mainContent_ctl01_ctl00_day2StartTime" class="form-control" data-format="HH:mm PP" placeholder="hh:mm" required="" aria-required="true">
+														<span class="add-on time input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="ctl00_mainContent_ctl01_ctl00_day2EndTime" id="ctl00_mainContent_ctl01_ctl00_label15" class="required" aria-required="true">Day 2 end time</label><br>
+													<div class="time-picker input-group">
+														<input name="ctl00$mainContent$ctl01$ctl00$day2EndTime" type="text" id="ctl00_mainContent_ctl01_ctl00_day2EndTime" class="form-control" data-format="HH:mm PP" placeholder="hh:mm" required="" aria-required="true">
+														<span class="add-on time input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+					
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl01_ctl00_location" id="ctl00_mainContent_ctl01_ctl00_label16" class="required" aria-required="true">Event location</label>
+										<input name="ctl00$mainContent$ctl01$ctl00$location" type="text" id="ctl00_mainContent_ctl01_ctl00_location" class="form-control" placeholder="Location" required="" aria-required="true">
+									</div>
+								
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl01_ctl00_estAttendance" id="ctl00_mainContent_ctl01_ctl00_label17" class="required" aria-required="true">Estimated attendance</label>
+										<input name="ctl00$mainContent$ctl01$ctl00$estAttendance" type="text" id="ctl00_mainContent_ctl01_ctl00_estAttendance" class="form-control" placeholder="Number" required="" aria-required="true">
+									</div>
+								
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl01_ctl00_purpose" id="ctl00_mainContent_ctl01_ctl00_label18" class="required" aria-required="true">Purpose of event</label>
+										<input name="ctl00$mainContent$ctl01$ctl00$purpose" type="text" id="ctl00_mainContent_ctl01_ctl00_purpose" class="form-control" placeholder="State purpose" required="" aria-required="true">
+									</div>
+								
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl01_ctl00_cost" id="ctl00_mainContent_ctl01_ctl00_label19" class="required" aria-required="true">Event cost/fee</label>
+										<input name="ctl00$mainContent$ctl01$ctl00$cost" type="text" id="ctl00_mainContent_ctl01_ctl00_cost" class="form-control" placeholder="Dollar amount" required="" aria-required="true">
+									</div>
+								</div>
+					
+								<div class="col-md-6">
+									<h2>Event Type</h2>
+									<div class="row">
+										<div class="col-md-8">
+											<div class="form-group">
+												<label for="ctl00_mainContent_ctl01_ctl00_type" id="ctl00_mainContent_ctl01_ctl00_label20" class="required" aria-required="true">Type of event</label><br>
+												<select name="ctl00$mainContent$ctl01$ctl00$type" id="ctl00_mainContent_ctl01_ctl00_type" required="" aria-required="true">
+													<option value="">Select one...</option>
+													<option value="Community Event">Community Event</option>
+													<option value="Festival/Parade">Festival/Parade</option>
+													<option value="Employment Fair">Employment Fair</option>
+													<option value="Commuter/Transportation Fair">Commuter/Transportation Fair</option>
+													<option value="Resource Health Fair">Resource Health Fair</option>
+													<option value="Environment Fair">Environment Fair</option>
+													<option value="Transit Assistance Program (TAP) Sign-up">Transit Assistance Program (TAP) Sign-up</option>
+																		
+												</select>
+																	</div>
+																</div>
+															</div>
+															
+															<div class="checkbox-group">
+																<label for="ctl00_mainContent_ctl01_ctl00_participation" id="ctl00_mainContent_ctl01_ctl00_label21">Requested participation</label>
+																<table id="ctl00_mainContent_ctl01_ctl00_participation">
+													<tbody><tr>
+														<td><input id="ctl00_mainContent_ctl01_ctl00_participation_0" type="checkbox" name="ctl00$mainContent$ctl01$ctl00$participation$0" value="Police (Police car, K-9/officers)"><label for="ctl00_mainContent_ctl01_ctl00_participation_0">Police (Police car, K-9/officers)</label></td>
+													</tr><tr>
+														<td><input id="ctl00_mainContent_ctl01_ctl00_participation_1" type="checkbox" name="ctl00$mainContent$ctl01$ctl00$participation$1" value="Bus"><label for="ctl00_mainContent_ctl01_ctl00_participation_1">Bus</label></td>
+													</tr>
+												</tbody></table>
+															</div>
+														
+															<div class="well">
+																<h3>Do you provide?</h3>
+																	<div class="row">
+																	<div class="col-md-6">
+																		<div class="radio-group">
+																			<label for="ctl00_mainContent_ctl01_ctl00_chairTable" id="ctl00_mainContent_ctl01_ctl00_Label22" class="required" aria-required="true">Chair/Table provided</label>
+																			<table id="ctl00_mainContent_ctl01_ctl00_chairTable" required="" aria-required="true">
+													<tbody><tr>
+														<td><input id="ctl00_mainContent_ctl01_ctl00_chairTable_0" type="radio" name="ctl00$mainContent$ctl01$ctl00$chairTable" value="Yes"><label for="ctl00_mainContent_ctl01_ctl00_chairTable_0">Yes</label></td>
+													</tr><tr>
+														<td><input id="ctl00_mainContent_ctl01_ctl00_chairTable_1" type="radio" name="ctl00$mainContent$ctl01$ctl00$chairTable" value="No"><label for="ctl00_mainContent_ctl01_ctl00_chairTable_1">No</label></td>
+													</tr>
+												</tbody></table>
+																		</div>
+																		<div class="radio-group">
+																			<label for="ctl00_mainContent_ctl01_ctl00_canopy" id="ctl00_mainContent_ctl01_ctl00_Label23" class="required" aria-required="true">Canopy provided</label>
+																			<table id="ctl00_mainContent_ctl01_ctl00_canopy" required="" aria-required="true">
+													<tbody><tr>
+														<td><input id="ctl00_mainContent_ctl01_ctl00_canopy_0" type="radio" name="ctl00$mainContent$ctl01$ctl00$canopy" value="Yes"><label for="ctl00_mainContent_ctl01_ctl00_canopy_0">Yes</label></td>
+													</tr><tr>
+														<td><input id="ctl00_mainContent_ctl01_ctl00_canopy_1" type="radio" name="ctl00$mainContent$ctl01$ctl00$canopy" value="No"><label for="ctl00_mainContent_ctl01_ctl00_canopy_1">No</label></td>
+													</tr>
+												</tbody></table>
+																		</div>
+																		<div class="radio-group">
+																			<label for="ctl00_mainContent_ctl01_ctl00_wifi" id="ctl00_mainContent_ctl01_ctl00_Label24" class="required" aria-required="true">Wi-Fi available</label>
+																			<table id="ctl00_mainContent_ctl01_ctl00_wifi" required="" aria-required="true">
+													<tbody><tr>
+														<td><input id="ctl00_mainContent_ctl01_ctl00_wifi_0" type="radio" name="ctl00$mainContent$ctl01$ctl00$wifi" value="Yes"><label for="ctl00_mainContent_ctl01_ctl00_wifi_0">Yes</label></td>
+													</tr><tr>
+														<td><input id="ctl00_mainContent_ctl01_ctl00_wifi_1" type="radio" name="ctl00$mainContent$ctl01$ctl00$wifi" value="No"><label for="ctl00_mainContent_ctl01_ctl00_wifi_1">No</label></td>
+													</tr>
+												</tbody></table>
+																		</div>
+																	</div>
+																
+																	<div class="col-md-6">
+																		<div class="radio-group">
+																			<label for="ctl00_mainContent_ctl01_ctl00_parking" id="ctl00_mainContent_ctl01_ctl00_Label25" class="required" aria-required="true">Parking available</label>
+																			<table id="ctl00_mainContent_ctl01_ctl00_parking" required="" aria-required="true">
+													<tbody><tr>
+														<td><input id="ctl00_mainContent_ctl01_ctl00_parking_0" type="radio" name="ctl00$mainContent$ctl01$ctl00$parking" value="Yes"><label for="ctl00_mainContent_ctl01_ctl00_parking_0">Yes</label></td>
+													</tr><tr>
+														<td><input id="ctl00_mainContent_ctl01_ctl00_parking_1" type="radio" name="ctl00$mainContent$ctl01$ctl00$parking" value="No"><label for="ctl00_mainContent_ctl01_ctl00_parking_1">No</label></td>
+													</tr>
+												</tbody></table>
+																		</div>
+																		<div class="radio-group">
+																			<label for="ctl00_mainContent_ctl01_ctl00_setup" id="ctl00_mainContent_ctl01_ctl00_Label26" class="required" aria-required="true">Location/Set up</label>
+																			<table id="ctl00_mainContent_ctl01_ctl00_setup" required="" aria-required="true">
+													<tbody><tr>
+														<td><input id="ctl00_mainContent_ctl01_ctl00_setup_0" type="radio" name="ctl00$mainContent$ctl01$ctl00$setup" value="Yes"><label for="ctl00_mainContent_ctl01_ctl00_setup_0">Yes</label></td>
+													</tr><tr>
+														<td><input id="ctl00_mainContent_ctl01_ctl00_setup_1" type="radio" name="ctl00$mainContent$ctl01$ctl00$setup" value="No"><label for="ctl00_mainContent_ctl01_ctl00_setup_1">No</label></td>
+													</tr>
+												</tbody></table>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-						
-								<input type="submit" name="ctl00$mainContent$ctl02$ctl00$btnSend" value="Submit" id="ctl00_mainContent_ctl02_ctl00_btnSend" class="mt-button btn btn-outline-primary">
 							</div>
-						</section>
-					</div>
+
+							<hr />
+
+							<div class="text-center">
+								<input type="submit" name="ctl00$mainContent$ctl01$ctl00$btnSend" value="Submit" id="ctl00_mainContent_ctl01_ctl00_btnSend" class="btn btn-outline-primary">
+							</div>
+						</div>						
+					</section>
 				</div>
 			</div>
 		</section>
