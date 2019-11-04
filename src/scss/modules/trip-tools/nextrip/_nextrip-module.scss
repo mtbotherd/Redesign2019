@@ -7,11 +7,13 @@
     }
   }
   .or {
+    @include font-size(18);
     margin-bottom: 1rem;
 
     @include media-breakpoint-up(md) {
+      @include font-size(23);
       margin-bottom: 0;
-      padding-top: 1rem;
+      padding-top: 0.5rem;
     }
   }
 

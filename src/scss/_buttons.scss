@@ -79,6 +79,10 @@ input,
     top: 0.75rem;
     right: 1rem;
 
+    @include media-breakpoint-up(md) {
+      right: 13rem;
+    }
+
     @include media-breakpoint-up(lg) {
       top: 1rem;
       right: auto;
@@ -241,6 +245,11 @@ input,
     left: 0rem;
     width: 2.5rem;
     height: 2.5rem;
+
+    @include media-breakpoint-up(md) {
+      top: 0.25rem;
+      left: 12.5rem;
+    }
 
     @include media-breakpoint-up(lg) {
       left: 22.5rem;
