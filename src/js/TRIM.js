@@ -1395,6 +1395,7 @@ var TRIM = (function ($, window, document, undefined) {
                     drawRoutes([route], true);
                     drawRouteStops([route]);
                 }
+                toggleLayer('parkAndRides'); // Turn the P&R Layer off for the route link page
             } else {
                 if (stop) {
                     findStop(stop)
@@ -1405,6 +1406,7 @@ var TRIM = (function ($, window, document, undefined) {
                         }).fail(function () {
                             console.warn('Requested stop ' + stop + ' not found.');
                         });
+                    toggleLayer('parkAndRides'); // Turn the P&R Layer off for the route link page
                 } else {
                     if (x && y) {
                         //console.log("Coordinates: " + x + ", " + y);
@@ -1660,7 +1662,7 @@ var BOM = (function ($, window, document, undefined) {
         }
         var response = [], // the collected bus locations for all routes
             promises = []; // the deferred promises for AJAX calls to get each route
-        // Example request: https://svc.metrotransittest.org/nextripv2/vehicles/3
+        
         for (var r = 0, rl = routes.length; r < rl; r++) {
             var route = routes[r];
             var reqURL = _LOCATION_SERVICE + route;
@@ -1689,9 +1691,14 @@ var BOM = (function ($, window, document, undefined) {
                 _MAP.getLayer("BusesOnMap").clear();
                 var drawnCount = 0;
                 if (response.length > 0) {
+                    // first draw all the buses
+
                     $.each(response, function () {
                         var pnt;
                         if (_ROUTESFORSTOP) {
+                            // draw only buses for routes that match route AND terminal letter
+                            // direction filter removed Dec 2018 to show more buses - helps circulator and bus turnaround situations
+                            //testRouteTerm += this.Direction === 1 ? ":SB" : this.Direction === 2 ? ":EB" : this.Direction === 3 ? ":WB" : this.Direction === 4 ? ":NB" : "";
                             if (_ROUTESFORSTOP.indexOf(this.RouteId + this.Terminal) > -1 || _SHOWALLBUSES) {
                                 pnt = newPointFromLatLong(this.Latitude, this.Longitude);  // create a point from the bus location LAT/LONG
                                 drawVehicleOnMap(pnt, this.RouteId, this.Terminal, this.DirectionId, this.LocationTime, this.BlockNumber);
@@ -1703,6 +1710,7 @@ var BOM = (function ($, window, document, undefined) {
                             drawnCount++;
                         }
                     });
+                    // then determine a proper zoom level
                     var d = 0; // total drawn vehicle count
                     var e = _MAP.extent; // the current screen map extent
                     //if (_DEBUG) console.log("e.xmin = " + e.xmin + " e.ymin = " + e.ymin + " e.xmax = " + e.xmax + " e.ymax = " + e.ymax);
@@ -1894,8 +1902,11 @@ var BOM = (function ($, window, document, undefined) {
                     };
                     esriBasemaps.transitVector = {
                         title: "TransitVector",
-                        //baseMapLayers: [{ url: "https://www.arcgis.com/sharing/rest/content/items/878d0cd87fb64588952143e0db6abd72/resources/styles/root.json", type: "VectorTile" }]
+                        // First version of the basemap with some extra parking lots and labels
                         //baseMapLayers: [{ url: "https://metrocouncil.maps.arcgis.com/sharing/rest/content/items/8cbdf505cd3f4dc39c4e5da6f5b49d95/resources/styles/root.json", type: "VectorTile" }]
+                        //baseMapLayers: [{url:"/js/basemapStylev1.json", type: "VectorTile"}]
+                        // 2nd version of the basemap 
+                        //baseMapLayers: [{ url: "https://metrocouncil.maps.arcgis.com/sharing/rest/content/items/5c2ea8c24d7a46ed8c61cd058219504f/resources/styles/root.json", type: "VectorTile" }]
                         baseMapLayers: [{ url: "/js/basemapStylev2.json", type: "VectorTile" }]
                     };
                     _MAP = new Map(mapElementID, {
