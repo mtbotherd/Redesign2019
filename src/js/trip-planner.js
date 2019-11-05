@@ -153,9 +153,11 @@ var TripPlan = (function($, window, document, undefined) {
 	  tripMsg += ' for you';
 	  $("#trip-result-count").html(tripMsg);
 	  let tmsg = 'Trips shown are based on your selections and closest ';
-	  tmsg += plan.ArrDep === 1 ? 'departure to ' : 'arrival to ';
+	  //tmsg += plan.ArrDep === 1 ? 'departure to ' : 'arrival to ';
+	  tmsg += plan.ArrDep === 1 ? 'arrival time to ' : 'arrival to ';  // Text output change - Rich 11/5/19.
 	  tmsg += formatTimeMonthDay(plan.ItinDateTime);
 	  tmsg += '.';
+	  tmsg +=  ' Travel time estimates do not include walking time.';  // Added additional instruction to output text. - Rich 11/5/19
 	  $("#trip-result-msg").html(tmsg);
 		
 	  $('.tp-results').empty();
