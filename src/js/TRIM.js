@@ -836,11 +836,45 @@ var TRIM = (function ($, window, document, undefined) {
             });
     };
 
+    function formatPopupDepartures(/*string*/stop) {
+        $('#mapPopUpDepartures').empty();
+        $.get('https://svc.metrotransit.org/nextripv2/' + stop)
+        .done(function (result) {
+            if (result.Departures.length > 0) {
+                let departures = result.Departures.sort(function (a, b) {
+                    a = new Date(a.DepartureTime);
+                    b = new Date(b.DepartureTime);
+                    return a < b ? -1 : a > b ? 1 : 0;
+                });
+
+                for (let i=0,l=departures.length; i < l; i++) {
+                    let depart = departures[i];
+                    var departRow = $('<div/>', { class: 'list-group-item' }).appendTo($('#mapPopUpDepartures'));
+                    departRow.append($('<span/>', { class: 'route-number mr-2' }).text(depart.RouteId + depart.Terminal));
+                    departRow.append($('<span/>', { class: 'route-name' }).text(depart.Description));
+        
+                    var departTime = $('<span/>', { class: 'depart-time ml-auto' }).appendTo(departRow);
+                    if (depart.Actual === true) {
+                        departTime.append($('<img/>', { class: 'icon blink mr-1', src: '/img/svg/broadcast-red.svg' }));
+                    }
+                    departTime.append(depart.DepartureText);
+                    
+                };
+            } else {
+                $('#mapPopUpDepartures').html('<span style="font-size:larger">No departures available at this time</span>');
+            }
+        })
+        .fail(function () {
+            console.warn("Nextrip failed for stop " + stop);
+        });
+    }
+
     //@@@@@@@@@@@@@@@@@@@@
     //@@@  I N I T @@@@@@@
     //@@@@@@@@@@@@@@@@@@@@
     //@@@@@@@@@@@@@@@@@@@@
     var init = function (mapElementID) {
+        var nexTrip_INTERVAL = null;
         
         return $.Deferred(function (dfd) {
             // mapType property on the <div>
@@ -952,7 +986,7 @@ var TRIM = (function ($, window, document, undefined) {
                                 routestring += html;
                             }
                         } else {
-                            routestring = '<span style="font-size:large">No routes service this stop.</span>';
+                            routestring = '<span style="font-size:larger">No routes service this stop.</span>';
                         }
                         //console.log(routestring);
                         return routestring;
@@ -1038,43 +1072,13 @@ var TRIM = (function ($, window, document, undefined) {
                                 }
                                 stopGraphic.setSymbol(stopSymbol);
                                 MAP.getLayer("stops").add(stopGraphic);
-                                $('#mapPopUpDepartures').empty();
                                 $('#mapPopUpStopDescription').html(atts.site_on + ' & ' + atts.site_at);
                                 $('#mapPopUpRoutes').html(formatRouteList(atts.ROUTES));
-                                $.get('https://svc.metrotransit.org/nextripv2/' + atts.siteid)
-                                .done(function (result) {
-                                    if (result.Departures.length > 0) {
-                                        let departures = result.Departures.sort(function (a, b) {
-                                            a = new Date(a.DepartureTime);
-                                            b = new Date(b.DepartureTime);
-                                            return a < b ? -1 : a > b ? 1 : 0;
-                                        });
 
-                                        for (let i=0,l=departures.length; i < l; i++) {
-                                            let depart = departures[i];
-                                            var departRow = $('<div/>', { class: 'list-group-item' }).appendTo($('#mapPopUpDepartures'));
-                                            departRow.append($('<span/>', { class: 'route-number mr-2' }).text(depart.RouteId + depart.Terminal));
-                                            departRow.append($('<span/>', { class: 'route-name' }).text(depart.Description));
-                                
-                                            var departTime = $('<span/>', { class: 'depart-time ml-auto' }).appendTo(departRow);
-                                            if (depart.Actual === true) {
-                                                departTime.append($('<img/>', { class: 'icon blink mr-1', src: '/img/svg/broadcast-red.svg' }));
-                                            }
-                                            departTime.append(depart.DepartureText);
-                                            
-                                        };
-                                    } else {
-                                        $('#mapPopUpDepartures').html('<span style="font-size:large">No departures available at this time</span>');
-                                    }
-                                })
-                                .fail(function () {
-                                    console.warn("Nextrip failed for stop " + atts.siteid);
-                                });
-
-                                //MAP.infoWindow.setFeatures([feature]); //adds a Zoom-To Action
-
-
-
+                                formatPopupDepartures(atts.siteid);
+                                nexTrip_INTERVAL = setInterval(function() {
+                                    formatPopupDepartures(atts.siteid);
+                                }, 30000);
                             }
                         });
                     };
@@ -1175,6 +1179,7 @@ var TRIM = (function ($, window, document, undefined) {
                     MAP.on("click", function (evt) {
                         if (mapType === "full") {
                             if (MAP.infoWindow.isShowing) {
+                                clearInterval(nexTrip_INTERVAL);
                                 MAP.infoWindow.hide();
                                 // clear these layers for any displays by passing nothing in the parameter
                                 // unless we're showing a particular route on the TRIM map

@@ -19,13 +19,8 @@ var TripPlan = (function($, window, document, undefined) {
 		  $("#spinner").removeClass("d-none");
 		  return $.Deferred(function (dfd) { 
 			  TripPlanJSON = {}; // clear the old one
-			  console.log(
-				  "Lets go tripping from " +
-				  tripProperties.fromLocation.address +
-				  " to " +
-				  tripProperties.toLocation.address
-		);
-		let datetime = new Date(tripProperties.datetime);
+			  //console.log("Lets go tripping from " + tripProperties.fromLocation.address + " to " +  tripProperties.toLocation.address);
+			  let datetime = new Date(tripProperties.datetime);
 			  // ATIS_ID have format "ENT;35;MPL;AWIS;P;N" - we want the second value converted to a number (i.e. 35)
 			  // NOTE: the order of location.y then location.x is intentional 
 			  let fromLoc =
@@ -36,8 +31,8 @@ var TripPlan = (function($, window, document, undefined) {
 				  + tripProperties.fromLocation.location.x
 				  + "|";   
 			  let fromATIS = '0';
-			  if (tripProperties.fromLocation.attributes.ATIS_ID.indexOf(';')>0) {
-			  fromATIS += tripProperties.fromLocation.attributes.ATIS_ID.split(';')[1];
+			  if (tripProperties.fromLocation.attributes.ATIS_ID.indexOf(';') > -1) {
+			    fromATIS += tripProperties.fromLocation.attributes.ATIS_ID.split(';')[1];
 			  }
 			  fromLoc += fromATIS;
 			  let toLoc =
@@ -48,8 +43,8 @@ var TripPlan = (function($, window, document, undefined) {
 				  + tripProperties.toLocation.location.x
 				  + "|";
 			  let toATIS = '0';
-			  if (tripProperties.toLocation.attributes.ATIS_ID.indexOf(';')>0) {
-			  toATIS += tripProperties.toLocation.attributes.ATIS_ID.split(';')[1];
+			  if (tripProperties.toLocation.attributes.ATIS_ID.indexOf(';') > -1) {
+			    toATIS += tripProperties.toLocation.attributes.ATIS_ID.split(';')[1];
 			  }
 			  toLoc += toATIS;
 			  let tripData = {
@@ -204,8 +199,7 @@ var TripPlan = (function($, window, document, undefined) {
 			  <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
 				<div class="d-table-cell leg-mode bus">
 					<div class="d-table-cell leg-mode-icon">
-					<img class="icon"
-						src="/img/svg/circle-gray-outline-bus.svg">
+					<img class="icon" src="/img/svg/circle-gray-outline-bus.svg" alt="Bus">
 					</div>
 					<p>
 					${checkIfLate(li.Adherance)}
@@ -227,7 +221,7 @@ var TripPlan = (function($, window, document, undefined) {
 				<div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
 				<div class="d-table-cell leg-mode metro-${li.PublicRoute.split(" ", 1)}">
 				  <div class="d-table-cell leg-mode-icon">
-					${li.PublicRoute==="Green Line"?'<img class="icon" src="/img/svg/circle-green-outline-lrt.svg"/>':'<img class="icon" src="/img/svg/circle-blue-outline-lrt.svg"/>'}
+					${li.PublicRoute==="Green Line"?'<img class="icon" src="/img/svg/circle-green-outline-lrt.svg" alt="Green Line"/>':'<img class="icon" src="/img/svg/circle-blue-outline-lrt.svg" alt="Blue Line"/>'}
 				  </div>
 				  <p>
 					<strong>${li.Headsign}</strong>
@@ -249,7 +243,7 @@ var TripPlan = (function($, window, document, undefined) {
 			  <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
 			  <div class="d-table-cell leg-mode bus">
 				<div class="d-table-cell leg-mode-icon">
-				<img class="icon" src="/img/svg/circle-gray-outline-train.svg">
+				<img class="icon" src="/img/svg/circle-gray-outline-train.svg" alt="Train">
 				</div>
 				<p>
 				${checkIfLate(li.Adherance)}
@@ -287,7 +281,7 @@ var TripPlan = (function($, window, document, undefined) {
 				<div class="d-table-cell leg-mode walk">
 				  <div class="d-table-cell leg-mode-icon">
 					<img class="icon"
-					  src="/img/svg/alerts-color.svg">
+					  src="/img/svg/alerts-color.svg" alt="Alert">
 				  </div>
 				  <p>${li.WalkTextOverview}</p>
 				</div>
@@ -296,10 +290,9 @@ var TripPlan = (function($, window, document, undefined) {
 			  default:
                 }
 		});
-		// Add a line at the bottom of the plan text to show arriving at the ultimate location
+		// Add a line at the bottom of the plan to show time arriving at the ultimate location
 		try {
 			if (tpWalkTime > 0) {
-				console.log("Add walk minutes ");
 				tpArriveTime = addMinutes(tpArriveTime, tpWalkTime);
 			}
 		}
@@ -310,7 +303,7 @@ var TripPlan = (function($, window, document, undefined) {
 				<div class="d-table-cell leg-time">${returnTime(tpArriveTime)}</div>
 				<div class="d-table-cell leg-mode arrive">
 					<div class="d-table-cell leg-mode-icon">
-						<img class="icon circle-red-outline-pin" src="/img/svg/circle-red-outline-pin.svg">
+						<img class="icon circle-red-outline-pin" src="/img/svg/circle-red-outline-pin.svg" alt="Marker">
 					</div>
 					<p>Arrive at ${plan.ToAddress.Address}</p>
 				</div>

@@ -88,17 +88,31 @@
 
 #trimPopUp .nav-tabs {
   margin-bottom: 0;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: .7rem;
+  padding-left: rem;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 0;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
 }
 
 .esriPopup .stop-description {
   background-color: #0097d0;
-  font-size: 1.2em;
+  font-size: 1em;
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   padding: 3px;
   white-space: nowrap;
+
+  @include media-breakpoint-up(md) {
+    font-size: 1.1em;
+    margin-bottom: 1rem;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 1.2em;
+  }
 }
 
 .esriPopup .route-list {
@@ -116,6 +130,36 @@
   overflow: hidden;
   font-size: 1em;
   background-color: $white;
+  height: 200px;
+
+  @include media-breakpoint-up(lg) {
+    height: 300px;
+  }
+}
+
+.esriPopup .tab-pane {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 130px;
+
+  @include media-breakpoint-up(lg) {
+    max-height: 210px;
+  }
+}
+
+.esriPopup .sizer {
+  width: 270px;
+
+  @include media-breakpoint-up(md) {
+    width: 320px;
+  }
+  @include media-breakpoint-up(lg) {
+    width: 370px;
+  }
+}
+.esriPopup .container {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .esriPopup .actionsPane {
@@ -136,14 +180,15 @@
   text-decoration: none;
 }
 
-.esriPopup .route-list input {
-  margin: 3px;
+.esriPopup .route-list {
+  font-size: 1em;
+  @include media-breakpoint-up(md) {
+    font-size: 1.1em;
+  }
 }
 
-.esriPopup .tab-pane {
-  overflow-y: auto;
-  overflow-x: hidden;
-  max-height: 230px;
+.esriPopup .route-list input {
+  margin: 3px;
 }
 
 .esriPopup .stop-departures {
@@ -160,23 +205,30 @@
 #mapPopUpTabNexTrip {
   font-size: 1em;
   background-color: $white !important;
+
+  @include media-breakpoint-up(md) {
+    font-size: 1.1em;
+  }
 }
 #mapPopUpTabNexTrip .route-number {
   font-weight: 700;
-  width: 25px;
+  width: 30px;
 }
 #mapPopUpTabNexTrip .route-name {
-  width: 135px;
+  min-width: 70px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 
-  @include media-breakpoint-up(xl) {
-    width: 185px;
+  @include media-breakpoint-up(md) {
+    width: 180px;
+  }
+  @include media-breakpoint-up(lg) {
+    width: 230px;
   }
 }
 #mapPopUpTabNexTrip .depart-time {
-  font-weight: 700;
+  font-weight: 600;
 }
 #mapPopUpTabNexTrip .list-group-item {
   display: -webkit-box;
@@ -193,27 +245,4 @@
 #mapPopUpDepartures .icon {
   width: 0.5rem !important;
   height: 0.5rem !important;
-}
-
-.esriPopup .sizer {
-  width: 250px;
-}
-.esriPopup .container {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-@media (min-width: 1024px) {
-  .esriPopup .sizer {
-    width: 320px;
-  }
-  #mapPopUpTabNexTrip {
-    font-size: 1.1em;
-  }
-  .esriPopup .stop-description {
-    font-size: 1.2em;
-  }
-  //   #mapPopUpTabNexTrip .route-name {
-  //     max-width: 190;
-  //   }
 }

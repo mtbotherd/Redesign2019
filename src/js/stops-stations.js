@@ -31,7 +31,7 @@ var StopServices = (function($,  window, document, undefined) {
             + findLoc.location.x
             + "|";
             let fromATIS = '0';
-			if (findLoc.attributes.ATIS_ID.indexOf(';')>0) {
+			if (findLoc.attributes.ATIS_ID.indexOf(';') > -1) {
 			    fromATIS += findLoc.attributes.ATIS_ID.split(';')[1];
             }
             address += fromATIS;
