@@ -8469,6 +8469,10 @@ abbr {
   @media (min-width: 1200px) {
     #homeContent {
       top: -5.14rem; } }
+  @media (min-width: 768px) {
+    #homeContent .container {
+      padding-right: 0;
+      padding-left: 0; } }
   #homeContent .section {
     padding-top: 30px;
     padding-bottom: 30px; }
@@ -9532,6 +9536,9 @@ input:focus,
     position: absolute;
     top: 0.75rem;
     right: 1rem; }
+    @media (min-width: 768px) {
+      .cta-link-white .icon {
+        right: 13rem; } }
     @media (min-width: 992px) {
       .cta-link-white .icon {
         top: 1rem;
@@ -9654,6 +9661,10 @@ input:focus,
     left: 0rem;
     width: 2.5rem;
     height: 2.5rem; }
+    @media (min-width: 768px) {
+      .button-container-icon-right .circle-blue-outline-question {
+        top: 0.25rem;
+        left: 12.5rem; } }
     @media (min-width: 992px) {
       .button-container-icon-right .circle-blue-outline-question {
         left: 22.5rem;
@@ -10233,6 +10244,9 @@ select.navigator {
     background-color: #fff;
     border: 1px solid #e3e3e0;
     border-left: none; }
+    @media (min-width: 768px) {
+      .auto-complete-search-box .btn-primary {
+        padding: 0.25rem 0.75rem; } }
     @media (min-width: 992px) {
       .auto-complete-search-box .btn-primary .icon {
         width: 24px;
@@ -10852,11 +10866,15 @@ select.navigator {
       margin-bottom: 60px !important; } }
 
 #nextripModule .or {
+  font-size: 18px !important;
+  font-size: 1.125rem !important;
   margin-bottom: 1rem; }
   @media (min-width: 768px) {
     #nextripModule .or {
+      font-size: 23px !important;
+      font-size: 1.4375rem !important;
       margin-bottom: 0;
-      padding-top: 1rem; } }
+      padding-top: 0.5rem; } }
 
 #nextripModule .input-group-append .btn-primary {
   background-color: #fff;
@@ -10933,6 +10951,9 @@ select.navigator {
   @media (min-width: 992px) {
     #alertsModule h2 {
       margin-bottom: 60px !important; } }
+
+#alertsModule .service-alerts:last-child {
+  margin-bottom: 0; }
 
 #alertsModule .service-alerts .icon {
   margin-right: 0.5rem; }

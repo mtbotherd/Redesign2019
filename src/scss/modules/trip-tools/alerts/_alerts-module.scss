@@ -8,6 +8,9 @@
   }
 
   .service-alerts {
+    &:last-child {
+      margin-bottom: 0;
+    }
     .icon {
       margin-right: 0.5rem;
     }
