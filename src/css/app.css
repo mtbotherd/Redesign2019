@@ -7604,10 +7604,24 @@ a.skip-to-content {
     z-index: 10; }
 
 .alert-topmargin {
-  padding: 1rem;
+  padding: 15px;
   margin-bottom: 0; }
+  .alert-topmargin .container {
+    padding: 0;
+    position: relative; }
+    .alert-topmargin .container .gray-circle-info {
+      display: none; }
+    .alert-topmargin .container p {
+      display: block;
+      padding-right: 30px;
+      margin-bottom: 0; }
+    .alert-topmargin .container button.close {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      padding: 15px; }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .container {
     padding-right: 0;
     padding-left: 0; } }
@@ -7998,86 +8012,87 @@ abbr {
 .trip-planner-bg {
   background-image: url("../../../../../img/trip-planner.jpg"); }
 
-#header .navbar .navbar-nav {
-  border-top: 1px solid #e3e3e0; }
-  #header .navbar .navbar-nav .nav-item {
-    border-bottom: 1px solid #e3e3e0; }
-    #header .navbar .navbar-nav .nav-item .nav-link:link {
-      font-size: 18px !important;
-      font-size: 1.125rem !important;
-      padding-right: 1rem;
-      padding-left: 1rem; }
-    #header .navbar .navbar-nav .nav-item .dropdown-toggle::after {
-      position: relative;
-      top: 0.25rem;
-      content: "";
-      background-image: url("../../../../../img/svg/chevron-down-gray.svg");
-      background-repeat: no-repeat;
-      background-size: 0.75rem;
-      width: 0.75rem;
-      height: 0.75rem;
-      border: none;
-      -webkit-transform: rotate(0deg);
-              transform: rotate(0deg);
-      -webkit-transition: 0.3s -webkit-transform ease-in-out;
-      transition: 0.3s -webkit-transform ease-in-out;
-      transition: 0.3s transform ease-in-out;
-      transition: 0.3s transform ease-in-out, 0.3s -webkit-transform ease-in-out; }
-    #header .navbar .navbar-nav .nav-item.dropdown .dropdown-menu {
-      border: none; }
-      #header .navbar .navbar-nav .nav-item.dropdown .dropdown-menu .dropdown-item {
+#header .navbar {
+  padding: 0.5rem 15px; }
+  #header .navbar .navbar-nav {
+    border-top: 1px solid #e3e3e0; }
+    #header .navbar .navbar-nav .nav-item {
+      border-bottom: 1px solid #e3e3e0; }
+      #header .navbar .navbar-nav .nav-item .nav-link:link {
         font-size: 18px !important;
         font-size: 1.125rem !important;
-        color: #0097d0;
-        padding: 0.25rem 2rem; }
-    #header .navbar .navbar-nav .nav-item.show .nav-link::after {
-      -webkit-transform: rotate(-180deg);
-              transform: rotate(-180deg);
-      -webkit-transition: 0.3s -webkit-transform ease-in-out;
-      transition: 0.3s -webkit-transform ease-in-out;
-      transition: 0.3s transform ease-in-out;
-      transition: 0.3s transform ease-in-out, 0.3s -webkit-transform ease-in-out; }
-
-#header .navbar .utilities {
-  border-top: none; }
-  #header .navbar .utilities .nav-item .nav-link.store-icon::before {
-    display: block;
-    content: "";
-    background-image: url("../../../../../img/svg/shopping-cart-green.svg");
-    background-repeat: no-repeat;
-    background-size: 1.5rem;
-    width: 1.5rem;
-    height: 1.5rem; }
-  #header .navbar .utilities .nav-item .dropdown-toggle.search-icon::before {
-    display: block;
-    content: "";
-    background-image: url("../../../../../img/svg/search-gray.svg");
-    background-repeat: no-repeat;
-    background-size: 1.5rem;
-    width: 1.5rem;
-    height: 1.5rem; }
-  #header .navbar .utilities .nav-item .dropdown-toggle.avatar-icon::before {
-    display: block;
-    content: "";
-    background-image: url("../../../../../img/svg/avatar-gray.svg");
-    background-repeat: no-repeat;
-    background-size: 1.5rem;
-    width: 1.5rem;
-    height: 1.5rem; }
-  #header .navbar .utilities .nav-item .dropdown-toggle::after {
-    display: none; }
-  #header .navbar .utilities .nav-item .search-dropdown-menu {
-    padding-right: 15px;
-    padding-left: 15px; }
-    #header .navbar .utilities .nav-item .search-dropdown-menu .input-group {
-      width: 313px; }
-      #header .navbar .utilities .nav-item .search-dropdown-menu .input-group .form-control {
-        border-right: none; }
-      #header .navbar .utilities .nav-item .search-dropdown-menu .input-group .input-group-append .btn {
-        background-color: #fff;
-        border-color: #e3e3e0;
-        border-left: none;
-        padding: 0 0.75rem; }
+        padding-right: 1rem;
+        padding-left: 1rem; }
+      #header .navbar .navbar-nav .nav-item .dropdown-toggle::after {
+        position: relative;
+        top: 0.25rem;
+        content: "";
+        background-image: url("../../../../../img/svg/chevron-down-gray.svg");
+        background-repeat: no-repeat;
+        background-size: 0.75rem;
+        width: 0.75rem;
+        height: 0.75rem;
+        border: none;
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+        -webkit-transition: 0.3s -webkit-transform ease-in-out;
+        transition: 0.3s -webkit-transform ease-in-out;
+        transition: 0.3s transform ease-in-out;
+        transition: 0.3s transform ease-in-out, 0.3s -webkit-transform ease-in-out; }
+      #header .navbar .navbar-nav .nav-item.dropdown .dropdown-menu {
+        border: none; }
+        #header .navbar .navbar-nav .nav-item.dropdown .dropdown-menu .dropdown-item {
+          font-size: 18px !important;
+          font-size: 1.125rem !important;
+          color: #0097d0;
+          padding: 0.25rem 2rem; }
+      #header .navbar .navbar-nav .nav-item.show .nav-link::after {
+        -webkit-transform: rotate(-180deg);
+                transform: rotate(-180deg);
+        -webkit-transition: 0.3s -webkit-transform ease-in-out;
+        transition: 0.3s -webkit-transform ease-in-out;
+        transition: 0.3s transform ease-in-out;
+        transition: 0.3s transform ease-in-out, 0.3s -webkit-transform ease-in-out; }
+  #header .navbar .utilities {
+    border-top: none; }
+    #header .navbar .utilities .nav-item .nav-link.store-icon::before {
+      display: block;
+      content: "";
+      background-image: url("../../../../../img/svg/shopping-cart-green.svg");
+      background-repeat: no-repeat;
+      background-size: 1.5rem;
+      width: 1.5rem;
+      height: 1.5rem; }
+    #header .navbar .utilities .nav-item .dropdown-toggle.search-icon::before {
+      display: block;
+      content: "";
+      background-image: url("../../../../../img/svg/search-gray.svg");
+      background-repeat: no-repeat;
+      background-size: 1.5rem;
+      width: 1.5rem;
+      height: 1.5rem; }
+    #header .navbar .utilities .nav-item .dropdown-toggle.avatar-icon::before {
+      display: block;
+      content: "";
+      background-image: url("../../../../../img/svg/avatar-gray.svg");
+      background-repeat: no-repeat;
+      background-size: 1.5rem;
+      width: 1.5rem;
+      height: 1.5rem; }
+    #header .navbar .utilities .nav-item .dropdown-toggle::after {
+      display: none; }
+    #header .navbar .utilities .nav-item .search-dropdown-menu {
+      padding-right: 15px;
+      padding-left: 15px; }
+      #header .navbar .utilities .nav-item .search-dropdown-menu .input-group {
+        width: 313px; }
+        #header .navbar .utilities .nav-item .search-dropdown-menu .input-group .form-control {
+          border-right: none; }
+        #header .navbar .utilities .nav-item .search-dropdown-menu .input-group .input-group-append .btn {
+          background-color: #fff;
+          border-color: #e3e3e0;
+          border-left: none;
+          padding: 0 0.75rem; }
 
 @media (min-width: 1200px) {
   #header .navbar {
@@ -8327,16 +8342,28 @@ abbr {
 
 #trimPopUp .nav-tabs {
   margin-bottom: 0;
-  padding-right: 1rem;
-  padding-left: 1rem; }
+  padding-right: .7rem;
+  padding-left: rem; }
+  @media (min-width: 768px) {
+    #trimPopUp .nav-tabs {
+      margin-bottom: 0;
+      padding-right: 1rem;
+      padding-left: 1rem; } }
 
 .esriPopup .stop-description {
   background-color: #0097d0;
-  font-size: 1.2em;
+  font-size: 1em;
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   padding: 3px;
   white-space: nowrap; }
+  @media (min-width: 768px) {
+    .esriPopup .stop-description {
+      font-size: 1.1em;
+      margin-bottom: 1rem; } }
+  @media (min-width: 992px) {
+    .esriPopup .stop-description {
+      font-size: 1.2em; } }
 
 .esriPopup .route-list {
   background-color: #fff;
@@ -8350,7 +8377,32 @@ abbr {
 .esriPopup .contentPane {
   overflow: hidden;
   font-size: 1em;
-  background-color: #fff; }
+  background-color: #fff;
+  height: 200px; }
+  @media (min-width: 992px) {
+    .esriPopup .contentPane {
+      height: 300px; } }
+
+.esriPopup .tab-pane {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 130px; }
+  @media (min-width: 992px) {
+    .esriPopup .tab-pane {
+      max-height: 210px; } }
+
+.esriPopup .sizer {
+  width: 270px; }
+  @media (min-width: 768px) {
+    .esriPopup .sizer {
+      width: 320px; } }
+  @media (min-width: 992px) {
+    .esriPopup .sizer {
+      width: 370px; } }
+
+.esriPopup .container {
+  padding-left: 0;
+  padding-right: 0; }
 
 .esriPopup .actionsPane {
   background-color: #fff; }
@@ -8366,13 +8418,14 @@ abbr {
 .esriPopup a[href] {
   text-decoration: none; }
 
+.esriPopup .route-list {
+  font-size: 1em; }
+  @media (min-width: 768px) {
+    .esriPopup .route-list {
+      font-size: 1.1em; } }
+
 .esriPopup .route-list input {
   margin: 3px; }
-
-.esriPopup .tab-pane {
-  overflow-y: auto;
-  overflow-x: hidden;
-  max-height: 230px; }
 
 .esriPopup .stop-departures {
   background-color: #fff; }
@@ -8384,22 +8437,28 @@ abbr {
 #mapPopUpTabNexTrip {
   font-size: 1em;
   background-color: #fff !important; }
+  @media (min-width: 768px) {
+    #mapPopUpTabNexTrip {
+      font-size: 1.1em; } }
 
 #mapPopUpTabNexTrip .route-number {
   font-weight: 700;
-  width: 25px; }
+  width: 30px; }
 
 #mapPopUpTabNexTrip .route-name {
-  width: 135px;
+  min-width: 70px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     #mapPopUpTabNexTrip .route-name {
-      width: 185px; } }
+      width: 180px; } }
+  @media (min-width: 992px) {
+    #mapPopUpTabNexTrip .route-name {
+      width: 230px; } }
 
 #mapPopUpTabNexTrip .depart-time {
-  font-weight: 700; }
+  font-weight: 600; }
 
 #mapPopUpTabNexTrip .list-group-item {
   display: -webkit-box;
@@ -8415,21 +8474,6 @@ abbr {
 #mapPopUpDepartures .icon {
   width: 0.5rem !important;
   height: 0.5rem !important; }
-
-.esriPopup .sizer {
-  width: 250px; }
-
-.esriPopup .container {
-  padding-left: 0;
-  padding-right: 0; }
-
-@media (min-width: 1024px) {
-  .esriPopup .sizer {
-    width: 320px; }
-  #mapPopUpTabNexTrip {
-    font-size: 1.1em; }
-  .esriPopup .stop-description {
-    font-size: 1.2em; } }
 
 .page-content h2.sr-only {
   margin-bottom: 0; }
