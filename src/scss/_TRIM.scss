@@ -130,10 +130,10 @@
   overflow: hidden;
   font-size: 1em;
   background-color: $white;
-  height: 200px;
+  max-height: 200px;
 
   @include media-breakpoint-up(lg) {
-    height: 300px;
+    max-height: 300px;
   }
 }
 
@@ -148,7 +148,7 @@
 }
 
 .esriPopup .sizer {
-  width: 270px;
+  width: 200px;
 
   @include media-breakpoint-up(md) {
     width: 320px;
@@ -215,17 +215,20 @@
   width: 30px;
 }
 #mapPopUpTabNexTrip .route-name {
-  min-width: 70px;
+  width:65px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 
   @include media-breakpoint-up(md) {
-    width: 180px;
+    min-width: 180px;
   }
   @include media-breakpoint-up(lg) {
-    width: 230px;
+    min-width: 230px;
   }
+}
+.esriPopupMaximized .route-name {
+  width: auto !important;
 }
 #mapPopUpTabNexTrip .depart-time {
   font-weight: 600;

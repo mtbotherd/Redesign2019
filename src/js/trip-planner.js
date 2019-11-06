@@ -210,8 +210,8 @@ var TripPlan = (function($, window, document, undefined) {
 					</a>
 					</p>
 					<p>
-					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at ${returnTime(li.OnTime)}</br>
-					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at ${returnTime(li.OffTime)}
+					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at <strong> ${returnTime(li.OnTime)} </strong></br>
+					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at <strong> ${returnTime(li.OffTime)} </strong>
 					</p>
 				</div>
 				</div>`);
@@ -232,8 +232,8 @@ var TripPlan = (function($, window, document, undefined) {
 					</a>
 				  </p>
 				  <p>
-					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at ${returnTime(li.OnTime)}</br>
-					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at ${returnTime(li.OffTime)}
+					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at <strong> ${returnTime(li.OnTime)} </strong></br>
+					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at <strong> ${returnTime(li.OffTime)} </strong>
 				  </p>
 				</div>
 				 </div>`);
@@ -255,8 +255,8 @@ var TripPlan = (function($, window, document, undefined) {
 				  </a>
 				</p>
 				<p>
-				  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at ${returnTime(li.OnTime)}</br>
-				  <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at ${returnTime(li.OffTime)}
+				  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at <strong>${returnTime(li.OnTime)}</strong></br>
+				  <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at <strong>${returnTime(li.OffTime)}</strong>
 				</p>
 			  </div>
 				</div>`);
@@ -488,10 +488,10 @@ var TripPlan = (function($, window, document, undefined) {
   })(jQuery, window, document);
 
   $(function () {
-		if ($('#planMyTrip').length) {
-			var inputs = $(".from-location, .to-location"),
-			tmp,
-			loctmp;
+	if ($('#planMyTrip').length) {
+		var inputs = $(".from-location, .to-location"),
+		tmp,
+		loctmp;
 		
 		$(".location-toggler").click(function() {
 			tmp = inputs[0].value;
