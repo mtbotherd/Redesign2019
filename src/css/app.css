@@ -8378,10 +8378,10 @@ abbr {
   overflow: hidden;
   font-size: 1em;
   background-color: #fff;
-  height: 200px; }
+  max-height: 200px; }
   @media (min-width: 992px) {
     .esriPopup .contentPane {
-      height: 300px; } }
+      max-height: 300px; } }
 
 .esriPopup .tab-pane {
   overflow-y: auto;
@@ -8392,7 +8392,7 @@ abbr {
       max-height: 210px; } }
 
 .esriPopup .sizer {
-  width: 270px; }
+  width: 200px; }
   @media (min-width: 768px) {
     .esriPopup .sizer {
       width: 320px; } }
@@ -8446,16 +8446,19 @@ abbr {
   width: 30px; }
 
 #mapPopUpTabNexTrip .route-name {
-  min-width: 70px;
+  width: 65px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
   @media (min-width: 768px) {
     #mapPopUpTabNexTrip .route-name {
-      width: 180px; } }
+      min-width: 180px; } }
   @media (min-width: 992px) {
     #mapPopUpTabNexTrip .route-name {
-      width: 230px; } }
+      min-width: 230px; } }
+
+.esriPopupMaximized .route-name {
+  width: auto !important; }
 
 #mapPopUpTabNexTrip .depart-time {
   font-weight: 600; }
