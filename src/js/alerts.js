@@ -109,7 +109,7 @@ var Alerts = (function ($, window, document, undefined) {
         //loop through the array and output the route label, then loop through the alert_index array
         //and get the alert information for each alert for each route
         alertsByRoute.forEach(function (route, index) {
-            var alertsDiv = $('<div/>', { class: 'accordion service-alerts' }).appendTo($('<section/>', { class: 'section' }));
+            var alertsDiv = $('<div/>', { class: 'accordion service-alerts' });
             var card = $('<div/>', { class: 'card' });
 
             var btn = $('<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#route' + route.route_id + 'alerts" aria-expanded="false" />');
@@ -120,8 +120,7 @@ var Alerts = (function ($, window, document, undefined) {
                 .append($('<img/>', { class: 'icon chevron-down-blue ml-2', src: '/img/svg/chevron-down-blue.svg' }))
             );
 
-			// card.append($('<div/>', { class: 'card-header' }).append($('<h3/>', { class: 'mb-0' })).append(btn));
-			card.append($('<div/>', { class: 'card-header' }).append(btn));
+            card.append($('<div/>', { class: 'card-header' }).append($('<h3/>', { class: 'mb-0' })).append(btn));
 
             var alertList = $('<div/>', { class: 'card-body border' });
             route.alert_index.forEach(function (alertIndex, idx) {
@@ -187,57 +186,9 @@ var Alerts = (function ($, window, document, undefined) {
             });
     };
 
-    var getCookie = function (check_name) {
-        var a_all_cookies = document.cookie.split(';'); var a_temp_cookie = ''; var cookie_name = ''; var cookie_value = ''; var b_cookie_found = false; var i = ''; for (i = 0; i < a_all_cookies.length; i++) {
-            a_temp_cookie = a_all_cookies[i].split('='); cookie_name = a_temp_cookie[0].replace(/^\s+|\s+$/g, ''); if (cookie_name == check_name) {
-                b_cookie_found = true; if (a_temp_cookie.length > 1) { cookie_value = unescape(a_temp_cookie[1].replace(/^\s+|\s+$/g, '')); }
-                return cookie_value; break;
-            }
-            a_temp_cookie = null; cookie_name = '';
-        }
-        if (!b_cookie_found) { return null; }
-    }
-
-    var setCookie = function (name, value, expires, path, domain, secure) {
-        var today = new Date(); today.setTime(today.getTime()); if (expires) { expires = expires * 1000 * 60 * 60 * 24; }
-        var expires_date = new Date(today.getTime() + (expires)); document.cookie = name + "=" + escape(value) +
-            ((expires) ? ";expires=" + expires_date.toGMTString() : "") +
-            ((path) ? ";path=" + path : "") +
-            ((domain) ? ";domain=" + domain : "") +
-            ((secure) ? ";secure" : "");
-    }
-
-     var deleteCookie = function (name, path, domain) {
-        if (getCookie(name)) document.cookie = name + "=" +
-            ((path) ? ";path=" + path : "") +
-            ((domain) ? ";domain=" + domain : "") + ";expires=Thu, 01-Jan-1970 00:00:01 GMT";
-    }
-
-    var popupAlertNotice = function (cookieID, expire) {
-        if ($('#special-alert-notice').hasClass('alert-popup')) {
-            if (cookieID.substring(0, 3) === 'pop' &&
-                getCookie('PopupNoticeShown' + cookieID) !== 'true') {
-                setCookie('PopupNoticeShown' + cookieID, 'true', expire);
-                $('<div />').prependTo('body').addClass('alert-popup-overlay');
-                $('body').addClass('hidden-overflow');
-                $('#special-alert-notice').show();
-                $('#special-alert-notice .fa-close').one('click', function () {
-                    $('#special-alert-notice').hide();
-                    $('.alert-popup-overlay').remove();
-                    $('body').removeClass('hidden-overflow');
-                });
-            }
-        }
-
-        if ($('#special-alert-notice').hasClass('alert-topmargin')) {
-            $('body').prepend($('#special-alert-notice').show());
-        }
-    };
-
     return {
         init: init,
-        getAlertsForRoute: getAlertsForRoute,
-        popupAlertNotice: popupAlertNotice
+        getAlertsForRoute: getAlertsForRoute
     };
 
 })(jQuery, window, document);

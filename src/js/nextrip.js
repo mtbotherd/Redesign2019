@@ -125,19 +125,8 @@ var NexTrip = (function ($, window, document, undefined) {
         $('#nextripDepartures').hide();
     };
 
-    var departuresOnEnterKey = function () {
-        $(document).on('keydown', function (event) {
-            if ($('#stopNumber').val() == '') return;
-            if (event.which == 13) {
-                event.preventDefault();
-                $('#searchStopsButton').trigger('click');
-            }
-        });
-    };
-
     var init = function () {
-        $('#stopNumber').on('focus', departuresOnEnterKey);
-        $('#stopNumber').on('blur', function () { $(document).off('keydown'); });
+        Main.enterKeyPressHandler('#stopNumber', '#searchStopsButton');
 
         // Get routes when the page loads and populate the Routes dropdown
         getRoutes();

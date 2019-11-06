@@ -148,11 +148,10 @@ var TripPlan = (function($, window, document, undefined) {
 	  tripMsg += ' for you';
 	  $("#trip-result-count").html(tripMsg);
 	  let tmsg = 'Trips shown are based on your selections and closest ';
-	  //tmsg += plan.ArrDep === 1 ? 'departure to ' : 'arrival to ';
-	  tmsg += plan.ArrDep === 1 ? 'arrival time to ' : 'arrival to ';  // Text output change - Rich 11/5/19.
+        tmsg += plan.ArrDep === 1 ? 'departure to ' : 'arrival to ';
 	  tmsg += formatTimeMonthDay(plan.ItinDateTime);
 	  tmsg += '.';
-	  tmsg +=  ' Travel time estimates do not include walking time.';  // Added additional instruction to output text. - Rich 11/5/19
+        //tmsg += ' Travel time estimates do not include walking time.';
 	  $("#trip-result-msg").html(tmsg);
 		
 	  $('.tp-results').empty();
@@ -293,12 +292,9 @@ var TripPlan = (function($, window, document, undefined) {
                 }
 		});
 		// Add a line at the bottom of the plan to show time arriving at the ultimate location
-		try {
-			if (tpWalkTime > 0) {
-				tpArriveTime = addMinutes(tpArriveTime, tpWalkTime);
-			}
+		if (tpWalkTime > 0) {
+			tpArriveTime = addMinutes(tpArriveTime, tpWalkTime);
 		}
-		catch { };
 		
 		tpDetail.push(`
 			<div class="leg-item">

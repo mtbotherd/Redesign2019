@@ -512,7 +512,7 @@ var TRIM = (function ($, window, document, undefined) {
     var geoLocate = function () {
         GEOLOCATE.locate();
     };
-    var centerMarkerAtPoint = function (x, y, zoomLevel) {  // x = longitude, y = latitude
+    var centerMarkerAtPoint = function (/*float*/x, /*float*/y,/*int*/zoomLevel) {  // x = longitude, y = latitude
         MAP.graphics.clear();
         require([
             "esri/graphic",
