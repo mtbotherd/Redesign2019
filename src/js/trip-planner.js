@@ -158,20 +158,28 @@ var TripPlan = (function($, window, document, undefined) {
 	  plan.PlannerItin.PlannerOptions.forEach(function(l,i) {
 		let tpSummary = [],tpDetail = [];
 		let tpArriveTime = null; // we set this to the arrive time of the last trip segment
-		let tpWalkTIme = 0;
+		let tpWalkTime = 0;
 		l.Segments.forEach(function(li,ii){
 		  switch (li.SegmentType) {
 			case 0:
+			  let displayName = li.Route;
+			  if (li.Route === "921") {
+				  displayName = "A Line";
+			  } else if (li.Route === "923") {
+				  displayName = "C Line";
+			  } else if (li.Route === "903") {
+				  displayName = "Red Line";
+			  }
 			  tpSummary.push(`<img class="icon bus-gray" src="/img/svg/bus-gray.svg">&nbsp;
-			                            <span class="route mr-2">${li.Route}</span>`);
+			                            <span class="route mr-2">${displayName}</span>`);
 			  break;
 			case 1:
-			  if(li.PublicRoute==="Blue Line"){
+			  if(li.Route==="901"){
 				tpSummary.push(`<span class="d-flex align-items-center badge badge-secondary mr-1">
 				  <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
 				  <span class="caps">Blue</span>
 				            </span>`);
-			  } else if(li.PublicRoute==="Green Line"){
+			  } else if(li.Route==="902"){
 				tpSummary.push(`<span class="d-flex align-items-center badge badge-success mr-1">
 				  <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
 				  <span class="caps">Green</span>
