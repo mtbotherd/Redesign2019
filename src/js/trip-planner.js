@@ -140,7 +140,7 @@ var TripPlan = (function($, window, document, undefined) {
 		let y = x.getTime() + min*60000;
 		//console.log("y = " + y);
 		return new Date(y);
-	}
+    };
 	const formatTripResults = function(plan) {
 	  let tripCount = plan.PlannerItin.PlannerOptions.length;
 	  let tripMsg = 'We found ' + tripCount.toString() + ' trip';
