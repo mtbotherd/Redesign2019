@@ -8252,9 +8252,6 @@ abbr {
       top: 0;
       left: 15.5rem; } }
 
-#interactiveMap .auto-complete-search-box input-group::before {
-  background-image: none !important; }
-
 #interactiveMap .btn-outline-primary {
   width: 100%; }
 
