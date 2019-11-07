@@ -9264,6 +9264,9 @@ footer {
         #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(13n) {
           margin-right: 0; } }
 
+#schedulesMaps #interactiveMap .auto-complete-search-box .input-group::before {
+  background-image: none !important; }
+
 @media (min-width: 992px) {
   #gotoCards div.goto-card .btn-group {
     margin-left: 2.25rem;

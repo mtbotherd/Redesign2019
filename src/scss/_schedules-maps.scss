@@ -154,4 +154,12 @@
       }
     }
   }
+
+  #interactiveMap {
+    .auto-complete-search-box {
+      .input-group::before {
+        background-image: none !important;
+      }
+    }
+  }
 }
