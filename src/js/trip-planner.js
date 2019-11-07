@@ -537,39 +537,19 @@ var TripPlan = (function($, window, document, undefined) {
 		});
 		$(function () { $("#planMyTrip").attr('disabled', 'disabled'); });
 
-		AutocompleteAddress.getUserLocation()
-		.then(function(userPos){
-			// TripPlanner input fields
-			AutocompleteAddress.init("fromLocation", /*UTMout*/ true, userPos,
-				function () {
-					if (AutocompleteAddress.getChoice("toLocation")) {
-						$("#planMyTrip").removeAttr('disabled');
-					}
-			});
-			AutocompleteAddress.init("toLocation", /*UTMout*/ true, userPos,
-				function () {
-					if (AutocompleteAddress.getChoice("fromLocation")) {
-						$("#planMyTrip").removeAttr('disabled');
-					}
-			});
-		})
-		// we can't find the user's position so we'll return results 
-		// in alphabetic order
-		.fail(function(err) {
-		// TripPlanner input fields
-			AutocompleteAddress.init("fromLocation", /*UTMout*/ true, /*userPos*/null,
-				function () {
-					if (AutocompleteAddress.getChoice("toLocation")) {
-						$("#planMyTrip").removeAttr('disabled');
-					}
-			});
-			AutocompleteAddress.init("toLocation", /*UTMout*/ true, /*userPos*/null,
-				function () {
-					if (AutocompleteAddress.getChoice("fromLocation")) {
-						$("#planMyTrip").removeAttr('disabled');
-					}
-			});
-		});
-		TripPlan.init();
-	}
+        AutocompleteAddress.init("fromLocation", /*UTMout*/ true,
+            function () {
+                if (AutocompleteAddress.getChoice("toLocation")) {
+                    $("#planMyTrip").removeAttr('disabled');
+                }
+            });
+        AutocompleteAddress.init("toLocation", /*UTMout*/ true,
+            function () {
+                if (AutocompleteAddress.getChoice("fromLocation")) {
+                    $("#planMyTrip").removeAttr('disabled');
+                }
+            });
+            
+  		TripPlan.init();
+  	}
   });

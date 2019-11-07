@@ -77,7 +77,6 @@ var AutocompleteAddress = (function($, window, document, undefined) {
   var init = function(
     /*string*/ inputDiv,
     /*boolean*/ UTMout,
-    /*object*/ userPosition,
     /*function*/ callback
   ) {
     const LOCATOR = // trailing slash on URL is IMPORTANT
@@ -94,6 +93,7 @@ var AutocompleteAddress = (function($, window, document, undefined) {
                 $("#" + inputDiv).val('');
              },
       lookup: function(query, returnSuggestions) {
+                let userPosition = fetchUserLoc();
         $.ajax({
           type: "get",
           url: LOCATOR + "suggest",
@@ -175,4 +175,10 @@ var AutocompleteAddress = (function($, window, document, undefined) {
     exchangeValues: exchangeValues
   };
 })(jQuery, window, document);
+// on application load, attempt to get the user location 
+// if permitted. The user location will be used with all
+// subsequent autocomplete requests 
+$(function () {
+    AutocompleteAddress.getUserLocation();
+});
 
