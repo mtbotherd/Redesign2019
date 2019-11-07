@@ -101,9 +101,9 @@ var TripPlan = (function($, window, document, undefined) {
 	var returnTripTime = function(Time){
 	  let time = new Date(Time);
 	  let minutes = time.getMinutes();
-	  minutes = minutes>0 ? minutes.toString() + ' min' : '';
+	  minutes = minutes>0 ? minutes.toString() + 'm' : '';
 	  let hour = time.getHours();
-	  if(hour>=1) hour = hour + ' hr';
+	  if(hour>=1) hour = hour + 'h';
 	  else hour = ' ';
 	  return hour + ' ' + minutes;
 	};
@@ -170,17 +170,17 @@ var TripPlan = (function($, window, document, undefined) {
 			  } else if (li.Route === "903") {
 				  displayName = "Red Line";
 			  }
-			  tpSummary.push(`<img class="icon bus-gray" src="/img/svg/bus-gray.svg">&nbsp;
-			                            <span class="route mr-2">${displayName}</span>`);
+			  tpSummary.push(`<img class="icon bus-gray" src="/img/svg/bus-gray.svg">
+			                            <span class="route">${displayName}</span>`);
 			  break;
 			case 1:
 			  if(li.Route==="901"){
-				tpSummary.push(`<span class="d-flex align-items-center badge badge-secondary mr-1">
+				tpSummary.push(`<span class="badge badge-secondary">
 				  <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
 				  <span class="caps">Blue</span>
 				            </span>`);
 			  } else if(li.Route==="902"){
-				tpSummary.push(`<span class="d-flex align-items-center badge badge-success mr-1">
+				tpSummary.push(`<span class="badge badge-success">
 				  <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
 				  <span class="caps">Green</span>
 				            </span>`);
@@ -214,7 +214,7 @@ var TripPlan = (function($, window, document, undefined) {
 					${checkIfLate(li.Adherance)}
 					<strong>Route ${li.Headsign}</strong><br>
 					<a href="/home/#ServiceAlerts">
-						<small>view alerts</small>
+						<small>View alerts</small>
 					</a>
 					</p>
 					<p>
@@ -236,7 +236,7 @@ var TripPlan = (function($, window, document, undefined) {
 					<strong>${li.Headsign}</strong>
 					<br>
 					<a href="/home/#ServiceAlerts">
-					  <small>view alerts</small>
+					  <small>View alerts</small>
 					</a>
 				  </p>
 				  <p>
@@ -259,7 +259,7 @@ var TripPlan = (function($, window, document, undefined) {
 				<strong>${li.Headsign}</strong>
 				  <br>
 				  <a href="/home/#ServiceAlerts">
-					<small>view alerts</small>
+					<small>View alerts</small>
 				  </a>
 				</p>
 				<p>
@@ -318,16 +318,15 @@ var TripPlan = (function($, window, document, undefined) {
 		$('.tp-results').append(`
 			  <div class="card mb-4" data-child="collapseTrip${i}" >
 				  <div id="" class="card-header">
-					  <h3 class="mb-0">
-						  <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
-							  <span class="d-flex">
-								  <span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
-								  <span class="align-items-center tp-route">${tpSummary.join('<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">')}
-									  <img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
-								  </span>
-							  </span>
-						  </button>
-					  </h3>
+						<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
+							<span class="d-flex w-100">
+								<span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
+								<span class="d-flex align-items-center tp-route">
+									<span class="tp-route-summary">${tpSummary.join('<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">')}</span>
+									<img class="icon chevron-down-blue align-items-center ml-auto" src="/img/svg/chevron-down-blue.svg">
+								</span>
+							</span>
+						</button>
 				  </div>
 				  <div id="collapseTrip${i}" class="collapse" aria-labelledby="" data-parent="#tripPlan">
 				  <div class="card-body">
