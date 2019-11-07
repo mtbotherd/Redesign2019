@@ -49,6 +49,7 @@ var NexTrip = (function ($, window, document, undefined) {
         $.get(window.serviceHostUrl + '/nextripv2/' + route + '/' + direction + '/' + code)
             .done(function (result) {
                 loadDepartures(JSON.parse(JSON.stringify(result)));
+                history.pushState({}, '', '/nextrip/' + route + '/' + direction + '/' + code);
             });
     };
 
@@ -56,6 +57,7 @@ var NexTrip = (function ($, window, document, undefined) {
         $.get(window.serviceHostUrl + '/nextripv2/' + id)
             .done(function (result) {
                 loadDepartures(JSON.parse(JSON.stringify(result)));
+                history.pushState({}, '', '/nextrip/' + id);
             })
             .fail(function () {
                 $('.stop-departures').empty();
@@ -217,6 +219,17 @@ var NexTrip = (function ($, window, document, undefined) {
         $('#collapseMap').on('hidden.bs.collapse', function () {
             BOM.stopBusesOnMap();
         });
+
+        var nextRoute = window.location.pathname.split('/');
+        if (nextRoute[1].toLowerCase() === 'nextrip') {
+            if (nextRoute.length == 3) {
+                if (!isNaN(nextRoute[2])) {
+                    getStopDepartures(nextRoute[2]);
+                }
+            } else if (nextRoute.length == 5) {
+                getTimepointDepartures(nextRoute[2], nextRoute[3], nextRoute[4]);
+            }
+        }
     };
 
     return {
