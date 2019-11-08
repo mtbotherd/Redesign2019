@@ -280,6 +280,22 @@
             }
           }
 
+          .arrive {
+            .leg-mode-icon {
+              position: absolute;
+              width: 2rem;
+              height: 2rem;
+              top: 0;
+              left: -1.2rem;
+
+              @include media-breakpoint-up(lg) {
+                left: -1.35rem;
+                width: 2.25rem;
+                height: 2.25rem;
+              }
+            }
+          }
+
           .bus {
             border-left: 4px solid #7dcae7;
           }

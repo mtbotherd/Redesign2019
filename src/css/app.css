@@ -10814,6 +10814,17 @@ select.navigator {
             #tripPlannerResults .trips-found .tp-results .card .card-body .bus .leg-mode-icon .icon {
               width: 2.25rem;
               height: 2.25rem; } }
+    #tripPlannerResults .trips-found .tp-results .card .card-body .arrive .leg-mode-icon {
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      top: 0;
+      left: -1.2rem; }
+      @media (min-width: 992px) {
+        #tripPlannerResults .trips-found .tp-results .card .card-body .arrive .leg-mode-icon {
+          left: -1.35rem;
+          width: 2.25rem;
+          height: 2.25rem; } }
     #tripPlannerResults .trips-found .tp-results .card .card-body .bus {
       border-left: 4px solid #7dcae7; }
     #tripPlannerResults .trips-found .tp-results .card .card-body .metro-Green {
