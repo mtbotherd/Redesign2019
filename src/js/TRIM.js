@@ -2241,29 +2241,14 @@ $(function () {
     // schedules-maps
     // ----------------------------------------------------
     if ($("#TRIMap").attr("maptype") === "full") {
-        AutocompleteAddress.getUserLocation()
-            .then(function(userPos){
-            // This one loads the Search field in the schedules-maps page -- the search result
-            // automatically sets the map to zoom to the requested location
-            AutocompleteAddress.init("interactiveMapSearch",/*UTMout*/ false,userPos,
+        // This one loads the Search field in the schedules-maps page -- the search result
+        // automatically sets the map to zoom to the requested location
+        AutocompleteAddress.init("interactiveMapSearch",/*UTMout*/ false,
                 function() {
                 var choice = AutocompleteAddress.getChoice("interactiveMapSearch");
                 TRIM.centerMarkerAtPoint(choice.location.x, choice.location.y);
                 }
             );
-            })
-            // we can't find the user's position so we'll return results 
-            // in alphabetic order
-            .fail(function(err) {
-            // This one loads the Search field in the schedules-maps page -- the search result
-            // automatically sets the map to zoom to the requested location
-            AutocompleteAddress.init("interactiveMapSearch",/*UTMout*/ false,/*userPos*/ null,
-                function() {
-                var choice = AutocompleteAddress.getChoice("interactiveMapSearch");
-                TRIM.centerMarkerAtPoint(choice.location.x, choice.location.y);
-                }
-            );
-            });
         TRIM.init("TRIMap").then(function () {
             //TRIM.geoLocate();
         });
