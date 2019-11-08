@@ -160,6 +160,7 @@
 
                   .caps {
                     margin-right: 0;
+                    line-height: 1.5;
                   }
                 }
               }
@@ -170,7 +171,7 @@
         .card-body {
           border: 2px solid $border-color;
           border-top: none;
-          padding: 1.25rem 0;
+          padding: 15px;
 
           @include media-breakpoint-up(lg) {
             border: 1px solid $border-color;
@@ -180,17 +181,12 @@
           .leg-time {
             font-weight: $font-weight-bold;
             margin-right: 1rem;
-            width: 6rem;
+            width: 94px;
             padding: 0.5rem;
-
-            @include media-breakpoint-up(md) {
-              margin-right: 1rem;
-              width: 125px;
-            }
+            padding-left: 0;
 
             @include media-breakpoint-up(lg) {
-              margin-right: 1.75rem;
-              width: 135px;
+              width: 115px;
             }
           }
 
@@ -230,7 +226,7 @@
               height: 2rem;
               position: absolute;
               top: 0;
-              left: -0.95rem;
+              left: -1.2rem;
 
               @include media-breakpoint-up(lg) {
                 left: -1.3rem;
@@ -253,47 +249,6 @@
           .walk,
           .bus {
             border-left: 4px dotted #7dcae7;
-
-            .leg-mode-icon {
-              background-color: $white;
-              width: 2rem;
-              height: 2rem;
-              position: absolute;
-              top: 0;
-              left: -1.2rem;
-
-              @include media-breakpoint-up(lg) {
-                left: -1.3rem;
-                width: 2.25rem;
-                height: 2.25rem;
-              }
-
-              .icon {
-                width: 2rem;
-                height: 2rem;
-
-                @include media-breakpoint-up(lg) {
-                  width: 2.25rem;
-                  height: 2.25rem;
-                }
-              }
-            }
-          }
-
-          .arrive {
-            .leg-mode-icon {
-              position: absolute;
-              width: 2rem;
-              height: 2rem;
-              top: 0;
-              left: -1.2rem;
-
-              @include media-breakpoint-up(lg) {
-                left: -1.35rem;
-                width: 2.25rem;
-                height: 2.25rem;
-              }
-            }
           }
 
           .bus {
