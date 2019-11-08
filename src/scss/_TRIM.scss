@@ -134,7 +134,7 @@
 .esriPopup .tab-pane {
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 130px;
+  max-height: 120px;
 
   @include media-breakpoint-up(lg) {
     max-height: 210px;
@@ -223,23 +223,29 @@
 }
 #mapPopUpTabNexTrip .route-number {
   font-weight: 700;
-  width: 50px;
+  max-width: 38px;
+  @include media-breakpoint-up(md) {
+    width: 40px;
+  }
 }
 #mapPopUpTabNexTrip .route-name {
-  width:80px;
+  width:65px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 
   @include media-breakpoint-up(md) {
-    min-width: 180px;
+    min-width: 165px;
   }
   @include media-breakpoint-up(lg) {
-    min-width: 230px;
+    min-width: 220px;
   }
 }
 .esriPopupMaximized .route-name {
   width: auto !important;
+}
+.esriPopupMaximized .tab-content {
+  font-size: 1.2em;
 }
 #mapPopUpTabNexTrip .depart-time {
   font-weight: 600;

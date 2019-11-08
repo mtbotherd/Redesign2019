@@ -105,24 +105,11 @@ $(function() {
     // This should execute when /park-ride-lots loads, it sets the autocomplete to trigger 
     // the page content when user selects a location to search
     if ($('#parkRides').length) {
-        AutocompleteAddress.getUserLocation()
-        .then(function(userPos){
-            AutocompleteAddress.init("parkRidesSearch",/*UTMout*/ true, userPos,
+        AutocompleteAddress.init("parkRidesSearch",/*UTMout*/ true,
                 function() {
                     var choice = AutocompleteAddress.getChoice("parkRidesSearch");
                     ParkRideServices.formatPage(choice);
                 }
             );
-            })
-            // we can't find the user's position so we'll return results 
-            // in alphabetic order
-        .fail(function(err) {
-            AutocompleteAddress.init("parkRidesSearch",/*UTMout*/ true, /*userPos*/null,
-                function() {
-                    var choice = AutocompleteAddress.getChoice("parkRidesSearch");
-                    ParkRideServices.formatPage(choice);
-                }
-            );
-        });
     }
 });
