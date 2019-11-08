@@ -7604,10 +7604,24 @@ a.skip-to-content {
     z-index: 10; }
 
 .alert-topmargin {
-  padding: 1rem;
+  padding: 15px;
   margin-bottom: 0; }
+  .alert-topmargin .container {
+    padding: 0;
+    position: relative; }
+    .alert-topmargin .container .gray-circle-info {
+      display: none; }
+    .alert-topmargin .container p {
+      display: block;
+      padding-right: 30px;
+      margin-bottom: 0; }
+    .alert-topmargin .container button.close {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      padding: 15px; }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .container {
     padding-right: 0;
     padding-left: 0; } }
@@ -7998,86 +8012,87 @@ abbr {
 .trip-planner-bg {
   background-image: url("../../../../../img/trip-planner.jpg"); }
 
-#header .navbar .navbar-nav {
-  border-top: 1px solid #e3e3e0; }
-  #header .navbar .navbar-nav .nav-item {
-    border-bottom: 1px solid #e3e3e0; }
-    #header .navbar .navbar-nav .nav-item .nav-link:link {
-      font-size: 18px !important;
-      font-size: 1.125rem !important;
-      padding-right: 1rem;
-      padding-left: 1rem; }
-    #header .navbar .navbar-nav .nav-item .dropdown-toggle::after {
-      position: relative;
-      top: 0.25rem;
-      content: "";
-      background-image: url("../../../../../img/svg/chevron-down-gray.svg");
-      background-repeat: no-repeat;
-      background-size: 0.75rem;
-      width: 0.75rem;
-      height: 0.75rem;
-      border: none;
-      -webkit-transform: rotate(0deg);
-              transform: rotate(0deg);
-      -webkit-transition: 0.3s -webkit-transform ease-in-out;
-      transition: 0.3s -webkit-transform ease-in-out;
-      transition: 0.3s transform ease-in-out;
-      transition: 0.3s transform ease-in-out, 0.3s -webkit-transform ease-in-out; }
-    #header .navbar .navbar-nav .nav-item.dropdown .dropdown-menu {
-      border: none; }
-      #header .navbar .navbar-nav .nav-item.dropdown .dropdown-menu .dropdown-item {
+#header .navbar {
+  padding: 0.5rem 15px; }
+  #header .navbar .navbar-nav {
+    border-top: 1px solid #e3e3e0; }
+    #header .navbar .navbar-nav .nav-item {
+      border-bottom: 1px solid #e3e3e0; }
+      #header .navbar .navbar-nav .nav-item .nav-link:link {
         font-size: 18px !important;
         font-size: 1.125rem !important;
-        color: #0097d0;
-        padding: 0.25rem 2rem; }
-    #header .navbar .navbar-nav .nav-item.show .nav-link::after {
-      -webkit-transform: rotate(-180deg);
-              transform: rotate(-180deg);
-      -webkit-transition: 0.3s -webkit-transform ease-in-out;
-      transition: 0.3s -webkit-transform ease-in-out;
-      transition: 0.3s transform ease-in-out;
-      transition: 0.3s transform ease-in-out, 0.3s -webkit-transform ease-in-out; }
-
-#header .navbar .utilities {
-  border-top: none; }
-  #header .navbar .utilities .nav-item .nav-link.store-icon::before {
-    display: block;
-    content: "";
-    background-image: url("../../../../../img/svg/shopping-cart-green.svg");
-    background-repeat: no-repeat;
-    background-size: 1.5rem;
-    width: 1.5rem;
-    height: 1.5rem; }
-  #header .navbar .utilities .nav-item .dropdown-toggle.search-icon::before {
-    display: block;
-    content: "";
-    background-image: url("../../../../../img/svg/search-gray.svg");
-    background-repeat: no-repeat;
-    background-size: 1.5rem;
-    width: 1.5rem;
-    height: 1.5rem; }
-  #header .navbar .utilities .nav-item .dropdown-toggle.avatar-icon::before {
-    display: block;
-    content: "";
-    background-image: url("../../../../../img/svg/avatar-gray.svg");
-    background-repeat: no-repeat;
-    background-size: 1.5rem;
-    width: 1.5rem;
-    height: 1.5rem; }
-  #header .navbar .utilities .nav-item .dropdown-toggle::after {
-    display: none; }
-  #header .navbar .utilities .nav-item .search-dropdown-menu {
-    padding-right: 15px;
-    padding-left: 15px; }
-    #header .navbar .utilities .nav-item .search-dropdown-menu .input-group {
-      width: 313px; }
-      #header .navbar .utilities .nav-item .search-dropdown-menu .input-group .form-control {
-        border-right: none; }
-      #header .navbar .utilities .nav-item .search-dropdown-menu .input-group .input-group-append .btn {
-        background-color: #fff;
-        border-color: #e3e3e0;
-        border-left: none;
-        padding: 0 0.75rem; }
+        padding-right: 1rem;
+        padding-left: 1rem; }
+      #header .navbar .navbar-nav .nav-item .dropdown-toggle::after {
+        position: relative;
+        top: 0.25rem;
+        content: "";
+        background-image: url("../../../../../img/svg/chevron-down-gray.svg");
+        background-repeat: no-repeat;
+        background-size: 0.75rem;
+        width: 0.75rem;
+        height: 0.75rem;
+        border: none;
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+        -webkit-transition: 0.3s -webkit-transform ease-in-out;
+        transition: 0.3s -webkit-transform ease-in-out;
+        transition: 0.3s transform ease-in-out;
+        transition: 0.3s transform ease-in-out, 0.3s -webkit-transform ease-in-out; }
+      #header .navbar .navbar-nav .nav-item.dropdown .dropdown-menu {
+        border: none; }
+        #header .navbar .navbar-nav .nav-item.dropdown .dropdown-menu .dropdown-item {
+          font-size: 18px !important;
+          font-size: 1.125rem !important;
+          color: #0097d0;
+          padding: 0.25rem 2rem; }
+      #header .navbar .navbar-nav .nav-item.show .nav-link::after {
+        -webkit-transform: rotate(-180deg);
+                transform: rotate(-180deg);
+        -webkit-transition: 0.3s -webkit-transform ease-in-out;
+        transition: 0.3s -webkit-transform ease-in-out;
+        transition: 0.3s transform ease-in-out;
+        transition: 0.3s transform ease-in-out, 0.3s -webkit-transform ease-in-out; }
+  #header .navbar .utilities {
+    border-top: none; }
+    #header .navbar .utilities .nav-item .nav-link.store-icon::before {
+      display: block;
+      content: "";
+      background-image: url("../../../../../img/svg/shopping-cart-green.svg");
+      background-repeat: no-repeat;
+      background-size: 1.5rem;
+      width: 1.5rem;
+      height: 1.5rem; }
+    #header .navbar .utilities .nav-item .dropdown-toggle.search-icon::before {
+      display: block;
+      content: "";
+      background-image: url("../../../../../img/svg/search-gray.svg");
+      background-repeat: no-repeat;
+      background-size: 1.5rem;
+      width: 1.5rem;
+      height: 1.5rem; }
+    #header .navbar .utilities .nav-item .dropdown-toggle.avatar-icon::before {
+      display: block;
+      content: "";
+      background-image: url("../../../../../img/svg/avatar-gray.svg");
+      background-repeat: no-repeat;
+      background-size: 1.5rem;
+      width: 1.5rem;
+      height: 1.5rem; }
+    #header .navbar .utilities .nav-item .dropdown-toggle::after {
+      display: none; }
+    #header .navbar .utilities .nav-item .search-dropdown-menu {
+      padding-right: 15px;
+      padding-left: 15px; }
+      #header .navbar .utilities .nav-item .search-dropdown-menu .input-group {
+        width: 313px; }
+        #header .navbar .utilities .nav-item .search-dropdown-menu .input-group .form-control {
+          border-right: none; }
+        #header .navbar .utilities .nav-item .search-dropdown-menu .input-group .input-group-append .btn {
+          background-color: #fff;
+          border-color: #e3e3e0;
+          border-left: none;
+          padding: 0 0.75rem; }
 
 @media (min-width: 1200px) {
   #header .navbar {
@@ -8327,21 +8342,28 @@ abbr {
 
 #trimPopUp .nav-tabs {
   margin-bottom: 0;
-  padding-right: 1rem;
-  padding-left: 1rem; }
+  padding-right: .7rem;
+  padding-left: rem; }
+  @media (min-width: 768px) {
+    #trimPopUp .nav-tabs {
+      margin-bottom: 0;
+      padding-right: 1rem;
+      padding-left: 1rem; } }
 
 .esriPopup .stop-description {
   background-color: #0097d0;
-  font-size: 1.2em;
+  font-size: 1em;
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   padding: 3px;
   white-space: nowrap; }
-
-.esriPopup .route-list {
-  background-color: #fff;
-  line-height: 4px;
-  white-space: nowrap; }
+  @media (min-width: 768px) {
+    .esriPopup .stop-description {
+      font-size: 1.1em;
+      margin-bottom: 1rem; } }
+  @media (min-width: 992px) {
+    .esriPopup .stop-description {
+      font-size: 1.2em; } }
 
 .esriPopup .titlePane {
   height: 21px;
@@ -8350,7 +8372,32 @@ abbr {
 .esriPopup .contentPane {
   overflow: hidden;
   font-size: 1em;
-  background-color: #fff; }
+  background-color: #fff;
+  max-height: 200px; }
+  @media (min-width: 992px) {
+    .esriPopup .contentPane {
+      max-height: 300px; } }
+
+.esriPopup .tab-pane {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 130px; }
+  @media (min-width: 992px) {
+    .esriPopup .tab-pane {
+      max-height: 210px; } }
+
+.esriPopup .sizer {
+  width: 200px; }
+  @media (min-width: 768px) {
+    .esriPopup .sizer {
+      width: 320px; } }
+  @media (min-width: 992px) {
+    .esriPopup .sizer {
+      width: 370px; } }
+
+.esriPopup .container {
+  padding-left: 0;
+  padding-right: 0; }
 
 .esriPopup .actionsPane {
   background-color: #fff; }
@@ -8366,13 +8413,32 @@ abbr {
 .esriPopup a[href] {
   text-decoration: none; }
 
+.esriPopup .titleButton.close {
+  background-image: url("../../../../../img/svg/close-gray.svg");
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+  opacity: 1; }
+
+.esriPopup .titleButton.maximize {
+  right: 28px; }
+
+.esriPopup .titleButton.restore {
+  right: 28px; }
+
+.esriPopup .route-list {
+  background-color: #fff;
+  line-height: 4px;
+  white-space: nowrap;
+  font-size: 1em; }
+  @media (min-width: 768px) {
+    .esriPopup .route-list {
+      font-size: 1.1em; } }
+
 .esriPopup .route-list input {
   margin: 3px; }
-
-.esriPopup .tab-pane {
-  overflow-y: auto;
-  overflow-x: hidden;
-  max-height: 230px; }
 
 .esriPopup .stop-departures {
   background-color: #fff; }
@@ -8384,22 +8450,31 @@ abbr {
 #mapPopUpTabNexTrip {
   font-size: 1em;
   background-color: #fff !important; }
+  @media (min-width: 768px) {
+    #mapPopUpTabNexTrip {
+      font-size: 1.1em; } }
 
 #mapPopUpTabNexTrip .route-number {
   font-weight: 700;
-  width: 25px; }
+  width: 50px; }
 
 #mapPopUpTabNexTrip .route-name {
-  width: 135px;
+  width: 80px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
     #mapPopUpTabNexTrip .route-name {
-      width: 185px; } }
+      min-width: 180px; } }
+  @media (min-width: 992px) {
+    #mapPopUpTabNexTrip .route-name {
+      min-width: 230px; } }
+
+.esriPopupMaximized .route-name {
+  width: auto !important; }
 
 #mapPopUpTabNexTrip .depart-time {
-  font-weight: 700; }
+  font-weight: 600; }
 
 #mapPopUpTabNexTrip .list-group-item {
   display: -webkit-box;
@@ -8415,21 +8490,6 @@ abbr {
 #mapPopUpDepartures .icon {
   width: 0.5rem !important;
   height: 0.5rem !important; }
-
-.esriPopup .sizer {
-  width: 250px; }
-
-.esriPopup .container {
-  padding-left: 0;
-  padding-right: 0; }
-
-@media (min-width: 1024px) {
-  .esriPopup .sizer {
-    width: 320px; }
-  #mapPopUpTabNexTrip {
-    font-size: 1.1em; }
-  .esriPopup .stop-description {
-    font-size: 1.2em; } }
 
 .page-content h2.sr-only {
   margin-bottom: 0; }
@@ -8469,6 +8529,10 @@ abbr {
   @media (min-width: 1200px) {
     #homeContent {
       top: -5.14rem; } }
+  @media (min-width: 768px) {
+    #homeContent .container {
+      padding-right: 0;
+      padding-left: 0; } }
   #homeContent .section {
     padding-top: 30px;
     padding-bottom: 30px; }
@@ -9200,6 +9264,9 @@ footer {
         #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(13n) {
           margin-right: 0; } }
 
+#schedulesMaps #interactiveMap .auto-complete-search-box .input-group::before {
+  background-image: none !important; }
+
 @media (min-width: 992px) {
   #gotoCards div.goto-card .btn-group {
     margin-left: 2.25rem;
@@ -9532,6 +9599,9 @@ input:focus,
     position: absolute;
     top: 0.75rem;
     right: 1rem; }
+    @media (min-width: 768px) {
+      .cta-link-white .icon {
+        right: 13rem; } }
     @media (min-width: 992px) {
       .cta-link-white .icon {
         top: 1rem;
@@ -9654,6 +9724,10 @@ input:focus,
     left: 0rem;
     width: 2.5rem;
     height: 2.5rem; }
+    @media (min-width: 768px) {
+      .button-container-icon-right .circle-blue-outline-question {
+        top: 0.25rem;
+        left: 12.5rem; } }
     @media (min-width: 992px) {
       .button-container-icon-right .circle-blue-outline-question {
         left: 22.5rem;
@@ -10233,6 +10307,9 @@ select.navigator {
     background-color: #fff;
     border: 1px solid #e3e3e0;
     border-left: none; }
+    @media (min-width: 768px) {
+      .auto-complete-search-box .btn-primary {
+        padding: 0.25rem 0.75rem; } }
     @media (min-width: 992px) {
       .auto-complete-search-box .btn-primary .icon {
         width: 24px;
@@ -10556,8 +10633,8 @@ select.navigator {
         background-color: #dbf4fd; }
       #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-time {
         border-right: 2px solid #8a8b8a;
-        font-size: 12px !important;
-        font-size: 0.75rem !important;
+        font-size: 18px !important;
+        font-size: 1.125rem !important;
         font-weight: 700;
         padding: 0.5rem;
         width: 5rem; }
@@ -10569,52 +10646,85 @@ select.navigator {
             font-size: 23px !important;
             font-size: 1.4375rem !important; } }
       #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route {
-        display: -webkit-box;
-        display: flex;
+        position: relative;
+        display: block;
         padding: 0.5rem 0.75rem;
-        width: 16.3rem; }
+        width: 261px; }
+        @media (min-width: 768px) {
+          #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route {
+            width: 636px; } }
         @media (min-width: 992px) {
           #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route {
             width: 61rem; } }
-        #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .pedestrian-gray,
-        #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .bus-gray {
-          width: 1rem;
-          height: 1rem; }
+        #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary {
+          display: inline-block;
+          width: 210px; }
+          @media (min-width: 768px) {
+            #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary {
+              width: 582px; } }
           @media (min-width: 992px) {
-            #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .pedestrian-gray,
-            #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .bus-gray {
-              width: 1.5rem;
-              height: 1.5rem; } }
-        #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .chevron-right-gray {
-          width: 0.75rem;
-          height: 0.75rem; }
-      #tripPlannerResults .trips-found .tp-results .card .card-header .btn .route {
-        font-size: 12px !important;
-        font-size: 0.75rem !important;
-        line-height: 1; }
-        @media (min-width: 992px) {
-          #tripPlannerResults .trips-found .tp-results .card .card-header .btn .route {
-            font-size: 18px !important;
-            font-size: 1.125rem !important; } }
-      #tripPlannerResults .trips-found .tp-results .card .card-header .btn .badge {
-        border-radius: 0.25rem;
-        font-size: 8px !important;
-        font-size: 0.5rem !important;
-        padding-right: 0.5rem; }
-        #tripPlannerResults .trips-found .tp-results .card .card-header .btn .badge .icon {
-          width: 1rem;
-          height: 1rem; }
-          @media (min-width: 992px) {
-            #tripPlannerResults .trips-found .tp-results .card .card-header .btn .badge .icon {
-              font-size: 16px !important;
-              font-size: 1rem !important;
-              width: 1rem;
-              height: 1.5rem;
-              margin-right: 0.25rem; } }
-      @media (min-width: 992px) {
-        #tripPlannerResults .trips-found .tp-results .card .card-header .btn .chevron-down-blue {
-          width: 1.25rem;
-          height: 1.25rem; } }
+            #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary {
+              width: 599px; } }
+          @media (min-width: 1200px) {
+            #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary {
+              width: 921px; } }
+          #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary img,
+          #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary span {
+            margin-right: 3px; }
+            @media (min-width: 992px) {
+              #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary img,
+              #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary span {
+                margin-right: 5px; } }
+          #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary .icon {
+            width: 1rem;
+            height: 1rem; }
+            #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary .icon.bus-gray {
+              margin-right: 0; }
+            #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary .icon.chevron-right-gray {
+              width: 0.75rem;
+              height: 0.75rem; }
+            #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary .icon.chevron-down-blue {
+              position: absolute;
+              right: 0.75rem; }
+            @media (min-width: 992px) {
+              #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary .icon {
+                width: 1.5rem;
+                height: 1.5rem; } }
+          #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary .route {
+            font-size: 12px !important;
+            font-size: 0.75rem !important;
+            line-height: 1; }
+            @media (min-width: 992px) {
+              #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary .route {
+                font-size: 18px !important;
+                font-size: 1.125rem !important; } }
+          #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary .badge {
+            border-radius: 0.25rem;
+            font-size: 10px !important;
+            font-size: 0.625rem !important;
+            padding: 0.25rem 0.25rem 0.25rem 0;
+            width: 60px;
+            height: 24px; }
+            @media (min-width: 992px) {
+              #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary .badge {
+                font-size: 16px !important;
+                font-size: 1rem !important;
+                width: 84px;
+                height: 32px;
+                padding-left: 0.25rem; } }
+            #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary .badge .icon {
+              width: 0.5rem;
+              height: 1rem;
+              margin-right: 0; }
+              @media (min-width: 992px) {
+                #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary .badge .icon {
+                  font-size: 16px !important;
+                  font-size: 1rem !important;
+                  width: 1rem;
+                  height: 1.5rem;
+                  margin-right: 0.25rem; } }
+            #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary .badge .caps {
+              margin-right: 0; }
   #tripPlannerResults .trips-found .tp-results .card .card-body {
     border: 2px solid #e3e3e0;
     border-top: none;
@@ -10704,6 +10814,17 @@ select.navigator {
             #tripPlannerResults .trips-found .tp-results .card .card-body .bus .leg-mode-icon .icon {
               width: 2.25rem;
               height: 2.25rem; } }
+    #tripPlannerResults .trips-found .tp-results .card .card-body .arrive .leg-mode-icon {
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      top: 0;
+      left: -1.2rem; }
+      @media (min-width: 992px) {
+        #tripPlannerResults .trips-found .tp-results .card .card-body .arrive .leg-mode-icon {
+          left: -1.35rem;
+          width: 2.25rem;
+          height: 2.25rem; } }
     #tripPlannerResults .trips-found .tp-results .card .card-body .bus {
       border-left: 4px solid #7dcae7; }
     #tripPlannerResults .trips-found .tp-results .card .card-body .metro-Green {
@@ -10852,11 +10973,15 @@ select.navigator {
       margin-bottom: 60px !important; } }
 
 #nextripModule .or {
+  font-size: 18px !important;
+  font-size: 1.125rem !important;
   margin-bottom: 1rem; }
   @media (min-width: 768px) {
     #nextripModule .or {
+      font-size: 23px !important;
+      font-size: 1.4375rem !important;
       margin-bottom: 0;
-      padding-top: 1rem; } }
+      padding-top: 0.5rem; } }
 
 #nextripModule .input-group-append .btn-primary {
   background-color: #fff;
@@ -10933,6 +11058,9 @@ select.navigator {
   @media (min-width: 992px) {
     #alertsModule h2 {
       margin-bottom: 60px !important; } }
+
+#alertsModule .service-alerts:last-child {
+  margin-bottom: 0; }
 
 #alertsModule .service-alerts .icon {
   margin-right: 0.5rem; }

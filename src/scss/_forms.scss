@@ -75,6 +75,10 @@
     border: 1px solid $gray-200;
     border-left: none;
 
+    @include media-breakpoint-up(md) {
+      padding: 0.25rem 0.75rem;
+    }
+
     .icon {
       @include media-breakpoint-up(lg) {
         width: 24px;

@@ -44,12 +44,34 @@ a.skip-to-content {
 
 // Top margin alert
 .alert-topmargin {
-  padding: 1rem;
+  padding: 15px;
   margin-bottom: 0;
+
+  .container {
+    padding: 0;
+    position: relative;
+
+    .gray-circle-info {
+      display: none;
+    }
+
+    p {
+      display: block;
+      padding-right: 30px;
+      margin-bottom: 0;
+    }
+
+    button.close {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      padding: 15px;
+    }
+  }
 }
 
 .container {
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(md) {
     padding-right: 0;
     padding-left: 0;
   }

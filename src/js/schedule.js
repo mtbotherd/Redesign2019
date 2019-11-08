@@ -3,12 +3,14 @@ var Schedule = (function ($, window, document, undefined) {
     'use strict';
 
     var scheduleSelect = function () {
+        var aTag = $('a[name="schedulepane"]');
         var pane = '#' + $(this).data('pane');
         $('.schedule-days>button.active').removeClass('active');
         $(this).addClass('active');
         $('.timetables>div.active').removeClass('active fade show');
         $(pane).addClass('active fade show');
         loadTimetable();
+        $('html,body').animate({ scrollTop: aTag.offset().top }, 'slow');
     };
 
     var loadTimetable = function () {

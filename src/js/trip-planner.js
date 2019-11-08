@@ -19,13 +19,8 @@ var TripPlan = (function($, window, document, undefined) {
 		  $("#spinner").removeClass("d-none");
 		  return $.Deferred(function (dfd) { 
 			  TripPlanJSON = {}; // clear the old one
-			  console.log(
-				  "Lets go tripping from " +
-				  tripProperties.fromLocation.address +
-				  " to " +
-				  tripProperties.toLocation.address
-		);
-		let datetime = new Date(tripProperties.datetime);
+			  //console.log("Lets go tripping from " + tripProperties.fromLocation.address + " to " +  tripProperties.toLocation.address);
+			  let datetime = new Date(tripProperties.datetime);
 			  // ATIS_ID have format "ENT;35;MPL;AWIS;P;N" - we want the second value converted to a number (i.e. 35)
 			  // NOTE: the order of location.y then location.x is intentional 
 			  let fromLoc =
@@ -36,8 +31,8 @@ var TripPlan = (function($, window, document, undefined) {
 				  + tripProperties.fromLocation.location.x
 				  + "|";   
 			  let fromATIS = '0';
-			  if (tripProperties.fromLocation.attributes.ATIS_ID.indexOf(';')>0) {
-			  fromATIS += tripProperties.fromLocation.attributes.ATIS_ID.split(';')[1];
+			  if (tripProperties.fromLocation.attributes.ATIS_ID.indexOf(';') > -1) {
+			    fromATIS += tripProperties.fromLocation.attributes.ATIS_ID.split(';')[1];
 			  }
 			  fromLoc += fromATIS;
 			  let toLoc =
@@ -48,8 +43,8 @@ var TripPlan = (function($, window, document, undefined) {
 				  + tripProperties.toLocation.location.x
 				  + "|";
 			  let toATIS = '0';
-			  if (tripProperties.toLocation.attributes.ATIS_ID.indexOf(';')>0) {
-			  toATIS += tripProperties.toLocation.attributes.ATIS_ID.split(';')[1];
+			  if (tripProperties.toLocation.attributes.ATIS_ID.indexOf(';') > -1) {
+			    toATIS += tripProperties.toLocation.attributes.ATIS_ID.split(';')[1];
 			  }
 			  toLoc += toATIS;
 			  let tripData = {
@@ -106,9 +101,9 @@ var TripPlan = (function($, window, document, undefined) {
 	var returnTripTime = function(Time){
 	  let time = new Date(Time);
 	  let minutes = time.getMinutes();
-	  minutes = minutes>0 ? minutes.toString() + ' min' : '';
+	  minutes = minutes>0 ? minutes.toString() + 'm' : '';
 	  let hour = time.getHours();
-	  if(hour>=1) hour = hour + ' hr';
+	  if(hour>=1) hour = hour + 'h';
 	  else hour = ' ';
 	  return hour + ' ' + minutes;
 	};
@@ -153,30 +148,39 @@ var TripPlan = (function($, window, document, undefined) {
 	  tripMsg += ' for you';
 	  $("#trip-result-count").html(tripMsg);
 	  let tmsg = 'Trips shown are based on your selections and closest ';
-	  tmsg += plan.ArrDep === 1 ? 'departure to ' : 'arrival to ';
+        tmsg += plan.ArrDep === 1 ? 'departure to ' : 'arrival to ';
 	  tmsg += formatTimeMonthDay(plan.ItinDateTime);
 	  tmsg += '.';
+        //tmsg += ' Travel time estimates do not include walking time.';
 	  $("#trip-result-msg").html(tmsg);
 		
 	  $('.tp-results').empty();
 	  plan.PlannerItin.PlannerOptions.forEach(function(l,i) {
 		let tpSummary = [],tpDetail = [];
 		let tpArriveTime = null; // we set this to the arrive time of the last trip segment
-		let tpWalkTIme = 0;
+		let tpWalkTime = 0;
 		l.Segments.forEach(function(li,ii){
 		  switch (li.SegmentType) {
 			case 0:
-			  tpSummary.push(`<img class="icon bus-gray" src="/img/svg/bus-gray.svg">&nbsp;
-			                            <span class="route mr-2">${li.Route}</span>`);
+			  let displayName = li.Route;
+			  if (li.Route === "921") {
+				  displayName = "A Line";
+			  } else if (li.Route === "923") {
+				  displayName = "C Line";
+			  } else if (li.Route === "903") {
+				  displayName = "Red Line";
+			  }
+			  tpSummary.push(`<img class="icon bus-gray" src="/img/svg/bus-gray.svg">
+			                            <span class="route">${displayName}</span>`);
 			  break;
 			case 1:
-			  if(li.PublicRoute==="Blue Line"){
-				tpSummary.push(`<span class="d-flex align-items-center badge badge-secondary mr-1">
+			  if(li.Route==="901"){
+				tpSummary.push(`<span class="badge badge-secondary">
 				  <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
 				  <span class="caps">Blue</span>
 				            </span>`);
-			  } else if(li.PublicRoute==="Green Line"){
-				tpSummary.push(`<span class="d-flex align-items-center badge badge-success mr-1">
+			  } else if(li.Route==="902"){
+				tpSummary.push(`<span class="badge badge-success">
 				  <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
 				  <span class="caps">Green</span>
 				            </span>`);
@@ -204,19 +208,18 @@ var TripPlan = (function($, window, document, undefined) {
 			  <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
 				<div class="d-table-cell leg-mode bus">
 					<div class="d-table-cell leg-mode-icon">
-					<img class="icon"
-						src="/img/svg/circle-gray-outline-bus.svg">
+					<img class="icon" src="/img/svg/circle-gray-outline-bus.svg" alt="Bus">
 					</div>
 					<p>
 					${checkIfLate(li.Adherance)}
 					<strong>Route ${li.Headsign}</strong><br>
 					<a href="/home/#ServiceAlerts">
-						<small>view alerts</small>
+						<small>View alerts</small>
 					</a>
 					</p>
 					<p>
-					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at ${returnTime(li.OnTime)}</br>
-					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at ${returnTime(li.OffTime)}
+					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at <strong> ${returnTime(li.OnTime)} </strong></br>
+					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at <strong> ${returnTime(li.OffTime)} </strong>
 					</p>
 				</div>
 				</div>`);
@@ -227,18 +230,18 @@ var TripPlan = (function($, window, document, undefined) {
 				<div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
 				<div class="d-table-cell leg-mode metro-${li.PublicRoute.split(" ", 1)}">
 				  <div class="d-table-cell leg-mode-icon">
-					${li.PublicRoute==="Green Line"?'<img class="icon" src="/img/svg/circle-green-outline-lrt.svg"/>':'<img class="icon" src="/img/svg/circle-blue-outline-lrt.svg"/>'}
+					${li.PublicRoute==="Green Line"?'<img class="icon" src="/img/svg/circle-green-outline-lrt.svg" alt="Green Line"/>':'<img class="icon" src="/img/svg/circle-blue-outline-lrt.svg" alt="Blue Line"/>'}
 				  </div>
 				  <p>
 					<strong>${li.Headsign}</strong>
 					<br>
 					<a href="/home/#ServiceAlerts">
-					  <small>view alerts</small>
+					  <small>View alerts</small>
 					</a>
 				  </p>
 				  <p>
-					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at ${returnTime(li.OnTime)}</br>
-					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at ${returnTime(li.OffTime)}
+					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at <strong> ${returnTime(li.OnTime)} </strong></br>
+					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at <strong> ${returnTime(li.OffTime)} </strong>
 				  </p>
 				</div>
 				 </div>`);
@@ -249,19 +252,19 @@ var TripPlan = (function($, window, document, undefined) {
 			  <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
 			  <div class="d-table-cell leg-mode bus">
 				<div class="d-table-cell leg-mode-icon">
-				<img class="icon" src="/img/svg/circle-gray-outline-train.svg">
+				<img class="icon" src="/img/svg/circle-gray-outline-train.svg" alt="Train">
 				</div>
 				<p>
 				${checkIfLate(li.Adherance)}
 				<strong>${li.Headsign}</strong>
 				  <br>
 				  <a href="/home/#ServiceAlerts">
-					<small>view alerts</small>
+					<small>View alerts</small>
 				  </a>
 				</p>
 				<p>
-				  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at ${returnTime(li.OnTime)}</br>
-				  <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at ${returnTime(li.OffTime)}
+				  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at <strong>${returnTime(li.OnTime)}</strong></br>
+				  <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at <strong>${returnTime(li.OffTime)}</strong>
 				</p>
 			  </div>
 				</div>`);
@@ -287,7 +290,7 @@ var TripPlan = (function($, window, document, undefined) {
 				<div class="d-table-cell leg-mode walk">
 				  <div class="d-table-cell leg-mode-icon">
 					<img class="icon"
-					  src="/img/svg/alerts-color.svg">
+					  src="/img/svg/alerts-color.svg" alt="Alert">
 				  </div>
 				  <p>${li.WalkTextOverview}</p>
 				</div>
@@ -296,21 +299,17 @@ var TripPlan = (function($, window, document, undefined) {
 			  default:
                 }
 		});
-		// Add a line at the bottom of the plan text to show arriving at the ultimate location
-		try {
-			if (tpWalkTime > 0) {
-				console.log("Add walk minutes ");
-				tpArriveTime = addMinutes(tpArriveTime, tpWalkTime);
-			}
+		// Add a line at the bottom of the plan to show time arriving at the ultimate location
+		if (tpWalkTime > 0) {
+			tpArriveTime = addMinutes(tpArriveTime, tpWalkTime);
 		}
-		catch { };
 		
 		tpDetail.push(`
 			<div class="leg-item">
 				<div class="d-table-cell leg-time">${returnTime(tpArriveTime)}</div>
 				<div class="d-table-cell leg-mode arrive">
 					<div class="d-table-cell leg-mode-icon">
-						<img class="icon circle-red-outline-pin" src="/img/svg/circle-red-outline-pin.svg">
+						<img class="icon circle-red-outline-pin" src="/img/svg/circle-red-outline-pin.svg" alt="Marker">
 					</div>
 					<p>Arrive at ${plan.ToAddress.Address}</p>
 				</div>
@@ -319,16 +318,15 @@ var TripPlan = (function($, window, document, undefined) {
 		$('.tp-results').append(`
 			  <div class="card mb-4" data-child="collapseTrip${i}" >
 				  <div id="" class="card-header">
-					  <h3 class="mb-0">
-						  <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
-							  <span class="d-flex">
-								  <span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
-								  <span class="align-items-center tp-route">${tpSummary.join('<img class="icon chevron-right-gray mr-2" src="/img/svg/chevron-right-gray.svg">')}
-									  <img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
-								  </span>
-							  </span>
-						  </button>
-					  </h3>
+						<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
+							<span class="d-flex w-100">
+								<span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
+								<span class="d-flex align-items-center tp-route">
+									<span class="tp-route-summary">${tpSummary.join('<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">')}</span>
+									<img class="icon chevron-down-blue align-items-center ml-auto" src="/img/svg/chevron-down-blue.svg">
+								</span>
+							</span>
+						</button>
 				  </div>
 				  <div id="collapseTrip${i}" class="collapse" aria-labelledby="" data-parent="#tripPlan">
 				  <div class="card-body">
@@ -498,6 +496,45 @@ var TripPlan = (function($, window, document, undefined) {
 
   $(function () {
 	if ($('#planMyTrip').length) {
+		var inputs = $(".from-location, .to-location"),
+		tmp,
+		loctmp;
+		
+		$(".location-toggler").click(function() {
+			tmp = inputs[0].value;
+			inputs[0].value = inputs[1].value;
+			inputs[1].value = tmp;
+			AutocompleteAddress.exchangeValues("fromLocation", "toLocation");
+		});
+	
+		// Drop down for "From" input
+		$("input.dropdown").dropdown();
+	
+		$(".time-elements").hide();
+		$("#selectTime").on("change", function () {
+			// time & date inputs
+			var currentDate = function () {
+				var today = new Date();
+				var dd = today.getDate();
+				var mm = today.getMonth() + 1;
+				var yyyy = today.getFullYear();
+				var min = today.getMinutes();
+				var hrs = today.getHours();
+				hrs = hrs < 10 ? '0' + hrs : hrs;
+				min = min < 10 ? '0' + min : min;
+				dd = dd < 10 ? '0' + dd : dd;
+				mm = mm < 10 ? '0' + mm : mm;
+				today = { date: yyyy + '-' + mm + '-' + dd, time: hrs + ":" + min };
+				return today;
+			};
+			if (this.value === "depart-at" || this.value === "arrive-by") {
+				$("#date").attr('value', currentDate().date);
+				$("#time").attr('value', currentDate().time);
+				$(".time-elements").slideDown();
+			} else {
+				$(".time-elements").slideUp();
+			}
+		});
 		$(function () { $("#planMyTrip").attr('disabled', 'disabled'); });
 
 		AutocompleteAddress.getUserLocation()

@@ -11,6 +11,13 @@
     top: -5.14rem;
   }
 
+  .container {
+    @include media-breakpoint-up(md) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
   .section {
     padding-top: 30px;
     padding-bottom: 30px;

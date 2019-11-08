@@ -45,7 +45,7 @@
 
             .tp-time {
               border-right: 2px solid $gray-300;
-              @include font-size(12);
+              @include font-size(18);
               font-weight: $font-weight-bold;
               padding: 0.5rem;
               width: 5rem;
@@ -60,62 +60,108 @@
             }
 
             .tp-route {
-              display: flex;
+              position: relative;
+              display: block;
               padding: 0.5rem 0.75rem;
-              width: 16.3rem;
+              width: 261px;
+
+              @include media-breakpoint-up(md) {
+                width: 636px;
+              }
 
               @include media-breakpoint-up(lg) {
                 width: 61rem;
               }
 
-              .pedestrian-gray,
-              .bus-gray {
-                width: 1rem;
-                height: 1rem;
+              .tp-route-summary {
+                display: inline-block;
+                width: 210px;
 
-                @include media-breakpoint-up(lg) {
-                  width: 1.5rem;
-                  height: 1.5rem;
+                @include media-breakpoint-up(md) {
+                  width: 582px;
                 }
-              }
-
-              .chevron-right-gray {
-                width: 0.75rem;
-                height: 0.75rem;
-              }
-            }
-
-            .route {
-              @include font-size(12);
-              line-height: 1;
-
-              @include media-breakpoint-up(lg) {
-                @include font-size(18);
-              }
-            }
-
-            .badge {
-              border-radius: 0.25rem;
-              @include font-size(8);
-              padding-right: 0.5rem;
-
-              .icon {
-                width: 1rem;
-                height: 1rem;
 
                 @include media-breakpoint-up(lg) {
-                  @include font-size(16);
+                  width: 599px;
+                }
+
+                @include media-breakpoint-up(xl) {
+                  width: 921px;
+                }
+
+                img,
+                span {
+                  margin-right: 3px;
+
+                  @include media-breakpoint-up(lg) {
+                    margin-right: 5px;
+                  }
+                }
+
+                .icon {
                   width: 1rem;
-                  height: 1.5rem;
-                  margin-right: 0.25rem;
-                }
-              }
-            }
+                  height: 1rem;
 
-            .chevron-down-blue {
-              @include media-breakpoint-up(lg) {
-                width: 1.25rem;
-                height: 1.25rem;
+                  &.bus-gray {
+                    margin-right: 0;
+                  }
+
+                  &.chevron-right-gray {
+                    width: 0.75rem;
+                    height: 0.75rem;
+                  }
+
+                  &.chevron-down-blue {
+                    position: absolute;
+                    right: 0.75rem;
+                  }
+
+                  @include media-breakpoint-up(lg) {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                  }
+                }
+
+                .route {
+                  @include font-size(12);
+                  line-height: 1;
+
+                  @include media-breakpoint-up(lg) {
+                    @include font-size(18);
+                  }
+                }
+
+                .badge {
+                  border-radius: 0.25rem;
+                  @include font-size(10);
+                  padding: 0.25rem 0.25rem 0.25rem 0;
+                  width: 60px;
+                  height: 24px;
+
+                  @include media-breakpoint-up(lg) {
+                    @include font-size(16);
+                    width: 84px;
+                    height: 32px;
+                    padding-left: 0.25rem;
+                  }
+
+                  .icon {
+                    width: 0.5rem;
+                    height: 1rem;
+                    margin-right: 0;
+
+                    @include media-breakpoint-up(lg) {
+                      @include font-size(16);
+                      width: 1rem;
+                      height: 1.5rem;
+                      margin-right: 0.25rem;
+                    }
+                  }
+
+                  .caps {
+                    margin-right: 0;
+                  }
+                }
               }
             }
           }
@@ -230,6 +276,22 @@
                   width: 2.25rem;
                   height: 2.25rem;
                 }
+              }
+            }
+          }
+
+          .arrive {
+            .leg-mode-icon {
+              position: absolute;
+              width: 2rem;
+              height: 2rem;
+              top: 0;
+              left: -1.2rem;
+
+              @include media-breakpoint-up(lg) {
+                left: -1.35rem;
+                width: 2.25rem;
+                height: 2.25rem;
               }
             }
           }
