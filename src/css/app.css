@@ -7951,11 +7951,17 @@ abbr {
     .hero {
       height: 20rem; } }
 
+.about-bg {
+  background-image: url("../../../../../img/about.jpg"); }
+
 .alerts-bg {
   background-image: url("../../../../../img/alerts.jpg"); }
 
 .accessiblity-bg {
   background-image: url("../../../../../img/accessibility.jpg"); }
+
+.bicycle-bg {
+  background-image: url("../../../../../img/bicycle.jpg"); }
 
 .blog-bg {
   background-image: url("../../../../../img/blog.jpg"); }
@@ -7965,6 +7971,9 @@ abbr {
 
 .contact-us-bg {
   background-image: url("../../../../../img/contact-us.jpg"); }
+
+.default-bg {
+  background-image: url("../../../../../img/default-page-header.jpg"); }
 
 .fares-bg {
   background-image: url("../../../../../img/fares.jpg"); }
@@ -7979,8 +7988,11 @@ abbr {
 .how-to-ride-bg {
   background-image: url("../../../../../img/how-to-ride.jpg"); }
 
+.impact-programs-bg {
+  background-image: url("../../../../../img/inpact-programs.jpg"); }
+
 .jobs-bg {
-  background-image: url("../../../../../img/jobs.jpg"); }
+  background-image: url("../../../../../img/job-opportunities.jpg"); }
 
 .news-bg {
   background-image: url("../../../../../img/news.jpg"); }
@@ -8381,7 +8393,7 @@ abbr {
 .esriPopup .tab-pane {
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 130px; }
+  max-height: 120px; }
   @media (min-width: 992px) {
     .esriPopup .tab-pane {
       max-height: 210px; } }
@@ -8456,22 +8468,28 @@ abbr {
 
 #mapPopUpTabNexTrip .route-number {
   font-weight: 700;
-  width: 50px; }
+  max-width: 38px; }
+  @media (min-width: 768px) {
+    #mapPopUpTabNexTrip .route-number {
+      width: 40px; } }
 
 #mapPopUpTabNexTrip .route-name {
-  width: 80px;
+  width: 65px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
   @media (min-width: 768px) {
     #mapPopUpTabNexTrip .route-name {
-      min-width: 180px; } }
+      min-width: 165px; } }
   @media (min-width: 992px) {
     #mapPopUpTabNexTrip .route-name {
-      min-width: 230px; } }
+      min-width: 220px; } }
 
 .esriPopupMaximized .route-name {
   width: auto !important; }
+
+.esriPopupMaximized .tab-content {
+  font-size: 1.2em; }
 
 #mapPopUpTabNexTrip .depart-time {
   font-weight: 600; }
