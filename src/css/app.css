@@ -7831,7 +7831,7 @@ abbr {
           animation: fadeIn 1s infinite alternate;
   width: 0.75rem;
   height: 0.75rem; }
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     .blink {
       width: 1rem;
       height: 1rem; } }
@@ -7951,11 +7951,17 @@ abbr {
     .hero {
       height: 20rem; } }
 
+.about-bg {
+  background-image: url("../../../../../img/about.jpg"); }
+
 .alerts-bg {
   background-image: url("../../../../../img/alerts.jpg"); }
 
 .accessiblity-bg {
   background-image: url("../../../../../img/accessibility.jpg"); }
+
+.bicycle-bg {
+  background-image: url("../../../../../img/bicycle.jpg"); }
 
 .blog-bg {
   background-image: url("../../../../../img/blog.jpg"); }
@@ -7966,21 +7972,26 @@ abbr {
 .contact-us-bg {
   background-image: url("../../../../../img/contact-us.jpg"); }
 
+.default-bg {
+  background-image: url("../../../../../img/default-page-header.jpg"); }
+
 .fares-bg {
   background-image: url("../../../../../img/fares.jpg"); }
 
 .goto-card-bg {
   background-image: url("../../../../../img/goto-card.jpg"); }
 
-.home-bg,
-.placeholder-bg {
-  background-image: url("../../../../../img/mt-header-lrt-2000x457.jpg"); }
+.home-bg {
+  background-image: url("../../../../../img/home.jpg"); }
 
 .how-to-ride-bg {
   background-image: url("../../../../../img/how-to-ride.jpg"); }
 
+.impact-programs-bg {
+  background-image: url("../../../../../img/inpact-programs.jpg"); }
+
 .jobs-bg {
-  background-image: url("../../../../../img/jobs.jpg"); }
+  background-image: url("../../../../../img/job-opportunities.jpg"); }
 
 .news-bg {
   background-image: url("../../../../../img/news.jpg"); }
@@ -8381,7 +8392,7 @@ abbr {
 .esriPopup .tab-pane {
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 130px; }
+  max-height: 120px; }
   @media (min-width: 992px) {
     .esriPopup .tab-pane {
       max-height: 210px; } }
@@ -8456,22 +8467,28 @@ abbr {
 
 #mapPopUpTabNexTrip .route-number {
   font-weight: 700;
-  width: 50px; }
+  max-width: 38px; }
+  @media (min-width: 768px) {
+    #mapPopUpTabNexTrip .route-number {
+      width: 40px; } }
 
 #mapPopUpTabNexTrip .route-name {
-  width: 80px;
+  width: 65px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
   @media (min-width: 768px) {
     #mapPopUpTabNexTrip .route-name {
-      min-width: 180px; } }
+      min-width: 165px; } }
   @media (min-width: 992px) {
     #mapPopUpTabNexTrip .route-name {
-      min-width: 230px; } }
+      min-width: 220px; } }
 
 .esriPopupMaximized .route-name {
   width: auto !important; }
+
+.esriPopupMaximized .tab-content {
+  font-size: 1.2em; }
 
 #mapPopUpTabNexTrip .depart-time {
   font-weight: 600; }
@@ -9239,18 +9256,12 @@ footer {
   #schedulesMaps .bus-routes .btn-outline-secondary {
     width: 70px;
     height: 50px;
-    margin-right: 1.35rem;
-    margin-bottom: 1.35rem; }
-    #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(4n) {
-      margin-right: 0; }
+    margin-right: 0.75rem;
+    margin-bottom: 0.75rem; }
     @media (min-width: 768px) {
       #schedulesMaps .bus-routes .btn-outline-secondary {
         margin-right: 1.15rem;
-        margin-bottom: 1.15rem; }
-        #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(4n) {
-          margin-right: 1.15rem; }
-        #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(8n) {
-          margin-right: 0; } }
+        margin-bottom: 1.15rem; } }
     @media (min-width: 992px) {
       #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(4n), #schedulesMaps .bus-routes .btn-outline-secondary:nth-child(8n) {
         margin-right: 1.15rem; }
@@ -10724,11 +10735,12 @@ select.navigator {
                   height: 1.5rem;
                   margin-right: 0.25rem; } }
             #tripPlannerResults .trips-found .tp-results .card .card-header .btn .tp-route .tp-route-summary .badge .caps {
-              margin-right: 0; }
+              margin-right: 0;
+              line-height: 1.5; }
   #tripPlannerResults .trips-found .tp-results .card .card-body {
     border: 2px solid #e3e3e0;
     border-top: none;
-    padding: 1.25rem 0; }
+    padding: 15px; }
     @media (min-width: 992px) {
       #tripPlannerResults .trips-found .tp-results .card .card-body {
         border: 1px solid #e3e3e0;
@@ -10736,16 +10748,12 @@ select.navigator {
     #tripPlannerResults .trips-found .tp-results .card .card-body .leg-time {
       font-weight: 700;
       margin-right: 1rem;
-      width: 6rem;
-      padding: 0.5rem; }
-      @media (min-width: 768px) {
-        #tripPlannerResults .trips-found .tp-results .card .card-body .leg-time {
-          margin-right: 1rem;
-          width: 125px; } }
+      width: 94px;
+      padding: 0.5rem;
+      padding-left: 0; }
       @media (min-width: 992px) {
         #tripPlannerResults .trips-found .tp-results .card .card-body .leg-time {
-          margin-right: 1.75rem;
-          width: 135px; } }
+          width: 115px; } }
     #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode {
       width: 14.75rem;
       line-height: 1.2;
@@ -10775,7 +10783,7 @@ select.navigator {
         height: 2rem;
         position: absolute;
         top: 0;
-        left: -0.95rem; }
+        left: -1.2rem; }
         @media (min-width: 992px) {
           #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode .leg-mode-icon {
             left: -1.3rem;
@@ -10791,29 +10799,6 @@ select.navigator {
     #tripPlannerResults .trips-found .tp-results .card .card-body .walk,
     #tripPlannerResults .trips-found .tp-results .card .card-body .bus {
       border-left: 4px dotted #7dcae7; }
-      #tripPlannerResults .trips-found .tp-results .card .card-body .walk .leg-mode-icon,
-      #tripPlannerResults .trips-found .tp-results .card .card-body .bus .leg-mode-icon {
-        background-color: #fff;
-        width: 2rem;
-        height: 2rem;
-        position: absolute;
-        top: 0;
-        left: -1.2rem; }
-        @media (min-width: 992px) {
-          #tripPlannerResults .trips-found .tp-results .card .card-body .walk .leg-mode-icon,
-          #tripPlannerResults .trips-found .tp-results .card .card-body .bus .leg-mode-icon {
-            left: -1.3rem;
-            width: 2.25rem;
-            height: 2.25rem; } }
-        #tripPlannerResults .trips-found .tp-results .card .card-body .walk .leg-mode-icon .icon,
-        #tripPlannerResults .trips-found .tp-results .card .card-body .bus .leg-mode-icon .icon {
-          width: 2rem;
-          height: 2rem; }
-          @media (min-width: 992px) {
-            #tripPlannerResults .trips-found .tp-results .card .card-body .walk .leg-mode-icon .icon,
-            #tripPlannerResults .trips-found .tp-results .card .card-body .bus .leg-mode-icon .icon {
-              width: 2.25rem;
-              height: 2.25rem; } }
     #tripPlannerResults .trips-found .tp-results .card .card-body .bus {
       border-left: 4px solid #7dcae7; }
     #tripPlannerResults .trips-found .tp-results .card .card-body .metro-Green {
