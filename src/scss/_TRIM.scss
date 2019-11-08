@@ -89,7 +89,7 @@
 #trimPopUp .nav-tabs {
   margin-bottom: 0;
   padding-right: .7rem;
-  padding-left: rem;
+    padding-left: .5rem;
 
   @include media-breakpoint-up(md) {
     margin-bottom: 0;
@@ -121,23 +121,14 @@
 }
 
 .esriPopup .contentPane {
-  overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
   font-size: 1em;
   background-color: $white;
   max-height: 200px;
 
   @include media-breakpoint-up(lg) {
     max-height: 300px;
-  }
-}
-
-.esriPopup .tab-pane {
-  overflow-y: auto;
-  overflow-x: hidden;
-  max-height: 120px;
-
-  @include media-breakpoint-up(lg) {
-    max-height: 210px;
   }
 }
 
@@ -183,11 +174,9 @@
     opacity: 1;
 }
 .esriPopup .titleButton.maximize {
-    right:28px;
+    display: none;
 }
-.esriPopup .titleButton.restore {
-    right: 28px;
-}
+
 .esriPopup .route-list {
   background-color: #fff;
   line-height: 4px;
@@ -241,12 +230,7 @@
     min-width: 220px;
   }
 }
-.esriPopupMaximized .route-name {
-  width: auto !important;
-}
-.esriPopupMaximized .tab-content {
-  font-size: 1.2em;
-}
+
 #mapPopUpTabNexTrip .depart-time {
   font-weight: 600;
 }

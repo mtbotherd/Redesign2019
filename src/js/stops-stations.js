@@ -121,6 +121,7 @@ var StopServices = (function($,  window, document, undefined) {
                     ${serviceDetail.join('')}
                 </div>
                 `);
+                sessionStorage.setItem('stopFinderResults', $('#stopFinderResults').html());
             }
             if (result.length === 0) {
                 $('#stopFinderResults').append('<p class="result-msg">No transit service available near ' + addressChoice.attributes.LongLabel +'</p>');
@@ -146,5 +147,8 @@ $(function() {
             StopServices.formatPage(choice);
             }
         );
+        if (!(sessionStorage.getItem('stopFinderResults') === null)) {
+            $('#stopFinderResults').html(sessionStorage.getItem('stopFinderResults'));
+        }
     }
 });

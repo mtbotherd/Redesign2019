@@ -89,7 +89,7 @@ var ParkRideServices = (function($,  window, document, undefined) {
             if (results.length === 0) {
                 $('#prFinderResults').append('<p class="result-msg">No Park & Rides close to '+addressChoice.address+'</p>');
             }
-
+            sessionStorage.setItem('prFinderResults', $('#prFinderResults').html());
         })
         .fail(function(err) {
             $('#prFinderResults').append('<p class="result-msg">No Park & Rides close to '+addressChoice.address+'</p>');
@@ -111,5 +111,8 @@ $(function() {
                     ParkRideServices.formatPage(choice);
                 }
             );
+        if (!(sessionStorage.getItem('prFinderResults') === null)) {
+            $('#prFinderResults').html(sessionStorage.getItem('prFinderResults'));
+        }
     }
 });
