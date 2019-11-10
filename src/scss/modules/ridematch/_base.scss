@@ -1,0 +1,35 @@
+/*##############################
+  Ridematch base styles
+##############################*/
+.ridematch {
+  .navigation {
+    background-color: $white;
+
+    i {
+      padding: 15px;
+    }
+  }
+
+  .red {
+    color: $red !important;
+  }
+
+  .material-icons {
+    position: relative;
+    top: 2px;
+  }
+
+  // Media queries
+  @include media-breakpoint-up(lg) {
+    .material-icons {
+      @include font-size(20);
+      width: 20px;
+      height: 20px;
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    h2 .material-icons {
+      top: 3px;
+    }
+  }
+}

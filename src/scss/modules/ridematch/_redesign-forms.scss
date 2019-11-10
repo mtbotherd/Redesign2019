@@ -1,0 +1,155 @@
+/*##############################
+  Ridematch form styles
+##############################*/
+.ridematch {
+  .form-redesign {
+    .form-group {
+      .form-control {
+        padding: 0 6px;
+      }
+
+      select {
+        appearance: none;
+        -o-appearance: none;
+        -ms-appearance: none;
+        -moz-appearance: none;
+        -khtml-appearance: none;
+        -webkit-appearance: none;
+        text-indent: 0.01px;
+        text-overflow: "";
+        padding: 0 24px 0 6px;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjUwcHgiIGhlaWdodD0iMjUwcHgiIHZpZXdCb3g9Ii0zMiAtNjcgMjc1IDI3NSI+PHBhdGggZD0iTTE2OC40NTIsNDIuMTIxbC02LjEwOS02LjExMWMtMi4xMTgtMi4wMDktNC41OS0zLjAxNC03LjQxMy0zLjAxNGMtMi44OCwwLTUuMzI0LDEuMDA1LTcuMzM0LDMuMDE0TDEwOCw3NS42MDcgTDY4LjQwNCwzNi4wMTFjLTIuMDEtMi4wMDktNC40NTQtMy4wMTQtNy4zMzMtMy4wMTRjLTIuODI0LDAtNS4yOTYsMS4wMDUtNy40MTQsMy4wMTRsLTYuMDI5LDYuMTExIGMtMi4wNjQsMi4wNjMtMy4wOTYsNC41MzUtMy4wOTYsNy40MTRjMCwyLjkzMywxLjAzMyw1LjM3NywzLjA5Niw3LjMzMmw1My4wMzksNTMuMDM5YzEuOTU2LDIuMDY0LDQuMzk5LDMuMDk2LDcuMzMzLDMuMDk2IGMyLjg3OSwwLDUuMzUtMS4wMzIsNy40MTMtMy4wOTZsNTMuMDM5LTUzLjAzOWMyLjAxLTIuMDEsMy4wMTYtNC40NTQsMy4wMTYtNy4zMzJDMTcxLjQ2OCw0Ni43MTEsMTcwLjQ2Miw0NC4yNCwxNjguNDUyLDQyLjEyMXoiLz48L3N2Zz4=");
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+
+    .section {
+      margin-top: 0;
+      margin-bottom: 20px;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    label {
+      //@include font-size(13);
+      font-style: normal;
+      margin-bottom: 2px;
+    }
+
+    .input-group {
+      .input-group-addon {
+        @include font-size(12);
+        font-weight: 700;
+        background-color: $white;
+        padding: 0 6px;
+
+        &.start {
+          color: $blue;
+        }
+
+        &.destination {
+          color: $red;
+        }
+      }
+
+      input {
+        //@include font-size(16);
+        border-left: none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        box-shadow: none;
+        font-weight: 700;
+
+        &::placeholder {
+          color: $gray-100;
+        }
+      }
+    }
+
+    .time-picker {
+      width: 100%;
+
+      input {
+        @include font-size(12);
+        border-left: 1px solid #ccc;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+
+        &::placeholder {
+          @include font-size(12);
+        }
+      }
+    }
+
+    .checkbox {
+      margin-top: 5px !important;
+      margin-bottom: 5px;
+
+      .input-group-addon {
+        border: 0;
+      }
+    }
+
+    .select-days {
+      margin-bottom: 10px;
+
+      label {
+        display: block;
+      }
+
+      .btn {
+        background-color: #f7f6f6;
+        @include font-size(12);
+        margin-bottom: 10px;
+      }
+
+      .btn.active {
+        background-color: #cfdeed;
+        box-shadow: none;
+      }
+
+      .btnSch {
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: none;
+        cursor: pointer;
+        @include font-size(12);
+        line-height: 1;
+        width: 34px !important;
+        height: 34px !important;
+        margin-right: 0;
+        text-align: center;
+        padding: 8px;
+      }
+
+      p {
+        margin-top: 0;
+      }
+    }
+    @include media-breakpoint-up(lg) {
+      label {
+        font-style: italic;
+        line-height: 1;
+      }
+
+      .select-days {
+        .btnSch {
+          width: 30px !important;
+          height: 30px !important;
+        }
+      }
+
+      .mt-backbutton {
+        text-align: left;
+      }
+
+      .next,
+      .prev {
+        text-align: center;
+      }
+    }
+  }
+}
