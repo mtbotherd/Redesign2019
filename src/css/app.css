@@ -11070,6 +11070,12 @@ select.navigator {
           width: 1rem;
           height: 1rem; } }
 
+#news .articleTitleLink {
+  font-size: 2rem; }
+
+#news .articleDisplayAbstract {
+  margin-bottom: 1.5rem; }
+
 .ra-redesign {
   padding-top: 30px;
   padding-bottom: 30px; }
