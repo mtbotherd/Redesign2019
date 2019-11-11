@@ -11022,53 +11022,13 @@ select.navigator {
 #alertsModule .service-alerts .number-alerts {
   font-weight: 700; }
 
-/***************************************************
-    News & Updates
-***************************************************/
-#news .row:first-child .col-6 {
-  padding-bottom: 1.5rem; }
-  @media (min-width: 768px) {
-    #news .row:first-child .col-6 {
-      padding-bottom: 0; } }
+.news-list .articleDisplayTitle > h2 {
+  margin-bottom: 0.25rem; }
 
-#news .card {
-  border: 1px solid #e3e3e0; }
-
-#news .card-body,
-#news .card-footer {
-  text-align: center;
-  padding: 0.75rem; }
-
-#news .card-footer {
-  background-color: transparent;
-  border-top: 0; }
-  #news .card-footer .btn-warning {
-    position: relative;
-    color: #626462;
-    font-size: 18px !important;
-    font-size: 1.125rem !important;
-    font-weight: 700;
-    width: 100%; }
-    @media (min-width: 768px) {
-      #news .card-footer .btn-warning {
-        padding: 0.375rem 0.75rem; } }
-    @media (min-width: 992px) {
-      #news .card-footer .btn-warning {
-        width: 100%;
-        font-size: 23px !important;
-        font-size: 1.4375rem !important; } }
-    #news .card-footer .btn-warning .icon {
-      position: absolute;
-      top: 0.75rem;
-      right: 0.25rem;
-      width: 0.75rem;
-      height: 0.75rem; }
-      @media (min-width: 992px) {
-        #news .card-footer .btn-warning .icon {
-          top: 1rem;
-          right: 0.75rem;
-          width: 1rem;
-          height: 1rem; } }
+.news-list .articleDisplayAbstract > p {
+  border-bottom: 1px solid #e3e3e0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem; }
 
 .ra-redesign {
   padding-top: 30px;
@@ -14070,7 +14030,7 @@ table#VPPrts button {
     Ridematch - Commutes
 /***********************************/
 .ridematch .commutes {
-  padding: 20px 0 0; }
+  padding: 0; }
   .ridematch .commutes #map_canvas {
     height: 830px !important; }
   .ridematch .commutes .map_canvas {
@@ -14127,37 +14087,35 @@ table#VPPrts button {
     font-size: 0.75rem !important;
     width: 12px;
     height: 12px; }
+  .ridematch .my-commutes .card .card .material-icons {
+    font-size: 16px !important;
+    font-size: 1rem !important; }
 
 .ridematch .my-commutes .card #profileCards .pagerItem-1 {
   border-top: 5px solid #008244; }
   .ridematch .my-commutes .card #profileCards .pagerItem-1 .account-circle {
     color: #008244;
-    font-size: 16px !important;
-    font-size: 1rem !important;
-    width: 16px;
-    height: 16px; }
+    font-size: 23px !important;
+    font-size: 1.4375rem !important; }
 
 .ridematch .my-commutes .card #profileCards .pagerItem-2 {
   border-top: 5px solid #f68b1f; }
   .ridematch .my-commutes .card #profileCards .pagerItem-2 .account-circle {
     color: #f68b1f;
-    font-size: 16px !important;
-    font-size: 1rem !important;
-    width: 16px;
-    height: 16px; }
+    font-size: 23px !important;
+    font-size: 1.4375rem !important; }
 
 .ridematch .my-commutes .card #profileCards .pagerItem-3 {
   border-top: 5px solid #a5cf4c; }
   .ridematch .my-commutes .card #profileCards .pagerItem-3 .account-circle {
     color: #a5cf4c;
-    font-size: 16px !important;
-    font-size: 1rem !important;
-    width: 16px;
-    height: 16px; }
+    font-size: 23px !important;
+    font-size: 1.4375rem !important; }
 
 .ridematch .my-commutes .card .sub-title {
-  font-size: 12px !important;
-  font-size: 0.75rem !important;
+  font-size: 16px !important;
+  font-size: 1rem !important;
+  font-weight: 700;
   margin-top: 0; }
 
 .ridematch .my-commutes .card .preferences .preference-option {
