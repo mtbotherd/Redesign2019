@@ -150,23 +150,22 @@
 				</div>
 
 				<div class=""> <!-- This class gets set in CMS -->
+					<!-- Navigation -->
+					<div class="nav d-flex justify-content-between d-md-none mt-4" role="navigation">
+						<a class="active" href="#commutes" title="Return to your Dashboard" role="button"><i class="material-icons">drive_eta</i><span class="sr-only">My Commutes</span></a>
+						<a href="#messages" title="Go to your messages" role="button"><i class="material-icons">email</i><span class="sr-only">My Messages</span></a>
+						<a href="#profile" role="button"><i class="material-icons">account_circle</i><span class="sr-only">My Profile</span></a>
+					</div>
+
 					<section class="section">
 						<div class="ridematch">
-
-							<!-- Navigation -->
-							<div class="nav d-flex justify-content-between d-md-none" role="navigation">
-								<a class="active" href="#commutes" title="Return to your Dashboard" role="button"><i class="material-icons">drive_eta</i><span class="sr-only">My Commutes</span></a>
-								<a href="#messages" title="Go to your messages" role="button"><i class="material-icons">email</i><span class="sr-only">My Messages</span></a>
-								<a href="#profile" role="button"><i class="material-icons">account_circle</i><span class="sr-only">My Profile</span></a>
-							</div>
-
 							<div class="dashboard commutes">
 								<div class="mt-form form-redesign">
 									<div class="card" id="card">
 										<div class="row">
 											<div class="col-lg-4" id="">
 												<div class="card">
-													<h1 class="sr-only">Add Commute</h1>
+													<h2 class="sr-only">Add Commute</h2>
 													<input data-val="true" data-val-number="The field RDMProfileId must be a number." data-val-required="'RDMProfileId' must not be empty." id="RDMProfileId" name="RDMProfileId" type="hidden" value="-1">
 													<input type="hidden" id="filename" value="CommuteProfile">
 													<div class="section">
@@ -220,25 +219,19 @@
 													</div>
 													<div class="section">
 														<h2 class="required"><i class="material-icons schedule">access_time</i> Schedule</h2>
-														<div class="row">
-															<div class="col-md-12">
-																<div class="form-group">
-																	<label for="InboundTime">I start (work, school, etc) at</label><br>
-																	<div class="time-picker input-group">
-																		<input type="text" class="form-control" id="InboundTime" name="InboundTime" value="09:00 AM" data-format="HH:mm PP" placeholder="8:00 AM">
-																		<span class="add-on time input-group-addon"><i class="fa fa-clock-o icon-time" aria-hidden="true"></i></span>
-																	</div>
-																</div>
+														<div class="form-group">
+															<label for="InboundTime">I start (work, school, etc) at</label><br>
+															<div class="time-picker input-group">
+																<input type="text" class="form-control" id="InboundTime" name="InboundTime" value="09:00 AM" data-format="HH:mm PP" placeholder="8:00 AM">
+																<span class="add-on time input-group-addon"><i class="fa fa-clock-o icon-time" aria-hidden="true"></i></span>
 															</div>
-															<div class="col-md-12">
-																<div class="form-group">
-																	<label for="OutboundTime">and end at</label><br>
-																	<div class="time-picker input-group">
-																		<input type="text" class="form-control" id="OutboundTime" name="OutboundTime" value="05:00 PM" data-format="HH:mm PP" placeholder="5:00 PM">
-																		<span class="add-on time input-group-addon"><i class="fa fa-clock-o icon-time" aria-hidden="true"></i></span>
-																	</div>  
-																</div>
-															</div>
+														</div>
+														<div class="form-group">
+															<label for="OutboundTime">and end at</label><br>
+															<div class="time-picker input-group">
+																<input type="text" class="form-control" id="OutboundTime" name="OutboundTime" value="05:00 PM" data-format="HH:mm PP" placeholder="5:00 PM">
+																<span class="add-on time input-group-addon"><i class="fa fa-clock-o icon-time" aria-hidden="true"></i></span>
+															</div>  
 														</div>
 														<div class="select-days">
 															<label for="days">on these days</label>
@@ -294,13 +287,11 @@
 													<input type="hidden" id="filename" value="CommuteProfile">
 						
 													<div class="text-center">
-														<input type="button" id="submitButton" class="btn btn-outline-primary" value="Find matches">
+														<input type="button" id="submitButton" class="btn btn-warning" value="Find matches">
 													</div>
 												</div>
 											</div>
-											<div class="col-lg-8 d-none d-lg-block">
-												<!-- <div id="map_canvas" style="height: 855px;"><div id="gMap" class="map_canvas" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div style="overflow: hidden;"></div><div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;"><div tabindex="0" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default;"><div style="z-index: 1; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; z-index: 991; transform: matrix(1, 0, 0, 1, -115, -46);"><div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"></div></div><div class="gm-style-pbc" style="z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0;"><p class="gm-style-pbt"></p></div><div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;"><div style="z-index: 4; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div></div><iframe aria-hidden="true" frameborder="0" src="about:blank" style="z-index: -1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: none;"></iframe></div></div></div></div> -->
-											</div>
+											<div class="col-lg-8 d-none d-lg-block"></div>
 										</div>
 									</div>
 								</div>
