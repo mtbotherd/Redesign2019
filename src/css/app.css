@@ -14080,8 +14080,7 @@ table#VPPrts button {
     display: inline-block; }
     .ridematch .commutes h2 .schedule {
       border: none; }
-  .ridematch .commutes .preferences .material-icons {
-    font-size: 16px !important;
+  .ridematch .commutes .preferences i.material-icons {
     font-size: 1rem !important; }
   .ridematch .commutes .alert {
     padding: 10px; }

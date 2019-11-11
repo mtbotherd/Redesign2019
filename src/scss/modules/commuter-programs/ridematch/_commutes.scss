@@ -23,8 +23,8 @@
     }
 
     .preferences {
-      .material-icons {
-        @include font-size(16);
+      i.material-icons {
+        font-size: 1rem !important;
       }
     }
 

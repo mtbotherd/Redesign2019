@@ -20,7 +20,7 @@ var News = (function ($, window, document, undefined) {
             }
         }
 
-        var newsDisplay = $('#news>div.row>div');
+        var newsDisplay = $('#news>div.card-deck>div');
 
         $.each(newsDisplay, function (index, item) {
             $(item).find('img.card-img-top').attr('src', newsStories[index].img);

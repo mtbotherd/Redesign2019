@@ -44,12 +44,12 @@
 @import "modules/commuter-programs/vanpool";
 
 // Ridematch
-@import "modules/ridematch/material-icons";
-@import "modules/ridematch/mixins.scss";
-@import "modules/ridematch/base.scss";
-@import "modules/ridematch/ridematch.scss";
-@import "modules/ridematch/navigation.scss";
-//@import "./profile.scss";
+@import "modules/commuter-programs/ridematch/material-icons";
+@import "modules/commuter-programs/ridematch/mixins.scss";
+@import "modules/commuter-programs/ridematch/base.scss";
+@import "modules/commuter-programs/ridematch/ridematch.scss";
+@import "modules/commuter-programs/ridematch/navigation.scss";
+//@import "modules/commuter-programs/ridematch/profile.scss";
 @import "modules/commuter-programs/ridematch/redesign-forms.scss";
 @import "modules/commuter-programs/ridematch/dashboard.scss";
 @import "modules/commuter-programs/ridematch/commutes.scss";
