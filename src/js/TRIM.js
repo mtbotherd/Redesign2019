@@ -849,16 +849,17 @@ var TRIM = (function ($, window, document, undefined) {
 
                 for (let i=0,l=departures.length; i < l; i++) {
                     let depart = departures[i];
-                    var departRow = $('<div/>', { class: 'list-group-item' }).appendTo($('#mapPopUpDepartures'));
+                    var departRow = $('<div/>', { class: 'list-group-item' });
                     departRow.append($('<span/>', { class: 'route-number mr-2' }).text(depart.RouteId + depart.Terminal));
                     departRow.append($('<span/>', { class: 'route-name' }).text(depart.Description));
         
-                    var departTime = $('<span/>', { class: 'depart-time ml-auto' }).appendTo(departRow);
+                    var departTime = $('<span/>', { class: 'depart-time ml-auto' });
                     if (depart.Actual === true) {
                         departTime.append($('<img/>', { class: 'icon blink mr-1', src: '/img/svg/broadcast-red.svg' }));
                     }
                     departTime.append(depart.DepartureText);
-                    
+                    departTime.appendTo(departRow);
+                    departRow.appendTo($('#mapPopUpDepartures'));
                 };
             } else {
                 $('#mapPopUpDepartures').html('<span style="font-size:larger">No departures available at this time</span>');
@@ -992,6 +993,7 @@ var TRIM = (function ($, window, document, undefined) {
                         return routestring;
                     };
                     var idMap = function (evt) {
+                        clearInterval(nexTrip_INTERVAL);
                         var showLocation = function (results2) {
                             var title = "Map Click<hr/>" + "Location found: <br/>" + results2.address.address.Street + "<br/>";
 
@@ -1072,7 +1074,9 @@ var TRIM = (function ($, window, document, undefined) {
                                 }
                                 stopGraphic.setSymbol(stopSymbol);
                                 MAP.getLayer("stops").add(stopGraphic);
-                                $('#mapPopUpStopDescription').html(atts.site_on + ' & ' + atts.site_at);
+                                let stopName = atts.site_on.trim();
+                                stopName += atts.site_at.trim() !== 'null' ? ' & ' + atts.site_at.trim() : '';
+                                $('#mapPopUpStopDescription').html(stopName);
                                 $('#mapPopUpRoutes').html(formatRouteList(atts.ROUTES));
 
                                 formatPopupDepartures(atts.siteid);
@@ -1179,7 +1183,6 @@ var TRIM = (function ($, window, document, undefined) {
                     MAP.on("click", function (evt) {
                         if (mapType === "full") {
                             if (MAP.infoWindow.isShowing) {
-                                clearInterval(nexTrip_INTERVAL);
                                 MAP.infoWindow.hide();
                                 // clear these layers for any displays by passing nothing in the parameter
                                 // unless we're showing a particular route on the TRIM map

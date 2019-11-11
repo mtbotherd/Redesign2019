@@ -1,0 +1,207 @@
+/************************************
+    Ridematch - Messages
+/***********************************/
+.ridematch {
+  .messages {
+    .card .card {
+      border: none !important;
+      padding: 0;
+    }
+
+    .message-header-bar {
+      background-color: $gray-200;
+      color: $blue;
+      @include font-size(16);
+      font-weight: 700;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .panel-group {
+      margin-bottom: 0;
+
+      .panel {
+        border-radius: 0;
+        border: 1px solid $border-color;
+        margin-bottom: 0.5rem;
+
+        @include media-breakpoint-up(lg) {
+          margin-bottomo: 1rem;
+        }
+      }
+
+      .panel-default {
+        background-color: $white;
+      }
+
+      .panel-default > .panel-heading {
+        background-color: $white;
+        position: relative;
+        padding: 5px;
+
+        p {
+          @include font-size(12);
+        }
+
+        .delete-icon {
+          color: $gray-500;
+          @include font-size(14);
+          width: 14px;
+          height: 14px;
+          cursor: pointer;
+          margin-left: 10px;
+          top: 0;
+        }
+
+        .panel-title {
+          @include font-size(16);
+          margin: 0;
+          padding: 10px 10px 10px 0;
+        }
+
+        .subject {
+          @include font-size(14);
+          margin-top: 0;
+          margin-left: 1.25rem;
+        }
+      }
+
+      .panel-default > .panel-heading.new {
+        background-color: $gray-100;
+      }
+
+      .panel-heading {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+
+        .accordion-toggle:before {
+          color: $blue;
+          font-family: "Material Icons";
+          @include font-size(14);
+          content: "\E15D";
+          float: left;
+          margin-right: 5px;
+        }
+
+        .accordion-toggle.collapsed:before {
+          content: "\E148";
+        }
+      }
+
+      .panel-body {
+        background-color: #f7f6f6;
+        @include font-size(8);
+        padding: 5px;
+
+        .reply-icon {
+          cursor: pointer;
+          @include font-size(14);
+          width: 14px;
+          height: 14px;
+        }
+
+        .response {
+          p {
+            @include font-size(10);
+            margin-left: 0;
+          }
+        }
+
+        .message {
+          h5 {
+            @include font-size(12);
+
+            .material-icons {
+              @include font-size(12);
+              width: 12px;
+              height: 12px;
+            }
+          }
+
+          p {
+            @include font-size(10);
+            margin-left: 13px;
+          }
+        }
+      }
+    }
+    @include media-breakpoint-up(lg) {
+      .card {
+        border: none !important;
+      }
+
+      .card .card {
+        padding: 0;
+      }
+
+      .well {
+        border-radius: 0;
+        margin-bottom: 0;
+      }
+
+      .panel-group {
+        .panel + .panel {
+          margin-top: 0;
+        }
+
+        .panel-default > .panel-heading {
+          background-color: $white;
+          position: relative;
+          padding: 5px;
+
+          h4 {
+            cursor: pointer;
+
+            // &.panel-title {
+            //   @include font-size(16);
+            //   margin: 0;
+            //   padding: 10px 30px 10px 0 !important;
+            // }
+          }
+
+          p {
+            @include font-size(12);
+            margin: 1rem 0 !important;
+          }
+
+          .delete-icon {
+            color: $gray-300;
+            @include font-size(18);
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+          }
+
+          .timestamp {
+            @include font-size(8);
+          }
+        }
+
+        .panel-body {
+          .material-icons {
+            @include font-size(18);
+            width: 18px;
+            height: 18px;
+          }
+
+          .message,
+          .response {
+            h5 {
+              @include font-size(18);
+
+              .material-icons {
+                @include font-size(18);
+                width: 18px;
+                height: 18px;
+              }
+            }
+
+            p {
+              @include font-size(12);
+            }
+          }
+        }
+      }
+    }
+  }
+}

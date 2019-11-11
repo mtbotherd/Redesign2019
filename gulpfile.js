@@ -85,7 +85,7 @@ gulp.task('svgDefs', function () {
 });
 
 gulp.task('html', function () {
-	return gulp.src('src/*.html')
+	return gulp.src('src/**/*.html')
 		.pipe(gulp.dest('dist'))
 });
 
@@ -94,7 +94,7 @@ gulp.task('html', function () {
 gulp.task('watch', function () {
 	gulp.watch('src/scss/**/*.scss', ['sass']);
 	// gulp.watch('src/Data/sites/1/skins/MetroTransitIII/*.html', browserSync.reload);
-	gulp.watch('src/*.html', browserSync.reload);
+	gulp.watch('src/**/*.html', browserSync.reload);
 	gulp.watch('src/js/**/*.js', browserSync.reload);
 });
 

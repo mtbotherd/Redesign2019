@@ -1,0 +1,25 @@
+/*##############################
+  Ridematch specific styles
+##############################*/
+.ridematch {
+  .profile {
+    margin: 15px 0;
+  }
+  .control-point-icon {
+    @include font-size(24);
+    color: $red !important;
+    display: block;
+    width: 24px !important;
+    height: 24px !important;
+    margin: 0 auto 10px auto !important;
+  }
+  @include media-breakpoint-up(lg) {
+    padding: 0;
+
+    .material-icons.create {
+      @include font-size(24);
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

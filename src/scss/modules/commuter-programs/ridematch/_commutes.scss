@@ -1,0 +1,80 @@
+/************************************
+    Ridematch - Commutes
+/***********************************/
+.ridematch {
+  .commutes {
+    padding: 20px 0 0;
+
+    #map_canvas {
+      height: 830px !important;
+    }
+
+    .map_canvas {
+      top: 0 !important;
+      margin: 0 !important;
+    }
+
+    h2 {
+      display: inline-block;
+
+      .schedule {
+        border: none;
+      }
+    }
+
+    .preferences {
+      i.material-icons {
+        font-size: 1rem !important;
+      }
+    }
+
+    .alert {
+      padding: 10px;
+    }
+
+    .alert-warning {
+      background-color: #fcf8e3;
+
+      p {
+        @include font-size(12);
+        margin: 0;
+        line-height: 1.5;
+      }
+    }
+
+    .commute-name {
+      @include font-size(10);
+      font-weight: 400;
+      margin-top: 5px;
+    }
+    @include media-breakpoint-up(lg) {
+      margin: 0;
+
+      .card {
+        border: none;
+        margin-bottom: 15px;
+        padding: 0;
+
+        .card {
+          border: 1px solid $border-color;
+          padding: 15px;
+        }
+      }
+
+      .preferences {
+        .material-icons {
+          top: 1px;
+        }
+      }
+
+      .commute-name {
+        @include font-size(18);
+        margin-top: 0;
+      }
+
+      .number-results {
+        line-height: 10px;
+      }
+    }
+  }
+}

@@ -3,7 +3,8 @@
     margin-bottom: 0;
   }
   // These styles sets fixed width on HTML Module fragments in CMS
-  .htmlmodule {
+  .htmlmodule,
+  .body-content {
     @include media-breakpoint-up(lg) {
       width: 770px;
       margin: 0 auto;

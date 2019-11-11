@@ -1,21 +1,7 @@
 .route {
-  .schedule-days {
-    h3 {
-      font-weight: normal !important;
-    }
-
-    button {
-      display: block;
-      width: 100%;
-
-      @include media-breakpoint-up(lg) {
-        width: 17.5rem;
-      }
-    }
-
-    button:not(:last-child) {
-      margin-bottom: 1rem !important;
-    }
+  .date-time-color {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 
   .list-group-item {
@@ -32,18 +18,9 @@
     }
   }
 
-  .date-time-color {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-
   .button-container-icon-right,
   .link-pdf-container,
   .btn-wrapper {
     text-align: center !important;
-  }
-
-  .btn-outline-primary {
-    text-transform: capitalize;
   }
 }
