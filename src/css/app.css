@@ -8840,7 +8840,6 @@ footer {
   margin-right: 0.25rem;
   margin-bottom: 0.25rem !important;
   width: 96px;
-  height: 36px;
   line-height: 1;
   padding: 0.25rem 1.2rem; }
   @media (min-width: 992px) {
@@ -8852,14 +8851,6 @@ footer {
       width: 100px;
       height: 45px;
       padding: 0.15rem 1.2rem; } }
-  #stopsStations .gray-100 .transit-service .routes:nth-child(3n) {
-    margin-right: 0; }
-    @media (min-width: 992px) {
-      #stopsStations .gray-100 .transit-service .routes:nth-child(3n) {
-        margin-right: 30px; } }
-  @media (min-width: 992px) {
-    #stopsStations .gray-100 .transit-service .routes:nth-child(8n) {
-      margin-right: 0; } }
 
 #stopsStations .gray-100 .lrt-service .routes {
   font-size: 18px !important;
