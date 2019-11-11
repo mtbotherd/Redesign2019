@@ -41,7 +41,6 @@
 @import "modules/commuter-programs/date-time-picker";
 @import "modules/commuter-programs/commuter";
 @import "modules/commuter-programs/grh";
-// @import "modules/commuter-programs/ridematch";
 @import "modules/commuter-programs/vanpool";
 
 // Ridematch
@@ -51,8 +50,8 @@
 @import "modules/ridematch/ridematch.scss";
 @import "modules/ridematch/navigation.scss";
 //@import "./profile.scss";
-@import "modules/ridematch/redesign-forms.scss";
-@import "modules/ridematch/dashboard.scss";
-@import "modules/ridematch/commutes.scss";
-@import "modules/ridematch/my-commutes.scss";
-@import "modules/ridematch/messages.scss";
+@import "modules/commuter-programs/ridematch/redesign-forms.scss";
+@import "modules/commuter-programs/ridematch/dashboard.scss";
+@import "modules/commuter-programs/ridematch/commutes.scss";
+@import "modules/commuter-programs/ridematch/my-commutes.scss";
+@import "modules/commuter-programs/ridematch/messages.scss";

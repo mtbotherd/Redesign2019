@@ -22,18 +22,10 @@
       }
     }
 
-    .number-results {
-      //@include font-size(12);
-    }
-
     .preferences {
-      //   .material-icons {
-      //     @include font-size(14);
-      //     top: 2px;
-      //     width: 14px;
-      //     height: 14px;
-      //     line-height: 0;
-      //   }
+      .material-icons {
+        @include font-size(16);
+      }
     }
 
     .alert {
