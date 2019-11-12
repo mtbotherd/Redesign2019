@@ -1,52 +1,52 @@
-.ra-redesign {
-  padding-top: 30px;
-  padding-bottom: 30px;
+// .ra-redesign {
+//   padding-top: 30px;
+//   padding-bottom: 30px;
 
-  @include media-breakpoint-up(lg) {
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
-  .blogwrapper {
-    margin-top: 15px;
-    margin-bottom: 15px;
+//   @include media-breakpoint-up(lg) {
+//     padding-top: 60px;
+//     padding-bottom: 60px;
+//   }
+//   .blogwrapper {
+//     margin-top: 15px;
+//     margin-bottom: 15px;
 
-    @include media-breakpoint-up(lg) {
-      margin-top: 30px;
-      margin-bottom: 30px;
-    }
-    img {
-      width: 100%;
-      height: auto;
-    }
-    a.categories {
-      display: block;
-      font-weight: $font-weight-bold;
-      @include font-size(16);
-      padding-bottom: 15px;
+//     @include media-breakpoint-up(lg) {
+//       margin-top: 30px;
+//       margin-bottom: 30px;
+//     }
+//     img {
+//       width: 100%;
+//       height: auto;
+//     }
+//     a.categories {
+//       display: block;
+//       font-weight: $font-weight-bold;
+//       @include font-size(16);
+//       padding-bottom: 15px;
 
-      @include media-breakpoint-up(lg) {
-        padding-bottom: 30px;
-      }
-    }
-  }
-  .blognavleft {
-    display: none;
-  }
-  .blogpager {
-    margin-top: 15px;
-    text-align: center;
+//       @include media-breakpoint-up(lg) {
+//         padding-bottom: 30px;
+//       }
+//     }
+//   }
+//   .blognavleft {
+//     display: none;
+//   }
+//   .blogpager {
+//     margin-top: 15px;
+//     text-align: center;
 
-    @include media-breakpoint-up(lg) {
-      margin-top: 30px;
-    }
-    .modulepager {
-      .SelectedPage,
-      .ModulePager {
-        position: relative;
-        border: 1px solid $border-color;
-        padding: 0.5rem 0.75rem;
-        line-height: 1.25;
-      }
-    }
-  }
-}
+//     @include media-breakpoint-up(lg) {
+//       margin-top: 30px;
+//     }
+//     .modulepager {
+//       .SelectedPage,
+//       .ModulePager {
+//         position: relative;
+//         border: 1px solid $border-color;
+//         padding: 0.5rem 0.75rem;
+//         line-height: 1.25;
+//       }
+//     }
+//   }
+// }
