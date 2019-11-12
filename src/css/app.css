@@ -11030,47 +11030,6 @@ select.navigator {
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem; }
 
-.ra-redesign {
-  padding-top: 30px;
-  padding-bottom: 30px; }
-  @media (min-width: 992px) {
-    .ra-redesign {
-      padding-top: 60px;
-      padding-bottom: 60px; } }
-  .ra-redesign .blogwrapper {
-    margin-top: 15px;
-    margin-bottom: 15px; }
-    @media (min-width: 992px) {
-      .ra-redesign .blogwrapper {
-        margin-top: 30px;
-        margin-bottom: 30px; } }
-    .ra-redesign .blogwrapper img {
-      width: 100%;
-      height: auto; }
-    .ra-redesign .blogwrapper a.categories {
-      display: block;
-      font-weight: 700;
-      font-size: 16px !important;
-      font-size: 1rem !important;
-      padding-bottom: 15px; }
-      @media (min-width: 992px) {
-        .ra-redesign .blogwrapper a.categories {
-          padding-bottom: 30px; } }
-  .ra-redesign .blognavleft {
-    display: none; }
-  .ra-redesign .blogpager {
-    margin-top: 15px;
-    text-align: center; }
-    @media (min-width: 992px) {
-      .ra-redesign .blogpager {
-        margin-top: 30px; } }
-    .ra-redesign .blogpager .modulepager .SelectedPage,
-    .ra-redesign .blogpager .modulepager .ModulePager {
-      position: relative;
-      border: 1px solid #e3e3e0;
-      padding: 0.5rem 0.75rem;
-      line-height: 1.25; }
-
 /*********************************************************
     Redesign Forms
 *********************************************************/
