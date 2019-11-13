@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Metro Transit</title>
+	<link rel="shortcut icon"
+		  href="favicon.ico"
+		  type="image/x-icon">
+	<link rel="stylesheet"
+		  href="/css/app.css">
+
+</head>
+
+<body>
+	
+	<a href="#pageContainer" class="skip-to-content">Skip to main content</a>
+
+	<!-- Begin Header -->
+	<header id="header">
+		<nav class="navbar navbar-expand-xl navbar-light">
+			<div class="container">
+				<a class="navbar-brand" href="/">
+					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<section class="section">
+						<ul class="nav navbar-nav mx-auto">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="/trip-planner" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Trip Tools
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/trip-planner">Trip Planner</a>
+									<a class="dropdown-item" href="/nextrip">NexTrip</a>
+									<a class="dropdown-item" href="/rider-alerts">Alerts</a>
+									<a class="dropdown-item" href="/park-rides">Find a Park &amp; Ride</a>
+									<a class="dropdown-item" href="/stops-stations">
+										Find a Stop or Station
+									</a>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link no-dropdown" href="schedules-maps">
+									Schedules &amp; Maps
+								</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Fares
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/fares">Fares</a>
+									<a class="dropdown-item" href="/go-to-card">Go-To Card</a>
+									<a class="dropdown-item" href="/passes">Pass Programs</a>
+									<a class="dropdown-item" href="https://store.metrotransit.org/">Store</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									More
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/carpool-vanpool">Carpool &amp; Vanpool</a>
+									<a class="dropdown-item" href="/transit-link">Transit Link</a>
+									<a class="dropdown-item" href="/guaranteed-ride-home">Guaranteed Ride Home</a>
+									<a class="dropdown-item" href="/bicycle">Bicycle</a>
+									<a class="dropdown-item" href="/news">News &amp; Events</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Help
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/how-to-ride">How to Ride</a>
+									<a class="dropdown-item" href="contact-us">Contact Us</a>
+									<a class="dropdown-item" href="/lost-found">Lost &amp; Found</a>
+									<a class="dropdown-item" href="/accessibility">Accessibility</a>
+									<a class="dropdown-item" href="/languages">Languages</a>
+									<a class="dropdown-item" href="/police">Transit Police</a>
+								</div>
+							</li>
+						</ul>
+					</section>
+					<ul class="nav navbar-nav utilities ml-auto">
+						<li class="nav-item">
+							<a class="nav-link store-icon" href="https://store.metrotransit.org">
+								<span class="sr-only">store</span>
+							</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a data-toggle="dropdown" class="nav-link dropdown-toggle search-icon" href="#">
+								<span class="sr-only">site search</span>
+							</a>
+							<div class="dropdown-menu search-dropdown-menu">
+								<div class="input-group">
+									<label for="siteSearch" class="sr-only">Search</label>
+									<input type="text" id="siteSearch" class="form-control" placeholder="Search our site">
+									<div class="input-group-append">
+										<button type="button" id="siteSearchBtn" class="btn btn-primary">
+											<span class="sr-only">Search button</span>
+											<img class="icon" src="/img/svg/search-gray.svg">
+										</button>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle avatar-icon" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="sr-only">Sign in / create account</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Sign In</a>
+								<a class="dropdown-item" href="#">Create Account</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End Header -->
+
+	<!-- Begin Main Content -->
+	<main id="pageContainer" class="container">
+		<section>
+			<div class="page-content">
+
+				<div class="full-width">
+					<div class="secondary">
+						<div class="container">
+							<div class="page-title">
+								<h1>Filming and Photography</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class=""> <!-- This class gets set in CMS -->
+					<section class="section">
+						<div class="mt-form form-redesign">
+							<h2>Metro Transit Usage and Partnership Proposals:</h2>
+							<h3>Filming and Photography</h3>
+							<p>Individuals seeking to film or take photographs on Metro Transit property and vehicles are encouraged to work with Metro Transit to ensure all activities are done safely and responsibly. The following
+								information is needed to respond to film and photo requests. Please respond in as much detail as possible. A two-week advance notice is preferred.</p>
+							<p>Please include preferred date(s) and time(s). If your request involves an in-service bus or train, please indicate the boarding location and specific boarding time (stop numbers and schedules are available at
+							<a href="https://www.metrotransit.org" title="Metro Tranit">metrotransit.org</a>). Please consider providing at least one alternative date/time.</p>
+							<div class="mt-field mt-rightalign">
+								<span class="required-notice"> = Required Field</span>
+							</div>
+					
+							<div class="form-group">
+								<label for="ctl00_mainContent_ctl01_ctl00_email_address" id="ctl00_mainContent_ctl01_ctl00_label1" class="required">Email address</label>
+								<input name="ctl00$mainContent$ctl01$ctl00$email_address" type="email" id="ctl00_mainContent_ctl01_ctl00_email_address" class="form-control" placeholder="Your email" required="">
+							</div>
+					
+							<div class="form-group">
+								<label for="ctl00_mainContent_ctl01_ctl00_submitted_by" id="ctl00_mainContent_ctl01_ctl00_label2" class="required">Submitted by</label>
+								<input name="ctl00$mainContent$ctl01$ctl00$submitted_by" type="text" id="ctl00_mainContent_ctl01_ctl00_submitted_by" class="form-control" placeholder="Your name" required="">
+							</div>
+					
+							<div class="form-group">
+								<label for="ctl00_mainContent_ctl01_ctl00_primary_contact" id="ctl00_mainContent_ctl01_ctl00_label3" class="required">Primary contact</label>
+								<input name="ctl00$mainContent$ctl01$ctl00$primary_contact" type="text" id="ctl00_mainContent_ctl01_ctl00_primary_contact" class="form-control" placeholder="Contact name" required="">
+							</div>
+					
+							<div class="form-group">
+								<label for="ctl00_mainContent_ctl01_ctl00_phone" id="ctl00_mainContent_ctl01_ctl00_label4" class="required">Phone</label>
+								<input name="ctl00$mainContent$ctl01$ctl00$phone" type="text" id="ctl00_mainContent_ctl01_ctl00_phone" class="form-control" placeholder="Phone number" required="">
+							</div>
+					
+							<div class="form-group">
+								<label for="ctl00_mainContent_ctl01_ctl00_project_summary" id="ctl00_mainContent_ctl01_ctl00_label5" class="required">Brief summary of project</label>
+								<textarea name="ctl00$mainContent$ctl01$ctl00$project_summary" rows="2" cols="20" id="ctl00_mainContent_ctl01_ctl00_project_summary" class="form-control" placeholder="Summary" required=""></textarea>
+							</div>
+							
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl01_ctl00_preferred_start_date" id="ctl00_mainContent_ctl01_ctl00_label6" class="required">Preferred start date</label><br>
+										<div class="date-picker input-group">
+											<input name="ctl00$mainContent$ctl01$ctl00$preferred_start_date" type="text" id="ctl00_mainContent_ctl01_ctl00_preferred_start_date" class="form-control" data-format="MM/dd/yyyy" placeholder="mm/dd/yy" required="">
+											<span class="add-on date input-group-addon"><i class="fa fa-calendar icon-calendar" aria-hidden="true"></i></span>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl01_ctl00_preferred_end_date" id="ctl00_mainContent_ctl01_ctl00_label7" class="required">Preferred end date</label><br>
+										<div class="date-picker input-group">
+											<input name="ctl00$mainContent$ctl01$ctl00$preferred_end_date" type="text" id="ctl00_mainContent_ctl01_ctl00_preferred_end_date" class="form-control" data-format="MM/dd/yyyy" placeholder="mm/dd/yy" required="">
+											<span class="add-on date input-group-addon"><i class="fa fa-calendar icon-calendar" aria-hidden="true"></i></span>
+										</div>
+									</div>
+								</div>
+							</div>
+					
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl01_ctl00_preferred_start_time" id="ctl00_mainContent_ctl01_ctl00_label8" class="required">Preferred start time</label><br>
+										<div class="time-picker input-group">
+											<input name="ctl00$mainContent$ctl01$ctl00$preferred_start_time" type="text" id="ctl00_mainContent_ctl01_ctl00_preferred_start_time" class="form-control" data-format="HH:mm PP" placeholder="hh:mm" required="">
+											<span class="add-on time input-group-addon"><i class="fa fa-clock-o icon-time" aria-hidden="true"></i></span>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl01_ctl00_preferred_end_time" id="ctl00_mainContent_ctl01_ctl00_label9" class="required">Preferred end time</label><br>
+										<div class="time-picker input-group">
+											<input name="ctl00$mainContent$ctl01$ctl00$preferred_end_time" type="text" id="ctl00_mainContent_ctl01_ctl00_preferred_end_time" class="form-control" data-format="HH:mm PP" placeholder="hh:mm" required="">
+											<span class="add-on time input-group-addon"><i class="fa fa-clock-o icon-time" aria-hidden="true"></i></span>
+										</div>
+									</div>
+								</div>
+							</div>								
+							
+							<div class="form-group">
+								<label for="ctl00_mainContent_ctl01_ctl00_alternate_date_time" id="ctl00_mainContent_ctl01_ctl00_label10" class="required">Alterative date/time</label>
+								<textarea name="ctl00$mainContent$ctl01$ctl00$alternate_date_time" rows="2" cols="20" id="ctl00_mainContent_ctl01_ctl00_alternate_date_time" class="form-control" placeholder="Date &amp; time" required=""></textarea>
+							</div>
+					
+							<div class="checkbox-group">
+								<label for="ctl00_mainContent_ctl01_ctl00_vehicle_type" id="ctl00_mainContent_ctl01_ctl00_lblCheckboxList1">Preferred vehicle type</label>
+								<table id="ctl00_mainContent_ctl01_ctl00_vehicle_type" class="checkbox-list">
+									<tbody><tr>
+										<td><input id="ctl00_mainContent_ctl01_ctl00_vehicle_type_0" type="checkbox" name="ctl00$mainContent$ctl01$ctl00$vehicle_type$0" value="Bus"><label for="ctl00_mainContent_ctl01_ctl00_vehicle_type_0">Bus</label></td><td><input id="ctl00_mainContent_ctl01_ctl00_vehicle_type_1" type="checkbox" name="ctl00$mainContent$ctl01$ctl00$vehicle_type$1" value="Train"><label for="ctl00_mainContent_ctl01_ctl00_vehicle_type_1">Train</label></td>
+									</tr>
+								</tbody></table>
+							</div>
+					
+							<div class="form-group">
+								<label for="ctl00_mainContent_ctl01_ctl00_number_bus_train" id="ctl00_mainContent_ctl01_ctl00_label11">Number of buses or trains</label>
+								<input name="ctl00$mainContent$ctl01$ctl00$number_bus_train" type="number" id="ctl00_mainContent_ctl01_ctl00_number_bus_train" class="form-control" placeholder="Number">
+							</div>
+					
+							<div class="form-group">
+								<label for="ctl00_mainContent_ctl01_ctl00_desired_locations" id="ctl00_mainContent_ctl01_ctl00_label12">Desired location(s)</label>
+								<input name="ctl00$mainContent$ctl01$ctl00$desired_locations" type="text" id="ctl00_mainContent_ctl01_ctl00_desired_locations" class="form-control" placeholder="Locations">
+							</div>
+					
+							<div class="form-group">
+								<label for="ctl00_mainContent_ctl01_ctl00_number_crew_talent" id="ctl00_mainContent_ctl01_ctl00_label13">Estimated number of production crew and talent</label>
+								<input name="ctl00$mainContent$ctl01$ctl00$number_crew_talent" type="number" id="ctl00_mainContent_ctl01_ctl00_number_crew_talent" class="form-control" placeholder="Number">
+							</div>
+					
+							<div class="form-group">
+								<label for="ctl00_mainContent_ctl01_ctl00_equipment_used" id="ctl00_mainContent_ctl01_ctl00_label14">Camera and ancillary equipment that will be used</label>
+								<input name="ctl00$mainContent$ctl01$ctl00$equipment_used" type="text" id="ctl00_mainContent_ctl01_ctl00_equipment_used" class="form-control" placeholder="Equipment">
+							</div>
+					
+							<div class="form-group">
+								<label class="text-wrap" for="ctl00_mainContent_ctl01_ctl00_number_mt_parking_spaces" id="ctl00_mainContent_ctl01_ctl00_label15">Estimated number of vehicles that will require parking spaces at a Metro Transit facility</label>
+								<input name="ctl00$mainContent$ctl01$ctl00$number_mt_parking_spaces" type="number" id="ctl00_mainContent_ctl01_ctl00_number_mt_parking_spaces" class="form-control" placeholder="Number">
+							</div>
+					
+							<div class="radio-group">
+								<label class="text-wrap" for="ctl00_mainContent_ctl01_ctl00_dress_rest_rooms" id="ctl00_mainContent_ctl01_ctl00_lblRadioList1">Are dressing rooms or restrooms requested for talent and/or staff?</label>
+								<table id="ctl00_mainContent_ctl01_ctl00_dress_rest_rooms" class="radio-list">
+									<tbody><tr>
+										<td><input id="ctl00_mainContent_ctl01_ctl00_dress_rest_rooms_0" type="radio" name="ctl00$mainContent$ctl01$ctl00$dress_rest_rooms" value="Yes"><label for="ctl00_mainContent_ctl01_ctl00_dress_rest_rooms_0">Yes</label></td>
+									</tr><tr>
+										<td><input id="ctl00_mainContent_ctl01_ctl00_dress_rest_rooms_1" type="radio" name="ctl00$mainContent$ctl01$ctl00$dress_rest_rooms" value="No"><label for="ctl00_mainContent_ctl01_ctl00_dress_rest_rooms_1">No</label></td>
+									</tr><tr>
+										<td><input id="ctl00_mainContent_ctl01_ctl00_dress_rest_rooms_2" type="radio" name="ctl00$mainContent$ctl01$ctl00$dress_rest_rooms" value="Maybe"><label for="ctl00_mainContent_ctl01_ctl00_dress_rest_rooms_2">Maybe</label></td>
+									</tr>
+								</tbody></table>
+							</div>
+					
+							<div class="radio-group">
+								<label class="text-wrap" for="ctl00_mainContent_ctl01_ctl00_facility_alterations" id="ctl00_mainContent_ctl01_ctl00_lblRadioList2">Are any interior or exterior alterations to a facility or vehicle required?</label>
+								<table id="ctl00_mainContent_ctl01_ctl00_facility_alterations" class="radio-list">
+									<tbody><tr>
+										<td><input id="ctl00_mainContent_ctl01_ctl00_facility_alterations_0" type="radio" name="ctl00$mainContent$ctl01$ctl00$facility_alterations" value="Yes"><label for="ctl00_mainContent_ctl01_ctl00_facility_alterations_0">Yes</label></td>
+									</tr><tr>
+										<td><input id="ctl00_mainContent_ctl01_ctl00_facility_alterations_1" type="radio" name="ctl00$mainContent$ctl01$ctl00$facility_alterations" value="No"><label for="ctl00_mainContent_ctl01_ctl00_facility_alterations_1">No</label></td>
+									</tr>
+								</tbody></table>
+							</div>
+					
+							<div class="form-group">
+								<label class="text-wrap" for="ctl00_mainContent_ctl01_ctl00_alterations_required" id="ctl00_mainContent_ctl01_ctl00_label16">If yes, please detail</label>
+								<textarea name="ctl00$mainContent$ctl01$ctl00$alterations_required" rows="2" cols="20" id="ctl00_mainContent_ctl01_ctl00_alterations_required" class="form-control" placeholder="Alterations required"></textarea>
+							</div>
+					
+							<div class="radio-group">
+								<label for="ctl00_mainContent_ctl01_ctl00_electrical_needs" id="ctl00_mainContent_ctl01_ctl00_Label17">Are there electrical needs?</label>
+								<table id="ctl00_mainContent_ctl01_ctl00_electrical_needs" class="radio-list">
+									<tbody><tr>
+										<td><input id="ctl00_mainContent_ctl01_ctl00_electrical_needs_0" type="radio" name="ctl00$mainContent$ctl01$ctl00$electrical_needs" value="Yes"><label for="ctl00_mainContent_ctl01_ctl00_electrical_needs_0">Yes</label></td>
+									</tr><tr>
+										<td><input id="ctl00_mainContent_ctl01_ctl00_electrical_needs_1" type="radio" name="ctl00$mainContent$ctl01$ctl00$electrical_needs" value="No"><label for="ctl00_mainContent_ctl01_ctl00_electrical_needs_1">No</label></td>
+									</tr><tr>
+										<td><input id="ctl00_mainContent_ctl01_ctl00_electrical_needs_2" type="radio" name="ctl00$mainContent$ctl01$ctl00$electrical_needs" value="Maybe"><label for="ctl00_mainContent_ctl01_ctl00_electrical_needs_2">Maybe</label></td>
+									</tr>
+								</tbody></table>
+							</div>
+					
+							<div class="form-group">
+								<label for="ctl00_mainContent_ctl01_ctl00_electrical_needed" id="ctl00_mainContent_ctl01_ctl00_label18">If yes, please detail</label>
+								<textarea name="ctl00$mainContent$ctl01$ctl00$electrical_needed" rows="2" cols="20" id="ctl00_mainContent_ctl01_ctl00_electrical_needed" class="form-control" placeholder="Electical needs"></textarea>
+							</div>
+					
+							<div class="radio-group">
+								<label class="text-wrap" for="ctl00_mainContent_ctl01_ctl00_signature" id="ctl00_mainContent_ctl01_ctl00_lblRadioList3">By checking the box below, you are effectively providing your signature, indicating that all the information on this form is true and accurate, to the best of your knowledge.</label>
+								<table id="ctl00_mainContent_ctl01_ctl00_signature" class="radio-list">
+									<tbody><tr>
+										<td><input id="ctl00_mainContent_ctl01_ctl00_signature_0" type="radio" name="ctl00$mainContent$ctl01$ctl00$signature" value="Yes"><label for="ctl00_mainContent_ctl01_ctl00_signature_0">Yes, I agree</label></td>
+									</tr><tr>
+										<td><input id="ctl00_mainContent_ctl01_ctl00_signature_1" type="radio" name="ctl00$mainContent$ctl01$ctl00$signature" value="No"><label for="ctl00_mainContent_ctl01_ctl00_signature_1">No, I do not agree</label></td>
+									</tr>
+								</tbody></table>
+							</div>
+
+							<div class="row mb-0">
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label for="ctl00_mainContent_ctl01_ctl00_date_submitted" id="ctl00_mainContent_ctl01_ctl00_label19" class="required">Today's date</label><br>
+										<div class="date-picker input-group">
+											<input name="ctl00$mainContent$ctl01$ctl00$date_submitted" type="text" id="ctl00_mainContent_ctl01_ctl00_date_submitted" class="form-control" data-format="MM/dd/yyyy" placeholder="mm/dd/yy" required="">
+											<span class="add-on date input-group-addon"><i class="fa fa-calendar icon-calendar" aria-hidden="true"></i></span>
+										</div>
+									</div>
+								</div>
+							</div>
+					
+							<hr>
+					
+							<h2>Guidelines</h2>
+							<p>Metro Transit will provide guidance to ensure filming and photography is done in accordance with Metro Transit policies. General guidelines are as follows:</p>
+							<ul>
+								<li>Cast and crew must follow transit safety guidelines, including special guidance provided by Metro Transit.</li>
+								<li>Cast and crew members must have a valid fare while on transit property unless otherwise allowed by Metro Transit.</li>
+								<li>Cast and crew members must have valid and visible identification while on transit property.</li>
+								<li>Metro Transit employees and customers not involved in the photo or film project should not appear in any photo or video without express written consent.</li>
+								<li>All third-party advertising, including exterior ads on buses or trains, must be excluded from any photo or video.</li>
+								<li>A designated contact must be identified and available by phone while photography and/or filming occur.</li>
+							</ul>
+					
+							<p>Questions can be directed to:<br> Drew Kerr, Public Relations Specialist<br>
+								<a href="mailto:drew.kerr@metrotransit.org" title="Email Drew Kerr">drew.kerr@metrotransit.org</a><br> Office: 612-349-7758<br> Cell: 651-387-3928<br> Fax: 612-349-7675</p>
+					
+							<div class="checkbox">
+								<span name="copyUser"><input id="ctl00_mainContent_ctl01_ctl00_copy_user" type="checkbox" name="ctl00$mainContent$ctl01$ctl00$copy_user"><label for="ctl00_mainContent_ctl01_ctl00_copy_user">Please copy me on this email</label></span>
+							</div>
+
+							<hr />
+							
+							<div class="text-center">
+								<input type="submit" name="ctl00$mainContent$ctl01$ctl00$btnSend" value="Submit" id="ctl00_mainContent_ctl01_ctl00_btnSend" class="btn btn-outline-primary">
+							</div>
+						</div>						
+					</section>
+				</div>
+			</div>
+		</section>
+	</main>
+	<!-- End Main Content -->
+
+	<!-- Begin Footer -->
+	<footer class="section">
+		<div class="container">
+			<div class="button-container-icon-right">
+				<a href="/contact-us" class="btn btn-outline-primary">Contact us</a>
+			</div>
+			<div class="d-none d-lg-block social-media text-center">
+				<a href="https://www.twitter.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/twitter-gray.svg"></a>
+				<a href="https://www.facebook.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/facebook-gray.svg"></a>
+				<a href="https://www.youtube.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/youtube-gray.svg"></a>
+				<a href="https://instagram.com/metrotransitmn"><img class="icon mr-2" src="/img/svg/instagram-gray.svg"></a>
+				<a href="https://www.linkedin.com/company/metro-transit"><img class="icon mr-2" src="/img/svg/linkedin-gray.svg"></a>
+				<a href="https://www.flickr.com/photos/metrotransitmn/"><img class="icon" src="/img/svg/flickr-gray.svg"></a>
+			</div>
+			<div class="footer d-none d-lg-block">
+				<div class="card-deck">
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">About Metro Transit</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/transit-initiatives" class="nav-link">Transit Initiatives</a>
+								</li>
+								<li class="nav-item">
+									<a href="/facilities" class="nav-link">Facilities</a>
+								</li>
+								<li class="nav-item">
+									<a href="/riders-almanac-blog" class="nav-link">Riders Almanac</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Media Relations</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/contacts" class="nav-link">Contacts</a>
+								</li>
+								<li class="nav-item">
+									<a href="/press" class="nav-link">Press Releases</a>
+								</li>
+								<li class="nav-item">
+									<a href="/awards" class="nav-link">Awards</a>
+								</li>
+								<li class="nav-item">
+									<a href="/" class="nav-link">Images &amp; Logos</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Careers</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/jobs" class="nav-link">Available Job Opportunities</a>
+								</li>
+								<li class="nav-item">
+									<a href="/drive" class="nav-link">Become a Bus Driver</a>
+								</li>
+								<li class="nav-item">
+									<a href="/transit-police-careers" class="nav-link">Join the Transit Police</a>
+								</li>
+								<li class="nav-item">
+									<a href="/job-seekers" class="nav-link">Career Fairs</a>
+								</li>
+								<li class="nav-item">
+									<a href="/internships" class="nav-link">Internships</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Policies</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/social-media-policy" class="nav-link">Social Media Policy</a>
+								</li>
+								<li class="nav-item">
+									<a href="https://metrocouncil.org/Privacy-Policy.aspx" class="nav-link" target="_blank">Privacy Policy</a>
+								</li>
+								<li class="nav-item">
+									<a href="/code-of-conduct" class="nav-link">Code of Conduct</a>
+								</li>
+								<li class="nav-item">
+									<a href="/titlevi" class="nav-link">Title VI: Commitment to Fairness</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="card-deck">
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Mission &amp; Impact</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/commitment-to-fairness" class="nav-link">Commitment to Fairness</a>
+								</li>
+								<li class="nav-item">
+									<a href="/impact-programs" class="nav-link">Impact Programs</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Resources</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/app" class="nav-link">Try the Metro Transit App</a>
+								</li>
+								<li class="nav-item">
+									<a href="/advertise-with-metro-transit" class="nav-link">Advertise with Us</a>
+								</li>
+								<li class="nav-item">
+									<a href="/apps" class="nav-link">API Resources for Developers</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0"></div>
+					<div class="card border-0"></div>
+				</div>
+			</div>
+			<p class="text-center">
+				<small>
+					Metro Transit is a service of the Metropolitan Council.
+					<span class="d-block d-md-none"> <br> </span>© 2019 Metro
+					Transit
+				</small>
+			</p>
+		</div>
+	</footer>
+	<!-- End Footer -->
+
+	<!-- scripts -->
+	<script src="/js/jquery.js"></script>
+	<script src="/js/popper.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/jquery.exlink.js"></script>
+	<script src="/js/jquery.autocomplete.js"></script>
+	<!-- <script src="/js/jquery.validate.js"></script> -->
+	<!-- <script src="/js/additional-methods.js"></script> -->
+	<!-- <script src="/js/form-validation.js"></script> -->
+	<script src="https://js.arcgis.com/3.28/"></script>
+	<script src="/js/TRIM.js"></script>
+	<script src="/js/scripts.js"></script>
+	<!-- End scripts -->
+	
+</body>
+
+</html>
