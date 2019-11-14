@@ -8835,22 +8835,21 @@ footer {
       height: 3rem; } }
 
 #stopsStations .gray-100 .transit-service .routes {
-  font-size: 16px !important;
-  font-size: 1rem !important;
-  margin-right: 0.25rem;
-  margin-bottom: 0.25rem !important;
-  width: 95px;
+  font-size: 20px !important;
+  font-size: 1.25rem !important;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem !important;
+  width: 70px;
+  height: 50px;
   line-height: 1;
-  padding: 0.25rem 1.2rem; }
+  padding: 0.25rem .6rem; }
   @media (min-width: 992px) {
     #stopsStations .gray-100 .transit-service .routes {
-      font-size: 20px !important;
-      font-size: 1.25rem !important;
       margin-right: 30px;
       margin-bottom: 30px !important;
-      width: 100px;
-      height: 45px;
-      padding: 0.15rem 1.2rem; } }
+      width: 70px;
+      height: 50px;
+      padding: 0.25rem .6rem; } }
 
 #stopsStations .gray-100 .lrt-service .routes {
   font-size: 18px !important;
@@ -10897,12 +10896,6 @@ select.navigator {
           border-left: 4px solid #ed1b2e; }
         #tripPlan .tt-trip-plan .card .card-body .tp-results .arrive {
           border-left: 4px solid transparent; }
-
-#nextripModule h2 {
-  margin-bottom: 30px !important; }
-  @media (min-width: 992px) {
-    #nextripModule h2 {
-      margin-bottom: 60px !important; } }
 
 #nextripModule .or {
   font-size: 18px !important;
