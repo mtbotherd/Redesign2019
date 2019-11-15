@@ -213,9 +213,7 @@ var TripPlan = (function($, window, document, undefined) {
 					<p>
 					${checkIfLate(li.Adherance)}
 					<strong>Route ${li.Headsign}</strong><br>
-					<a href="/home/#ServiceAlerts">
-						<small>View alerts</small>
-					</a>
+				              <a href="/rider-alerts"><small>View alerts</small></a>
 					</p>
 					<p>
 					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at <strong> ${returnTime(li.OnTime)} </strong></br>
@@ -235,9 +233,7 @@ var TripPlan = (function($, window, document, undefined) {
 				  <p>
 					<strong>${li.Headsign}</strong>
 					<br>
-					<a href="/home/#ServiceAlerts">
-					  <small>View alerts</small>
-					</a>
+					            <a href="/rider-alerts"><small>View alerts</small></a>
 				  </p>
 				  <p>
 					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at <strong> ${returnTime(li.OnTime)} </strong></br>
@@ -258,9 +254,7 @@ var TripPlan = (function($, window, document, undefined) {
 				${checkIfLate(li.Adherance)}
 				<strong>${li.Headsign}</strong>
 				  <br>
-				  <a href="/home/#ServiceAlerts">
-					<small>View alerts</small>
-				  </a>
+				              <a href="/rider-alerts"><small>View alerts</small></a>
 				</p>
 				<p>
 				  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at <strong>${returnTime(li.OnTime)}</strong></br>
@@ -445,7 +439,7 @@ var TripPlan = (function($, window, document, undefined) {
 			newTrip(tripProperties)
 				.then(function () {
 					let tripPlan = getTrip();
-                        console.dir(tripPlan);
+                        sessionStorage.setItem('tripJSON', JSON.stringify(tripPlan));
                         if (tripPlan.PlannerItin.PlannerOptions.length > 0) {
                             formatTripResults(tripPlan);
                             $('.trips-found').show();
@@ -483,14 +477,38 @@ var TripPlan = (function($, window, document, undefined) {
 				});
 		}
 	  });
-	};
 	$("#editMyTrip").on('click', function(){
 	  $('#tripPlannerResults').hide('slow');
 	  $('#planTrip').show('slow');
+            sessionStorage.clear();
 	});
+    };
+    const refreshTrip = function (storedTrip) {
+        if (storedTrip) {
+            let tripPlan = JSON.parse(storedTrip);
+            if (tripPlan.PlannerItin.PlannerOptions.length > 0) {
+                formatTripResults(tripPlan);
+                $('.trips-found').show();
+                $('.no-trips-found').hide();
+                $('#spinner').addClass('d-none');
+                $('#planTrip').hide('slow');
+                $('#tripPlannerResults').show();
+            } else {
+                $("#trip-result-count").html('');
+                $("#trip-result-msg").html('');
+                $('.tp-results').empty();
+                $('.trips-found').show();
+                $('.no-trips-found').show();
+                $('#spinner').addClass('d-none');
+                $('#planTrip').hide('slow');
+                $('#tripPlannerResults').show();
+            }
+        }
+    };
   
 	return {
-	  init: init
+        init: init,
+        refreshTrip: refreshTrip
 	};
   })(jQuery, window, document);
 
@@ -551,5 +569,9 @@ var TripPlan = (function($, window, document, undefined) {
             });
             
   		TripPlan.init();
+        let x = sessionStorage.getItem('tripJSON');
+        if (x) {
+            TripPlan.refreshTrip(x);
   	}
+    }
   });
