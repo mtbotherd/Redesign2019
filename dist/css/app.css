@@ -8839,8 +8839,7 @@ footer {
   font-size: 1rem !important;
   margin-right: 0.25rem;
   margin-bottom: 0.25rem !important;
-  width: 96px;
-  height: 36px;
+  width: 95px;
   line-height: 1;
   padding: 0.25rem 1.2rem; }
   @media (min-width: 992px) {
@@ -8852,14 +8851,6 @@ footer {
       width: 100px;
       height: 45px;
       padding: 0.15rem 1.2rem; } }
-  #stopsStations .gray-100 .transit-service .routes:nth-child(3n) {
-    margin-right: 0; }
-    @media (min-width: 992px) {
-      #stopsStations .gray-100 .transit-service .routes:nth-child(3n) {
-        margin-right: 30px; } }
-  @media (min-width: 992px) {
-    #stopsStations .gray-100 .transit-service .routes:nth-child(8n) {
-      margin-right: 0; } }
 
 #stopsStations .gray-100 .lrt-service .routes {
   font-size: 18px !important;
@@ -9183,20 +9174,20 @@ footer {
 #schedulesMaps .popular-routes {
   margin-bottom: 1rem; }
   #schedulesMaps .popular-routes .routes {
-    margin-right: 1.12rem;
+    margin-right: .5rem;
     margin-bottom: 1.12rem; }
+    @media (min-width: 768px) {
+      #schedulesMaps .popular-routes .routes {
+        margin-right: 1rem;
+        margin-bottom: 0.48rem; } }
     @media (min-width: 992px) {
       #schedulesMaps .popular-routes .routes {
-        margin-right: 0.48rem;
+        margin-right: 1rem;
         margin-bottom: 0.48rem; } }
-    #schedulesMaps .popular-routes .routes:nth-child(4n) {
-      margin-right: 0; }
-      @media (min-width: 992px) {
-        #schedulesMaps .popular-routes .routes:nth-child(4n) {
-          margin-right: 0.48rem; } }
-    @media (min-width: 992px) {
-      #schedulesMaps .popular-routes .routes:nth-child(9n) {
-        margin-right: 0; } }
+    @media (min-width: 1200px) {
+      #schedulesMaps .popular-routes .routes {
+        margin-right: 1rem;
+        margin-bottom: 0.48rem; } }
 
 #schedulesMaps .metro-brt .btn-outline-secondary,
 #schedulesMaps .commuter-rail .btn-outline-secondary {

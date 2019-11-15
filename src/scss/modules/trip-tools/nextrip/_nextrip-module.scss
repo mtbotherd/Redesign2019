@@ -1,11 +1,11 @@
 #nextripModule {
-  h2 {
-    margin-bottom: 30px !important;
+  // h2 {
+  //   margin-bottom: 30px !important;
 
-    @include media-breakpoint-up(lg) {
-      margin-bottom: 60px !important;
-    }
-  }
+  //   @include media-breakpoint-up(lg) {
+  //     margin-bottom: 60px !important;
+  //   }
+  // }
   .or {
     @include font-size(18);
     margin-bottom: 1rem;
