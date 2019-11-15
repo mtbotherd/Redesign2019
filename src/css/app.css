@@ -11117,10 +11117,6 @@ select.navigator {
           justify-content: center;
   display: -webkit-box;
   display: flex; }
-  @media (min-width: 576px) {
-    #news .custom-card-deck {
-      -webkit-box-pack: start;
-              justify-content: start; } }
 
 #news .card {
   margin-right: 1rem;
@@ -11129,6 +11125,9 @@ select.navigator {
   @media (min-width: 576px) {
     #news .card {
       width: calc(100vh/3); } }
+  @media screen and (max-width: 991px) {
+    #news .card {
+      width: calc(100vh/2.7); } }
 
 #news .card-footer {
   padding: .5rem .75rem;
