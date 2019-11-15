@@ -408,7 +408,7 @@ var TripPlan = (function($, window, document, undefined) {
 		DestroyAllMaps();
   
 		var tripFromLocation = AutocompleteAddress.getChoice('fromLocation');
-		var userPos = AutocompleteAddress.fetchUserLoc(); // this gets the user GPS location, if you need it
+		//var userPos = AutocompleteAddress.fetchUserLoc(); // this gets the user GPS location, if you need it
 		var tripToLocation = AutocompleteAddress.getChoice('toLocation');
 		var dateTime = new Date();
 		var selectTimeType = 'Depart';
@@ -504,11 +504,21 @@ var TripPlan = (function($, window, document, undefined) {
                 $('#tripPlannerResults').show();
             }
         }
-    };
+	};
+	var setMyLocation = function() {
+		console.dir(myLocation);
+		$("#fromLocationDrop").hide();
+		var myLocation = AutocompleteAddress.fetchUserLoc();
+		if (myLocation) {
+			$("#fromLocation").val("my location: Latitude " + myLocation.LatLon.y.toFixed(3) + " Longitude " + myLocation.LatLon.x.toFixed(3));
+		}
+
+	};
   
 	return {
         init: init,
-        refreshTrip: refreshTrip
+		refreshTrip: refreshTrip,
+		setMyLocation: setMyLocation
 	};
   })(jQuery, window, document);
 
@@ -527,6 +537,9 @@ var TripPlan = (function($, window, document, undefined) {
 	
 		// Drop down for "From" input
 		$("input.dropdown").dropdown();
+		$(".from-location").change(function() {
+			$("#fromLocationDrop").hide();
+		});
 	
 		$(".time-elements").hide();
 		$("#selectTime").on("change", function () {
