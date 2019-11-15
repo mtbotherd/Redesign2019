@@ -11109,6 +11109,45 @@ select.navigator {
 .form-redesign .alert p {
   margin: 0; }
 
+#news .custom-card-deck {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: flex; }
+  @media (min-width: 576px) {
+    #news .custom-card-deck {
+      -webkit-box-pack: start;
+              justify-content: start; } }
+
+#news .card {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  width: auto; }
+  @media (min-width: 576px) {
+    #news .card {
+      width: calc(100vh/3); } }
+
+#news .card-footer {
+  padding: .5rem .75rem;
+  background-color: #fff; }
+
+#news .btn-warning {
+  padding: 0.188rem 0.75rem !important; }
+  #news .btn-warning .icon {
+    position: relative !important;
+    top: 0 !important;
+    right: -1rem !important;
+    width: 1rem !important;
+    height: 1rem; }
+    @media (min-width: 992px) {
+      #news .btn-warning .icon {
+        right: -.5rem !important;
+        width: 1.25rem !important;
+        height: 1.25rem !important; } }
+
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
