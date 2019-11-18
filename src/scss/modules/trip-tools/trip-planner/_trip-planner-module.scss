@@ -1,25 +1,17 @@
 #tripPlannerModule {
   // Use my location dropdown
-  .dropdown-menu {
-    background-color: #dbf4fd;
-    .my-location {
-      posittion: relative;
-      margin-left: 2rem;
+  .my-location {
+    color: $cyan;
+    &::before {
+      position: absolute;
+      content: "Use current location";
+      //background-image: url("../../../../../img/svg/pin-gray.svg");
+      //background-repeat: no-repeat;
 
-      &::before {
-        position: absolute;
-        top: 0.65rem;
-        left: 0.5rem;
-        content: "";
-        background-image: url("../../../../../img/svg/pin-gray.svg");
-        background-repeat: no-repeat;
-        background-size: 1rem;
-        width: 1rem;
-        height: 1rem;
-      }
     }
   }
-  // Locatin toggle buttons
+  
+  // Location toggle buttons
   button.location-toggler {
     background-color: transparent;
     border: none;

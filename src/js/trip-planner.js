@@ -83,6 +83,20 @@ var TripPlan = (function($, window, document, undefined) {
 	  const getTrip = function() {
 		  return TripPlanJSON;
 	};
+	var currentDateTime = function () {
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth() + 1;
+		var yyyy = today.getFullYear();
+		var min = today.getMinutes();
+		var hrs = today.getHours();
+		hrs = hrs < 10 ? '0' + hrs : hrs;
+		min = min < 10 ? '0' + min : min;
+		dd = dd < 10 ? '0' + dd : dd;
+		mm = mm < 10 ? '0' + mm : mm;
+		today = { date: yyyy + '-' + mm + '-' + dd, time: hrs + ":" + min + ":00" };
+		return today;
+	};
 	var formatTimeMonthDay = function(dateString) {
 	  var d = new Date(dateString);
 	  var t = returnTime(dateString);
@@ -410,7 +424,8 @@ var TripPlan = (function($, window, document, undefined) {
 		var tripFromLocation = AutocompleteAddress.getChoice('fromLocation');
 		//var userPos = AutocompleteAddress.fetchUserLoc(); // this gets the user GPS location, if you need it
 		var tripToLocation = AutocompleteAddress.getChoice('toLocation');
-		var dateTime = new Date();
+		var dateTime = new Date(currentDateTime().date + 'T' + currentDateTime().time);
+		console.log(currentDateTime().date + 'T' + currentDateTime().time);
 		var selectTimeType = 'Depart';
 		var selectTime = $('#selectTime').val();
 		if (selectTime === 'arrive-by') {
@@ -419,8 +434,12 @@ var TripPlan = (function($, window, document, undefined) {
 		if (selectTime !== 'leave-now') {
 		  var pickDate = $('#date').val();
 		  var pickTime = $('#time').val();
-		  dateTime = new Date(pickDate + ' ' + pickTime);
+		  var t = $('#date').val() + 'T' + $('#time').val();
+		  dateTime = new Date(t);
+		  console.log(t);
+
 		}
+		console.log(dateTime);
 		var walkingDistance = $("input[name='walkingDistance']:checked").val();
 		var serviceType = $("input[name='serviceType']:checked").val();
 		var convenience = $("input[name='convenience']:checked").val();
@@ -478,9 +497,9 @@ var TripPlan = (function($, window, document, undefined) {
 		}
 	  });
 	$("#editMyTrip").on('click', function(){
-	  $('#tripPlannerResults').hide('slow');
-	  $('#planTrip').show('slow');
-            sessionStorage.clear();
+	  	$('#tripPlannerResults').hide('slow');
+	  	$('#planTrip').show('slow');
+        sessionStorage.clear();
 	});
     };
     const refreshTrip = function (storedTrip) {
@@ -506,17 +525,16 @@ var TripPlan = (function($, window, document, undefined) {
         }
 	};
 	var setMyLocation = function() {
-		console.dir(myLocation);
-		$("#fromLocationDrop").hide();
 		var myLocation = AutocompleteAddress.fetchUserLoc();
+		console.dir(myLocation);
 		if (myLocation) {
-			$("#fromLocation").val("my location: Latitude " + myLocation.LatLon.y.toFixed(3) + " Longitude " + myLocation.LatLon.x.toFixed(3));
+			$("#fromLocation").val("Location: Latitude " + myLocation.LatLon.y.toFixed(3) + " Longitude " + myLocation.LatLon.x.toFixed(3));
 		}
-
 	};
   
 	return {
-        init: init,
+		init: init,
+		currentDateTime: currentDateTime,
 		refreshTrip: refreshTrip,
 		setMyLocation: setMyLocation
 	};
@@ -536,31 +554,17 @@ var TripPlan = (function($, window, document, undefined) {
 		});
 	
 		// Drop down for "From" input
-		$("input.dropdown").dropdown();
-		$(".from-location").change(function() {
-			$("#fromLocationDrop").hide();
+		//$("input.dropdown").dropdown();
+		$(".my-location").click(function(){
+			TripPlan.setMyLocation();
 		});
 	
 		$(".time-elements").hide();
-		$("#selectTime").on("change", function () {
+		$("#selectTime").on("change", function () { 
 			// time & date inputs
-			var currentDate = function () {
-				var today = new Date();
-				var dd = today.getDate();
-				var mm = today.getMonth() + 1;
-				var yyyy = today.getFullYear();
-				var min = today.getMinutes();
-				var hrs = today.getHours();
-				hrs = hrs < 10 ? '0' + hrs : hrs;
-				min = min < 10 ? '0' + min : min;
-				dd = dd < 10 ? '0' + dd : dd;
-				mm = mm < 10 ? '0' + mm : mm;
-				today = { date: yyyy + '-' + mm + '-' + dd, time: hrs + ":" + min };
-				return today;
-			};
 			if (this.value === "depart-at" || this.value === "arrive-by") {
-				$("#date").attr('value', currentDate().date);
-				$("#time").attr('value', currentDate().time);
+				$("#date").attr('value', TripPlan.currentDateTime().date);
+				$("#time").attr('value', TripPlan.currentDateTime().time);
 				$(".time-elements").slideDown();
 			} else {
 				$(".time-elements").slideUp();
