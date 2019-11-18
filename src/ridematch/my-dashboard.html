@@ -169,57 +169,112 @@
 												<div class="col-lg-4 border-right">
 													<div id="commutes" class="card">
 														<h2><i class="material-icons">drive_eta</i> My Commutes</h2>
-														<div class="active-commute border p-3">
-															<div class="row">
-																<div class="col-6">
-																	<div class="commute-name">Work</div>
+														<div class="active-commute">
+															<div class="listed-commute">
+																<div class="row">
+																	<div class="col-6">
+																		<div class="commute-name">Work</div>
+																	</div>
+																	<div class="col-6 text-right">
+																		<i class="material-icons info">info</i>
+																		<label>Active</label>
+																		<input type="checkbox" checked="checked" />
+																	</div>
 																</div>
-																<div class="col-6 text-right">
-																	<i class="material-icons info">info</i>
-																	<label>Active</label>
-																	<input type="checkbox" checked="checked" />
+
+																<div class="vspace"></div>
+
+																<div class="commute-points">
+																	<div class="result-point">
+																		<span class="result-point ab">A</span>
+																		<span class="result-point startend">Start</span>
+																		<span class="result-point location">225 Farrington St, St. Paul</span>
+																		<hr class="mt-2 mb-2" />
+																		<span class="result-point ab">B</span>
+																		<span class="result-point startend">End</span>
+																		<span class="result-point location">Broadway Ave, Minneapolis</span>
+																	</div>
+																</div>
+
+																<div class="select-days">
+																	<label for="days">on these days</label>
+																	<input type='button' id="SchedSunStyle" name="SchedSunStyle" class='btn btnSch' value='S' style='@Model.SchedSunStyle' disabled />
+																	<input type='button' id="SchedMonStyle" name="SchedMonStyle" class='btn btnSch active' value='M' style='@Model.SchedMonStyle' disabled />
+																	<input type='button' id="SchedTueStyle" name="SchedTueStyle" class='btn btnSch active' value='T' style='@Model.SchedTueStyle' disabled />
+																	<input type='button' id="SchedWedStyle" name="SchedWedStyle" class='btn btnSch active' value='W' style='@Model.SchedWedStyle' disabled />
+																	<input type='button' id="SchedThuStyle" name="SchedThuStyle" class='btn btnSch active' value='T' style='@Model.SchedThuStyle' disabled />
+																	<input type='button' id="SchedFriStyle" name="SchedFriStyle" class='btn btnSch active' value='F' style='@Model.SchedFriStyle' disabled />
+																	<input type='button' id="SchedSatStyle" name="SchedSatStyle" class='btn btnSch' value='S' style='@Model.SchedSatStyle' disabled />
+																	<input type="hidden" id="SchedSun" name="SchedSun" value="@Model.SchedSun" />
+																	<input type="hidden" id="SchedMon" name="SchedMon" value="@Model.SchedMon" />
+																	<input type="hidden" id="SchedTue" name="SchedTue" value="@Model.SchedTue" />
+																	<input type="hidden" id="SchedSun" name="SchedWed" value="@Model.SchedWed" />
+																	<input type="hidden" id="SchedSun" name="SchedThu" value="@Model.SchedThu" />
+																	<input type="hidden" id="SchedSun" name="SchedFri" value="@Model.SchedFri" />
+																	<input type="hidden" id="SchedSun" name="SchedSat" value="@Model.SchedSat" />
+																	<p>9:00 AM &amp; 5:00 PM</p>
+																</div>
+																<div class="vspace">
+																	<div class="tools">
+																		<span><a href="commute-results.html" title="Find matches" role="link"><i class="material-icons">group</i> Find Matches</a></span>
+																		<span><a href="add-commute.html" title="Edit match" role="link"><i class="material-icons">create</i> Edit</a></span>
+																		<span><a href="#" title="Delete commute" role="link" data-toggle="modal" data-target="#deleteCommute"><i class="material-icons">clear</i> Delete</a></span>
+																	</div>
+																	<p><em>Last updated 2/7/2018</em></p>
 																</div>
 															</div>
-
-															<div class="vspace"></div>
-
-															<div class="commute-points">
-																<div class="result-point">
-																	<span class="result-point ab">A</span>
-																	<span class="result-point startend">Start</span>
-																	<span class="result-point location">225 Farrington St, St. Paul</span>
-																	<hr class="mt-2 mb-2" />
-																	<span class="result-point ab">B</span>
-																	<span class="result-point startend">End</span>
-																	<span class="result-point location">Broadway Ave, Minneapolis</span>
+															<div class="listed-commute">
+																<div class="row">
+																	<div class="col-6">
+																		<div class="commute-name">Work</div>
+																	</div>
+																	<div class="col-6 text-right">
+																		<i class="material-icons info">info</i>
+																		<label>Active</label>
+																		<input type="checkbox" checked="checked" />
+																	</div>
 																</div>
-															</div>
 
-															<div class="select-days">
-																<label for="days">on these days</label>
-																<input type='button' id="SchedSunStyle" name="SchedSunStyle" class='btn btnSch' value='S' style='@Model.SchedSunStyle' disabled />
-																<input type='button' id="SchedMonStyle" name="SchedMonStyle" class='btn btnSch active' value='M' style='@Model.SchedMonStyle' disabled />
-																<input type='button' id="SchedTueStyle" name="SchedTueStyle" class='btn btnSch active' value='T' style='@Model.SchedTueStyle' disabled />
-																<input type='button' id="SchedWedStyle" name="SchedWedStyle" class='btn btnSch active' value='W' style='@Model.SchedWedStyle' disabled />
-																<input type='button' id="SchedThuStyle" name="SchedThuStyle" class='btn btnSch active' value='T' style='@Model.SchedThuStyle' disabled />
-																<input type='button' id="SchedFriStyle" name="SchedFriStyle" class='btn btnSch active' value='F' style='@Model.SchedFriStyle' disabled />
-																<input type='button' id="SchedSatStyle" name="SchedSatStyle" class='btn btnSch' value='S' style='@Model.SchedSatStyle' disabled />
-																<input type="hidden" id="SchedSun" name="SchedSun" value="@Model.SchedSun" />
-																<input type="hidden" id="SchedMon" name="SchedMon" value="@Model.SchedMon" />
-																<input type="hidden" id="SchedTue" name="SchedTue" value="@Model.SchedTue" />
-																<input type="hidden" id="SchedSun" name="SchedWed" value="@Model.SchedWed" />
-																<input type="hidden" id="SchedSun" name="SchedThu" value="@Model.SchedThu" />
-																<input type="hidden" id="SchedSun" name="SchedFri" value="@Model.SchedFri" />
-																<input type="hidden" id="SchedSun" name="SchedSat" value="@Model.SchedSat" />
-																<p>9:00 AM &amp; 5:00 PM</p>
-															</div>
-															<div class="vspace">
-																<div class="tools">
-																	<span><a href="commute-results.html" title="Find matches" role="link"><i class="material-icons">group</i> Find Matches</a></span>
-																	<span><a href="add-commute.html" title="Edit match" role="link"><i class="material-icons">create</i> Edit</a></span>
-																	<span><a href="#" title="Delete commute" role="link" data-toggle="modal" data-target="#deleteCommute"><i class="material-icons">clear</i> Delete</a></span>
+																<div class="vspace"></div>
+
+																<div class="commute-points">
+																	<div class="result-point">
+																		<span class="result-point ab">A</span>
+																		<span class="result-point startend">Start</span>
+																		<span class="result-point location">225 Farrington St, St. Paul</span>
+																		<hr class="mt-2 mb-2" />
+																		<span class="result-point ab">B</span>
+																		<span class="result-point startend">End</span>
+																		<span class="result-point location">Broadway Ave, Minneapolis</span>
+																	</div>
 																</div>
-																<p><em>Last updated 2/7/2018</em></p>
+
+																<div class="select-days">
+																	<label for="days">on these days</label>
+																	<input type='button' id="SchedSunStyle" name="SchedSunStyle" class='btn btnSch' value='S' style='@Model.SchedSunStyle' disabled />
+																	<input type='button' id="SchedMonStyle" name="SchedMonStyle" class='btn btnSch active' value='M' style='@Model.SchedMonStyle' disabled />
+																	<input type='button' id="SchedTueStyle" name="SchedTueStyle" class='btn btnSch active' value='T' style='@Model.SchedTueStyle' disabled />
+																	<input type='button' id="SchedWedStyle" name="SchedWedStyle" class='btn btnSch active' value='W' style='@Model.SchedWedStyle' disabled />
+																	<input type='button' id="SchedThuStyle" name="SchedThuStyle" class='btn btnSch active' value='T' style='@Model.SchedThuStyle' disabled />
+																	<input type='button' id="SchedFriStyle" name="SchedFriStyle" class='btn btnSch active' value='F' style='@Model.SchedFriStyle' disabled />
+																	<input type='button' id="SchedSatStyle" name="SchedSatStyle" class='btn btnSch' value='S' style='@Model.SchedSatStyle' disabled />
+																	<input type="hidden" id="SchedSun" name="SchedSun" value="@Model.SchedSun" />
+																	<input type="hidden" id="SchedMon" name="SchedMon" value="@Model.SchedMon" />
+																	<input type="hidden" id="SchedTue" name="SchedTue" value="@Model.SchedTue" />
+																	<input type="hidden" id="SchedSun" name="SchedWed" value="@Model.SchedWed" />
+																	<input type="hidden" id="SchedSun" name="SchedThu" value="@Model.SchedThu" />
+																	<input type="hidden" id="SchedSun" name="SchedFri" value="@Model.SchedFri" />
+																	<input type="hidden" id="SchedSun" name="SchedSat" value="@Model.SchedSat" />
+																	<p>9:00 AM &amp; 5:00 PM</p>
+																</div>
+																<div class="vspace">
+																	<div class="tools">
+																		<span><a href="commute-results.html" title="Find matches" role="link"><i class="material-icons">group</i> Find Matches</a></span>
+																		<span><a href="add-commute.html" title="Edit match" role="link"><i class="material-icons">create</i> Edit</a></span>
+																		<span><a href="#" title="Delete commute" role="link" data-toggle="modal" data-target="#deleteCommute"><i class="material-icons">clear</i> Delete</a></span>
+																	</div>
+																	<p><em>Last updated 2/7/2018</em></p>
+																</div>
 															</div>
 														</div>
 													</div>

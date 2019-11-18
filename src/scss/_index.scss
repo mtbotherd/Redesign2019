@@ -3,17 +3,19 @@
         flex-flow: row wrap;
         justify-content: center;            
         display:flex;
+        @media screen and (max-width: 1200px) {
+            padding-left:5rem;
+            padding-right:5rem;
+        }
+        @media screen and (max-width: 780px) {
+          padding-left:0rem;
+          padding-right:0rem;
+        }
     }
     .card{
         margin-right:1rem;
         margin-bottom:1rem;
-        width:auto;
-        @include media-breakpoint-up(sm) {
-            width:calc(100vh/3);
-        }
-        @media screen and (max-width: 991px) {
-            width:calc(100vh/2.7);
-          }
+        width:16rem;
     }
     .card-footer {
         padding:.5rem .75rem;
