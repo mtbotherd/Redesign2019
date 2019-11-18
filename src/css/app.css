@@ -11117,17 +11117,19 @@ select.navigator {
           justify-content: center;
   display: -webkit-box;
   display: flex; }
+  @media screen and (max-width: 1200px) {
+    #news .custom-card-deck {
+      padding-left: 5rem;
+      padding-right: 5rem; } }
+  @media screen and (max-width: 780px) {
+    #news .custom-card-deck {
+      padding-left: 0rem;
+      padding-right: 0rem; } }
 
 #news .card {
   margin-right: 1rem;
   margin-bottom: 1rem;
-  width: auto; }
-  @media (min-width: 576px) {
-    #news .card {
-      width: calc(100vh/3); } }
-  @media screen and (max-width: 991px) {
-    #news .card {
-      width: calc(100vh/2.7); } }
+  width: 16rem; }
 
 #news .card-footer {
   padding: .5rem .75rem;
@@ -11211,6 +11213,9 @@ select.navigator {
 /*##############################
   Ridematch specific styles
 ##############################*/
+.ridematch label {
+  color: #626462; }
+
 .ridematch .profile {
   margin: 15px 0; }
 
@@ -11405,6 +11410,8 @@ select.navigator {
 
 .ridematch .dashboard {
   padding: 15px 0; }
+  .ridematch .dashboard .commute-points {
+    margin-bottom: .75rem; }
   .ridematch .dashboard h2 {
     display: inline-block; }
   .ridematch .dashboard .card {
@@ -11419,6 +11426,10 @@ select.navigator {
     margin-bottom: 10px; }
   .ridematch .dashboard .commute-name {
     line-height: 2; }
+  .ridematch .dashboard .listed-commute {
+    border: 1px solid #e3e3e0;
+    padding: .75rem;
+    margin-bottom: 1rem; }
   .ridematch .dashboard .active-commute .card {
     border: none;
     padding: 0; }
@@ -11500,6 +11511,14 @@ select.navigator {
 /***********************************/
 .ridematch .commutes {
   padding: 0; }
+  .ridematch .commutes .form-control::-webkit-input-placeholder {
+    color: #777777; }
+  .ridematch .commutes .form-control::-moz-placeholder {
+    color: #777777; }
+  .ridematch .commutes .form-control::-ms-input-placeholder {
+    color: #777777; }
+  .ridematch .commutes .form-control::placeholder {
+    color: #777777; }
   .ridematch .commutes #map_canvas {
     height: 830px !important; }
   .ridematch .commutes .map_canvas {
