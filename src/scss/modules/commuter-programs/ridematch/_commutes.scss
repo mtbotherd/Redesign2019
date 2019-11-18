@@ -4,7 +4,9 @@
 .ridematch {
   .commutes {
     padding: 0;
-
+    .form-control::placeholder{
+      color:$gray-400;
+    }
     #map_canvas {
       height: 830px !important;
     }
