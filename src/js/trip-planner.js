@@ -83,20 +83,6 @@ var TripPlan = (function($, window, document, undefined) {
 	  const getTrip = function() {
 		  return TripPlanJSON;
 	};
-	var currentDateTime = function () {
-		var today = new Date();
-		var dd = today.getDate();
-		var mm = today.getMonth() + 1;
-		var yyyy = today.getFullYear();
-		var min = today.getMinutes();
-		var hrs = today.getHours();
-		hrs = hrs < 10 ? '0' + hrs : hrs;
-		min = min < 10 ? '0' + min : min;
-		dd = dd < 10 ? '0' + dd : dd;
-		mm = mm < 10 ? '0' + mm : mm;
-		today = { date: yyyy + '-' + mm + '-' + dd, time: hrs + ":" + min + ":00" };
-		return today;
-	};
 	var formatTimeMonthDay = function(dateString) {
 	  var d = new Date(dateString);
 	  var t = returnTime(dateString);
@@ -311,7 +297,8 @@ var TripPlan = (function($, window, document, undefined) {
 		if (tpWalkTime > 0) {
 			tpArriveTime = addMinutes(tpArriveTime, tpWalkTime);
 		}
-		
+		let tpFare = l.RegularFare.toFixed(2);
+		let tpRFare = l.SeniorFare.toFixed(2);
 		tpDetail.push(`
 			<div class="leg-item">
 				<div class="d-table-cell leg-time">${returnTime(tpArriveTime)}</div>
@@ -322,6 +309,9 @@ var TripPlan = (function($, window, document, undefined) {
 					<p>Arrive at ${plan.ToAddress.Address}</p>
 				</div>
 			</div>
+			<div class="ml-auto">
+            <strong>Regular Fare $${tpFare} Reduced Fare $${tpRFare}</strong>
+            </div>
 		`);
 		$('.tp-results').append(`
 			  <div class="card mb-4" data-child="collapseTrip${i}" >
@@ -422,10 +412,9 @@ var TripPlan = (function($, window, document, undefined) {
 		DestroyAllMaps();
   
 		var tripFromLocation = AutocompleteAddress.getChoice('fromLocation');
-		//var userPos = AutocompleteAddress.fetchUserLoc(); // this gets the user GPS location, if you need it
+            var userPos = AutocompleteAddress.fetchUserLoc(); // this gets the user GPS location, if you need it
 		var tripToLocation = AutocompleteAddress.getChoice('toLocation');
-		var dateTime = new Date(currentDateTime().date + 'T' + currentDateTime().time);
-		console.log(currentDateTime().date + 'T' + currentDateTime().time);
+            var dateTime = new Date();
 		var selectTimeType = 'Depart';
 		var selectTime = $('#selectTime').val();
 		if (selectTime === 'arrive-by') {
@@ -434,12 +423,9 @@ var TripPlan = (function($, window, document, undefined) {
 		if (selectTime !== 'leave-now') {
 		  var pickDate = $('#date').val();
 		  var pickTime = $('#time').val();
-		  var t = $('#date').val() + 'T' + $('#time').val();
-		  dateTime = new Date(t);
-		  console.log(t);
+                dateTime = new Date(pickDate + ' ' + pickTime);
 
 		}
-		console.log(dateTime);
 		var walkingDistance = $("input[name='walkingDistance']:checked").val();
 		var serviceType = $("input[name='serviceType']:checked").val();
 		var convenience = $("input[name='convenience']:checked").val();
@@ -534,7 +520,6 @@ var TripPlan = (function($, window, document, undefined) {
   
 	return {
 		init: init,
-		currentDateTime: currentDateTime,
 		refreshTrip: refreshTrip,
 		setMyLocation: setMyLocation
 	};
@@ -562,9 +547,23 @@ var TripPlan = (function($, window, document, undefined) {
 		$(".time-elements").hide();
 		$("#selectTime").on("change", function () { 
 			// time & date inputs
+            var currentDate = function () {
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth() + 1;
+                var yyyy = today.getFullYear();
+                var min = today.getMinutes();
+                var hrs = today.getHours();
+                hrs = hrs < 10 ? '0' + hrs : hrs;
+                min = min < 10 ? '0' + min : min;
+                dd = dd < 10 ? '0' + dd : dd;
+                mm = mm < 10 ? '0' + mm : mm;
+                today = { date: yyyy + '-' + mm + '-' + dd, time: hrs + ":" + min };
+                return today;
+            };
 			if (this.value === "depart-at" || this.value === "arrive-by") {
-				$("#date").attr('value', TripPlan.currentDateTime().date);
-				$("#time").attr('value', TripPlan.currentDateTime().time);
+                $("#date").attr('value', currentDate().date);
+                $("#time").attr('value', currentDate().time);
 				$(".time-elements").slideDown();
 			} else {
 				$(".time-elements").slideUp();
