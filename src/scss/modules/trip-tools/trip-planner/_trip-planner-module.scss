@@ -1,15 +1,14 @@
 #tripPlannerModule {
   // Use my location dropdown
-  .my-location {
-    color: $cyan;
-    &::before {
-      position: absolute;
-      content: "Use current location";
-      //background-image: url("../../../../../img/svg/pin-gray.svg");
-      //background-repeat: no-repeat;
-
-    }
-  }
+  // .my-from-location {
+  //   color: $cyan;
+  //   &::before {
+  //     position: absolute;
+  //     content: "Use current location";
+  //     //background-image: url("../../../../../img/svg/pin-gray.svg");
+  //     //background-repeat: no-repeat;
+  //   }
+  // }
   
   // Location toggle buttons
   button.location-toggler {

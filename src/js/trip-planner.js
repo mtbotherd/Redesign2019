@@ -510,11 +510,11 @@ var TripPlan = (function($, window, document, undefined) {
             }
         }
 	};
-	var setMyLocation = function() {
-		var myLocation = AutocompleteAddress.fetchUserLoc();
-		console.dir(myLocation);
-		if (myLocation) {
-			$("#fromLocation").val("Location: Latitude " + myLocation.LatLon.y.toFixed(3) + " Longitude " + myLocation.LatLon.x.toFixed(3));
+	var setMyLocation = function(inputDiv) {
+		let userLoc = AutocompleteAddress.setUserLoc(inputDiv);
+		if (userLoc) { // true = success
+			console.dir(AutocompleteAddress.getChoice(inputDiv));
+			$("#" + inputDiv).val("Location: Latitude " + userLoc.LatLon.y.toFixed(3) + " Longitude " + userLoc.LatLon.x.toFixed(3));
 		}
 	};
   
@@ -540,8 +540,8 @@ var TripPlan = (function($, window, document, undefined) {
 	
 		// Drop down for "From" input
 		//$("input.dropdown").dropdown();
-		$(".my-location").click(function(){
-			TripPlan.setMyLocation();
+		$(".my-from-location").click(function(){
+			TripPlan.setMyLocation('fromLocation');
 		});
 	
 		$(".time-elements").hide();
