@@ -10897,6 +10897,15 @@ select.navigator {
         #tripPlan .tt-trip-plan .card .card-body .tp-results .arrive {
           border-left: 4px solid transparent; }
 
+#nextripModule .card {
+  line-height: 1.25 !important;
+  font-size: 1rem !important; }
+  #nextripModule .card hr {
+    margin-bottom: .25rem; }
+  @media (max-width: 991.98px) {
+    #nextripModule .card .form-control {
+      height: 45px; } }
+
 #nextripModule .or {
   font-size: 18px !important;
   font-size: 1.125rem !important;
