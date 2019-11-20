@@ -49,7 +49,7 @@
 
       .list-group-item {
         display: flex;
-
+        margin-bottom:-.8px !important;
         &:nth-child(n + 4) {
           display: none !important;
         }
