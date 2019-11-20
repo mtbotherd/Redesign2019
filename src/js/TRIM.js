@@ -436,20 +436,6 @@ var TRIM = (function ($, window, document, undefined) {
     var MAP = null; // this is the main MAP object 
     var GEOLOCATE = null; // this is the locate button object
 
-    var convertDateTimeToDotNet = function (ticks) {
-        return 621355968000000000 + ticks * 10000;
-    };
-    var convertUTCDateToLocalDate = function (date) {
-        var newDate = new Date(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
-
-        var offset = date.getTimezoneOffset() / 60;
-        var hours = date.getHours();
-
-        newDate.setHours(hours - offset);
-
-        return newDate;
-    };
-
     var _bubbleSort = function (inputArr) {
         var swapped;
         do {
@@ -1383,8 +1369,10 @@ var TRIM = (function ($, window, document, undefined) {
     // ----------------------------------------------------------------
     var fullPageSetup = function (mapDiv, route, stop, x, y) {
         var h = $(window).height();
-        if (h > 600) {
-            $('.map').css({ 'height': h - 240 });
+        if (h > 1000) {
+            $('.map').css({ 'height': h - 500 });
+        } else if (h > 500) {
+            $('.map').css({ 'height': h - 220 });
         }
         init(mapDiv).then(function () {
             if (route) {
@@ -1433,8 +1421,6 @@ var TRIM = (function ($, window, document, undefined) {
     return {
         fullPageSetup: fullPageSetup,
         centerMarkerAtPoint: centerMarkerAtPoint,
-        convertDateTimeToDotNet: convertDateTimeToDotNet,
-        convertUTCDateToLocalDate: convertUTCDateToLocalDate,
         drawTrip: drawTrip,
         drawRouteStops: drawRouteStops,
         drawRoutes: drawRoutes,
@@ -2210,8 +2196,10 @@ var BOM = (function ($, window, document, undefined) {
     // ====================================================================
     var fullPageBOM = function (/*string*/mapDiv,/*string*/stop,/*string*/route) {
         var h = $(window).height();
-        if (h > 600) {
-            $('.map').css({ 'height': h - 210 });
+        if (h > 1000) {
+            $('.map').css({ 'height': h - 220 });
+        } else if (h > 600) {
+            $('.map').css({ 'height': h - 160 });
         }
         var parms = {
             stopID: stop,
