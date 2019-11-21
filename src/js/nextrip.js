@@ -200,7 +200,6 @@ var NexTrip = (function ($, window, document, undefined) {
             $('.stop-departures').children(':nth-child(n+' + (threshold + 1) + ')').slideUp('slow');
             $(this).hide();
             $('.more').show();
-            window.scrollTo({top:$('#nextripDepartures').offset().top-100,behavior: 'smooth'})
         });
 
         if ($('#NexTripMap').attr('maptype') === 'BOM')
