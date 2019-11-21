@@ -113,6 +113,8 @@ var NexTrip = (function ($, window, document, undefined) {
             $('.more').hide();
             $('.less').hide();
         }
+        var aTag = $('a[name="nextriptop"]');
+        $('html,body').animate({ scrollTop: aTag.offset().top }, 'slow');
     };
 
     var resetUI = function () {

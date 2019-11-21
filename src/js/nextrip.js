@@ -113,6 +113,12 @@ var NexTrip = (function ($, window, document, undefined) {
             $('.more').hide();
             $('.less').hide();
         }
+
+        if ('Blue,Grn,Nstar'.indexOf(departures[0].RouteId) > -1) {
+            $('#showMyBus button h3').text('Show my train');
+        } else {
+            $('#showMyBus button h3').text('Show my bus');
+        }
     };
 
     var resetUI = function () {
@@ -125,6 +131,10 @@ var NexTrip = (function ($, window, document, undefined) {
         $('#stopNumber').val('');
         $('#collapseMap').collapse('hide');
         $('#nextripDepartures').hide();
+    };
+    var scrollToResult = function () {
+        var aTag = $('a[name="nextriptop"]');
+        $('html,body').animate({ scrollTop: aTag.offset().top }, 'slow');
     };
 
     var init = function () {
@@ -173,6 +183,7 @@ var NexTrip = (function ($, window, document, undefined) {
                 }, 30000);
 
                 getTimepointDepartures(routeId, directionId, placeCode);
+                scrollToResult();
             } else {
                 $('#nextripDepartures').hide();
             }
@@ -187,6 +198,7 @@ var NexTrip = (function ($, window, document, undefined) {
             }, 30000);
 
             getStopDepartures(stopId);
+            scrollToResult();
             $('#stopNumber').focus();
         });
 
@@ -200,6 +212,7 @@ var NexTrip = (function ($, window, document, undefined) {
             $('.stop-departures').children(':nth-child(n+' + (threshold + 1) + ')').slideUp('slow');
             $(this).hide();
             $('.more').show();
+            scrollToResult();
         });
 
         if ($('#NexTripMap').attr('maptype') === 'BOM')

@@ -165,6 +165,23 @@ var AutocompleteAddress = (function($, window, document, undefined) {
     inputResults[inputDiv1] = inputResults[inputDiv2];
     inputResults[inputDiv2] = t;
     };
+  // set the inputDiv value to the user's location in UTM's
+  var setUserLoc = function(inputDiv) {
+    if (USERLOC) {
+      let loc = {
+        address: 'your location',
+        attributes: {
+          ATIS_ID: ''
+        },
+        location: {
+          x: USERLOC.UTM.x,
+          y: USERLOC.UTM.y
+        }
+      }
+      inputResults[inputDiv] = loc;
+    }
+    return(USERLOC);
+  };
 
   return {
     init: init,
@@ -172,7 +189,8 @@ var AutocompleteAddress = (function($, window, document, undefined) {
     deleteChoice: deleteChoice,
     fetchUserLoc: fetchUserLoc,
     getUserLocation: getUserLocation,
-    exchangeValues: exchangeValues
+    exchangeValues: exchangeValues,
+    setUserLoc: setUserLoc
   };
 })(jQuery, window, document);
 // on application load, attempt to get the user location 

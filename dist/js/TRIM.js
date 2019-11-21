@@ -517,7 +517,7 @@ var TRIM = (function ($, window, document, undefined) {
         require([
             "esri/graphic",
             "esri/geometry/Point",
-            "esri/symbols/PictureMarkerSymbol",
+            "esri/symbols/PictureMarkerSymbol"
         ], function (Graphic, Point, PictureMarkerSymbol
         ) {
                 var p = new Point(x, y);
@@ -860,7 +860,7 @@ var TRIM = (function ($, window, document, undefined) {
                     departTime.append(depart.DepartureText);
                     departTime.appendTo(departRow);
                     departRow.appendTo($('#mapPopUpDepartures'));
-                };
+                }
             } else {
                 $('#mapPopUpDepartures').html('<span style="font-size:larger">No departures available at this time</span>');
             }
