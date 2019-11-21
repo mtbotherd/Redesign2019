@@ -50,9 +50,14 @@ var Schedule = (function ($, window, document, undefined) {
     };
 
     var init = function (routeAbbr) {
-        loadTimetable();
+        if (',901,902,888,'.indexOf(',' + routeAbbr + ',') > -1) {
+            $('#showMyBus button h3').text('Show my train');
+        } else {
+            $('#showMyBus button h3').text('Show my bus');
+        }
 
         Alerts.getAlertsForRoute(routeAbbr);
+        loadTimetable();
 
         $('.schedule-days>button').on('click', scheduleSelect);
         $('#maplink').on('click', function () { window.location.href = '/imap/' + $(this).data('link'); });
