@@ -188,6 +188,12 @@ var NexTrip = (function ($, window, document, undefined) {
                 $('#nextripDepartures').hide();
             }
         });
+        $('#ntUseCurrentLoc').click(function() {
+			let userLoc = AutocompleteAddress.setUserLoc('nexTrip');
+			if (userLoc) { 
+				console.dir(AutocompleteAddress.getChoice('nexTrip'));
+			}
+        });
 
         $('#searchStopsButton').click(function () {
             stopId = $('#stopNumber').val();
@@ -233,6 +239,7 @@ var NexTrip = (function ($, window, document, undefined) {
             BOM.stopBusesOnMap();
         });
 
+        //use URL routing info to populate results
         var nextRoute = window.location.pathname.split('/');
         if (nextRoute[1].toLowerCase() === 'nextrip') {
             if (nextRoute.length == 3) {

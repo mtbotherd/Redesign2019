@@ -165,33 +165,40 @@ var AutocompleteAddress = (function($, window, document, undefined) {
     inputResults[inputDiv1] = inputResults[inputDiv2];
     inputResults[inputDiv2] = t;
     };
-  // set the inputDiv value to the user's location in UTM's
-  var setUserLoc = function(inputDiv) {
-    if (USERLOC) {
-      let loc = {
-        address: 'your location',
-        attributes: {
-          ATIS_ID: ''
-        },
-        location: {
-          x: USERLOC.UTM.x,
-          y: USERLOC.UTM.y
+    // setUserLoc formats the user location (if we have one)
+    // format is the same as output from autocomplete geocoder choice
+    // user location is passed as UTM which is needed for
+    // both the trip planner and any finder services
+    // RETURNS the location object in format needed for Finder calls
+    // also stores it in 
+    var setUserLoc = function (inputDiv) {
+        let result = null;
+        if (USERLOC) {
+            let loc = {
+                address: 'your location',
+                attributes: { // we need to be able to test if ATIS_ID exists
+                    ATIS_ID: ''
+                },
+                location: {
+                    x: USERLOC.UTM.x,
+                    y: USERLOC.UTM.y
+                }
+            };
+            inputResults[inputDiv] = loc;
+            result = loc;
         }
-      }
-      inputResults[inputDiv] = loc;
-    }
-    return(USERLOC);
-  };
+        return result;
+    };
 
-  return {
-    init: init,
-    getChoice: getChoice,
-    deleteChoice: deleteChoice,
-    fetchUserLoc: fetchUserLoc,
-    getUserLocation: getUserLocation,
-    exchangeValues: exchangeValues,
-    setUserLoc: setUserLoc
-  };
+    return {
+        init: init,
+        getChoice: getChoice,
+        deleteChoice: deleteChoice,
+        fetchUserLoc: fetchUserLoc,
+        getUserLocation: getUserLocation,
+        exchangeValues: exchangeValues,
+        setUserLoc: setUserLoc
+    };
 })(jQuery, window, document);
 // on application load, attempt to get the user location 
 // if permitted. The user location will be used with all

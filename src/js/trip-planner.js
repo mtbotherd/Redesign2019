@@ -94,44 +94,19 @@ var TripPlan = (function($, window, document, undefined) {
   
 		  }).promise();
 	  };
-	  const getTrip = function() {
-		  return TripPlanJSON;
-	};
-    // var formatTimeMonthDay = function (dateString) {
-    //     var d = new Date(dateString);
-    //     var t = returnTime(dateString);
-    //     var dayNames = ["Sunday", "Monday",
-    //         "Tuesday", "Wednesday", "Thursday",
-    //         "Friday", "Saturday"];
-    //     var monthNames = [
-    //         "January", "February", "March",
-    //         "April", "May", "June", "July",
-    //         "August", "September", "October",
-    //         "November", "December"
-    //     ];
-    //     var day = d.getDate();
-    //     return t + ', ' + dayNames[d.getDay()] + ', ' + monthNames[d.getMonth()] + ' ' + day;
-    // };
-	var returnTripTime = function(Time){
-	  let time = new Date(Time);
-	  let minutes = time.getMinutes();
+
+    var returnTripTime = function (Time) {
+        let time = new Date(Time);
+        let minutes = time.getMinutes();
 	  minutes = minutes>0 ? minutes.toString() + 'm' : '';
-	  let hour = time.getHours();
+        let hour = time.getHours();
 	  if(hour>=1) hour = hour + 'h';
-	  else hour = ' ';
-	  return hour + ' ' + minutes;
-	};
-	var returnTime = function(Time,vari){
-        // let time = new Date(Time);
-        // let minutes = time.getMinutes();
-        // minutes = minutes < 10 ? '0' + minutes.toString() : minutes.toString();
-        // let hour = time.getHours();
-        // let AMPM = hour < 12 ? 'AM' : 'PM';
-        // hour = hour > 12 ? hour - 12 : hour;
-        // hour = hour === 0 ? 12 : hour;
-        //return hour + ':' + minutes + ' ' + AMPM;
+        else hour = ' ';
+        return hour + ' ' + minutes;
+    };
+    var returnTime = function (Time) {
         return moment(Time).format('h:mm A');
-	  };
+    };
 	var listFunction = function(li,i,ii,vari,initTime){
 	  //console.log(li,i,ii,vari,initTime)
         if (li.Segments[ii].SegmentType === 3 && ii === 0) return returnTime(initTime);
@@ -139,7 +114,7 @@ var TripPlan = (function($, window, document, undefined) {
 			let io = ii-1;
             return returnTime(li.Segments[io].OffTime);
 		}
-        else if (li.length === ii) return returnTime(li.Segments[ii].OffTime, vari);
+        else if (li.length === ii) return returnTime(li.Segments[ii].OffTime);
         else return returnTime(li.Segments[ii].OnTime);
 	};
 	var checkIfLate = function(Adherance){
@@ -324,8 +299,15 @@ var TripPlan = (function($, window, document, undefined) {
 					<p>Arrive at ${plan.ToAddress.Address}</p>
 				</div>
 			</div>
-			<div class="ml-auto">
-            <strong>Regular Fare $${tpFare} Reduced Fare $${tpRFare}</strong>
+            <div class="p-2">
+               <hr>
+                <div class="mr-auto d-flex trip-plan-cost align-items-center">
+                  <img src="img/svg/circle-green-dollar.svg" class="icon mx-2"/>
+                  <div>
+                    <h4>Regular Fare $${tpFare}</h4>
+                    <h4>Reduced Fare $${tpRFare}</h4> 
+                  </div>
+                 </div>
             </div>
 		`);
 		$('.tp-results').append(`
@@ -383,7 +365,7 @@ var TripPlan = (function($, window, document, undefined) {
 		$('.esrimap0').append(esriMapDOM);
 		TRIM.init("tripPlanMap").then(function () {
 		  MAPLOADED = true;
-		  TRIM.drawTrip(0, getTrip(), /*zoom*/ true);
+                TRIM.drawTrip(0, plan, /*zoom*/ true);
 		});
 	  });
 	  $("#collapseTrip1").on('hide.bs.collapse', function(){
@@ -397,7 +379,7 @@ var TripPlan = (function($, window, document, undefined) {
 		$('.esrimap1').append(esriMapDOM);
 		TRIM.init("tripPlanMap").then(function () {
 		  MAPLOADED = true;
-		  TRIM.drawTrip(1, getTrip(), /*zoom*/ true);
+                TRIM.drawTrip(1, plan, /*zoom*/ true);
 		});
 	  });
 	  $("#collapseTrip2").on('hide.bs.collapse', function(){
@@ -411,7 +393,7 @@ var TripPlan = (function($, window, document, undefined) {
 		$('.esrimap2').append(esriMapDOM);
 		TRIM.init("tripPlanMap").then(function () {
 		  MAPLOADED = true;
-		  TRIM.drawTrip(2, getTrip(), /*zoom*/ true);
+                TRIM.drawTrip(2, plan, /*zoom*/ true);
 		});
 	  });
 	};
@@ -427,7 +409,6 @@ var TripPlan = (function($, window, document, undefined) {
 		DestroyAllMaps();
   
 		var tripFromLocation = AutocompleteAddress.getChoice('fromLocation');
-            var userPos = AutocompleteAddress.fetchUserLoc(); // this gets the user GPS location, if you need it
 		var tripToLocation = AutocompleteAddress.getChoice('toLocation');
 
 		var selectTimeType = 'Depart';
@@ -460,8 +441,8 @@ var TripPlan = (function($, window, document, undefined) {
 			};
 			newTrip(tripProperties)
 				.then(function () {
-					let tripPlan = getTrip();
-                        sessionStorage.setItem('tripJSON', JSON.stringify(tripPlan));
+                        let tripPlan = TripPlanJSON;
+                        sessionStorage.setItem('tripJSON', JSON.stringify(TripPlanJSON));
                         if (tripPlan.PlannerItin.PlannerOptions.length > 0) {
                             formatTripResults(tripPlan);
                             $('.trips-found').show();
@@ -505,6 +486,16 @@ var TripPlan = (function($, window, document, undefined) {
         sessionStorage.clear();
 	});
     };
+    const clearTrip = function () {
+        // clear previous results
+        $("#trip-result-count").html('');
+        $("#trip-result-msg").html('');
+        $('.tp-results').empty();
+        // remove busy spinner
+        $('#spinner').addClass('d-none');
+        $('#planTrip').hide('slow');
+        $('#tripPlannerResults').show();
+    }
     const refreshTrip = function (storedTrip) {
         if (storedTrip) {
             let tripPlan = JSON.parse(storedTrip);
@@ -515,30 +506,14 @@ var TripPlan = (function($, window, document, undefined) {
                 $('#spinner').addClass('d-none');
                 $('#planTrip').hide('slow');
                 $('#tripPlannerResults').show();
-            } else {
-                $("#trip-result-count").html('');
-                $("#trip-result-msg").html('');
-                $('.tp-results').empty();
-                $('.trips-found').show();
-                $('.no-trips-found').show();
-                $('#spinner').addClass('d-none');
-                $('#planTrip').hide('slow');
-                $('#tripPlannerResults').show();
             }
         }
-	};
-	var setMyLocation = function(inputDiv) {
-		let userLoc = AutocompleteAddress.setUserLoc(inputDiv);
-		if (userLoc) { // true = success
-			console.dir(AutocompleteAddress.getChoice(inputDiv));
-			$("#" + inputDiv).val("Location: Latitude " + userLoc.LatLon.y.toFixed(3) + " Longitude " + userLoc.LatLon.x.toFixed(3));
-		}
 	};
   
 	return {
 		init: init,
 		refreshTrip: refreshTrip,
-		setMyLocation: setMyLocation
+		clearTrip: clearTrip
 	};
   })(jQuery, window, document);
 
@@ -555,10 +530,11 @@ var TripPlan = (function($, window, document, undefined) {
 			AutocompleteAddress.exchangeValues("fromLocation", "toLocation");
 		});
 	
-		// Drop down for "From" input
-		//$("input.dropdown").dropdown();
-		$(".my-from-location").click(function(){
-			TripPlan.setMyLocation('fromLocation');
+		$("#tpUseCurrentLoc").click(function(){
+			let userLoc = AutocompleteAddress.setUserLoc('fromLocation');
+			if (userLoc) { 
+				$("#fromLocation").val("Current Location");
+			}
 		});
 	
 		$(".time-elements").hide();
@@ -590,6 +566,7 @@ var TripPlan = (function($, window, document, undefined) {
   		TripPlan.init();
         let x = sessionStorage.getItem('tripJSON');
         if (x) {
+            TripPlanJSON = JSON.parse(x);
             TripPlan.refreshTrip(x);
   	}
     }

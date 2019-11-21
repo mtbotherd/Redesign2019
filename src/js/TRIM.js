@@ -1170,12 +1170,6 @@ var TRIM = (function ($, window, document, undefined) {
                         if (mapType === "full") {
                             if (MAP.infoWindow.isShowing) {
                                 MAP.infoWindow.hide();
-                                // clear these layers for any displays by passing nothing in the parameter
-                                // unless we're showing a particular route on the TRIM map
-                                //if (!mapProps.route) {
-                                //    drawRouteStops();
-                                //    drawRoutes();
-                                //}
                             }
                             idMap(evt);
                         }
@@ -1360,12 +1354,15 @@ var TRIM = (function ($, window, document, undefined) {
     };
     // ---------------------------------------------------------------
     // This runs from iMap/InteractiveMap.aspx
-    // and uses this routing: "/imap/<route>/<stop>
+    // and uses this routing: "/imap/<route>/<stop>"
     // where <route> is required and a valid transit route number or zero
     // and <stop> is optional and is a valid stop number
     // Page will open and show the interactive map. If route provided,
     // the route line will draw and route stops will be highlighted.
     // If the stop provided, the map will mark the stop and zoom there.
+    //
+    // This page also directly as iMap/InteractiveMap.aspx?x=<longitude>&y=<latitude>
+    // to open the map as a particular point.
     // ----------------------------------------------------------------
     var fullPageSetup = function (mapDiv, route, stop, x, y) {
         var h = $(window).height();
@@ -1377,7 +1374,7 @@ var TRIM = (function ($, window, document, undefined) {
         init(mapDiv).then(function () {
             if (route) {
                 if (stop) {
-                    drawRoutes([route], false);
+                    drawRoutes([route], /*zoomToRoute*/false);
                     drawRouteStops([route]);
                     findStop(stop)
                         .then(function (x, y, name) {
@@ -1388,7 +1385,7 @@ var TRIM = (function ($, window, document, undefined) {
                             console.warn('Requested stop ' + stop + ' not found.');
                         });
                 } else {
-                    drawRoutes([route], true);
+                    drawRoutes([route], /*zoomToRoute*/true);
                     drawRouteStops([route]);
                 }
                 toggleLayer('parkAndRides'); // Turn the P&R Layer off for the route link page
