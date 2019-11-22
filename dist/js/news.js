@@ -4,13 +4,12 @@ var News = (function ($, window, document, undefined) {
 
     var init = function () {
         var newsStories = [];
-        var titles = $('.articleDisplayTitle>a');
-        var links = $('.articleDisplayTitle>a');
+        var titlelinks = $('.articleDisplayTitle>h2>a');
         var imgs = $('.articleDisplayAbstract img:first-child');
 
         for (var i = 0; i < 4; i++) {
-            let title = titles[i] != undefined ? titles[i].text : 'Article';
-            let link = links[i] != undefined ? links[i].href : '#';
+            let title = titlelinks[i] != undefined ? titlelinks[i].text : 'Article';
+            let link = titlelinks[i] != undefined ? titlelinks[i].href : '#';
             let img = imgs[i] != undefined ? imgs[i].src : '/img/placeholder-300x300.png';
 
             newsStories[i] = {
@@ -20,7 +19,7 @@ var News = (function ($, window, document, undefined) {
             }
         }
 
-        var newsDisplay = $('#news>div.card-deck>div');
+        var newsDisplay = $('#news>div.custom-card-deck>div');
 
         $.each(newsDisplay, function (index, item) {
             $(item).find('img.card-img-top').attr('src', newsStories[index].img);
