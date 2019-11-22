@@ -436,20 +436,6 @@ var TRIM = (function ($, window, document, undefined) {
     var MAP = null; // this is the main MAP object 
     var GEOLOCATE = null; // this is the locate button object
 
-    var convertDateTimeToDotNet = function (ticks) {
-        return 621355968000000000 + ticks * 10000;
-    };
-    var convertUTCDateToLocalDate = function (date) {
-        var newDate = new Date(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
-
-        var offset = date.getTimezoneOffset() / 60;
-        var hours = date.getHours();
-
-        newDate.setHours(hours - offset);
-
-        return newDate;
-    };
-
     var _bubbleSort = function (inputArr) {
         var swapped;
         do {
@@ -1184,12 +1170,6 @@ var TRIM = (function ($, window, document, undefined) {
                         if (mapType === "full") {
                             if (MAP.infoWindow.isShowing) {
                                 MAP.infoWindow.hide();
-                                // clear these layers for any displays by passing nothing in the parameter
-                                // unless we're showing a particular route on the TRIM map
-                                //if (!mapProps.route) {
-                                //    drawRouteStops();
-                                //    drawRoutes();
-                                //}
                             }
                             idMap(evt);
                         }
@@ -1374,22 +1354,27 @@ var TRIM = (function ($, window, document, undefined) {
     };
     // ---------------------------------------------------------------
     // This runs from iMap/InteractiveMap.aspx
-    // and uses this routing: "/imap/<route>/<stop>
+    // and uses this routing: "/imap/<route>/<stop>"
     // where <route> is required and a valid transit route number or zero
     // and <stop> is optional and is a valid stop number
     // Page will open and show the interactive map. If route provided,
     // the route line will draw and route stops will be highlighted.
     // If the stop provided, the map will mark the stop and zoom there.
+    //
+    // This page also directly as iMap/InteractiveMap.aspx?x=<longitude>&y=<latitude>
+    // to open the map as a particular point.
     // ----------------------------------------------------------------
     var fullPageSetup = function (mapDiv, route, stop, x, y) {
         var h = $(window).height();
-        if (h > 600) {
-            $('.map').css({ 'height': h - 240 });
+        if (h > 1000) {
+            $('.map').css({ 'height': h - 500 });
+        } else if (h > 500) {
+            $('.map').css({ 'height': h - 220 });
         }
         init(mapDiv).then(function () {
             if (route) {
                 if (stop) {
-                    drawRoutes([route], false);
+                    drawRoutes([route], /*zoomToRoute*/false);
                     drawRouteStops([route]);
                     findStop(stop)
                         .then(function (x, y, name) {
@@ -1400,7 +1385,7 @@ var TRIM = (function ($, window, document, undefined) {
                             console.warn('Requested stop ' + stop + ' not found.');
                         });
                 } else {
-                    drawRoutes([route], true);
+                    drawRoutes([route], /*zoomToRoute*/true);
                     drawRouteStops([route]);
                 }
                 toggleLayer('parkAndRides'); // Turn the P&R Layer off for the route link page
@@ -1433,8 +1418,6 @@ var TRIM = (function ($, window, document, undefined) {
     return {
         fullPageSetup: fullPageSetup,
         centerMarkerAtPoint: centerMarkerAtPoint,
-        convertDateTimeToDotNet: convertDateTimeToDotNet,
-        convertUTCDateToLocalDate: convertUTCDateToLocalDate,
         drawTrip: drawTrip,
         drawRouteStops: drawRouteStops,
         drawRoutes: drawRoutes,
@@ -2210,8 +2193,10 @@ var BOM = (function ($, window, document, undefined) {
     // ====================================================================
     var fullPageBOM = function (/*string*/mapDiv,/*string*/stop,/*string*/route) {
         var h = $(window).height();
-        if (h > 600) {
-            $('.map').css({ 'height': h - 210 });
+        if (h > 1000) {
+            $('.map').css({ 'height': h - 220 });
+        } else if (h > 600) {
+            $('.map').css({ 'height': h - 160 });
         }
         var parms = {
             stopID: stop,

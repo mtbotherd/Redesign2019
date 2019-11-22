@@ -7,7 +7,10 @@ var NexTrip = (function ($, window, document, undefined) {
         stopId,
         timer;
     var threshold = 3;
-
+    $(".nexTrip-card").on("click",function(){
+        console.log($(this).data("card"))
+        location.assign($(this).data("card"))
+    })
     function getRoutes() {
         $.get(window.serviceHostUrl + '/nextripv2/routes')
             .done(function (result) {
@@ -113,8 +116,12 @@ var NexTrip = (function ($, window, document, undefined) {
             $('.more').hide();
             $('.less').hide();
         }
-        var aTag = $('a[name="nextriptop"]');
-        $('html,body').animate({ scrollTop: aTag.offset().top }, 'slow');
+
+        if ('Blue,Grn,Nstar'.indexOf(departures[0].RouteId) > -1) {
+            $('#showMyBus button h3').text('Show my train');
+        } else {
+            $('#showMyBus button h3').text('Show my bus');
+        }
     };
 
     var resetUI = function () {
@@ -127,6 +134,10 @@ var NexTrip = (function ($, window, document, undefined) {
         $('#stopNumber').val('');
         $('#collapseMap').collapse('hide');
         $('#nextripDepartures').hide();
+    };
+    var scrollToResult = function () {
+        var aTag = $('a[name="nextriptop"]');
+        $('html,body').animate({ scrollTop: aTag.offset().top }, 'slow');
     };
 
     var init = function () {
@@ -175,9 +186,16 @@ var NexTrip = (function ($, window, document, undefined) {
                 }, 30000);
 
                 getTimepointDepartures(routeId, directionId, placeCode);
+                scrollToResult();
             } else {
                 $('#nextripDepartures').hide();
             }
+        });
+        $('#ntUseCurrentLoc').click(function() {
+			let userLoc = AutocompleteAddress.setUserLoc('nexTrip');
+			if (userLoc) { 
+				console.dir(AutocompleteAddress.getChoice('nexTrip'));
+			}
         });
 
         $('#searchStopsButton').click(function () {
@@ -189,6 +207,7 @@ var NexTrip = (function ($, window, document, undefined) {
             }, 30000);
 
             getStopDepartures(stopId);
+            scrollToResult();
             $('#stopNumber').focus();
         });
 
@@ -202,6 +221,7 @@ var NexTrip = (function ($, window, document, undefined) {
             $('.stop-departures').children(':nth-child(n+' + (threshold + 1) + ')').slideUp('slow');
             $(this).hide();
             $('.more').show();
+            scrollToResult();
         });
 
         if ($('#NexTripMap').attr('maptype') === 'BOM')
@@ -222,6 +242,7 @@ var NexTrip = (function ($, window, document, undefined) {
             BOM.stopBusesOnMap();
         });
 
+        //use URL routing info to populate results
         var nextRoute = window.location.pathname.split('/');
         if (nextRoute[1].toLowerCase() === 'nextrip') {
             if (nextRoute.length == 3) {
