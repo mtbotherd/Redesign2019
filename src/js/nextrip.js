@@ -7,7 +7,10 @@ var NexTrip = (function ($, window, document, undefined) {
         stopId,
         timer;
     var threshold = 3;
-
+    $(".nexTrip-card").on("click",function(){
+        console.log($(this).data("card"))
+        location.assign($(this).data("card"))
+    })
     function getRoutes() {
         $.get(window.serviceHostUrl + '/nextripv2/routes')
             .done(function (result) {
