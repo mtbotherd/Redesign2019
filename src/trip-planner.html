@@ -155,10 +155,10 @@
 						<section class="section">
 							<div id="tripPlannerModule">
 								<div id="planTrip" class="card">
-								<div class="form-group mb-0">
+								<div class="form-group mb-0 d-flex">
 									<input id="fromLocation"
 										type="text"
-										class="form-control from-location dropdown"
+										class="form-control from-location"
 										name="fromLocation"
 										aria-label="trip planner from location"
 										aria-expanded="false"
@@ -166,22 +166,21 @@
 										aria-describedby="fromLocationInstr"
 										aria-owns="fromLocationSuggestions"
 										role="combobox"
+										onFocus="this.select()"
 										required>
 									<label for="fromLocation"
 										class="floating-label">From</label>
-									
+                                        <button type="button" class="location-toggler ml-auto">
+												<img class="icon location-switcher-blue"
+													src="/img/svg/location-switcher-blue.svg">
+										</button>									
 									<span id="fromLocationInstr" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
 								</div>
-								<div type="button" class="my-from-location d-flex mr-auto mt-1">
-									<span class="cyan m-0 ml-auto">Use current location &nbsp;</span>
-									<img src="img/svg/pin-blue.svg" class="icon"/>
+								<div class="d-flex ml-auto my-1">
+										<span id="tpUseCurrentLoc">
+											<a href="#" class="mb-0">Use current location&nbsp;<img src="/img/svg/pin-blue.svg"/></a>
+										</span>
 								</div>
-								
-								<button type="button"
-										class="location-toggler ml-auto">
-									<img class="icon location-switcher-blue"
-										src="/img/svg/location-switcher-blue.svg">
-								</button>
 								<div class="form-group">
 									<input id="toLocation"
 										type="text"
@@ -193,6 +192,7 @@
 										aria-owns="toLocationSuggestions"
 										role="combobox"
 										class="form-control to-location"
+										onFocus="this.select()"
 										required>
 									<label for="toLocation"
 										class="floating-label">To</label>
