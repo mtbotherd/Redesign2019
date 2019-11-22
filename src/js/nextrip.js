@@ -7,10 +7,6 @@ var NexTrip = (function ($, window, document, undefined) {
         stopId,
         timer;
     var threshold = 3;
-    $(".nexTrip-card").on("click",function(){
-        console.log($(this).data("card"))
-        location.assign($(this).data("card"))
-    })
     function getRoutes() {
         $.get(window.serviceHostUrl + '/nextripv2/routes')
             .done(function (result) {
@@ -129,6 +125,7 @@ var NexTrip = (function ($, window, document, undefined) {
         $('#ntRoute').val('');
         $('#ntDirection').val('');
         $('.select-route-direction').hide();
+        $('.nextrip-stop-list').hide();
         $('#ntStop').val('');
         $('.select-route-stop').hide();
         $('#stopNumber').val('');
@@ -149,11 +146,12 @@ var NexTrip = (function ($, window, document, undefined) {
         // When route dropdown changes, get direction
         $('#ntRoute').change(function () {
             routeId = this.value;
-            if (routeId != '') {
+            if (routeId !== '') {
                 clearInterval(timer);
                 $('#stopNumber').val('');
                 $('#ntStop').val('');
                 $('.select-route-stop').hide();
+                $('.nextrip-stop-list').hide();
                 $('#collapseMap').collapse('hide');
                 $('#nextripDepartures').hide();
                 getDirections(routeId);
@@ -165,7 +163,7 @@ var NexTrip = (function ($, window, document, undefined) {
         // When direction dropdown changes, get stops.
         $('#ntDirection').change(function () {
             directionId = this.value;
-            if (directionId != '') {
+            if (directionId !== '') {
                 clearInterval(timer);
                 $('#collapseMap').collapse('hide');
                 $('#nextripDepartures').hide();
@@ -191,10 +189,47 @@ var NexTrip = (function ($, window, document, undefined) {
                 $('#nextripDepartures').hide();
             }
         });
+
+        // When user clicks 'use current location' then find neareset stops
+        // and let them select one 
         $('#ntUseCurrentLoc').click(function() {
 			let userLoc = AutocompleteAddress.setUserLoc('nexTrip');
 			if (userLoc) { 
-				console.dir(AutocompleteAddress.getChoice('nexTrip'));
+                resetUI();
+                $('.nextrip-stop-list').empty();
+                StopServices.findNearestStops(userLoc).then(function (results) {
+                    $.each(results, function (i, stop) {
+                        let routeList = '';
+                        if (stop.Services.length > 0) {
+                            routeList += '<div class="card-body pt-0 pb-2">';
+                            $.each(stop.Services, function (i, route) {
+                                routeList += '<span class="mb=0">';
+                                if (route.ServiceType === 0) { // Bus
+                                    routeList += 'Route ';
+                                }
+                                routeList += route.PublicRoute;
+                                routeList += ' - ' + route.Direction + '</br></span>';
+                            });
+                            routeList += '</div>';
+                        }
+                        $('.nextrip-stop-list').append(`
+	                            <div class="card gray-100 mb-3" style="max-width: 22rem;">
+		                            <div class="card-header pb-0">
+			                            <div class="d-flex align-items-center">
+				                            <div>
+					                            <a href="#"><h3 class="mb-1">Stop ID: ${stop.StopId}</h3>
+					                            <h4 class="">${stop.StopDescription}</h4></a>
+				                            </div>
+				                            <img src="/img/svg/arrow-right-blue.svg" class="ml-auto" />
+			                            </div>
+			                            <hr>
+		                            </div>
+                                    ${routeList}
+	                            </div>
+                         `);
+                    });
+                });
+                //$('.nextrip-stop-list').show();
 			}
         });
 

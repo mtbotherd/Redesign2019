@@ -71,6 +71,13 @@ var Main = (function ($, window, document, undefined) {
     };
 
     var init = function () {
+        // shopping car number
+        let qty = getCookie('cart_status');
+        if (qty === null) {
+            setCookie('cart_status', '2');
+            qty = 2;
+        }
+        $('<div/>', { class: 'cart-qty-nbr' }).text(qty).appendTo($('a.store-icon'));
         // Bootstrap Popover with HTML
         $('[data-toggle="popover"]').popover({
             html: true,
@@ -122,3 +129,14 @@ var Main = (function ($, window, document, undefined) {
 $(function () {
     Main.init();
 });
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false,
+        gaTrack: true,
+        gaId: 'UA-63539533-1'
+    },
+        'google_translate_element'
+    );
+};

@@ -133,7 +133,8 @@ var StopServices = (function($,  window, document, undefined) {
     }
 
     return {
-        formatPage: formatPage
+        formatPage: formatPage,
+        findNearestStops: findNearestStops
     };
 })(jQuery, window, document);
 
