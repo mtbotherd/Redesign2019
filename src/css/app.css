@@ -10751,6 +10751,10 @@ select.navigator {
     #tripPlannerResults .trips-found .tp-results .card .card-body .arrive {
       border-left: 4px solid transparent; }
 
+#tripPlan .trip-plan-cost .icon {
+  width: 2rem;
+  height: 2rem; }
+
 #tripPlan .tt-trip-plan {
   margin-bottom: 1rem; }
   @media (min-width: 992px) {
