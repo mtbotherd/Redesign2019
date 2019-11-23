@@ -8,7 +8,7 @@ var NexTrip = (function ($, window, document, undefined) {
         timer;
     var threshold = 3;
     function getRoutes() {
-        $.get(window.serviceHostUrl + '/nextripv2/routes')
+        $.get('https://svc.metrotransit.org' + '/nextripv2/routes')
             .done(function (result) {
                 let routes = JSON.parse(JSON.stringify(result));
                 let routedrop = $('#ntRoute');
@@ -19,7 +19,7 @@ var NexTrip = (function ($, window, document, undefined) {
     };
 
     function getDirections(id) {
-        $.get(window.serviceHostUrl + '/nextripv2/directions/' + id)
+        $.get('https://svc.metrotransit.org' + '/nextripv2/directions/' + id)
             .done(function (result) {
                 let directions = JSON.parse(JSON.stringify(result));
                 let directiondrop = $('#ntDirection');
@@ -32,7 +32,7 @@ var NexTrip = (function ($, window, document, undefined) {
     };
 
     function getStops(route, direction) {
-        $.get(window.serviceHostUrl + '/nextripv2/stops/' + route + '/' + direction)
+        $.get('https://svc.metrotransit.org' + '/nextripv2/stops/' + route + '/' + direction)
             .done(function (result) {
                 let stops = JSON.parse(JSON.stringify(result));
                 let stopdrop = $('#ntStop');
@@ -45,7 +45,7 @@ var NexTrip = (function ($, window, document, undefined) {
     };
 
     function getTimepointDepartures(route, direction, code) {
-        $.get(window.serviceHostUrl + '/nextripv2/' + route + '/' + direction + '/' + code)
+        $.get('https://svc.metrotransit.org' + '/nextripv2/' + route + '/' + direction + '/' + code)
             .done(function (result) {
                 loadDepartures(JSON.parse(JSON.stringify(result)));
                 history.pushState({}, '', '/nextrip/' + route + '/' + direction + '/' + code);
@@ -53,7 +53,7 @@ var NexTrip = (function ($, window, document, undefined) {
     };
 
     function getStopDepartures(id) {
-        $.get(window.serviceHostUrl + '/nextripv2/' + id)
+        $.get('https://svc.metrotransit.org' + '/nextripv2/' + id)
             .done(function (result) {
                 loadDepartures(JSON.parse(JSON.stringify(result)));
                 history.pushState({}, '', '/nextrip/' + id);
@@ -120,6 +120,16 @@ var NexTrip = (function ($, window, document, undefined) {
         }
     };
 
+    var showDepartures = function(stop) {
+        stopId = stop;
+        routeId = ''; // need to clear value for the map to work properly
+        resetUI();
+        timer = setInterval(function () {
+            getStopDepartures(stopId);
+        }, 30000);
+        getStopDepartures(stopId);
+        scrollToResult();
+    };
     var resetUI = function () {
         clearInterval(timer);
         $('#ntRoute').val('');
@@ -217,7 +227,7 @@ var NexTrip = (function ($, window, document, undefined) {
 		                            <div class="card-header pb-0">
 			                            <div class="d-flex align-items-center">
 				                            <div>
-					                            <a href="#"><h3 class="mb-1">Stop ID: ${stop.StopId}</h3>
+					                            <a href="#" onclick="javascript:NexTrip.showDepartures(${stop.StopId});"><h3 class="mb-1">Stop ID: ${stop.StopId}</h3>
 					                            <h4 class="">${stop.StopDescription}</h4></a>
 				                            </div>
 				                            <img src="/img/svg/arrow-right-blue.svg" class="ml-auto" />
@@ -228,6 +238,7 @@ var NexTrip = (function ($, window, document, undefined) {
 	                            </div>
                          `);
                     });
+                    $('.nextrip-stop-list').show();
                 });
                 //$('.nextrip-stop-list').show();
 			}
@@ -291,7 +302,8 @@ var NexTrip = (function ($, window, document, undefined) {
     };
 
     return {
-        init: init
+        init: init, 
+        showDepartures: showDepartures
     };
 
 })(jQuery, window, document);
