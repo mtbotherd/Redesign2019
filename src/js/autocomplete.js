@@ -88,12 +88,8 @@ var AutocompleteAddress = (function($, window, document, undefined) {
       showNoSuggestionNotice: true,
       noSuggestionNotice: 'No results',
       width: "flex",
-            onInvalidateSelection: function(params) {
-                deleteChoice(inputDiv);
-                $("#" + inputDiv).val('');
-             },
       lookup: function(query, returnSuggestions) {
-                let userPosition = fetchUserLoc();
+         let userPosition = fetchUserLoc();
         $.ajax({
           type: "get",
           url: LOCATOR + "suggest",
@@ -148,7 +144,10 @@ var AutocompleteAddress = (function($, window, document, undefined) {
           .fail(function(e) {
             console.warn("Call to FindCandidate failed for: " + suggest.value);
           });
-
+          // if the 'reappearing suggestion results' continues to happen,
+          // try this next statement to force it to close
+          
+          //$('#' + inputDiv + 'Suggestions').hide();
       }
     });
 
