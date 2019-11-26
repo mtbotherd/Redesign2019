@@ -101,7 +101,7 @@ var GoToRetailerServices = (function($,  window, document, undefined) {
             if (results.length === 0) {
                 $('#goto-finder-results').append('<p class="result-msg">No Go-To Card retailers close to '+addressChoice.address+'</p>');
             }
-            sessionStorage.setItem('gotoCardFinderResults', $('#goto-finder-results').html());
+
         })
         .fail(function(err) {
             $('#goto-finder-results').append('<p class="result-msg">No Go-To Card retailers close to '+addressChoice.address+'</p>');
