@@ -120,12 +120,12 @@
 
     .transit-service {
       //   margin-bottom: 1rem;
-      
+
       .routes {
         @include font-size(20);
         margin-right: 0.5rem;
         margin-bottom: 0.5rem !important;
-        width: 70px;
+        width: 90px;
         height: 50px;
         line-height: 1;
         padding: 0.25rem .6rem;
@@ -133,7 +133,7 @@
           // @include font-size(20);
           margin-right: 30px;
           margin-bottom: 30px !important;
-          width: 70px;
+          width: 90px;
           height: 50px;
           padding: 0.25rem .6rem;
         }
