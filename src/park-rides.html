@@ -159,11 +159,16 @@
 									<div class="input-group">
 										<input type="text"
 											id="parkRidesSearch"
-											name="parkRides"
+											name="parkRidesSearch"
 											class="form-control"
 											placeholder="Address, Intersection or Landmark"
-											aria-label="Address, Intersction or Landmark"
-											aria-describedby="parkRidesButton">
+											aria-expanded="false"
+											aria-autocomplete="list"
+											aria-describedby="parkRidesSearchInstr"
+											aria-owns="parkRidesSearchSuggestions"
+											role="combobox"
+											onFocus="this.select()"
+											>
 										<label for="parkRidesSearch"
 											class="sr-only">Find park and rides by address, intersection or landmark</label>
 										<div class="input-group-append">
@@ -172,6 +177,7 @@
 													src="/img/svg/search-gray.svg">
 											</span>
 										</div>
+										<span id="parkRidesSearchInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
 									</div>
 								</div>
 							

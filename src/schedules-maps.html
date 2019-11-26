@@ -300,7 +300,13 @@
 															class="form-control"
 															placeholder="Address, intersection or landmark"
 															aria-label="search for an address on the map"
-															aria-describedby="searchButton">
+															aria-expanded="false"
+															aria-autocomplete="list"
+															aria-describedby="interactiveMapSearchInstr"
+															aria-owns="interactiveMapSearchSuggestions"
+															role="combobox"
+															onFocus="this.select()"
+															>
 													<label for="searchButton"
 															class="sr-only">Search for an address or landmark on the map</label>
 													<div class="input-group-append">
@@ -309,6 +315,8 @@
 																src="/img/svg/search-gray.svg">
 														</span>
 													</div>
+													<span id="interactiveMapSearchInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
+
 												</div>
 											</div>
 											<div class="mb-4 mb-lg-5">

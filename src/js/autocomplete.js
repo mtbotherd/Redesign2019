@@ -138,16 +138,15 @@ var AutocompleteAddress = (function($, window, document, undefined) {
                 //console.log(inputDiv + ": " + JSON.stringify(choice));
                 inputResults[inputDiv] = choice;
                 if (callback) callback();
+                // if the 'reappearing suggestion results' continues to happen,
+                // this next statement forces it to close, but it may have other side-effects
+                $('#' + inputDiv + 'Suggestions').hide();
               }
             }
           })
           .fail(function(e) {
             console.warn("Call to FindCandidate failed for: " + suggest.value);
           });
-          // if the 'reappearing suggestion results' continues to happen,
-          // try this next statement to force it to close
-          
-          //$('#' + inputDiv + 'Suggestions').hide();
       }
     });
 
