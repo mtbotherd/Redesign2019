@@ -519,6 +519,7 @@ var TripPlan = (function($, window, document, undefined) {
 			$('#tripPlannerResults').hide('slow');
 			$('#planTrip').show('slow');
 			sessionStorage.clear();
+			$('#fromLocation').focus();
 		});
 		$("#startTripOver").on('click', function() {
 			$('#tripPlannerResults').hide('slow');
@@ -532,7 +533,9 @@ var TripPlan = (function($, window, document, undefined) {
 			$('#toLocation').val('');
 			$(".time-elements").hide();
 			$('#selectTime').val('leave-now');
-            $('#tpMoreOptions').collapse('hide');
+			$('#tpMoreOptions').collapse('hide');
+			$('#fromLocation').focus();
+			
 		});
     };
 

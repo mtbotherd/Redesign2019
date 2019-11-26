@@ -88,6 +88,12 @@
       }
     }
   }
+  
+  #tpUseCurrentLoc {
+    @include media-breakpoint-up(lg) {
+      visibility: hidden;
+    }
+  }
 }
 
 .chevron-right-gray {
