@@ -410,7 +410,7 @@ var TripPlan = (function($, window, document, undefined) {
 		if (selectTime === 'arrive-by') {
                 selectTimeType = 'Arrive';
 		}
-            var dateTime = moment.utc(moment().format('YYYY/MM/DD HH:mm'));
+        var dateTime = moment.utc(moment().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'));
             //var dateTime = moment();
 		if (selectTime !== 'leave-now') {
 		  var pickDate = $('#date').val();
