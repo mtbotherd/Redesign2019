@@ -16,7 +16,7 @@ var NexTrip = (function ($, window, document, undefined) {
                     routedrop.append($('<option/>').val(route.RouteId).text(route.Description));
                 });
             });
-    };
+    }
 
     function getDirections(id) {
         $.get('https://svc.metrotransit.org' + '/nextripv2/directions/' + id)
@@ -29,7 +29,7 @@ var NexTrip = (function ($, window, document, undefined) {
                 });
                 $('.select-route-direction').fadeIn('slow').css('display', 'flex');
             });
-    };
+    }
 
     function getStops(route, direction) {
         $.get('https://svc.metrotransit.org' + '/nextripv2/stops/' + route + '/' + direction)
@@ -42,7 +42,7 @@ var NexTrip = (function ($, window, document, undefined) {
                 });
                 $('.select-route-stop').fadeIn('slow').css('display', 'flex');
             });
-    };
+    }
 
     function getTimepointDepartures(route, direction, code) {
         $.get('https://svc.metrotransit.org' + '/nextripv2/' + route + '/' + direction + '/' + code)
@@ -50,7 +50,7 @@ var NexTrip = (function ($, window, document, undefined) {
                 loadDepartures(JSON.parse(JSON.stringify(result)));
                 history.pushState({}, '', '/nextrip/' + route + '/' + direction + '/' + code);
             });
-    };
+    }
 
     function getStopDepartures(id) {
         $.get('https://svc.metrotransit.org' + '/nextripv2/' + id)
@@ -65,7 +65,7 @@ var NexTrip = (function ($, window, document, undefined) {
                 $('.more').hide();
                 clearInterval(timer);
             });
-    };
+    }
 
     // Two methods for getting departures handle stopId vs timepoint queries.
     // The result set is the same for either method so can be handled in one place.
@@ -118,18 +118,8 @@ var NexTrip = (function ($, window, document, undefined) {
         } else {
             $('#showMyBus button h3').text('Show my bus');
         }
-    };
+    }
 
-    var showDepartures = function(stop) {
-        stopId = stop;
-        routeId = ''; // need to clear value for the map to work properly
-        resetUI();
-        timer = setInterval(function () {
-            getStopDepartures(stopId);
-        }, 30000);
-        getStopDepartures(stopId);
-        scrollToResult();
-    };
     var resetUI = function () {
         clearInterval(timer);
         $('#ntRoute').val('');
@@ -145,6 +135,16 @@ var NexTrip = (function ($, window, document, undefined) {
     var scrollToResult = function () {
         var aTag = $('a[name="nextriptop"]');
         $('html,body').animate({ scrollTop: aTag.offset().top }, 'slow');
+    };
+    var showDepartures = function (stop) {
+        stopId = stop;
+        routeId = ''; // need to clear value for the map to work properly
+        resetUI();
+        timer = setInterval(function () {
+            getStopDepartures(stopId);
+        }, 30000);
+        getStopDepartures(stopId);
+        scrollToResult();
     };
 
     var init = function () {
@@ -239,6 +239,7 @@ var NexTrip = (function ($, window, document, undefined) {
                          `);
                     });
                     $('.nextrip-stop-list').show();
+                    scrollToResult();
                 });
                 //$('.nextrip-stop-list').show();
 			}
