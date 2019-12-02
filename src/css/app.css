@@ -11343,8 +11343,8 @@ select.navigator {
 .ridematch .form-redesign .time-picker {
   width: 100%; }
   .ridematch .form-redesign .time-picker input {
-    font-size: 12px !important;
-    font-size: 0.75rem !important;
+    font-size: 15px !important;
+    font-size: 0.9375rem !important;
     border-left: 1px solid #ccc;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px; }
@@ -11516,6 +11516,17 @@ select.navigator {
 /************************************
     Ridematch - Commutes
 /***********************************/
+.ridematch .form-control {
+  font-size: 1.25rem !important; }
+  .ridematch .form-control::-webkit-input-placeholder {
+    font-size: 1.25rem; }
+  .ridematch .form-control::-moz-placeholder {
+    font-size: 1.25rem; }
+  .ridematch .form-control::-ms-input-placeholder {
+    font-size: 1.25rem; }
+  .ridematch .form-control::placeholder {
+    font-size: 1.25rem; }
+
 .ridematch .commutes {
   padding: 0; }
   .ridematch .commutes .form-control::-webkit-input-placeholder {
