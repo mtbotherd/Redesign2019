@@ -6,6 +6,28 @@
   //     margin-bottom: 60px !important;
   //   }
   // }
+  .nexTrip-trip-options{
+    padding:.75rem;
+    @include font-size(22);
+    font-weight: 500;
+  }
+  .nexTrip-selected-option{
+      background-color:$cyan;
+      color:white;
+      &::after{
+        content:"";
+        // position: absolute;
+        height: 0px;
+        width:0px;
+        border-style: solid;
+        border-left:100px;
+        border-right:100px;
+        border-bottom:100px;
+        // border-color: black
+        // transform: rotate(90deg);
+      }
+  }
+  
   .card{
     line-height: 1.25 !important;
     font-size: 1rem !important;

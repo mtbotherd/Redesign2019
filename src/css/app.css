@@ -10894,6 +10894,24 @@ select.navigator {
         #tripPlan .tt-trip-plan .card .card-body .tp-results .arrive {
           border-left: 4px solid transparent; }
 
+#nextripModule .nexTrip-trip-options {
+  padding: .75rem;
+  font-size: 22px !important;
+  font-size: 1.375rem !important;
+  font-weight: 500; }
+
+#nextripModule .nexTrip-selected-option {
+  background-color: #0097d0;
+  color: white; }
+  #nextripModule .nexTrip-selected-option::after {
+    content: "";
+    height: 0px;
+    width: 0px;
+    border-style: solid;
+    border-left: 100px;
+    border-right: 100px;
+    border-bottom: 100px; }
+
 #nextripModule .card {
   line-height: 1.25 !important;
   font-size: 1rem !important; }

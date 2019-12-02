@@ -11,6 +11,11 @@ var NexTrip = (function ($, window, document, undefined) {
         console.log($(this).data("card"))
         location.assign($(this).data("card"))
     })
+    $('.nexTrip-trip-options').on('click', function(){
+        console.log("here")
+        $('.nexTrip-trip-options').removeClass('nexTrip-selected-option');
+        $(this).addClass('nexTrip-selected-option');
+    });
     function getRoutes() {
         $.get(window.serviceHostUrl + '/nextripv2/routes')
             .done(function (result) {
