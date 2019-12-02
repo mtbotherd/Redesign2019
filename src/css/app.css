@@ -6,6 +6,7 @@
  */
 @import url(https://use.typekit.net/tev0qmq.css);
 @import url(https://js.arcgis.com/3.28/esri/css/esri.css);
+@import url(/Scripts/ArcGIS3.28/esri/css/esri.css);
 :root {
   --blue: #0053a0;
   --indigo: #6610f2;
@@ -7919,7 +7920,7 @@ abbr {
   cursor: pointer;
   padding: 2px 5px;
   white-space: nowrap;
-  gioverflow: hidden;
+  overflow: hidden;
   font: 400 16px; }
 
 .autocomplete-selected {
@@ -10560,6 +10561,10 @@ select.navigator {
       width: 1rem;
       height: 1rem; }
 
+@media (min-width: 992px) {
+  #tripPlannerModule #tpUseCurrentLoc {
+    visibility: hidden; } }
+
 .chevron-right-gray {
   width: 0.5rem;
   height: 0.5rem; }
@@ -10921,6 +10926,10 @@ select.navigator {
 #nextripModule .select-route-direction,
 #nextripModule .select-route-stop {
   display: none; }
+
+@media (min-width: 992px) {
+  #nextripModule #ntUseCurrentLoc {
+    display: none; } }
 
 #nextripModule #nextripDepartures {
   display: none; }
