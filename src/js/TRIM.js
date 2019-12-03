@@ -841,7 +841,7 @@ var TRIM = (function ($, window, document, undefined) {
         
                     var departTime = $('<span/>', { class: 'depart-time ml-auto' });
                     if (depart.Actual === true) {
-                        departTime.append($('<img/>', { class: 'icon blink mr-1', src: '/img/svg/broadcast-red.svg' }));
+                        departTime.append($('<img/>', { class: 'icon mr-1', src: '/img/svg/broadcast-blue.svg' }));
                     }
                     departTime.append(depart.DepartureText);
                     departTime.appendTo(departRow);

@@ -158,11 +158,16 @@
 									<div class="input-group">
 										<input type="text"
 												id="gotoCardRetailerSearch"
-												name="gotoCardRetailer"
+												name="gotoCardRetailerSearch"
 												class="form-control"
 												placeholder="Address, Intersection or Landmark"
-												aria-label="Address, Intersction or Landmark"
-												aria-describedby="searchGotoCardRetailerButton">
+												aria-expanded="false"
+												aria-autocomplete="list"
+												aria-describedby="gotoCardRetailerSearchInstr"
+												aria-owns="gotoCardRetailerSearchSuggestions"
+												role="combobox"
+												onFocus="this.select()"
+												>
 										<label for="gotoCardRetailerSearch"
 												class="sr-only">Find Go-To Card retailers by address, intersection or landmark</label>
 										<div class="input-group-append">
@@ -171,6 +176,7 @@
 													src="/img/svg/search-gray.svg">
 											</span>
 										</div>
+										<span id="gotoCardRetailerSearchInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
 									</div>
 								</div>
 
