@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Metro Transit</title>
+	<link rel="shortcut icon"
+		  href="favicon.ico"
+		  type="image/x-icon">
+	<link rel="stylesheet"
+		  href="/css/app.css">
+
+</head>
+
+<body>
+	
+	<a href="#pageContainer" class="skip-to-content">Skip to main content</a>
+
+	<!-- Begin Header -->
+	<header id="header">
+		<nav class="navbar navbar-expand-xl navbar-light">
+			<div class="container">
+				<a class="navbar-brand" href="/">
+					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<section class="section">
+						<ul class="nav navbar-nav mx-auto">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="/trip-planner" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Trip Tools
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/trip-planner">Trip Planner</a>
+									<a class="dropdown-item" href="/nextrip">NexTrip</a>
+									<a class="dropdown-item" href="/rider-alerts">Alerts</a>
+									<a class="dropdown-item" href="/park-rides">Find a Park &amp; Ride</a>
+									<a class="dropdown-item" href="/stops-stations">
+										Find a Stop or Station
+									</a>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link no-dropdown" href="schedules-maps">
+									Schedules &amp; Maps
+								</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Fares
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/fares">Fares</a>
+									<a class="dropdown-item" href="/go-to-card">Go-To Card</a>
+									<a class="dropdown-item" href="/passes">Pass Programs</a>
+									<a class="dropdown-item" href="https://store.metrotransit.org/">Store</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									More
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/carpool-vanpool">Carpool &amp; Vanpool</a>
+									<a class="dropdown-item" href="/transit-link">Transit Link</a>
+									<a class="dropdown-item" href="/guaranteed-ride-home">Guaranteed Ride Home</a>
+									<a class="dropdown-item" href="/bicycle">Bicycle</a>
+									<a class="dropdown-item" href="/news">News &amp; Events</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Help
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="/how-to-ride">How to Ride</a>
+									<a class="dropdown-item" href="contact-us">Contact Us</a>
+									<a class="dropdown-item" href="/lost-found">Lost &amp; Found</a>
+									<a class="dropdown-item" href="/accessibility">Accessibility</a>
+									<a class="dropdown-item" href="/languages">Languages</a>
+									<a class="dropdown-item" href="/police">Transit Police</a>
+								</div>
+							</li>
+						</ul>
+					</section>
+					<ul class="nav navbar-nav utilities ml-auto">
+						<li class="nav-item">
+							<a class="nav-link store-icon" href="https://store.metrotransit.org">
+								<span class="sr-only">store</span>
+							</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a data-toggle="dropdown" class="nav-link dropdown-toggle search-icon" href="#">
+								<span class="sr-only">site search</span>
+							</a>
+							<div class="dropdown-menu search-dropdown-menu">
+								<div class="input-group">
+									<label for="siteSearch" class="sr-only">Search</label>
+									<input type="text" id="siteSearch" class="form-control" placeholder="Search our site">
+									<div class="input-group-append">
+										<button type="button" id="siteSearchBtn" class="btn btn-primary">
+											<span class="sr-only">Search button</span>
+											<img class="icon" src="/img/svg/search-gray.svg">
+										</button>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle avatar-icon" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="sr-only">Sign in / create account</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Sign In</a>
+								<a class="dropdown-item" href="#">Create Account</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End Header -->
+
+	<!-- Begin Main Content -->
+	<main id="pageContainer" class="container">
+		<section>
+			<div class="page-content">
+				<div class="full-width">
+					<div class="secondary">
+						<div class="container">
+							<div class="page-title">
+								<h1>Page title</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class=""> <!-- This class gets set in CMS -->
+					<div class="htmlmodule">
+
+						<section class="section">
+
+							<div class="mt-form form-redesign">
+								<p class="required-notice">= Required Field</p>
+						
+								<div class="row">
+									<div class="col-lg-6" style="border-right: 1px solid #ccc;">
+										<h2>Your information</h2>
+										<div class="form-group">
+											<label for="ctl00_mainContent_ctl02_ctl00_firstName" id="ctl00_mainContent_ctl02_ctl00_label1" class="required">First name</label>
+											<input name="ctl00$mainContent$ctl02$ctl00$firstName" type="text" id="ctl00_mainContent_ctl02_ctl00_firstName" class="form-control" placeholder="First name" required="">
+										</div>
+										<div class="form-group">
+											<label for="ctl00_mainContent_ctl02_ctl00_lastName" id="ctl00_mainContent_ctl02_ctl00_label2" class="required">Last name</label>
+											<input name="ctl00$mainContent$ctl02$ctl00$lastName" type="text" id="ctl00_mainContent_ctl02_ctl00_lastName" class="form-control" placeholder="Last name" required="">
+										</div>
+										<div class="form-group">
+											<label for="ctl00_mainContent_ctl02_ctl00_streetAddress" id="ctl00_mainContent_ctl02_ctl00_label3" class="required">Address</label>
+											<input name="ctl00$mainContent$ctl02$ctl00$streetAddress" type="text" id="ctl00_mainContent_ctl02_ctl00_streetAddress" class="form-control" placeholder="Street address" required="">
+										</div>
+										<div class="form-group">
+											<label for="ctl00_mainContent_ctl02_ctl00_city" id="ctl00_mainContent_ctl02_ctl00_label4" class="required">City</label>
+											<input name="ctl00$mainContent$ctl02$ctl00$city" type="text" id="ctl00_mainContent_ctl02_ctl00_city" class="form-control" placeholder="City" required="">
+										</div>
+										<div class="form-group">
+											<label for="ctl00_mainContent_ctl02_ctl00_state" id="ctl00_mainContent_ctl02_ctl00_label5" class="required">State</label>
+											<input name="ctl00$mainContent$ctl02$ctl00$state" type="text" id="ctl00_mainContent_ctl02_ctl00_state" class="form-control" placeholder="MN" required="">
+										</div>
+										<div class="form-group">
+											<label for="ctl00_mainContent_ctl02_ctl00_zipCode" id="ctl00_mainContent_ctl02_ctl00_label6" class="required">Zip code</label>
+											<input name="ctl00$mainContent$ctl02$ctl00$zipCode" type="text" id="ctl00_mainContent_ctl02_ctl00_zipCode" class="form-control" placeholder="Zip" required="">
+										</div>
+										<div class="form-group">
+											<label for="ctl00_mainContent_ctl02_ctl00_phone" id="ctl00_mainContent_ctl02_ctl00_label7" class="required">Phone</label>
+											<input name="ctl00$mainContent$ctl02$ctl00$phone" type="text" id="ctl00_mainContent_ctl02_ctl00_phone" class="form-control" placeholder="Your phone" required="">
+										</div>
+										<div class="form-group">
+											<label for="ctl00_mainContent_ctl02_ctl00_email_address" id="ctl00_mainContent_ctl02_ctl00_label8" class="required">Email</label>
+											<input name="ctl00$mainContent$ctl02$ctl00$email_address" type="email" id="ctl00_mainContent_ctl02_ctl00_email_address" class="form-control" placeholder="Your email" required="">
+										</div>
+										<div class="form-group">
+												<label for="ctl00_mainContent_ctl02_ctl00_dob" id="ctl00_mainContent_ctl02_ctl00_label12" class="required">Date of birth</label><br>
+											<div class="date-picker-all input-group">
+												<input name="ctl00$mainContent$ctl02$ctl00$dob" type="text" id="ctl00_mainContent_ctl02_ctl00_dob" class="form-control" date-format="MM/dd/yy" placeholder="mm/dd/yyyy" required="">
+												<span class="add-on date input-group-addon"><i class="fa fa-calendar icon-calendar" aria-hidden="true"></i></span>
+											</div>
+										</div>
+									</div>
+						
+									<div class="col-lg-6">
+										<h2>Photo ID and certificate</h2>
+										<p style="margin-top: 0.3em;">You must provide a copy of your photo ID card and one form of the <a href="https://www.metrotransit.org/tap#acceptedCertifications" target="_blank">accepted certificates</a>.</p>
+										<div class="alert alert-info">
+											<h3><i class="fa fa-exclamation-circle">&nbsp;</i> File type and size</h3>
+											<ul>
+												<li>File type can be .jpg, .jpeg, .gif, .png or .pdf</li>
+												<li>The maximum file size limit for .jpeg/.jpg files is 10mb</li>
+												<li>The maximum file size limit for .gif, .png and .pdf is 4mb</li>
+											</ul>
+										</div>
+										<div class="form-group">
+											<label for="photoID" id="ctl00_mainContent_ctl02_ctl00_label9" class="required">Attached photo ID</label>
+											<input type="file" name="ctl00$mainContent$ctl02$ctl00$photoID" id="photoID" class="form-control photo-id" required="">
+											<div id="photoIdError" style="display:none; color:#FF0000;"></div>
+										</div>
+										<div class="form-group">
+											<label for="certificate" id="ctl00_mainContent_ctl02_ctl00_label10" class="required">Attach certificate</label>
+											<input type="file" name="ctl00$mainContent$ctl02$ctl00$certificate" id="certificate" class="form-control certificate" required="">
+											<div id="certError" style="display:none; color:#FF0000;"></div>
+										</div>
+									</div>
+								</div>
+						
+								<p>If approved, you will receive your TAP Go-To Card in 7-10 business days.</p>
+						
+								<hr>
+						
+								<h2>Privacy Notice</h2>
+						
+								<p>Please read this important notice (Tennessen Warning) before you provide information about yourself:</p>
+						
+								<p>Information you provide about yourself through Metro Transit’s personalized web services or the regional fare collection system is classified as private data. The private data you provide through this website will permit you to use the electronic web services offered by Metro Transit, including electronic fare card purchases and rider alerts. You can refuse to provide some or all the requested information and you still will be able to obtain and add value to fare cards with the regional fare collection system. If you do not provide this information, you may not be able to register your card – which provides balance protection for lost/stolen cards – or to use some or all of Metro Transit’s personalized web service features.</p>
+						
+								<p>Metro Transit will use your information for internal transit business purposes, including reward programs, rider alerts, and programs to measure and promote transit and fare card use. Metro Transit will share your information with: individuals whose work assignments require access; other transit providers that use the regional fare collection system for their business purposes; 3rd party vendors working with Metro Transit to provide a customer service such as rider alerts; credit card companies, credit card processing entities and banking institutions that need your account information to complete electronic purchases; another government entity to prevent unlawful intrusion into government electronic systems;  Metro Transit Police and other authorized law enforcement agencies for law enforcement purposes, including fare card enforcement; and persons authorized to have access by state or federal law, by court order or pursuant to your written consent.</p>
+						
+								<p>The following data may be shared with government entities, organizations, school districts, educational institutions and employers that subsidize or provide you with a fare card: the date and time you used a fare card; your mode of travel; the type of fare product you used; and information about the date, time and type of a fare product you purchased. This customer transaction history and fare card use data may be used by these entities only to measure and promote fare card use and evaluate the cost effectiveness of their fare card programs. If you do not want Metro Transit to disclose your transaction history and fare card use for any purpose to any individual, you can submit a written request to limit disclosure of data. Once a written request form is received, Metro Transit will disclose only the card balance and the date a card was last used IF a fare card’s 16-digit card number is provided, but no personally identifiable information will be released.</p>
+						
+								<p>If you enroll for one of following programs: Reduced Fare, Mobility Fare or Transit Assistance Program your Go-To Card must be registered as part of enrollment and can be used only by you. Reduced and Mobility fares can be requested with proper ID and do not require Go-To Card use. You can only enroll in one of these three programs.</p>
+						
+								<p>Learn more at metrotransit.org/suppress. If you have questions about this notice and want to contact a Metro Transit representative, please contact us at 612-373-3333 or visit metrotransit.org/contact-us.</p>
+						
+								<p>By registering your fare card, you acknowledge that you received and read this notice.</p>
+						
+								<div class="checkbox">
+									<span name="copyUser"><input id="ctl00_mainContent_ctl02_ctl00_copy_user" type="checkbox" name="ctl00$mainContent$ctl02$ctl00$copy_user" checked="checked"><label for="ctl00_mainContent_ctl02_ctl00_copy_user">Please send me an email of the information submitted</label></span>
+								</div>
+						
+								<input type="submit" name="ctl00$mainContent$ctl02$ctl00$btnSend" value="Submit" id="ctl00_mainContent_ctl02_ctl00_btnSend" class="mt-button btn btn-primary tap-enrollment" disabled="disabled">
+							</div>							
+						</section>
+
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<!-- End Main Content -->
+
+	<!-- Begin Footer -->
+	<footer class="section">
+		<div class="container">
+			<div class="button-container-icon-right">
+				<a href="/contact-us" class="btn btn-outline-primary">Contact us</a>
+			</div>
+			<div class="d-none d-lg-block social-media text-center">
+				<a href="https://www.twitter.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/twitter-gray.svg"></a>
+				<a href="https://www.facebook.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/facebook-gray.svg"></a>
+				<a href="https://www.youtube.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/youtube-gray.svg"></a>
+				<a href="https://instagram.com/metrotransitmn"><img class="icon mr-2" src="/img/svg/instagram-gray.svg"></a>
+				<a href="https://www.linkedin.com/company/metro-transit"><img class="icon mr-2" src="/img/svg/linkedin-gray.svg"></a>
+				<a href="https://www.flickr.com/photos/metrotransitmn/"><img class="icon" src="/img/svg/flickr-gray.svg"></a>
+			</div>
+			<div class="footer d-none d-lg-block">
+				<div class="card-deck">
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">About Metro Transit</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/transit-initiatives" class="nav-link">Transit Initiatives</a>
+								</li>
+								<li class="nav-item">
+									<a href="/facilities" class="nav-link">Facilities</a>
+								</li>
+								<li class="nav-item">
+									<a href="/riders-almanac-blog" class="nav-link">Riders Almanac</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Media Relations</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/contacts" class="nav-link">Contacts</a>
+								</li>
+								<li class="nav-item">
+									<a href="/press" class="nav-link">Press Releases</a>
+								</li>
+								<li class="nav-item">
+									<a href="/awards" class="nav-link">Awards</a>
+								</li>
+								<li class="nav-item">
+									<a href="/" class="nav-link">Images &amp; Logos</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Careers</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/jobs" class="nav-link">Available Job Opportunities</a>
+								</li>
+								<li class="nav-item">
+									<a href="/drive" class="nav-link">Become a Bus Driver</a>
+								</li>
+								<li class="nav-item">
+									<a href="/transit-police-careers" class="nav-link">Join the Transit Police</a>
+								</li>
+								<li class="nav-item">
+									<a href="/job-seekers" class="nav-link">Career Fairs</a>
+								</li>
+								<li class="nav-item">
+									<a href="/internships" class="nav-link">Internships</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Policies</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/social-media-policy" class="nav-link">Social Media Policy</a>
+								</li>
+								<li class="nav-item">
+									<a href="https://metrocouncil.org/Privacy-Policy.aspx" class="nav-link" target="_blank">Privacy Policy</a>
+								</li>
+								<li class="nav-item">
+									<a href="/code-of-conduct" class="nav-link">Code of Conduct</a>
+								</li>
+								<li class="nav-item">
+									<a href="/titlevi" class="nav-link">Title VI: Commitment to Fairness</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="card-deck">
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Mission &amp; Impact</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/commitment-to-fairness" class="nav-link">Commitment to Fairness</a>
+								</li>
+								<li class="nav-item">
+									<a href="/impact-programs" class="nav-link">Impact Programs</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Resources</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/app" class="nav-link">Try the Metro Transit App</a>
+								</li>
+								<li class="nav-item">
+									<a href="/advertise-with-metro-transit" class="nav-link">Advertise with Us</a>
+								</li>
+								<li class="nav-item">
+									<a href="/apps" class="nav-link">API Resources for Developers</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0"></div>
+					<div class="card border-0"></div>
+				</div>
+			</div>
+			<p class="text-center">
+				<small>
+					Metro Transit is a service of the Metropolitan Council.
+					<span class="d-block d-md-none"> <br> </span>© 2019 Metro
+					Transit
+				</small>
+			</p>
+		</div>
+	</footer>
+	<!-- End Footer -->
+
+	<!-- scripts -->
+	<script src="/js/jquery.js"></script>
+	<script src="/js/popper.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/jquery.exlink.js"></script>
+	<script src="/js/jquery.autocomplete.js"></script>
+	<!-- <script src="/js/jquery.validate.js"></script> -->
+	<!-- <script src="/js/additional-methods.js"></script> -->
+	<!-- <script src="/js/form-validation.js"></script> -->
+	<script src="https://js.arcgis.com/3.28/"></script>
+	<script src="/js/TRIM.js"></script>
+	<script src="/js/scripts.js"></script>
+	<!-- End scripts -->
+	
+</body>
+
+</html>
