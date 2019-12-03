@@ -515,11 +515,10 @@
 																</div>													
 																<div id="tripPlannerResults" class="card">
 																	<div class="no-trips-found mb-1">
-																		<div class="alert alert-primary"
-																				role="alert">
-																			<h2>No trips found</h2>
-																			<p>We’re sorry, there is no transit service available for this trip plan. Please enter
-																				new selections or call or text Transit information at 612-373-3333.</p>
+																		<div class="alert alert-primary" role="alert">
+																			<h2>No trips available</h2>
+																			<p>We were unable to plan a trip between those locations. Try adjusting your trip settings.</p>
+																			<p>You can also contact Transit Information for help by phone at 612-373-3333 or text at 612-444-1161.</p>
 																		</div>
 																	</div>
 																	<div class="trips-found">
@@ -532,6 +531,13 @@
 																					id="editMyTrip"
 																					class="btn btn-warning">
 																				Edit my trip
+																				<img class="icon edit-blue"
+																						src="/img/svg/edit-blue.svg">
+																			</button>
+																			<button type="button"
+																					id="startTripOver"
+																					class="btn btn-warning">
+																				Start over
 																				<img class="icon edit-blue"
 																						src="/img/svg/edit-blue.svg">
 																			</button>
@@ -624,9 +630,9 @@
 																			</div>
 																		</div>
 																	</div>
-																	<div class="d-flex justify-content-center mt-5">
-																		<a href="/about-nextrip"><button class="btn btn-outline-primary">About NexTrip</button></a>
-																	</div>
+																</div>
+																<a name="nextriptop">&nbsp;</a>
+																<div class="nextrip-stop-list">									
 																</div>
 																<div id="nextripDepartures" class="nextrip-departures">
 																	<div class="card mb-3 p-2 p-md-4">
@@ -671,6 +677,11 @@
 																	</div>
 																</div>
 															</div>
+															<div class="d-flex justify-content-center mt-5">
+																<div class="button-container-icon-right text-center">
+								   									<a class="btn btn-outline-primary btn-extend" href="/about-nextrip">About NexTrip</a>
+									   							</div>
+							   								</div>
 														</div>
 
 														<div id="alerts" class="tt-alerts tab-pane fade" role="tabpanel" aria-labelledby="alertsTab">
@@ -944,9 +955,10 @@
 	<script src="/js/TRIM.js"></script>
 	<script src="/js/autocomplete.js"></script>
 	<script src="/js/trip-planner.js"></script>
+	<script src="js/stops-stations.js"></script>
 	<script src="/js/nextrip.js"></script>
 	<script src="/js/alerts.js"></script>
-	<script src="/js/form-validation.js"></script>
+	<!-- <script src="/js/form-validation.js"></script> -->
 	<script src="/js/scripts.js"></script>
 	<script>
 		(function (window) {

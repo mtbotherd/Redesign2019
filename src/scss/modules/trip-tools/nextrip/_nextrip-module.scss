@@ -85,6 +85,12 @@
     display: none;
   }
 
+  #ntUseCurrentLoc {
+    @include media-breakpoint-up(lg) {
+      display:none;
+    }
+  }
+
   #nextripDepartures {
     display: none;
 
