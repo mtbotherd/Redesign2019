@@ -17,7 +17,10 @@ var NexTrip = (function ($, window, document, undefined) {
                 });
             });
     }
-
+    $('.nexTrip-trip-options').on('click', function(){
+        $('.nexTrip-trip-options').removeClass('nexTrip-selected-option');
+        $(this).addClass('nexTrip-selected-option');
+    });
     function getDirections(id) {
         $.get('https://svc.metrotransit.org' + '/nextripv2/directions/' + id)
             .done(function (result) {

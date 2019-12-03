@@ -10894,6 +10894,50 @@ select.navigator {
         #tripPlan .tt-trip-plan .card .card-body .tp-results .arrive {
           border-left: 4px solid transparent; }
 
+#nextripModule #nextrip-tab-content {
+  padding-top: 1.5rem; }
+  #nextripModule #nextrip-tab-content .tab-pane {
+    width: 100%; }
+  @media (min-width: 992px) {
+    #nextripModule #nextrip-tab-content:nth-child(1) {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+              flex-direction: column;
+      -webkit-box-pack: center;
+              justify-content: center;
+      width: 50%; } }
+
+#nextripModule .nexTrip-trip-options {
+  background-color: #dbf4fd;
+  color: #0097d0;
+  padding: .75rem 1.75rem;
+  font-size: 18px !important;
+  font-size: 1.125rem !important;
+  font-weight: 510;
+  position: relative; }
+  @media (min-width: 768px) {
+    #nextripModule .nexTrip-trip-options {
+      padding: .8rem 2rem;
+      font-size: 22px !important;
+      font-size: 1.375rem !important; } }
+
+#nextripModule .nexTrip-selected-option {
+  background-color: #0097d0 !important;
+  color: #fff !important; }
+  #nextripModule .nexTrip-selected-option::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 8px solid #0097d0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    left: 45%;
+    bottom: -7px; }
+
 #nextripModule .card {
   line-height: 1.25 !important;
   font-size: 1rem !important; }
@@ -11343,8 +11387,8 @@ select.navigator {
 .ridematch .form-redesign .time-picker {
   width: 100%; }
   .ridematch .form-redesign .time-picker input {
-    font-size: 12px !important;
-    font-size: 0.75rem !important;
+    font-size: 15px !important;
+    font-size: 0.9375rem !important;
     border-left: 1px solid #ccc;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px; }
@@ -11516,6 +11560,17 @@ select.navigator {
 /************************************
     Ridematch - Commutes
 /***********************************/
+.ridematch .form-control {
+  font-size: 1.25rem !important; }
+  .ridematch .form-control::-webkit-input-placeholder {
+    font-size: 1.25rem; }
+  .ridematch .form-control::-moz-placeholder {
+    font-size: 1.25rem; }
+  .ridematch .form-control::-ms-input-placeholder {
+    font-size: 1.25rem; }
+  .ridematch .form-control::placeholder {
+    font-size: 1.25rem; }
+
 .ridematch .commutes {
   padding: 0; }
   .ridematch .commutes .form-control::-webkit-input-placeholder {
