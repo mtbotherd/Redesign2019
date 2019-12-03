@@ -119,7 +119,7 @@ var TripPlan = (function($, window, document, undefined) {
 	};
 	var checkIfLate = function(Adherance){
 	  if(Adherance<0){
-		return '<img class="icon blink" src="/img/svg/broadcast-red.svg">&nbsp;<strong>Currently ' 
+		return '<img class="icon blink" src="/img/svg/broadcast-blue.svg">&nbsp;<strong>Currently ' 
 		  + Adherance*-1 + '<abbr title="minutes"> min</abbr> late</strong><br>';
 	  } else { 
 		return ' ';
