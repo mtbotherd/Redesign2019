@@ -125,12 +125,6 @@ var TripPlan = (function($, window, document, undefined) {
 		return ' ';
 	  }
 	};
-	var addMinutes = function (date, min) {
-		let x = new Date(date);
-		let y = x.getTime() + min*60000;
-		//console.log("y = " + y);
-		return new Date(y);
-    };
 	const formatTripResults = function(plan) {
 	  let tripCount = plan.PlannerItin.PlannerOptions.length;
 	  let tripMsg = 'We found ' + tripCount.toString() + ' trip';
@@ -285,7 +279,7 @@ var TripPlan = (function($, window, document, undefined) {
 		});
 		// Add a line at the bottom of the plan to show time arriving at the ultimate location
 		if (tpWalkTime > 0) {
-			tpArriveTime = addMinutes(tpArriveTime, tpWalkTime);
+                tpArriveTime = moment(tpArriveTime).add(tpWalkTime, 'minutes');
 		}
 		let tpFare = l.RegularFare.toFixed(2);
 		let tpRFare = l.SeniorFare.toFixed(2);
@@ -416,7 +410,7 @@ var TripPlan = (function($, window, document, undefined) {
 		if (selectTime === 'arrive-by') {
                 selectTimeType = 'Arrive';
 		}
-            var dateTime = moment.utc(moment().format('YYYY/MM/DD HH:mm'));
+        var dateTime = moment.utc(moment().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'));
             //var dateTime = moment();
 		if (selectTime !== 'leave-now') {
 		  var pickDate = $('#date').val();
@@ -480,22 +474,71 @@ var TripPlan = (function($, window, document, undefined) {
 				});
 		}
 	  });
-	$("#editMyTrip").on('click', function(){
-	  	$('#tripPlannerResults').hide('slow');
-	  	$('#planTrip').show('slow');
-        sessionStorage.clear();
-	});
+	  
+	  $(".location-toggler").click(function() {
+		var inputs = $(".from-location, .to-location"),tmp,loctmp;
+		  tmp = inputs[0].value;
+		  inputs[0].value = inputs[1].value;
+		  inputs[1].value = tmp;
+		  AutocompleteAddress.exchangeValues("fromLocation", "toLocation");
+	  });
+  
+	  $("#tpUseCurrentLoc").click(function(){
+		  let userLoc = AutocompleteAddress.setUserLoc('fromLocation');
+		  if (userLoc) { 
+			  $("#fromLocation").val("Current Location");
+		  }
+	  });
+  
+	  $(".time-elements").hide();
+	  $("#selectTime").on("change", function () { 
+		  // time & date inputs
+		  if (this.value === "depart-at" || this.value === "arrive-by") {
+			$("#date").val(moment().format('YYYY-MM-DD'));
+			$("#time").val(moment().format('HH:mm'));
+			  $(".time-elements").slideDown();
+		  } else {
+			  $(".time-elements").slideUp();
+		  }
+	  });
+	  $(function () { $("#planMyTrip").attr('disabled', 'disabled'); });
+
+	  AutocompleteAddress.init("fromLocation", /*UTMout*/ true,
+		  function () {
+			  if (AutocompleteAddress.getChoice("toLocation")) {
+				  $("#planMyTrip").removeAttr('disabled');
+			  }
+		  });
+	  AutocompleteAddress.init("toLocation", /*UTMout*/ true,
+		  function () {
+			  if (AutocompleteAddress.getChoice("fromLocation")) {
+				  $("#planMyTrip").removeAttr('disabled');
+			  }
+		  });
+		$("#editMyTrip").on('click', function(){
+			$('#tripPlannerResults').hide('slow');
+			$('#planTrip').show('slow');
+			sessionStorage.clear();
+			$('#fromLocation').focus();
+		});
+		$("#startTripOver").on('click', function() {
+			$('#tripPlannerResults').hide('slow');
+			$('#planTrip').show('slow');
+			sessionStorage.clear();
+			$('#tripPlannerResults').hide();
+			DestroyAllMaps();
+			AutocompleteAddress.deleteChoice('fromLocation');
+			$('#fromLocation').val('');
+			AutocompleteAddress.deleteChoice('toLocation');
+			$('#toLocation').val('');
+			$(".time-elements").hide();
+			$('#selectTime').val('leave-now');
+			$('#tpMoreOptions').collapse('hide');
+			$('#fromLocation').focus();
+			
+		});
     };
-    const clearTrip = function () {
-        // clear previous results
-        $("#trip-result-count").html('');
-        $("#trip-result-msg").html('');
-        $('.tp-results').empty();
-        // remove busy spinner
-        $('#spinner').addClass('d-none');
-        $('#planTrip').hide('slow');
-        $('#tripPlannerResults').show();
-    }
+
     const refreshTrip = function (storedTrip) {
         if (storedTrip) {
             let tripPlan = JSON.parse(storedTrip);
@@ -512,62 +555,17 @@ var TripPlan = (function($, window, document, undefined) {
   
 	return {
 		init: init,
-		refreshTrip: refreshTrip,
-		clearTrip: clearTrip
+		refreshTrip: refreshTrip
 	};
   })(jQuery, window, document);
 
   $(function () {
 	if ($('#planMyTrip').length) {
-		var inputs = $(".from-location, .to-location"),
-		tmp,
-		loctmp;
-		
-		$(".location-toggler").click(function() {
-			tmp = inputs[0].value;
-			inputs[0].value = inputs[1].value;
-			inputs[1].value = tmp;
-			AutocompleteAddress.exchangeValues("fromLocation", "toLocation");
-		});
-	
-		$("#tpUseCurrentLoc").click(function(){
-			let userLoc = AutocompleteAddress.setUserLoc('fromLocation');
-			if (userLoc) { 
-				$("#fromLocation").val("Current Location");
-			}
-		});
-	
-		$(".time-elements").hide();
-		$("#selectTime").on("change", function () { 
-			// time & date inputs
-			if (this.value === "depart-at" || this.value === "arrive-by") {
-                $("#date").attr('value', moment().format('YYYY-MM-DD'));
-                $("#time").attr('value', moment().format('HH:mm'));
-				$(".time-elements").slideDown();
-			} else {
-				$(".time-elements").slideUp();
-			}
-		});
-		$(function () { $("#planMyTrip").attr('disabled', 'disabled'); });
-
-        AutocompleteAddress.init("fromLocation", /*UTMout*/ true,
-            function () {
-                if (AutocompleteAddress.getChoice("toLocation")) {
-                    $("#planMyTrip").removeAttr('disabled');
-                }
-            });
-        AutocompleteAddress.init("toLocation", /*UTMout*/ true,
-            function () {
-                if (AutocompleteAddress.getChoice("fromLocation")) {
-                    $("#planMyTrip").removeAttr('disabled');
-                }
-            });
-            
   		TripPlan.init();
         let x = sessionStorage.getItem('tripJSON');
         if (x) {
             TripPlanJSON = JSON.parse(x);
             TripPlan.refreshTrip(x);
-  	}
+  		}
     }
   });
