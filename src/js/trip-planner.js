@@ -79,14 +79,15 @@ var TripPlan = (function($, window, document, undefined) {
 				  dataType: "json"
 			  })
 				  .done(function(result, status, xhr) {
-				  if (result.error) {
-					  dfd.reject({'Message': result.error});
-				  } else if (result.TrapEx) {
-					  dfd.reject(result.TrapEx);
-				  } else {
-					  TripPlanJSON = result;
-					  dfd.resolve();
-				  }
+					  console.dir(result);
+					if (result.error) {
+						dfd.reject({'Message': result.error});
+					} else if (result.TrapEx) {
+						dfd.reject(result.TrapEx);
+					} else {
+						TripPlanJSON = result;
+						dfd.resolve();
+					}
 				  })
 				  .fail(function(err) {
 					  dfd.reject("TripPlan failed - No trip found " + err);
@@ -94,16 +95,6 @@ var TripPlan = (function($, window, document, undefined) {
   
 		  }).promise();
 	  };
-
-    var returnTripTime = function (Time) {
-        let time = new Date(Time);
-        let minutes = time.getMinutes();
-	  minutes = minutes>0 ? minutes.toString() + 'm' : '';
-        let hour = time.getHours();
-	  if(hour>=1) hour = hour + 'h';
-        else hour = ' ';
-        return hour + ' ' + minutes;
-    };
     var returnTime = function (Time) {
         return moment(Time).format('h:mm A');
     };
@@ -119,11 +110,28 @@ var TripPlan = (function($, window, document, undefined) {
 	};
 	var checkIfLate = function(Adherance){
 	  if(Adherance<0){
-		return '<img class="icon" src="/img/svg/broadcast-blue.svg">&nbsp;<strong>Currently ' 
-		  + Adherance*-1 + '<abbr title="minutes"> min</abbr> late</strong><br>';
+		return '<span class="text-danger"><strong>Currently ' 
+		  + Adherance*-1 + '<abbr title="minutes"> min</abbr> late</strong><br></span>';
 	  } else { 
 		return ' ';
 	  }
+	};
+	const formatHeadsign = function(route,headsign) {
+		let result = "";
+		if (route === "921") {
+			result +=  "<strong>A Line</strong> Roseville / Snelling / 46th St";
+		} else if (route === "922") {
+			result +=  "<strong>B Line</strong> Lake St / Marshall";
+		} else if (route === "923") {
+			result +=  "<strong>C Line</strong> Penn Av / Brooklyn Center";
+		} else if (route === "903") {
+			result +=  "<strong>Red Line</strong> Apple Valley / Eagan / Mall of America";
+		} else {
+			// chop off the route number from the headsign
+			result += "<strong>Route " + route + "</strong> " + headsign.substr(headsign.indexOf(" ") + 1);
+		}
+		result += "<br/>";
+		return result;
 	};
 	const formatTripResults = function(plan) {
 	  let tripCount = plan.PlannerItin.PlannerOptions.length;
@@ -141,14 +149,16 @@ var TripPlan = (function($, window, document, undefined) {
 	  $('.tp-results').empty();
 	  plan.PlannerItin.PlannerOptions.forEach(function(l,i) {
 		let tpSummary = [],tpDetail = [];
+		let tpDepartTime = null; // we set this to the depart time of the first trip segment
 		let tpArriveTime = null; // we set this to the arrive time of the last trip segment
-		let tpWalkTime = 0;
 		l.Segments.forEach(function(li,ii){
 		  switch (li.SegmentType) {
 			case 0:
 			  let displayName = li.Route;
 			  if (li.Route === "921") {
 				  displayName = "A Line";
+			  } else if (li.Route === "922") {
+					displayName = "B Line";
 			  } else if (li.Route === "923") {
 				  displayName = "C Line";
 			  } else if (li.Route === "903") {
@@ -196,15 +206,17 @@ var TripPlan = (function($, window, document, undefined) {
 					</div>
 					<p>
 					${checkIfLate(li.Adherance)}
-					<strong>Route ${li.Headsign}</strong><br>
-				              <a href="/rider-alerts"><small>View alerts</small></a>
+					${formatHeadsign(li.Route,li.Headsign)}
+				    <a href="/rider-alerts"><small>View alerts</small></a>
 					</p>
 					<p>
-					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at <strong> ${returnTime(li.OnTime)} </strong></br>
-					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at <strong> ${returnTime(li.OffTime)} </strong>
+					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} #${li.OnStop.StopID} at <strong> ${returnTime(li.OnTime)} </strong></br>
+					</p><p>
+					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} #${li.OffStop.StopID} at <strong> ${returnTime(li.OffTime)} </strong>
 					</p>
 				</div>
 				</div>`);
+				if (tpDepartTime === null) { tpDepartTime = li.OnTime; }
 				tpArriveTime = li.OffTime;
 				break;
 			  case 1: // Light-Rail
@@ -220,11 +232,13 @@ var TripPlan = (function($, window, document, undefined) {
 					            <a href="/rider-alerts"><small>View alerts</small></a>
 				  </p>
 				  <p>
-					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at <strong> ${returnTime(li.OnTime)} </strong></br>
-					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at <strong> ${returnTime(li.OffTime)} </strong>
+					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} #${li.OnStop.StopID} at <strong> ${returnTime(li.OnTime)} </strong></br>
+					</p><p>
+					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} #${li.OffStop.StopID} at <strong> ${returnTime(li.OffTime)} </strong>
 				  </p>
 				</div>
 				 </div>`);
+				 if (tpDepartTime === null) { tpDepartTime = li.OnTime; }
 				 tpArriveTime = li.OffTime;
 				break;
 			  case 2: // Train
@@ -241,11 +255,13 @@ var TripPlan = (function($, window, document, undefined) {
 				              <a href="/rider-alerts"><small>View alerts</small></a>
 				</p>
 				<p>
-				  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} at <strong>${returnTime(li.OnTime)}</strong></br>
-				  <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} at <strong>${returnTime(li.OffTime)}</strong>
+				  <strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} #${li.OnStop.StopID} at <strong>${returnTime(li.OnTime)}</strong></br>
+				  </p><p>
+				  <strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} #${li.OffStop.StopID} at <strong>${returnTime(li.OffTime)}</strong>
 				</p>
 			  </div>
 				</div>`);
+				if (tpDepartTime === null) { tpDepartTime = li.OnTime; }
 				tpArriveTime = li.OffTime;
 				break;
 			  case 3: // WALK
@@ -260,7 +276,6 @@ var TripPlan = (function($, window, document, undefined) {
 				  </p>
 				</div>
 				</div>`);
-				if (li.isLastSegment === true) {tpWalkTime = 10;}
 				break;
 			  case 4: // ALERT MESSAGE for USER
 				tpDetail.push(`<div class="leg-item">
@@ -277,10 +292,6 @@ var TripPlan = (function($, window, document, undefined) {
 			  default:
                 }
 		});
-		// Add a line at the bottom of the plan to show time arriving at the ultimate location
-		if (tpWalkTime > 0) {
-                tpArriveTime = moment(tpArriveTime).add(tpWalkTime, 'minutes');
-		}
 		let tpFare = l.RegularFare.toFixed(2);
 		let tpRFare = l.SeniorFare.toFixed(2);
 		tpDetail.push(`
@@ -309,7 +320,7 @@ var TripPlan = (function($, window, document, undefined) {
 				  <div id="" class="card-header">
 						<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
 							<span class="d-flex w-100">
-								<span class="d-flex align-items-center tp-time">${returnTripTime(l.TripTime)}</span>
+								<span class="d-flex align-items-center tp-time">${returnTime(tpDepartTime)} - ${returnTime(tpArriveTime)}</span>
 								<span class="d-flex align-items-center tp-route">
 									<span class="tp-route-summary">${tpSummary.join('<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">')}</span>
 									<img class="icon chevron-down-blue align-items-center ml-auto" src="/img/svg/chevron-down-blue.svg">
@@ -443,7 +454,11 @@ var TripPlan = (function($, window, document, undefined) {
                             $('.no-trips-found').hide();
                             $('#spinner').addClass('d-none');
                             $('#planTrip').hide('slow');
-                            $('#tripPlannerResults').show();
+							$('#tripPlannerResults').show();
+							setTimeout(function() {
+								$('#fromLocationSuggestions').hide(); // just to be sure 
+								$('#toLocationSuggestions').hide(); 
+							}, 3000);
                         } else {
                             // clear previous results
                             $("#trip-result-count").html(''); 
@@ -455,7 +470,7 @@ var TripPlan = (function($, window, document, undefined) {
                             // remove busy spinner
                             $('#spinner').addClass('d-none');
                             $('#planTrip').hide('slow');
-					  $('#tripPlannerResults').show();
+							$('#tripPlannerResults').show();
 					}
 				})
 				.fail(function (err) {
@@ -470,7 +485,7 @@ var TripPlan = (function($, window, document, undefined) {
                         // remove busy spinner
                         $('#spinner').addClass('d-none');
                         $('#planTrip').hide('slow');
-					$('#tripPlannerResults').show();
+						$('#tripPlannerResults').show();
 				});
 		}
 	  });
