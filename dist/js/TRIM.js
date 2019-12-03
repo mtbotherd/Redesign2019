@@ -1476,7 +1476,7 @@ var BOM = (function ($, window, document, undefined) {
     var _TIMEINTERVAL = 7500; // milliseconds between cycles requesting bus locations
     var _TIMECLOCK = null; // a holder for 'setInterval' value
     var _TICKS = 0; // a count of every iteration of the update cycle
-    var _TICKSTOP = 60; // after this many cycles pause the service
+    var _TICKSTOP = 80; // after this many cycles pause the service
     var _RESTARTACTIONVERB = 'Click or tap';
     var _GEOLOCATE; // this is the locate button object
     var _DEBUG = false;
@@ -1681,6 +1681,7 @@ var BOM = (function ($, window, document, undefined) {
             .then(function () {
                 _MAP.getLayer("BusesOnMap").clear();
                 var drawnCount = 0;
+                var d = 0; // total vehicles drawn on map extent that's visible
                 if (response.length > 0) {
                     // first draw all the buses
 
@@ -1702,7 +1703,7 @@ var BOM = (function ($, window, document, undefined) {
                         }
                     });
                     // then determine a proper zoom level
-                    var d = 0; // total drawn vehicle count
+                    if (_DEBUG) console.log("Total drawn: " + drawnCount);
                     var e = _MAP.extent; // the current screen map extent
                     //if (_DEBUG) console.log("e.xmin = " + e.xmin + " e.ymin = " + e.ymin + " e.xmax = " + e.xmax + " e.ymax = " + e.ymax);
                     //if (_DEBUG) console.log(" LOD:res = " + _CURRENTLOD.resolution + " LOD:lvl = " + _CURRENTLOD.level);

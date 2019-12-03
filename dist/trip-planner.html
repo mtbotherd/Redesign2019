@@ -174,7 +174,7 @@
 												<img class="icon location-switcher-blue"
 													src="/img/svg/location-switcher-blue.svg">
 										</button>									
-									<span id="fromLocationInstr" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
+									<span id="fromLocationInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
 								</div>
 								<div class="d-flex ml-auto my-1">
 										<span id="tpUseCurrentLoc">
@@ -416,9 +416,9 @@
 								<div class="no-trips-found mb-1 mb-lg-5">
 								<div class="alert alert-primary"
 										role="alert">
-									<h2>No trips found</h2>
-									<p>We’re sorry, there is no transit service available for this trip plan. Please enter
-										new selections or call or text Transit information at 612-373-3333.</p>
+									<h2>No trips available</h2>
+									<p>We were unable to plan a trip between those locations. Try adjusting your trip settings.
+										You can also contact Transit Information for help by phone at 612-373-3333 or text at 612-444-1161.</p>
 								</div>
 							</div>
 							
@@ -432,6 +432,13 @@
 											id="editMyTrip"
 											class="btn btn-warning">
 										Edit my trip
+										<img class="icon edit-blue"
+												src="/img/svg/edit-blue.svg">
+									</button>
+									<button type="button"
+											id="startTripOver"
+											class="btn btn-warning">
+										Start over
 										<img class="icon edit-blue"
 												src="/img/svg/edit-blue.svg">
 									</button>

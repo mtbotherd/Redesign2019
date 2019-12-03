@@ -96,6 +96,7 @@ var GoToRetailerServices = (function($,  window, document, undefined) {
                     </a> 
                 </div>							
                 `);
+                sessionStorage.setItem('gotoCardFinderResults', $('#goto-finder-results').html());
             }
             if (results.length === 0) {
                 $('#goto-finder-results').append('<p class="result-msg">No Go-To Card retailers close to '+addressChoice.address+'</p>');
@@ -122,5 +123,8 @@ $(function() {
                     GoToRetailerServices.formatPage(choice);
                 }
             );
+        if (!(sessionStorage.getItem('gotoCardFinderResults') === null)) {
+            $('#goto-finder-results').html(sessionStorage.getItem('gotoCardFinderResults'));
+        }
     }
 });

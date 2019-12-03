@@ -7,16 +7,8 @@ var NexTrip = (function ($, window, document, undefined) {
         stopId,
         timer;
     var threshold = 3;
-    $(".nexTrip-card").on("click",function(){
-        console.log($(this).data("card"))
-        location.assign($(this).data("card"))
-    })
-    $('.nexTrip-trip-options').on('click', function(){
-        $('.nexTrip-trip-options').removeClass('nexTrip-selected-option');
-        $(this).addClass('nexTrip-selected-option');
-    });
     function getRoutes() {
-        $.get(window.serviceHostUrl + '/nextripv2/routes')
+        $.get('https://svc.metrotransit.org' + '/nextripv2/routes')
             .done(function (result) {
                 let routes = JSON.parse(JSON.stringify(result));
                 let routedrop = $('#ntRoute');
@@ -24,10 +16,13 @@ var NexTrip = (function ($, window, document, undefined) {
                     routedrop.append($('<option/>').val(route.RouteId).text(route.Description));
                 });
             });
-    };
-
+    }
+    $('.nexTrip-trip-options').on('click', function(){
+        $('.nexTrip-trip-options').removeClass('nexTrip-selected-option');
+        $(this).addClass('nexTrip-selected-option');
+    });
     function getDirections(id) {
-        $.get(window.serviceHostUrl + '/nextripv2/directions/' + id)
+        $.get('https://svc.metrotransit.org' + '/nextripv2/directions/' + id)
             .done(function (result) {
                 let directions = JSON.parse(JSON.stringify(result));
                 let directiondrop = $('#ntDirection');
@@ -37,10 +32,10 @@ var NexTrip = (function ($, window, document, undefined) {
                 });
                 $('.select-route-direction').fadeIn('slow').css('display', 'flex');
             });
-    };
+    }
 
     function getStops(route, direction) {
-        $.get(window.serviceHostUrl + '/nextripv2/stops/' + route + '/' + direction)
+        $.get('https://svc.metrotransit.org' + '/nextripv2/stops/' + route + '/' + direction)
             .done(function (result) {
                 let stops = JSON.parse(JSON.stringify(result));
                 let stopdrop = $('#ntStop');
@@ -50,18 +45,18 @@ var NexTrip = (function ($, window, document, undefined) {
                 });
                 $('.select-route-stop').fadeIn('slow').css('display', 'flex');
             });
-    };
+    }
 
     function getTimepointDepartures(route, direction, code) {
-        $.get(window.serviceHostUrl + '/nextripv2/' + route + '/' + direction + '/' + code)
+        $.get('https://svc.metrotransit.org' + '/nextripv2/' + route + '/' + direction + '/' + code)
             .done(function (result) {
                 loadDepartures(JSON.parse(JSON.stringify(result)));
                 history.pushState({}, '', '/nextrip/' + route + '/' + direction + '/' + code);
             });
-    };
+    }
 
     function getStopDepartures(id) {
-        $.get(window.serviceHostUrl + '/nextripv2/' + id)
+        $.get('https://svc.metrotransit.org' + '/nextripv2/' + id)
             .done(function (result) {
                 loadDepartures(JSON.parse(JSON.stringify(result)));
                 history.pushState({}, '', '/nextrip/' + id);
@@ -73,7 +68,7 @@ var NexTrip = (function ($, window, document, undefined) {
                 $('.more').hide();
                 clearInterval(timer);
             });
-    };
+    }
 
     // Two methods for getting departures handle stopId vs timepoint queries.
     // The result set is the same for either method so can be handled in one place.
@@ -126,13 +121,14 @@ var NexTrip = (function ($, window, document, undefined) {
         } else {
             $('#showMyBus button h3').text('Show my bus');
         }
-    };
+    }
 
     var resetUI = function () {
         clearInterval(timer);
         $('#ntRoute').val('');
         $('#ntDirection').val('');
         $('.select-route-direction').hide();
+        $('.nextrip-stop-list').hide();
         $('#ntStop').val('');
         $('.select-route-stop').hide();
         $('#stopNumber').val('');
@@ -142,6 +138,16 @@ var NexTrip = (function ($, window, document, undefined) {
     var scrollToResult = function () {
         var aTag = $('a[name="nextriptop"]');
         $('html,body').animate({ scrollTop: aTag.offset().top }, 'slow');
+    };
+    var showDepartures = function (stop) {
+        stopId = stop;
+        routeId = ''; // need to clear value for the map to work properly
+        resetUI();
+        timer = setInterval(function () {
+            getStopDepartures(stopId);
+        }, 30000);
+        getStopDepartures(stopId);
+        scrollToResult();
     };
 
     var init = function () {
@@ -153,11 +159,12 @@ var NexTrip = (function ($, window, document, undefined) {
         // When route dropdown changes, get direction
         $('#ntRoute').change(function () {
             routeId = this.value;
-            if (routeId != '') {
+            if (routeId !== '') {
                 clearInterval(timer);
                 $('#stopNumber').val('');
                 $('#ntStop').val('');
                 $('.select-route-stop').hide();
+                $('.nextrip-stop-list').hide();
                 $('#collapseMap').collapse('hide');
                 $('#nextripDepartures').hide();
                 getDirections(routeId);
@@ -169,7 +176,7 @@ var NexTrip = (function ($, window, document, undefined) {
         // When direction dropdown changes, get stops.
         $('#ntDirection').change(function () {
             directionId = this.value;
-            if (directionId != '') {
+            if (directionId !== '') {
                 clearInterval(timer);
                 $('#collapseMap').collapse('hide');
                 $('#nextripDepartures').hide();
@@ -195,10 +202,49 @@ var NexTrip = (function ($, window, document, undefined) {
                 $('#nextripDepartures').hide();
             }
         });
+
+        // When user clicks 'use current location' then find neareset stops
+        // and let them select one 
         $('#ntUseCurrentLoc').click(function() {
 			let userLoc = AutocompleteAddress.setUserLoc('nexTrip');
 			if (userLoc) { 
-				console.dir(AutocompleteAddress.getChoice('nexTrip'));
+                resetUI();
+                $('.nextrip-stop-list').empty();
+                StopServices.findNearestStops(userLoc).then(function (results) {
+                    $.each(results, function (i, stop) {
+                        let routeList = '';
+                        if (stop.Services.length > 0) {
+                            routeList += '<div class="card-body pt-0 pb-2">';
+                            $.each(stop.Services, function (i, route) {
+                                routeList += '<span class="mb=0">';
+                                if (route.ServiceType === 0) { // Bus
+                                    routeList += 'Route ';
+                                }
+                                routeList += route.PublicRoute;
+                                routeList += ' - ' + route.Direction + '</br></span>';
+                            });
+                            routeList += '</div>';
+                        }
+                        $('.nextrip-stop-list').append(`
+	                            <div class="card gray-100 mb-3" style="max-width: 22rem;">
+		                            <div class="card-header pb-0">
+			                            <div class="d-flex align-items-center">
+				                            <div>
+					                            <a href="#" onclick="javascript:NexTrip.showDepartures(${stop.StopId});"><h3 class="mb-1">Stop ID: ${stop.StopId}</h3>
+					                            <h4 class="">${stop.StopDescription}</h4></a>
+				                            </div>
+				                            <img src="/img/svg/arrow-right-blue.svg" class="ml-auto" />
+			                            </div>
+			                            <hr>
+		                            </div>
+                                    ${routeList}
+	                            </div>
+                         `);
+                    });
+                    $('.nextrip-stop-list').show();
+                    scrollToResult();
+                });
+                //$('.nextrip-stop-list').show();
 			}
         });
 
@@ -260,7 +306,8 @@ var NexTrip = (function ($, window, document, undefined) {
     };
 
     return {
-        init: init
+        init: init, 
+        showDepartures: showDepartures
     };
 
 })(jQuery, window, document);
