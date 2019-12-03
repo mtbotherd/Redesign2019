@@ -140,7 +140,7 @@ var AutocompleteAddress = (function($, window, document, undefined) {
                 if (callback) callback();
                 // if the 'reappearing suggestion results' continues to happen,
                 // this next statement forces it to close, but it may have other side-effects
-                $('#' + inputDiv + 'Suggestions').hide();
+                //$('#' + inputDiv + 'Suggestions').hide();
               }
             }
           })
