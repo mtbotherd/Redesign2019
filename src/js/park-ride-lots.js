@@ -114,5 +114,11 @@ $(function() {
         if (!(sessionStorage.getItem('prFinderResults') === null)) {
             $('#prFinderResults').html(sessionStorage.getItem('prFinderResults'));
         }
+        $('#prUseCurrentLoc').click(function() {
+			let userLoc = AutocompleteAddress.setUserLoc('parkRidesFindMe');
+			if (userLoc) { 
+                ParkRideServices.formatPage(userLoc);
+            }
+        });
     }
 });

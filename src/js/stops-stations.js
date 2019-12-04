@@ -151,5 +151,11 @@ $(function() {
         if (!(sessionStorage.getItem('stopFinderResults') === null)) {
             $('#stopFinderResults').html(sessionStorage.getItem('stopFinderResults'));
         }
+        $('#ssUseCurrentLoc').click(function() {
+			let userLoc = AutocompleteAddress.setUserLoc('stopsStationsFindMe');
+			if (userLoc) { 
+                StopServices.formatPage(userLoc);
+            }
+        });
     }
 });

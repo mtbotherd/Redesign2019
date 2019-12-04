@@ -168,24 +168,29 @@ var AutocompleteAddress = (function($, window, document, undefined) {
     // user location is passed as UTM which is needed for
     // both the trip planner and any finder services
     // RETURNS the location object in format needed for Finder calls
-    // also stores it in 
+    // also stores it in inputResults for no good reason
     var setUserLoc = function (inputDiv) {
-        let result = null;
-        if (USERLOC) {
-            let loc = {
-                address: 'your location',
-                attributes: { // we need to be able to test if ATIS_ID exists
-                    ATIS_ID: ''
-                },
-                location: {
-                    x: USERLOC.UTM.x,
-                    y: USERLOC.UTM.y
-                }
-            };
-            inputResults[inputDiv] = loc;
-            result = loc;
+        let result = inputResults[inputDiv];
+        if (result) {
+          return result;
+        } else {
+          if (USERLOC) {
+              let loc = {
+                  address: 'your location',
+                  attributes: { // we need to be able to test if ATIS_ID exists
+                    LongLabel: 'your location',
+                      ATIS_ID: ''
+                  },
+                  location: {
+                      x: USERLOC.UTM.x,
+                      y: USERLOC.UTM.y
+                  }
+              };
+              inputResults[inputDiv] = loc;
+              result = loc;
+          }
+          return result;
         }
-        return result;
     };
 
     return {
