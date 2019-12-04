@@ -17,10 +17,7 @@ var NexTrip = (function ($, window, document, undefined) {
                 });
             });
     }
-    $('.nexTrip-trip-options').on('click', function(){
-        $('.nexTrip-trip-options').removeClass('nexTrip-selected-option');
-        $(this).addClass('nexTrip-selected-option');
-    });
+
     function getDirections(id) {
         $.get('https://svc.metrotransit.org' + '/nextripv2/directions/' + id)
             .done(function (result) {
@@ -292,6 +289,10 @@ var NexTrip = (function ($, window, document, undefined) {
             BOM.stopBusesOnMap();
         });
 
+        $('.nexTrip-trip-options').on('click', function () {
+            $('.nexTrip-trip-options').removeClass('nexTrip-selected-option');
+            $(this).addClass('nexTrip-selected-option');
+        });
         //use URL routing info to populate results
         var nextRoute = window.location.pathname.split('/');
         if (nextRoute[1].toLowerCase() === 'nextrip') {
