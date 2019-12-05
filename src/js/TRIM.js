@@ -1188,6 +1188,11 @@ var TRIM = (function ($, window, document, undefined) {
                         if (mapType === 'full') {
                             drawNiceRides();
                         }
+                        if (mapType === "trip") { 
+                            // force the loading icon to close for the trip plan 
+                            // because we're not loading any data layers jus graphics
+                            $(".mapLoading").hide();
+                        }
                         //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                         dfd.resolve();
                         //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -1283,7 +1288,7 @@ var TRIM = (function ($, window, document, undefined) {
                         mapLayers = [
                             //allRoutesLayer,
                             allStopLayer,
-                            goToLayer,
+                            //goToLayer,
                             parkAndRidesLayer,
                             routesLayer,
                             routestopLayer,
@@ -1297,13 +1302,8 @@ var TRIM = (function ($, window, document, undefined) {
                         ];
                     } else if (mapType === "trip") {
                         mapLayers = [
-                            //allRoutesLayer,
-                            allStopLayer,
                             tripLayer,
-                            tripStopLayer,
-                            routesLayer,
-                            routestopLayer,
-                            stopsLayer
+                            tripStopLayer
                         ];
                     }
                     MAP.addLayers(mapLayers);
@@ -2235,7 +2235,7 @@ $(function () {
         AutocompleteAddress.init("interactiveMapSearch",/*UTMout*/ false,
                 function() {
                 var choice = AutocompleteAddress.getChoice("interactiveMapSearch");
-                TRIM.centerMarkerAtPoint(choice.location.x, choice.location.y);
+                    TRIM.centerMarkerAtPoint(choice.location.x, choice.location.y);
                 }
             );
         TRIM.init("TRIMap").then(function () {

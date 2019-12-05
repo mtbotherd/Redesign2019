@@ -126,5 +126,11 @@ $(function() {
         if (!(sessionStorage.getItem('gotoCardFinderResults') === null)) {
             $('#goto-finder-results').html(sessionStorage.getItem('gotoCardFinderResults'));
         }
+        $('#gtrUseCurrentLoc').click(function() {
+			let userLoc = AutocompleteAddress.setUserLoc('gotoRetailersFindMe');
+			if (userLoc) { 
+                GoToRetailerServices.formatPage(userLoc);
+            }
+        });
     }
 });
