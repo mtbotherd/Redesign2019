@@ -152,10 +152,13 @@ $(function() {
             $('#stopFinderResults').html(sessionStorage.getItem('stopFinderResults'));
         }
         $('#ssUseCurrentLoc').click(function() {
-			let userLoc = AutocompleteAddress.setUserLoc('stopsStationsFindMe');
-			if (userLoc) { 
-                StopServices.formatPage(userLoc);
-            }
+            AutocompleteAddress.getUserLocation().then(function(){  // get current location
+                $('#stopsStationsSearch').val('Current Location');
+                let userLoc = AutocompleteAddress.setUserLoc('stopsStationsFindMe');
+                if (userLoc) { 
+                    StopServices.formatPage(userLoc);
+                }
+            });
         });
     }
 });
