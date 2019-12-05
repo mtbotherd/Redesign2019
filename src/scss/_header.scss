@@ -67,6 +67,29 @@
             width: 1.5rem;
             height: 1.5rem;
           }
+
+          &.store-icon {
+            position: relative;
+
+            .badge-info {
+              border-radius: 50%;
+              font-weight: 300;
+              position: absolute;
+              top: 0.25rem;
+              left: 3rem;
+              @include media-breakpoint-up(xl) {
+                top: 0.25rem;
+                left: 2rem;
+              }
+            }
+          }
+
+          &:hover {
+            .badge-info {
+              background-color: $white;
+              color: $cyan;
+            }
+          }
         }
         .dropdown-toggle {
           &.search-icon::before {

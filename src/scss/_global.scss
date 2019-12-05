@@ -9,20 +9,34 @@ img[src^="//insight.adsrvr.org"] {
 
 body {
   overflow-x: hidden;
-}
-// Reset default font size for tablet and up. Base default (mobile first) is set to 14px.
-@media (max-width: 767) {
-  body {
-    @include font-size(16);
-    //font-size: $font-size-base * 0.25;
-  }
-}
-@media (min-width: 992px) {
-  body {
+
+  // Sets default font size for mobile to 16px;
+  @include font-size(16);
+
+  @include media-breakpoint-up(lg) {
+    // Sets default font size for desktop and above to 18px.
     @include font-size(18);
-    //font-size: $font-size-base * 0.5;
+  }
+
+  .moovel {
+    .moovel-hide {
+      display: none;
+    }
   }
 }
+
+// @media (max-width: 767) {
+//   body {
+//     @include font-size(16);
+//     //font-size: $font-size-base * 0.25;
+//   }
+// }
+// @media (min-width: 992px) {
+//   body {
+//     @include font-size(18);
+//     //font-size: $font-size-base * 0.5;
+//   }
+// }
 
 a.skip-to-content {
   position: absolute;
