@@ -17,10 +17,7 @@ var NexTrip = (function ($, window, document, undefined) {
                 });
             });
     }
-    $('.nexTrip-trip-options').on('click', function(){
-        $('.nexTrip-trip-options').removeClass('nexTrip-selected-option');
-        $(this).addClass('nexTrip-selected-option');
-    });
+
     function getDirections(id) {
         $.get('https://svc.metrotransit.org' + '/nextripv2/directions/' + id)
             .done(function (result) {
@@ -93,6 +90,9 @@ var NexTrip = (function ($, window, document, undefined) {
             b = new Date(b.DepartureTime);
             return a < b ? -1 : a > b ? 1 : 0;
         });
+        if (departures.length > 18) {
+            departures = departures.slice(0, 18);
+        }
 
         $.each(departures, function (i, depart) {
             var departRow = $('<div/>', { class: 'list-group-item pr-0 pl-0' }).appendTo(list);
@@ -292,6 +292,10 @@ var NexTrip = (function ($, window, document, undefined) {
             BOM.stopBusesOnMap();
         });
 
+        $('.nexTrip-trip-options').on('click', function () {
+            $('.nexTrip-trip-options').removeClass('nexTrip-selected-option');
+            $(this).addClass('nexTrip-selected-option');
+        });
         //use URL routing info to populate results
         var nextRoute = window.location.pathname.split('/');
         if (nextRoute[1].toLowerCase() === 'nextrip') {

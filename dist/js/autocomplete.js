@@ -140,13 +140,18 @@ var AutocompleteAddress = (function($, window, document, undefined) {
                 if (callback) callback();
                 // if the 'reappearing suggestion results' continues to happen,
                 // this next statement forces it to close, but it may have other side-effects
-                $('#' + inputDiv + 'Suggestions').hide();
+                //$('#' + inputDiv + 'Suggestions').hide();
               }
             }
           })
           .fail(function(e) {
             console.warn("Call to FindCandidate failed for: " + suggest.value);
           });
+          // Here we're setting a general timer to clear any mysterious Suggestion pop-ups that recur after the
+          // user has actually selected something.
+          setTimeout(function() {
+            $("#" + inputDiv + 'Suggestions').hide();
+          }, 3000);
       }
     });
 
@@ -168,13 +173,13 @@ var AutocompleteAddress = (function($, window, document, undefined) {
     // user location is passed as UTM which is needed for
     // both the trip planner and any finder services
     // RETURNS the location object in format needed for Finder calls
-    // also stores it in 
     var setUserLoc = function (inputDiv) {
         let result = null;
         if (USERLOC) {
             let loc = {
                 address: 'your location',
                 attributes: { // we need to be able to test if ATIS_ID exists
+                  LongLabel: 'your current location',
                     ATIS_ID: ''
                 },
                 location: {
@@ -182,10 +187,10 @@ var AutocompleteAddress = (function($, window, document, undefined) {
                     y: USERLOC.UTM.y
                 }
             };
-            inputResults[inputDiv] = loc;
             result = loc;
         }
         return result;
+
     };
 
     return {

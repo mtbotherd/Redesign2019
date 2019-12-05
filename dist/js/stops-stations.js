@@ -151,5 +151,14 @@ $(function() {
         if (!(sessionStorage.getItem('stopFinderResults') === null)) {
             $('#stopFinderResults').html(sessionStorage.getItem('stopFinderResults'));
         }
+        $('#ssUseCurrentLoc').click(function() {
+            AutocompleteAddress.getUserLocation().then(function(){  // get current location
+                $('#stopsStationsSearch').val('Current Location');
+                let userLoc = AutocompleteAddress.setUserLoc('stopsStationsFindMe');
+                if (userLoc) { 
+                    StopServices.formatPage(userLoc);
+                }
+            });
+        });
     }
 });
