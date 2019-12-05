@@ -90,6 +90,9 @@ var NexTrip = (function ($, window, document, undefined) {
             b = new Date(b.DepartureTime);
             return a < b ? -1 : a > b ? 1 : 0;
         });
+        if (departures.length > 18) {
+            departures = departures.slice(0, 18);
+        }
 
         $.each(departures, function (i, depart) {
             var departRow = $('<div/>', { class: 'list-group-item pr-0 pl-0' }).appendTo(list);
