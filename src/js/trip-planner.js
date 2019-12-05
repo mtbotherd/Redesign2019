@@ -455,10 +455,6 @@ var TripPlan = (function($, window, document, undefined) {
                             $('#spinner').addClass('d-none');
                             $('#planTrip').hide('slow');
 							$('#tripPlannerResults').show();
-							setTimeout(function() {
-								$('#fromLocationSuggestions').hide(); // just to be sure 
-								$('#toLocationSuggestions').hide(); 
-							}, 3000);
                         } else {
                             // clear previous results
                             $("#trip-result-count").html(''); 

@@ -8752,6 +8752,10 @@ footer {
       #parkRides .card .arrow-right-blue {
         margin-top: 0.25rem; } }
 
+@media (min-width: 992px) {
+  #parkRides #prUseCurrentLoc {
+    display: none; } }
+
 #stopsStations .icon {
   width: 2.5rem;
   height: 2.5rem; }
@@ -8883,6 +8887,10 @@ footer {
       width: 100px;
       height: 45px;
       padding: 0.2rem 0; } }
+
+@media (min-width: 992px) {
+  #stopsStations #ssUseCurrentLoc {
+    display: none; } }
 
 .route .schedule-days {
   margin-right: 2.5rem; }
@@ -9460,6 +9468,10 @@ footer {
     @media (min-width: 992px) {
       #gotoCardRetailers #goto-finder-results .card .arrow-right-blue {
         margin-top: 0.25rem; } }
+
+@media (min-width: 992px) {
+  #gotoCardRetailers #gtrUseCurrentLoc {
+    display: none; } }
 
 #serviceCenter .arrow-right-blue {
   width: 1rem;

@@ -127,10 +127,13 @@ $(function() {
             $('#goto-finder-results').html(sessionStorage.getItem('gotoCardFinderResults'));
         }
         $('#gtrUseCurrentLoc').click(function() {
-			let userLoc = AutocompleteAddress.setUserLoc('gotoRetailersFindMe');
-			if (userLoc) { 
-                GoToRetailerServices.formatPage(userLoc);
-            }
+            AutocompleteAddress.getUserLocation().then(function(){  // get current location
+                $('#gotoCardRetailerSearch').val('Current Location');
+                let userLoc = AutocompleteAddress.setUserLoc('gotoRetailersFindMe');
+                if (userLoc) { 
+                    GoToRetailerServices.formatPage(userLoc);
+                }
+            });
         });
     }
 });

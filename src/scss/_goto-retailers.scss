@@ -176,6 +176,11 @@
       }
     }
   }
+  #gtrUseCurrentLoc {
+    @include media-breakpoint-up (lg) {
+      display:none;
+    }
+  }
 }
 #serviceCenter{
   .arrow-right-blue{
