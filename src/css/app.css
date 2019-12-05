@@ -7575,17 +7575,15 @@ img[src^="//insight.adsrvr.org"] {
   display: none; }
 
 body {
-  overflow-x: hidden; }
-
-@media (max-width: 767) {
-  body {
-    font-size: 16px !important;
-    font-size: 1rem !important; } }
-
-@media (min-width: 992px) {
-  body {
-    font-size: 18px !important;
-    font-size: 1.125rem !important; } }
+  overflow-x: hidden;
+  font-size: 16px !important;
+  font-size: 1rem !important; }
+  @media (min-width: 992px) {
+    body {
+      font-size: 18px !important;
+      font-size: 1.125rem !important; } }
+  body .moovel .moovel-hide {
+    display: none; }
 
 a.skip-to-content {
   position: absolute;
@@ -8076,6 +8074,21 @@ abbr {
       background-size: 1.5rem;
       width: 1.5rem;
       height: 1.5rem; }
+    #header .navbar .utilities .nav-item .nav-link.store-icon {
+      position: relative; }
+      #header .navbar .utilities .nav-item .nav-link.store-icon .badge-info {
+        border-radius: 50%;
+        font-weight: 300;
+        position: absolute;
+        top: 0.25rem;
+        left: 3rem; }
+        @media (min-width: 1200px) {
+          #header .navbar .utilities .nav-item .nav-link.store-icon .badge-info {
+            top: 0.25rem;
+            left: 2rem; } }
+    #header .navbar .utilities .nav-item .nav-link:hover .badge-info {
+      background-color: #fff;
+      color: #0097d0; }
     #header .navbar .utilities .nav-item .dropdown-toggle.search-icon::before {
       display: block;
       content: "";

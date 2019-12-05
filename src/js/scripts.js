@@ -77,7 +77,8 @@ var Main = (function ($, window, document, undefined) {
             setCookie('cart_status', '2');
             qty = 2;
         }
-        $('<div/>', { class: 'cart-qty-nbr' }).text(qty).appendTo($('a.store-icon'));
+		$('<span/>', { class: 'badge badge-info' }).text(qty).appendTo($('a.store-icon'));
+
         // Bootstrap Popover with HTML
         $('[data-toggle="popover"]').popover({
             html: true,
