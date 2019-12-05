@@ -177,4 +177,9 @@
       }
     }
   }
+  #ssUseCurrentLoc {
+    @include media-breakpoint-up (lg) {
+      display:none;
+    }
+  }
 }
