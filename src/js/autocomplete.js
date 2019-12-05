@@ -147,6 +147,11 @@ var AutocompleteAddress = (function($, window, document, undefined) {
           .fail(function(e) {
             console.warn("Call to FindCandidate failed for: " + suggest.value);
           });
+          // Here we're setting a general timer to clear any mysterious Suggestion pop-ups that recur after the
+          // user has actually selected something.
+          setTimeout(function() {
+            $("#" + inputDiv + 'Suggestions').hide();
+          }, 3000);
       }
     });
 
