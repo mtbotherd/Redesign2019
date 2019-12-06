@@ -9198,20 +9198,11 @@ footer {
 #schedulesMaps .popular-routes {
   margin-bottom: 1rem; }
   #schedulesMaps .popular-routes .routes {
-    margin-right: .5rem;
     margin-bottom: 1.12rem; }
     @media (min-width: 768px) {
       #schedulesMaps .popular-routes .routes {
         margin-right: 1rem;
-        margin-bottom: 0.48rem; } }
-    @media (min-width: 992px) {
-      #schedulesMaps .popular-routes .routes {
-        margin-right: 1rem;
-        margin-bottom: 0.48rem; } }
-    @media (min-width: 1200px) {
-      #schedulesMaps .popular-routes .routes {
-        margin-right: 1rem;
-        margin-bottom: 0.48rem; } }
+        margin-bottom: 1rem; } }
 
 #schedulesMaps .metro-brt .btn-outline-secondary,
 #schedulesMaps .commuter-rail .btn-outline-secondary {
