@@ -211,8 +211,10 @@ var NexTrip = (function ($, window, document, undefined) {
 			let userLoc = AutocompleteAddress.setUserLoc('nexTrip');
 			if (userLoc) { 
                 resetUI();
+                $("#ntSpinner").removeClass("d-none");
                 $('.nextrip-stop-list').empty();
                 StopServices.findNearestStops(userLoc).then(function (results) {
+                    $("#ntSpinner").addClass("d-none");
                     $.each(results, function (i, stop) {
                         let routeList = '';
                         if (stop.Services.length > 0) {
@@ -246,7 +248,6 @@ var NexTrip = (function ($, window, document, undefined) {
                     $('.nextrip-stop-list').show();
                     scrollToResult();
                 });
-                //$('.nextrip-stop-list').show();
 			}
         });
 
