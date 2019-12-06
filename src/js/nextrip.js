@@ -63,6 +63,7 @@ var NexTrip = (function ($, window, document, undefined) {
                 $('#nextripDepartures').show();
                 $('.stop-description').text('Invalid StopId');
                 $('.more').hide();
+                $('#showMyBus').hide();
                 clearInterval(timer);
             });
     }
@@ -71,6 +72,7 @@ var NexTrip = (function ($, window, document, undefined) {
     // The result set is the same for either method so can be handled in one place.
     function loadDepartures(result) {
         $('#nextripDepartures').show();
+        $('#showMyBus').show();
         var showAll = $('.less').is(':visible');
         let list = $('.stop-departures');
         list.empty();
@@ -250,15 +252,17 @@ var NexTrip = (function ($, window, document, undefined) {
 
         $('#searchStopsButton').click(function () {
             stopId = $('#stopNumber').val();
-            routeId = ''; // need to clear value for the map to work properly
-            resetUI();
-            timer = setInterval(function () {
-                getStopDepartures(stopId);
-            }, 30000);
+            if (stopId.length) {
+                routeId = ''; // need to clear value for the map to work properly
+                resetUI();
+                timer = setInterval(function () {
+                    getStopDepartures(stopId);
+                }, 30000);
 
-            getStopDepartures(stopId);
-            scrollToResult();
-            $('#stopNumber').focus();
+                getStopDepartures(stopId);
+                scrollToResult();
+                $('#stopNumber').focus();
+            }
         });
 
         $('.more').click(function () {

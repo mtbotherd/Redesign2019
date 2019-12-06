@@ -322,11 +322,11 @@ var TripPlan = (function($, window, document, undefined) {
 			  <div class="card mb-4" data-child="collapseTrip${i}" >
 				  <div id="" class="card-header">
 						<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
-							<span class="d-flex w-100">
+							<span class="d-flex">
 								<span class="d-flex align-items-center tp-time">${returnTime(tpDepartTime)} - ${returnTime(tpArriveTime)}</span>
 								<span class="d-flex align-items-center tp-route">
 									<span class="tp-route-summary">${tpSummary.join('<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">')}</span>
-									<img class="icon chevron-down-blue align-items-center ml-auto" src="/img/svg/chevron-down-blue.svg">
+									<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
 								</span>
 							</span>
 						</button>
