@@ -79,7 +79,6 @@ var TripPlan = (function($, window, document, undefined) {
 				  dataType: "json"
 			  })
 				  .done(function(result, status, xhr) {
-					  console.dir(result);
 					if (result.error) {
 						dfd.reject({'Message': result.error});
 					} else if (result.TrapEx) {
@@ -216,7 +215,9 @@ var TripPlan = (function($, window, document, undefined) {
 					</p>
 				</div>
 				</div>`);
-				if (tpDepartTime === null) { tpDepartTime = li.OnTime; }
+                        if (tpDepartTime === null) {
+                            tpDepartTime = li.OnTime;
+                        }
 				tpArriveTime = li.OffTime;
 				break;
 			  case 1: // Light-Rail
@@ -261,7 +262,9 @@ var TripPlan = (function($, window, document, undefined) {
 				</p>
 			  </div>
 				</div>`);
-				if (tpDepartTime === null) { tpDepartTime = li.OnTime; }
+                        if (tpDepartTime === null) {
+                            tpDepartTime = li.OnTime;
+                        }
 				tpArriveTime = li.OffTime;
 				break;
 			  case 3: // WALK

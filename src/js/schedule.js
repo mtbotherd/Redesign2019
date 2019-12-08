@@ -25,7 +25,9 @@ var Schedule = (function ($, window, document, undefined) {
     };
 
     var searchSchedules = function () {
-        var term = $('#schedulesByRoute').val().toLowerCase().trim().split(" ");
+        var term = $('#schedulesByRoute').val();
+        if (term.length) {
+            var terms = term.toLowerCase().trim().split(" ");
         var dict = {
             north: 888,
             northstar: 888,
@@ -36,7 +38,7 @@ var Schedule = (function ($, window, document, undefined) {
             c: 923
         };
         var notFound = true;
-        term.forEach(function (item) {
+            terms.forEach(function (item) {
             if (Number.isInteger(Number(item))) {
                 location.assign("/route/" + item);
                 notFound = false;
@@ -47,6 +49,7 @@ var Schedule = (function ($, window, document, undefined) {
         });
 
         if(notFound) location.assign("/route/0");
+        }
     };
 
     var init = function (routeAbbr) {

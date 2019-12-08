@@ -176,7 +176,7 @@ var AutocompleteAddress = (function($, window, document, undefined) {
     var setUserLoc = function (inputDiv) {
         let result = null;
         if (USERLOC) {
-            let loc = {
+            result = {
                 address: 'your location',
                 attributes: { // we need to be able to test if ATIS_ID exists
                   LongLabel: 'your current location',
@@ -187,7 +187,7 @@ var AutocompleteAddress = (function($, window, document, undefined) {
                     y: USERLOC.UTM.y
                 }
             };
-            result = loc;
+            inputResults[inputDiv] = result;
         }
         return result;
 
