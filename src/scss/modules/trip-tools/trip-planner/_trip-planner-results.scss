@@ -236,9 +236,12 @@
             }
           }
 
-          .walk,
-          .bus {
+          .walk {
             border-left: 4px dotted #7dcae7;
+          }
+
+          .bus {
+            border-left: 4px solid #7dcae7;
           }
 
           .walk {
