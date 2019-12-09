@@ -20,6 +20,10 @@ var Schedule = (function ($, window, document, undefined) {
                 .done(function (data) {
                     $('.timetables>div.active>.timetable-container').html(data);
                     pane.data('isLoaded', true);
+                    if (navigator.userAgent.indexOf("Chrome") !== -1 &&
+                        navigator.userAgent.indexOf("Edge") === -1) {
+                        $('.schedule-scroll-body').addClass('no-pad');
+                    }
                 });
         }
     };
@@ -28,27 +32,27 @@ var Schedule = (function ($, window, document, undefined) {
         var term = $('#schedulesByRoute').val();
         if (term.length) {
             var terms = term.toLowerCase().trim().split(" ");
-        var dict = {
-            north: 888,
-            northstar: 888,
-            blue: 901,
-            green: 902,
-            red: 903,
-            a: 921,
-            c: 923
-        };
-        var notFound = true;
+            var dict = {
+                north: 888,
+                northstar: 888,
+                blue: 901,
+                green: 902,
+                red: 903,
+                a: 921,
+                c: 923
+            };
+            var notFound = true;
             terms.forEach(function (item) {
-            if (Number.isInteger(Number(item))) {
-                location.assign("/route/" + item);
-                notFound = false;
-            } else if (Number.isInteger(dict[item])) {
-                location.assign("/route/" + dict[item]);
-                notFound = false;
-            }
-        });
+                if (Number.isInteger(Number(item))) {
+                    location.assign("/route/" + item);
+                    notFound = false;
+                } else if (Number.isInteger(dict[item])) {
+                    location.assign("/route/" + dict[item]);
+                    notFound = false;
+                }
+            });
 
-        if(notFound) location.assign("/route/0");
+            if (notFound) location.assign("/route/0");
         }
     };
 
@@ -60,6 +64,7 @@ var Schedule = (function ($, window, document, undefined) {
         }
 
         Alerts.getAlertsForRoute(routeAbbr);
+
         loadTimetable();
 
         $('.schedule-days>button').on('click', scheduleSelect);

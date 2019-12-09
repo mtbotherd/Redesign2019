@@ -119,8 +119,6 @@
     }
 
     .transit-service {
-      //   margin-bottom: 1rem;
-
       .routes {
         @include font-size(20);
         margin-right: 0.5rem;
@@ -128,35 +126,17 @@
         width: 90px;
         height: 50px;
         line-height: 1;
-        padding: 0.25rem .6rem;
+        padding: 0.25rem 0.75rem;
         @include media-breakpoint-up(lg) {
-          // @include font-size(20);
           margin-right: 30px;
           margin-bottom: 30px !important;
           width: 90px;
           height: 50px;
-          padding: 0.25rem .6rem;
         }
-
-        // &:nth-child(3n) {
-        //   margin-right: 0;
-
-        //   @include media-breakpoint-up(lg) {
-        //     margin-right: 30px;
-        //   }
-        // }
-
-        // &:nth-child(8n) {
-        //   @include media-breakpoint-up(lg) {
-        //     margin-right: 0;
-        //   }
-        // }
       }
     }
 
     .lrt-service {
-      //   margin-bottom: 1rem;
-
       .routes {
         @include font-size(18);
         margin-right: 0.05rem;
@@ -178,8 +158,8 @@
     }
   }
   #ssUseCurrentLoc {
-    @include media-breakpoint-up (lg) {
-      display:none;
+    @include media-breakpoint-up(lg) {
+      display: none;
     }
   }
 }

@@ -1,7 +1,26 @@
 .route {
-  .schedule-days{
-    margin-right:2.5rem;
+  .schedule-days {
+    margin-right: 2.5rem;
+
+    h3 {
+      font-weight: normal !important;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      text-transform: capitalize;
+
+      @include media-breakpoint-up(lg) {
+        width: 17.5rem;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 1rem !important;
+      }
+    }
   }
+
   .date-time-color {
     width: 1.5rem;
     height: 1.5rem;
@@ -25,5 +44,183 @@
   .link-pdf-container,
   .btn-wrapper {
     text-align: center !important;
+  }
+
+  .btn-block {
+    display: block;
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+      display: inline-block;
+    }
+  }
+
+  .btn-ouline-secondary
+    article.striped
+    > .container
+    .schedule-days
+    button.active {
+    color: #0097d0 !important;
+    background-color: #dbf4fd !important;
+    border: 2px solid #0097d0 !important;
+  }
+
+  .schedule-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    max-width: 1140px;
+    overflow-x: auto;
+  }
+
+  .schedule-scroll-body {
+    padding-right: 17px;
+    max-height: 30rem;
+    overflow-y: auto;
+
+    @include media-breakpoint-up(lg) {
+      max-height: 40rem;
+
+      .no-pad {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .timetable-container table {
+    margin: 0;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #8a8b8a;
+
+    thead {
+      background-color: #fff;
+    }
+
+    tr.downtown th {
+      position: relative;
+    }
+  }
+
+  .zone {
+    background-color: #fff;
+    position: absolute;
+    margin: 3rem 0 0 8.5rem;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 10;
+    border-radius: 2rem;
+  }
+
+  .table-header-rotated {
+    th.rotate {
+      font-weight: normal;
+      height: 12rem;
+      white-space: nowrap;
+      padding: 0;
+      min-width: 2.75rem;
+      max-width: 2.75rem;
+
+      div {
+        -webkit-transform: translate(1.7rem, 4.4rem) rotate(-45deg);
+        transform: translate(1.7rem, 4.4rem) rotate(-45deg);
+        width: 100%;
+
+        span {
+          display: inline-block;
+          width: 12rem;
+          height: 2rem;
+          line-height: 0.8rem;
+          text-indent: -0.9rem;
+          padding: 0.2rem 0 0 0.5rem;
+          border-bottom: 1px solid #8a8b8a;
+
+          .single-line {
+            padding: 0.5rem 0 0 1rem;
+          }
+        }
+      }
+    }
+
+    th:first-child {
+      font-weight: 700;
+      min-width: 3rem;
+      max-width: 3rem;
+      padding-left: 0.2rem;
+    }
+
+    tr.sub-header th {
+      border: 1px solid #8a8b8a;
+      border-top: none;
+      height: 2.5rem;
+      text-align: center;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      div {
+        border: 1px solid #8a8b8a;
+        border-radius: 50%;
+        width: 1.75rem;
+        height: 1.75rem;
+        margin: auto;
+        padding-top: 0.3em;
+      }
+    }
+
+    tr.ampm {
+      background-color: #f5f5f4;
+      border: 1px solid #8a8b8a;
+
+      th {
+        @include media-breakpoint-up(lg) {
+          text-align: left !important;
+          padding-left: 40vw !important;
+        }
+      }
+    }
+
+    th.row-header {
+      border: 1px solid #8a8b8a;
+      border-bottom: none;
+      padding-left: 0.2rem;
+      min-width: 2.95rem;
+      max-width: 2.95rem;
+    }
+
+    td {
+      border: 1px solid #8a8b8a;
+      border-bottom: none;
+      text-align: center;
+      padding: 5px 0;
+      min-width: 2.75rem;
+      max-width: 2.75rem;
+    }
+  }
+
+  tr.alt td,
+  tr.alt th.row-header {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .rush {
+    background-color: #ddd;
+  }
+
+  .text-link {
+    font-size: 18px !important;
+    position: relative;
+
+    &::after,
+    &:hover::after {
+      position: absolute;
+      right: -0.5rem;
+      background-image: url("../../../../../img/svg/pdf.svg");
+      background-size: 1rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
