@@ -11067,13 +11067,50 @@ select.navigator {
 #alertsModule .service-alerts .number-alerts {
   font-weight: 700; }
 
-.news-list .articleDisplayTitle > h2 {
+.news-list .articleDisplayTitle h2 {
   margin-bottom: 0.25rem; }
 
-.news-list .articleDisplayAbstract > p {
+.news-list .articleDisplayTitle p {
   border-bottom: 1px solid #e3e3e0;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem; }
+
+.news-list .articleDisplayTitle:last-child > p {
+  border-bottom: none; }
+
+.bcatlist {
+  display: none; }
+
+h2.blogtitle {
+  margin-bottom: 0.25rem; }
+
+.blogtags a:not(:last-child)::after {
+  content: " | "; }
+
+.blogtext {
+  border-bottom: 1px solid #e3e3e0;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem; }
+
+.blogitem:nth-last-child(2) div > .blogtext {
+  border-bottom: none; }
+
+.blogwrapper img {
+  width: 100%;
+  height: auto; }
+
+.blogpager {
+  font-size: 1.1rem;
+  margin-top: 15px;
+  text-align: center; }
+  @media (min-width: 992px) {
+    .blogpager {
+      margin-top: 30px; } }
+  .blogpager .modulepager .SelectedPage,
+  .blogpager .modulepager .ModulePager {
+    border: 1px solid #e3e3e0;
+    padding: 0.2rem;
+    line-height: 2; }
 
 /*********************************************************
     Redesign Forms
