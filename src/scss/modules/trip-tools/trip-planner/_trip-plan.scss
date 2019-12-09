@@ -5,6 +5,12 @@
       height: 2rem;
     }
   }
+  .tp-infotables{
+    @include media-breakpoint-down(md){
+    display: flex;
+    flex-direction: column-reverse !important;
+    }
+  }
   .tt-trip-plan {
     margin-bottom: 1rem;
 
