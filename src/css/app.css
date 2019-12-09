@@ -10134,7 +10134,6 @@ div.mt-form .mt-field .mt-inline select {
   margin: 0; }
 
 div.mt-form .mt-field .mt-inline {
-  display: inline-block !important;
   float: left;
   margin-right: 1rem; }
 
@@ -11756,7 +11755,7 @@ select.navigator {
     margin-bottom: 0.5rem; }
     @media (min-width: 992px) {
       .ridematch .messages .panel-group .panel {
-        margin-bottomo: 1rem; } }
+        margin-bottom: 1rem; } }
   .ridematch .messages .panel-group .panel-default {
     background-color: #fff; }
   .ridematch .messages .panel-group .panel-default > .panel-heading {

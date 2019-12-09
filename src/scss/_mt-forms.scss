@@ -221,7 +221,7 @@ div.mt-form .mt-field .mt-inline select {
 }
 
 div.mt-form .mt-field .mt-inline {
-  display: inline-block !important;
+  //display: inline-block !important; // Defaults to block when float is set.
   float: left;
   margin-right: 1rem;
 }
