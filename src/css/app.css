@@ -10747,9 +10747,10 @@ select.navigator {
             #tripPlannerResults .trips-found .tp-results .card .card-body .leg-mode .leg-mode-icon .icon {
               width: 2.25rem;
               height: 2.25rem; } }
-    #tripPlannerResults .trips-found .tp-results .card .card-body .walk,
-    #tripPlannerResults .trips-found .tp-results .card .card-body .bus {
+    #tripPlannerResults .trips-found .tp-results .card .card-body .walk {
       border-left: 4px dotted #7dcae7; }
+    #tripPlannerResults .trips-found .tp-results .card .card-body .bus {
+      border-left: 4px solid #7dcae7; }
     #tripPlannerResults .trips-found .tp-results .card .card-body .walk {
       padding-top: 0.5rem; }
     #tripPlannerResults .trips-found .tp-results .card .card-body .metro-Green {
