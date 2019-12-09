@@ -61,12 +61,7 @@ var NexTrip = (function ($, window, document, undefined) {
             .fail(function () {
                 $('.stop-departures').empty();
                 $('#nextripDepartures').show();
-<<<<<<< HEAD
-                $('.stop-description').text('Invalid StopId');
-                $('#showMyBus').hide();
-=======
                 $('.stop-description').text(id + ' is not a valid stop number.');
->>>>>>> 8323714884a3bf2945c5becc085e35456e782f33
                 $('.more').hide();
                 $('#showMyBus').hide();
                 clearInterval(timer);
