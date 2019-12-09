@@ -65,6 +65,7 @@ var NexTrip = (function ($, window, document, undefined) {
                 $('.stop-departures').empty();
                 $('#nextripDepartures').show();
                 $('.stop-description').text('Invalid StopId');
+                $('#showMyBus').hide();
                 $('.more').hide();
                 clearInterval(timer);
             });
@@ -74,6 +75,7 @@ var NexTrip = (function ($, window, document, undefined) {
     // The result set is the same for either method so can be handled in one place.
     function loadDepartures(result) {
         $('#nextripDepartures').show();
+        $('#showMyBus').show();
         var showAll = $('.less').is(':visible');
         let list = $('.stop-departures');
         list.empty();

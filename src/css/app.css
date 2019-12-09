@@ -10769,6 +10769,14 @@ select.navigator {
   width: 2rem;
   height: 2rem; }
 
+@media (max-width: 991.98px) {
+  #tripPlan .tp-infotables {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: reverse !important;
+            flex-direction: column-reverse !important; } }
+
 #tripPlan .tt-trip-plan {
   margin-bottom: 1rem; }
   @media (min-width: 992px) {

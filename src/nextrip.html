@@ -154,74 +154,88 @@
 					<div class="htmlmodule">
 						<section class="section">
 							<div id="nextripModule">
-								<div class="card mb-4">
-									<h2 class="text-center mb-4 mb-lg-5">Real-time Departures</h2>
-									<div class="row">
-										<div class="col-md-5">
-											<div class="form-group select-route">
-												<label for="ntRoute" class="sr-only">Select route</label>
-												<select
-													id="ntRoute"
-													name="ntRoute"
-													class="custom-select custom-select-lg"
-												>
-													<option value="">Select route</option>
-												</select>
-											</div>
-											<div class="form-group select-route-direction">
-												<label for="ntDirection" class="sr-only">Select direction</label>
-												<select
-													id="ntDirection"
-													name="ntDirection"
-													class="custom-select custom-select-lg"
-												>
-													<option value="">Select direction</option>
-												</select>
-											</div>
-											<div class="form-group select-route-stop">
-												<label for="ntStop" class="sr-only">Select stop</label>
-												<select
-													id="ntStop"
-													name="ntStop"
-													class="custom-select custom-select-lg">
-													<option value="">Select stop</option>
-												</select>
-											</div>
+									<div class="card mb-4">
+										<h2 class="text-center mb-4 mb-lg-5">Real-time Departures</h2>
+										<div class="d-flex justify-content-center">
+											<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+													<li class="nav-item">
+													  <a class="nav-link nexTrip-trip-options nexTrip-selected-option" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">By route</a>
+													</li>
+													<li class="nav-item">
+													  <a class="nav-link nexTrip-trip-options" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">By stop #</a>
+													</li>
+											</ul>
 										</div>
-										<div class="col-md-2">
-											<p class="text-center or">or</p>
-										</div>
-										<div class="col-md-5">
-											<div class="auto-complete-search-box">
-												<div class="input-group">
-													<input type="number"
-														id="stopNumber"
-														name="stopNumber"
-														class="form-control"
-														placeholder="Enter stop number"
-														aria-describedby="searchStopsButton">
-													<label for="stopNumber"
-														class="sr-only">Enter stop number</label>
-													<div class="input-group-append">
-														<button id="searchStopsButton"
-																type="button"
-																name="stopNumberBtn"
-																class="btn btn-primary border-top border-right border-bottom">
-															<span class="sr-only">Search button</span>
-															<img class="icon"
-																src="/img/svg/search-gray.svg">
-														</button>
+										<div class="d-flex justify-content-center">
+												<div class="tab-content" id="nextrip-tab-content">
+													<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+															<!-- <div class="col-md-5"> -->
+																<div class="form-group select-route">
+																	<label for="ntRoute" class="sr-only">Select route</label>
+																	<select
+																		id="ntRoute"
+																		name="ntRoute"
+																		class="custom-select custom-select-lg"
+																	>
+																		<option value="">Select route</option>
+																	</select>
+																</div>
+																<div class="form-group select-route-direction">
+																	<label for="ntDirection" class="sr-only">Select direction</label>
+																	<select
+																		id="ntDirection"
+																		name="ntDirection"
+																		class="custom-select custom-select-lg"
+																	>
+																		<option value="">Select direction</option>
+																	</select>
+																</div>
+																<div class="form-group select-route-stop">
+																	<label for="ntStop" class="sr-only">Select stop</label>
+																	<select
+																		id="ntStop"
+																		name="ntStop"
+																		class="custom-select custom-select-lg"
+																	>
+																		<option value="">Select stop</option>
+																	</select>
+																</div>
+															<!-- </div> -->
+													</div>
+													<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+															<div>
+																<div class="auto-complete-search-box">
+																	<div class="input-group">
+																		<input type="number"
+																			id="stopNumber"
+																			name="stopNumber"
+																			class="form-control"
+																			placeholder="Enter stop number"
+																			aria-describedby="searchStopsButton">
+																		<label for="stopNumber"
+																			class="sr-only">Location or stop number</label>
+																		<div class="input-group-append">
+																			<button id="searchStopsButton"
+																					type="button"
+																					name="stopNumber"
+																					class="btn btn-primary border-top border-right border-bottom">
+																				<span class="sr-only">Search button</span>
+																				<img class="icon"
+																					src="/img/svg/search-gray.svg">
+																			</button>
+																		</div>
+																	</div>
+																	<div class="d-flex mt-1">
+																			<span id="ntUseCurrentLoc" class="cyan m-0 ml-auto">
+																				<a href="#">Use current location&nbsp;<img src="/img/svg/pin-blue.svg"/></a>
+																			</span>
+																	</div>
+																</div>
+															</div>
 													</div>
 												</div>
-												<div class="d-flex mt-1">
-														<span id="ntUseCurrentLoc" class="cyan m-0 ml-auto">
-															<a href="#">Use current location&nbsp;<img src="/img/svg/pin-blue.svg"/></a>
-														</span>
-												</div>
-											</div>
 										</div>
 									</div>
-								</div>
 								<a name="nextriptop">&nbsp;</a>
 								<div class="nextrip-stop-list"></div>
 								<div id="nextripDepartures" class="nextrip-departures">
