@@ -9,6 +9,7 @@
 	<link rel="shortcut icon"
 		  href="favicon.ico"
 		  type="image/x-icon">
+	<link rel="stylesheet" href="https://js.arcgis.com/3.28/esri/css/esri.css">
 	<link rel="stylesheet"
 		  href="/css/app.css">
 
@@ -7125,11 +7126,18 @@
 	<script src="/js/jquery.autocomplete.js"></script>
 	<!-- <script src="/js/jquery.validate.js"></script> -->
 	<!-- <script src="/js/additional-methods.js"></script> -->
+	<script src="/js/alerts.js"></script>
 	<script src="/js/nextrip.js"></script>
-	<!-- <script src="/js/form-validation.js"></script> -->
+	<script src="/js/schedule.js"></script>
 	<script src="https://js.arcgis.com/3.28/"></script>
 	<script src="/js/TRIM.js"></script>
 	<script src="/js/scripts.js"></script>
+	<script>
+		$(function() {
+			window.serviceHostUrl = "https://svc.metrotransit.org";
+			Schedule.init();
+		});
+	</script>
 	<!-- End scripts -->
 </body>
 
