@@ -15,7 +15,6 @@ var gulp = require('gulp'),
 gulp.task('browserSync', function () {
 	browserSync.init({
 		server: {
-			// baseDir: ['src/Data/sites/1/skins/MetroTransitIII', 'src']
 			baseDir: ['src']
 		}
 	})
@@ -77,12 +76,12 @@ gulp.task('fonts', function () {
 });
 
 // Copy svf defs to Dist
-gulp.task('svgDefs', function () {
-	// return gulp.src('src/Data/sites/1/skins/MetroTransitIII/symbol-defs.svg')
-	//     .pipe(gulp.dest('dist/Data/sites/1/skins/MetroTransitIII'))
-	return gulp.src('src/symbol-defs.svg')
-		.pipe(gulp.dest('dist'))
-});
+// gulp.task('svgDefs', function () {
+// 	// return gulp.src('src/Data/sites/1/skins/MetroTransitIII/symbol-defs.svg')
+// 	//     .pipe(gulp.dest('dist/Data/sites/1/skins/MetroTransitIII'))
+// 	return gulp.src('src/symbol-defs.svg')
+// 		.pipe(gulp.dest('dist'))
+// });
 
 gulp.task('html', function () {
 	return gulp.src('src/**/*.html')
@@ -133,7 +132,7 @@ gulp.task('default', function (callback) {
 gulp.task('build', function (callback) {
 	runSequence(
 		'clean:dist',
-		'sass', ['html', 'css', 'fonts', 'scripts', 'images', 'svgDefs'],
+		'sass', ['html', 'css', 'fonts', 'scripts', 'images'],
 		callback
 	)
 });

@@ -114,5 +114,14 @@ $(function() {
         if (!(sessionStorage.getItem('prFinderResults') === null)) {
             $('#prFinderResults').html(sessionStorage.getItem('prFinderResults'));
         }
+        $('#prUseCurrentLoc').click(function() {
+            AutocompleteAddress.getUserLocation().then(function(){  // get current location
+                $('#parkRidesSearch').val('Current Location');
+                let userLoc = AutocompleteAddress.setUserLoc('parkRidesFindMe');  // format the location
+                if (userLoc) { 
+                    ParkRideServices.formatPage(userLoc); // pass the location to finder service
+                }
+            });
+        });
     }
 });
