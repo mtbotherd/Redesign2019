@@ -37,7 +37,7 @@ var StopServices = (function($,  window, document, undefined) {
             address += fromATIS;
             let serviceData = {
                 's-location': address
-            }
+            };
             $.ajax({
 				type: 'get',
 				url: 'https://dev.metrotransittest.org/Services/ServiceFinderSvc.ashx',

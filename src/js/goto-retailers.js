@@ -40,7 +40,7 @@ var GoToRetailerServices = (function($,  window, document, undefined) {
             let serviceData = {
                 'category' : options,
                 's-location': address
-            }
+            };
             // if there's more than 1 options, pass an extra parameter
             if (options.indexOf(',') > -1) { 
                serviceData.typegroup = 'AND'; 
