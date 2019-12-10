@@ -8957,9 +8957,11 @@ footer {
   overflow-y: auto; }
   @media (min-width: 992px) {
     .route .schedule-scroll-body {
-      max-height: 40rem; }
-      .route .schedule-scroll-body .no-pad {
-        padding-right: 0; } }
+      max-height: 40rem; } }
+
+@media (min-width: 992px) {
+  .route .no-pad {
+    padding-right: 0; } }
 
 .route .timetable-container table {
   margin: 0;
@@ -9025,7 +9027,7 @@ footer {
 .route .table-header-rotated tr.ampm {
   background-color: #f5f5f4;
   border: 1px solid #8a8b8a; }
-  @media (min-width: 992px) {
+  @media (max-width: 1199.98px) {
     .route .table-header-rotated tr.ampm th {
       text-align: left !important;
       padding-left: 40vw !important; } }

@@ -81,10 +81,12 @@
 
     @include media-breakpoint-up(lg) {
       max-height: 40rem;
+    }
+  }
 
-      .no-pad {
-        padding-right: 0;
-      }
+  .no-pad {
+    @include media-breakpoint-up(lg) {
+      padding-right: 0;
     }
   }
 
@@ -174,7 +176,7 @@
       border: 1px solid #8a8b8a;
 
       th {
-        @include media-breakpoint-up(lg) {
+        @include media-breakpoint-down(lg) {
           text-align: left !important;
           padding-left: 40vw !important;
         }
