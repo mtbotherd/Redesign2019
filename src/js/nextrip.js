@@ -304,11 +304,11 @@ var NexTrip = (function ($, window, document, undefined) {
         //use URL routing info to populate results
         var nextRoute = window.location.pathname.split('/');
         if (nextRoute[1].toLowerCase() === 'nextrip') {
-            if (nextRoute.length == 3) {
+            if (nextRoute.length === 3) {
                 if (!isNaN(nextRoute[2])) {
                     getStopDepartures(nextRoute[2]);
                 }
-            } else if (nextRoute.length == 5) {
+            } else if (nextRoute.length === 5) {
                 getTimepointDepartures(nextRoute[2], nextRoute[3], nextRoute[4]);
             }
         }

@@ -4,14 +4,14 @@ var Main = (function ($, window, document, undefined) {
 
     var getCookie = function (check_name) {
         var a_all_cookies = document.cookie.split(';'); var a_temp_cookie = ''; var cookie_name = ''; var cookie_value = ''; var b_cookie_found = false; var i = ''; for (i = 0; i < a_all_cookies.length; i++) {
-            a_temp_cookie = a_all_cookies[i].split('='); cookie_name = a_temp_cookie[0].replace(/^\s+|\s+$/g, ''); if (cookie_name == check_name) {
+            a_temp_cookie = a_all_cookies[i].split('='); cookie_name = a_temp_cookie[0].replace(/^\s+|\s+$/g, ''); if (cookie_name === check_name) {
                 b_cookie_found = true; if (a_temp_cookie.length > 1) { cookie_value = unescape(a_temp_cookie[1].replace(/^\s+|\s+$/g, '')); }
                 return cookie_value; break;
             }
             a_temp_cookie = null; cookie_name = '';
         }
         if (!b_cookie_found) { return null; }
-    }
+    };
 
     var setCookie = function (name, value, expires, path, domain, secure) {
         var today = new Date(); today.setTime(today.getTime()); if (expires) { expires = expires * 1000 * 60 * 60 * 24; }
@@ -20,13 +20,13 @@ var Main = (function ($, window, document, undefined) {
             ((path) ? ";path=" + path : "") +
             ((domain) ? ";domain=" + domain : "") +
             ((secure) ? ";secure" : "");
-    }
+    };
 
     var deleteCookie = function (name, path, domain) {
         if (getCookie(name)) document.cookie = name + "=" +
             ((path) ? ";path=" + path : "") +
             ((domain) ? ";domain=" + domain : "") + ";expires=Thu, 01-Jan-1970 00:00:01 GMT";
-    }
+    };
 
     var popupAlertNotice = function (cookieID, expire) {
         if ($('#special-alert-notice').hasClass('alert-popup')) {
@@ -60,8 +60,8 @@ var Main = (function ($, window, document, undefined) {
         field.on('focus', function () {
             $(document).on('keydown', function (event) {
                 if (field.attr('id') !== event.target.id) return;
-                if (field.val() == '') return;
-                if (event.which == 13) {
+                if (field.val() === '') return;
+                if (event.which === 13) {
                     event.preventDefault();
                     $(t).trigger('click');
                 }
@@ -140,4 +140,4 @@ function googleTranslateElementInit() {
     },
         'google_translate_element'
     );
-};
+}

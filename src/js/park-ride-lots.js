@@ -39,7 +39,7 @@ var ParkRideServices = (function($,  window, document, undefined) {
             let serviceData = {
                 'category' : 'PR',
                 's-location': address
-            }
+            };
             $.ajax({
 				type: 'get',
 				url: 'https://dev.metrotransittest.org/Services/FinderSvc.ashx',

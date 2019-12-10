@@ -73,7 +73,7 @@ var Schedule = (function ($, window, document, undefined) {
 
         $(document).on('keydown', function (event) {
             if ($('body').hasClass('purgeable')) {
-                if (event.ctrlKey && event.key == 'y') {
+                if (event.ctrlKey && event.key === 'y') {
                     document.forms[0].submit();
                 }
             }
