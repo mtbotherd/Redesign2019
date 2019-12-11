@@ -11931,4 +11931,41 @@ form label.is-invalid {
     font-size: 12px !important;
     font-size: 0.75rem !important; } }
 
+/* Hide edit controls on small devices */
+.modulelinks,
+#toolbar {
+  display: none; }
+
+@media (min-width: 992px) {
+  .modulelinks,
+  #toolbar {
+    display: inherit; } }
+
+@media print {
+  .web-schedule header,
+  .web-schedule footer,
+  .secondary,
+  div.route > .section,
+  .modulelinks,
+  #toolbar {
+    display: none; }
+  .schedule-print-title {
+    display: block !important; }
+  div.route > .section:nth-child(3) {
+    display: block !important;
+    width: 90%; }
+  .route .schedule-scroll,
+  .route .timetable-container,
+  .route .schedule-scroll-body,
+  .full-width {
+    max-height: 100%;
+    margin: auto;
+    left: auto;
+    display: block;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    height: 100% !important; }
+  .route div.timetables a {
+    display: none; } }
+
 /*# sourceMappingURL=maps/app.css.map */

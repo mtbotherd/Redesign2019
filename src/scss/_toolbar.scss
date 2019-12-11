@@ -1,0 +1,12 @@
+/* Hide edit controls on small devices */
+.modulelinks,
+#toolbar {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .modulelinks,
+  #toolbar {
+    display: inherit;
+  }
+}
