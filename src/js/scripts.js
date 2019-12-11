@@ -73,11 +73,9 @@ var Main = (function ($, window, document, undefined) {
     var init = function () {
         // shopping car number
         let qty = getCookie('cart_status');
-        if (qty === null) {
-            setCookie('cart_status', '2');
-            qty = 2;
+        if (qty !== null && qty > 0) {
+            $('<span/>', { class: 'badge badge-info' }).text(qty).appendTo($('a.store-icon'));
         }
-		$('<span/>', { class: 'badge badge-info' }).text(qty).appendTo($('a.store-icon'));
 
         // Bootstrap Popover with HTML
         $('[data-toggle="popover"]').popover({
