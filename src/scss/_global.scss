@@ -20,7 +20,11 @@ body {
 
   .moovel {
     .moovel-hide {
-      display: none;
+      display: none !important;
+    }
+
+    .moovel-show {
+      display: block !important;
     }
   }
 }
