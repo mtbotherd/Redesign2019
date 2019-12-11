@@ -85,7 +85,12 @@
     display: none;
   }
 
-  #ntUseCurrentLoc {
+  #ntrUseCurrentLoc{
+    @include media-breakpoint-up(lg) {
+      display:none;
+    }
+  }
+  #ntUseCurrentLoc{
     @include media-breakpoint-up(lg) {
       display:none;
     }

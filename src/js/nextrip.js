@@ -151,6 +151,49 @@ var NexTrip = (function ($, window, document, undefined) {
         getStopDepartures(stopId);
         scrollToResult();
     };
+    var findStops = function () {
+        let userLoc = AutocompleteAddress.setUserLoc('nexTrip');
+        if (userLoc) { 
+            resetUI();
+            $("#ntSpinner").removeClass("d-none");
+            $('.nextrip-stop-list').empty();
+            StopServices.findNearestStops(userLoc).then(function (results) {
+                $("#ntSpinner").addClass("d-none");
+                $.each(results, function (i, stop) {
+                    let routeList = '';
+                    if (stop.Services.length > 0) {
+                        routeList += '<div class="card-body pt-0 pb-2">';
+                        $.each(stop.Services, function (i, route) {
+                            routeList += '<span class="mb=0">';
+                            if (route.ServiceType === 0) { // Bus
+                                routeList += 'Route ';
+                            }
+                            routeList += route.PublicRoute;
+                            routeList += ' - ' + route.Direction + '</br></span>';
+                        });
+                        routeList += '</div>';
+                    }
+                    $('.nextrip-stop-list').append(`
+                            <div class="card gray-100 mb-3" style="max-width: 22rem;">
+                                <div class="card-header pb-0">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <a href="#" onclick="javascript:NexTrip.showDepartures(${stop.StopId});"><h3 class="mb-1">Stop ID: ${stop.StopId}</h3>
+                                            <h4 class="">${stop.StopDescription}</h4></a>
+                                        </div>
+                                        <img src="/img/svg/arrow-right-blue.svg" class="ml-auto" />
+                                    </div>
+                                    <hr>
+                                </div>
+                                ${routeList}
+                            </div>
+                     `);
+                });
+                $('.nextrip-stop-list').show();
+                scrollToResult();
+            });
+        }
+    };
 
     var init = function () {
         Main.enterKeyPressHandler('#stopNumber', '#searchStopsButton');
@@ -208,47 +251,10 @@ var NexTrip = (function ($, window, document, undefined) {
         // When user clicks 'use current location' then find neareset stops
         // and let them select one 
         $('#ntUseCurrentLoc').click(function() {
-			let userLoc = AutocompleteAddress.setUserLoc('nexTrip');
-			if (userLoc) { 
-                resetUI();
-                $("#ntSpinner").removeClass("d-none");
-                $('.nextrip-stop-list').empty();
-                StopServices.findNearestStops(userLoc).then(function (results) {
-                    $("#ntSpinner").addClass("d-none");
-                    $.each(results, function (i, stop) {
-                        let routeList = '';
-                        if (stop.Services.length > 0) {
-                            routeList += '<div class="card-body pt-0 pb-2">';
-                            $.each(stop.Services, function (i, route) {
-                                routeList += '<span class="mb=0">';
-                                if (route.ServiceType === 0) { // Bus
-                                    routeList += 'Route ';
-                                }
-                                routeList += route.PublicRoute;
-                                routeList += ' - ' + route.Direction + '</br></span>';
-                            });
-                            routeList += '</div>';
-                        }
-                        $('.nextrip-stop-list').append(`
-	                            <div class="card gray-100 mb-3" style="max-width: 22rem;">
-		                            <div class="card-header pb-0">
-			                            <div class="d-flex align-items-center">
-				                            <div>
-					                            <a href="#" onclick="javascript:NexTrip.showDepartures(${stop.StopId});"><h3 class="mb-1">Stop ID: ${stop.StopId}</h3>
-					                            <h4 class="">${stop.StopDescription}</h4></a>
-				                            </div>
-				                            <img src="/img/svg/arrow-right-blue.svg" class="ml-auto" />
-			                            </div>
-			                            <hr>
-		                            </div>
-                                    ${routeList}
-	                            </div>
-                         `);
-                    });
-                    $('.nextrip-stop-list').show();
-                    scrollToResult();
-                });
-			}
+            findStops();
+        });
+        $('#ntrUseCurrentLoc').click(function() {
+            findStops();
         });
 
         $('#searchStopsButton').click(function () {
