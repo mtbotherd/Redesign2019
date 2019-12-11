@@ -417,7 +417,15 @@ var TripPlan = (function($, window, document, undefined) {
 		DestroyAllMaps();
   
 		var tripFromLocation = AutocompleteAddress.getChoice('fromLocation');
+		if (tripFromLocation === null) {
+			$('#fromLocation').focus();
+			return;
+		}
 		var tripToLocation = AutocompleteAddress.getChoice('toLocation');
+		if (tripToLocation === null) {
+			$('#toLocation').focus();
+			return;
+		}
 
 		var selectTimeType = 'Depart';
 		var selectTime = $('#selectTime').val();
@@ -515,7 +523,6 @@ var TripPlan = (function($, window, document, undefined) {
 			  $(".time-elements").slideUp();
 		  }
 	  });
-	  //$(function () { $("#planMyTrip").attr('disabled', 'disabled'); });
 
 	  AutocompleteAddress.init("fromLocation", /*UTMout*/ true,
 		  function () {
@@ -575,7 +582,7 @@ var TripPlan = (function($, window, document, undefined) {
 
   $(function () {
 	if ($('#planMyTrip').length) {
-  		TripPlan.init();
+		  TripPlan.init();
         let x = sessionStorage.getItem('tripJSON');
         if (x) {
             TripPlanJSON = JSON.parse(x);

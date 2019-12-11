@@ -64,7 +64,6 @@ var AutocompleteAddress = (function($, window, document, undefined) {
   };
     var deleteChoice = function (/*string*/ inputDiv) {
         delete inputResults[inputDiv];
-        $("#planMyTrip").attr('disabled', 'disabled');
     };
   /* ===========================================================================
 		addressAutoComplete
@@ -89,6 +88,7 @@ var AutocompleteAddress = (function($, window, document, undefined) {
       noSuggestionNotice: 'No results',
       width: "flex",
       lookup: function(query, returnSuggestions) {
+        deleteChoice(inputDiv); // this ensures the prior value gets cleared
          let userPosition = fetchUserLoc();
         $.ajax({
           type: "get",
@@ -159,7 +159,11 @@ var AutocompleteAddress = (function($, window, document, undefined) {
   // Autocomplete results (user's last choice) are stored with a 
   // key field equal to the id of the input div.
   var getChoice = function(/*string*/ inputDiv) {
-    return inputResults[inputDiv];
+    var x = null;
+    if(typeof inputResults[inputDiv] !== 'undefined') {
+      x = inputResults[inputDiv];
+    }
+    return x;
   };
   // This is a special function to support swapping the 
   // from/to location choices for the trip planner entry
