@@ -6,83 +6,90 @@ form {
     font-size: initial;
   }
 
-  .custom-file-input:lang(en) ~ .custom-file-label::after {
-    //content: "\f574";
-    display: inline-block;
-    vertical-align: middle;
-    font-weight: 900;
+  label.is-invalid {
+    position: absolute;
+    top: -1.5rem;
+    left: 1rem;
+    color: $red;
+    font-style: italic;
   }
 
-  .is-invalid {
-    position: relative;
-    .form-control,
-    .custom-select {
-      border-color: $red !important;
-    }
+  //   .custom-file-input:lang(en) ~ .custom-file-label::after {
+  //     //content: "\f574";
+  //     display: inline-block;
+  //     vertical-align: middle;
+  //     font-weight: 900;
+  //   }
 
-    .form-control:focus,
-    .custom-select:focus,
-    .custom-file-input:focus ~ .custom-file-label {
-      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25), 0 0 6px $red;
-      -webkit-box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25), 0 0 6px $red;
-    }
+  //   .is-invalid {
+  //     .form-control,
+  //     .custom-select {
+  //       border-color: $red !important;
+  //     }
 
-    .custom-file-input:lang(en) ~ .custom-file-label::after {
-      border-left: 1px solid $red;
-    }
+  //     .form-control:focus,
+  //     .custom-select:focus,
+  //     .custom-file-input:focus ~ .custom-file-label {
+  //       box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25), 0 0 6px $red;
+  //       -webkit-box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25), 0 0 6px $red;
+  //     }
 
-    .custom-file-label {
-      border-color: $red !important;
-    }
+  //     .custom-file-input:lang(en) ~ .custom-file-label::after {
+  //       border-left: 1px solid $red;
+  //     }
 
-    .help-block {
-      position: absolute;
-      top: 2.5rem;
-      left: 1.5rem;
-      color: $red;
-      font-style: italic;
+  //     .custom-file-label {
+  //       border-color: $red !important;
+  //     }
 
-      @include media-breakpoint-up(md) {
-        top: 3.15rem;
-      }
-    }
-  }
+  //     .help-block {
+  //       position: absolute;
+  //       top: 2.5rem;
+  //       left: 1.5rem;
+  //       color: $red;
+  //       font-style: italic;
 
-  .input-group.is-invalid {
-    .alert-red {
-      position: absolute;
-      top: 2.75rem;
-      left: 0;
+  //       @include media-breakpoint-up(md) {
+  //         top: 3.15rem;
+  //       }
+  //     }
+  //   }
 
-      @include media-breakpoint-up(lg) {
-        top: 3.5rem;
-      }
-    }
-  }
+  //   .input-group.is-invalid {
+  //     .alert-red {
+  //       position: absolute;
+  //       top: 2.75rem;
+  //       left: 0;
 
-  .is-valid {
-    .form-control,
-    .custom-select {
-      border-color: $green;
-    }
+  //       @include media-breakpoint-up(lg) {
+  //         top: 3.5rem;
+  //       }
+  //     }
+  //   }
 
-    .form-control:focus,
-    .custom-select:focus,
-    .custom-file-input:focus {
-      box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25), 0 0 6px $green;
-      -webkit-box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25), 0 0 6px $green;
-    }
+  //   .is-valid {
+  //     .form-control,
+  //     .custom-select {
+  //       border-color: $green;
+  //     }
 
-    .custom-file-label {
-      border-color: $green !important;
-    }
+  //     .form-control:focus,
+  //     .custom-select:focus,
+  //     .custom-file-input:focus {
+  //       box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25), 0 0 6px $green;
+  //       -webkit-box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25), 0 0 6px $green;
+  //     }
 
-    .form-control-feedback {
-      // Default position of success icon inside input element.
-      display: none;
-      position: absolute;
-      top: 2.75rem;
-      right: 1.5rem;
-    }
-  }
+  //     .custom-file-label {
+  //       border-color: $green !important;
+  //     }
+
+  //     .form-control-feedback {
+  //       // Default position of success icon inside input element.
+  //       display: none;
+  //       position: absolute;
+  //       top: 2.75rem;
+  //       right: 1.5rem;
+  //     }
+  //   }
 }

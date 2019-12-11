@@ -11252,6 +11252,19 @@ h2.blogtitle {
         width: 1.25rem !important;
         height: 1.25rem !important; } }
 
+/**************************************************
+    Form validation styles
+**************************************************/
+form legend {
+  font-size: initial; }
+
+form label.is-invalid {
+  position: absolute;
+  top: -1.5rem;
+  left: 1rem;
+  color: #ed1b2e;
+  font-style: italic; }
+
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;

@@ -515,7 +515,7 @@ var TripPlan = (function($, window, document, undefined) {
 			  $(".time-elements").slideUp();
 		  }
 	  });
-	  $(function () { $("#planMyTrip").attr('disabled', 'disabled'); });
+	  //$(function () { $("#planMyTrip").attr('disabled', 'disabled'); });
 
 	  AutocompleteAddress.init("fromLocation", /*UTMout*/ true,
 		  function () {
