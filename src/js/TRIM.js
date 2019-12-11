@@ -979,7 +979,7 @@ var TRIM = (function ($, window, document, undefined) {
                         return routestring;
                     };
                     var idMap = function (evt) {
-                        clearInterval(nexTrip_INTERVAL);
+
                         var showLocation = function (results2) {
                             var title = "Map Click<hr/>" + "Location found: <br/>" + results2.address.address.Street + "<br/>";
 
@@ -1066,6 +1066,7 @@ var TRIM = (function ($, window, document, undefined) {
                                 $('#mapPopUpRoutes').html(formatRouteList(atts.ROUTES));
 
                                 formatPopupDepartures(atts.siteid);
+                                clearInterval(nexTrip_INTERVAL);
                                 nexTrip_INTERVAL = setInterval(function() {
                                     formatPopupDepartures(atts.siteid);
                                 }, 30000);
@@ -1163,6 +1164,8 @@ var TRIM = (function ($, window, document, undefined) {
                             MAP.disableDoubleClickZoom();
                             MAP.hideZoomSlider();
                             $("#trimLocate").hide();
+                        } else {
+                            MAP.enableClickRecenter();
                         }
                     });
 
