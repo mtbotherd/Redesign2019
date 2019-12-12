@@ -10996,6 +10996,10 @@ select.navigator {
   display: none; }
 
 @media (min-width: 992px) {
+  #nextripModule #ntrUseCurrentLoc {
+    display: none; } }
+
+@media (min-width: 992px) {
   #nextripModule #ntUseCurrentLoc {
     display: none; } }
 

@@ -115,7 +115,7 @@ var Alerts = (function ($, window, document, undefined) {
             var btn = $('<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#route' + route.route_id + 'alerts" aria-expanded="false" />');
             btn.append($('<img class="icon circle-blue-lrt mr-2" src="/img/svg/circle-' + route.icon + '.svg">'));
             btn.append($('<span/>', { class: 'route-alert' }).text(route.route_label));
-            btn.append($('<div/>', { class: 'ml-auto' })
+            btn.append($('<div/>', { class: 'ml-auto text-nowrap' })
                 .append($('<span/>', { class: 'number-alerts' }).text(route.alert_index.length + ' Alert(s)'))
                 .append($('<img/>', { class: 'icon chevron-down-blue ml-2', src: '/img/svg/chevron-down-blue.svg' }))
             );

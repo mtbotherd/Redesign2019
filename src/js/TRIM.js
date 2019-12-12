@@ -1070,6 +1070,9 @@ var TRIM = (function ($, window, document, undefined) {
                                 nexTrip_INTERVAL = setInterval(function() {
                                     formatPopupDepartures(atts.siteid);
                                 }, 30000);
+                                if (evt.screenX > 760) {
+                                MAP.centerAt(evt.mapPoint);
+                                }
                             }
                         });
                     };
@@ -1164,8 +1167,6 @@ var TRIM = (function ($, window, document, undefined) {
                             MAP.disableDoubleClickZoom();
                             MAP.hideZoomSlider();
                             $("#trimLocate").hide();
-                        } else {
-                            MAP.enableClickRecenter();
                         }
                     });
 
