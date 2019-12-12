@@ -1,0 +1,33 @@
+.moovel-show {
+  display: none !important;
+}
+body.moovel {
+  .moovel-hide {
+    display: none !important;
+  }
+
+  .moovel-show {
+    display: block !important;
+  }
+
+  nav.moovel-show {
+    ul {
+      list-style-type: none;
+      padding-left: 0 !important;
+
+      li {
+        display: inline-flex;
+
+        .icon {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+
+        .arrow-left-blue {
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+    }
+  }
+}

@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<form method="post" action="https://wwwtest.metrotransit.org/trip-planner" id="aspnetForm">
+	<form id="aspnetForm">
 
 		<a href="#pageContainer" class="skip-to-content">Skip to main content</a>
 
@@ -157,6 +157,9 @@
 							<section class="section">
 								<div id="tripPlannerModule">
 									<div id="planTrip" class="card">
+										<div id="fromErrorMessage" class="is-invalid d-none">
+											<span>Begin typing, then select an option from the list.</span>
+										</div>
 										<div class="form-group mb-0 d-flex">
 											<input id="fromLocation"
 												type="text"
@@ -182,6 +185,9 @@
 												<span id="tpUseCurrentLoc">
 													<a href="#" class="mb-0">Use current location&nbsp;<img src="/img/svg/pin-blue.svg"/></a>
 												</span>
+										</div>
+										<div id="toErrorMessage" class="is-invalid d-none">
+											<span>Begin typing, then select an option from the list.</span>
 										</div>
 										<div class="form-group">
 											<input id="toLocation"
@@ -399,44 +405,45 @@
 											</div>
 										</div>
 										<div class="btn-wrapper text-center">
-											<button type="submit"
+											<button type="button"
 													id="planMyTrip"
 													class="btn btn-warning"
 													name="planMyTrip">Plan my trip</button>
 										</div>
 									</div>
-								</div>
 
-								<div id="tripPlannerResults" class="card">
-									<div class="no-trips-found mb-1 mb-lg-5">
-									<div class="alert alert-primary"
-											role="alert">
-										<h2>No trips available</h2>
-										<p>We were unable to plan a trip between those locations. Try adjusting your trip settings.
-											You can also contact Transit Information for help by phone at 612-373-3333 or text at 612-444-1161.</p>
-									</div>
-								</div>
+									<div id="tripPlannerResults" class="card">
+										<div class="no-trips-found mb-1 mb-lg-5">
+											<div class="alert alert-primary"
+													role="alert">
+												<h2>No trips available</h2>
+												<p>We were unable to plan a trip between those locations. Try adjusting your trip settings.
+													You can also contact Transit Information for help by phone at 612-373-3333 or text at 612-444-1161.</p>
+											</div>
+										</div>
 								
-								<div class="trips-found">
-									<h2 id="trip-result-count"></h2>
-									<p id="trip-result-msg"></p>
-									<div id="tripPlan" class="tp-results accordion mb-1 mb-lg-5" role="tablist">
-									</div>
-									<div class="text-center">
-										<button type="button"
-												id="editMyTrip"
-												class="btn btn-warning mb-4 mb-md-0">
-											Edit my trip
-											<img class="icon edit-blue"
-													src="/img/svg/edit-blue.svg">
-										</button>
-										<button type="button"
-												id="startTripOver"
-												class="btn btn-warning">
-											Start over
-											<img class="icon edit-blue"
-													src="/img/svg/edit-blue.svg">
-										</button>
+										<div class="trips-found">
+											<h2 id="trip-result-count"></h2>
+											<p id="trip-result-msg"></p>
+											<div id="tripPlan" class="tp-results accordion mb-1 mb-lg-5" role="tablist">
+											</div>
+											<div class="text-center">
+												<button type="button"
+														id="editMyTrip"
+														class="btn btn-warning mb-4 mb-md-0">
+													Edit my trip
+													<img class="icon edit-blue"
+															src="/img/svg/edit-blue.svg">
+												</button>
+												<button type="button"
+														id="startTripOver"
+														class="btn btn-warning">
+													Start over
+													<img class="icon edit-blue"
+															src="/img/svg/edit-blue.svg">
+												</button>
+											</div>
+										</div>
 									</div>
 								</div>
 							</section>
@@ -593,13 +600,13 @@
 	<script src="/js/jquery.exlink.js"></script>
 	<script src="/js/jquery.autocomplete.js"></script>
 	<script src="/js/jquery.validate.js"></script>
+	<script src="/js/form-validation.js"></script>
 	<script src="/js/moment.js"></script>
 	<script src="https://js.arcgis.com/3.28/"></script>
 	<script src="/js/TRIM.js"></script>
 	<script src="/js/autocomplete.js"></script>
 	<script src="/js/trip-planner.js"></script>
 	<script src="/js/nextrip.js"></script>
-	<script src="/js/form-validation.js"></script>
 	<script src="/js/scripts.js"></script>
 	<!-- End scripts -->
 	

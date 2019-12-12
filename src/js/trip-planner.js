@@ -418,13 +418,23 @@ var TripPlan = (function($, window, document, undefined) {
   
 		var tripFromLocation = AutocompleteAddress.getChoice('fromLocation');
 		if (tripFromLocation === null) {
-			$('#fromLocation').focus();
+			$('#fromLocation').addClass('is-invalid').focus();
+			$('#fromErrorMessage').removeClass('d-none');
+			event.preventDefault();
 			return;
+		} else {
+			$('#fromLocation').removeClass('is-invalid');
+			$('#fromErrorMessage').addClass('d-none');
 		}
 		var tripToLocation = AutocompleteAddress.getChoice('toLocation');
 		if (tripToLocation === null) {
-			$('#toLocation').focus();
+			$('#toLocation').addClass('is-invalid').focus();
+			$('#toErrorMessage').removeClass('d-none');
+			event.preventDefault();
 			return;
+		} else {
+			$('#toLocation').removeClass('is-invalid');
+			$('#toErrorMessage').addClass('d-none');
 		}
 
 		var selectTimeType = 'Depart';

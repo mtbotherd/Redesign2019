@@ -18,15 +18,15 @@ body {
     @include font-size(18);
   }
 
-  .moovel {
-    .moovel-hide {
-      display: none !important;
-    }
+  //   &.moovel {
+  //     .moovel-hide {
+  //       display: none !important;
+  //     }
 
-    .moovel-show {
-      display: block !important;
-    }
-  }
+  //     .moovel-show {
+  //       display: block !important;
+  //     }
+  //   }
 }
 
 // @media (max-width: 767) {
