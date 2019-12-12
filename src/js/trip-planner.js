@@ -422,19 +422,15 @@ var TripPlan = (function($, window, document, undefined) {
 			$('#fromErrorMessage').removeClass('d-none');
 			event.preventDefault();
 			return;
-		} else {
-			$('#fromLocation').removeClass('is-invalid');
-			$('#fromErrorMessage').addClass('d-none');
-		}
+		} 
+
+
 		var tripToLocation = AutocompleteAddress.getChoice('toLocation');
 		if (tripToLocation === null) {
 			$('#toLocation').addClass('is-invalid').focus();
 			$('#toErrorMessage').removeClass('d-none');
 			event.preventDefault();
 			return;
-		} else {
-			$('#toLocation').removeClass('is-invalid');
-			$('#toErrorMessage').addClass('d-none');
 		}
 
 		var selectTimeType = 'Depart';
@@ -536,15 +532,17 @@ var TripPlan = (function($, window, document, undefined) {
 
 	  AutocompleteAddress.init("fromLocation", /*UTMout*/ true,
 		  function () {
-			  if (AutocompleteAddress.getChoice("toLocation")) {
-				  $("#planMyTrip").removeAttr('disabled');
-			  }
+			  if (AutocompleteAddress.getChoice("fromLocation")) { 
+				$('#fromLocation').removeClass('is-invalid');
+				$('#fromErrorMessage').addClass('d-none');
+			   }
 		  });
 	  AutocompleteAddress.init("toLocation", /*UTMout*/ true,
 		  function () {
-			  if (AutocompleteAddress.getChoice("fromLocation")) {
-				  $("#planMyTrip").removeAttr('disabled');
-			  }
+			  if (AutocompleteAddress.getChoice("toLocation")) { 
+				$('#toLocation').removeClass('is-invalid');
+				$('#toErrorMessage').addClass('d-none');
+			   }
 		  });
 		$("#editMyTrip").on('click', function(){
 			$('#tripPlannerResults').hide('slow');
