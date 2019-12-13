@@ -1,11 +1,4 @@
 #nextripModule {
-  // h2 {
-  //   margin-bottom: 30px !important;
-
-  //   @include media-breakpoint-up(lg) {
-  //     margin-bottom: 60px !important;
-  //   }
-  // }
   #nextrip-tab-content {
     padding-top: 1.5rem;
     .tab-pane {
@@ -189,13 +182,14 @@
   }
 
   .nextrip-legend {
+    font-size: 0.8rem;
     font-weight: 700;
     text-align: right;
-    margin: 0.75rem 0;
+    margin-bottom: 1rem;
   }
 
   .nextrip-legend > .icon {
-    height: 1rem;
-    width: 1rem;
+    height: 0.75rem;
+    width: 0.75rem;
   }
 }

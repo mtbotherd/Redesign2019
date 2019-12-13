@@ -11067,13 +11067,14 @@ select.navigator {
   -moz-appearance: textfield; }
 
 #nextripModule .nextrip-legend {
+  font-size: 0.8rem;
   font-weight: 700;
   text-align: right;
-  margin: 0.75rem 0; }
+  margin-bottom: 1rem; }
 
 #nextripModule .nextrip-legend > .icon {
-  height: 1rem;
-  width: 1rem; }
+  height: 0.75rem;
+  width: 0.75rem; }
 
 #alertsModule h2 {
   margin-bottom: 30px !important; }
