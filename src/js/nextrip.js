@@ -253,10 +253,14 @@ var NexTrip = (function ($, window, document, undefined) {
         // When user clicks 'use current location' then find neareset stops
         // and let them select one 
         $('#ntUseCurrentLoc').click(function() {
+            AutocompleteAddress.getUserLocation().then(function () {  // get current location
             findStops();
+            });
         });
         $('#ntrUseCurrentLoc').click(function() {
+            AutocompleteAddress.getUserLocation().then(function () {  // get current location
             findStops();
+            });
         });
 
         $('#searchStopsButton').click(function () {

@@ -512,12 +512,13 @@ var TripPlan = (function($, window, document, undefined) {
 	  });
   
 	  $("#tpUseCurrentLoc").click(function(){
+            AutocompleteAddress.getUserLocation().then(function () {  // get current location
 		  let userLoc = AutocompleteAddress.setUserLoc('fromLocation');
 		  if (userLoc) { 
 			  $("#fromLocation").val("Current Location");
 		  }
 	  });
-  
+        });
 	  $(".time-elements").hide();
 	  $("#selectTime").on("change", function () { 
 		  // time & date inputs

@@ -88,7 +88,6 @@ var AutocompleteAddress = (function($, window, document, undefined) {
       noSuggestionNotice: 'No results',
       width: "flex",
       lookup: function(query, returnSuggestions) {
-        deleteChoice(inputDiv); // this ensures the prior value gets cleared
          let userPosition = fetchUserLoc();
         $.ajax({
           type: "get",
@@ -114,6 +113,7 @@ var AutocompleteAddress = (function($, window, document, undefined) {
           });
       },
       onSelect: function(suggest) {
+                deleteChoice(inputDiv); // this ensures the prior value gets cleared
         $.ajax({
           type: "get",
           url: LOCATOR + "findAddressCandidates",
