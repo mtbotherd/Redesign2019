@@ -28,23 +28,6 @@
       @include media-breakpoint-up(lg) {
         margin: 0 auto;
       }
-
-      //   &::before {
-      //     // position: absolute;
-      //     content: "";
-      //     background-image: url("../../../../../img/svg/date-time-color.svg");
-      //     background-repeat: no-repeat;
-      //     background-size: 2.5rem;
-      //     width: 2.5rem;
-      //     height: 2.5rem;
-      //     margin-right: 0.5rem;
-
-      //     @include media-breakpoint-up(lg) {
-      //       background-size: 3rem;
-      //       width: 3rem;
-      //       height: 3rem;
-      //     }
-      //   }
     }
   }
 
@@ -52,7 +35,6 @@
     margin-bottom: 1rem;
 
     .routes {
-      //margin-right: .5rem;
       margin-bottom: 1.12rem;
 
       @include media-breakpoint-up(md) {
@@ -96,30 +78,13 @@
       height: 50px;
       margin-right: 0.75rem;
       margin-bottom: 0.75rem;
-      //   margin-right: 1.35rem;
-      //   margin-bottom: 1.35rem;
-
-      //   &:nth-child(4n) {
-      //     margin-right: 0;
-      //   }
 
       @include media-breakpoint-up(md) {
         margin-right: 1.15rem;
         margin-bottom: 1.15rem;
-
-        // &:nth-child(4n) {
-        //   margin-right: 1.15rem;
-        // }
-
-        // &:nth-child(8n) {
-        //   margin-right: 0;
-        // }
       }
 
       @include media-breakpoint-up(lg) {
-        //margin-right: 1.19rem;
-        //margin-bottom: 1.19rem;
-
         &:nth-child(4n),
         &:nth-child(8n) {
           margin-right: 1.15rem;
