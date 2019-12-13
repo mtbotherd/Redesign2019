@@ -29,12 +29,8 @@ var StopServices = (function($,  window, document, undefined) {
             + findLoc.location.y
             + "|"
             + findLoc.location.x
-            + "|";
-            let fromATIS = '0';
-			if (findLoc.attributes.ATIS_ID.indexOf(';') > -1) {
-			    fromATIS += findLoc.attributes.ATIS_ID.split(';')[1];
-            }
-            address += fromATIS;
+                + "|0"; // no ATIS id for these
+            console.log("Address: " + address);
             let serviceData = {
                 's-location': address
             };
@@ -45,11 +41,7 @@ var StopServices = (function($,  window, document, undefined) {
 				dataType: "json"
             })
             .done(function (result, status, xhr) {
-                if (result.error) {
-                    dfd.reject({'Message': result.error});
-                } else {
                     dfd.resolve(result);
-                }
             })
             .fail(function(err) {
                 dfd.reject("StopServiceFinder failed - No results " + err);
@@ -58,10 +50,9 @@ var StopServices = (function($,  window, document, undefined) {
     }
     function formatPage (addressChoice) {
         $('#stopFinderResults').empty();
+        $('#stopFinderResults').append('<p class="result-msg">Transit service near ' + addressChoice.attributes.LongLabel + '</p>');
         findNearestStops(addressChoice) 
         .then(function(result){
-            //console.dir(result);
-            $('#stopFinderResults').append('<p class="result-msg">Transit service near ' + addressChoice.attributes.LongLabel +'</p>');
             for (let i = 0, l = result.length; i < l; i++) {
                 let stop = result[i];
                 let mapLink = 'https://dev.metrotransittest.org/imap/0/'+ stop.StopId;
@@ -123,12 +114,13 @@ var StopServices = (function($,  window, document, undefined) {
                 `);
                 sessionStorage.setItem('stopFinderResults', $('#stopFinderResults').html());
             }
-            if (result.length === 0) {
-                $('#stopFinderResults').append('<p class="result-msg">No transit service available near ' + addressChoice.attributes.LongLabel +'</p>');
+                if (result.error) {
+                    $('#stopFinderResults').append('<p class="result-msg">No transit service available within a half-mile.</p>');
             }
         })
         .fail(function(err) {
-            console.warn("StopServices failed to return results correctly");
+                console.warn("StopServices" + err);
+                $('#stopFinderResults').append('<p class="result-msg">No transit service available within a half-mile.</p>');
         });
     }
 

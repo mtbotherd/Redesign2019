@@ -435,6 +435,7 @@ var CoordinateConversion = (function () {
 var TRIM = (function ($, window, document, undefined) {
     var MAP = null; // this is the main MAP object 
     var GEOLOCATE = null; // this is the locate button object
+    const TRIM_MapServer = "https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer";
 
     var _bubbleSort = function (inputArr) {
         var swapped;
@@ -499,6 +500,7 @@ var TRIM = (function ($, window, document, undefined) {
         GEOLOCATE.locate();
     };
     var centerMarkerAtPoint = function (/*float*/x, /*float*/y,/*int*/zoomLevel) {  // x = longitude, y = latitude
+        var level = typeof zoomLevel !== 'undefined' ? zoomLevel : null;
         MAP.graphics.clear();
         require([
             "esri/graphic",
@@ -515,7 +517,11 @@ var TRIM = (function ($, window, document, undefined) {
                 stopSymbol.setOffset(0, 15);
                 g.setSymbol(stopSymbol);
                 MAP.graphics.add(g);
-                MAP.centerAndZoom(p, zoomLevel);
+                MAP.centerAt(p).then(function () {
+                    if (level) {
+                        MAP.setLevel(level);
+                    }
+                });
             });
     };
     var toggleLayer = function (/*string*/layer, /*integer*/zoomLevel) {
@@ -1206,7 +1212,6 @@ var TRIM = (function ($, window, document, undefined) {
                             console.error("Layer add " + result.error + " for " + result.layer.url);
                         }
                     });
-                    const TRIM_MapServer = "https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer";
 
                     var allStopLayer = new ArcGISDynamicMapServiceLayer(TRIM_MapServer,
                         {
@@ -1216,14 +1221,6 @@ var TRIM = (function ($, window, document, undefined) {
                     allStopLayer.setImageFormat("svg");
                     allStopLayer.setVisibleLayers([1]);
 
-                    var goToLayer = new ArcGISDynamicMapServiceLayer(TRIM_MapServer,
-                        {
-                            id: "goTo",
-                            opacity: 1,
-                            visible: true
-                        });
-                    goToLayer.setImageFormat("svg");
-                    goToLayer.setVisibleLayers([2]);
 
                     var parkAndRidesLayer = new ArcGISDynamicMapServiceLayer(TRIM_MapServer,
                         {
@@ -1263,6 +1260,14 @@ var TRIM = (function ($, window, document, undefined) {
                     layerQuerySettings[4] = "1=0"; // query for sublayer 4 - show nothing
                     routesLayer.setLayerDefinitions(layerQuerySettings);
 
+                    var goToLayer = new ArcGISDynamicMapServiceLayer(TRIM_MapServer,
+                        {
+                            id: "goTo",
+                            opacity: 1,
+                            visible: false
+                        });
+                    goToLayer.setImageFormat("svg");
+                    goToLayer.setVisibleLayers([2]);
                     var tripLayer = new GraphicsLayer({
                         id: "trip",
                         opacity: 0.75
@@ -1292,8 +1297,8 @@ var TRIM = (function ($, window, document, undefined) {
                         mapLayers = [
                             //allRoutesLayer,
                             allStopLayer,
-                            //goToLayer,
                             parkAndRidesLayer,
+                            goToLayer,
                             routesLayer,
                             routestopLayer,
                             stopsLayer,
@@ -1368,7 +1373,8 @@ var TRIM = (function ($, window, document, undefined) {
     // This page also directly as iMap/InteractiveMap.aspx?x=<longitude>&y=<latitude>
     // to open the map as a particular point.
     // ----------------------------------------------------------------
-    var fullPageSetup = function (mapDiv, route, stop, x, y) {
+    var fullPageSetup = function (mapDiv, route, stop, x, y, myType) {
+        var t = typeof myType !== 'undefined' ? myType : null;
         var h = $(window).height();
         if (h > 1000) {
             $('.map').css({ 'height': h - 500 });
@@ -1384,7 +1390,7 @@ var TRIM = (function ($, window, document, undefined) {
                         .then(function (x, y, name) {
                             let title = 'Stop ' + stop + ' / ' + name;
                             $('#page-title-text').html(title);
-                            centerMarkerAtPoint(x, y,/*zoomLevel*/ 19);
+                            centerMarkerAtPoint(x, y,/*zoomLevel*/ 17);
                         }).fail(function () {
                             console.warn('Requested stop ' + stop + ' not found.');
                         });
@@ -1406,8 +1412,14 @@ var TRIM = (function ($, window, document, undefined) {
                     toggleLayer('parkAndRides'); // Turn the P&R Layer off for the route link page
                 } else {
                     if (x && y) {
-                        //console.log("Coordinates: " + x + ", " + y);
-                        centerMarkerAtPoint(parseFloat(x), parseFloat(y),14);
+                        if (t === 'gt') {
+                            toggleLayer('goTo');
+                            centerMarkerAtPoint(parseFloat(x), parseFloat(y), 17);
+                        } else if (t === 'pr') {
+                            centerMarkerAtPoint(parseFloat(x), parseFloat(y), 16);
+                        } else {
+                            centerMarkerAtPoint(parseFloat(x), parseFloat(y), 16);
+                        }
                     }
                 }
             }
@@ -2239,7 +2251,7 @@ $(function () {
         AutocompleteAddress.init("interactiveMapSearch",/*UTMout*/ false,
                 function() {
                 var choice = AutocompleteAddress.getChoice("interactiveMapSearch");
-                    TRIM.centerMarkerAtPoint(choice.location.x, choice.location.y);
+                TRIM.centerMarkerAtPoint(choice.location.x, choice.location.y, 15);
                 }
             );
         TRIM.init("TRIMap").then(function () {

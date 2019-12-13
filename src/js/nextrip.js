@@ -57,12 +57,14 @@ var NexTrip = (function ($, window, document, undefined) {
             .done(function (result) {
                 loadDepartures(JSON.parse(JSON.stringify(result)));
                 history.pushState({}, '', '/nextrip/' + id);
+                $('.nextrip-legend').show();
             })
             .fail(function () {
                 $('.stop-departures').empty();
                 $('#nextripDepartures').show();
                 $('.stop-description').text(id + ' is not a valid stop number.');
                 $('.more').hide();
+                $('.nextrip-legend').hide();
                 $('#showMyBus').hide();
                 clearInterval(timer);
             });
