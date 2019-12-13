@@ -328,13 +328,19 @@ input,
     width: 23rem;
   }
 }
-.btn-med-extend{
+.btn-med-extend {
   width: 16rem;
 
   @include media-breakpoint-up(lg) {
     width: 18rem;
   }
 }
+
+// .btn-block {
+//   @include media-breakpoint-up(lg) {
+//     width: auto;
+//   }
+// }
 
 .link-container-icon-left {
   position: relative;
