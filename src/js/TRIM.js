@@ -875,26 +875,6 @@ var TRIM = (function ($, window, document, undefined) {
             var mapType = pType !== null ? pType : "full";
             //console.log(mapElementID + " functionality is " + mapType);
 
-            var ROUTENAMES = null;
-            $.ajax({
-                type: "get",
-                url: "https://svc.metrotransit.org/nextripv2/routes",
-                dataType: "json"
-            })
-                .done(function (result, status, xhr) {
-                    ROUTENAMES = {};
-                    // Input format: { RouteId: "901", ProviderID: "8", Description: "METRO Blue Line", RouteAbbr: ... }
-                    // Outformat { "901": "METRO Blue Line" }
-                    for (let i = 0, l = result.length; i < l; i++) {
-                        var route = result[i];
-                        ROUTENAMES[route.RouteId] = route.Description;
-                    }
-                    //console.dir(ROUTENAMES);
-                })
-                .fail(function (err) {
-                    console.warn("NexTrip Routes fetch failed" + err);
-                });
-
             require(["esri/map",
                 "esri/basemaps",
                 "esri/config",
@@ -934,6 +914,33 @@ var TRIM = (function ($, window, document, undefined) {
                 LocateButton,
                 on
             ) {
+                    var ROUTENAMES = null;
+                    var createRouteList = function () {
+                        var query = new Query();
+                        var queryTask = new QueryTask("https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/4");
+                        query.returnGeometry = false;
+                        query.where = "1=1"; // extract them all
+                        query.outFields = ["ROUTENUM", "ROUTEDESCRIPTION"];
+                        queryTask.execute(query);
+                        queryTask.on("error", function (err) {
+                            console.warn("createRouteList error");
+                            console.dir(err);
+                        });
+                        queryTask.on("complete", function (fSet) {
+                            if (fSet.featureSet.features.length > 0) {
+                                ROUTENAMES = {};
+                                // Outformat { "901": "METRO Blue Line" }
+                                for (let i = 0, l = fSet.featureSet.features.length; i < l; i++) {
+                                    var route = fSet.featureSet.features[i].attributes;
+                                    if (route.ROUTENUM > 887) {
+                                        ROUTENAMES[route.ROUTENUM] = route.ROUTEDESCRIPTION;
+                                    } else {
+                                        ROUTENAMES[route.ROUTENUM] = route.ROUTENUM.toString() + " " + route.ROUTEDESCRIPTION;
+                                    }
+                                }
+                            }
+                        });
+                    };
                     var drawNiceRides = function () {
                         $.ajax({
                             type: "get",
@@ -1085,7 +1092,7 @@ var TRIM = (function ($, window, document, undefined) {
                     //===================================================================================
                     //  START OF MAP INITIALIZATION =====================================================
                     //===================================================================================
-
+                    createRouteList();
                     //esriConfig.defaults.map.panRate = 1;
                     //esriConfig.defaults.map.panDuration = 1;
                     var spatialRefWM = new SpatialReference({ wkid: 3857 });
@@ -1166,6 +1173,7 @@ var TRIM = (function ($, window, document, undefined) {
                             scalebarUnit: "english"
                         });
 
+                        MAP.disableScrollWheel();
                         if (mapType === 'route') {
                             // disallow naviagation and zoom, remove buttons
                             MAP.disablePan();
