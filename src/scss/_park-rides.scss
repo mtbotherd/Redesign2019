@@ -135,16 +135,33 @@
 
     .arrow-right-blue {
       width: 1.5rem;
-      height: 1.1rem;
+      height: 1.5rem;
 
       @include media-breakpoint-up(lg) {
-        margin-top: 0.25rem;
+        margin-top: 0.5rem;
       }
     }
   }
   #prUseCurrentLoc {
-    @include media-breakpoint-up (lg) {
-      display:none;
+    display: flex;
+    margin-left: auto;
+    position: relative;
+    .pr-use-current-location {
+      padding-right: 1.25rem;
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        content: "";
+        background-image: url("../../../../../img/svg/pin-blue.svg");
+        background-repeat: no-repeat;
+        background-size: 1rem;
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+    @include media-breakpoint-up(lg) {
+      display: none;
     }
   }
 }

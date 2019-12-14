@@ -8771,14 +8771,31 @@ footer {
           top: 0.25rem; } }
   #parkRides .card .arrow-right-blue {
     width: 1.5rem;
-    height: 1.1rem; }
+    height: 1.5rem; }
     @media (min-width: 992px) {
       #parkRides .card .arrow-right-blue {
-        margin-top: 0.25rem; } }
+        margin-top: 0.5rem; } }
 
-@media (min-width: 992px) {
-  #parkRides #prUseCurrentLoc {
-    display: none; } }
+#parkRides #prUseCurrentLoc {
+  display: -webkit-box;
+  display: flex;
+  margin-left: auto;
+  position: relative; }
+  #parkRides #prUseCurrentLoc .pr-use-current-location {
+    padding-right: 1.25rem; }
+    #parkRides #prUseCurrentLoc .pr-use-current-location::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      content: "";
+      background-image: url("../../../../../img/svg/pin-blue.svg");
+      background-repeat: no-repeat;
+      background-size: 1rem;
+      width: 1rem;
+      height: 1rem; }
+  @media (min-width: 992px) {
+    #parkRides #prUseCurrentLoc {
+      display: none; } }
 
 #stopsStations .icon {
   width: 2.5rem;
