@@ -173,70 +173,61 @@
 												<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 													<div class="form-group select-route">
 														<label for="ntRoute" class="sr-only">Select route</label>
-														<select
-															id="ntRoute"
-															name="ntRoute"
-															class="custom-select custom-select-lg"
-														>
+														<select id="ntRoute"
+																name="ntRoute"
+																class="custom-select custom-select-lg">
 															<option value="">Select route</option>
 														</select>
 													</div>
-													<div class="d-flex my-1">
-														<span id="ntrUseCurrentLoc" class="cyan m-0 ml-auto">
-															<a href="#">Use current location&nbsp;<img src="/img/svg/pin-blue.svg"/></a>
-														</span>
-													</div>																	
 													<div class="form-group select-route-direction">
 														<label for="ntDirection" class="sr-only">Select direction</label>
-														<select
-															id="ntDirection"
-															name="ntDirection"
-															class="custom-select custom-select-lg"
-														>
+														<select id="ntDirection"
+																name="ntDirection"
+																class="custom-select custom-select-lg">
 															<option value="">Select direction</option>
 														</select>
 													</div>
 													<div class="form-group select-route-stop">
 														<label for="ntStop" class="sr-only">Select stop</label>
-														<select
-															id="ntStop"
-															name="ntStop"
-															class="custom-select custom-select-lg"
-														>
+														<select id="ntStop"
+																name="ntStop"
+																class="custom-select custom-select-lg">
 															<option value="">Select stop</option>
 														</select>
 													</div>
 												</div>
 												<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-													<div class="auto-complete-search-box">
-														<div class="input-group">
-															<input type="number"
-																id="stopNumber"
-																name="stopNumber"
-																class="form-control"
-																placeholder="Enter stop number"
-																aria-describedby="searchStopsButton">
-															<label for="stopNumber"
-																class="sr-only">Location or stop number</label>
-															<div class="input-group-append">
-																<button id="searchStopsButton"
-																		type="submit"
+													<div>
+														<div class="auto-complete-search-box">
+															<div class="input-group">
+																<input type="number"
+																		id="stopNumber"
 																		name="stopNumber"
-																		class="btn btn-primary border-top border-right border-bottom">
-																	<span class="sr-only">Search button</span>
-																	<img class="icon"
-																		src="/img/svg/search-gray.svg">
-																</button>
+																		class="form-control"
+																		placeholder="Enter stop number"
+																		aria-describedby="searchStopsButton">
+																<label for="stopNumber"
+																		class="sr-only">Location or stop number</label>
+																<div class="input-group-append">
+																	<button id="searchStopsButton"
+																			type="button"
+																			name="stopNumber"
+																			class="btn btn-primary border-top border-right border-bottom">
+																		<span class="sr-only">Search button</span>
+																		<img class="icon"
+																				src="/img/svg/search-gray.svg">
+																	</button>
+																</div>
 															</div>
-														</div>
-														<div class="d-flex mt-1">
-															<span id="ntUseCurrentLoc" class="cyan m-0 ml-auto">
-																<a href="#">Use current location&nbsp;<img src="/img/svg/pin-blue.svg"/></a>
-															</span>
 														</div>
 													</div>
 												</div>
 											</div>
+										</div>
+										<div class="my-1 text-right">
+											<span id="ntrUseCurrentLoc" class="cyan m-0 ml-auto">
+												<a href="#">Use current location&nbsp;<img src="/img/svg/pin-blue.svg" /></a>
+											</span>
 										</div>
 									</div>
 									<div id="ntSpinner" class="d-none text-center p-2">
@@ -247,11 +238,12 @@
 									<a name="nextriptop">&nbsp;</a>
 									<div class="nextrip-stop-list"></div>
 									<div id="nextripDepartures" class="nextrip-departures">
-										<div class="card p-2 p-md-4">
-											<h2><a name="nextriptop">Departures</a></h2>
+										<div class="card mb-3 p-2 p-md-4">
+											<h2 class="mb-2"><a name="nextriptop">Departures</a></h2>
 											<div class="stop-description"></div>
 											<div class="list-group mb-2">
-
+							
+												<!-- Departures list container -->
 												<div class="stop-departures"></div>
 												<div class="show more">
 													<img class="icon mr-2 minus-icon" src="/img/svg/circle-plus-blue.svg">
@@ -265,9 +257,9 @@
 										</div>
 										<div class="nextrip-legend">
 											<img class="icon mr-1" src="/img/svg/broadcast-blue.svg">
-											 Real-time departures
-									   </div>
-
+											Real-time departures
+										</div>
+							
 										<div id="showMyBus" class="accordion nt-show-my-bus">
 											<div class="card">
 												<div class="card-header">
@@ -291,12 +283,12 @@
 											</div>
 										</div>
 									</div>
-									<div class="d-flex justify-content-center mt-5">
+									<div class="d-flex justify-content-center mt-5 moovel-hide">
 										<div class="button-container-icon-right text-center">
 											<a class="btn btn-outline-primary btn-extend" href="/about-nextrip">About NexTrip</a>
 										</div>
 									</div>
-								</div>
+								</div>									
 							</section>
 						</div>
 					</div>

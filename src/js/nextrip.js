@@ -155,7 +155,7 @@ var NexTrip = (function ($, window, document, undefined) {
     };
     var findStops = function () {
         let userLoc = AutocompleteAddress.setUserLoc('nexTrip');
-        if (userLoc) { 
+        if (userLoc) {
             resetUI();
             $("#ntSpinner").removeClass("d-none");
             $('.nextrip-stop-list').empty();
@@ -252,14 +252,14 @@ var NexTrip = (function ($, window, document, undefined) {
 
         // When user clicks 'use current location' then find neareset stops
         // and let them select one 
-        $('#ntUseCurrentLoc').click(function() {
+        $('#ntUseCurrentLoc').click(function () {
             AutocompleteAddress.getUserLocation().then(function () {  // get current location
-            findStops();
+                findStops();
             });
         });
-        $('#ntrUseCurrentLoc').click(function() {
+        $('#ntrUseCurrentLoc').click(function () {
             AutocompleteAddress.getUserLocation().then(function () {  // get current location
-            findStops();
+                findStops();
             });
         });
 
@@ -327,7 +327,7 @@ var NexTrip = (function ($, window, document, undefined) {
     };
 
     return {
-        init: init, 
+        init: init,
         showDepartures: showDepartures
     };
 
