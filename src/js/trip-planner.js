@@ -310,7 +310,7 @@ var TripPlan = (function($, window, document, undefined) {
             <div class="p-2">
                <hr>
                 <div class="mr-auto d-flex trip-plan-cost align-items-center">
-                  <img src="img/svg/circle-green-dollar.svg" class="icon mx-2"/>
+                  <img alt="" src="img/svg/circle-green-dollar.svg" class="icon mx-2"/>
                   <div>
                     <h4>Regular Fare $${tpFare}</h4>
                     <h4>Reduced Fare $${tpRFare}</h4> 

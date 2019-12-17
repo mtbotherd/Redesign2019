@@ -183,7 +183,7 @@ var NexTrip = (function ($, window, document, undefined) {
                                             <a href="#" onclick="javascript:NexTrip.showDepartures(${stop.StopId});"><h3 class="mb-1">Stop ID: ${stop.StopId}</h3>
                                             <h4 class="">${stop.StopDescription}</h4></a>
                                         </div>
-                                        <img src="/img/svg/arrow-right-blue.svg" class="ml-auto" />
+                                        <img alt="" src="/img/svg/arrow-right-blue.svg" class="ml-auto" />
                                     </div>
                                     <hr>
                                 </div>
