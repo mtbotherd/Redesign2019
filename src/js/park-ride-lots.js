@@ -80,7 +80,7 @@ var ParkRideServices = (function($,  window, document, undefined) {
                         <p class="d-flex pr-location">${stop.LocationName}&nbsp;(${stop.Distance}&nbsp;mi.)</p>
                         <div class="d-flex ml-auto">
                             <span class="cyan map">Map</span>
-                            <img class="icon arrow-right-blue mr-0" src="./img/svg/arrow-right-blue.svg"/>
+                            <img alt="" class="icon arrow-right-blue mr-0" src="./img/svg/arrow-right-blue.svg"/>
                         </div>
                     </a>
                 </div>							

@@ -163,30 +163,30 @@ var TripPlan = (function($, window, document, undefined) {
 			  } else if (li.Route === "903") {
 				  displayName = "Red Line";
 			  }
-			  tpSummary.push(`<img class="icon bus-gray" src="/img/svg/bus-gray.svg">
+			  tpSummary.push(`<img alt="" class="icon bus-gray" src="/img/svg/bus-gray.svg">
 			                            <span class="route">${displayName}</span>`);
 			  break;
 			case 1:
 			  if(li.Route==="901"){
 				tpSummary.push(`<span class="badge badge-secondary">
-				  <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+				  <img alt="" class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
 				  <span class="caps">Blue</span>
 				            </span>`);
 			  } else if(li.Route==="902"){
 				tpSummary.push(`<span class="badge badge-success">
-				  <img class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
+				  <img alt="" class="icon icon-lrt-white" src="/img/svg/lrt-white.svg">
 				  <span class="caps">Green</span>
 				            </span>`);
 			  }
 			  break;
 			case 2:
-                        tpSummary.push(`<img class="icon" src="/img/svg/circle-gray-outline-train.svg">`);
+                        tpSummary.push(`<img alt="" class="icon" src="/img/svg/circle-gray-outline-train.svg">`);
 			  break;
 			case 3:
-                        tpSummary.push(`<img class="icon pedestrian-gray" src="/img/svg/pedestrian-gray.svg">`);
+                        tpSummary.push(`<img alt="" class="icon pedestrian-gray" src="/img/svg/pedestrian-gray.svg">`);
 			  break;
 			case 4:
-			 //tpSummary.push(`<img class="icon" src="/img/svg/pedestrian-gray.svg">`)
+			 //tpSummary.push(`<img alt="" class="icon" src="/img/svg/pedestrian-gray.svg">`)
 			 break;
 			default:
 			  console.warn('Invalid segment type: '+ li.SegmentType);
@@ -201,7 +201,7 @@ var TripPlan = (function($, window, document, undefined) {
 			  <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
 				<div class="d-table-cell leg-mode bus">
 					<div class="d-table-cell leg-mode-icon">
-					<img class="icon" src="/img/svg/circle-gray-outline-bus.svg" alt="Bus">
+					<img alt="" class="icon" src="/img/svg/circle-gray-outline-bus.svg" alt="Bus">
 					</div>
 					<p>
 					${checkIfLate(li.Adherance)}
@@ -225,7 +225,7 @@ var TripPlan = (function($, window, document, undefined) {
 				<div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
 				<div class="d-table-cell leg-mode metro-${li.PublicRoute.split(" ", 1)}">
 				  <div class="d-table-cell leg-mode-icon">
-					${li.PublicRoute==="Green Line"?'<img class="icon" src="/img/svg/circle-green-outline-lrt.svg" alt="Green Line"/>':'<img class="icon" src="/img/svg/circle-blue-outline-lrt.svg" alt="Blue Line"/>'}
+					${li.PublicRoute==="Green Line"?'<img alt="" class="icon" src="/img/svg/circle-green-outline-lrt.svg" alt="Green Line"/>':'<img alt="" class="icon" src="/img/svg/circle-blue-outline-lrt.svg" alt="Blue Line"/>'}
 				  </div>
 				  <p>
 					<strong>${li.Headsign}</strong>
@@ -247,7 +247,7 @@ var TripPlan = (function($, window, document, undefined) {
 			  <div class="d-table-cell leg-time">${listFunction(l,i,ii,timeOfDay,plan.ItinDateTime)}${timeOfDay}</div>
 			  <div class="d-table-cell leg-mode bus">
 				<div class="d-table-cell leg-mode-icon">
-				<img class="icon" src="/img/svg/circle-gray-outline-train.svg" alt="Train">
+				<img alt="" class="icon" src="/img/svg/circle-gray-outline-train.svg" alt="Train">
 				</div>
 				<p>
 				${checkIfLate(li.Adherance)}
@@ -272,7 +272,7 @@ var TripPlan = (function($, window, document, undefined) {
 				<div class="d-table-cell leg-time"></div>
 				<div class="d-table-cell leg-mode walk">
 				  <div class="d-table-cell leg-mode-icon">
-					<img class="icon pedestrian-gray"
+					<img alt="" class="icon pedestrian-gray"
 					  src="/img/svg/circle-green-outline-pedestrian.svg">
 				  </div>
 				  <p>${li.WalkTextOverview}
@@ -285,7 +285,7 @@ var TripPlan = (function($, window, document, undefined) {
 				<div class="d-table-cell leg-time"></div>
 				<div class="d-table-cell leg-mode walk">
 				  <div class="d-table-cell leg-mode-icon">
-					<img class="icon"
+					<img alt="" class="icon"
 					  src="/img/svg/alerts-color.svg" alt="Alert">
 				  </div>
 				  <p>${li.WalkTextOverview}</p>
@@ -302,7 +302,7 @@ var TripPlan = (function($, window, document, undefined) {
 				<div class="d-table-cell leg-time">${returnTime(tpArriveTime)}</div>
 				<div class="d-table-cell leg-mode arrive">
 					<div class="d-table-cell leg-mode-icon">
-						<img class="icon circle-red-outline-pin" src="/img/svg/circle-red-outline-pin.svg" alt="Marker">
+						<img alt="" class="icon circle-red-outline-pin" src="/img/svg/circle-red-outline-pin.svg" alt="Marker">
 					</div>
 					<p>Arrive at ${plan.ToAddress.Address}</p>
 				</div>
@@ -325,8 +325,8 @@ var TripPlan = (function($, window, document, undefined) {
 							<span class="d-flex">
 								<span class="d-flex align-items-center tp-time">${returnTime(tpDepartTime)} - ${returnTime(tpArriveTime)}</span>
 								<span class="d-flex align-items-center tp-route">
-									<span class="tp-route-summary">${tpSummary.join('<img class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">')}</span>
-									<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+									<span class="tp-route-summary">${tpSummary.join('<img alt="" class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">')}</span>
+									<img alt="" class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
 								</span>
 							</span>
 						</button>

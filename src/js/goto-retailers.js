@@ -91,7 +91,7 @@ var GoToRetailerServices = (function($,  window, document, undefined) {
                         <span class="d-flex">${stop.LocationName}&nbsp;(${stop.Distance}&nbsp;mi.)</span>
                         <div class="d-flex ml-auto">
                             <span class="cyan map">Map</span>
-                            <img class="icon arrow-right-blue mr-0" src="./img/svg/arrow-right-blue.svg"/>
+                            <img alt="" class="icon arrow-right-blue mr-0" src="./img/svg/arrow-right-blue.svg"/>
                         </div>
                     </a> 
                 </div>							

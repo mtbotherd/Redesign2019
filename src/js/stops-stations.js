@@ -62,15 +62,15 @@ var StopServices = (function($,  window, document, undefined) {
                     <div class="col-lg-1">
                 `);
                 if (stop.Services[0].ServiceType === 0 || stop.Services[0].ServiceType === 1) {
-                    serviceDetail.push('<img class="icon mb-4 mb-lg-0" src="/img/svg/circle-gray-outline-bus.svg" />');
+                    serviceDetail.push('<img alt="" class="icon mb-4 mb-lg-0" src="/img/svg/circle-gray-outline-bus.svg" />');
                 } else if (stop.Services[0].ServiceType === 2) {
                     if (stop.Services[0].Route === '901') {
-                        serviceDetail.push('<img class="icon mb-4 mb-lg-0" src="/img/svg/circle-gray-lrt.svg" />');
+                        serviceDetail.push('<img alt="" class="icon mb-4 mb-lg-0" src="/img/svg/circle-gray-lrt.svg" />');
                     } else if (stop.Services[0].Route === '902') {
-                        serviceDetail.push('<img class="icon mb-4 mb-lg-0" src="/img/svg/circle-gray-lrt.svg" />');
+                        serviceDetail.push('<img alt="" class="icon mb-4 mb-lg-0" src="/img/svg/circle-gray-lrt.svg" />');
                     }
                 } else if (stop.Services[0].ServiceType === 3) {
-                    serviceDetail.push('<img class="icon mb-4 mb-lg-0" src="/img/svg/circle-gray-outline-train.svg" />');
+                    serviceDetail.push('<img alt="" class="icon mb-4 mb-lg-0" src="/img/svg/circle-gray-outline-train.svg" />');
                 }
                 serviceDetail.push(`
                     </div>
@@ -88,7 +88,7 @@ var StopServices = (function($,  window, document, undefined) {
                     if (service.Route === '923') route = 'C Line';
                     //if (service.Route === '888' || service.Route === '887' ) route = 'NorthStar';
                     //  src="/img/svg/circle-gray-outline-train.svg">
-                    // img/svg/circle-green-outline-lrt.svg"/>':'<img class="icon" src="/img/svg/circle-blue-outline-lrt.svg"/>'}
+                    // img/svg/circle-green-outline-lrt.svg"/>':'<img alt="" class="icon" src="/img/svg/circle-blue-outline-lrt.svg"/>'}
                     serviceDetail.push(`<a href="https://dev.metrotransittest.org/route/${service.Route}" class="btn btn-outline-secondary routes">${route} ${service.Direction}</a>`);
                 }
                 serviceDetail.push('</div></div></div>');
