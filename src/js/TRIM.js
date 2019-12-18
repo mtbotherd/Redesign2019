@@ -830,7 +830,7 @@ var TRIM = (function ($, window, document, undefined) {
 
     function formatPopupDepartures(/*string*/stop) {
         $('#mapPopUpDepartures').empty();
-        $.get('https://svc.metrotransit.org/nextripv2/' + stop)
+        $.get(window.serviceHostUrl + '/nextripv2/' + stop)
         .done(function (result) {
             if (result.Departures.length > 0) {
                 let departures = result.Departures.sort(function (a, b) {
@@ -1492,7 +1492,7 @@ var BOM = (function ($, window, document, undefined) {
     var _ROUTEID = null; // these are requested routes from the URL parameter
     var _ROUTESFORSHOW = null; // these are route number only for the requested stop
     var _ROUTESFORSTOP = null; // these have route number plus terminal letter for the requested stop
-    var _LOCATION_SERVICE = "https://svc.metrotransit.org/nextripv2/vehicles/";
+    var _LOCATION_SERVICE = window.serviceHostUrl + "/nextripv2/vehicles/";
     var _STOPS_QUERY_LAYER = "https://arcgis.metc.state.mn.us/transit/rest/services/transit/BOM_Points/MapServer/0";
     var _ROUTE_SERVICE = "https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer";
     var _ROUTE_LAYER = 4; // service layer ID for TRIM routes

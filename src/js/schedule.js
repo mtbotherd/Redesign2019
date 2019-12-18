@@ -57,7 +57,7 @@ var Schedule = (function ($, window, document, undefined) {
     };
 
     var init = function (routeAbbr) {
-        if (',901,902,888,'.indexOf(',' + routeAbbr + ',') > -1) {
+        if (',901,902,906,888,'.indexOf(',' + routeAbbr + ',') > -1) {
             $('#showMyBus button h3').text('Show my train');
         } else {
             $('#showMyBus button h3').text('Show my bus');

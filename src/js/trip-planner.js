@@ -74,7 +74,7 @@ var TripPlan = (function($, window, document, undefined) {
             //console.dir(tripData);
 			  $.ajax({
 				  type: 'get',
-				  url: 'https://wwwtest.metrotransit.org/Services/TripPlannerSvc.ashx',
+				  url: 'https://www.metrotransit.org/Services/TripPlannerSvc.ashx',
 				  data: tripData,
 				  dataType: "json"
 			  })
@@ -127,7 +127,7 @@ var TripPlan = (function($, window, document, undefined) {
 			result +=  "<strong>Red Line</strong> Apple Valley / Eagan / Mall of America";
 		} else {
 			// chop off the route number from the headsign
-			result += "<strong>Route " + route + "</strong> " + headsign.substr(headsign.indexOf(" ") + 1);
+            result += "<strong>Route " + headsign.split(" " )[0] + "</strong> " + headsign.substr(headsign.indexOf(" ") + 1);
 		}
 		result += "<br/>";
 		return result;
@@ -153,7 +153,7 @@ var TripPlan = (function($, window, document, undefined) {
 		l.Segments.forEach(function(li,ii){
 		  switch (li.SegmentType) {
 			case 0:
-			  let displayName = li.Route;
+                        let displayName = li.Headsign.split(" ")[0]; // tear off the route + term letter from the front of sign
 			  if (li.Route === "921") {
 				  displayName = "A Line";
 			  } else if (li.Route === "922") {
@@ -209,9 +209,9 @@ var TripPlan = (function($, window, document, undefined) {
 				    <a href="/rider-alerts"><small>View alerts</small></a>
 					</p>
 					<p>
-					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} #${li.OnStop.StopID} at <strong> ${returnTime(li.OnTime)} </strong></br>
+					<strong>Depart</strong> from ${li.OnStop.StopLocation.LocationName} Stop #${li.OnStop.StopID} at <strong> ${returnTime(li.OnTime)} </strong></br>
 					</p><p>
-					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} #${li.OffStop.StopID} at <strong> ${returnTime(li.OffTime)} </strong>
+					<strong>Arrive</strong> at ${li.OffStop.StopLocation.LocationName} Stop #${li.OffStop.StopID} at <strong> ${returnTime(li.OffTime)} </strong>
 					</p>
 				</div>
 				</div>`);
@@ -355,7 +355,7 @@ var TripPlan = (function($, window, document, undefined) {
 	  var esriMapDOM = function() {
 		return `
 		  <div class="map-container border">
-			<div id="tripPlanMap" class="map" mapType="trip" role="application" aria-label="interactive map of transit trip plan">
+			<div id="tripPlanMap" class="map" mapType="trip" role="application" aria-label="interactive map showing route of transit trip plan">
 			  <div id="trimLocate"></div>
 			  <div class="mapLoading"></div> 
 			</div>

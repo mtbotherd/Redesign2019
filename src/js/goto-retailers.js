@@ -47,7 +47,7 @@ var GoToRetailerServices = (function($,  window, document, undefined) {
             }
             $.ajax({
 				type: 'get',
-				url: 'https://dev.metrotransittest.org/Services/FinderSvc.ashx',
+                url: '/Services/FinderSvc.ashx',
 				data: serviceData,
 				dataType: "json"
             })
@@ -83,7 +83,7 @@ var GoToRetailerServices = (function($,  window, document, undefined) {
                 CoordinateConversion.UTMXYToLatLon(parseFloat(stop.Y), parseFloat(stop.X), 15, false, ptlatlon);
                 var longitude = CoordinateConversion.RadToDeg(ptlatlon[1]).toFixed(4);
                 var latitude = CoordinateConversion.RadToDeg(ptlatlon[0]).toFixed(4);
-                let mapLink = 'https://dev.metrotransittest.org/imap/interactivemap.aspx?x='+longitude+'&y='+latitude;
+                    let mapLink = '/imap/interactivemap.aspx?x=' + longitude + '&y=' + latitude + '&t=gt';
 
                 $('#goto-finder-results').append(`
                 <div class="card">

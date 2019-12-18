@@ -131,7 +131,7 @@ $(function () {
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
         pageLanguage: 'en',
-        includedLanguages: 'ar,zh,fr,de,ko,hmn,ru,sp,so,vi',
+        includedLanguages: 'ar,zh,fr,de,ko,hmn,ru,es,so,vi',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false,
         gaTrack: true,
