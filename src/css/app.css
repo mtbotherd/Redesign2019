@@ -8616,6 +8616,9 @@ footer {
     font-weight: 700;
     text-decoration: none;
     padding: 0.25rem 0; }
+  footer .copyright {
+    font-size: 0.9rem;
+    text-align: center; }
 
 .primary .page-title {
   position: relative;
