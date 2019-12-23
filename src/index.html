@@ -50,26 +50,41 @@
 
 	<form id="aspnetForm">
 
-		<!-- <div id="special-alert-notice" class="alert alert-info alert-dismissable alert-topmargin">
-			<div class="container"> -->
+		<div id="skipNav">
+			<a href="#pageContainer" class="skip-to-content">Skip to main content</a>
+		</div>
+
+		<div id="ieAlert" style="display: none;">
+			<div class="alert alert-danger mb-0">
+				<div class="container">
+					<p class="mb-0">
+						You are using Internet Explorer. Please use Edge or Chrome to get the full experience.
+					</p>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="special-alert-notice" class="alert alert-info alert-dismissable alert-topmargin">
+			<div class="container">
 
 				<!-- Content form CMS -->
-				<!-- <p>Blue Line maintenance is currently underway. Replacement bus service is now in effect at select Blue Line stations. <strong><a href="https://www.metrotransit.org/closures">Find out all the details here</a></strong>.</p> -->
+				<p>Blue Line maintenance is currently underway. Replacement bus service is now in effect at select Blue Line stations. <strong><a href="https://www.metrotransit.org/closures">Find out all the details here</a></strong>.</p>
 				<!-- End content from CMS -->
 
-				<!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<img alt="" class="icon" src="/img/svg/close-gray.svg" aria-hidden="true">
 				</button>
 				<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
 			</div>
-		</div> -->
+		</div>
 
 		<div class="clearfix"></div>
 
 		<!-- Begin Header -->
 		<header id="header">
 			<nav class="navbar navbar-expand-xl navbar-light">
-				<a href="#pageContainer" class="skip-to-content">Skip to main content</a>
+				<!-- <a href="#pageContainer" class="skip-to-content">Skip to main content</a> -->
 				<div class="container">
 					<a class="navbar-brand" href="/">
 						<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
@@ -243,7 +258,7 @@
 		<!-- End Header -->
 
 		<!-- Begin Main Content -->
-		<main id="pageContainer" class="container">
+		<main id="pageContainer" class="container" tabindex="-1">
 			<section id="homePage">
 				<h1 class="sr-only">Metro Transit Home</h1>
 				<section class="full-width">
@@ -1011,7 +1026,6 @@
 	</form>
 
 	<!-- scripts -->
-	<script src="/js/detect-ie.js"></script>
 	<script src="/js/jquery.js"></script>
 	<script src="/js/popper.js"></script>
 	<script src="/js/bootstrap.js"></script>

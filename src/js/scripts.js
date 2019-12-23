@@ -73,24 +73,29 @@ var Main = (function ($, window, document, undefined) {
     var init = function () {
 
 		// Detect IE version
-		function GetIEVersion() {
-			var sAgent = window.navigator.userAgent;
-			var Idx = sAgent.indexOf("MSIE");
-		  
-			// If IE, return version number.
-			if (Idx > 0) 
-			  return parseInt(sAgent.substring(Idx+ 5, sAgent.indexOf(".", Idx)));
-		  
-			// If IE 11 then look for Updated user agent string.
-			else if (!!navigator.userAgent.match(/Trident\/7\./)) 
-			  return 11;
-		  
-			else
-			  return 0; //It is not IE
+		var sAgent = window.navigator.userAgent;
+        if (sAgent.indexOf('MSIE') > -1 || sAgent.indexOf('Trident/7') > -1) {
+			$('#ieAlert').show();
 		}
 		
-		if (GetIEVersion() > 0) 
-			alert(" You are using Internet Explorer " + GetIEVersion() + ". Please use Edge or Chrome to get the full experience. ");
+		// function GetIEVersion() {
+		// 	var sAgent = window.navigator.userAgent;
+		// 	var Idx = sAgent.indexOf("MSIE");
+		  
+		// 	// If IE, return version number.
+		// 	if (Idx > 0) 
+		// 	  return parseInt(sAgent.substring(Idx+ 5, sAgent.indexOf(".", Idx)));
+		  
+		// 	// If IE 11 then look for Updated user agent string.
+		// 	else if (!!navigator.userAgent.match(/Trident\/7\./)) 
+		// 	  return 11;
+		  
+		// 	else
+		// 	  return 0; //It is not IE
+		// }
+		
+		// if (GetIEVersion() > 0) 
+		// 	alert(" You are using Internet Explorer " + GetIEVersion() + ". Please use Edge or Chrome to get the full experience. ");
 
         // shopping car number
         let qty = getCookie('cart_status');
