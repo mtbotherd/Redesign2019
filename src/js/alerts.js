@@ -106,6 +106,8 @@ var Alerts = (function ($, window, document, undefined) {
             return a < b ? -1 : a > b ? 1 : 0;
         });
 
+
+
         //loop through the array and output the route label, then loop through the alert_index array
         //and get the alert information for each alert for each route
         alertsByRoute.forEach(function (route, index) {

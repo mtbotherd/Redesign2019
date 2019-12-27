@@ -21,71 +21,71 @@
     }
 */
 
-var GoToRetailerServices = (function($,  window, document, undefined) {
+var GoToRetailerServices = (function ($, window, document, undefined) {
     // This service requires map coordinates in UTM 
-    function findNearestGoToRetailers (findLoc, options) {
+    function findNearestGoToRetailers(findLoc, options) {
         return $.Deferred(function (dfd) {
-            let address = 
-            findLoc.address 
-            + "|"
-            + findLoc.location.y
-            + "|"
-            + findLoc.location.x
-            + "|";
+            let address =
+                findLoc.address
+                + "|"
+                + findLoc.location.y
+                + "|"
+                + findLoc.location.x
+                + "|";
             let fromATIS = '0';
-			if (findLoc.attributes.ATIS_ID.indexOf(';') > -1) {
-			    fromATIS += findLoc.attributes.ATIS_ID.split(';')[1];
+            if (findLoc.attributes.ATIS_ID.indexOf(';') > -1) {
+                fromATIS += findLoc.attributes.ATIS_ID.split(';')[1];
             }
             address += fromATIS;
             let serviceData = {
-                'category' : options,
+                'category': options,
                 's-location': address
             };
             // if there's more than 1 options, pass an extra parameter
-            if (options.indexOf(',') > -1) { 
-               serviceData.typegroup = 'AND'; 
+            if (options.indexOf(',') > -1) {
+                serviceData.typegroup = 'AND';
             }
             $.ajax({
-				type: 'get',
+                type: 'get',
                 url: '/Services/FinderSvc.ashx',
-				data: serviceData,
-				dataType: "json"
+                data: serviceData,
+                dataType: "json"
             })
-            .done(function (result, status, xhr) {
-                if (result.error) {
-                    dfd.reject({'Message': result.error});
-                } else {
-                    dfd.resolve(result);
-                }
-            })
-            .fail(function(err) {
-                dfd.reject("gotoCard Retailer search failed - No results " + err);
-            });
+                .done(function (result, status, xhr) {
+                    if (result.error) {
+                        dfd.reject({ 'Message': result.error });
+                    } else {
+                        dfd.resolve(result);
+                    }
+                })
+                .fail(function (err) {
+                    dfd.reject("gotoCard Retailer search failed - No results " + err);
+                });
         }).promise();
     }
-    function formatPage (addressChoice) {
+    function formatPage(addressChoice) {
         $('#goto-finder-results').empty();
         var work = [];
-        $('#moreOptions input:checked').each(function() {
+        $('#moreOptions input:checked').each(function () {
             work.push(this.id);
         });
         var options = work.join();
-        
-        findNearestGoToRetailers(addressChoice, options)
-        .then(function(results){
-            //console.dir(results);
-            $('#goto-finder-results').append('<p class="result-msg">Nearest Go-To Card Retailers to '+addressChoice.attributes.LongLabel+'</p>');
 
-            for (let i=0, l=results.length;i < l; i++) {
-                let stop = results[i];
-                // create map link
-                let ptlatlon = [];
-                CoordinateConversion.UTMXYToLatLon(parseFloat(stop.Y), parseFloat(stop.X), 15, false, ptlatlon);
-                var longitude = CoordinateConversion.RadToDeg(ptlatlon[1]).toFixed(4);
-                var latitude = CoordinateConversion.RadToDeg(ptlatlon[0]).toFixed(4);
+        findNearestGoToRetailers(addressChoice, options)
+            .then(function (results) {
+                //console.dir(results);
+                $('#goto-finder-results').append('<p class="result-msg">Nearest Go-To Card Retailers to ' + addressChoice.attributes.LongLabel + '</p>');
+
+                for (let i = 0, l = results.length; i < l; i++) {
+                    let stop = results[i];
+                    // create map link
+                    let ptlatlon = [];
+                    CoordinateConversion.UTMXYToLatLon(parseFloat(stop.Y), parseFloat(stop.X), 15, false, ptlatlon);
+                    var longitude = CoordinateConversion.RadToDeg(ptlatlon[1]).toFixed(4);
+                    var latitude = CoordinateConversion.RadToDeg(ptlatlon[0]).toFixed(4);
                     let mapLink = '/imap/interactivemap.aspx?x=' + longitude + '&y=' + latitude + '&t=gt';
 
-                $('#goto-finder-results').append(`
+                    $('#goto-finder-results').append(`
                 <div class="card">
                     <a href="${mapLink}" class="d-flex btn">
                         <span class="d-flex">${stop.LocationName}&nbsp;(${stop.Distance}&nbsp;mi.)</span>
@@ -96,16 +96,16 @@ var GoToRetailerServices = (function($,  window, document, undefined) {
                     </a> 
                 </div>							
                 `);
-                sessionStorage.setItem('gotoCardFinderResults', $('#goto-finder-results').html());
-            }
-            if (results.length === 0) {
-                $('#goto-finder-results').append('<p class="result-msg">No Go-To Card retailers close to '+addressChoice.address+'</p>');
-            }
+                    sessionStorage.setItem('gotoCardFinderResults', $('#goto-finder-results').html());
+                }
+                if (results.length === 0) {
+                    $('#goto-finder-results').append('<p class="result-msg">No Go-To Card retailers close to ' + addressChoice.address + '</p>');
+                }
 
-        })
-        .fail(function(err) {
-            $('#goto-finder-results').append('<p class="result-msg">No Go-To Card retailers close to '+addressChoice.address+'</p>');
-        });
+            })
+            .fail(function (err) {
+                $('#goto-finder-results').append('<p class="result-msg">No Go-To Card retailers close to ' + addressChoice.address + '</p>');
+            });
     }
 
     return {
@@ -113,24 +113,24 @@ var GoToRetailerServices = (function($,  window, document, undefined) {
     };
 })(jQuery, window, document);
 
-$(function() {
+$(function () {
     // This should execute when /park-ride-lots loads, it sets the autocomplete to trigger 
     // the page content when user selects a location to search
     if ($('#gotoCardRetailers').length) {
         AutocompleteAddress.init("gotoCardRetailerSearch",/*UTMout*/ true,
-                function() {
-                    var choice = AutocompleteAddress.getChoice("gotoCardRetailerSearch");
-                    GoToRetailerServices.formatPage(choice);
-                }
-            );
+            function () {
+                var choice = AutocompleteAddress.getChoice("gotoCardRetailerSearch");
+                GoToRetailerServices.formatPage(choice);
+            }
+        );
         if (!(sessionStorage.getItem('gotoCardFinderResults') === null)) {
             $('#goto-finder-results').html(sessionStorage.getItem('gotoCardFinderResults'));
         }
-        $('#gtrUseCurrentLoc').click(function() {
-            AutocompleteAddress.getUserLocation().then(function(){  // get current location
+        $('#gtrUseCurrentLoc').click(function () {
+            AutocompleteAddress.getUserLocation().then(function () {  // get current location
                 $('#gotoCardRetailerSearch').val('Current Location');
                 let userLoc = AutocompleteAddress.setUserLoc('gotoRetailersFindMe');
-                if (userLoc) { 
+                if (userLoc) {
                     GoToRetailerServices.formatPage(userLoc);
                 }
             });
