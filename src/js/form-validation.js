@@ -1,19 +1,19 @@
 $(function () {
 
 	$("#aspnetForm").validate({
-	// 	debug: true,
-	errorClass: '',
-	validClass: '',
-	// 	rules: {
-	// 		fromLocation: "required",
-	// 		toLocation: "required"
-	// 	},
-	messages: {
-		fromLocation: "h",
-		toLocation: "Begin typing, then select an option from the list."
-	}
-	// 	errorPlacement: function(error, element) {
-	// 		error.appendTo(element.parent("div"));
-	// 	},
+		debug: true,
+        errorClass: "is-invalid",
+        validClass: "is-valid",
+		rules: {
+			firstName: "required",
+			lastName: "required"
+		},
+		messages: {
+			firstName: "Please enter your first name.",
+			lastName: "Please enter your last name."
+		}
+		// 	errorPlacement: function(error, element) {
+		// 		error.appendTo(element.parent("div"));
+		// 	},
 	});
 });

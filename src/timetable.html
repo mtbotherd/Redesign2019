@@ -9,7 +9,6 @@
 	<link rel="shortcut icon"
 		  href="favicon.ico"
 		  type="image/x-icon">
-	<link rel="stylesheet" href="https://js.arcgis.com/3.28/esri/css/esri.css">
 	<link rel="stylesheet"
 		  href="/css/app.css">
 
@@ -17,7 +16,19 @@
 
 <body>
 
-	<a href="#pageContainer" class="skip-to-content">Skip to main content</a>
+	<div role="link" aria-labelledby="skipNav">
+		<a id="skipNav" href="#pageContainer" class="skip-to-content">Skip to main content</a>
+	</div>
+
+	<div id="ieAlert" style="display: none;">
+		<div class="alert alert-danger mb-0">
+			<div class="container">
+				<p class="mb-0">
+					You are using Internet Explorer. Please use Edge or Chrome to get the full experience.
+				</p>
+			</div>
+		</div>
+	</div>
 
 	<!-- Begin Header -->
 	<header id="header">
@@ -33,14 +44,14 @@
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<section class="section">
+					<section>
 						<ul class="nav navbar-nav mx-auto">
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="/trip-planner" id="navbarDropdown" role="button"
+								<a class="nav-link dropdown-toggle" href="/trip-planner" id="tripToolsDropdown" role="button"
 									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									Trip Tools
 								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<div class="dropdown-menu" aria-labelledby="tripToolsDropdown">
 									<a class="dropdown-item" href="/trip-planner">Trip Planner</a>
 									<a class="dropdown-item" href="/nextrip">NexTrip</a>
 									<a class="dropdown-item" href="/rider-alerts">Alerts</a>
@@ -51,16 +62,16 @@
 								</div>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link no-dropdown" href="schedules-maps">
+								<a class="nav-link no-dropdown" href="/schedules-maps">
 									Schedules &amp; Maps
 								</a>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								<a class="nav-link dropdown-toggle" href="#" id="faresDropdown" role="button"
 									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									Fares
 								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<div class="dropdown-menu" aria-labelledby="faresDropdown">
 									<a class="dropdown-item" href="/fares">Fares</a>
 									<a class="dropdown-item" href="/go-to-card">Go-To Card</a>
 									<a class="dropdown-item" href="/passes">Pass Programs</a>
@@ -68,26 +79,26 @@
 								</div>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								<a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button"
 									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									More
 								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<div class="dropdown-menu" aria-labelledby="moreDropdown">
 									<a class="dropdown-item" href="/carpool-vanpool">Carpool &amp; Vanpool</a>
 									<a class="dropdown-item" href="/transit-link">Transit Link</a>
 									<a class="dropdown-item" href="/guaranteed-ride-home">Guaranteed Ride Home</a>
-									<a class="dropdown-item" href="/bicycle">Bicycle</a>
+									<a class="dropdown-item" href="/bike">Bicycle</a>
 									<a class="dropdown-item" href="/news">News &amp; Events</a>
 								</div>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								<a class="nav-link dropdown-toggle" href="#" id="helpDropdown" role="button"
 									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									Help
 								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<div class="dropdown-menu" aria-labelledby="helpDropdown">
 									<a class="dropdown-item" href="/how-to-ride">How to Ride</a>
-									<a class="dropdown-item" href="contact-us">Contact Us</a>
+									<a class="dropdown-item" href="/contact-us">Contact Us</a>
 									<a class="dropdown-item" href="/lost-found">Lost &amp; Found</a>
 									<a class="dropdown-item" href="/accessibility">Accessibility</a>
 									<a class="dropdown-item" href="/languages">Languages</a>
@@ -113,21 +124,78 @@
 									<div class="input-group-append">
 										<button type="button" id="siteSearchBtn" class="btn btn-primary">
 											<span class="sr-only">Search button</span>
-											<img alt="" class="icon" src="/img/svg/search-gray.svg">
+											<img alt="search button" class="icon" src="/img/svg/search-gray.svg">
 										</button>
 									</div>
 								</div>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle avatar-icon" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link dropdown-toggle avatar-icon" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<span class="sr-only">Sign in / create account</span>
-
 							</a>
-							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="#">Sign In</a>
-								<a class="dropdown-item" href="#">Create Account</a>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
+								<a class="dropdown-item" href="/logoff.aspx?returnurl=https%3a%2f%2fwwwtest.metrotransit.org%2fDefault.aspx">Sign Out</a>
+								<a class="dropdown-item" href="https://account.metrotransit.org/edit.aspx?returnurl=https%3a%2f%2fwwwtest.metrotransit.org%2fDefault.aspx">Edit Account</a>
+							</div>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav d-xl-none border-top-0">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Metro Transit</a>
+							<div class="dropdown-menu" aria-labelledby="aboutDropdown">
+								<a class="dropdown-item" href="/transit-improvements">Transit Improvements</a>
+								<a class="dropdown-item" href="/facilities-people">Facilities</a>
+								<a class="dropdown-item" href="/riders-almanac-blog">Rider's Almanac</a>
+								<a class="dropdown-item" href="/use-of-transit-property">Use of Transit Property</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="mediaRelationsDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Media Relations</a>
+							<div class="dropdown-menu" aria-labelledby="mediaRelationsDropdown">
+								<a class="dropdown-item" href="/logos-images">Media Resources</a>
+								<a class="dropdown-item" href="/awards">Awards</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="careersDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Careers</a>
+							<div class="dropdown-menu" aria-labelledby="careersDropdown">
+								<a class="dropdown-item" href="/jobs">Available Job Opportunities</a>
+								<a class="dropdown-item" href="/drive">Become a Bus Driver</a>
+								<a class="dropdown-item" href="/transit-police-careers">Join the Transit Police</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="policeDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Policies</a>
+							<div class="dropdown-menu" aria-labelledby="policeDropdown">
+								<a class="dropdown-item" href="/social-media-policy">Social Media Policy</a>
+								<a class="dropdown-item" href="https://metrocouncil.org/Privacy-Policy.aspx">Privacy Policy</a>
+								<a class="dropdown-item" href="/code-of-conduct">Code of Conduct</a>
+								<a class="dropdown-item" href="/titlevi">Title VI: Commitment to Fairness</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="missionDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mission &amp; Impact</a>
+							<div class="dropdown-menu" aria-labelledby="missionDropdown">
+								<a class="dropdown-item" href="/about-metro-transit">Mission &amp; Funding</a>
+								<a class="dropdown-item" href="/equity">Equity &amp; Inclusion</a>
+								<a class="dropdown-item" href="/public-art-in-transit">Public Art</a>
+								<a class="dropdown-item" href="/outreach">Outreach</a>
+								<a class="dropdown-item" href="/transit-oriented-development">Transit Oriented Development</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+							<div class="dropdown-menu" aria-labelledby="resourcesDropdown">
+								<a class="dropdown-item" href="/app">Try the Metro Transit App</a>
+								<a class="dropdown-item" href="/advertise-with-metro-transit">Advertise with Us</a>
+								<a class="dropdown-item" href="/apps">API Resources for Developers</a>
 							</div>
 						</li>
 					</ul>
@@ -145,114 +213,15 @@
 					<div class="secondary">
 						<div class="container">
 							<div class="page-title">
-								<h1 class="route-number">Route 21</h1>
+								<h1>Page title</h1>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="content-full-width">
+				<div class=""> <!-- This class gets set in CMS -->
 					<div class="htmlmodule">
 						<div class="route">
-							<section class="section full-width">
-								<div class="container">
-									<div id="showMyBus" class="accordion">
-										<div class="card">
-											<div class="card-header">
-												<button type="button"
-														id="showMyBusButton"
-														class="btn d-flex align-items-center btn-block text-left collapsed"
-														data-toggle="collapse"
-														data-target="#collapseMap"
-														aria-expanded="false">
-													<img alt="" class="icon bus-broadcast-color mr-3"
-															src="/img/svg/bus-broadcast-color.svg">
-													<p class="h3 mb-0">Show my bus</p>
-													<img alt="" class="icon chevron-down-blue ml-auto"
-															src="/img/svg/chevron-down-blue.svg">
-												</button>
-											</div>
-											<div id="collapseMap"
-													class="collapse">
-												<div class="card-body p-0">
-													<div class="map-container border">
-														<div id="routeBOM"
-																class="map"
-																maptype="BOM"
-																role="application"
-																aria-label="interactive map of vehicle locations">
-															<div id="bombanner"
-																	class="mapbanner"></div>
-															<div id="bomticker"
-																	class="bomticker"></div>
-															<div id="bomlocate"></div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div id="alerts"
-											class="accordion service-alerts">
-										<div class="card">
-											<div class="card-header">
-												<button type="button"
-														class="btn d-flex align-items-center btn-block text-left collapsed"
-														data-toggle="collapse"
-														data-target="#collapseAlert"
-														aria-expanded="false">
-													<img alt="" class="icon alerts-color mr-3"
-															src="/img/svg/alerts-color.svg">
-													<p class="h3 mb-0">Alerts</p>
-													<img alt="" class="icon chevron-down-blue ml-auto"
-															src="/img/svg/chevron-down-blue.svg">
-												</button>
-											</div>
-											<div id="collapseAlert"
-													class="collapse">
-												<div class="card-body p-0">
-													<div class="border">
-														<p class="">Insert alerts here</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</section>
-
-							<section class="section full-width striped">
-								<div class="container">
-									<h2>
-										<img alt="" class="icon date-time-color" src="/img/svg/date-time-color.svg">
-										Schedule
-									</h2>
-									<div class="d-flex flex-lg-row flex-column justify-content-lg-start flex-wrap">
-										<div class="schedule-days d-flex flex-column mb-4 mb-lg-0">
-											<h3 class="h2 mb-2">Weekday</h3>
-											<button type="button"
-												class="btn btn-outline-info">Eastbound</button>
-											<button type="button"
-												class="btn btn-outline-info">Westbound</button>
-										</div>
-										<div class="schedule-days d-flex flex-column mb-4 mb-lg-0">
-											<h3 class="h2 mb-2">Saturday</h3>
-											<button type="button"
-												class="btn btn-outline-info">Eastbound</button>
-											<button type="button"
-												class="btn btn-outline-info">Westbound</button>
-										</div>
-										<div class="schedule-days d-flex flex-column mb-4 mb-lg-0">
-											<h3 class="h2 mb-2">Sunday</h3>
-											<button type="button"
-												class="btn btn-outline-info">Eastbound</button>
-											<button type="button"
-												class="btn btn-outline-info">Westbound</button>
-										</div>
-									</div>
-								</div>
-							</section>
-
 							<section class="section full-width">
 								<div class="container"><a name="schedulepane"></a>
 									<div id="ctl00_mainContent_pnlSchedulePanes" class="container tab-content timetables">
@@ -10559,141 +10528,28 @@
 								</div>
 								
 							</section>
+						</div>
 
-							<section class="section full-width striped">
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-4 button-container-icon-right mb-4 mb-lg-0">
-											<button id="maplink" type="button" class="btn btn-outline-primary" data-link="7">View route map</button>
-										</div>
-										<div class="col-lg-4">
-											<p class="link-pdf-container mb-0 mt-lg-3">
-												<a class="text-link" href="/data/sites/1/media/pdfs/schedules/routemaps/46/007Map.pdf">Download PDF of detailed route map</a>
-											</p>
-										</div>
-										<div class="col-lg-4">
-											<div class="btn-wrapper mt-4 mt-lg-0">
-												<button id="printlink" type="button" class="btn btn-warning">Print schedule</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</section>
-
-							<section class="section full-width">
-								<div class="container">
-									<div id="tripPlan">
-										<div class="tt-trip-plan">
-											<div class="card">
-												<div class="card-body border-0">
-													<div class="row flex-row tp-infotables">
-														<div class="col-lg-6 mb-4 px-4">
-															<h2>Key destinations</h2>
-															<div class="d-block tp-results">
-																<div class="leg-item">
-																	<div class="d-table-cell leg-mode bus position-relative pb-0 pt-4">
-																		<div class="d-table-cell leg-mode-icon">
-																			<img alt="" class="icon" src="/img/svg/circle-gray-outline-bus.svg">
-																		</div>
-																		<div><div><strong>Hopkins<br></strong>&nbsp; &nbsp; &nbsp; &nbsp;Ramsgate Apartments<br><strong>St Louis Park<br></strong>&nbsp; &nbsp; &nbsp; &nbsp;Knollwood Mall<br>&nbsp; &nbsp; &nbsp; &nbsp;Minnetonka Blvd<br><strong>Uptown<br></strong>&nbsp; &nbsp; &nbsp; &nbsp;Lake St&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp;Hennepin Ave<br>&nbsp; &nbsp; &nbsp; &nbsp;Uptown Transit Station<br><strong>Downtown Minneapolis<br>NE Minneapolis<br></strong>&nbsp; &nbsp; &nbsp; &nbsp;Washington St&nbsp;</div></div>
-																	</div>
-																</div>
-																<div class="leg-item">
-																	<div class="d-table-cell leg-mode arrive">
-																		<div class="d-table-cell leg-mode-icon">
-																			<img alt="" class="icon" src="/img/svg/circle-red-outline-pin.svg">
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="col-lg-6">
-															<h2>Approximate frequency</h2>
-															<div class="list-group">
-													
-															<div class="list-group-item d-flex pr-0 pl-0">
-																<span class="frequency"><strong>Rush Hours</strong> (weekdays 6-9 am and 3-6:30 pm)</span>
-																<span class="ml-auto text-nowrap">
-																	<strong>5-15 <abbr title="minutes">Min</abbr>
-																	</strong>
-																</span>
-															</div>
-													
-															<div class="list-group-item d-flex pr-0 pl-0">
-																<span class="frequency"><strong>Midday</strong></span>
-																<span class="ml-auto text-nowrap">
-																	<strong>15 <abbr title="minutes">Min</abbr>
-																	</strong>
-																</span>
-															</div>
-													
-															<div class="list-group-item d-flex pr-0 pl-0">
-																<span class="frequency"><strong>Evening</strong></span>
-																<span class="ml-auto text-nowrap">
-																	<strong>30-60 <abbr title="minutes">Min</abbr>
-																	</strong>
-																</span>
-															</div>
-													
-															<div class="list-group-item d-flex pr-0 pl-0">
-																<span class="frequency"><strong>Saturday</strong></span>
-																<span class="ml-auto text-nowrap">
-																	<strong>15-60 <abbr title="minutes">Min</abbr>
-																	</strong>
-																</span>
-															</div>
-													
-															<div class="list-group-item d-flex pr-0 pl-0">
-																<span class="frequency"><strong>Sunday / Holiday</strong></span>
-																<span class="ml-auto text-nowrap">
-																	<strong>30-60 <abbr title="minutes">Min</abbr>
-																	</strong>
-																</span>
-															</div>
-													
-															</div>
-															<p>Note: These times are average and may apply only to the main portion of the route. Refer to the schedules for details.</p>
-														</div>
-															
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</section>
-
-							<section class="section full-width cyan-bg">
-								<div class="container">
-									<div class="link-container-icon-right mt-0 mb-0">
-										<a class="btn btn-outline-white"
-											href="https://public.govdelivery.com/accounts/MNMETRO/subscriber/new">Sign up for
-											alerts
-										</a>
-									</div>
-								</div>
-							</section>
-						</div>						
 					</div>
 				</div>
 			</div>
 		</section>
 	</main>
+	<!-- End Main Content -->
 
 	<!-- Begin Footer -->
 	<footer class="section">
 		<div class="container">
-			<div class="button-container-icon-right text-center">
-				<a href="/contact-us" class="btn btn-outline-info">Contact us</a>
+			<div class="button-container-icon-right">
+				<a href="/contact-us" class="btn btn-outline-primary">Contact us</a>
 			</div>
 			<div class="d-none d-lg-block social-media text-center">
-				<a href="https://www.twitter.com/MetroTransitMN"><img alt="" class="icon mr-2" src="/img/svg/twitter-gray.svg"></a>
-				<a href="https://www.facebook.com/MetroTransitMN"><img alt="" class="icon mr-2" src="/img/svg/facebook-gray.svg"></a>
-				<a href="https://www.youtube.com/MetroTransitMN"><img alt="" class="icon mr-2" src="/img/svg/youtube-gray.svg"></a>
-				<a href="https://instagram.com/metrotransitmn"><img alt="" class="icon mr-2" src="/img/svg/instagram-gray.svg"></a>
-				<a href="https://www.linkedin.com/company/metro-transit"><img alt="" class="icon mr-2" src="/img/svg/linkedin-gray.svg"></a>
-				<a href="https://www.flickr.com/photos/metrotransitmn/"><img alt="" class="icon" src="/img/svg/flickr-gray.svg"></a>
+				<a href="https://www.twitter.com/MetroTransitMN"><img alt="metro transit on twitter" class="icon mr-2" src="/img/svg/twitter-gray.svg"></a>
+				<a href="https://www.facebook.com/MetroTransitMN"><img alt="metro transit on facebook" class="icon mr-2" src="/img/svg/facebook-gray.svg"></a>
+				<a href="https://www.youtube.com/MetroTransitMN"><img alt="metro transit on youtube" class="icon mr-2" src="/img/svg/youtube-gray.svg"></a>
+				<a href="https://instagram.com/metrotransitmn"><img alt="metro transit on instagram" class="icon mr-2" src="/img/svg/instagram-gray.svg"></a>
+				<a href="https://www.linkedin.com/company/metro-transit"><img alt="metro transit on linked in" class="icon mr-2" src="/img/svg/linkedin-gray.svg"></a>
+				<a href="https://www.flickr.com/photos/metrotransitmn/"><img alt="metro transit on flickr" class="icon" src="/img/svg/flickr-gray.svg"></a>
 			</div>
 			<div class="footer d-none d-lg-block">
 				<div class="card-deck">
@@ -10815,6 +10671,7 @@
 	<!-- End Footer -->
 
 	<!-- scripts -->
+	<script src="/js/detect-ie.js"></script>
 	<script src="/js/jquery.js"></script>
 	<script src="/js/popper.js"></script>
 	<script src="/js/bootstrap.js"></script>
@@ -10822,19 +10679,12 @@
 	<script src="/js/jquery.autocomplete.js"></script>
 	<!-- <script src="/js/jquery.validate.js"></script> -->
 	<!-- <script src="/js/additional-methods.js"></script> -->
-	<script src="/js/alerts.js"></script>
-	<script src="/js/nextrip.js"></script>
-	<script src="/js/schedule.js"></script>
+	<!-- <script src="/js/form-validation.js"></script> -->
 	<script src="https://js.arcgis.com/3.28/"></script>
 	<script src="/js/TRIM.js"></script>
 	<script src="/js/scripts.js"></script>
-	<script>
-		$(function() {
-			window.serviceHostUrl = "https://svc.metrotransit.org";
-			Schedule.init();
-		});
-	</script>
 	<!-- End scripts -->
+	
 </body>
 
 </html>
