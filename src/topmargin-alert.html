@@ -405,16 +405,16 @@
 
 	<script>
 		$(function () {
-			// if ($('#special-alert-notice').hasClass('alert-popup')) {
-			// 	$('<div />').prependTo('body').addClass('alert-popup-overlay');
-			// 	$('body').addClass('hidden-overflow');
-			// 	$('#special-alert-notice').insertAfter('.alert-popup-overlay').show();
-			// 	$('button[data-dismiss="alert"]').one('click', function () {
-			// 		$('#special-alert-notice').hide();
-			// 		$('.alert-popup-overlay').remove();
-			// 		$('body').removeClass('hidden-overflow');
-			// 	});	
-			// }
+			if ($('#special-alert-notice').hasClass('alert-popup')) {
+				$('<div />').prependTo('body').addClass('alert-popup-overlay');
+				$('body').addClass('hidden-overflow');
+				$('#special-alert-notice').insertAfter('.alert-popup-overlay').show();
+				$('button[data-dismiss="alert"]').one('click', function () {
+					$('#special-alert-notice').hide();
+					$('.alert-popup-overlay').remove();
+					$('body').removeClass('hidden-overflow');
+				});	
+			}
 
 			// if ($('#special-alert-notice').hasClass('alert-topmargin')) {
 			// 	$('body').prepend($('#special-alert-notice').show());

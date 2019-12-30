@@ -8253,9 +8253,14 @@ div.alert-popup-overlay {
       top: 5rem;
       left: 25%;
       max-width: 50%; } }
+  @media (min-width: 992px) {
+    #special-alert-notice.alert-popup {
+      left: 30%;
+      max-width: 45%; } }
   @media (min-width: 1200px) {
     #special-alert-notice.alert-popup {
-      left: 35%; } }
+      left: 35%;
+      max-width: 40%; } }
   #special-alert-notice.alert-popup .container {
     padding: 0; }
     #special-alert-notice.alert-popup .container p {

@@ -17,6 +17,7 @@ body {
     // Sets default font size for desktop and above to 18px.
     @include font-size(18);
   }
+}
 
 a.skip-to-content {
   position: absolute;
