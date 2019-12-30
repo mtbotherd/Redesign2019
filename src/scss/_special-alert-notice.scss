@@ -1,0 +1,87 @@
+/* popup alert message */
+div.alert-popup-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 998;
+  background: radial-gradient(
+    50% 50%,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  overflow: hidden;
+}
+
+.hidden-overflow {
+  overflow: hidden;
+}
+
+#special-alert-notice {
+  // Top margin alert
+  &.alert-topmargin {
+    padding: 15px;
+    margin-bottom: 0;
+
+    .container {
+      padding: 0;
+      position: relative;
+
+      .gray-circle-info {
+        display: none;
+      }
+
+      p {
+        display: block;
+        padding-right: 30px;
+        margin-bottom: 0;
+      }
+
+      button.close {
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        padding: 15px;
+      }
+    }
+  }
+
+  // Popup alert
+  &.alert-popup {
+    position: absolute;
+    top: 4rem;
+    left: 10%;
+    max-width: 80%;
+    padding: 0;
+    z-index: 999;
+
+    @include media-breakpoint-up(md) {
+      top: 5rem;
+      left: 25%;
+      max-width: 50%;
+    }
+
+    @include media-breakpoint-up(xl) {
+      left: 35%;
+    }
+
+    .container {
+      padding: 0;
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    button.close {
+      background-color: $white;
+      opacity: 1;
+      padding: 0.5rem;
+    }
+
+    .gray-circle-info {
+      display: none;
+    }
+  }
+}

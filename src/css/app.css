@@ -7599,24 +7599,6 @@ a.skip-to-content {
     transition: top 0.1s ease-in;
     z-index: 10; }
 
-.alert-topmargin {
-  padding: 15px;
-  margin-bottom: 0; }
-  .alert-topmargin .container {
-    padding: 0;
-    position: relative; }
-    .alert-topmargin .container .gray-circle-info {
-      display: none; }
-    .alert-topmargin .container p {
-      display: block;
-      padding-right: 30px;
-      margin-bottom: 0; }
-    .alert-topmargin .container button.close {
-      position: absolute;
-      top: -15px;
-      right: -15px;
-      padding: 15px; }
-
 @media (min-width: 768px) {
   .container {
     padding-right: 0;
@@ -8226,6 +8208,64 @@ abbr {
           position: absolute;
           left: -17.1rem;
           margin-top: 0; } }
+
+/* popup alert message */
+div.alert-popup-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 998;
+  background: radial-gradient(50% 50%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) 100%);
+  overflow: hidden; }
+
+.hidden-overflow {
+  overflow: hidden; }
+
+#special-alert-notice.alert-topmargin {
+  padding: 15px;
+  margin-bottom: 0; }
+  #special-alert-notice.alert-topmargin .container {
+    padding: 0;
+    position: relative; }
+    #special-alert-notice.alert-topmargin .container .gray-circle-info {
+      display: none; }
+    #special-alert-notice.alert-topmargin .container p {
+      display: block;
+      padding-right: 30px;
+      margin-bottom: 0; }
+    #special-alert-notice.alert-topmargin .container button.close {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      padding: 15px; }
+
+#special-alert-notice.alert-popup {
+  position: absolute;
+  top: 4rem;
+  left: 10%;
+  max-width: 80%;
+  padding: 0;
+  z-index: 999; }
+  @media (min-width: 768px) {
+    #special-alert-notice.alert-popup {
+      top: 5rem;
+      left: 25%;
+      max-width: 50%; } }
+  @media (min-width: 1200px) {
+    #special-alert-notice.alert-popup {
+      left: 35%; } }
+  #special-alert-notice.alert-popup .container {
+    padding: 0; }
+    #special-alert-notice.alert-popup .container p {
+      margin-bottom: 0; }
+  #special-alert-notice.alert-popup button.close {
+    background-color: #fff;
+    opacity: 1;
+    padding: 0.5rem; }
+  #special-alert-notice.alert-popup .gray-circle-info {
+    display: none; }
 
 .moovel-show {
   display: none !important; }

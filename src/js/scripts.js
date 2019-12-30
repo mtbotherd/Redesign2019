@@ -26,7 +26,7 @@ var Main = (function ($, window, document, undefined) {
         if (getCookie(name)) document.cookie = name + "=" +
             ((path) ? ";path=" + path : "") +
             ((domain) ? ";domain=" + domain : "") + ";expires=Thu, 01-Jan-1970 00:00:01 GMT";
-    };
+	};
 
     var popupAlertNotice = function (cookieID, expire) {
         if ($('#special-alert-notice').hasClass('alert-popup')) {
@@ -36,7 +36,8 @@ var Main = (function ($, window, document, undefined) {
                 $('<div />').prependTo('body').addClass('alert-popup-overlay');
                 $('body').addClass('hidden-overflow');
                 $('#special-alert-notice').show();
-                $('#special-alert-notice .fa-close').one('click', function () {
+                // $('#special-alert-notice .fa-close').one('click', function () {
+				$('button[data-dismiss="alert"]').one('click', function () {
                     $('#special-alert-notice').hide();
                     $('.alert-popup-overlay').remove();
                     $('body').removeClass('hidden-overflow');
@@ -77,25 +78,6 @@ var Main = (function ($, window, document, undefined) {
         if (sAgent.indexOf('MSIE') > -1 || sAgent.indexOf('Trident/7') > -1) {
 			$('#ieAlert').show();
 		}
-		
-		// function GetIEVersion() {
-		// 	var sAgent = window.navigator.userAgent;
-		// 	var Idx = sAgent.indexOf("MSIE");
-		  
-		// 	// If IE, return version number.
-		// 	if (Idx > 0) 
-		// 	  return parseInt(sAgent.substring(Idx+ 5, sAgent.indexOf(".", Idx)));
-		  
-		// 	// If IE 11 then look for Updated user agent string.
-		// 	else if (!!navigator.userAgent.match(/Trident\/7\./)) 
-		// 	  return 11;
-		  
-		// 	else
-		// 	  return 0; //It is not IE
-		// }
-		
-		// if (GetIEVersion() > 0) 
-		// 	alert(" You are using Internet Explorer " + GetIEVersion() + ". Please use Edge or Chrome to get the full experience. ");
 
         // shopping car number
         let qty = getCookie('cart_status');
