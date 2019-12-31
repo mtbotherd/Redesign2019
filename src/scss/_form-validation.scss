@@ -2,6 +2,7 @@
     Form validation styles
 **************************************************/
 form {
+  // Trip PLanner
   label.is-invalid {
     position: absolute;
     top: -1.5rem;
@@ -14,5 +15,26 @@ form {
   #toErrorMessage {
     color: $red;
     font-style: italic;
+  }
+
+  // Standard forms
+  div.is-invalid {
+    color: $red;
+    font-style: italic;
+  }
+
+  // Specialty forms
+  /* TAP Enrollment */
+  .custom-file-input {
+    height: 50px;
+  }
+
+  .custom-file {
+    height: 50px;
+    //padding: 0.375rem 0.75rem;
+    overflow: hidden;
+  }
+  .custom-file-control {
+    white-space: nowrap;
   }
 }

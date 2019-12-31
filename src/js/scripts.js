@@ -122,6 +122,13 @@ var Main = (function ($, window, document, undefined) {
 		$('#siteSearchBtn').on('click', function() {
 			window.location = "/website-search-results?q=" + encodeURI ($('#siteSearch').val());
 		});
+
+		// Custom file input
+		$(".custom-file-input").on("change", function() {
+			var fileName = $(this).val().split("\\").pop();
+			$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+		  });
+
 		Main.enterKeyPressHandler('#siteSearch', '#siteSearchBtn');
     };
 

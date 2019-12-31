@@ -11429,17 +11429,28 @@ h2.blogtitle {
 /**************************************************
     Form validation styles
 **************************************************/
-form label.is-invalid {
-  position: absolute;
-  top: -1.5rem;
-  left: 1rem;
-  color: #ed1b2e;
-  font-style: italic; }
-
-form #fromErrorMessage,
-form #toErrorMessage {
-  color: #ed1b2e;
-  font-style: italic; }
+form {
+  /* TAP Enrollment */ }
+  form label.is-invalid {
+    position: absolute;
+    top: -1.5rem;
+    left: 1rem;
+    color: #ed1b2e;
+    font-style: italic; }
+  form #fromErrorMessage,
+  form #toErrorMessage {
+    color: #ed1b2e;
+    font-style: italic; }
+  form div.is-invalid {
+    color: #ed1b2e;
+    font-style: italic; }
+  form .custom-file-input {
+    height: 50px; }
+  form .custom-file {
+    height: 50px;
+    overflow: hidden; }
+  form .custom-file-control {
+    white-space: nowrap; }
 
 @font-face {
   font-family: 'Material Icons';
