@@ -222,7 +222,8 @@
 				<div class=""> <!-- This class gets set in CMS -->
 					<div class="htmlmodule">
 						<section class="section">
-							<div class="visible-xs-block visible-sm-block">
+							<div class="d-none d-lg-block">
+								<h2 class="sr-only">Parn &amp; Ride map</h2>
 								<p><img class="img-fluid" src="/Data/sites/1/media/about/improvements/orange-line/Construction-pr-map.jpg" /></p>
 
 								<!-- <div class="accordion-header">
@@ -239,7 +240,7 @@
 									</div>
 								</div> -->
 
-								<div class="accordion" id="parkRides">
+								<div id="parkRides" class="accordion">
 									<div class="card">
 										<div class="card-header">
 											<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#appleValley" aria-expanded="false">
@@ -248,233 +249,172 @@
 											</button>
 										</div>
 										<div class="collapse" id="appleValley">
-											<div class="row">
-												<div class="col-xs-2 col-sm-1"><span class="map-location-inset">1</span></div>							
-												<div class="col-xs-6 col-sm-6">
-													<p class="prname">Apple Valley Transit Station</p>														
-													<address>15450 Cedar Ave. S.</address>														
-													<p class="red">LIMITED PARKING AVAILABILITY</p>
-												</div>							
-												<div class="col-xs-4 col-ms-5">
-													<p>METRO Red Line, 475, 477</p>
-												</div>
-											</div>							
-											<p>
-												<img alt="map of Apple Valley Transit Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/1-Apple-Valley-Transit-Station.jpg" />
-											</p>							
-											<hr />
-											<div class="row">
-												<div class="col-xs-2 col-sm-1"><span class="map-location-inset">2</span></div>							
-												<div class="col-xs-6 col-sm-6">
-													<p class="prname">Palomino Hills Park &amp; Ride</p>								
-													<address>12760 Pennock Ave.</address>								
-													<p class="green">GOOD PARKING AVAILABILITY</p>
-												</div>							
-												<div class="col-xs-4 col-ms-5">
-													<p>476, 477</p>
-												</div>
-											</div>							
-											<p><img alt="map of Palomino Hills Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/2-Palomino.jpg" /></p>
-							
-											<hr />
-
-											<div class="row">
-												<div class="col-xs-2 col-sm-1">
-													<span class="map-location-inset">3</span>
-												</div>												
-												<div class="col-xs-6 col-sm-6">
-													<p class="prname">157th Street Station</p>												
-													<address>15865 Pilot Knob Rd.</address>												
-													<p class="green">GOOD PARKING AVAILABILITY</p>
-												</div>												
-												<div class="col-xs-4 col-ms-5">
-													<p>477, 479</p>
-												</div>
-											</div>							
-											<p><img alt="map of 157th Street Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/3-157th-St-Station.jpg" /></p>
-										</div>
-									</div>
-								</div>
-								
-								<!-- <div aria-multiselectable="true" class="panel-group panel-blue" id="accordion" role="tablist">
-									<div class="panel panel-default">
-										<div class="panel-heading" id="appleValley" role="tab">
-											<h4 class="panel-title"><a aria-controls="maplegrove-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#applevalley-locaiton">APPLE VALLEY </a></h4>
-										</div>
-								
-										<div aria-labelledby="appleValley" class="panel-collapse collapse" id="applevalley-locaiton" role="tabpanel">
-											<div class="panel-body">
+											<div class="card-body">
 												<div class="row">
-													<div class="col-xs-2 col-sm-1"><span class="map-location-inset">1</span></div>
-								
-													<div class="col-xs-6 col-sm-6">
-														<p class="prname">Apple Valley Transit Station</p>														
-														<address>15450 Cedar Ave. S.</address>														
-														<p class="red">LIMITED PARKING AVAILABILITY</p>
+													<div class="col-2">
+														<p class="map-location-inset">1</p>
 													</div>
-								
-													<div class="col-xs-4 col-ms-5">
+													<div class="col-5">
+														<p class="prname">Apple Valley Transit Station<br />15450 Cedar Ave. S.</p>
+														<div class="alert alert-danger">Limited parking availability</div>
+													</div>							
+													<div class="col-5">
+														<h3 class="h4">Service to downtown Minneapolis</h3>
 														<p>METRO Red Line, 475, 477</p>
 													</div>
 												</div>
-								
 												<p>
-													<img alt="map of Apple Valley Transit Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/1-Apple-Valley-Transit-Station.jpg" />
-												</p>
-								
+													<img alt="map of Apple Valley Transit Station" class="img-fluid" src="/Data/sites/1/media/about/improvements/orange-line/pnr-maps/1-Apple-Valley-Transit-Station.jpg" />
+												</p>							
 												<hr />
 												<div class="row">
-													<div class="col-xs-2 col-sm-1"><span class="map-location-inset">2</span></div>
-								
-													<div class="col-xs-6 col-sm-6">
-														<p class="prname">Palomino Hills Park &amp; Ride</p>								
-														<address>12760 Pennock Ave.</address>								
-														<p class="green">GOOD PARKING AVAILABILITY</p>
-													</div>
-								
-													<div class="col-xs-4 col-ms-5">
+													<div class="col-2">
+														<p class="map-location-inset">2</p>
+													</div>			
+													<div class="col-5">
+														<p class="prname">Palomino Hills Park &amp; Ride<br />
+														12760 Pennock Ave.</p>	
+														<div class="alert alert-success">Good parking availability</div>
+													</div>							
+													<div class="col-5">
+														<h3 class="h4">Service to downtown Minneapolis</h3>
 														<p>476, 477</p>
 													</div>
-												</div>
-								
-												<p><img alt="map of Palomino Hills Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/2-Palomino.jpg" /></p>
+												</div>							
+												<p><img alt="map of Palomino Hills Park & Ride" class="img-fluid" src="/Data/sites/1/media/about/improvements/orange-line/pnr-maps/2-Palomino.jpg" /></p>
 								
 												<hr />
+
 												<div class="row">
-													<div class="col-xs-2 col-sm-1">
-														<span class="map-location-inset">3</span>
+													<div class="col-2">
+														<p class="map-location-inset">3</p>
 													</div>												
-													<div class="col-xs-6 col-sm-6">
-														<p class="prname">157th Street Station</p>												
-														<address>15865 Pilot Knob Rd.</address>												
-														<p class="green">GOOD PARKING AVAILABILITY</p>
+													<div class="col-5">
+														<p class="prname">157th Street Station<br />
+															15865 Pilot Knob Rd.</p>						
+														<div class="alert alert-success">Good parking availability</div>
 													</div>												
-													<div class="col-xs-4 col-ms-5">
+													<div class="col-5">
+														<h3 class="h4">Service to downtown Minneapolis</h3>
 														<p>477, 479</p>
 													</div>
+												</div>							
+												<p><img alt="map of 157th Street Station" class="img-fluid" src="/Data/sites/1/media/about/improvements/orange-line/pnr-maps/3-157th-St-Station.jpg" /></p>
+											</div>
+										</div>
+									</div>
+
+									<div class="card">
+										<div class="card-header">
+											<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#bloomington" aria-expanded="false">
+												Bloomington
+												<img alt="" class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg"/>
+											</button>
+										</div>
+										<div class="collapse" id="bloomington">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-2">
+														<p class="map-location-inset">4</p>
+													</div>												
+													<div class="col-5">
+														<p class="prname">St. Luke’s Lutheran Church<br />
+															1618 W. Old Shakopee Rd.</p>
+														<div class="alert alert-success">Good parking availability</div>
+													</div>												
+													<div class="col-5">
+														<h3 class="h4">Service to downtown Minneapolis</h3>
+														<p>597</p>
+													</div>
+												</div>	
+												<p><img alt="map of Saint Lukes Lutheran Church" class="img-fluid" src="/Data/sites/1/media/about/improvements/orange-line/pnr-maps/4-StLukes.jpg" /></p>
+												
+												<hr />
+												<div class="row">
+													<div class="col-2">
+														<p class="map-location-inset">5</p>
+													</div>
+												
+													<div class="col-5">
+														<p class="prname">South Bloomington Transit Center<br />
+															9830 Aldrich Ave. S.</p>
+														<div class="alert alert-warning">Limited parking availability</div>
+													</div>										
+													<div class="col-5">
+														<h3 class="h4">Service to downtown Minneapolis</h3>
+														<p>18, 465, 535, 554, 597</p>
+														<h3 class="h4">Local bus service connection</h3>
+														<p>539</p>
+													</div>
+												</div>										
+												<p><img alt="map of South Bloomington" class="img-fluid" src="/Data/sites/1/media/about/improvements/orange-line/pnr-maps/5-South-Bloomington.jpg" /></p>
+												
+												<hr />
+												<div class="row">
+													<div class="col-2">
+														<p class="map-location-inset">6</p>
+													</div>										
+													<div class="col-5">
+														<p class="prname">28th Avenue Station<br />
+															8151 28th Ave. S.</p>
+														<div class="alert alert-success">Good parking availability</div>
+													</div>										
+													<div class="col-5">
+														<h3 class="h4">Service to downtown Minneapolis</h3>
+														<p>477, 479</p>
+													</div>
+												</div>												
+												<p><img alt="map of 28th Avenue Station" class="img-fluid" src="/Data/sites/1/media/about/improvements/orange-line/pnr-maps/6-28th-Avenue-Station.jpg" /></p>
+											</div>
+										</div>
+									</div>
+
+									<div class="card">
+										<div class="card-header">
+											<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#burnsville" aria-expanded="false">
+												Burnsville
+												<img alt="" class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg"/>
+											</button>
+										</div>
+										<div class="collapse" id="burnsville">
+											<div class="card-body">
+												<div class="row">
+													<div class="col-2">
+														<p class="map-location-inset">7</p>
+													</div>													
+													<div class="col-5">
+														<p class="prname">Burnsville Transit Station<br />
+															100 E. Hwy. 13</p>															
+														<div class="alert alert-danger">Limited parking availability</div>
+													</div>													
+													<div class="col-5">
+														<h3 class="h4">Service to downtown Minneapolis</h3>
+														<p>460, 465</p>
+													</div>
 												</div>
-								
-												<p><img alt="map of 157th Street Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/3-157th-St-Station.jpg" /></p>
+												<p><img alt="map of Burnsville Transit Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/7-Burnsville-Transit-Station.jpg" /></p>
+													
+												<hr />
+												<div class="row">
+													<div class="col-2">
+														<p class="map-location-inset">8</p>
+													</div>												
+													<div class="col-5">
+														<p class="prname">Heart of the City Park &amp; Ride<br />
+															12751 Pillsbury Ave.</p>
+														<div class="alert alert-success">Good parking availability</div>
+													</div>												
+													<div class="col-5">
+														<h3 class="h4">Service to downtown Minneapolis</h3>
+														<p>464, 465</p>
+													</div>
+												</div>												
+												<p><img alt="map of Heart of the City Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/8-Heart-of-the-City.jpg" /></p>
 											</div>
 										</div>
 									</div>
 								
-									<div class="panel panel-default">
-										<div class="panel-heading" id="bloomington" role="tab">
-										<h4 class="panel-title"><a aria-controls="bloomington-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#bloomington-locaiton">BLOOMINGTON </a></h4>
-										</div>
-										
-										<div aria-labelledby="bloomington" class="panel-collapse collapse" id="bloomington-locaiton" role="tabpanel">
-										<div class="panel-body">
-										<div class="row">
-										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">4</span></div>
-										
-										<div class="col-xs-6 col-sm-6">
-										<p class="prname">St. Luke’s Lutheran Church</p>
-										
-										<address>1618 W. Old Shakopee Rd.</address>
-										
-										<p class="green">GOOD PARKING AVAILABILITY</p>
-										</div>
-										
-										<div class="col-xs-4 col-ms-5">
-										<p>597</p>
-										</div>
-										</div>
-										
-										<p><img alt="map of Saint Lukes Lutheran Church" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/4-StLukes.jpg" /></p>
-										
-										<hr />
-										<div class="row">
-										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">5</span></div>
-										
-										<div class="col-xs-6 col-sm-6">
-										<p class="prname">South Bloomington Transit Center</p>
-										
-										<address>9830 Aldrich Ave. S.</address>
-										
-										<p class="red">LIMITED PARKING AVAILABILITY</p>
-										</div>
-										
-										<div class="col-xs-4 col-ms-5">
-										<p>18, 465, 535, 554, 597</p>
-										
-										<p>Local bus service connection: 539</p>
-										</div>
-										</div>
-										
-										<p><img alt="map of South Bloomington" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/5-South-Bloomington.jpg" /></p>
-										
-										<hr />
-										<div class="row">
-										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">6</span></div>
-										
-										<div class="col-xs-6 col-sm-6">
-										<p class="prname">28th Avenue Station</p>
-										
-										<address>8151 28th Ave. S.</address>
-										
-										<p class="green">GOOD PARKING AVAILABILITY</p>
-										</div>
-										
-										<div class="col-xs-4 col-ms-5">
-										<p>477, 479</p>
-										</div>
-										</div>
-										
-										<p><img alt="map of 28th Avenue Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/6-28th-Avenue-Station.jpg" /></p>
-										</div>
-										</div>
-									</div>
-								
-									<div class="panel panel-default">
-										<div class="panel-heading" id="burnsville" role="tab">
-										<h4 class="panel-title"><a aria-controls="burnsville-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#burnsville-locaiton">BURNSVILLE </a></h4>
-										</div>
-										
-										<div aria-labelledby="burnsville" class="panel-collapse collapse" id="burnsville-locaiton" role="tabpanel">
-										<div class="panel-body">
-										<div class="row">
-										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">7</span></div>
-										
-										<div class="col-xs-6 col-sm-6">
-										<p class="prname">Burnsville Transit Station</p>
-										
-										<address>100 E. Hwy. 13</address>
-										
-										<p class="red">LIMITED PARKING AVAILABILITY</p>
-										</div>
-										
-										<div class="col-xs-4 col-ms-5">
-										<p>460, 465</p>
-										</div>
-										</div>
-										
-										<p><img alt="map of Burnsville Transit Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/7-Burnsville-Transit-Station.jpg" /></p>
-										
-										<hr />
-										<div class="row">
-										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">8</span></div>
-										
-										<div class="col-xs-6 col-sm-6">
-										<p class="prname">Heart of the City Park &amp; Ride</p>
-										
-										<address>12751 Pillsbury Ave.</address>
-										
-										<p class="green">GOOD PARKING AVAILABILITY</p>
-										</div>
-										
-										<div class="col-xs-4 col-ms-5">
-										<p>464, 465</p>
-										</div>
-										</div>
-										
-										<p><img alt="map of Heart of the City Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/8-Heart-of-the-City.jpg" /></p>
-										</div>
-										</div>
-									</div>
-								
-									<div class="panel panel-default">
+								<!-- 	<div class="panel panel-default">
 										<div class="panel-heading" id="eagan" role="tab">
 										<h4 class="panel-title"><a aria-controls="eagan-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#eagan-locaiton">EAGAN </a></h4>
 										</div>
@@ -797,8 +737,8 @@
 										<p><img alt="map of South Bridge Crossings Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/21-Southbridge.jpg" /></p>
 										</div>
 									</div>
-									</div>
-								</div> -->
+									</div>-->
+								</div>
 							</div>
 						</section>
 					</div>
