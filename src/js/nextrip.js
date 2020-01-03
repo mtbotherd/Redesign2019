@@ -7,6 +7,7 @@ var NexTrip = (function ($, window, document, undefined) {
         stopId,
         timer;
     var threshold = 3;
+
     function getRoutes() {
         $.get('https://svc.metrotransit.org' + '/nextripv2/routes')
             .done(function (result) {
@@ -139,10 +140,12 @@ var NexTrip = (function ($, window, document, undefined) {
         $('#collapseMap').collapse('hide');
         $('#nextripDepartures').hide();
     };
+
     var scrollToResult = function () {
         var aTag = $('a[name="nextriptop"]');
         $('html,body').animate({ scrollTop: aTag.offset().top }, 'slow');
     };
+
     var showDepartures = function (stop) {
         stopId = stop;
         routeId = ''; // need to clear value for the map to work properly
@@ -153,6 +156,7 @@ var NexTrip = (function ($, window, document, undefined) {
         getStopDepartures(stopId);
         scrollToResult();
     };
+
     var findStops = function () {
         let userLoc = AutocompleteAddress.setUserLoc('nexTrip');
         if (userLoc) {
@@ -257,6 +261,7 @@ var NexTrip = (function ($, window, document, undefined) {
                 findStops();
             });
         });
+
         $('#ntrUseCurrentLoc').click(function () {
             AutocompleteAddress.getUserLocation().then(function () {  // get current location
                 findStops();
@@ -313,15 +318,26 @@ var NexTrip = (function ($, window, document, undefined) {
             $('.nexTrip-trip-options').removeClass('nexTrip-selected-option');
             $(this).addClass('nexTrip-selected-option');
         });
+
         //use URL routing info to populate results
         var nextRoute = window.location.pathname.split('/');
         if (nextRoute[1].toLowerCase() === 'nextrip') {
             if (nextRoute.length === 3) {
                 if (!isNaN(nextRoute[2])) {
+                    timer = setInterval(function () {
+                        getStopDepartures(nextRoute[2]);
+                    }, 30000);
+
                     getStopDepartures(nextRoute[2]);
+                    scrollToResult();
                 }
             } else if (nextRoute.length === 5) {
+                timer = setInterval(function () {
+                    getTimepointDepartures(nextRoute[2], nextRoute[3], nextRoute[4]);
+                }, 30000);
+
                 getTimepointDepartures(nextRoute[2], nextRoute[3], nextRoute[4]);
+                scrollToResult();
             }
         }
     };
