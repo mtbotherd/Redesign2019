@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Metro Transit</title>
+	<link rel="shortcut icon"
+		  href="favicon.ico"
+		  type="image/x-icon">
+	<link rel="stylesheet"
+		  href="/css/app.css">
+
+</head>
+
+<body>
+
+	<div role="link" aria-labelledby="skipNav">
+		<a id="skipNav" href="#pageContainer" class="skip-to-content">Skip to main content</a>
+	</div>
+
+	<div id="ieAlert" style="display: none;">
+		<div class="alert alert-danger mb-0">
+			<div class="container">
+				<p class="mb-0">
+					You are using Internet Explorer. Please use Edge or Chrome to get the full experience.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Begin Header -->
+	<header id="header">
+		<nav class="navbar navbar-expand-xl navbar-light">
+			<div class="container">
+				<a class="navbar-brand" href="/">
+					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<section>
+						<ul class="nav navbar-nav mx-auto">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="/trip-planner" id="tripToolsDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Trip Tools
+								</a>
+								<div class="dropdown-menu" aria-labelledby="tripToolsDropdown">
+									<a class="dropdown-item" href="/trip-planner">Trip Planner</a>
+									<a class="dropdown-item" href="/nextrip">NexTrip</a>
+									<a class="dropdown-item" href="/rider-alerts">Alerts</a>
+									<a class="dropdown-item" href="/park-rides">Find a Park &amp; Ride</a>
+									<a class="dropdown-item" href="/stops-stations">
+										Find a Stop or Station
+									</a>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link no-dropdown" href="/schedules-maps">
+									Schedules &amp; Maps
+								</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="faresDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Fares
+								</a>
+								<div class="dropdown-menu" aria-labelledby="faresDropdown">
+									<a class="dropdown-item" href="/fares">Fares</a>
+									<a class="dropdown-item" href="/go-to-card">Go-To Card</a>
+									<a class="dropdown-item" href="/passes">Pass Programs</a>
+									<a class="dropdown-item" href="https://store.metrotransit.org/">Store</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									More
+								</a>
+								<div class="dropdown-menu" aria-labelledby="moreDropdown">
+									<a class="dropdown-item" href="/carpool-vanpool">Carpool &amp; Vanpool</a>
+									<a class="dropdown-item" href="/transit-link">Transit Link</a>
+									<a class="dropdown-item" href="/guaranteed-ride-home">Guaranteed Ride Home</a>
+									<a class="dropdown-item" href="/bike">Bicycle</a>
+									<a class="dropdown-item" href="/news">News &amp; Events</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="helpDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Help
+								</a>
+								<div class="dropdown-menu" aria-labelledby="helpDropdown">
+									<a class="dropdown-item" href="/how-to-ride">How to Ride</a>
+									<a class="dropdown-item" href="/contact-us">Contact Us</a>
+									<a class="dropdown-item" href="/lost-found">Lost &amp; Found</a>
+									<a class="dropdown-item" href="/accessibility">Accessibility</a>
+									<a class="dropdown-item" href="/languages">Languages</a>
+									<a class="dropdown-item" href="/police">Transit Police</a>
+								</div>
+							</li>
+						</ul>
+					</section>
+					<ul class="nav navbar-nav utilities ml-auto">
+						<li class="nav-item">
+							<a class="nav-link store-icon" href="https://store.metrotransit.org">
+								<span class="sr-only">store</span>
+							</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a data-toggle="dropdown" class="nav-link dropdown-toggle search-icon" href="#">
+								<span class="sr-only">site search</span>
+							</a>
+							<div class="dropdown-menu search-dropdown-menu">
+								<div class="input-group">
+									<label for="siteSearch" class="sr-only">Search</label>
+									<input type="text" id="siteSearch" class="form-control" placeholder="Search our site">
+									<div class="input-group-append">
+										<button type="button" id="siteSearchBtn" class="btn btn-primary">
+											<span class="sr-only">Search button</span>
+											<img alt="search button" class="icon" src="/img/svg/search-gray.svg">
+										</button>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle avatar-icon" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="sr-only">Sign in / create account</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
+								<a class="dropdown-item" href="/logoff.aspx?returnurl=https%3a%2f%2fwwwtest.metrotransit.org%2fDefault.aspx">Sign Out</a>
+								<a class="dropdown-item" href="https://account.metrotransit.org/edit.aspx?returnurl=https%3a%2f%2fwwwtest.metrotransit.org%2fDefault.aspx">Edit Account</a>
+							</div>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav d-xl-none border-top-0">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Metro Transit</a>
+							<div class="dropdown-menu" aria-labelledby="aboutDropdown">
+								<a class="dropdown-item" href="/transit-improvements">Transit Improvements</a>
+								<a class="dropdown-item" href="/facilities-people">Facilities</a>
+								<a class="dropdown-item" href="/riders-almanac-blog">Rider's Almanac</a>
+								<a class="dropdown-item" href="/use-of-transit-property">Use of Transit Property</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="mediaRelationsDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Media Relations</a>
+							<div class="dropdown-menu" aria-labelledby="mediaRelationsDropdown">
+								<a class="dropdown-item" href="/logos-images">Media Resources</a>
+								<a class="dropdown-item" href="/awards">Awards</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="careersDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Careers</a>
+							<div class="dropdown-menu" aria-labelledby="careersDropdown">
+								<a class="dropdown-item" href="/jobs">Available Job Opportunities</a>
+								<a class="dropdown-item" href="/drive">Become a Bus Driver</a>
+								<a class="dropdown-item" href="/transit-police-careers">Join the Transit Police</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="policeDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Policies</a>
+							<div class="dropdown-menu" aria-labelledby="policeDropdown">
+								<a class="dropdown-item" href="/social-media-policy">Social Media Policy</a>
+								<a class="dropdown-item" href="https://metrocouncil.org/Privacy-Policy.aspx">Privacy Policy</a>
+								<a class="dropdown-item" href="/code-of-conduct">Code of Conduct</a>
+								<a class="dropdown-item" href="/titlevi">Title VI: Commitment to Fairness</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="missionDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mission &amp; Impact</a>
+							<div class="dropdown-menu" aria-labelledby="missionDropdown">
+								<a class="dropdown-item" href="/about-metro-transit">Mission &amp; Funding</a>
+								<a class="dropdown-item" href="/equity">Equity &amp; Inclusion</a>
+								<a class="dropdown-item" href="/public-art-in-transit">Public Art</a>
+								<a class="dropdown-item" href="/outreach">Outreach</a>
+								<a class="dropdown-item" href="/transit-oriented-development">Transit Oriented Development</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+							<div class="dropdown-menu" aria-labelledby="resourcesDropdown">
+								<a class="dropdown-item" href="/app">Try the Metro Transit App</a>
+								<a class="dropdown-item" href="/advertise-with-metro-transit">Advertise with Us</a>
+								<a class="dropdown-item" href="/apps">API Resources for Developers</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End Header -->
+
+	<!-- Begin Main Content -->
+	<main id="pageContainer" class="container">
+		<section>
+			<div class="page-content">
+				<div class="full-width">
+					<div class="secondary">
+						<div class="container">
+							<div class="page-title">
+								<h1>Page title</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class=""> <!-- This class gets set in CMS -->
+					<div class="htmlmodule">
+						<section class="section">
+
+							<div class="karen-lang">
+								<h1>*H>cD.xH;0HpdmwDqSXtw>*h>w>usdRA <span class="lato">(Basic Transit Information)</span></h1>
+								<h2>rh&gt;evd.b.ySRuwdRusd;xHw&gt;{gI</h2>
+								<h3>w&gt;*h&gt;w&gt;usdRb.C;odvh.bX;(p)'D;vh.rh.tl&amp;J.vDRusJRvDR&lt;A'D;usJqSJ;wz.I
+								</h3>
+								<p>ud;vDwJpdzJ <span class="lato">612-373-3333</span></p>
+								<p>CkxX w&gt;CkxXA2 A <span class="lato">(option 2)</span></p>
+								<p>wJb.tDRvXA <span class="lato">“Speak Karen”</span></p>
+								<p>w&gt;qXuwD&gt;=</p>
+								<ul>
+									<li>rk&gt;weHRA=Ark&gt;,J&gt;eHR<a*drcda6;30ae.&h.awkrark>
+											eRcDA9;00Ae.&amp;H.</a*drcda6;30ae.&h.awkrark>
+									</li>
+									<li>rk&gt;CkeHR<ark>td.bSH;eHR
+											<a'd;ehrobv<a*drcda8;00ae.&h.awkra[gcda4;30ae.&h.<
+												li="">
+											</a'd;ehrobv<a*drcda8;00ae.&h.awkra[gcda4;30ae.&h.<>
+										</ark>
+									</li>
+								</ul>
+								<h3>b.C;w&gt;zdw&gt;vHRvDRr&gt;<aw>qSd;xD.w&gt;*h&gt;<a'd;w>
+											[h.ul.[h.z; wz. t*D&gt;</a'd;w>
+									</aw>
+								</h3>
+								<p>ud;vDwJpdzJ <span class="lato">612-373-3333</span></p>
+								<p>CkxXzJA w&gt;CkxXA3 <span class="lato">(option 3)</span></p>
+								<p>wJb.tDRvXA <span class="lato">“Speak Karen”</span>   </p>
+								<p>w&gt;qXuwD&gt;= rk&gt;weHRA=Ark&gt;,J&gt;eHR
+									<a*drcda7;30ae.&h.awkra[gcda5;30ae.&h.< li="">
+									</a*drcda7;30ae.&h.awkra[gcda5;30ae.&h.<>
+								</p>
+
+								<hr />
+								<h2>w&gt;u'd;0J'.Aodvh.bX;(p)'D;Avh.rh.tl'fvJ.</h2>
+								<h3>odvh.bX;(p)</h3>
+								<p>vD&gt;u0DRtodvh.bX;(p)wz.AvJRxD.uhRvDR'DweHRusXR'D;Atd.ywkm0J'.tgbsDzJw&gt;ymyeD.odvh.bX;(p)ywkmtvD&gt;M.vDRI
+								</p>
+								<p>odvh.bX;(p)vXtcVwz.AnDEk&gt;[;xD.0J'.AzJ*DRcDtqXuwD&gt;'D;rk&gt;xl.tqXuwD&gt;zJvXAuFd
+									<aw>rRxD.'D;w&gt;u&amp;Du';AtqXuwD&gt;M.vDRIA
+										odvh.bX;(p)vXtcV
+										wz. AvJRw&gt;xJvXusJrk&gt;z;'d.tvdRM.vDRIA
+										odvh.bX;(p)vXtcVwywkm0J'.'f odvh.bX;(p)t*Rtod;b.IA
+										odvh.bX;(p)vXtcVwz.AtyORtgM&gt;odvh.bX;(p)t*Rph&gt;uD;M.vDRI
+									</aw>
+								</p>
+
+								<ul>
+									<li><a
+											href="/imap/map.aspx">odvh.bX;(p)vJRw&gt;tusdRtusJt[D.cd.*DR</a>
+									</li>
+									<li><a
+											href="/Data/Sites/1/media/pdfs/how-to-ride-handouts.pdf">w&gt;u'd;xD.odvh.bX;(p)ohvXusJ'fvJ.</a>
+									</li>
+								</ul>
+
+								<h3>vh.rh.tl <span class="lato">(Light rail train)</span></h3>
+
+								<p>vh.rh.tl <span class="lato">(Light rail)</span>
+									vh&gt;vdRvh&gt;xD.xDbd'D;td.ywkm0J'.zJvh.rh.tlywkmtvD&gt;ud;wDR'J;M.vDRI
+								</p>
+
+								<p>vh.rh.tlusdRvgtJ; <span class="lato">(Blue Line)</span> p;xD.vJRw&gt;zJ <span class="lato">Minneapolis</span>
+									0h&gt;cX.o;'D;qlubD,lRysD'D; Mall of America zJ <span class="lato">Hiawatha</span>
+									tusJ M.
+									vDRI</p>
+
+								<ul>
+									<li><a href="/metro-blue-line">vh.rh.tlusdRvgtJ; <span class="lato">(Blue Line)</span>
+											vJRw&gt;tusdRtusJt[D.cd.*DR</a></li>
+								</ul>
+
+								<p>vh.rh.tlusdRvg[h <span class="lato">(Green Line)</span> p;xD.vJRw&gt;zJ <span class="lato">Minneapolis</span>
+									t0h&gt;cX.o;'D;ql <span class="lato">St Paul</span> t0h&gt;cX.o;zJ <span class="lato">University</span>
+									tusJM.vDRI
+								</p>
+
+								<ul>
+									<li><a href="/metro-green-line">vh.rh.tl <span class="lato">(Green Line)</span>
+											vJRw&gt;tusdRtusJt[D.cd.*DR</a></li>
+								</ul>
+
+								<p><a href="/Data/Sites/1/media/pdfs/how-to-ride-handouts.pdf">w&gt;u'd;xD.
+										vh.rh.tl <span class="lato">(Light rail)</span> ohvXusJ'fvJ</a>.</p>
+
+								<h3>odvh.bX;(p)vXtcVo'H;A(Bus Rapid) tw&gt;vJRw&gt;uhR</h3>
+
+								<p>odvh.bX;(p)vXtcVo'H;A <span class="lato">(Bus rapid)</span>
+									vh&gt;vdRvh&gt;xD.0J'.xDbdtgM&gt;'H;Aodvh.bX;(p)vXtvh&gt;vdRvh&gt;xD.nDEk&gt;t*Rw
+									z.M. vDRIAw&gt;'h.pXR vX od vh. bX;(p)
+									td.ywkmtvD&gt;ph&gt;uD;,HRvdmto;M.vDRI</p>
+
+								<p>odvh.bX;(p) A <span class="lato">A Line</span> Ap;xD.vJRw&gt;zJ <span class="lato">46th St</span>
+									vh.rh.tlywkmtvD&gt;'D;ql <span class="lato">Rosedale</span> Aw&gt;qgw&gt;y<span class="lato">OR</span> tvD&gt;zJ
+									<span class="lato">Snelling</span> tusJM.vDRI</p>
+
+								<ul>
+									<li><a href="/a-line">odvh.bX;(p) A <span class="lato">A Line</span>
+											vJRw&gt;tusdRtusJt[D.cd.*DR</a></li>
+								</ul>
+
+								<p>odvh.bX;(p)usdR*DRA <span class="lato">Red Line</span> p;xD.vJRw&gt;zJ <span class="lato">Mall of America</span>
+									&gt;'D;ql <span class="lato">Apple Valley</span> w&gt;vJRw&gt;uhRtvD&gt;M.vDRI</p>
+
+								<ul>
+									<li><a href="/metro-red-line">odvh.bX;(p) A <span class="lato">Red Line</span>
+											vJRw&gt;tusdRtusJt[D.cd.*DR</a></li>
+								</ul>
+
+								<p>w&gt;u'd;xD. odvh.bX;(p)vXtcVo'H;A <span class="lato">(Bus rapid)</span>
+									ohvXusJ'fvJ.tusdRtusJwz.</p>
+
+								<h3>vh.rh.tl <span class="lato">Northstar</span></h3>
+
+								<p>vh.rh.tl <span class="lato">Northstar</span>
+									p;xD.vJRw&gt;zJw&gt;ymyeD.w&gt;td.ywkmtysDzJ
+									<span class="lato">Minneapolis</span> t0h&gt;cX.o;'D;ql <span class="lato">Fridley, Coon Rapids, Anoka,
+									Ramsey, Elk River</span> 'D; <span class="lato"><span class="lato">Big Lake</span></span>
+									M.vDRIAvh.rh.tltHRwvh&gt;vdRvh&gt;xD.xDbdb.I</p>
+
+								<ul>
+									<li><a href="/northstar">vh.rh.tl <span class="lato">Northstar</span>
+											vJRw&gt;tusdRtusJt[D.cd.*DR</a></li>
+								</ul>
+
+								<p>w&gt;u'd;xD. vh.rh.tl <span class="lato">Northstar</span> ohvXusJ'fvJ.</p>
+
+								<hr />
+								<h2>,b.[h.tyORqH;tgvJ.IA</h2>
+
+								<table class="standard" style="margin-bottom: 1em;">
+									<caption class="sr-only">,b.[h.tyORqH;tgvJ.IA</caption>
+									<thead>
+										<tr>
+											<th>vD&gt;u0DRodvh.bX;(p)&lt; A <span class="lato">A Line</span> AusdRA 'D; METRO w&gt;vJRw&gt;uhRtyOR</th>
+											<th class="text-center">ySRvJRw&gt;tgqXuwD&gt;<br />
+												rk&gt;weHR=rk&gt;,J&gt;eHR<br />
+												*DRcDA6:00 - 9:00 [gcDA3:00 - 6:30</th>
+											<th>w&gt;qXuwD&gt;vX ySRvJRw&gt;wtg</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>eD&gt;'d.A(o;eH. A13-64)</td>
+											<td class="text-center">$2.50</td>
+											<td class="text-center">$2.00</td>
+										</tr>
+										<tr>
+											<td>o;yS&gt; (65+) o;p&gt; (6-12), <span class="lato">Medicare</span></td>
+											<td class="text-center">$2.50</td>
+											<td class="text-center">$1.00</td>
+										</tr>
+										<tr>
+											<td>0h&gt;ylRvD&gt;u0DR</td>
+											<td class="text-center">$0.50</td>
+											<td class="text-center">$0.50</td>
+										</tr>
+										<tr>
+											<th headers="blank" id="col1">u0DRodvh.bX;(p)&lt;
+													<span class="lato">(Express Bus)</span> w&gt;vJRw&gt;uhRtyOR</th>
+											<th headers="blank" id="col2">ySRvJRw&gt;tgqXuwD&gt;
+											</th>
+											<th headers="blank" id="col3">w&gt;qXuwD&gt;vX<br />
+												ySRvJRw&gt;wtg</th>
+										</tr>
+										<tr>
+											<td headers="col1 c1">eD&gt;'d.A(o;eH. A13-64)</td>
+											<td class="text-center" headers="col2 c1">$3.25</td>
+											<td class="text-center" headers="col3 c1">$2.50</td>
+										</tr>
+										<tr>
+											<td headers="col1 c2">o;yS&gt; (65+)<br />
+												o;p&gt; (6-12), <span class="lato">Medicare</span></td>
+											<td class="text-center" headers="col2 c2">$3.25</td>
+											<td class="text-center" headers="col3 c2">$1.00</td>
+										</tr>
+										<tr>
+											<th colspan="3" id="discount" scope="colgroup">
+												w&gt;vJRw&gt;uhRtyORvXw&gt;rRpSRvDRtDR</th>
+										</tr>
+										<tr>
+											<td headers="discount" id="row1 col1">
+												ySRvXtd.'D;eD&gt;cduh&gt;*DRw*hR</td>
+											<td class="text-right" colspan="2"
+												headers="discount" id="row1 col2">$1.00<br />
+												<small>zJt'd;ovdvh.bX;(p)'D;vh.rh.tl &amp; <span class="lato">METRO</span> tusdR wz. tcg</small></td>
+										</tr>
+										<tr>
+											<td headers="discount" id="row2 col1">
+												ySRzdo.vXA5AeH.'D;tzDvm</td>
+											<td class="text-right" colspan="2"
+												headers="discount" id="row2 col2">
+												uvDA(ymyeD.A3A*R)A<br />
+												ub.'d;'D;AySR'd;odvh.vXA[h.w&gt;tyORA</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<p>vJ;r;
+									§w&gt;cDqSXqDwvJ'd;vJr;qlngwwDRAtqXuwD&gt;cJvXmtd.0JA2Ae.&amp;H.wcDM.vDRIA
+									w&gt;cDqSXqDwvJ'd;vJr;wz.M. Aw&gt;pl;ug
+									0JvXw&gt;'d;odvh.bX;(p)&lt; Aodvh.bX;(p)vXtcVo'H;A <span class="lato">(Bus rapid),</span> 'D;vh.rh.tl <span class="lato">(Light rail)</span> t*D&gt;oh0JM.vDRI</p>
+
+								<h3>b.[h.odvh.bX;(p)tyOR'fvJ.I</h3>
+
+								<p>[h.vXph=Aodvh.bX;(p)w[h.u'guhRphvDRzSH.b.IAtCd[h.'ftb.wDwD'D;tyORtod;wuh&gt;IACh
+									w&gt;cDqSXqDwvJ'd;vJr;wuh&gt;I</p>
+
+								<p><span class="lato">Go-To Card:</span> pH&gt;vDRzJw&gt;z; <span class="lato">Go-To Card</span> tvdRI</p>
+
+								<p>ursX&gt;0HpdmwDqSXvDRqD <span class="lato">(Metro Transit)</span> t App:
+									'k;eJ.yF;ySReD.odvh.vXevDwJpdtrJmo.wuh&gt;I</p>
+
+								<h3>b.[h. vh.rh.tl <span class="lato">(Light rail train)</span> tyOR'fvJ.I</h3>
+
+								<p>[h.vXphArhwrh&gt;Au'GJc;uh=A[h.tyORzJvJ;r;tpJ;tylRIAevJ;r;rh&gt;0JAe
+									w&gt;cDqSXqDwvJ'd;vJr;M.vDRI</p>
+
+								<p><span class="lato">Go-To Card:</span> pH&gt;vDRzJw&gt;z; <span class="lato">Go-To Card</span> tvdRI</p>
+
+								<p>ursX&gt;0HpdmwDqSXvDRqD <span class="lato">(Metro Transit)</span> At App:
+									'k;eJ.yF;evDwJpdtrJmo.zJw&gt;ChuG&gt;0Jtcgwuh&gt;I</p>
+
+								<p>yXRuD&gt;vXtcd;w&gt;zJursX&gt;0HpdmwDqSXvDRqD <span class="lato">(Metro Transit)</span>
+									AtvD&gt;uorHord;0J'.evJ;r;M.vDR
+									IA'k;eJ.yF;evJ;r;'D;yXRuD&gt;tySRb.rlb.'g &lt; 'D;Aw&gt; qSX
+									ph
+									vJ;r;&lt; <span class="lato">Go-To Card</span> rhwrh&gt; ursX&gt;0HpdmwDqSXvDRqD
+									<span class="lato">(Metro Transit)</span> At App zJw&gt;ChuG&gt;0Jtcgwuh&gt;I</p>
+
+								<h3>b.[h. odvh.bX;(p)vXtcVo'H;A <span class="lato">(Bus Rapid)</span> tw&gt;vJRw&gt;uhR
+									tyOR'fvJ.I</h3>
+
+								<p>[h.vXphArhwrh&gt;Au'GJc;uh=A[h.tyORzJvJ;r;tpJ;tylRIAevJ;r;rh&gt;0Je
+									w&gt;cDqSXqDwvJ'd;vJr; M.vDRI</p>
+
+								<p><span class="lato">Go-To Card:</span> pH&gt;vDRzJw&gt;z; <span class="lato">Go-To Card</span> tvdRI</p>
+
+								<p>ursX&gt;0HpdmwDqSXvDRqD <span class="lato">(Metro Transit)</span> At App:
+									'k;eJ.yF;evDwJpdtrJmo.zJw&gt;ChuG&gt;0Jtcgwuh&gt;I</p>
+
+								<p>yXRuD&gt;vXtcd;w&gt;zJursX&gt;0HpdmwDqSXvDRqD <span class="lato">(Metro Transit)</span>
+									AtvD&gt;uorHord;0J'.evJ;r;M.vDR
+									IA'k;eJ.yF;evJ;r;'D;yXRuD&gt;tySRb.rlb.'g &lt; 'D;Aw&gt; qSX
+									ph
+									vJ;r;&lt; Go-To Card rhwrh&gt; ursX&gt;0HpdmwDqSXvDRqD
+									<span class="lato">(Metro Transit)</span> At App zJw&gt;ChuG&gt;0Jtcgwuh&gt;I</p>
+
+								<h3>b.[h. vh.rh.tl Northstar tyOR'fvJ.I</h3>
+
+								<p>[h.vXphArhwrh&gt;Au'GJc;uh=A[h.tyORzJvJ;r;tpJ;tylRIAevJ;r;rh&gt;e
+									w&gt;cDqSXqDwvJ'd;vJr; M.vDRI</p>
+
+								<p><span class="lato">Go-To Card:</span> pH&gt;vDRzJw&gt;z; <span class="lato">Go-To Card</span> tvdRI</p>
+
+								<p>ursX&gt;0HpdmwDqSXvDRqD <span class="lato">(Metro Transit)</span> At App:
+									'k;eJ.yF;evDwJpdtrJmo.zJw&gt;ChuG&gt;0Jtcg</p>
+
+								<table class="standard">
+									<caption class="sr-only">Northstar Fares</caption>
+									<thead>
+										<tr>
+											<th><span class="lato">Northstar</span> tbl;tvJ</th>
+											<th>rk&gt;eHRvXEGHwz.tylR<br />
+												w&gt;bl;w&gt;vJwz.tHR<br />
+												rh&gt;0JvXAw&gt;qXuwD&gt;<br />
+												vXySRvJRxD.uhRvDRw&gt;<br />
+												cVcVu&amp;Du';t*D&gt;I</th>
+											<th colspan="2">EGHuwX&gt;toDwz.<br />
+												w&gt;bl;w&gt;vJwz.tHR<br />
+												wrh&gt;0JvXAw&gt;qXuwD&gt;<br />
+												vXySRvJRxD.uhRvDRw&gt;<br />
+												cVcVu&amp;Du';t*D&gt;I</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>w&gt;vJR§w&gt;uhRAql<br />
+												<span class="lato">Minneapolis</span><br />
+												w&gt;vJRw&gt;uhR wbsD{dR<br />
+													<span class="lato">(One -way)</span> tbl;tvJ</td>
+											<td>ySRpl;ugw&gt;zdud;*Rt*D&gt;<br />
+												<br />
+												wvXuGHmySRvXtd.'D;AeD&gt;cduh&gt;<br />
+												*DRvXAtw*hRuh.uGJ</td>
+											<td>ySR eD&gt;'d.</td>
+											<td>ySRo;yS&gt; (65+),<br />
+												ySRo;p&gt;A(6-12)<br />
+												'D;ySRvXtpdm<br />
+												<span class="lato">Medicare</span><br />
+												c;uhwz.vXA<br />
+												w&gt;pl;ugtDRoh<br />
+												ud;bsDvXAySRvXtd.'<br />
+												D;eD&gt;cduh&gt;*DR<br />
+												uh.uGJwz.t*D&gt;</td>
+										</tr>
+										<tr>
+											<td>Zos <span class="lato">Big Lake</span></td>
+											<td class="text-center">$6.25</td>
+											<td class="text-center">$5.50</td>
+											<td class="text-center">$2.00</td>
+										</tr>
+										<tr>
+											<td>Zos <span class="lato">Elk River</span></td>
+											<td class="text-center">$4.75</td>
+											<td class="text-center">$4.25</td>
+											<td class="text-center">$1.50</td>
+										</tr>
+										<tr>
+											<td>Zos <span class="lato">Ramsey</span></td>
+											<td class="text-center">$3.75</td>
+											<td class="text-center">$3.75</td>
+											<td class="text-center">$1.25</td>
+										</tr>
+										<tr>
+											<td>Zos <span class="lato">Anoka</span></td>
+											<td class="text-center">$3.25</td>
+											<td class="text-center">$3.25</td>
+											<td class="text-center">$1.25</td>
+										</tr>
+										<tr>
+											<td>Zos <span class="lato">Coon Rapids</span>/Zos <span class="lato">Riverdale</span></td>
+											<td class="text-center">$3.25</td>
+											<td class="text-center">$3.25</td>
+											<td class="text-center">$1.25</td>
+										</tr>
+										<tr>
+											<td>Zos <span class="lato">Fridley</span></td>
+											<td class="text-center">$3.25</td>
+											<td class="text-center">$3.25</td>
+											<td class="text-center">$1.00</td>
+										</tr>
+										<tr>
+											<td>Chaw Nces Tsheb -rau- Chaw Nces Tsheb</td>
+											<td class="text-center">$3.25</td>
+											<td class="text-center">$2.75</td>
+											<td class="text-center">$1.00</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<hr />
+								<h2>eurRM&gt; <span class="lato">Go-To Card</span> ohvXusJ'fvJ.=</h2>
+
+								<p>rRM&gt; <span class="lato">Go-To Card</span> rhwrh&gt; xXEkmvDRphqlA <span class="lato">Go-To Card</span> tylRzJA
+									vh.rh.tl <span class="lato">(Light rail)</span> tvJ;r;pJ;td.tvD&gt;&lt; <span class="lato">Cub Foods</span>,
+									ursX&gt;0HpdmwDqSX vDR qD <span class="lato">(Metro Transit)</span>
+									Aw&gt;rRpXRtvD&gt;cX.o;Arhwrh&gt;A ursX&gt;0HpdmwDqSXvDRqD
+									<span class="lato">(Metro Transit)</span> AtySm,JRoMtylRM.vDRI</p>
+
+								<table class="standard">
+									<caption class="sr-only"><span class="lato">Go-To Card</span></caption>
+									<thead>
+										<tr>
+											<th>w&gt;vD&gt;w&gt;usJ</th>
+											<th>vD&gt;td.qd;xH;</th>
+											<th>w&gt;qXuwD&gt;</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><span class="lato">Minneapolis</span> 0h&gt;ylR</td>
+											<td class="loto">719 Marquette Ave.</td>
+											<td>rk&gt;weHRA=Ark&gt;,J&gt;eHR=A *DRcD A7:30 -
+												A[gcD
+												5:30 e.&amp;H.</td>
+										</tr>
+										<tr>
+											<td><span class="lato">St. Paul</span> A0h&gt;ylR</td>
+											<td class="lato">Skyway, US Bank Center<br />
+												101 E. 5th St.</td>
+											<td>rk&gt;weHRA=Ark&gt;,J&gt;eHR=A *DRcD A 9:00 -
+												[gcD
+												4:30 e.&amp;H.</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<hr />
+								<h2>w&gt;rRpSRvDRM&gt;w&gt;vJRw&gt;uhRtvJ</h2>
+
+								<h3>w&gt;vJRxD.uhRvDRvXAtd.'D;w&gt;ymyeD.</h3>
+
+								<p>ySRyORpl;ugw&gt;zdvXteD&gt;cdrd&gt;yS&gt;uhuGJ.weDReDRb.oh.oh.w&gt;urRpSRvDRM&gt;tDRtw&gt;vJRw&gt;uhRtvJM.vDRI
+								</p>
+
+								<p>ySRyORpl;ugw&gt;zdvXteD&gt;cdrd&gt;yS&gt;uhuGJ.ub.td.'D;w&gt;ysJtvHmtk.o;vXw&gt;-uX;'D;w&gt;'d;M&gt;b.
+									w&gt;rRpSRvDRw&gt;vJRw&gt;uhRtvJt*D&gt;M.vDRI</p>
+
+								<p>ySReD&gt;cdrd&gt;yS&gt;uhuGJ.w&gt;[h.w&gt;tvJtvHmywHxD.w&gt;
+								</p>
+
+								<h3>w&gt;[JEkmpSRtw&gt;wdmusJRA(Low Income Program (TAP) )</h3>
+
+								<p>ySR'd;oMRto;vXtw&gt;[JEkmpSRwz.Ab.oh.oh.Au-uX;'D;w&gt;'d;M&gt;b.w&gt;'d;odvh.tvJA1A'Dv.
+									<aud;ehr'j;m.vdri< li=""> </aud;ehr'j;m.vdri<>
+								</p>
+
+								<p>vXw&gt;-uX;'D;w&gt;cGJ;w&gt;,mtw&gt;CkxXt*D&gt;
+									<aub.ymzsgxd.tw>
+										[JEkmtvHmtk.o;M.vDRI</aub.ymzsgxd.tw>
+								</p>
+
+								<p>ywHxD.vXth.xX.eJ;tzDcd.Arhwrh&gt;
+									AvJRywHxD.vXeeD&gt;up&gt;AzJursX&gt;0HpdmwDqSX vDR qD <span class="lato">(Metro
+									Transit)</span> Aw&gt;rRpXR tvD&gt;cX.o;A rhwrh&gt;A w&gt;ywHxD.
+									w&gt;
+									At qXu wD&gt; M. vDRI</p>
+
+								<p>w&gt;rh&gt;[h.eRAw&gt;tk.o;vHM.<aeu'd;m>b. <span class="lato">Go-To Card</span>
+										vDRqDvXAew&gt;xXEkmtgxD.pht*D&gt;M.vDRI</aeu'd;m>
+								</p>
+
+								<h3>w&gt;vJRw&gt;uhRtvJvXySRo;yS&gt;t*D&gt;</h3>
+
+								<p>ySRo;yS&gt;vXto;eH.td.A65AeH.'D;tgM&gt;tM.wz.A[h.b.0J'.w&gt;'d;odvh.bX;(p)'D;vh.rh.tltvJpSR0JM.vDRI
+								</p>
+
+								<p>vXw&gt;'d;M&gt;b.w&gt;rRpSRvDRw&gt;vJRw&gt;uhRtvJt*D&gt;
+									<a'k;ej.zsgxd.evhmtk.o;vxttd.'d;>
+										tX.vDRrR*X&gt;rRusXRtyeD.Arhwrh&gt;AChxD.w&gt;rRpSRvDR
+										<span class="lato">Go-To Card</span> Aw&gt; vJRw&gt;uhRtvJcDzsdw&gt;y&amp;Xwuh&gt;I
+									</a'k;ej.zsgxd.evhmtk.o;vxttd.'d;>
+								</p>
+
+								<h3>ursX&gt;tw&gt;cGJ;w&gt;,mA=Aw&gt;*h&gt;cd.wD VI
+									w&gt;qSd;xD.w&gt;*h&gt;b.C;w&gt;yJRz;eDRz;t*h&gt;</h3>
+
+								<p>w&gt;*h&gt;cd.wD VI
+									vXtb.C;'D;ursX&gt;tw&gt;cGJ;w&gt;,mtw&gt;od.w&gt;oDzJA1964Arh&gt;0J'.zJ.'&amp;X.uD&gt;pXzSd.t
+									oJp;w&gt;bsXvXt'Do 'X0J'.ySRw*R v&gt;v&gt; 'D; u %l&gt;
+									wz.vXw&gt;yJRz;eDRz;t0Joh.cDzsdtuvkmw&gt;vDRpXR
+									<atzh;bh.tvgj>
+										<a'd;uvkmvxt[j0jtw>vDRqDtzDcd.t*D&gt;M.vDRI
+										</a'd;uvkmvxt[j0jtw>
+									</atzh;bh.tvgj>
+								</p>
+
+								<p>rRvdoh.ngtgxD.b.C;ew&gt;cGJ;w&gt;,mAvXttd.0JzJw&gt;*h&gt;cd.wD
+									VI
+									tzDvm</p>
+
+								<p>&nbsp;</p>
+
+								<p>qSXxD.ew&gt;qSd;xD.t*h&gt;AzJw&gt;*h&gt;cd.wD AVI tylR</p>
+							</div>
+							
+						</section>
+
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<!-- End Main Content -->
+
+	<!-- Begin Footer -->
+	<footer class="section">
+		<div class="container">
+			<div class="button-container-icon-right">
+				<a href="/contact-us" class="btn btn-outline-primary">Contact us</a>
+			</div>
+			<div class="d-none d-lg-block social-media text-center">
+				<a href="https://www.twitter.com/MetroTransitMN"><img alt="metro transit on twitter" class="icon mr-2" src="/img/svg/twitter-gray.svg"></a>
+				<a href="https://www.facebook.com/MetroTransitMN"><img alt="metro transit on facebook" class="icon mr-2" src="/img/svg/facebook-gray.svg"></a>
+				<a href="https://www.youtube.com/MetroTransitMN"><img alt="metro transit on youtube" class="icon mr-2" src="/img/svg/youtube-gray.svg"></a>
+				<a href="https://instagram.com/metrotransitmn"><img alt="metro transit on instagram" class="icon mr-2" src="/img/svg/instagram-gray.svg"></a>
+				<a href="https://www.linkedin.com/company/metro-transit"><img alt="metro transit on linked in" class="icon mr-2" src="/img/svg/linkedin-gray.svg"></a>
+				<a href="https://www.flickr.com/photos/metrotransitmn/"><img alt="metro transit on flickr" class="icon" src="/img/svg/flickr-gray.svg"></a>
+			</div>
+			<div class="footer d-none d-lg-block">
+				<div class="card-deck">
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">About Metro Transit</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/transit-improvements" class="nav-link">Transit Improvements</a>
+								</li>
+								<li class="nav-item">
+									<a href="/facilities" class="nav-link">Facilities</a>
+								</li>
+								<li class="nav-item">
+									<a href="/riders-almanac-blog" class="nav-link">Riders Almanac</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Media Relations</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/contacts" class="nav-link">Contacts</a>
+								</li>
+								<li class="nav-item">
+									<a href="/press" class="nav-link">Press Releases</a>
+								</li>
+								<li class="nav-item">
+									<a href="/awards" class="nav-link">Awards</a>
+								</li>
+								<li class="nav-item">
+									<a href="/" class="nav-link">Images &amp; Logos</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Careers</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/jobs" class="nav-link">Available Job Opportunities</a>
+								</li>
+								<li class="nav-item">
+									<a href="/drive" class="nav-link">Become a Bus Driver</a>
+								</li>
+								<li class="nav-item">
+									<a href="/transit-police-careers" class="nav-link">Join the Transit Police</a>
+								</li>
+								<li class="nav-item">
+									<a href="/job-seekers" class="nav-link">Career Fairs</a>
+								</li>
+								<li class="nav-item">
+									<a href="/internships" class="nav-link">Internships</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Policies</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/social-media-policy" class="nav-link">Social Media Policy</a>
+								</li>
+								<li class="nav-item">
+									<a href="https://metrocouncil.org/Privacy-Policy.aspx" class="nav-link" target="_blank">Privacy Policy</a>
+								</li>
+								<li class="nav-item">
+									<a href="/code-of-conduct" class="nav-link">Code of Conduct</a>
+								</li>
+								<li class="nav-item">
+									<a href="/titlevi" class="nav-link">Title VI: Commitment to Fairness</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="card-deck">
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Mission &amp; Impact</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/commitment-to-fairness" class="nav-link">Commitment to Fairness</a>
+								</li>
+								<li class="nav-item">
+									<a href="/impact-programs" class="nav-link">Impact Programs</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Resources</h4>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a href="/app" class="nav-link">Try the Metro Transit App</a>
+								</li>
+								<li class="nav-item">
+									<a href="/advertise-with-metro-transit" class="nav-link">Advertise with Us</a>
+								</li>
+								<li class="nav-item">
+									<a href="/apps" class="nav-link">API Resources for Developers</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="card border-0"></div>
+					<div class="card border-0"></div>
+				</div>
+			</div>
+			<p class="copyright">Metro Transit is a service of the Metropolitan Council.<br />Minneapolis/St. Paul, MN<br />
+	© 2019 Metro Transit</p>
+		</div>
+	</footer>
+	<!-- End Footer -->
+
+	<!-- scripts -->
+	<script src="/js/detect-ie.js"></script>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/popper.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/jquery.exlink.js"></script>
+	<script src="/js/jquery.autocomplete.js"></script>
+	<!-- <script src="/js/jquery.validate.js"></script> -->
+	<!-- <script src="/js/additional-methods.js"></script> -->
+	<!-- <script src="/js/form-validation.js"></script> -->
+	<script src="https://js.arcgis.com/3.28/"></script>
+	<script src="/js/TRIM.js"></script>
+	<script src="/js/scripts.js"></script>
+	<!-- End scripts -->
+	
+</body>
+
+</html>
