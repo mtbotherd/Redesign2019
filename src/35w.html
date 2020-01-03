@@ -222,11 +222,10 @@
 				<div class=""> <!-- This class gets set in CMS -->
 					<div class="htmlmodule">
 						<section class="section">
-
 							<div class="visible-xs-block visible-sm-block">
 								<p><img class="img-fluid" src="/Data/sites/1/media/about/improvements/orange-line/Construction-pr-map.jpg" /></p>
-								
-								<div class="accordion-header">
+
+								<!-- <div class="accordion-header">
 									<div class="row">
 										<div class="col-3">
 											<p>Map Pin #</p>
@@ -238,9 +237,66 @@
 											<p>Service to Downtown Minneapolis</p>
 										</div>
 									</div>
+								</div> -->
+
+								<div class="accordion" id="parkRides">
+									<div class="card">
+										<div class="card-header">
+											<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#appleValley" aria-expanded="false">
+												Apple Valley
+												<img alt="" class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg"/>
+											</button>
+										</div>
+										<div class="collapse" id="appleValley">
+											<div class="row">
+												<div class="col-xs-2 col-sm-1"><span class="map-location-inset">1</span></div>							
+												<div class="col-xs-6 col-sm-6">
+													<p class="prname">Apple Valley Transit Station</p>														
+													<address>15450 Cedar Ave. S.</address>														
+													<p class="red">LIMITED PARKING AVAILABILITY</p>
+												</div>							
+												<div class="col-xs-4 col-ms-5">
+													<p>METRO Red Line, 475, 477</p>
+												</div>
+											</div>							
+											<p>
+												<img alt="map of Apple Valley Transit Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/1-Apple-Valley-Transit-Station.jpg" />
+											</p>							
+											<hr />
+											<div class="row">
+												<div class="col-xs-2 col-sm-1"><span class="map-location-inset">2</span></div>							
+												<div class="col-xs-6 col-sm-6">
+													<p class="prname">Palomino Hills Park &amp; Ride</p>								
+													<address>12760 Pennock Ave.</address>								
+													<p class="green">GOOD PARKING AVAILABILITY</p>
+												</div>							
+												<div class="col-xs-4 col-ms-5">
+													<p>476, 477</p>
+												</div>
+											</div>							
+											<p><img alt="map of Palomino Hills Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/2-Palomino.jpg" /></p>
+							
+											<hr />
+
+											<div class="row">
+												<div class="col-xs-2 col-sm-1">
+													<span class="map-location-inset">3</span>
+												</div>												
+												<div class="col-xs-6 col-sm-6">
+													<p class="prname">157th Street Station</p>												
+													<address>15865 Pilot Knob Rd.</address>												
+													<p class="green">GOOD PARKING AVAILABILITY</p>
+												</div>												
+												<div class="col-xs-4 col-ms-5">
+													<p>477, 479</p>
+												</div>
+											</div>							
+											<p><img alt="map of 157th Street Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/3-157th-St-Station.jpg" /></p>
+										</div>
+									</div>
 								</div>
 								
-								<div aria-multiselectable="true" class="panel-group panel-blue" id="accordion" role="tablist">
+								<!-- <div aria-multiselectable="true" class="panel-group panel-blue" id="accordion" role="tablist">
 									<div class="panel panel-default">
 										<div class="panel-heading" id="appleValley" role="tab">
 											<h4 class="panel-title"><a aria-controls="maplegrove-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#applevalley-locaiton">APPLE VALLEY </a></h4>
@@ -263,7 +319,7 @@
 												</div>
 								
 												<p>
-													<img alt="map of Apple Valley Transit Station" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/1-Apple-Valley-Transit-Station.jpg" />
+													<img alt="map of Apple Valley Transit Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/1-Apple-Valley-Transit-Station.jpg" />
 												</p>
 								
 												<hr />
@@ -281,475 +337,470 @@
 													</div>
 												</div>
 								
-												<p><img alt="map of Palomino Hills Park &amp; Ride" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/2-Palomino.jpg" /></p>
-								
-								<hr />
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">3</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">157th Street Station</p>
-								
-								<address>15865 Pilot Knob Rd.</address>
-								
-								<p class="green">GOOD PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>477, 479</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of 157th Street Station" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/3-157th-St-Station.jpg" /></p>
-								</div>
-								</div>
-								</div>
-								
-								<div class="panel panel-default">
-								<div class="panel-heading" id="bloomington" role="tab">
-								<h4 class="panel-title"><a aria-controls="bloomington-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#bloomington-locaiton">BLOOMINGTON </a></h4>
-								</div>
-								
-								<div aria-labelledby="bloomington" class="panel-collapse collapse" id="bloomington-locaiton" role="tabpanel">
-								<div class="panel-body">
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">4</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">St. Luke’s Lutheran Church</p>
-								
-								<address>1618 W. Old Shakopee Rd.</address>
-								
-								<p class="green">GOOD PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>597</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Saint Lukes Lutheran Church" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/4-StLukes.jpg" /></p>
-								
-								<hr />
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">5</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">South Bloomington Transit Center</p>
-								
-								<address>9830 Aldrich Ave. S.</address>
-								
-								<p class="red">LIMITED PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>18, 465, 535, 554, 597</p>
-								
-								<p>Local bus service connection: 539</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of South Bloomington" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/5-South-Bloomington.jpg" /></p>
-								
-								<hr />
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">6</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">28th Avenue Station</p>
-								
-								<address>8151 28th Ave. S.</address>
-								
-								<p class="green">GOOD PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>477, 479</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of 28th Avenue Station" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/6-28th-Avenue-Station.jpg" /></p>
-								</div>
-								</div>
-								</div>
-								
-								<div class="panel panel-default">
-								<div class="panel-heading" id="burnsville" role="tab">
-								<h4 class="panel-title"><a aria-controls="burnsville-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#burnsville-locaiton">BURNSVILLE </a></h4>
-								</div>
-								
-								<div aria-labelledby="burnsville" class="panel-collapse collapse" id="burnsville-locaiton" role="tabpanel">
-								<div class="panel-body">
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">7</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Burnsville Transit Station</p>
-								
-								<address>100 E. Hwy. 13</address>
-								
-								<p class="red">LIMITED PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>460, 465</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Burnsville Transit Station" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/7-Burnsville-Transit-Station.jpg" /></p>
-								
-								<hr />
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">8</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Heart of the City Park &amp; Ride</p>
-								
-								<address>12751 Pillsbury Ave.</address>
-								
-								<p class="green">GOOD PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>464, 465</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Heart of the City Park &amp; Ride" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/8-Heart-of-the-City.jpg" /></p>
-								</div>
-								</div>
-								</div>
-								
-								<div class="panel panel-default">
-								<div class="panel-heading" id="eagan" role="tab">
-								<h4 class="panel-title"><a aria-controls="eagan-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#eagan-locaiton">EAGAN </a></h4>
-								</div>
-								
-								<div aria-labelledby="eagan" class="panel-collapse collapse" id="eagan-locaiton" role="tabpanel">
-								<div class="panel-body">
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">9</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Cedar Grove Station</p>
-								
-								<address>4035 Nicols Rd.</address>
-								
-								<p class="green">GOOD PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>METRO Red Line, 472, 475, 491, 492</p>
-								
-								<p>Local bus service connections: 437, 438, 440, 444, 445</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Cedar Grove Station" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/9-Cedar-Grove.jpg" /></p>
-								
-								<hr />
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">10</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Eagan Transit Station</p>
-								
-								<address>3470 Pilot Knob Rd.</address>
-								
-								<p class="green">GOOD PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>470</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Eagan Transit Station" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/10-Eagan-Transit-Station.jpg" /></p>
-								
-								<hr />
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">11</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Blackhawk Park &amp; Ride</p>
-								
-								<address>4565 Blackhawk Rd.</address>
-								
-								<p class="green">GOOD PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>470, 472</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Blackhawk Park &amp; Ride" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/11-Blackhawk.jpg" /></p>
-								</div>
-								</div>
-								</div>
-								
-								<div class="panel panel-default">
-								<div class="panel-heading" id="edina" role="tab">
-								<h4 class="panel-title"><a aria-controls="edina-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#edina-locaiton">EDINA </a></h4>
-								</div>
-								
-								<div aria-labelledby="edina" class="panel-collapse collapse" id="edina-locaiton" role="tabpanel">
-								<div class="panel-body">
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">12</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Southdale Transit Center/Park &amp; Ride</p>
-								
-								<address>York Ave. &amp; W. 66th St.</address>
-								
-								<p class="green">GOOD PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>6, 578, SWFlex</p>
-								
-								<p>Local bus service connections: 515, 537, 538</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Southdale Transit Center and Park &amp; Ride" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/12-Southdale.jpg" /></p>
-								</div>
-								</div>
-								</div>
-								
-								<div class="panel panel-default">
-								<div class="panel-heading" id="lakeville" role="tab">
-								<h4 class="panel-title"><a aria-controls="lakeville-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#lakeville-locaiton">LAKEVILLE </a></h4>
-								</div>
-								
-								<div aria-labelledby="lakeville" class="panel-collapse collapse" id="lakeville-locaiton" role="tabpanel">
-								<div class="panel-body">
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">13</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Kenrick Avenue</p>
-								
-								<address>16775 Kenrick Ave.</address>
-								
-								<p class="green">GOOD PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>467</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Kenrick Avenue" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/13-Kenrick.jpg" /></p>
-								
-								<hr />
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">14</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Lakeville Cedar Park &amp; Ride</p>
-								
-								<address>18040 Cedar Ave. S.</address>
-								
-								<p class="green">GOOD PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>477</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Lakeville Cedar Park &amp; Ride" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/14-Lakeville.jpg" /></p>
-								</div>
-								</div>
-								</div>
-								
-								<div class="panel panel-default">
-								<div class="panel-heading" id="minneapolis" role="tab">
-								<h4 class="panel-title"><a aria-controls="minneapolis-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#minneapolis-locaiton">MINNEAPOLIS </a></h4>
-								</div>
-								
-								<div aria-labelledby="minneapolis" class="panel-collapse collapse" id="minneapolis-locaiton" role="tabpanel">
-								<div class="panel-body">
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">15</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Fort Snelling Station South</p>
-								
-								<address>6000 Minnehaha Ave.</address>
-								
-								<p class="orange">MODERATE PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>METRO Blue Line</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Fort Snelling Station South" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/15-Fort-Snelling-South.jpg" /></p>
-								
-								<hr />
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">16</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Fort Snelling Station North</p>
-								
-								<address>Minnehaha Ave. &amp; Weigel Blvd.</address>
-								
-								<p class="orange">MODERATE PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>METRO Blue Line</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Fort Snelling Station North" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/16-Fort-Snelling-North.jpg" /></p>
-								</div>
-								</div>
-								</div>
-								
-								<div class="panel panel-default">
-								<div class="panel-heading" id="richfield" role="tab">
-								<h4 class="panel-title"><a aria-controls="richfield-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#richfield-locaiton">RICHFIELD </a></h4>
-								</div>
-								
-								<div aria-labelledby="richfield" class="panel-collapse collapse" id="richfield-locaiton" role="tabpanel">
-								<div class="panel-body">
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">17</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Knox Avenue Park &amp; Ride</p>
-								
-								<address>7601 Penn Ave.</address>
-								
-								<p class="green">Good PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>535</p>
-								
-								<p>Local bus service connections: 538, 539, 540, 542</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Knox Avenue Park &amp; Ride" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/17-KnoxPR.jpg" /></p>
-								</div>
-								</div>
-								</div>
-								
-								<div class="panel panel-default">
-								<div class="panel-heading" id="rosemount" role="tab">
-								<h4 class="panel-title"><a aria-controls="rosemount-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#rosemount-locaiton">ROSEMOUNT </a></h4>
-								</div>
-								
-								<div aria-labelledby="rosemount" class="panel-collapse collapse" id="rosemount-locaiton" role="tabpanel">
-								<div class="panel-body">
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">18</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Rosemount Transit Station</p>
-								
-								<address>14550 Burnley Ave. S.</address>
-								
-								<p class="orange">MODERATE PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>476, 478</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Rosemount Transit Station" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/18-Rosemount.jpg" /></p>
-								</div>
-								</div>
-								</div>
-								
-								<div class="panel panel-default">
-								<div class="panel-heading" id="savage" role="tab">
-								<h4 class="panel-title"><a aria-controls="savage-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#savage-locaiton">SAVAGE </a></h4>
-								</div>
-								
-								<div aria-labelledby="savage" class="panel-collapse collapse" id="savage-locaiton" role="tabpanel">
-								<div class="panel-body">
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">19</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Savage Park &amp; Ride</p>
-								
-								<address>14121 Huntington Ave.</address>
-								
-								<p class="green">GOOD PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>464</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Savage Park &amp; Ride" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/19-Savage.jpg" /></p>
-								</div>
-								</div>
-								</div>
-								
-								<div class="panel panel-default">
-								<div class="panel-heading" id="shakopee" role="tab">
-								<h4 class="panel-title"><a aria-controls="shakopee-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#shakopee-locaiton">SHAKOPEE </a></h4>
-								</div>
-								
-								<div aria-labelledby="shakopee" class="panel-collapse collapse" id="shakopee-locaiton" role="tabpanel">
-								<div class="panel-body">
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">20</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Eagle Creek Park &amp; Ride</p>
-								
-								<address>6600 Eagle Creek Blvd.</address>
-								
-								<p class="green">GOOD PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>491</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of Eagle Creek Park &amp; Ride" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/20-EagleCreek.jpg" /></p>
-								
-								<hr />
-								<div class="row">
-								<div class="col-xs-2 col-sm-1"><span class="map-location-inset">21</span></div>
-								
-								<div class="col-xs-6 col-sm-6">
-								<p class="prname">Southbridge Crossings Park &amp; Ride</p>
-								
-								<address>1401 Crossings Blvd.</address>
-								
-								<p class="green">GOOD PARKING AVAILABILITY</p>
-								</div>
-								
-								<div class="col-xs-4 col-ms-5">
-								<p>491</p>
-								</div>
-								</div>
-								
-								<p><img alt="map of South Bridge Crossings Park &amp; Ride" class="pnr-map" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/21-Southbridge.jpg" /></p>
-								</div>
-								</div>
-								</div>
-								</div>
-								</div>
-								
-							
+												<p><img alt="map of Palomino Hills Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/2-Palomino.jpg" /></p>
+								
+												<hr />
+												<div class="row">
+													<div class="col-xs-2 col-sm-1">
+														<span class="map-location-inset">3</span>
+													</div>												
+													<div class="col-xs-6 col-sm-6">
+														<p class="prname">157th Street Station</p>												
+														<address>15865 Pilot Knob Rd.</address>												
+														<p class="green">GOOD PARKING AVAILABILITY</p>
+													</div>												
+													<div class="col-xs-4 col-ms-5">
+														<p>477, 479</p>
+													</div>
+												</div>
+								
+												<p><img alt="map of 157th Street Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/3-157th-St-Station.jpg" /></p>
+											</div>
+										</div>
+									</div>
+								
+									<div class="panel panel-default">
+										<div class="panel-heading" id="bloomington" role="tab">
+										<h4 class="panel-title"><a aria-controls="bloomington-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#bloomington-locaiton">BLOOMINGTON </a></h4>
+										</div>
+										
+										<div aria-labelledby="bloomington" class="panel-collapse collapse" id="bloomington-locaiton" role="tabpanel">
+										<div class="panel-body">
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">4</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">St. Luke’s Lutheran Church</p>
+										
+										<address>1618 W. Old Shakopee Rd.</address>
+										
+										<p class="green">GOOD PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>597</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Saint Lukes Lutheran Church" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/4-StLukes.jpg" /></p>
+										
+										<hr />
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">5</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">South Bloomington Transit Center</p>
+										
+										<address>9830 Aldrich Ave. S.</address>
+										
+										<p class="red">LIMITED PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>18, 465, 535, 554, 597</p>
+										
+										<p>Local bus service connection: 539</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of South Bloomington" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/5-South-Bloomington.jpg" /></p>
+										
+										<hr />
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">6</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">28th Avenue Station</p>
+										
+										<address>8151 28th Ave. S.</address>
+										
+										<p class="green">GOOD PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>477, 479</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of 28th Avenue Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/6-28th-Avenue-Station.jpg" /></p>
+										</div>
+										</div>
+									</div>
+								
+									<div class="panel panel-default">
+										<div class="panel-heading" id="burnsville" role="tab">
+										<h4 class="panel-title"><a aria-controls="burnsville-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#burnsville-locaiton">BURNSVILLE </a></h4>
+										</div>
+										
+										<div aria-labelledby="burnsville" class="panel-collapse collapse" id="burnsville-locaiton" role="tabpanel">
+										<div class="panel-body">
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">7</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Burnsville Transit Station</p>
+										
+										<address>100 E. Hwy. 13</address>
+										
+										<p class="red">LIMITED PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>460, 465</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Burnsville Transit Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/7-Burnsville-Transit-Station.jpg" /></p>
+										
+										<hr />
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">8</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Heart of the City Park &amp; Ride</p>
+										
+										<address>12751 Pillsbury Ave.</address>
+										
+										<p class="green">GOOD PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>464, 465</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Heart of the City Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/8-Heart-of-the-City.jpg" /></p>
+										</div>
+										</div>
+									</div>
+								
+									<div class="panel panel-default">
+										<div class="panel-heading" id="eagan" role="tab">
+										<h4 class="panel-title"><a aria-controls="eagan-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#eagan-locaiton">EAGAN </a></h4>
+										</div>
+										
+										<div aria-labelledby="eagan" class="panel-collapse collapse" id="eagan-locaiton" role="tabpanel">
+										<div class="panel-body">
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">9</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Cedar Grove Station</p>
+										
+										<address>4035 Nicols Rd.</address>
+										
+										<p class="green">GOOD PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>METRO Red Line, 472, 475, 491, 492</p>
+										
+										<p>Local bus service connections: 437, 438, 440, 444, 445</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Cedar Grove Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/9-Cedar-Grove.jpg" /></p>
+										
+										<hr />
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">10</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Eagan Transit Station</p>
+										
+										<address>3470 Pilot Knob Rd.</address>
+										
+										<p class="green">GOOD PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>470</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Eagan Transit Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/10-Eagan-Transit-Station.jpg" /></p>
+										
+										<hr />
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">11</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Blackhawk Park &amp; Ride</p>
+										
+										<address>4565 Blackhawk Rd.</address>
+										
+										<p class="green">GOOD PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>470, 472</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Blackhawk Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/11-Blackhawk.jpg" /></p>
+										</div>
+										</div>
+									</div>
+								
+									<div class="panel panel-default">
+										<div class="panel-heading" id="edina" role="tab">
+										<h4 class="panel-title"><a aria-controls="edina-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#edina-locaiton">EDINA </a></h4>
+										</div>
+										
+										<div aria-labelledby="edina" class="panel-collapse collapse" id="edina-locaiton" role="tabpanel">
+										<div class="panel-body">
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">12</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Southdale Transit Center/Park &amp; Ride</p>
+										
+										<address>York Ave. &amp; W. 66th St.</address>
+										
+										<p class="green">GOOD PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>6, 578, SWFlex</p>
+										
+										<p>Local bus service connections: 515, 537, 538</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Southdale Transit Center and Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/12-Southdale.jpg" /></p>
+										</div>
+										</div>
+									</div>
+								
+									<div class="panel panel-default">
+										<div class="panel-heading" id="lakeville" role="tab">
+										<h4 class="panel-title"><a aria-controls="lakeville-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#lakeville-locaiton">LAKEVILLE </a></h4>
+										</div>
+										
+										<div aria-labelledby="lakeville" class="panel-collapse collapse" id="lakeville-locaiton" role="tabpanel">
+										<div class="panel-body">
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">13</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Kenrick Avenue</p>
+										
+										<address>16775 Kenrick Ave.</address>
+										
+										<p class="green">GOOD PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>467</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Kenrick Avenue" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/13-Kenrick.jpg" /></p>
+										
+										<hr />
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">14</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Lakeville Cedar Park &amp; Ride</p>
+										
+										<address>18040 Cedar Ave. S.</address>
+										
+										<p class="green">GOOD PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>477</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Lakeville Cedar Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/14-Lakeville.jpg" /></p>
+										</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" id="minneapolis" role="tab">
+										<h4 class="panel-title"><a aria-controls="minneapolis-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#minneapolis-locaiton">MINNEAPOLIS </a></h4>
+										</div>
+										
+										<div aria-labelledby="minneapolis" class="panel-collapse collapse" id="minneapolis-locaiton" role="tabpanel">
+										<div class="panel-body">
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">15</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Fort Snelling Station South</p>
+										
+										<address>6000 Minnehaha Ave.</address>
+										
+										<p class="orange">MODERATE PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>METRO Blue Line</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Fort Snelling Station South" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/15-Fort-Snelling-South.jpg" /></p>
+										
+										<hr />
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">16</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Fort Snelling Station North</p>
+										
+										<address>Minnehaha Ave. &amp; Weigel Blvd.</address>
+										
+										<p class="orange">MODERATE PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>METRO Blue Line</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Fort Snelling Station North" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/16-Fort-Snelling-North.jpg" /></p>
+										</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" id="richfield" role="tab">
+										<h4 class="panel-title"><a aria-controls="richfield-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#richfield-locaiton">RICHFIELD </a></h4>
+										</div>
+										
+										<div aria-labelledby="richfield" class="panel-collapse collapse" id="richfield-locaiton" role="tabpanel">
+										<div class="panel-body">
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">17</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Knox Avenue Park &amp; Ride</p>
+										
+										<address>7601 Penn Ave.</address>
+										
+										<p class="green">Good PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>535</p>
+										
+										<p>Local bus service connections: 538, 539, 540, 542</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Knox Avenue Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/17-KnoxPR.jpg" /></p>
+										</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" id="rosemount" role="tab">
+										<h4 class="panel-title"><a aria-controls="rosemount-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#rosemount-locaiton">ROSEMOUNT </a></h4>
+										</div>
+										
+										<div aria-labelledby="rosemount" class="panel-collapse collapse" id="rosemount-locaiton" role="tabpanel">
+										<div class="panel-body">
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">18</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Rosemount Transit Station</p>
+										
+										<address>14550 Burnley Ave. S.</address>
+										
+										<p class="orange">MODERATE PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>476, 478</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Rosemount Transit Station" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/18-Rosemount.jpg" /></p>
+										</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" id="savage" role="tab">
+										<h4 class="panel-title"><a aria-controls="savage-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#savage-locaiton">SAVAGE </a></h4>
+										</div>
+										
+										<div aria-labelledby="savage" class="panel-collapse collapse" id="savage-locaiton" role="tabpanel">
+										<div class="panel-body">
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">19</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Savage Park &amp; Ride</p>
+										
+										<address>14121 Huntington Ave.</address>
+										
+										<p class="green">GOOD PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>464</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Savage Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/19-Savage.jpg" /></p>
+										</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" id="shakopee" role="tab">
+										<h4 class="panel-title"><a aria-controls="shakopee-locaiton" aria-expanded="false" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#shakopee-locaiton">SHAKOPEE </a></h4>
+										</div>
+										
+										<div aria-labelledby="shakopee" class="panel-collapse collapse" id="shakopee-locaiton" role="tabpanel">
+										<div class="panel-body">
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">20</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Eagle Creek Park &amp; Ride</p>
+										
+										<address>6600 Eagle Creek Blvd.</address>
+										
+										<p class="green">GOOD PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>491</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of Eagle Creek Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/20-EagleCreek.jpg" /></p>
+										
+										<hr />
+										<div class="row">
+										<div class="col-xs-2 col-sm-1"><span class="map-location-inset">21</span></div>
+										
+										<div class="col-xs-6 col-sm-6">
+										<p class="prname">Southbridge Crossings Park &amp; Ride</p>
+										
+										<address>1401 Crossings Blvd.</address>
+										
+										<p class="green">GOOD PARKING AVAILABILITY</p>
+										</div>
+										
+										<div class="col-xs-4 col-ms-5">
+										<p>491</p>
+										</div>
+										</div>
+										
+										<p><img alt="map of South Bridge Crossings Park &amp; Ride" class="img-fluid" src="./Data/sites/1/media/about/improvements/orange-line/pnr-maps/21-Southbridge.jpg" /></p>
+										</div>
+									</div>
+									</div>
+								</div> -->
+							</div>
 						</section>
-
 					</div>
 				</div>
 			</div>

@@ -8714,6 +8714,9 @@ footer {
 #parkRides .icon {
   width: 2.5rem;
   height: 2.5rem; }
+  #parkRides .icon.chevron-down-blue {
+    width: 1rem;
+    height: 1rem; }
 
 #parkRides .input-group .form-control {
   border-right: none; }
@@ -8818,8 +8821,8 @@ footer {
         #parkRides .card .map::after {
           top: 0.25rem; } }
   #parkRides .card .arrow-right-blue {
-    width: 1.5rem;
-    height: 1.5rem; }
+    width: 1rem;
+    height: 1rem; }
     @media (min-width: 992px) {
       #parkRides .card .arrow-right-blue {
         margin-top: 0.5rem; } }
