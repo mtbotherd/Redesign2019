@@ -8870,16 +8870,20 @@ footer {
   #parkRides.accordion .card .card-body {
     background-color: #fff;
     border: 1px solid #e3e3e0; }
-    #parkRides.accordion .card .card-body .map-location-inset {
-      background-color: #0588cc;
-      border-radius: 50%;
-      color: #fff;
-      padding: 0.5rem;
-      width: 2.5rem;
-      height: 2.5rem;
-      text-align: center; }
     #parkRides.accordion .card .card-body .alert {
       padding: 0.5rem 1.25rem; }
+  #parkRides.accordion .card .map-location-inset {
+    background-color: #0588cc;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 16px !important;
+    font-size: 1rem !important;
+    padding: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+    text-align: center; }
 
 #stopsStations .icon {
   width: 2.5rem;
@@ -11213,7 +11217,8 @@ select.navigator {
         #nextripModule #nextripDepartures .show .map-container {
           height: 696px; } }
   #nextripModule #nextripDepartures .route-number {
-    font-weight: 700; }
+    font-weight: 700;
+    width: 35px; }
   #nextripModule #nextripDepartures .route-name {
     max-width: 218px; }
     @media (min-width: 768px) {

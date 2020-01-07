@@ -186,19 +186,22 @@
         background-color: $white;
         border: 1px solid $border-color;
 
-        .map-location-inset {
-          background-color: #0588cc;
-          border-radius: 50%;
-          color: $white;
-          padding: 0.5rem;
-          width: 2.5rem;
-          height: 2.5rem;
-          text-align: center;
-        }
-
         .alert {
           padding: 0.5rem 1.25rem;
         }
+      }
+
+      .map-location-inset {
+        background-color: #0588cc;
+        border-radius: 50%;
+        color: $white;
+        @include font-size(16);
+        padding: 0.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0;
+        text-align: center;
       }
     }
   }
