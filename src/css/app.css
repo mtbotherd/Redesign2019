@@ -9075,6 +9075,9 @@ footer {
   margin-bottom: 1rem;
   max-width: 1140px;
   overflow-x: auto; }
+  @media (min-width: 1200px) {
+    .route .schedule-scroll {
+      overflow-x: hidden; } }
 
 .route .schedule-scroll-body {
   padding-right: 17px;

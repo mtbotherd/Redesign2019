@@ -72,6 +72,10 @@
     margin-bottom: 1rem;
     max-width: 1140px;
     overflow-x: auto;
+
+    @include media-breakpoint-up(xl) {
+      overflow-x: hidden;
+    }
   }
 
   .schedule-scroll-body {
