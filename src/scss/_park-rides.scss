@@ -174,23 +174,31 @@
   &.accordion {
     .card {
       padding: 0;
-    }
-    .card-body {
-      background-color: $white;
-      border: 1px solid $border-color;
 
-      .map-location-inset {
-        background-color: #0588cc;
-        border-radius: 50%;
-        color: $white;
-        padding: 0.5rem;
-        width: 2.5rem;
-        height: 2.5rem;
-        text-align: center;
+      .card-header {
+        .chevron-down-blue {
+          width: 1rem !important;
+          height: 1rem !important;
+        }
       }
 
-      .alert {
-        padding: 0.5rem 1.25rem;
+      .card-body {
+        background-color: $white;
+        border: 1px solid $border-color;
+
+        .map-location-inset {
+          background-color: #0588cc;
+          border-radius: 50%;
+          color: $white;
+          padding: 0.5rem;
+          width: 2.5rem;
+          height: 2.5rem;
+          text-align: center;
+        }
+
+        .alert {
+          padding: 0.5rem 1.25rem;
+        }
       }
     }
   }
