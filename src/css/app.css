@@ -10419,6 +10419,7 @@ select.navigator {
         margin-right: 0.25rem;
         top: 1.7rem; } }
 
+/* Tap form - Redo making vertical instead of using grid. */
 .auto-complete-search-box {
   position: relative; }
   @media (min-width: 992px) {
