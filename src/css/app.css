@@ -10419,51 +10419,6 @@ select.navigator {
         margin-right: 0.25rem;
         top: 1.7rem; } }
 
-.form-group,
-.input-group {
-  width: 327px; }
-  @media (min-width: 992px) {
-    .form-group,
-    .input-group {
-      width: 445px; } }
-  @media (min-width: 1200px) {
-    .form-group,
-    .input-group {
-      width: 535px; } }
-  .form-group.required,
-  .input-group.required {
-    position: relative; }
-    .form-group.required::after,
-    .input-group.required::after {
-      content: "*";
-      position: absolute;
-      top: 0;
-      right: -1rem;
-      font-size: 43px !important;
-      font-size: 2.6875rem !important;
-      color: #ed1b2e;
-      line-height: 1; }
-      @media (min-width: 992px) {
-        .form-group.required::after,
-        .input-group.required::after {
-          font-size: 47px !important;
-          font-size: 2.9375rem !important; } }
-  .form-group.required-custom::after,
-  .input-group.required-custom::after {
-    content: "*";
-    position: absolute;
-    top: 0;
-    right: -1rem;
-    font-size: 43px !important;
-    font-size: 2.6875rem !important;
-    color: #ed1b2e;
-    line-height: 1; }
-    @media (min-width: 992px) {
-      .form-group.required-custom::after,
-      .input-group.required-custom::after {
-        font-size: 47px !important;
-        font-size: 2.9375rem !important; } }
-
 .auto-complete-search-box {
   position: relative; }
   @media (min-width: 992px) {
@@ -11469,32 +11424,6 @@ h2.blogtitle {
         right: -.5rem !important;
         width: 1.25rem !important;
         height: 1.25rem !important; } }
-
-/**************************************************
-    Form validation styles
-**************************************************/
-form {
-  /* TAP Enrollment */ }
-  form label.is-invalid {
-    position: absolute;
-    top: -1.5rem;
-    left: 1rem;
-    color: #ed1b2e;
-    font-style: italic; }
-  form #fromErrorMessage,
-  form #toErrorMessage {
-    color: #ed1b2e;
-    font-style: italic; }
-  form div.is-invalid {
-    color: #ed1b2e;
-    font-style: italic; }
-  form .custom-file-input {
-    height: 50px; }
-  form .custom-file {
-    height: 50px;
-    overflow: hidden; }
-  form .custom-file-control {
-    white-space: nowrap; }
 
 @font-face {
   font-family: 'Material Icons';

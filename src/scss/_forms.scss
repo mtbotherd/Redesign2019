@@ -69,50 +69,50 @@
   }
 }
 
-.form-group,
-.input-group {
-  width: 327px;
-  @include media-breakpoint-up(lg) {
-    width: 445px;
-  }
-  @include media-breakpoint-up(xl) {
-    width: 535px;
-  }
+// .form-group,
+// .input-group {
+//   width: 327px;
+//   @include media-breakpoint-up(lg) {
+//     width: 445px;
+//   }
+//   @include media-breakpoint-up(xl) {
+//     width: 535px;
+//   }
 
-  &.required {
-    position: relative;
+//   &.required {
+//     position: relative;
 
-    &::after {
-      content: "*";
-      position: absolute;
-      top: 0;
-      right: -1rem;
-      @include font-size(43);
-      color: $red;
-      line-height: 1;
+//     &::after {
+//       content: "*";
+//       position: absolute;
+//       top: 0;
+//       right: -1rem;
+//       @include font-size(43);
+//       color: $red;
+//       line-height: 1;
 
-      @include media-breakpoint-up(lg) {
-        @include font-size(47);
-      }
-    }
-  }
+//       @include media-breakpoint-up(lg) {
+//         @include font-size(47);
+//       }
+//     }
+//   }
 
-  &.required-custom {
-    &::after {
-      content: "*";
-      position: absolute;
-      top: 0;
-      right: -1rem;
-      @include font-size(43);
-      color: $red;
-      line-height: 1;
+//   &.required-custom {
+//     &::after {
+//       content: "*";
+//       position: absolute;
+//       top: 0;
+//       right: -1rem;
+//       @include font-size(43);
+//       color: $red;
+//       line-height: 1;
 
-      @include media-breakpoint-up(lg) {
-        @include font-size(47);
-      }
-    }
-  }
-}
+//       @include media-breakpoint-up(lg) {
+//         @include font-size(47);
+//       }
+//     }
+//   }
+// }
 
 //  Auto Complete Search(? - Ask Ellen if all are auto-complete) - Find Schedules by Route
 // #findSchedulesByRoute {
