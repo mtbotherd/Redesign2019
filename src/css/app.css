@@ -10420,6 +10420,49 @@ select.navigator {
         top: 1.7rem; } }
 
 /* Tap form - Redo making vertical instead of using grid. */
+.form-group.required,
+.input-group.required {
+  position: relative; }
+  .form-group.required::after,
+  .input-group.required::after {
+    content: "*";
+    position: absolute;
+    top: 0;
+    right: -1rem;
+    font-size: 43px !important;
+    font-size: 2.6875rem !important;
+    color: #ed1b2e;
+    line-height: 1; }
+    @media (min-width: 992px) {
+      .form-group.required::after,
+      .input-group.required::after {
+        font-size: 47px !important;
+        font-size: 2.9375rem !important; } }
+
+.form-group.required-custom::after,
+.input-group.required-custom::after {
+  content: "*";
+  position: absolute;
+  top: 0;
+  right: -1rem;
+  font-size: 43px !important;
+  font-size: 2.6875rem !important;
+  color: #ed1b2e;
+  line-height: 1; }
+  @media (min-width: 992px) {
+    .form-group.required-custom::after,
+    .input-group.required-custom::after {
+      font-size: 47px !important;
+      font-size: 2.9375rem !important; } }
+
+.custom-file,
+input[type="file"] {
+  height: 40px; }
+  @media (min-width: 992px) {
+    .custom-file,
+    input[type="file"] {
+      height: 50px; } }
+
 .auto-complete-search-box {
   position: relative; }
   @media (min-width: 992px) {
@@ -11177,7 +11220,7 @@ select.navigator {
           height: 696px; } }
   #nextripModule #nextripDepartures .route-number {
     font-weight: 700;
-    width: 35px; }
+    width: 50px; }
   #nextripModule #nextripDepartures .route-name {
     max-width: 218px; }
     @media (min-width: 768px) {
