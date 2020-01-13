@@ -26,7 +26,7 @@ var Main = (function ($, window, document, undefined) {
         if (getCookie(name)) document.cookie = name + "=" +
             ((path) ? ";path=" + path : "") +
             ((domain) ? ";domain=" + domain : "") + ";expires=Thu, 01-Jan-1970 00:00:01 GMT";
-	};
+    };
 
     var popupAlertNotice = function (cookieID, expire) {
         if ($('#special-alert-notice').hasClass('alert-popup')) {
@@ -36,8 +36,7 @@ var Main = (function ($, window, document, undefined) {
                 $('<div />').prependTo('body').addClass('alert-popup-overlay');
                 $('body').addClass('hidden-overflow');
                 $('#special-alert-notice').show();
-                // $('#special-alert-notice .fa-close').one('click', function () {
-				$('button[data-dismiss="alert"]').one('click', function () {
+                $('button[data-dismiss="alert"]').one('click', function () {
                     $('#special-alert-notice').hide();
                     $('.alert-popup-overlay').remove();
                     $('body').removeClass('hidden-overflow');
@@ -72,14 +71,7 @@ var Main = (function ($, window, document, undefined) {
     };
 
     var init = function () {
-
-		// Detect IE version
-		var sAgent = window.navigator.userAgent;
-        if (sAgent.indexOf('MSIE') > -1 || sAgent.indexOf('Trident/7') > -1) {
-			$('#ieAlert').show();
-		}
-
-        // shopping car number
+        // shopping cart number
         let qty = getCookie('cart_status');
         if (qty !== null && qty > 0) {
             $('<span/>', { class: 'badge badge-info' }).text(qty).appendTo($('a.store-icon'));
@@ -120,15 +112,8 @@ var Main = (function ($, window, document, undefined) {
 		
 		// Google CSE
 		$('#siteSearchBtn').on('click', function() {
-			window.location = "/website-search-results?q=" + encodeURI ($('#siteSearch').val());
+            window.location = $('meta[name=metrotransit-org-uri]').attr('content') + '/website-search-results?q=' + encodeURI($('#siteSearch').val());
 		});
-
-		// Custom file input
-		$(".custom-file-input").on("change", function() {
-			var fileName = $(this).val().split("\\").pop();
-			$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-		  });
-
 		Main.enterKeyPressHandler('#siteSearch', '#siteSearchBtn');
     };
 
@@ -143,6 +128,9 @@ var Main = (function ($, window, document, undefined) {
 $(function () {
     Main.init();
 });
+
+
+/* for google translate element in the footer */
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
         pageLanguage: 'en',

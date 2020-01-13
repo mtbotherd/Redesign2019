@@ -7,9 +7,10 @@ var NexTrip = (function ($, window, document, undefined) {
         stopId,
         timer;
     var threshold = 3;
+    var serviceHostUrl = $('meta[name=web-service-uri]').attr('content');
 
     function getRoutes() {
-        $.get('https://svc.metrotransit.org' + '/nextripv2/routes')
+        $.get(serviceHostUrl + '/nextripv2/routes')
             .done(function (result) {
                 let routes = JSON.parse(JSON.stringify(result));
                 let routedrop = $('#ntRoute');
@@ -20,7 +21,7 @@ var NexTrip = (function ($, window, document, undefined) {
     }
 
     function getDirections(id) {
-        $.get('https://svc.metrotransit.org' + '/nextripv2/directions/' + id)
+        $.get(serviceHostUrl + '/nextripv2/directions/' + id)
             .done(function (result) {
                 let directions = JSON.parse(JSON.stringify(result));
                 let directiondrop = $('#ntDirection');
@@ -33,7 +34,7 @@ var NexTrip = (function ($, window, document, undefined) {
     }
 
     function getStops(route, direction) {
-        $.get('https://svc.metrotransit.org' + '/nextripv2/stops/' + route + '/' + direction)
+        $.get(serviceHostUrl + '/nextripv2/stops/' + route + '/' + direction)
             .done(function (result) {
                 let stops = JSON.parse(JSON.stringify(result));
                 let stopdrop = $('#ntStop');
@@ -46,7 +47,7 @@ var NexTrip = (function ($, window, document, undefined) {
     }
 
     function getTimepointDepartures(route, direction, code) {
-        $.get('https://svc.metrotransit.org' + '/nextripv2/' + route + '/' + direction + '/' + code)
+        $.get(serviceHostUrl + '/nextripv2/' + route + '/' + direction + '/' + code)
             .done(function (result) {
                 loadDepartures(JSON.parse(JSON.stringify(result)));
                 history.pushState({}, '', '/nextrip/' + route + '/' + direction + '/' + code);
@@ -54,7 +55,7 @@ var NexTrip = (function ($, window, document, undefined) {
     }
 
     function getStopDepartures(id) {
-        $.get('https://svc.metrotransit.org' + '/nextripv2/' + id)
+        $.get(serviceHostUrl + '/nextripv2/' + id)
             .done(function (result) {
                 loadDepartures(JSON.parse(JSON.stringify(result)));
                 history.pushState({}, '', '/nextrip/' + id);

@@ -6,6 +6,7 @@ var Alerts = (function ($, window, document, undefined) {
     //array to hold route list and references to alerts
     var alertsByRoute = [];
     var singleRoute = false;
+    var serviceHostUrl = $('meta[name=web-service-uri]').attr('content');
 
     //build the array list of alerts ordered by route
     var buildAlerts = function (routeAbbr) {
@@ -166,7 +167,7 @@ var Alerts = (function ($, window, document, undefined) {
 
     var getAlertsForRoute = function (routeAbbr) {
         singleRoute = true;
-        $.get(window.serviceHostUrl + '/alerts/' + routeAbbr)
+        $.get(serviceHostUrl + '/alerts/' + routeAbbr)
             .done(function (result) {
                 allAlerts = JSON.parse(JSON.stringify(result));
                 buildAlerts(routeAbbr);
@@ -181,7 +182,7 @@ var Alerts = (function ($, window, document, undefined) {
         //don't call web service if we already have alerts
         if (allAlerts.length > 0) return;
         //get all the alerts, convert to Json object and pass to buildAlerts method
-        $.get(window.serviceHostUrl + '/alerts/all')
+        $.get(serviceHostUrl + '/alerts/all')
             .done(function (result) {
                 allAlerts = JSON.parse(JSON.stringify(result));
                 buildAlerts();
