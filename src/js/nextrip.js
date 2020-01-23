@@ -321,23 +321,28 @@ var NexTrip = (function ($, window, document, undefined) {
         });
 
         //use URL routing info to populate results
+        // JAG BUG FIX modified this 1/23/20 to set the Id field values from the Url parameters
         var nextRoute = window.location.pathname.split('/');
         if (nextRoute[1].toLowerCase() === 'nextrip') {
             if (nextRoute.length === 3) {
                 if (!isNaN(nextRoute[2])) {
+                    stopId = nextRoute[2];
                     timer = setInterval(function () {
-                        getStopDepartures(nextRoute[2]);
+                        getStopDepartures(stopId);
                     }, 30000);
 
-                    getStopDepartures(nextRoute[2]);
+                    getStopDepartures(stopId);
                     scrollToResult();
                 }
             } else if (nextRoute.length === 5) {
+                routeId = nextRoute[2];
+                directionId = nextRoute[3];
+                placeCode = nextRoute[4];
                 timer = setInterval(function () {
-                    getTimepointDepartures(nextRoute[2], nextRoute[3], nextRoute[4]);
+                    getTimepointDepartures(routeId, directionId, placeCode);
                 }, 30000);
 
-                getTimepointDepartures(nextRoute[2], nextRoute[3], nextRoute[4]);
+                getTimepointDepartures(routeId, directionId, placeCode);
                 scrollToResult();
             }
         }
