@@ -16,11 +16,14 @@
 
 <body>
 
-	<a href="#pageContainer" class="skip-to-content">Skip to main content</a>
+	<div role="link" aria-labelledby="skipNav">
+		<a id="skipNav" href="#pageContainer" class="skip-to-content">Skip to main content</a>
+	</div>
 
 	<!-- Begin Header -->
 	<header id="header">
 		<nav class="navbar navbar-expand-xl navbar-light">
+			<!-- <a href="#pageContainer" class="skip-to-content">Skip to main content</a> -->
 			<div class="container">
 				<a class="navbar-brand" href="/">
 					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
@@ -32,14 +35,14 @@
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<section class="section">
+					<section>
 						<ul class="nav navbar-nav mx-auto">
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="/trip-planner" id="navbarDropdown" role="button"
+								<a class="nav-link dropdown-toggle" href="/trip-planner" id="tripToolsDropdown" role="button"
 									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									Trip Tools
 								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<div class="dropdown-menu" aria-labelledby="tripToolsDropdown">
 									<a class="dropdown-item" href="/trip-planner">Trip Planner</a>
 									<a class="dropdown-item" href="/nextrip">NexTrip</a>
 									<a class="dropdown-item" href="/rider-alerts">Alerts</a>
@@ -50,16 +53,16 @@
 								</div>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link no-dropdown" href="schedules-maps">
+								<a class="nav-link no-dropdown" href="/schedules-maps">
 									Schedules &amp; Maps
 								</a>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								<a class="nav-link dropdown-toggle" href="#" id="faresDropdown" role="button"
 									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									Fares
 								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<div class="dropdown-menu" aria-labelledby="faresDropdown">
 									<a class="dropdown-item" href="/fares">Fares</a>
 									<a class="dropdown-item" href="/go-to-card">Go-To Card</a>
 									<a class="dropdown-item" href="/passes">Pass Programs</a>
@@ -67,26 +70,26 @@
 								</div>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								<a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button"
 									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									More
 								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<div class="dropdown-menu" aria-labelledby="moreDropdown">
 									<a class="dropdown-item" href="/carpool-vanpool">Carpool &amp; Vanpool</a>
 									<a class="dropdown-item" href="/transit-link">Transit Link</a>
 									<a class="dropdown-item" href="/guaranteed-ride-home">Guaranteed Ride Home</a>
-									<a class="dropdown-item" href="/bicycle">Bicycle</a>
+									<a class="dropdown-item" href="/bike">Bicycle</a>
 									<a class="dropdown-item" href="/news">News &amp; Events</a>
 								</div>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								<a class="nav-link dropdown-toggle" href="#" id="helpDropdown" role="button"
 									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									Help
 								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<div class="dropdown-menu" aria-labelledby="helpDropdown">
 									<a class="dropdown-item" href="/how-to-ride">How to Ride</a>
-									<a class="dropdown-item" href="contact-us">Contact Us</a>
+									<a class="dropdown-item" href="/contact-us">Contact Us</a>
 									<a class="dropdown-item" href="/lost-found">Lost &amp; Found</a>
 									<a class="dropdown-item" href="/accessibility">Accessibility</a>
 									<a class="dropdown-item" href="/languages">Languages</a>
@@ -112,21 +115,78 @@
 									<div class="input-group-append">
 										<button type="button" id="siteSearchBtn" class="btn btn-primary">
 											<span class="sr-only">Search button</span>
-											<img alt="" class="icon" src="/img/svg/search-gray.svg">
+											<img alt="site search submit button" class="icon" src="/img/svg/search-gray.svg">
 										</button>
 									</div>
 								</div>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle avatar-icon" href="#" id="navbarDropdown" role="button"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link dropdown-toggle avatar-icon" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<span class="sr-only">Sign in / create account</span>
-
 							</a>
-							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="#">Sign In</a>
-								<a class="dropdown-item" href="#">Create Account</a>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
+								<a class="dropdown-item" href="/logoff.aspx?returnurl=https%3a%2f%2fwwwtest.metrotransit.org%2fDefault.aspx">Sign Out</a>
+								<a class="dropdown-item" href="https://account.metrotransit.org/edit.aspx?returnurl=https%3a%2f%2fwwwtest.metrotransit.org%2fDefault.aspx">Edit Account</a>
+							</div>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav d-xl-none border-top-0">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Metro Transit</a>
+							<div class="dropdown-menu" aria-labelledby="aboutDropdown">
+								<a class="dropdown-item" href="/transit-improvements">Transit Improvements</a>
+								<a class="dropdown-item" href="/facilities-people">Facilities</a>
+								<a class="dropdown-item" href="/riders-almanac-blog">Rider's Almanac</a>
+								<a class="dropdown-item" href="/use-of-transit-property">Use of Transit Property</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="mediaRelationsDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Media Relations</a>
+							<div class="dropdown-menu" aria-labelledby="mediaRelationsDropdown">
+								<a class="dropdown-item" href="/logos-images">Media Resources</a>
+								<a class="dropdown-item" href="/awards">Awards</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="careersDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Careers</a>
+							<div class="dropdown-menu" aria-labelledby="careersDropdown">
+								<a class="dropdown-item" href="/jobs">Available Job Opportunities</a>
+								<a class="dropdown-item" href="/drive">Become a Bus Driver</a>
+								<a class="dropdown-item" href="/transit-police-careers">Join the Transit Police</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="policeDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Policies</a>
+							<div class="dropdown-menu" aria-labelledby="policeDropdown">
+								<a class="dropdown-item" href="/social-media-policy">Social Media Policy</a>
+								<a class="dropdown-item" href="https://metrocouncil.org/Privacy-Policy.aspx">Privacy Policy</a>
+								<a class="dropdown-item" href="/code-of-conduct">Code of Conduct</a>
+								<a class="dropdown-item" href="/titlevi">Title VI: Commitment to Fairness</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="missionDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mission &amp; Impact</a>
+							<div class="dropdown-menu" aria-labelledby="missionDropdown">
+								<a class="dropdown-item" href="/about-metro-transit">Mission &amp; Funding</a>
+								<a class="dropdown-item" href="/equity">Equity &amp; Inclusion</a>
+								<a class="dropdown-item" href="/public-art-in-transit">Public Art</a>
+								<a class="dropdown-item" href="/outreach">Outreach</a>
+								<a class="dropdown-item" href="/transit-oriented-development">Transit Oriented Development</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+							<div class="dropdown-menu" aria-labelledby="resourcesDropdown">
+								<a class="dropdown-item" href="/app">Try the Metro Transit App</a>
+								<a class="dropdown-item" href="/advertise-with-metro-transit">Advertise with Us</a>
+								<a class="dropdown-item" href="/apps">API Resources for Developers</a>
 							</div>
 						</li>
 					</ul>
