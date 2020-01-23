@@ -1,17 +1,62 @@
 #header {
   .navbar {
     padding: 0.5rem 15px;
+
+    @include media-breakpoint-up(xl) {
+      padding: 0 !important;
+    }
+
+    .section {
+      @include media-breakpoint-up(xl) {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
     .navbar-nav {
       border-top: 1px solid $border-color;
 
+      @include media-breakpoint-up(xl) {
+        border-top: none;
+        height: 68.58px;
+      }
+
       .nav-item {
         border-bottom: 1px solid $border-color;
+
+        @include media-breakpoint-up(xl) {
+          border-bottom: none;
+        }
 
         .nav-link {
           &:link {
             @include font-size(18);
             padding-right: 1rem;
             padding-left: 1rem;
+
+            @include media-breakpoint-up(xl) {
+              padding: 1.3rem;
+            }
+          }
+
+          &:hover,
+          &:focus,
+          &:focus-within {
+            @include media-breakpoint-up(xl) {
+              color: $white;
+              background-color: $cyan;
+            }
+          }
+
+          &.store-icon:hover::before {
+            @include media-breakpoint-up(xl) {
+              display: block;
+              content: "";
+              background-image: url("../../../../../img/svg/shopping-cart-white.svg");
+              background-repeat: no-repeat;
+              background-size: 1.5rem;
+              width: 1.5rem;
+              height: 1.5rem;
+            }
           }
         }
 
@@ -29,6 +74,57 @@
             transform: rotate(0deg);
             transition: 0.3s transform ease-in-out;
           }
+
+          &.search-icon:hover::before {
+            @include media-breakpoint-up(xl) {
+              display: block;
+              content: "";
+              background-image: url("../../../../../img/svg/search-white.svg");
+              background-repeat: no-repeat;
+              background-size: 1.5rem;
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+          }
+
+          &.avatar-icon {
+            &::before {
+              @include media-breakpoint-up(xl) {
+                display: block;
+                content: "";
+                background-image: url("../../../../../img/svg/avatar-gray.svg");
+                background-repeat: no-repeat;
+                background-size: 1.5rem;
+                width: 1.5rem;
+                height: 1.5rem;
+              }
+            }
+
+            &:hover::before {
+              @include media-breakpoint-up(xl) {
+                display: block;
+                content: "";
+                background-image: url("../../../../../img/svg/avatar-white.svg");
+                background-repeat: no-repeat;
+                background-size: 1.5rem;
+                width: 1.5rem;
+                height: 1.5rem;
+              }
+            }
+          }
+
+          &:hover::after,
+          &:focus::after {
+            @include media-breakpoint-up(xl) {
+              content: "";
+              background-image: url("../../../../../img/svg/chevron-down-white.svg");
+              background-repeat: no-repeat;
+              background-size: 0.75rem;
+              width: 0.75rem;
+              height: 0.75rem;
+              border: none;
+            }
+          }
         }
 
         &.dropdown {
@@ -36,10 +132,29 @@
             border: none;
             border-radius: 0;
 
+            @include media-breakpoint-up(xl) {
+              background-color: $gray-100;
+              margin-top: 0;
+              padding-top: 0.5rem;
+              border: none;
+            }
+
             .dropdown-item {
               @include font-size(18);
               color: $cyan;
               padding: 0.25rem 2rem;
+
+              @include media-breakpoint-up(xl) {
+                color: $cyan;
+              }
+
+              &:hover,
+              &:active {
+                @include media-breakpoint-up(xl) {
+                  color: $secondary;
+                  text-decoration: underline;
+                }
+              }
             }
           }
         }
@@ -56,8 +171,31 @@
     .utilities {
       border-top: none;
 
+      @include media-breakpoint-up(xl) {
+        border-left: 1px solid $border-color;
+        padding-left: 1rem;
+      }
+
       .nav-item {
+        .store-icon:focus::before {
+          @include media-breakpoint-up(xl) {
+            display: block;
+            content: "";
+            background-image: url("../../../../../img/svg/shopping-cart-white.svg");
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+
         .nav-link {
+          &:link {
+            @include media-breakpoint-up(xl) {
+              padding: 1.4rem;
+            }
+          }
+
           &.store-icon::before {
             display: block;
             content: "";
@@ -91,6 +229,7 @@
             }
           }
         }
+
         .dropdown-toggle {
           &.search-icon::before {
             display: block;
@@ -100,6 +239,18 @@
             background-size: 1.5rem;
             width: 1.5rem;
             height: 1.5rem;
+          }
+
+          &.search-icon:focus::before {
+            @include media-breakpoint-up(xl) {
+              display: block;
+              content: "";
+              background-image: url("../../../../../img/svg/search-white.svg");
+              background-repeat: no-repeat;
+              background-size: 1.5rem;
+              width: 1.5rem;
+              height: 1.5rem;
+            }
           }
 
           &.avatar-icon::before {
@@ -112,14 +263,44 @@
             height: 1.5rem;
           }
 
+          &.avatar-icon:focus::before {
+            @include media-breakpoint-up(xl) {
+              display: block;
+              content: "";
+              background-image: url("../../../../../img/svg/avatar-white.svg");
+              background-repeat: no-repeat;
+              background-size: 1.5rem;
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+          }
+
           &::after {
             display: none;
+          }
+        }
+
+        .dropdown {
+          @include media-breakpoint-up(xl) {
+            position: relative;
+          }
+
+          .dropdown-menu {
+            @include media-breakpoint-up(xl) {
+              margin-top: 0;
+            }
           }
         }
 
         .search-dropdown-menu {
           padding-right: 15px;
           padding-left: 15px;
+
+          @include media-breakpoint-up(xl) {
+            position: absolute;
+            left: -17.1rem;
+            margin-top: 0;
+          }
 
           .input-group {
             width: 313px;
@@ -134,170 +315,6 @@
               border-left: none;
               padding: 0 0.75rem;
             }
-          }
-        }
-      }
-    }
-  }
-
-  @include media-breakpoint-up(xl) {
-    .navbar {
-      padding: 0 !important;
-
-      .section {
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-
-      .navbar-nav {
-        border-top: none;
-        height: 68.58px;
-
-        .nav-item {
-          border-bottom: none;
-          .nav-link {
-            &:link {
-              padding: 1.4rem;
-            }
-
-            &:hover,
-            &:focus,
-            &:focus-within {
-              color: $white;
-              background-color: $cyan;
-            }
-            &.store-icon:hover::before {
-              display: block;
-              content: "";
-              background-image: url("../../../../../img/svg/shopping-cart-white.svg");
-              background-repeat: no-repeat;
-              background-size: 1.5rem;
-              width: 1.5rem;
-              height: 1.5rem;
-            }
-          }
-
-          .dropdown-toggle {
-            &.search-icon::before {
-              display: block;
-              content: "";
-              background-image: url("../../../../../img/svg/search-gray.svg");
-              background-repeat: no-repeat;
-              background-size: 1.5rem;
-              width: 1.5rem;
-              height: 1.5rem;
-            }
-
-            &.search-icon:hover::before {
-              display: block;
-              content: "";
-              background-image: url("../../../../../img/svg/search-white.svg");
-              background-repeat: no-repeat;
-              background-size: 1.5rem;
-              width: 1.5rem;
-              height: 1.5rem;
-            }
-
-            &.avatar-icon::before {
-              display: block;
-              content: "";
-              background-image: url("../../../../../img/svg/avatar-gray.svg");
-              background-repeat: no-repeat;
-              background-size: 1.5rem;
-              width: 1.5rem;
-              height: 1.5rem;
-            }
-
-            &.avatar-icon:hover::before {
-              display: block;
-              content: "";
-              background-image: url("../../../../../img/svg/avatar-white.svg");
-              background-repeat: no-repeat;
-              background-size: 1.5rem;
-              width: 1.5rem;
-              height: 1.5rem;
-            }
-
-            &:hover::after,
-            &:focus::after {
-              content: "";
-              background-image: url("../../../../../img/svg/chevron-down-white.svg");
-              background-repeat: no-repeat;
-              background-size: 0.75rem;
-              width: 0.75rem;
-              height: 0.75rem;
-              border: none;
-            }
-          }
-
-          .dropdown-menu {
-            background-color: $gray-100;
-            margin-top: -3px;
-            padding-top: 0.5rem;
-            border: none;
-
-            .dropdown-item {
-              color: $cyan;
-
-              &:hover,
-              &:active {
-                color: $secondary;
-                text-decoration: underline;
-              }
-            }
-          }
-        }
-      }
-
-      .utilities {
-        border-left: 1px solid $border-color;
-        padding-left: 1rem;
-
-        .nav-item {
-          .store-icon:focus::before {
-            display: block;
-            content: "";
-            background-image: url("../../../../../img/svg/shopping-cart-white.svg");
-            background-repeat: no-repeat;
-            background-size: 1.5rem;
-            width: 1.5rem;
-            height: 1.5rem;
-          }
-        }
-
-        .dropdown-toggle {
-          &.search-icon:focus::before {
-            display: block;
-            content: "";
-            background-image: url("../../../../../img/svg/search-white.svg");
-            background-repeat: no-repeat;
-            background-size: 1.5rem;
-            width: 1.5rem;
-            height: 1.5rem;
-          }
-
-          &.avatar-icon:focus::before {
-            display: block;
-            content: "";
-            background-image: url("../../../../../img/svg/avatar-white.svg");
-            background-repeat: no-repeat;
-            background-size: 1.5rem;
-            width: 1.5rem;
-            height: 1.5rem;
-          }
-        }
-
-        .dropdown {
-          position: relative;
-
-          .dropdown-menu {
-            margin-top: 0;
-          }
-
-          .search-dropdown-menu {
-            position: absolute;
-            left: -17.1rem;
-            margin-top: 0;
           }
         }
       }
