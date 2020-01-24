@@ -1137,7 +1137,7 @@ var TRIM = (function ($, window, document, undefined) {
                         //baseMapLayers: [{url:"/js/basemapStylev1.json", type: "VectorTile"}]                    };
                         // 2nd version of the basemap 
                         //baseMapLayers: [{ url: "https://metrocouncil.maps.arcgis.com/sharing/rest/content/items/5c2ea8c24d7a46ed8c61cd058219504f/resources/styles/root.json", type: "VectorTile" }]
-                        baseMapLayers: [{ url: "/js/basemapStylev2.json", type: "VectorTile" }]
+                        baseMapLayers: [{ url: "/js/basemapStylev3.json", type: "VectorTile" }]
                     };
 
                     MAP = new Map(mapElementID, {
@@ -1923,7 +1923,7 @@ var BOM = (function ($, window, document, undefined) {
                         //baseMapLayers: [{url:"/js/basemapStylev1.json", type: "VectorTile"}]
                         // 2nd version of the basemap 
                         //baseMapLayers: [{ url: "https://metrocouncil.maps.arcgis.com/sharing/rest/content/items/5c2ea8c24d7a46ed8c61cd058219504f/resources/styles/root.json", type: "VectorTile" }]
-                        baseMapLayers: [{ url: "/js/basemapStylev2.json", type: "VectorTile" }]
+                        baseMapLayers: [{ url: "/js/basemapStylev3.json", type: "VectorTile" }]
                     };
                     _MAP = new Map(mapElementID, {
                         //autoResize: true,
