@@ -107,7 +107,7 @@ var Main = (function ($, window, document, undefined) {
 
         // Secondary nav set active item
         if ($('.secondary-nav').length) {
-            $('.secondary-nav > ul > li > a[href=' + location.pathname.replace('/', '\\/') + ']').addClass('active');
+            $('.secondary-nav > ul > li > a[href^="' + location.pathname.replace('/', '\\/') + '"]').addClass('active');
 		}
 		
 		// Google CSE
