@@ -829,7 +829,7 @@ var TRIM = (function ($, window, document, undefined) {
     };
 
     function formatPopupDepartures(/*string*/stop) {
-        $('#mapPopUpDepartures').empty();
+        $('#mapPopUpDepartures').html('');
         $.get(window.serviceHostUrl + '/nextripv2/' + stop)
         .done(function (result) {
             if (result.Departures.length > 0) {
@@ -1057,8 +1057,7 @@ var TRIM = (function ($, window, document, undefined) {
 
                                 var atts = feature.attributes;
                                 MAP.infoWindow.setTitle("Stop Number: " + atts.siteid);
-                                MAP.infoWindow.setContent($('#trimPopUp')[0]);
-                                $('#trimPopUp').show();
+                            
                                 MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
 
                                 var stopGraphic = new Graphic();
@@ -1182,6 +1181,8 @@ var TRIM = (function ($, window, document, undefined) {
                             MAP.hideZoomSlider();
                             $("#trimLocate").hide();
                         }
+                        $('#trimPopUp').show();
+                        MAP.infoWindow.setContent($('#trimPopUp')[0]);
                     });
 
                     MAP.on("click", function (evt) {

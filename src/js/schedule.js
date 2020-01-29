@@ -1,6 +1,27 @@
 var Schedule = (function ($, window, document, undefined) {
-
-    'use strict';
+    function _isValue(x) {
+        // tests if value is NOT empty AND NOT blank and NOT NULL
+        var str = x.toString(); // this allows zero to test as a valid value
+        //console.write("test value is " + x)
+        if (str) {
+            return /\S/.test(str);
+        }
+        return false;
+    }
+    function _isNumber(x) {
+        // tests if value is any sort of number with +/- or decimals
+        if (_isValue(x)) {
+            return !isNaN(x - 0);
+        }
+        return false;
+    }
+    function _isInteger(s) {
+        // Numbers only, no +/- or decimals allowed
+        if (_isNumber(s)) {
+            return s.toString().search(/^[0-9]+$/) === 0;
+        }
+        return false;
+    }
 
     var scheduleSelect = function () {
         var aTag = $('a[name="schedulepane"]');
@@ -43,10 +64,10 @@ var Schedule = (function ($, window, document, undefined) {
             };
             var notFound = true;
             terms.forEach(function (item) {
-                if (Number.isInteger(Number(item))) {
+                if (_isInteger(item)) {
                     location.assign("/route/" + item);
                     notFound = false;
-                } else if (Number.isInteger(dict[item])) {
+                } else if (_isInteger(dict[item])) {
                     location.assign("/route/" + dict[item]);
                     notFound = false;
                 }
