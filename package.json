@@ -1,9 +1,10 @@
 {
 	"name": "metro-transit",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"main": "gulpfile.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"transpile": "npx babel src --out-dir dist"
 	},
 	"repository": {
 		"type": "git",
@@ -16,6 +17,9 @@
 	},
 	"homepage": "https://github.com/mtbotherd/Redesign2019.git#readme",
 	"devDependencies": {
+		"@babel/cli": "^7.8.3",
+		"@babel/core": "^7.8.3",
+		"@babel/preset-env": "^7.8.3",
 		"browser-sync": "^2.26.3",
 		"del": "^3.0.0",
 		"exlink": "^2.3.0",

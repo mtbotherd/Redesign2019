@@ -6,7 +6,8 @@ var gulp = require('gulp'),
 	imagemin = require('gulp-imagemin'),
 	runSequence = require('run-sequence'),
 	sass = require('gulp-sass'),
-	sourcemaps = require('gulp-sourcemaps');
+	sourcemaps = require('gulp-sourcemaps'),
+	cp = require('child_process');
 
 // Development Tasks
 // -----------------
@@ -15,7 +16,7 @@ var gulp = require('gulp'),
 gulp.task('browserSync', function () {
 	browserSync.init({
 		server: {
-			baseDir: ['src']
+			baseDir: ['dist']
 		}
 	})
 });
@@ -26,9 +27,10 @@ gulp.task('vendorjs', function () {
 		'node_modules/jquery/dist/jquery.js',
 		'node_modules/popper.js/dist/umd/popper.js',
 		'node_modules/bootstrap/dist/js/bootstrap.js',
-		'node_modules/exlink/jquery.exlink.js'
+		'node_modules/exlink/jquery.exlink.js',
+		'src/js/vendor/*.js'
 	])
-		.pipe(gulp.dest('src/js'))
+		.pipe(gulp.dest('dist/js'));
 });
 
 // Compile sass to css
@@ -48,10 +50,14 @@ gulp.task('sass', function () {
 // Copy js to dist
 gulp.task('scripts', function () {
 	return gulp.src([
-		'src/js/**/*.js',
-		'src/js/**/*.png'
+		'src/js/*.png',
+		'src/js/*.json'
 	])
 		.pipe(gulp.dest('dist/js'))
+});
+// Transpile the project js files to dist using babel
+gulp.task('transpile', function () {
+	return cp.exec('npx babel src/js/*.js --out-dir dist/js');
 });
 
 // Copy css to dist
@@ -97,16 +103,12 @@ gulp.task('watch', function () {
 	gulp.watch('src/js/**/*.js', browserSync.reload);
 });
 
-// Optimization Tasks
-// ------------------
-        //.pipe(gulpIf('*.js', uglify())) // Minifies only if it's a js file
-
 // Optimize images
 gulp.task('images', function () {
 	return gulp.src('src/img/**/*.+(png|jpg|gif|svg)')
-		.pipe(imagemin({
-			interlaced: true
-		})) // refer to https://github.com/sindresorhus/gulp-imagemin for optimization options available based on file type.
+		//.pipe(imagemin({
+		//	interlaced: true
+		//})) // refer to https://github.com/sindresorhus/gulp-imagemin for optimization options available based on file type.
 		.pipe(gulp.dest('dist/img'))
 });
 
@@ -132,7 +134,8 @@ gulp.task('default', function (callback) {
 gulp.task('build', function (callback) {
 	runSequence(
 		'clean:dist',
-		'sass', ['html', 'css', 'fonts', 'scripts', 'images'],
+		'vendorjs',
+		'sass', ['html', 'css', 'fonts', 'scripts', 'transpile', 'images'],
 		callback
 	)
 });
