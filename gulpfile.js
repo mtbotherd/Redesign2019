@@ -75,12 +75,14 @@ gulp.task('html', function () {
 		.pipe(gulp.dest('dist'))
 });
 
-
 // Watchers
 gulp.task('watch', function () {
 	gulp.watch('src/scss/**/*.scss', ['sass']);
-	gulp.watch('src/**/*.html', browserSync.reload);
-	gulp.watch('src/js/**/*.js', browserSync.reload);
+	gulp.watch('src/**/*.html', ['html']);
+	gulp.watch('src/js/**/*.js', ['transpile']);
+	gulp.watch('dist/**/*').on('change', function () {
+		browserSync.reload();
+	});
 });
 
 // Optimize images
@@ -103,7 +105,7 @@ gulp.task('clean:dist', function () {
 // Build Sequence
 // --------------
 gulp.task('default', function (callback) {
-	runSequence(['vendorjs', 'sass', 'browserSync'], 'watch',
+	runSequence(['vendorjs', 'sass', 'html', 'browserSync'], 'watch',
 		callback
 	)
 });
