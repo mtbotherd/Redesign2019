@@ -14,12 +14,17 @@
       border-bottom: none;
     }
   }
-}
 
-/* News story */
-.articleDisplayText {
-  p img {
-    width: 100%;
-    height: auto;
+  .articleDisplayAbstract {
+    border-bottom: 1px solid $border-color;
+    margin-bottom: 10px;
+  }
+
+  /* News story */
+  .articleDisplayText {
+    p img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
