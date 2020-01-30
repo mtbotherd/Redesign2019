@@ -39,7 +39,14 @@
           }
 
           &:hover,
-          &:focus,
+          &:focus {
+            @include media-breakpoint-up(xl) {
+              color: $white;
+              background-color: $cyan;
+            }
+          }
+
+          //  Edge and IE11 do not support this psuedo class so it has to be separted from hover and focus (above).
           &:focus-within {
             @include media-breakpoint-up(xl) {
               color: $white;
