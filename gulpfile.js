@@ -59,6 +59,11 @@ gulp.task('transpile', function () {
 	return cp.exec('npx babel src/js/*.js --out-dir dist/js');
 });
 
+gulp.task('dataFolder', function () {
+	return gulp.src('src/Data/**/*')
+		.pipe(gulp.dest('dist/Data'))
+});
+
 // Copy fonts to dist
 gulp.task('fonts', function () {
 	return gulp.src('src/fonts/*')
@@ -107,7 +112,7 @@ gulp.task('build', function (callback) {
 	runSequence(
 		'clean:dist',
 		'vendorjs',
-		'sass', ['html', 'fonts', 'scripts', 'transpile', 'images'],
+		'sass', ['html', 'fonts', 'dataFolder', 'scripts', 'transpile', 'images'],
 		callback
 	)
 });
