@@ -79,8 +79,8 @@ gulp.task('html', function () {
 // Watchers
 gulp.task('watch', function () {
 	gulp.watch('src/scss/**/*.scss', ['sass']);
-	gulp.watch('src/**/*.html', browserSync.reload);
-	gulp.watch('src/js/**/*.js', browserSync.reload);
+	gulp.watch('src/**/*.html', ['html']);
+	gulp.watch('src/js/**/*.js', ['transpile']);
 });
 
 // Optimize images
