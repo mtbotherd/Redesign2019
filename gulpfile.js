@@ -80,12 +80,6 @@ gulp.task('watch', function () {
 	gulp.watch('src/scss/**/*.scss', ['sass']);
 	gulp.watch('src/**/*.html', ['html']);
 	gulp.watch('src/js/**/*.js', ['transpile']);
-<<<<<<< HEAD
-=======
-	gulp.watch('dist/**/*').on('change', function () {
-		browserSync.reload();
-	});
->>>>>>> ffa4c12e468ef12966b15ebf0d9dc3abbb7dcc7d
 });
 
 // Optimize images
