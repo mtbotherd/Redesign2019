@@ -17,7 +17,7 @@ gulp.task('browserSync', function () {
 		server: {
 			baseDir: ['dist']
 		}
-	})
+	});
 });
 
 // Copy vemdor js to src
@@ -26,7 +26,6 @@ gulp.task('vendorjs', function () {
 		'node_modules/jquery/dist/jquery.js',
 		'node_modules/popper.js/dist/umd/popper.js',
 		'node_modules/bootstrap/dist/js/bootstrap.js',
-		'node_modules/exlink/jquery.exlink.js',
 		'src/js/vendor/*.js'
 	])
 		.pipe(gulp.dest('dist/js'));
