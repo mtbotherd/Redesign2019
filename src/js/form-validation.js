@@ -1,10 +1,9 @@
-$(function () {
-
+$(function() {
 	$('#aspnetForm').validate({
 		debug: true,
 		errorElement: 'div',
-        errorClass: 'is-invalid',
-        validClass: 'is-valid',
+		errorClass: 'is-invalid',
+		validClass: 'is-valid',
 		rules: {
 			firstName: 'required',
 			lastName: 'required',
@@ -13,19 +12,19 @@ $(function () {
 			state: 'required',
 			zipCode: {
 				required: true,
-				number: true
+				number: true,
 			},
 			phone: {
 				required: true,
-				phoneUS: true
+				phoneUS: true,
 			},
 			email: {
 				required: true,
-				email: true
+				email: true,
 			},
 			dob: 'required',
 			photoID: 'required',
-			certificate: 'required'
+			certificate: 'required',
 		},
 		messages: {
 			firstName: 'Please provide your first name.',
@@ -35,16 +34,16 @@ $(function () {
 			state: 'Please provide your state.',
 			zipCode: {
 				required: 'Please provide your zip code.',
-				number: 'Please enter numbers only.'
+				number: 'Please enter numbers only.',
 			},
 			phone: {
 				required: 'Please provide your phone number.',
-				phoneUS: 'Please provide a valid phone number.'
+				phoneUS: 'Please provide a valid phone number.',
 			},
 			email: 'Please provide a valid email address.',
 			dob: 'Please provide your date of birth.',
 			photoID: 'Please attach a photo ID.',
-			certificate: 'Please attach a valid certificate.'
+			certificate: 'Please attach a valid certificate.',
 		},
 		errorPlacement: function(error, element) {
 			if (element.attr('name') == 'dob') {
@@ -52,6 +51,6 @@ $(function () {
 			} else {
 				error.insertAfter(element);
 			}
-		}
+		},
 	});
 });
