@@ -1,44 +1,44 @@
 // Custom bootstrap variable overrides
-@import "bs-variables";
+@import 'bs-variables';
 
 // Bootstrap and its default variables
-@import "bootstrap/bootstrap";
+@import 'bootstrap/bootstrap';
 
 // Proxima-nova font
 @import url(https://use.typekit.net/tev0qmq.css);
 
 // Application styles
-@import "mixins";
-@import "fonts";
-@import "global";
-@import "animations";
-@import "autocomplete";
-@import "hero-backgrounds";
-@import "components";
-@import "header";
-@import "special-alert-notice";
-@import "moovel-header";
-@import "custom-headers";
-@import "interactive-maps";
-@import "TRIM";
-@import "page-content";
-@import "home-content";
-@import "footer";
-@import "primary-page";
-@import "secondary-page";
-@import "park-rides";
-@import "stops-stations";
-@import "route";
-@import "how-to-ride";
-@import "fares";
-@import "schedules-maps";
-@import "goto-cards";
-@import "goto-retailers";
-@import "pass-programs";
-@import "contact-us";
-@import "modules";
-@import "redesign-forms";
-@import "index";
+@import 'mixins';
+@import 'fonts';
+@import 'global';
+@import 'animations';
+@import 'autocomplete';
+@import 'hero-backgrounds';
+@import 'components';
+@import 'header';
+@import 'special-alert-notice';
+@import 'moovel-header';
+@import 'custom-headers';
+@import 'interactive-maps';
+@import 'TRIM';
+@import 'page-content';
+@import 'home-content';
+@import 'footer';
+@import 'primary-page';
+@import 'secondary-page';
+@import 'park-rides';
+@import 'stops-stations';
+@import 'route';
+@import 'how-to-ride';
+@import 'fares';
+@import 'schedules-maps';
+@import 'goto-cards';
+@import 'goto-retailers';
+@import 'pass-programs';
+@import 'contact-us';
+@import 'modules';
+@import 'redesign-forms';
+@import 'index';
 //@import "form-validation";
 
 // Commuter Programs
@@ -48,23 +48,23 @@
 // @import "modules/commuter-programs/vanpool";
 
 // Ridematch
-@import "modules/commuter-programs/ridematch/material-icons";
-@import "modules/commuter-programs/ridematch/mixins.scss";
-@import "modules/commuter-programs/ridematch/base.scss";
-@import "modules/commuter-programs/ridematch/ridematch.scss";
-@import "modules/commuter-programs/ridematch/navigation.scss";
+@import 'modules/commuter-programs/ridematch/material-icons';
+@import 'modules/commuter-programs/ridematch/mixins.scss';
+@import 'modules/commuter-programs/ridematch/base.scss';
+@import 'modules/commuter-programs/ridematch/ridematch.scss';
+@import 'modules/commuter-programs/ridematch/navigation.scss';
 //@import "modules/commuter-programs/ridematch/profile.scss";
-@import "modules/commuter-programs/ridematch/redesign-forms.scss";
-@import "modules/commuter-programs/ridematch/dashboard.scss";
-@import "modules/commuter-programs/ridematch/commutes.scss";
-@import "modules/commuter-programs/ridematch/my-commutes.scss";
-@import "modules/commuter-programs/ridematch/messages.scss";
+@import 'modules/commuter-programs/ridematch/redesign-forms.scss';
+@import 'modules/commuter-programs/ridematch/dashboard.scss';
+@import 'modules/commuter-programs/ridematch/commutes.scss';
+@import 'modules/commuter-programs/ridematch/my-commutes.scss';
+@import 'modules/commuter-programs/ridematch/messages.scss';
 
 // Mojo Portal Toolbar
-@import "toolbar";
+@import 'toolbar';
 
 // Printer Friendly Styles
-@import "print";
+@import 'print';
 
 // IE11 SVG image compatibility
-//@import "ie11";
+@import 'ie11';
