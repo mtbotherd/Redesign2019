@@ -1,6 +1,7 @@
 dist
 node_modules
 *.DS_Store
+debug.log
 src/json
 src/js/bootstrap.js
 src/js/popper.js
