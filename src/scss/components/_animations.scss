@@ -1,0 +1,98 @@
+/***************************************************************
+    CSS Animations
+***************************************************************/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes plusMinus {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Animate broadcast icon
+.blink {
+  animation: fadeIn 1s infinite alternate;
+  width: 0.75rem;
+  height: 0.75rem;
+
+  @include media-breakpoint-up(lg) {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+// Navbar - rotate icon on show/hide
+.dropdown .active {
+  transform: rotate(0deg);
+  transition: 0.3s transform ease-in-out;
+}
+
+.dropdown.show .active {
+  transform: rotate(-180deg);
+  transition: 0.3s transform ease-in-out;
+}
+
+// Navbar - Show/hide seach box.
+.site-search-box {
+  background: $gray-100;
+  position: absolute;
+  top: 67px;
+  right: 0;
+  width: 420px;
+  padding: 1rem;
+  display: none;
+  z-index: 3;
+
+  .form-control {
+    color: $gray-600;
+    @include font-size(18);
+  }
+
+  .input-group-append {
+    background-color: #fff;
+
+    .btn-primary {
+      background-color: $white;
+      border: 1px solid $border-color;
+      border-left: 0;
+      @include font-size(18);
+    }
+  }
+  button[type="search"] {
+    .icon {
+      @include media-breakpoint-up(md) {
+        width: 24px !important;
+        height: 24px !important;
+      }
+    }
+  }
+}
+
+// Accordion - rotate icon on collapse/aria-expanded
+.accordion .chevron-down-blue {
+  transform: rotate(-180deg);
+  transition: 0.3s transform ease-in-out;
+}
+
+.accordion .collapsed .chevron-down-blue {
+  transform: rotate(0deg);
+  transition: 0.3s transform ease-in-out;
+}
+
+// More options
+.more-options .plus-blue {
+  transform: rotate(-45deg);
+  transition: 0.3s transform ease-in-out;
+}
+
+.more-options .collapsed .plus-blue {
+  transform: rotate(0deg);
+  transition: 0.3s transform ease-in-out;
+}

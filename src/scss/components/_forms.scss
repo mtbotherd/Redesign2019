@@ -1,0 +1,108 @@
+/**********************************************
+    Form styles
+**********************************************/
+fieldset {
+	width: 100%;
+
+	legend {
+		font-weight: 700;
+	}
+}
+
+.form-group,
+.input-group {
+	margin-bottom: 1rem;
+	width: 98%; // We set to 98% to accomodate the required symbol.
+
+	&.required,
+	&.required-custom {
+		position: relative;
+
+		&::after {
+			content: '*';
+			position: absolute;
+			top: 0;
+			right: -1rem;
+			@include font-size(43);
+			color: $red;
+			line-height: 1;
+
+			@include media-breakpoint-up(lg) {
+				@include font-size(47);
+			}
+		}
+	}
+
+	.form-control,
+	.custom-select {
+		display: block;
+		height: 45px;
+		@include font-size(18);
+		padding: 0.375rem 0.75rem;
+
+		@include media-breakpoint-up(lg) {
+			height: 50px;
+			@include font-size(23);
+		}
+	}
+
+	label {
+		color: $gray-300;
+	}
+
+	textarea {
+		width: 100%;
+		height: auto;
+	}
+
+	// .custom-file,
+	// input[type='file'] {
+	// 	height: 40px;
+
+	// 	@include media-breakpoint-up(lg) {
+	// 		height: 50px;
+	// 	}
+
+	// 	.custom-file-label {}
+	// }
+}
+
+// Required form elements styles
+/* Denote label at top of forms */
+.denote-required {
+	position: relative;
+	@include font-size(18);
+	margin-left: 1.25rem;
+
+	@include media-breakpoint-up(lg) {
+		@include font-size(23);
+	}
+
+	.required-symbol {
+		@include font-size(43);
+		position: absolute;
+		top: -0.5rem;
+		left: -1.25rem;
+		color: $red;
+
+		@include media-breakpoint-up(lg) {
+			@include font-size(47);
+			line-height: 0;
+			margin-right: 0.25rem;
+			top: 1.7rem;
+		}
+	}
+}
+
+// .custom-file {
+// 	.custom-file-label {
+// 		@include media-breakpoint-up(lg) {
+// 			height: 50px;
+// 			@include font-size(23);
+
+// 			&::after {
+// 				height: 48px;
+// 			}
+// 		}
+// 	}
+// }

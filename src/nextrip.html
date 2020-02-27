@@ -224,86 +224,87 @@
 							<section class="section">
 								<div id="nextripModule">
 									<div class="card mb-4">
-										<h2 class="text-center mb-4 mb-lg-5">
-											Real-time Departures
-										</h2>
-										<div class="d-flex justify-content-center">
+										<h2 class="text-center mb-4 mb-lg-5">Real-time Departures</h2>
+										<div class="d-flex justify-content-center mb-4">
 											<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 												<li class="nav-item">
-													<a class="nav-link nexTrip-trip-options nexTrip-selected-option"
-														id="pills-home-tab" data-toggle="pill" href="#pills-home"
-														role="tab" aria-controls="pills-home" aria-selected="true">By
-														route</a>
+													<a class="nav-link nextrip-tab active"
+														id="byRouteTab" 
+														data-toggle="pill" 
+														href="#byRoute"
+														role="tab" 
+														aria-controls="byRouteTab" 
+														aria-selected="true">Byroute</a>
 												</li>
 												<li class="nav-item">
-													<a class="nav-link nexTrip-trip-options" id="pills-profile-tab"
-														data-toggle="pill" href="#pills-profile" role="tab"
-														aria-controls="pills-profile" aria-selected="false">By stop
-														#</a>
+													<a class="nav-link nextrip-tab" 
+														id="byStopNumTab"
+														data-toggle="pill" 
+														href="#byRouteNum" 
+														role="tab"
+														aria-controls="byRouteNumTab" 
+														aria-selected="false">By stop #</a>
 												</li>
 											</ul>
 										</div>
 										<div class="d-flex justify-content-center">
-											<div class="tab-content" id="nextrip-tab-content">
-												<div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-													aria-labelledby="pills-home-tab">
-													<div class="form-group select-route">
-														<label for="ntRoute" class="sr-only">Select
-															route</label>
-														<select id="ntRoute" name="ntRoute"
-															class="custom-select custom-select-lg">
-															<option value="">Select
-																route</option>
-														</select>
-													</div>
-													<div class="form-group select-route-direction">
-														<label for="ntDirection" class="sr-only">Select
-															direction</label>
-														<select id="ntDirection" name="ntDirection"
-															class="custom-select custom-select-lg">
-															<option value="">Select
-																direction</option>
-														</select>
-													</div>
-													<div class="form-group select-route-stop">
-														<label for="ntStop" class="sr-only">Select
-															stop</label>
-														<select id="ntStop" name="ntStop"
-															class="custom-select custom-select-lg">
-															<option value="">Select
-																stop</option>
-														</select>
-													</div>
+											<div class="tab-content">
+												<div class="tab-pane fade show active" id="byRoute" role="tabpanel"
+													aria-labelledby="byRouteTab">
+													<fieldset>
+														<legend class="sr-only">Real-time departures by route</legend>
+														<div class="form-group select-route">
+															<select id="ntRoute" name="ntRoute" class="custom-select floating-select" onclick="this.setAttribute('value', this.value);" value="">
+																<option value=""></option>
+															</select>
+															<label for="ntRoute">Select route</label>
+														</div>
+														<div class="form-group select-route-direction">
+															<select id="ntDirection" name="ntDirection" class="custom-select floating-select" onclick="this.setAttribute('value', this.value);" value="">
+																<option value=""></option>
+															</select>
+															<label for="ntDirection">Select direction</label>
+														</div>
+														<div class="form-group select-route-stop">
+															<select id="ntStop" name="ntStop" class="custom-select floating-select" onclick="this.setAttribute('value', this.value);" value="">
+																<option value=""></option>
+															</select>
+															<label for="ntStop">Select stop</label>
+														</div>
+													</fieldset>
 												</div>
-												<div class="tab-pane fade" id="pills-profile" role="tabpanel"
-													aria-labelledby="pills-profile-tab">
-													<div>
+												<div class="tab-pane fade" id="byRouteNum" role="tabpanel"
+													aria-labelledby=byStopNumTab">
+													<fieldset>
+														<legend class="sr-only">Real-time departures by stop number</legend>
 														<div class="auto-complete-search-box">
 															<div class="input-group">
-																<input type="number" id="stopNumber" name="stopNumber"
-																	class="form-control" placeholder="Enter stop number"
-																	aria-describedby="searchStopsButton" />
-																<label for="stopNumber" class="sr-only">Location
-																	or stop
-																	number</label>
+																<input 
+																	type="number"
+																	id="stopNumber"
+																	name="stopNumber"
+																	class="form-control floating-input"
+																	placeholder=" "
+																	aria-describedby="searchStopsButton"
+																	required="required" />
+																<label for="stopNumber">Enter stop number</label>
 																<div class="input-group-append">
 																	<button id="searchStopsButton" type="button"
 																		name="stopNumber"
 																		class="btn btn-primary border-top border-right border-bottom">
-																		<span class="sr-only">Search
-																			button</span>
+																		<span class="sr-only">Search button</span>
 																		<img alt="" class="icon"
 																			src="/img/svg/search-gray.svg" />
 																	</button>
 																</div>
 															</div>
 														</div>
-													</div>
+													</fieldset>
 												</div>
 											</div>
 										</div>
-										<div class="my-1 text-right">
-											<span id="ntrUseCurrentLoc" class="cyan m-0 ml-auto">
+										<div class="text-right d-lg-none">
+											<span id="ntrUseCurrentLoc">
 												<a href="#">Use current
 													location&nbsp;<img alt="" src="/img/svg/pin-blue.svg" /></a>
 											</span>
@@ -322,7 +323,20 @@
 												<a name="nextriptop">Departures</a>
 											</h2>
 											<div class="stop-description"></div>
-											<div class="card mb-3 p-2 p-md-4">
+											<div class="list-group mb-2">
+
+												<!-- Departures list container -->
+												<div class="stop-departures"></div>
+												<div class="show more">
+													<img class="icon mr-2 minus-icon" src="/img/svg/circle-plus-blue.svg">
+													<span class="h4">Show more departure times</span>
+												</div>
+												<div class="show less">
+													<img class="icon mr-2 minus-icon" src="/img/svg/circle-minus-blue.svg">
+													<span class="h4">Show fewer departure times</span>
+												</div>
+											</div>
+											<!-- <div class="card mb-3 p-2 p-md-4">
 												<h2 class="mb-2">
 													<a name="nextriptop">Departures</a>
 												</h2>
@@ -334,7 +348,6 @@
 													</p>
 												</div>
 												<div class="list-group mb-2">
-													<!-- Departures list container -->
 													<div class="stop-departures">
 														<div class="list-group-item pr-0 pl-0">
 															<span class="route-number mr-2">490G</span>
@@ -390,7 +403,7 @@
 													</div>
 												</div>
 											</div>
-											<!-- <div class="list-group mb-2">
+											<div class="list-group mb-2">
 												<div class="stop-departures"></div>
 												<div class="show more">
 													<img alt="" class="icon mr-2 minus-icon" src="/img/svg/circle-plus-blue.svg">
@@ -437,7 +450,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="d-flex justify-content-center mt-5 moovel-hide">
+									<div class="d-flex justify-content-center moovel-hide">
 										<div class="button-container-icon-right text-center">
 											<a class="btn btn-outline-primary btn-extend" href="/about-nextrip">About
 												NexTrip</a>

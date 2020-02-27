@@ -218,26 +218,25 @@
 							<div id="schedulesMaps">
 								<section class="section full-width">
 									<div class="container">
-										<div id="findSchedulesByRoute"
-												class="auto-complete-search-box">
+										<div id="findSchedulesByRoute" class="auto-complete-search-box">
 											<div class="input-group">
-												<input type="search"
-														id="schedulesByRoute"
-														name="schedulesByRoute"
-														class="form-control"
-														placeholder="Find schedules by route"
-														aria-label="Find schedules by route"
-														aria-describedby="searchRoutesButton">
-												<label for="schedulesByRoute"
-														class="sr-only">Find schedules by route</label>
+												<input 
+													type="text"
+													id="schedulesByRoute"
+													name="schedulesByRoute"
+													class="form-control floating-input"
+													placeholder=" "
+													aria-describedby="searchRoutesButton"
+													required="required" />
+												<label for="schedulesByRoute">Find schedules by route</label>
 												<div class="input-group-append">
-													<button id="searchRoutesButton"
+													<button id="searchRoutesButton" 
 															type="button"
-															class="btn btn-primary"
-														onclick="Schedule.searchSchedules();">
+															name="searchRoutesButton"
+															class="btn btn-primary border-top border-right border-bottom"
+															onclick="Schedule.searchSchedules();">
 														<span class="sr-only">Search button</span>
-														<img alt="" class="icon search-gray"
-																src="/img/svg/search-gray.svg">
+														<img alt="" class="icon" src="/img/svg/search-gray.svg" />
 													</button>
 												</div>
 											</div>
@@ -355,28 +354,25 @@
 												<span class="align-middle">Interactive Map</span>
 											</h2>
 											<div class="auto-complete-search-box mb-4 mb-lg-5">
-												<div class="input-group mx-auto">
-															<input type="text"
-																	id="interactiveMapSearch"
-																	class="form-control"
-																	placeholder="Address, intersection or landmark"
-																	aria-expanded="false"
-																	aria-autocomplete="list"
-																	aria-describedby="interactiveMapSearchInstr"
-																	aria-owns="interactiveMapSearchSuggestions"
-																	role="combobox"
-																	onFocus="$(this).val('')"
-																	>
-															<label for="searchButton"
-																	class="sr-only">Search for an address or landmark on the map</label>
-															<div class="input-group-append">
-																<span class="input-group-text" id="searchIcon">
-																	<img alt="" class="icon search-gray"
-																		src="/img/svg/search-gray.svg">
-																</span>
-															</div>
-															<span id="interactiveMapSearchInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
-		
+												<div class="input-group">
+													<input type="text"
+															id="interactiveMapSearch"
+															class="form-control floating-input"
+															placeholder=" "
+															aria-expanded="false"
+															aria-autocomplete="list"
+															aria-describedby="interactiveMapSearchInstr"
+															aria-owns="interactiveMapSearchSuggestions"
+															aria-required="true"
+															role="combobox"
+															onFocus="$(this).val('')" />
+													<label for="searchButton">Address, intersection or landmark</label>
+													<div class="input-group-append">
+														<div class="input-group-text" id="searchIcon">
+															<img alt="" class="icon search-gray" src="/img/svg/search-gray.svg">
+														</div>
+													</div>
+													<span id="interactiveMapSearchInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>		
 												</div>
 											</div>
 											<div class="mb-4">

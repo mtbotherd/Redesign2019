@@ -1,0 +1,85 @@
+/****  floating-Lable style start ****/
+//  Code source: https://codepen.io/dannibla/pen/amgRNR
+//  This code was modified to support Bootstrap 4.
+
+.form-group,
+.input-group {
+	position: relative;
+
+	label {
+		position: absolute;
+		pointer-events: none;
+		top: 10px;
+		left: 0.75rem;
+		@include font-size(18);
+		margin-bottom: 0;
+		transition: 0.2s ease all;
+		-moz-transition: 0.2s ease all;
+		-webkit-transition: 0.2s ease all;
+
+		@include media-breakpoint-up(lg) {
+			top: 16px;
+			left: 1.25rem;
+			@include font-size(23);
+			line-height: 1;
+		}
+	}
+
+	.floating-input,
+	.floating-select,
+	.floating-textarea {
+		padding-top: 1rem;
+	}
+
+	.form-control:focus ~ label,
+	.custom-select:focus ~ label,
+	.floating-input:not(:placeholder-shown) ~ label,
+	.floating-select:not([value='']):valid ~ label {
+		top: 2px;
+		left: 2px;
+		@include font-size(10);
+		text-transform: uppercase;
+
+		@include media-breakpoint-up(lg) {
+			top: 5px;
+			left: 5px;
+		}
+	}
+
+	.floating-textarea {
+		min-height: 5rem;
+		max-height: 10rem;
+	}
+}
+
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+// /* Fallback for Edge
+// -------------------------------------------------- */
+// @supports (-ms-ime-align: auto) {
+// 	.form-group > label {
+// 		display: none;
+// 	}
+// 	.form-group input::-ms-input-placeholder {
+// 		color: $gray-600;
+// 	}
+// }
+
+// /* Fallback for IE
+//   -------------------------------------------------- */
+// @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+// 	.form-group > label {
+// 		display: none;
+// 	}
+// 	.form-group input:-ms-input-placeholder {
+// 		color: $gray-600;
+// 	}
+// }
+
+/****  floating-Lable style end ****/

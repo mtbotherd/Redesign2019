@@ -1,0 +1,43 @@
+//  Auto Complete Search(? - Ask Ellen if all are auto-complete) - Find Schedules by Route
+.auto-complete-search-box {
+	position: relative;
+	width: 100%;
+
+	.icon.date-time-color {
+		@include media-breakpoint-up(lg) {
+			position: absolute;
+			top: 0.25rem;
+			left: 13.75rem;
+			width: 3rem;
+			height: 3rem;
+		}
+	}
+
+	.input-group {
+		@include media-breakpoint-up(md) {
+			max-width: 570px;
+			margin: 0 auto 1rem auto;
+		}
+		@include media-breakpoint-up(lg) {
+			margin: 0 auto;
+		}
+
+		.form-control:focus ~ label {
+			z-index: 30;
+		}
+	}
+
+	.btn-primary {
+		background-color: $white;
+		border: 1px solid $gray-200;
+		border-left: none;
+
+		.icon {
+			@include media-breakpoint-up(lg) {
+				width: 24px;
+				height: 24px;
+				vertical-align: middle;
+			}
+		}
+	}
+}

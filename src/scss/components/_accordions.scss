@@ -1,0 +1,56 @@
+.accordion {
+  margin-bottom: 15px;
+
+  .card .card-header {
+    padding: 0 !important;
+
+    .btn {
+      color: $gray-600;
+      @include font-size(18);
+      background-color: #d8ecfd;
+
+      @include media-breakpoint-up(lg) {
+        @include font-size(23);
+      }
+
+      &.collapsed {
+        background-color: $gray-100;
+      }
+
+      &:focus {
+        color: #626462;
+      }
+    }
+
+    .icon {
+      width: 2.25rem;
+      height: 2.25rem;
+
+      @include media-breakpoint-up(lg) {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+
+      &.chevron-down-blue {
+        width: 1rem;
+        height: 1rem;
+
+        @include media-breakpoint-up(lg) {
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+
+      &.bus-broadcast-color,
+      &.alerts-color {
+        width: 1.625rem;
+        height: 1.625rem;
+
+        @include media-breakpoint-up(lg) {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+      }
+    }
+  }
+}
