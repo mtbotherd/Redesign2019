@@ -475,6 +475,7 @@ var CoordinateConversion = (function() {
 })();
 
 var TRIM = (function($, window, document, undefined) {
+	'use strict';
 	var MAP = null; // this is the main MAP object
 	var GEOLOCATE = null; // this is the locate button object
 	const TRIM_MapServer =
@@ -657,7 +658,7 @@ var TRIM = (function($, window, document, undefined) {
 				return value !== '906'; // remove 906 from list
 			});
 			var queryWhere = 'ROUTENUMBER in (';
-			for (i = 0, l = routes.length; i < l; i++) {
+			for (let i = 0, l = routes.length; i < l; i++) {
 				if (i > 0) {
 					queryWhere += ',';
 				}
@@ -921,7 +922,7 @@ var TRIM = (function($, window, document, undefined) {
 					}
 					var theTripLine = new Polyline(MAP.spatialReference);
 					var newPoints = [];
-					for (var j = 0, jl = seg.Geometry.length; j < jl; j++) {
+					for (let j = 0, jl = seg.Geometry.length; j < jl; j++) {
 						var point = seg.Geometry[j];
 						var newp = point.split(',');
 						newp.reverse();
@@ -1144,7 +1145,7 @@ var TRIM = (function($, window, document, undefined) {
 							if (stations) {
 								var layer = MAP.getLayer('niceRides');
 								for (
-									var i = 0, sl = stations.length;
+									let i = 0, sl = stations.length;
 									i < sl;
 									i++
 								) {
@@ -1184,7 +1185,7 @@ var TRIM = (function($, window, document, undefined) {
 							workArray[i] = parseInt(workArray[i]); // convert string to integers to sort them correctly
 						}
 						var rtList = _bubbleSort(workArray);
-						for (i = 0, len = rtList.length; i < len; i++) {
+						for (let i = 0, len = rtList.length; i < len; i++) {
 							if (i > 0) {
 								routestring += '<br/>';
 							}
@@ -1362,8 +1363,8 @@ var TRIM = (function($, window, document, undefined) {
 				createRouteList();
 				//esriConfig.defaults.map.panRate = 1;
 				//esriConfig.defaults.map.panDuration = 1;
-				var spatialRefWM = new SpatialReference({ wkid: 3857 });
-				initExtent = new Extent({
+				const spatialRefWM = new SpatialReference({ wkid: 3857 });
+				const initExtent = new Extent({
 					xmin: -10385405,
 					ymin: 5615111,
 					xmax: -10379460,
@@ -2019,7 +2020,7 @@ var BOM = (function($, window, document, undefined) {
 		var response = [], // the collected bus locations for all routes
 			promises = []; // the deferred promises for AJAX calls to get each route
 
-		for (var r = 0, rl = routes.length; r < rl; r++) {
+		for (let r = 0, rl = routes.length; r < rl; r++) {
 			var route = routes[r];
 			var reqURL = _LOCATION_SERVICE + route;
 			promises.push(
@@ -2576,7 +2577,7 @@ var BOM = (function($, window, document, undefined) {
 			return value !== '906';
 		});
 		var queryWhere = 'ROUTENUMBER in (';
-		for (var i = 0; i < routes.length; i++) {
+		for (let i = 0; i < routes.length; i++) {
 			if (i > 0) {
 				queryWhere += ',';
 			}
@@ -2611,7 +2612,7 @@ var BOM = (function($, window, document, undefined) {
 								Polyline
 							) {
 								for (
-									var i = 0, l = r.features.length;
+									let i = 0, l = r.features.length;
 									i < l;
 									i++
 								) {
