@@ -5,6 +5,17 @@
 	}
 
 	.input-group {
+		.custom-width {
+			width: 71%;
+
+			@include media-breakpoint-up(md) {
+				width: 83%;
+			}
+
+			@include media-breakpoint-up(lg) {
+				width: 81%;
+			}
+		}
 		.form-control {
 			border-right: none;
 		}
@@ -48,11 +59,7 @@
 
 			// Label default position
 			label {
-				left: 3.8rem;
-
-				@include media-breakpoint-up(lg) {
-					left: 4.3rem;
-				}
+				left: 0.75rem;
 			}
 
 			// Floating label position on focus

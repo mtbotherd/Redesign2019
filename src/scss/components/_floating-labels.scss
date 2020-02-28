@@ -39,6 +39,7 @@
 		left: 2px;
 		@include font-size(10);
 		text-transform: uppercase;
+		z-index: 10;
 
 		@include media-breakpoint-up(lg) {
 			top: 5px;
@@ -62,23 +63,24 @@
 
 // /* Fallback for Edge
 // -------------------------------------------------- */
-// @supports (-ms-ime-align: auto) {
-// 	.form-group > label {
-// 		display: none;
-// 	}
+//@supports (-ms-ime-align: auto) {
+// .form-group > label {
+// 	display: none;
+// }
 // 	.form-group input::-ms-input-placeholder {
-// 		color: $gray-600;
+// 		display: none;
 // 	}
 // }
 
 // /* Fallback for IE
 //   -------------------------------------------------- */
 // @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-// 	.form-group > label {
-// 		display: none;
-// 	}
-// 	.form-group input:-ms-input-placeholder {
-// 		color: $gray-600;
+// 	//@media all and (min-width:992px) {
+// 	label {
+// 		position: absolute;
+// 		top: 5px;
+// 		left: 5px;
+// 		@include font-size(12);
 // 	}
 // }
 

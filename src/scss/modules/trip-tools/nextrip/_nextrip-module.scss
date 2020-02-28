@@ -40,6 +40,17 @@
 			max-width: 570px;
 			margin: 0 auto 1rem auto;
 		}
+
+		.custom-width {
+			width: 298px;
+			@include media-breakpoint-up(md) {
+				width: 529px;
+			}
+
+			@include media-breakpoint-up(lg) {
+				width: 521px;
+			}
+		}
 	}
 
 	.input-group-append {

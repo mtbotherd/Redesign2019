@@ -1,0 +1,105 @@
+/**************************************************
+	Bootstrap floating labels
+**************************************************/
+//https://github.com/tonystar/bootstrap-float-label
+.has-float-label {
+	display: block;
+	position: relative;
+
+	label {
+		position: absolute;
+		left: 0.75rem;
+		top: 0;
+		cursor: text;
+		@include font-size(12);
+		opacity: 1;
+		-webkit-transition: all 0.2s;
+		transition: all 0.2s;
+	}
+
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+
+	textarea {
+		width: 100%;
+	}
+
+	input::-webkit-input-placeholder,
+	select::-webkit-input-placeholder,
+	textarea::-webkit-input-placeholder {
+		opacity: 1;
+		-webkit-transition: all 0.2s;
+		transition: all 0.2s;
+	}
+
+	input::-moz-placeholder,
+	select::-moz-placeholder,
+	textarea::-moz-placeholder {
+		opacity: 1;
+		transition: all 0.2s;
+	}
+
+	input:-ms-input-placeholder,
+	select:-ms-input-placeholder,
+	textarea:-ms-input-placeholder {
+		opacity: 1;
+		transition: all 0.2s;
+	}
+
+	input::placeholder,
+	select::placeholder,
+	textarea::placeholder {
+		opacity: 1;
+		-webkit-transition: all 0.2s;
+		transition: all 0.2s;
+	}
+
+	input:placeholder-shown:not(:focus)::-webkit-input-placeholder,
+	select:placeholder-shown:not(:focus)::-webkit-input-placeholder,
+	textarea:placeholder-shown:not(:focus)::-webkit-input-placeholder {
+		opacity: 0;
+	}
+	input:placeholder-shown:not(:focus)::-moz-placeholder,
+	select:placeholder-shown:not(:focus)::-moz-placeholder,
+	textarea:placeholder-shown:not(:focus)::-moz-placeholder {
+		opacity: 0;
+	}
+	input:placeholder-shown:not(:focus):-ms-input-placeholder,
+	select:placeholder-shown:not(:focus):-ms-input-placeholder,
+	textarea:placeholder-shown:not(:focus):-ms-input-placeholder {
+		opacity: 0;
+	}
+	input:placeholder-shown:not(:focus)::placeholder,
+	select:placeholder-shown:not(:focus)::placeholder,
+	textarea:placeholder-shown:not(:focus)::placeholder {
+		opacity: 0;
+	}
+	input:placeholder-shown:not(:focus) + *,
+	select:placeholder-shown:not(:focus) + *,
+	textarea:placeholder-shown:not(:focus) + * {
+		@include font-size(18);
+		top: 0.5em;
+
+		@include media-breakpoint-up(lg) {
+			@include font-size(23);
+			left: 1.25rem;
+			top: 0.5rem;
+		}
+	}
+	input:focus,
+	select:focus,
+	textarea:focus {
+		outline: none;
+		//border-color: rgba(0, 0, 0, 0.5);
+	}
+	select {
+		padding-right: 1em;
+		background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E")
+			no-repeat right 0.5em bottom 0.25em;
+		background-size: 8px 10px;
+	}
+}
+//.has-float-label .has-float-label textarea

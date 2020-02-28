@@ -6,6 +6,16 @@
 
 	.auto-complete-search-box {
 		.input-group {
+			.custom-width {
+				width: 297px;
+				@include media-breakpoint-up(md) {
+					width: 529px;
+				}
+
+				@include media-breakpoint-up(lg) {
+					width: 521px;
+				}
+			}
 			.form-control {
 				border-right: none;
 			}
@@ -16,8 +26,26 @@
 				border: 0;
 
 				.icon {
-					width: 1.5rem;
-					height: 1.5rem;
+					width: 1rem;
+					height: 1rem;
+
+					@include media-breakpoint-up(lg) {
+						width: 1.5rem;
+						height: 1.5rem;
+					}
+				}
+			}
+
+			.input-group-text {
+				background-color: $white;
+				.icon {
+					width: 1rem;
+					height: 1rem;
+
+					@include media-breakpoint-up(lg) {
+						width: 1.5rem;
+						height: 1.5rem;
+					}
 				}
 			}
 		}
@@ -100,24 +128,29 @@
 		}
 	}
 
-	#interactiveMap {
-		.auto-complete-search-box {
-			.input-group::before {
-				background-image: none !important;
-			}
+	// #interactiveMap {
+	// 	.auto-complete-search-box {
+	// 		.input-group::before {
+	// 			//background-image: none !important;
+	// 		}
 
-			.input-group-append {
-				.input-group-text {
-					background-color: #fff;
-					border-left: none;
-					z-index: 10;
+	// 		// .input-group-append {
+	// 		// 	.input-group-text {
+	// 		// 		background-color: #fff;
+	// 		// 		border-left: none;
+	// 		// 		z-index: 10;
 
-					.icon {
-						width: 1.5rem;
-						height: 1.5rem;
-					}
-				}
-			}
-		}
-	}
+	// 		// 		.icon {
+	// 		// 			width: 1rem;
+	// 		// 			height: 1rem;
+
+	// 		// 			@include media-breakpoint-up(lg) {
+	// 		// 				width: 1.5rem;
+	// 		// 				height: 1.5rem;
+	// 		// 			}
+	// 		// 		}
+	// 		// 	}
+	// 		// }
+	// 	}
+	// }
 }

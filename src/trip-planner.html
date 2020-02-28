@@ -5,7 +5,8 @@
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+		/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="web-service-uri" content="https://svc.metrotransit.org" />
         <title>Metro Transit</title>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -13,7 +14,7 @@
             rel="stylesheet"
             href="https://js.arcgis.com/3.28/esri/css/esri.css"
         />
-        <link rel="stylesheet" href="/css/app.css" />
+		<link rel="stylesheet" href="/css/app.css" />
     </head>
 
     <body>
@@ -544,11 +545,11 @@
 												<div id="fromErrorMessage" class="is-invalid d-none">
 													<span>Begin typing, then select an option from the list.</span>
 												</div>
-												<div class="form-group mb-0 mb-lg-3 d-flex">
+												<div class="form-group has-float-label mb-0 mb-lg-3 d-flex">
 													<input
 														id="fromLocation"
 														type="text"
-														class="form-control from-location floating-input"
+														class="form-control from-location"
 														name="fromLocation"
 														aria-label="trip planner from location"
 														aria-expanded="false"
@@ -557,8 +558,9 @@
 														aria-owns="fromLocationSuggestions"
 														role="combobox"
 														onFocus="this.select()"
-														placeholder=" " />
+														placeholder="Address, intersection or landmark" />
 													<label for="fromLocation">From</label>
+													<span class="sr-only">Enter an address, intersection or landmark.</span>
 													<button type="button" class="location-toggler ml-auto">
 														<img
 															alt="Up arrow and down arrow side by side."
@@ -568,7 +570,6 @@
 													</button>
 													<span id="fromLocationInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
 												</div>
-												<!-- <div class="d-flex ml-auto my-1"> -->
 												<div class="text-right mt-2 mb-2 d-lg-none">
 													<span id="tpUseCurrentLoc">
 														<a href="#">Use current  location&nbsp;<img alt="" src="/img/svg/pin-blue.svg"/></a>
@@ -577,12 +578,12 @@
 												<div id="toErrorMessage" class="is-invalid d-none">
 													<span>Begin typing, then select an option from the list.</span>
 												</div>
-												<div class="form-group">
+												<div class="form-group has-float-label">
 													<input
 														id="toLocation"
 														type="text"
 														name="toLocation"
-														class="form-control to-location floating-input"
+														class="form-control to-location"
 														area-label="trip planner to location"
 														aria-expanded="false"
 														aria-autocomplete="list"
@@ -590,9 +591,9 @@
 														aria-owns="toLocationSuggestions"
 														role="combobox"
 														onFocus="this.select()"
-														placeholder=" " />
+														placeholder="Address, intersection or landmark" />
 													<label for="toLocation">To</label>
-													<span id="toLocationInstr" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
+													<span id="toLocationInstr" class="sr-only" style="display: none;">You can enter an address, intersection or landmark. When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
 												</div>
 												<div class="row">
 													<div class="col-md-6">
@@ -1115,7 +1116,6 @@
         <script src="/js/jquery.js"></script>
         <script src="/js/popper.js"></script>
         <script src="/js/bootstrap.js"></script>
-
         <script src="/js/jquery.autocomplete.js"></script>
         <!-- <script src="/js/jquery.validate.js"></script>
         <script src="/js/form-validation.js"></script> -->

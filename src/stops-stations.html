@@ -217,19 +217,21 @@
 							<div id="stopsStations" class="mt-4">
 								<div id="findStopsStations"	class="auto-complete-search-box">
 									<div class="input-group">
-										<input type="text"
-											id="stopsStationsSearch"
-											name="stopsStations"
-											class="form-control floating-input"
-											placeholder=" "
-											aria-expanded="false"
-											aria-autocomplete="list"
-											aria-describedby="stopsStationsSearchInstr"
-											aria-owns="stopsStationsSearchSuggestions"
-											role="combobox"
-											onFocus="$(this).val('')"
-											>	
-										<label for="stopsStationsSearch">Address, Intersection or Landmark</label>
+										<div class="has-float-label custom-width">
+											<input type="text"
+												id="stopsStationsSearch"
+												name="stopsStations"
+												class="form-control"
+												placeholder="Address, intersection or landmark"
+												aria-expanded="false"
+												aria-autocomplete="list"
+												aria-describedby="stopsStationsSearchInstr"
+												aria-owns="stopsStationsSearchSuggestions"
+												role="combobox"
+												onFocus="$(this).val('')"
+												>	
+											<label for="stopsStationsSearch">Search...</label>
+										</div>
 										<div class="input-group-append">
 											<span class="input-group-text" id="searchIcon">
 												<img alt="" class="icon search-gray"

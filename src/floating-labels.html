@@ -3,14 +3,11 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport"
-		  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="web-service-uri" content="https://svc.metrotransit.org">
 	<title>Metro Transit</title>
-	<link rel="shortcut icon"
-		  href="favicon.ico"
-		  type="image/x-icon">
-	<link rel="stylesheet"
-		  href="/css/app.css">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/css/app.css">
 
 </head>
 
@@ -23,7 +20,6 @@
 	<!-- Begin Header -->
 	<header id="header">
 		<nav class="navbar navbar-expand-xl navbar-light">
-			<!-- <a href="#pageContainer" class="skip-to-content">Skip to main content</a> -->
 			<div class="container">
 				<a class="navbar-brand" href="/">
 					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
@@ -201,62 +197,41 @@
 		<section>
 			<div class="page-content">
 				<div class="full-width">
-					<div class="primary hero park-ride-bg">
+					<div class="secondary">
 						<div class="container">
 							<div class="page-title">
-								<h1>Park &amp; Rides</h1>
+								<h1>Page title</h1>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="content-full-width">
+				<div class=""> <!-- This class gets set in CMS -->
 					<div class="htmlmodule">
 						<section class="section">
-							<h2 class="mb-5 text-center">Search for one of hundreds of free Park & Ride lots all over the metro area</h2>
-							<div id="parkRides">
-								<div id="findParkRideStations"	class="auto-complete-search-box">
-									<div class="input-group">
-										<div class="has-float-label custom-width">
-											<input type="text"
-												id="parkRidesSearch"
-												name="parkRidesSearch"
-												class="form-control"
-												placeholder="Address, intersection or landmark"
-												aria-expanded="false"
-												aria-autocomplete="list"
-												aria-describedby="parkRidesSearchInstr"
-												aria-owns="parkRidesSearchSuggestions"
-												role="combobox"
-												onFocus="$(this).val('')"
-												required="required" />
-											<label for="parkRidesSearch">Search...</label>
-											<span class="sr-only">You can search by entering an address, intersection or landmark.</span>
-										</div>
-										<div class="input-group-append">
-											<div class="input-group-text" id="searchIcon">
-												<img alt="" class="icon search-gray"
-													src="/img/svg/search-gray.svg">
-											</div>
-										</div>
-										<span id="parkRidesSearchInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
-						
-									</div>
+
+							<!-- <fieldset>
+								<legend>Floating labels example</legend> -->
+								<div class="form-group has-float-label required">
+									<input type="text" id="name" name="name" class="form-control" placeholder="Full name" required="required"/>
+									<label for="name">Name</label>
 								</div>
-								<div class="text-right d-lg-none">
-									<span id="prUseCurrentLoc">
-										<a href="#">Use current
-											location&nbsp;<img alt="" src="/img/svg/pin-blue.svg" /></a>
-									</span>
+								<div class="form-group has-float-label required">
+									<input
+										type="text"
+										id="textField"
+										class="form-control"
+										name="textField"
+										placeholder="Text field"
+										required/>
+									<label for="textField">Text</label>
 								</div>
-								<div id="prFinderResults" class="mt-4"></div>
-								<div class="button-container-icon-right text-center mt-5 mb-0">
-									<a class="btn btn-outline-primary" href="/park-ride-lots">About Park & Rides</a>
-								</div>
-							</div>
+							<!-- </fieldset> -->
+							
 						</section>
+
 					</div>
-				</div>			
+				</div>
 			</div>
 		</section>
 	</main>
@@ -357,21 +332,19 @@
 	<!-- End Footer -->
 
 	<!-- scripts -->
+	<script src="/js/detect-ie.js"></script>
 	<script src="/js/jquery.js"></script>
 	<script src="/js/popper.js"></script>
 	<script src="/js/bootstrap.js"></script>
-	
 	<script src="/js/jquery.autocomplete.js"></script>
-	<script src="/js/jquery.validate.js"></script>
+	<!-- <script src="/js/jquery.validate.js"></script> -->
 	<!-- <script src="/js/additional-methods.js"></script> -->
-	<script src="/js/nextrip.js"></script>
-	<script src="/js/form-validation.js"></script>
+	<!-- <script src="/js/form-validation.js"></script> -->
 	<script src="https://js.arcgis.com/3.28/"></script>
 	<script src="/js/TRIM.js"></script>
-	<script src="js/autocomplete.js"></script>
-	<script src="js/park-ride-lots.js"></script>
 	<script src="/js/scripts.js"></script>
 	<!-- End scripts -->
+	
 </body>
 
 </html>

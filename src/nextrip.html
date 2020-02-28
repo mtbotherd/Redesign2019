@@ -254,22 +254,22 @@
 													<fieldset>
 														<legend class="sr-only">Real-time departures by route</legend>
 														<div class="form-group select-route">
-															<select id="ntRoute" name="ntRoute" class="custom-select floating-select" onclick="this.setAttribute('value', this.value);" value="">
-																<option value=""></option>
+															<select id="ntRoute" name="ntRoute" class="custom-select" onclick="this.setAttribute('value', this.value);" value="">
+																<option selected>Select route</option>
 															</select>
-															<label for="ntRoute">Select route</label>
+															<label for="ntRoute" class="sr-only">Select route</label>
 														</div>
 														<div class="form-group select-route-direction">
-															<select id="ntDirection" name="ntDirection" class="custom-select floating-select" onclick="this.setAttribute('value', this.value);" value="">
-																<option value=""></option>
+															<select id="ntDirection" name="ntDirection" class="custom-select" onclick="this.setAttribute('value', this.value);" value="">
+																<option selected>Select direction</option>
 															</select>
-															<label for="ntDirection">Select direction</label>
+															<label for="ntDirection" class="sr-only">Select direction</label>
 														</div>
 														<div class="form-group select-route-stop">
-															<select id="ntStop" name="ntStop" class="custom-select floating-select" onclick="this.setAttribute('value', this.value);" value="">
-																<option value=""></option>
+															<select id="ntStop" name="ntStop" class="custom-select" onclick="this.setAttribute('value', this.value);" value="" placeholder="Select stop">
+																<option selected>Select stop</option>
 															</select>
-															<label for="ntStop">Select stop</label>
+															<label for="ntStop" class="sr-only">Select stop</label>
 														</div>
 													</fieldset>
 												</div>
@@ -279,15 +279,17 @@
 														<legend class="sr-only">Real-time departures by stop number</legend>
 														<div class="auto-complete-search-box">
 															<div class="input-group">
-																<input 
-																	type="number"
-																	id="stopNumber"
-																	name="stopNumber"
-																	class="form-control floating-input"
-																	placeholder=" "
-																	aria-describedby="searchStopsButton"
-																	required="required" />
-																<label for="stopNumber">Enter stop number</label>
+																<div class="has-float-label custom-width">
+																	<input 
+																		type="number"
+																		id="stopNumber"
+																		name="stopNumber"
+																		class="form-control"
+																		placeholder="Enter stop number"
+																		aria-describedby="searchStopsButton"
+																		required="required" />
+																	<label for="stopNumber">Enter stop number</label>
+																</div>
 																<div class="input-group-append">
 																	<button id="searchStopsButton" type="button"
 																		name="stopNumber"
@@ -336,84 +338,6 @@
 													<span class="h4">Show fewer departure times</span>
 												</div>
 											</div>
-											<!-- <div class="card mb-3 p-2 p-md-4">
-												<h2 class="mb-2">
-													<a name="nextriptop">Departures</a>
-												</h2>
-												<div class="stop-description">
-													<p>
-														Marquette Ave - 5th
-														St - Stop Group C<br />Stop
-														53298
-													</p>
-												</div>
-												<div class="list-group mb-2">
-													<div class="stop-departures">
-														<div class="list-group-item pr-0 pl-0">
-															<span class="route-number mr-2">490G</span>
-															<span class="route-name">SB/Shakopee/Proir
-																Lake/Via
-																Marschal</span>
-															<span class="depart-time ml-auto">12:52</span>
-														</div>
-														<div class="list-group-item pr-0 pl-0">
-															<span class="route-number mr-2">465P</span>
-															<span class="route-name">SB/Portland
-																Av/Bloom
-																TC/Burnsvl
-																TS</span>
-															<span class="depart-time ml-auto">12:54</span>
-														</div>
-														<div class="list-group-item pr-0 pl-0">
-															<span class="route-number mr-2">465</span>
-															<span class="route-name">SB/Burnsvl
-																TS/S Bloom
-																TC</span>
-															<span class="depart-time ml-auto">1:24</span>
-														</div>
-														<div class="list-group-item pr-0 pl-0">
-															<span class="route-number mr-2">465P</span>
-															<span class="route-name">SB/Portland
-																Av/Bloom
-																TC/Burnsvl
-																TS</span>
-															<span class="depart-time ml-auto">1:54</span>
-														</div>
-														<div class="list-group-item pr-0 pl-0">
-															<span class="route-number mr-2">477R</span>
-															<span class="route-name">SB/PALO/CGTS/Apple
-																Valley
-																TS</span>
-															<span class="depart-time ml-auto">2:06</span>
-														</div>
-													</div>
-													<div class="show more">
-														<img class="icon mr-2 minus-icon"
-															src="/img/svg/circle-plus-blue.svg" />
-														<span class="h4">Show more
-															departure
-															times</span>
-													</div>
-													<div class="show less">
-														<img class="icon mr-2 minus-icon"
-															src="/img/svg/circle-minus-blue.svg" />
-														<span class="h4">Show fewer
-															departure
-															times</span>
-													</div>
-												</div>
-											</div>
-											<div class="list-group mb-2">
-												<div class="stop-departures"></div>
-												<div class="show more">
-													<img alt="" class="icon mr-2 minus-icon" src="/img/svg/circle-plus-blue.svg">
-													<span class="h4">Show more departure times</span>
-												</div>
-												<div class="show less">
-													<img alt="" class="icon mr-2 minus-icon" src="/img/svg/circle-minus-blue.svg">
-													<span class="h4">Show fewer departure times</span>
-												</div>
-											</div> -->
 										</div>
 										<div class="nextrip-legend">
 											<img alt="" class="icon mr-1" src="/img/svg/broadcast-blue.svg" />
@@ -448,12 +372,6 @@
 													</div>
 												</div>
 											</div>
-										</div>
-									</div>
-									<div class="d-flex justify-content-center moovel-hide">
-										<div class="button-container-icon-right text-center">
-											<a class="btn btn-outline-primary btn-extend" href="/about-nextrip">About
-												NexTrip</a>
 										</div>
 									</div>
 								</div>
@@ -621,9 +539,9 @@
 	<script src="/js/jquery.js"></script>
 	<script src="/js/popper.js"></script>
 	<script src="/js/bootstrap.js"></script>
-
 	<script src="/js/jquery.autocomplete.js"></script>
-	<script src="/js/jquery.validate.js"></script>
+	<!-- <script src="/js/jquery.validate.js"></script>
+	<script src="/js/form-validation.js"></script> -->
 	<script src="/js/moment.js"></script>
 	<script src="https://js.arcgis.com/3.28/"></script>
 	<script src="/js/TRIM.js"></script>
@@ -631,7 +549,6 @@
 	<script src="/js/trip-planner.js"></script>
 	<script src="js/stops-stations.js"></script>
 	<script src="/js/nextrip.js"></script>
-	<script src="/js/form-validation.js"></script>
 	<script src="/js/scripts.js"></script>
 	<script>
 		$(function () {
