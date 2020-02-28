@@ -5,17 +5,6 @@
 	}
 
 	.input-group {
-		.custom-width {
-			width: 71%;
-
-			@include media-breakpoint-up(md) {
-				width: 83%;
-			}
-
-			@include media-breakpoint-up(lg) {
-				width: 81%;
-			}
-		}
 		.form-control {
 			border-right: none;
 		}
@@ -57,6 +46,18 @@
 				}
 			}
 
+			.custom-width {
+				width: 71%;
+
+				@include media-breakpoint-up(md) {
+					width: 83%;
+				}
+
+				@include media-breakpoint-up(lg) {
+					width: 81%;
+				}
+			}
+
 			// Label default position
 			label {
 				left: 0.75rem;
@@ -65,12 +66,11 @@
 			// Floating label position on focus
 			.form-control:focus ~ label {
 				@include media-breakpoint-up(md) {
-					left: 49px;
+					left: 0.75rem;
 				}
 
 				@include media-breakpoint-up(lg) {
 					top: 1px;
-					left: 57px;
 				}
 			}
 		}
