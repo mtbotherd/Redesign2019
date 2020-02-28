@@ -210,129 +210,131 @@
 					<div class="htmlmodule">
 						<section class="section">
 
-							<form id="sampleForm" method="post" novalidate>
-								<div class="form-group required">
-									<input
-										type="text"
-										id="textField"
-										class="form-control floating-input"
-										name="textField"
-										placeholder=" "
-										required/>
-									<label for="textField">Text</label>
-								</div>
-								<div class="form-group">
-									<input
-										type="number"
-										id="numberField"
-										class="form-control floating-input"
-										name="numberField"
-										placeholder=" "/>
-									<label for="numberField">Number (+/-)</label>
-								</div>
-								<div class="form-group">
-									<input
-										type="email"
-										id="emailField"
-										class="form-control floating-input"
-										name="emailField"
-										placeholder=" "/>
-									<label for="emailField">Email</label>
-								</div>
-								<div class="form-group">
-									<input
-										type="password"
-										id="passwordField"
-										class="form-control floating-input"
-										name="passwordField"
-										placeholder=" "/>
-									<label for="passwordField">Password</label>
-								</div>
-								<div class="form-group">
-									<input
-										type="text"
-										id="dateField"
-										class="form-control floating-input"
-										name="dateField"
-										onclick="(this.type='date')" placeholder=" "/>
-									<label for="dateField">Date</label>
-								</div>
-								<div class="form-group">
-									<input
-										type="text"
-										id="timeField"
-										class="form-control floating-input"
-										name="timeField"
-										onclick="(this.type='time')" placeholder=" "/>
-									<label for="timeField">Time</label>
-								</div>
-								<div class="form-group">
-									<input
-										type="url"
-										id="urlField"
-										class="form-control floating-input"
-										name="urlField"
-										placeholder=" "/>
-									<label for="urlField">URL field</label>
-								</div>
-								<div class="form-group">
-									<select id="selectField" class="custom-select floating-select" name="selectField" onclick="this.setAttribute('value', this.value);" value="">
-										<option value=""></option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
-									</select>
-									<label for="selectField">Select</label>
-								</div>
-								<!-- <div class="form-group">
-									<select
-										id="selectMultipleField"
-										class="form-control floating-select"
-										name="selectMultipleField"
-										size="3"
-										multiple>
-										<option value=""></option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
-										<option value="4">Four</option>
-										<option value="5">Five</option>
-									</select>
-									<label for="selectMultipleField">Select multiple</label>
-								</div> -->
-								<div class="form-group">
-									<textarea
-										id="textareaField"
-										class="form-control floating-input floating-textarea"
-										name="textareaField"
-										rows="3"
-										placeholder=" "></textarea>
-									<label for="textareaField">Textarea</label>
-								</div>
-								<div class="form-group">
-									<div class="custom-file">
+							<form>
+								<fieldset>
+									<legend>Floating labels example</legend>
+									<div class="form-group has-float-label required">
 										<input
-										type="file"
-										id="fileUploadField"
-										class="form-control custom-file-input"
-										name="fileUploadField"/>
-										<label for="fileUploadField" class="custom-file-label">Choose file</label>
+											type="text"
+											id="textField"
+											class="form-control"
+											name="textField"
+											placeholder="Text field"
+											required/>
+										<label for="textField">Text</label>
 									</div>
-								</div>
-								<!-- <div class="form-group">
-									<div class="form-check">
+									<div class="form-group has-float-label">
 										<input
-										type="checkbox"
-										id="checkboxSingle"
-										class="form-check-input"
-										name="checkboxSingle"
-										/>
-										<label class="form-check-label" for="checkbox">Checkbox</label>
+											type="number"
+											id="numberField"
+											class="form-control"
+											name="numberField"
+											placeholder="Number field"/>
+										<label for="numberField">Number</label>
 									</div>
-								</div> -->
+									<div class="form-group has-float-label">
+										<input
+											type="email"
+											id="emailField"
+											class="form-control"
+											name="emailField"
+											placeholder="Email field"/>
+										<label for="emailField">Email</label>
+									</div>
+									<div class="form-group has-float-label">
+										<input
+											type="password"
+											id="passwordField"
+											class="form-control"
+											name="passwordField"
+											placeholder="Password field"/>
+										<label for="passwordField">Password</label>
+									</div>
+									<div class="form-group has-float-label">
+										<input
+											type="text"
+											id="dateField"
+											class="form-control"
+											name="dateField"
+											onclick="(this.type='date')" placeholder=" "/>
+										<label for="dateField">Date</label>
+									</div>
+									<div class="form-group has-float-label">
+										<input
+											type="text"
+											id="timeField"
+											class="form-control"
+											name="timeField"
+											onclick="(this.type='time')" placeholder=" "/>
+										<label for="timeField">Time</label>
+									</div>
+									<div class="form-group has-float-label">
+										<input
+											type="url"
+											id="urlField"
+											class="form-control"
+											name="urlField"
+											placeholder=" "/>
+										<label for="urlField">URL field</label>
+									</div>
+									<div class="form-group has-float-label">
+										<select id="selectField" class="form-control custom-select" name="selectField" onclick="this.setAttribute('value', this.value);" value="" placeholder="Select">
+											<option value="" selected>Select...</option>
+											<option value="1">One</option>
+											<option value="2">Two</option>
+											<option value="3">Three</option>
+										</select>
+										<label for="selectField">Select</label>
+									</div>
+									<div class="form-group has-float-label">
+										<select
+											id="selectMultipleField"
+											class="form-control"
+											name="selectMultipleField"
+											size="3"
+											multiple>
+											<option value=""></option>
+											<option value="1">One</option>
+											<option value="2">Two</option>
+											<option value="3">Three</option>
+											<option value="4">Four</option>
+											<option value="5">Five</option>
+										</select>
+										<label for="selectMultipleField">Select multiple</label>
+									</div>
+									<div class="form-group has-float-label">
+										<textarea
+											id="textareaField"
+											class="form-control"
+											name="textareaField"
+											rows="3"
+											placeholder="Enter your message here"></textarea>
+										<label for="textareaField">Textarea</label>
+									</div>
+									<!-- <div class="form-group has-float-label">
+										<div class="custom-file">
+											<input
+											type="file"
+											id="fileUploadField"
+											class="form-control custom-file-input"
+											name="fileUploadField"/>
+											<label for="fileUploadField" class="custom-file-label">Choose file</label>
+										</div>
+									</div>
+									<div class="form-group	">
+										<div class="form-check">
+											<input
+											type="checkbox"
+											id="checkboxSingle"
+											class="form-check-input"
+											name="checkboxSingle"
+											/>
+											<label class="form-check-label" for="checkbox">Checkbox</label>
+										</div>
+									</div> -->
 								<!-- <fieldset>
 									<legend>Checkbox group</legend>
-									<div class="form-group">
+									<div class="form-group has-float-label">
 										<div class="form-check">
 											<input
 												type="checkbox"
@@ -361,7 +363,7 @@
 								</fieldset> -->
 								<!-- <fieldset>
 									<legend>Radio group</legend>
-									<div class="form-group">
+									<div class="form-group has-float-label">
 										<div class="form-check">
 											<input
 												type="radio"

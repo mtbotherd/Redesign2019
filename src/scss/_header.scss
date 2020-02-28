@@ -1,330 +1,346 @@
 #header {
-  .navbar {
-    padding: 0.5rem 15px;
+	.navbar {
+		padding: 0.5rem 15px;
 
-    @include media-breakpoint-up(xl) {
-      padding: 0 !important;
-    }
+		@include media-breakpoint-up(xl) {
+			padding: 0 !important;
+		}
 
-    .section {
-      @include media-breakpoint-up(xl) {
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-    }
-    .navbar-nav {
-      border-top: 1px solid $border-color;
+		.section {
+			@include media-breakpoint-up(xl) {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+		}
+		.navbar-nav {
+			border-top: 1px solid $border-color;
 
-      @include media-breakpoint-up(xl) {
-        border-top: none;
-        height: 68.58px;
-      }
+			@include media-breakpoint-up(xl) {
+				border-top: none;
+				height: 68.58px;
+			}
 
-      .nav-item {
-        border-bottom: 1px solid $border-color;
+			.nav-item {
+				border-bottom: 1px solid $border-color;
 
-        @include media-breakpoint-up(xl) {
-          border-bottom: none;
-        }
+				@include media-breakpoint-up(xl) {
+					border-bottom: none;
+				}
 
-        .nav-link {
-          &:link {
-            @include font-size(18);
-            padding-right: 1rem;
-            padding-left: 1rem;
+				.nav-link {
+					&:link {
+						@include font-size(18);
+						padding-right: 1rem;
+						padding-left: 1rem;
 
-            @include media-breakpoint-up(xl) {
-              padding: 1.3rem;
-            }
-          }
+						@include media-breakpoint-up(xl) {
+							padding: 1.3rem;
+						}
+					}
 
-          &:hover,
-          &:focus {
-            @include media-breakpoint-up(xl) {
-              color: $white;
-              background-color: $cyan;
-            }
-          }
+					&:hover,
+					&:focus {
+						@include media-breakpoint-up(xl) {
+							color: $white;
+							background-color: $cyan;
+						}
+					}
 
-          //  Edge and IE11 do not support this psuedo class so it has to be separted from hover and focus (above).
-          &:focus-within {
-            @include media-breakpoint-up(xl) {
-              color: $white;
-              background-color: $cyan;
-            }
-          }
+					//  Edge and IE11 do not support this psuedo class so it has to be separted from hover and focus (above).
+					&:focus-within {
+						@include media-breakpoint-up(xl) {
+							color: $white;
+							background-color: $cyan;
+						}
+					}
 
-          &.store-icon:hover::before {
-            @include media-breakpoint-up(xl) {
-              display: block;
-              content: "";
-              background-image: url("../../../../../img/svg/shopping-cart-white.svg");
-              background-repeat: no-repeat;
-              background-size: 1.5rem;
-              width: 1.5rem;
-              height: 1.5rem;
-            }
-          }
-        }
+					&.store-icon:hover::before {
+						@include media-breakpoint-up(xl) {
+							display: block;
+							content: '';
+							background-image: url('../../../../../img/svg/shopping-cart-white.svg');
+							background-repeat: no-repeat;
+							background-size: 1.5rem;
+							width: 1.5rem;
+							height: 1.5rem;
+						}
+					}
+				}
 
-        .dropdown-toggle {
-          &::after {
-            position: relative;
-            top: 0.25rem;
-            content: "";
-            background-image: url("../../../../../img/svg/chevron-down-gray.svg");
-            background-repeat: no-repeat;
-            background-size: 0.75rem;
-            width: 0.75rem;
-            height: 0.75rem;
-            border: none;
-            transform: rotate(0deg);
-            transition: 0.3s transform ease-in-out;
-          }
+				.dropdown-toggle {
+					&::after {
+						position: relative;
+						top: 0.25rem;
+						content: '';
+						background-image: url('../../../../../img/svg/chevron-down-gray.svg');
+						background-repeat: no-repeat;
+						background-size: 0.75rem;
+						width: 0.75rem;
+						height: 0.75rem;
+						border: none;
+						transform: rotate(0deg);
+						transition: 0.3s transform ease-in-out;
+					}
 
-          &.search-icon:hover::before {
-            @include media-breakpoint-up(xl) {
-              display: block;
-              content: "";
-              background-image: url("../../../../../img/svg/search-white.svg");
-              background-repeat: no-repeat;
-              background-size: 1.5rem;
-              width: 1.5rem;
-              height: 1.5rem;
-            }
-          }
+					&.search-icon:hover::before {
+						@include media-breakpoint-up(xl) {
+							display: block;
+							content: '';
+							background-image: url('../../../../../img/svg/search-white.svg');
+							background-repeat: no-repeat;
+							background-size: 1.5rem;
+							width: 1.5rem;
+							height: 1.5rem;
+						}
+					}
 
-          &.avatar-icon {
-            &::before {
-              @include media-breakpoint-up(xl) {
-                display: block;
-                content: "";
-                background-image: url("../../../../../img/svg/avatar-gray.svg");
-                background-repeat: no-repeat;
-                background-size: 1.5rem;
-                width: 1.5rem;
-                height: 1.5rem;
-              }
-            }
+					&.avatar-icon {
+						&::before {
+							@include media-breakpoint-up(xl) {
+								display: block;
+								content: '';
+								background-image: url('../../../../../img/svg/avatar-gray.svg');
+								background-repeat: no-repeat;
+								background-size: 1.5rem;
+								width: 1.5rem;
+								height: 1.5rem;
+							}
+						}
 
-            &:hover::before {
-              @include media-breakpoint-up(xl) {
-                display: block;
-                content: "";
-                background-image: url("../../../../../img/svg/avatar-white.svg");
-                background-repeat: no-repeat;
-                background-size: 1.5rem;
-                width: 1.5rem;
-                height: 1.5rem;
-              }
-            }
-          }
+						&:hover::before {
+							@include media-breakpoint-up(xl) {
+								display: block;
+								content: '';
+								background-image: url('../../../../../img/svg/avatar-white.svg');
+								background-repeat: no-repeat;
+								background-size: 1.5rem;
+								width: 1.5rem;
+								height: 1.5rem;
+							}
+						}
+					}
 
-          &:hover::after,
-          &:focus::after {
-            @include media-breakpoint-up(xl) {
-              content: "";
-              background-image: url("../../../../../img/svg/chevron-down-white.svg");
-              background-repeat: no-repeat;
-              background-size: 0.75rem;
-              width: 0.75rem;
-              height: 0.75rem;
-              border: none;
-            }
-          }
-        }
+					&:hover::after,
+					&:focus::after {
+						@include media-breakpoint-up(xl) {
+							content: '';
+							background-image: url('../../../../../img/svg/chevron-down-white.svg');
+							background-repeat: no-repeat;
+							background-size: 0.75rem;
+							width: 0.75rem;
+							height: 0.75rem;
+							border: none;
+						}
+					}
+				}
 
-        &.dropdown {
-          .dropdown-menu {
-            border: none;
-            border-radius: 0;
+				&.dropdown {
+					.dropdown-menu {
+						border: none;
+						border-radius: 0;
 
-            @include media-breakpoint-up(xl) {
-              background-color: $gray-100;
-              margin-top: 0;
-              padding-top: 0.5rem;
-              border: none;
-            }
+						@include media-breakpoint-up(xl) {
+							background-color: $gray-100;
+							margin-top: 0;
+							padding-top: 0.5rem;
+							border: none;
+						}
 
-            .dropdown-item {
-              @include font-size(18);
-              color: $cyan;
-              padding: 0.25rem 2rem;
+						.dropdown-item {
+							@include font-size(18);
+							color: $cyan;
+							padding: 0.25rem 2rem;
 
-              @include media-breakpoint-up(xl) {
-                color: $cyan;
-              }
+							@include media-breakpoint-up(xl) {
+								color: $cyan;
+							}
 
-              &:hover,
-              &:active {
-                @include media-breakpoint-up(xl) {
-                  color: $secondary;
-                  text-decoration: underline;
-                }
-              }
-            }
-          }
-        }
+							&:hover,
+							&:active {
+								@include media-breakpoint-up(xl) {
+									color: $secondary;
+									text-decoration: underline;
+								}
+							}
+						}
+					}
+				}
 
-        &.show {
-          .nav-link::after {
-            transform: rotate(-180deg);
-            transition: 0.3s transform ease-in-out;
-          }
-        }
-      }
-    }
+				&.show {
+					.nav-link::after {
+						transform: rotate(-180deg);
+						transition: 0.3s transform ease-in-out;
+					}
+				}
+			}
+		}
 
-    .utilities {
-      border-top: none;
+		.utilities {
+			border-top: none;
 
-      @include media-breakpoint-up(xl) {
-        border-left: 1px solid $border-color;
-        padding-left: 1rem;
-      }
+			@include media-breakpoint-up(xl) {
+				border-left: 1px solid $border-color;
+				padding-left: 1rem;
+			}
 
-      .nav-item {
-        .store-icon:focus::before {
-          @include media-breakpoint-up(xl) {
-            display: block;
-            content: "";
-            background-image: url("../../../../../img/svg/shopping-cart-white.svg");
-            background-repeat: no-repeat;
-            background-size: 1.5rem;
-            width: 1.5rem;
-            height: 1.5rem;
-          }
-        }
+			.nav-item {
+				.store-icon:focus::before {
+					@include media-breakpoint-up(xl) {
+						display: block;
+						content: '';
+						background-image: url('../../../../../img/svg/shopping-cart-white.svg');
+						background-repeat: no-repeat;
+						background-size: 1.5rem;
+						width: 1.5rem;
+						height: 1.5rem;
+					}
+				}
 
-        .nav-link {
-          &:link {
-            @include media-breakpoint-up(xl) {
-              padding: 1.4rem;
-            }
-          }
+				.nav-link {
+					&:link {
+						@include media-breakpoint-up(xl) {
+							padding: 1.4rem;
+						}
+					}
 
-          &.store-icon::before {
-            display: block;
-            content: "";
-            background-image: url("../../../../../img/svg/shopping-cart-green.svg");
-            background-repeat: no-repeat;
-            background-size: 1.5rem;
-            width: 1.5rem;
-            height: 1.5rem;
-          }
+					&.store-icon::before {
+						display: block;
+						content: '';
+						background-image: url('../../../../../img/svg/shopping-cart-green.svg');
+						background-repeat: no-repeat;
+						background-size: 1.5rem;
+						width: 1.5rem;
+						height: 1.5rem;
+					}
 
-          &.store-icon {
-            position: relative;
+					&.store-icon {
+						position: relative;
 
-            .badge-info {
-              border-radius: 50%;
-              font-weight: 300;
-              position: absolute;
-              top: 0.25rem;
-              left: 3rem;
-              @include media-breakpoint-up(xl) {
-                top: 0.25rem;
-                left: 2rem;
-              }
-            }
-          }
+						.badge-info {
+							border-radius: 50%;
+							font-weight: 300;
+							position: absolute;
+							top: 0.25rem;
+							left: 3rem;
+							@include media-breakpoint-up(xl) {
+								top: 0.25rem;
+								left: 2rem;
+							}
+						}
+					}
 
-          &:hover {
-            .badge-info {
-              background-color: $white;
-              color: $cyan;
-            }
-          }
-        }
+					&:hover {
+						.badge-info {
+							background-color: $white;
+							color: $cyan;
+						}
+					}
+				}
 
-        .dropdown-toggle {
-          &.search-icon::before {
-            display: block;
-            content: "";
-            background-image: url("../../../../../img/svg/search-gray.svg");
-            background-repeat: no-repeat;
-            background-size: 1.5rem;
-            width: 1.5rem;
-            height: 1.5rem;
-          }
+				.dropdown-toggle {
+					&.search-icon::before {
+						display: block;
+						content: '';
+						background-image: url('../../../../../img/svg/search-gray.svg');
+						background-repeat: no-repeat;
+						background-size: 1.5rem;
+						width: 1.5rem;
+						height: 1.5rem;
+					}
 
-          &.search-icon:focus::before {
-            @include media-breakpoint-up(xl) {
-              display: block;
-              content: "";
-              background-image: url("../../../../../img/svg/search-white.svg");
-              background-repeat: no-repeat;
-              background-size: 1.5rem;
-              width: 1.5rem;
-              height: 1.5rem;
-            }
-          }
+					&.search-icon:focus::before {
+						@include media-breakpoint-up(xl) {
+							display: block;
+							content: '';
+							background-image: url('../../../../../img/svg/search-white.svg');
+							background-repeat: no-repeat;
+							background-size: 1.5rem;
+							width: 1.5rem;
+							height: 1.5rem;
+						}
+					}
 
-          &.avatar-icon::before {
-            display: block;
-            content: "";
-            background-image: url("../../../../../img/svg/avatar-gray.svg");
-            background-repeat: no-repeat;
-            background-size: 1.5rem;
-            width: 1.5rem;
-            height: 1.5rem;
-          }
+					&.avatar-icon::before {
+						display: block;
+						content: '';
+						background-image: url('../../../../../img/svg/avatar-gray.svg');
+						background-repeat: no-repeat;
+						background-size: 1.5rem;
+						width: 1.5rem;
+						height: 1.5rem;
+					}
 
-          &.avatar-icon:focus::before {
-            @include media-breakpoint-up(xl) {
-              display: block;
-              content: "";
-              background-image: url("../../../../../img/svg/avatar-white.svg");
-              background-repeat: no-repeat;
-              background-size: 1.5rem;
-              width: 1.5rem;
-              height: 1.5rem;
-            }
-          }
+					&.avatar-icon:focus::before {
+						@include media-breakpoint-up(xl) {
+							display: block;
+							content: '';
+							background-image: url('../../../../../img/svg/avatar-white.svg');
+							background-repeat: no-repeat;
+							background-size: 1.5rem;
+							width: 1.5rem;
+							height: 1.5rem;
+						}
+					}
 
-          &::after {
-            display: none;
-          }
-        }
+					&::after {
+						display: none;
+					}
+				}
 
-        .dropdown {
-          @include media-breakpoint-up(xl) {
-            position: relative;
-          }
+				.dropdown {
+					@include media-breakpoint-up(xl) {
+						position: relative;
+					}
 
-          .dropdown-menu {
-            @include media-breakpoint-up(xl) {
-              margin-top: 0;
-            }
-          }
-        }
+					.dropdown-menu {
+						@include media-breakpoint-up(xl) {
+							margin-top: 0;
+						}
+					}
+				}
 
-        .search-dropdown-menu {
-          padding-right: 15px;
-          padding-left: 15px;
+				.search-dropdown-menu {
+					padding-right: 15px;
+					padding-left: 15px;
 
-          @include media-breakpoint-up(xl) {
-            position: absolute;
-            left: -17.1rem;
-            margin-top: 0;
-          }
+					@include media-breakpoint-up(xl) {
+						position: absolute;
+						left: -17.1rem;
+						margin-top: 0;
+					}
 
-          .input-group {
-            width: 313px;
+					.input-group {
+						width: 100%;
 
-            .form-control {
-              border-right: none;
-            }
+						.custom-width {
+							width: 275px;
 
-            .input-group-append .btn {
-              background-color: $white;
-              border-color: $border-color;
-              border-left: none;
-              padding: 0 0.75rem;
-            }
-          }
-        }
-      }
-    }
-  }
+							@include media-breakpoint-up(md) {
+								width: 650px;
+							}
+
+							@include media-breakpoint-up(lg) {
+								width: 882px;
+							}
+
+							@include media-breakpoint-up(xl) {
+								width: 264px;
+							}
+						}
+
+						.form-control {
+							border-right: none;
+						}
+
+						.input-group-append .btn {
+							background-color: $white;
+							border-color: $border-color;
+							border-left: none;
+							padding: 0 0.75rem;
+						}
+					}
+				}
+			}
+		}
+	}
 }

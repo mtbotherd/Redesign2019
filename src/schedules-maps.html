@@ -220,15 +220,17 @@
 									<div class="container">
 										<div id="findSchedulesByRoute" class="auto-complete-search-box">
 											<div class="input-group">
-												<input 
-													type="text"
-													id="schedulesByRoute"
-													name="schedulesByRoute"
-													class="form-control floating-input"
-													placeholder=" "
-													aria-describedby="searchRoutesButton"
-													required="required" />
-												<label for="schedulesByRoute">Find schedules by route</label>
+												<div class="has-float-label custom-width">
+													<input 
+														type="text"
+														id="schedulesByRoute"
+														name="schedulesByRoute"
+														class="form-control"
+														placeholder="Enter route number"
+														aria-describedby="searchRoutesButton"
+														required="required" />
+													<label for="schedulesByRoute">Find schedules by route</label>
+												</div>
 												<div class="input-group-append">
 													<button id="searchRoutesButton" 
 															type="button"
@@ -349,24 +351,25 @@
 									<div class="container">
 										<div id="interactiveMap">
 											<h2>
-												<img alt="" class="icon"
-														src="/img/svg/schedules-maps-color.svg" />
+												<img alt="" class="icon" src="/img/svg/schedules-maps-color.svg" />
 												<span class="align-middle">Interactive Map</span>
 											</h2>
 											<div class="auto-complete-search-box mb-4 mb-lg-5">
 												<div class="input-group">
-													<input type="text"
-															id="interactiveMapSearch"
-															class="form-control floating-input"
-															placeholder=" "
-															aria-expanded="false"
-															aria-autocomplete="list"
-															aria-describedby="interactiveMapSearchInstr"
-															aria-owns="interactiveMapSearchSuggestions"
-															aria-required="true"
-															role="combobox"
-															onFocus="$(this).val('')" />
-													<label for="searchButton">Address, intersection or landmark</label>
+													<div class="has-float-label custom-width">
+														<input type="text"
+																id="interactiveMapSearch"
+																class="form-control"
+																placeholder="Address, intersection or landmark"
+																aria-expanded="false"
+																aria-autocomplete="list"
+																aria-describedby="interactiveMapSearchInstr"
+																aria-owns="interactiveMapSearchSuggestions"
+																aria-required="true"
+																role="combobox"
+																onFocus="$(this).val('')" />
+														<label for="searchButton">Search...</label>
+													</div>
 													<div class="input-group-append">
 														<div class="input-group-text" id="searchIcon">
 															<img alt="" class="icon search-gray" src="/img/svg/search-gray.svg">
