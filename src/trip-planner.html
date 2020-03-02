@@ -15,6 +15,7 @@
             href="https://js.arcgis.com/3.28/esri/css/esri.css"
         />
 		<link rel="stylesheet" href="/css/app.css" />
+		<link rel="stylesheet" href="/css/jquery.datetimepicker.css"
     </head>
 
     <body>
@@ -608,47 +609,29 @@
 															</select>
 															<label for="selectTime" class="sr-only">Select time</label>
 														</div>
-														<div
-															class="row time-elements"
-														>
+														<div class="row time-elements">
 															<div class="col-xl-6">
-																<div
-																	class="form-group mb-3"
-																>
-																	<label
-																		for="time"
-																		class="sr-only"
-																		>Depart/arrival
-																		time</label
-																	>
+																<div class="form-group has-float-label mb-3">
 																	<input
 																		id="time"
 																		type="time"
 																		name="time"
 																		class="form-control"
 																		aria-label="depart/arrive by time"
-																		aria-describedby="time"
-																	/>
+																		aria-describedby="time" />
+																	<label for="time">Depart/arrival time</label>
 																</div>
 															</div>
 															<div class="col-xl-6">
-																<div
-																	class="form-group mb-3"
-																>
-																	<label
-																		for="date"
-																		class="sr-only"
-																		>Depart/arrival
-																		date</label
-																	>
+																<div class="form-group has-float-label mb-3">
 																	<input
 																		id="date"
 																		type="date"
 																		name="date"
 																		class="form-control"
 																		aria-label="depart/arrive by time"
-																		aria-describedby="date"
-																	/>
+																		aria-describedby="date" />
+																	<label for="date">Depart/arrival date</label>
 																</div>
 															</div>
 														</div>
@@ -1115,11 +1098,12 @@
         <!-- scripts -->
         <script src="/js/jquery.js"></script>
         <script src="/js/popper.js"></script>
-        <script src="/js/bootstrap.js"></script>
+		<script src="/js/bootstrap.js"></script>
         <script src="/js/jquery.autocomplete.js"></script>
         <!-- <script src="/js/jquery.validate.js"></script>
         <script src="/js/form-validation.js"></script> -->
-        <script src="/js/moment.js"></script>
+		<script src="/js/moment.js"></script>
+		<script src="/js/jquery.datetimepicker.js"></script>
         <script src="https://js.arcgis.com/3.28/"></script>
         <script src="/js/TRIM.js"></script>
         <script src="/js/autocomplete.js"></script>
