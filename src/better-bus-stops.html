@@ -10,8 +10,7 @@
 		  href="favicon.ico"
 		  type="image/x-icon">
 	<link rel="stylesheet" href="https://js.arcgis.com/3.28/esri/css/esri.css">
-	<link rel="stylesheet"
-		  href="/css/app.css">
+	<link rel="stylesheet" href="/css/app.css">
 
 </head>
 
@@ -218,32 +217,29 @@
 							<div id="betterBusStops">						
 								<section class="section full-width">
 									<div class="container">
-										<div id="interactiveMap">
-											<!-- <h2>
-												<img alt="" class="icon"
-														src="/img/svg/schedules-maps-color.svg" />
-												<span class="align-middle">Interactive Map</span>
-											</h2> -->
+										<div id="bbsMapContainer">
 											<div class="auto-complete-search-box mb-4 mb-lg-5">
 												<div class="input-group">
+													<div class="has-float-label custom-width">
 													<input type="text"
-															id="interactiveMapSearch"
-															class="form-control floating-input"
-															placeholder=" "
+															id="bbsMapSearch"
+															class="form-control"
+															placeholder="Address, intersection or landmark"
 															aria-expanded="false"
 															aria-autocomplete="list"
-															aria-describedby="interactiveMapSearchInstr"
-															aria-owns="interactiveMapSearchSuggestions"
+															aria-describedby="bbsMapSearchInstr"
+															aria-owns="bbsMapSearchSuggestions"
 															aria-required="true"
 															role="combobox"
 															onFocus="$(this).val('')" />
-													<label for="searchButton">Address, intersection or landmark</label>
+															<label for="searchButton">Search...</label>
+													</div>
 													<div class="input-group-append">
 														<div class="input-group-text" id="searchIcon">
 															<img alt="" class="icon search-gray" src="/img/svg/search-gray.svg">
 														</div>
 													</div>
-													<span id="interactiveMapSearchInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>		
+													<span id="bbsMapSearchInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>		
 												</div>
 											</div>
 											<div class="mb-4">
@@ -253,7 +249,7 @@
 															id="betterStopsMapLayer1"
 															checked />
 													<label class="custom-control-label"
-															for="stopsStationsMapLayer">Planned Shelters</label>
+															for="betterStopsMapLayer1">Planned Shelters</label>
 												</div>
 												<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
 													<input type="checkbox"
@@ -261,23 +257,23 @@
 															id="betterStopsMapLayer2"
 															checked />
 													<label class="custom-control-label"
-															for="parkRideMapLayer">Existing Shelter Improvements</label>
+															for="betterStopsMapLayer2">Existing Shelters</label>
 												</div>
-												<!-- <div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+												<div></div>												<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
 													<input type="checkbox"
 															class="custom-control-input"
-															id="niceRideMapLayer" />
+															id="betterStopsMapLayer3"
+															checked />
 													<label class="custom-control-label"
-															for="niceRideMapLayer">Nice Ride</label>
+															for="betterStopsMapLayer3">Existing Shelter Improvements</label>
 												</div>
-											</div> -->
-																			 </div>
+											</div>
+
 											<div class="map-container border">
 												<div id="betterStopsMap"
 														class="map"
-
 														role="application"
-														aria-label="interactive map of transit stops">
+														aria-label="interactive map of transit shelter changes">
 													<div id="betterStopsMapLocate"></div>
 													<div class="mapLoading"></div>
 												</div>
@@ -313,6 +309,7 @@
 													</div>
 												</div> -->
 											</div>
+										</div>
 									</div>
 								</section>
 							</div>
