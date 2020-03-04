@@ -56,6 +56,19 @@ fieldset {
 		height: auto;
 	}
 
+	.input-group-append {
+		.btn-primary {
+			background-color: $white;
+			border: none;
+			margin-left: 4px;
+
+			.icon {
+				width: 1rem;
+				height: 1rem;
+			}
+		}
+	}
+
 	// .custom-file,
 	// input[type='file'] {
 	// 	height: 40px;

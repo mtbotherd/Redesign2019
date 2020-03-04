@@ -212,7 +212,7 @@
 
 							<form>
 								<fieldset>
-									<legend class="sr-only">To and from location</legend>
+									<legend>To and from location</legend>
 									<div id="fromErrorMessage" class="is-invalid d-none">
 										<span>Begin typing, then select an option from the list.</span>
 									</div>
@@ -232,14 +232,16 @@
 											placeholder="Address, intersection or landmark" />
 										<label for="fromLocation">From</label>
 										<span class="sr-only">Enter an address, intersection or landmark.</span>
-										<button type="button" class="location-toggler ml-auto">
-											<img
-												alt="Up arrow and down arrow side by side."
-												class="icon location-switcher-blue"
-												src="/img/svg/location-switcher-blue.svg" />
-											<span class="sr-only">Pressing this button will swap the to and from locations.</span>
-										</button>
-										<span id="fromLocationInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
+										<div class="input-group-append">
+											<button type="button" class="btn btn-primary location-toggler">
+												<img
+													alt="Up arrow and down arrow side by side."
+													class="icon location-switcher-blue"
+													src="/img/svg/location-switcher-blue.svg" />
+												<span class="sr-only">Pressing this button will swap the to and from locations.</span>
+											</button>
+											<span id="fromLocationInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
+										</div>
 									</div>
 									<div class="text-right mt-2 mb-2 d-lg-none">
 										<span id="tpUseCurrentLoc">
