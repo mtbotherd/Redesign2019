@@ -5,10 +5,9 @@
 
 	// Location toggle buttons
 	button.location-toggler {
-		background-color: transparent;
+		background-color: $white;
 		border: none;
-		width: 2rem;
-		height: 2rem;
+		margin-left: 4px;
 
 		.icon {
 			width: 1rem;
