@@ -234,8 +234,9 @@ var NexTrip = (function($, window, document, undefined) {
                                 <div class="card-header pb-0">
                                     <div class="d-flex align-items-center">
                                         <div>
-                                            <a href="#" onclick="javascript:NexTrip.showDepartures(${stop.StopId});"><h3 class="mb-1">Stop ID: ${stop.StopId}</h3>
-                                            <h4 class="">${stop.StopDescription}</h4></a>
+											<a class="stretched-link" href="#" onclick="javascript:NexTrip.showDepartures(${stop.StopId});">
+											<span class="d-block h3 mb-1">Stop ID: ${stop.StopId}</h3>
+                                            <span class="h4">${stop.StopDescription}</h4></a>
                                         </div>
                                         <img alt="" src="/img/svg/arrow-right-blue.svg" class="ml-auto" />
                                     </div>

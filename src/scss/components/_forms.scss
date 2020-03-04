@@ -68,6 +68,14 @@ fieldset {
 	// }
 }
 
+.custom-control {
+	&.custom-checkbox {
+		.custom-control-label {
+			line-height: 1;
+		}
+	}
+}
+
 // Required form elements styles
 /* Denote label at top of forms */
 .denote-required {

@@ -212,6 +212,62 @@
 
 							<form>
 								<fieldset>
+									<legend class="sr-only">To and from location</legend>
+									<div id="fromErrorMessage" class="is-invalid d-none">
+										<span>Begin typing, then select an option from the list.</span>
+									</div>
+									<div class="form-group has-float-label mb-0 mb-lg-3 d-flex">
+										<input
+											id="fromLocation"
+											type="text"
+											class="form-control from-location"
+											name="fromLocation"
+											aria-label="trip planner from location"
+											aria-expanded="false"
+											aria-autocomplete="list"
+											aria-describedby="fromLocationInstr"
+											aria-owns="fromLocationSuggestions"
+											role="combobox"
+											onFocus="this.select()"
+											placeholder="Address, intersection or landmark" />
+										<label for="fromLocation">From</label>
+										<span class="sr-only">Enter an address, intersection or landmark.</span>
+										<button type="button" class="location-toggler ml-auto">
+											<img
+												alt="Up arrow and down arrow side by side."
+												class="icon location-switcher-blue"
+												src="/img/svg/location-switcher-blue.svg" />
+											<span class="sr-only">Pressing this button will swap the to and from locations.</span>
+										</button>
+										<span id="fromLocationInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
+									</div>
+									<div class="text-right mt-2 mb-2 d-lg-none">
+										<span id="tpUseCurrentLoc">
+											<a href="#">Use current  location&nbsp;<img alt="" src="/img/svg/pin-blue.svg"/></a>
+										</span>
+									</div>
+									<div id="toErrorMessage" class="is-invalid d-none">
+										<span>Begin typing, then select an option from the list.</span>
+									</div>
+									<div class="form-group has-float-label">
+										<input
+											id="toLocation"
+											type="text"
+											name="toLocation"
+											class="form-control to-location"
+											area-label="trip planner to location"
+											aria-expanded="false"
+											aria-autocomplete="list"
+											aria-describedby="toLocationInstr"
+											aria-owns="toLocationSuggestions"
+											role="combobox"
+											onFocus="this.select()"
+											placeholder="Address, intersection or landmark" />
+										<label for="toLocation">To</label>
+										<span id="toLocationInstr" class="sr-only" style="display: none;">You can enter an address, intersection or landmark. When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
+									</div>
+								</fieldset>
+								<fieldset>
 									<legend>Floating labels example</legend>
 									<div class="form-group has-float-label required">
 										<input
@@ -219,7 +275,7 @@
 											id="textField"
 											class="form-control"
 											name="textField"
-											placeholder="Text field"
+											placeholder="Enter some text"
 											required/>
 										<label for="textField">Text</label>
 									</div>
@@ -229,7 +285,7 @@
 											id="numberField"
 											class="form-control"
 											name="numberField"
-											placeholder="Number field"/>
+											placeholder="Enter a number"/>
 										<label for="numberField">Number</label>
 									</div>
 									<div class="form-group has-float-label">
@@ -238,7 +294,7 @@
 											id="emailField"
 											class="form-control"
 											name="emailField"
-											placeholder="Email field"/>
+											placeholder="Enter an email address"/>
 										<label for="emailField">Email</label>
 									</div>
 									<div class="form-group has-float-label">
@@ -247,25 +303,25 @@
 											id="passwordField"
 											class="form-control"
 											name="passwordField"
-											placeholder="Password field"/>
+											placeholder="Enter a password"/>
 										<label for="passwordField">Password</label>
 									</div>
 									<div class="form-group has-float-label">
 										<input
-											type="text"
+											type="date"
 											id="dateField"
 											class="form-control"
 											name="dateField"
-											onclick="(this.type='date')" placeholder=" "/>
+											onclick="(this.type='date')">
 										<label for="dateField">Date</label>
 									</div>
 									<div class="form-group has-float-label">
 										<input
-											type="text"
+											type="time"
 											id="timeField"
 											class="form-control"
 											name="timeField"
-											onclick="(this.type='time')" placeholder=" "/>
+											onclick="(this.type='time')" placeholder="hh:mm"/>
 										<label for="timeField">Time</label>
 									</div>
 									<div class="form-group has-float-label">
@@ -274,33 +330,33 @@
 											id="urlField"
 											class="form-control"
 											name="urlField"
-											placeholder=" "/>
-										<label for="urlField">URL field</label>
+											placeholder="Enter a valid url"/>
+										<label for="urlField">URL</label>
 									</div>
-									<div class="form-group has-float-label">
-										<select id="selectField" class="form-control custom-select" name="selectField" onclick="this.setAttribute('value', this.value);" value="" placeholder="Select">
+									<div class="form-group">
+										<select id="selectField" class="form-control custom-select" name="selectField" onclick="this.setAttribute('value', this.value);" value="">
 											<option value="" selected>Select...</option>
 											<option value="1">One</option>
 											<option value="2">Two</option>
 											<option value="3">Three</option>
 										</select>
-										<label for="selectField">Select</label>
+										<label for="selectField" class="sr-only">Select</label>
 									</div>
-									<div class="form-group has-float-label">
+									<div class="form-group">
 										<select
 											id="selectMultipleField"
 											class="form-control"
 											name="selectMultipleField"
 											size="3"
 											multiple>
-											<option value=""></option>
+											<option value="">Select one or more</option>
 											<option value="1">One</option>
 											<option value="2">Two</option>
 											<option value="3">Three</option>
 											<option value="4">Four</option>
 											<option value="5">Five</option>
 										</select>
-										<label for="selectMultipleField">Select multiple</label>
+										<label for="selectMultipleField" class="sr-only">Select multiple</label>
 									</div>
 									<div class="form-group has-float-label">
 										<textarea
@@ -308,7 +364,7 @@
 											class="form-control"
 											name="textareaField"
 											rows="3"
-											placeholder="Enter your message here"></textarea>
+											placeholder="Enter message here"></textarea>
 										<label for="textareaField">Textarea</label>
 									</div>
 									<!-- <div class="form-group has-float-label">
@@ -332,35 +388,35 @@
 											<label class="form-check-label" for="checkbox">Checkbox</label>
 										</div>
 									</div> -->
-								<!-- <fieldset>
+								<fieldset>
 									<legend>Checkbox group</legend>
-									<div class="form-group has-float-label">
-										<div class="form-check">
+									<div class="form-group">
+										<div class="custom-control custom-checkbox">
 											<input
 												type="checkbox"
 												id="checkboxGroup1"
-												class="form-check-input"
+												class="custom-control-input"
 												name="checkboxGroup"/>
-											<label class="form-check-label" for="checkboxGroup1">Checkbox</label>
+											<label class="custom-control-label" for="checkboxGroup1">Checkbox</label>
 										</div>
-										<div class="form-check">
+										<div class="custom-control custom-checkbox">
 											<input
 												type="checkbox"
 												id="checkboxGroup2"
-												class="form-check-input"
+												class="custom-control-input"
 												name="checkboxGroup"/>
-											<label class="form-check-label" for="checkboxGroup2">Checkbox</label>
+											<label class="custom-control-label" for="checkboxGroup2">Checkbox</label>
 										</div>
-										<div class="form-check">
+										<div class="custom-control custom-checkbox">
 											<input
 												type="checkbox"
 												id="checkboxGroup3"
-												class="form-check-input"
+												class="custom-control-input"
 												name="checkboxGroup"/>
-											<label class="form-check-label" for="checkboxGroup3">Checkbox</label>
+											<label class="custom-control-label" for="checkboxGroup3">Checkbox</label>
 										</div>
 									</div>
-								</fieldset> -->
+								</fieldset>
 								<!-- <fieldset>
 									<legend>Radio group</legend>
 									<div class="form-group has-float-label">
@@ -506,16 +562,20 @@
 	<!-- End Footer -->
 
 	<!-- scripts -->
-	<script src="/js/detect-ie.js"></script>
 	<script src="/js/jquery.js"></script>
 	<script src="/js/popper.js"></script>
 	<script src="/js/bootstrap.js"></script>
 	<script src="/js/jquery.autocomplete.js"></script>
-	<!-- <script src="/js/jquery.validate.js"></script> -->
-	<!-- <script src="/js/additional-methods.js"></script> -->
-	<!-- <script src="/js/form-validation.js"></script> -->
+	<!-- <script src="/js/jquery.validate.js"></script>
+	<script src="/js/form-validation.js"></script> -->
+	<script src="/js/moment.js"></script>
 	<script src="https://js.arcgis.com/3.28/"></script>
 	<script src="/js/TRIM.js"></script>
+	<script src="/js/autocomplete.js"></script>
+	<script src="/js/trip-planner.js"></script>
+	<script src="js/stops-stations.js"></script>
+	<script src="/js/nextrip.js"></script>
+	<script src="/js/alerts.js"></script>
 	<script src="/js/scripts.js"></script>
 	<!-- End scripts -->
 	

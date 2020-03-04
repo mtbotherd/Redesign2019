@@ -1,7 +1,7 @@
 /**************************************************
 	Bootstrap floating labels
+	https://github.com/tonystar/bootstrap-float-label
 **************************************************/
-//https://github.com/tonystar/bootstrap-float-label
 .has-float-label {
 	display: block;
 	position: relative;
@@ -12,6 +12,7 @@
 		top: 0;
 		cursor: text;
 		@include font-size(12);
+		text-transform: uppercase;
 		opacity: 1;
 		-webkit-transition: all 0.2s;
 		transition: all 0.2s;
@@ -35,19 +36,19 @@
 		transition: all 0.2s;
 	}
 
-	input::-moz-placeholder,
-	select::-moz-placeholder,
-	textarea::-moz-placeholder {
-		opacity: 1;
-		transition: all 0.2s;
-	}
+	// input::-moz-placeholder,
+	// select::-moz-placeholder,
+	// textarea::-moz-placeholder {
+	// 	opacity: 1;
+	// 	transition: all 0.2s;
+	// }
 
-	input:-ms-input-placeholder,
-	select:-ms-input-placeholder,
-	textarea:-ms-input-placeholder {
-		opacity: 1;
-		transition: all 0.2s;
-	}
+	// input:-ms-input-placeholder,
+	// select:-ms-input-placeholder,
+	// textarea:-ms-input-placeholder {
+	// 	opacity: 1;
+	// 	transition: all 0.2s;
+	// }
 
 	input::placeholder,
 	select::placeholder,
@@ -57,21 +58,21 @@
 		transition: all 0.2s;
 	}
 
-	input:placeholder-shown:not(:focus)::-webkit-input-placeholder,
-	select:placeholder-shown:not(:focus)::-webkit-input-placeholder,
-	textarea:placeholder-shown:not(:focus)::-webkit-input-placeholder {
-		opacity: 0;
-	}
-	input:placeholder-shown:not(:focus)::-moz-placeholder,
-	select:placeholder-shown:not(:focus)::-moz-placeholder,
-	textarea:placeholder-shown:not(:focus)::-moz-placeholder {
-		opacity: 0;
-	}
-	input:placeholder-shown:not(:focus):-ms-input-placeholder,
-	select:placeholder-shown:not(:focus):-ms-input-placeholder,
-	textarea:placeholder-shown:not(:focus):-ms-input-placeholder {
-		opacity: 0;
-	}
+	// input:placeholder-shown:not(:focus)::-webkit-input-placeholder,
+	// select:placeholder-shown:not(:focus)::-webkit-input-placeholder,
+	// textarea:placeholder-shown:not(:focus)::-webkit-input-placeholder {
+	// 	opacity: 0;
+	// }
+	// input:placeholder-shown:not(:focus)::-moz-placeholder,
+	// select:placeholder-shown:not(:focus)::-moz-placeholder,
+	// textarea:placeholder-shown:not(:focus)::-moz-placeholder {
+	// 	opacity: 0;
+	// }
+	// input:placeholder-shown:not(:focus):-ms-input-placeholder,
+	// select:placeholder-shown:not(:focus):-ms-input-placeholder,
+	// textarea:placeholder-shown:not(:focus):-ms-input-placeholder {
+	// 	opacity: 0;
+	// }
 	input:placeholder-shown:not(:focus)::placeholder,
 	select:placeholder-shown:not(:focus)::placeholder,
 	textarea:placeholder-shown:not(:focus)::placeholder {
@@ -82,6 +83,7 @@
 	textarea:placeholder-shown:not(:focus) + * {
 		@include font-size(18);
 		top: 0.5em;
+		text-transform: inherit;
 
 		@include media-breakpoint-up(lg) {
 			@include font-size(23);
