@@ -26,8 +26,11 @@ gulp.task('vendorjs', function() {
 		.src([
 			'node_modules/jquery/dist/jquery.js',
 			'node_modules/popper.js/dist/umd/popper.js',
+			'node_modules/popper.js/dist/umd/popper.js.map',
 			'node_modules/bootstrap/dist/js/bootstrap.js',
+			'node_modules/bootstrap/dist/js/bootstrap.js.map',
 			'node_modules/time-input-polyfill/dist/time-input-polyfill.auto.min.js',
+			'node_modules/time-input-polyfill/dist/time-input-polyfill.auto.min.js.map',
 			'node_modules/date-input-polyfill/date-input-polyfill.dist.js',
 			'src/js/vendor/*.js',
 		])
