@@ -3,10 +3,13 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="web-service-uri" content="https://svc.metrotransit.org">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Metro Transit</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon"
+		  href="favicon.ico"
+		  type="image/x-icon">
+	<link rel="stylesheet" href="https://js.arcgis.com/3.28/esri/css/esri.css">
 	<link rel="stylesheet" href="/css/app.css">
 
 </head>
@@ -20,6 +23,7 @@
 	<!-- Begin Header -->
 	<header id="header">
 		<nav class="navbar navbar-expand-xl navbar-light">
+			<!-- <a href="#pageContainer" class="skip-to-content">Skip to main content</a> -->
 			<div class="container">
 				<a class="navbar-brand" href="/">
 					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
@@ -195,273 +199,121 @@
 	<!-- Begin Main Content -->
 	<main id="pageContainer" class="container">
 		<section>
-			<div class="page-content">
+			<div class="page-content">				
 				<div class="full-width">
-					<div class="secondary">
+					<div class="primary hero stops-stations-bg">
 						<div class="container">
 							<div class="page-title">
-								<h1>Form Demo</h1>
+								<h1>Bus Stop Improvements</h1>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class=""> <!-- This class gets set in CMS -->
+				<div class="content-full-width">
 					<div class="htmlmodule">
-						<section class="section">
 
-							<form>
-								<fieldset>
-									<legend>To and from location</legend>
-									<div id="fromErrorMessage" class="is-invalid d-none">
-										<span>Begin typing, then select an option from the list.</span>
-									</div>
-									<div class="form-group has-float-label mb-0 mb-lg-3 d-flex">
-										<input
-											id="fromLocation"
-											type="text"
-											class="form-control from-location"
-											name="fromLocation"
-											aria-label="trip planner from location"
-											aria-expanded="false"
-											aria-autocomplete="list"
-											aria-describedby="fromLocationInstr"
-											aria-owns="fromLocationSuggestions"
-											role="combobox"
-											onFocus="this.select()"
-											placeholder="Address, intersection or landmark" />
-										<label for="fromLocation">From</label>
-										<span class="sr-only">Enter an address, intersection or landmark.</span>
-										<div class="input-group-append">
-											<button type="button" class="btn btn-primary location-toggler">
-												<img
-													alt="Up arrow and down arrow side by side."
-													class="icon location-switcher-blue"
-													src="/img/svg/location-switcher-blue.svg" />
-												<span class="sr-only">Pressing this button will swap the to and from locations.</span>
-											</button>
-											<span id="fromLocationInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
+						<section class="">
+							<div id="betterBusStops">						
+								<section class="section full-width">
+									<div class="container">
+										<div id="bbsMapContainer">
+											<div class="auto-complete-search-box mb-4 mb-lg-5">
+												<div class="input-group">
+													<div class="has-float-label custom-width">
+													<input type="text"
+															id="bbsMapSearch"
+															class="form-control"
+															placeholder="Address, intersection or landmark"
+															aria-expanded="false"
+															aria-autocomplete="list"
+															aria-describedby="bbsMapSearchInstr"
+															aria-owns="bbsMapSearchSuggestions"
+															aria-required="true"
+															role="combobox"
+															onFocus="$(this).val('')" />
+															<label for="searchButton">Search...</label>
+													</div>
+													<div class="input-group-append">
+														<div class="input-group-text" id="searchIcon">
+															<img alt="" class="icon search-gray" src="/img/svg/search-gray.svg">
+														</div>
+													</div>
+													<span id="bbsMapSearchInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>		
+												</div>
+											</div>
+											<div class="mb-4">
+												<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+													<input type="checkbox"
+															class="custom-control-input"
+															id="betterStopsMapLayer1"
+															checked />
+													<label class="custom-control-label"
+															for="betterStopsMapLayer1">Planned Shelters</label>
+												</div>
+												<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+													<input type="checkbox"
+															class="custom-control-input"
+															id="betterStopsMapLayer2"
+															checked />
+													<label class="custom-control-label"
+															for="betterStopsMapLayer2">Existing Shelters</label>
+												</div>
+												<div></div>												<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+													<input type="checkbox"
+															class="custom-control-input"
+															id="betterStopsMapLayer3"
+															checked />
+													<label class="custom-control-label"
+															for="betterStopsMapLayer3">Existing Shelter Improvements</label>
+												</div>
+											</div>
+
+											<div class="map-container border">
+												<div id="betterStopsMap"
+														class="map"
+														role="application"
+														aria-label="interactive map of transit shelter changes">
+													<div id="betterStopsMapLocate"></div>
+													<div class="mapLoading"></div>
+												</div>
+												<!-- <div id="trimPopUp"
+														style="display:none;">
+													<div id="mapPopUpStopDescription"
+															class="stop-description"></div>
+													<div class="container">
+														<ul class="nav nav-tabs nav-justified">
+															<li class="nav-item">
+																<a class="nav-link active"
+																	data-toggle="tab"
+																	href="#mapPopUpTabNexTrip">NexTrip</a>
+															</li>
+															<li class="nav-item">
+																<a class="nav-link"
+																	data-toggle="tab"
+																	href="#mapPopUpTabRoutes">Routes</a>
+															</li>
+														</ul>
+														<div class="tab-content">
+															<div class="tab-pane container active"
+																id="mapPopUpTabNexTrip">
+															<div id="mapPopUpDepartures"
+																	class="stop-departures"></div>
+															</div>
+															<div class="tab-pane container"
+																id="mapPopUpTabRoutes">
+															<div id="mapPopUpRoutes"
+																	class="route-list"></div>
+															</div>
+														</div>
+													</div>
+												</div> -->
+											</div>
 										</div>
 									</div>
-									<div class="text-right mt-2 mb-2 d-lg-none">
-										<span id="tpUseCurrentLoc">
-											<a href="#">Use current  location&nbsp;<img alt="" src="/img/svg/pin-blue.svg"/></a>
-										</span>
-									</div>
-									<div id="toErrorMessage" class="is-invalid d-none">
-										<span>Begin typing, then select an option from the list.</span>
-									</div>
-									<div class="form-group has-float-label">
-										<input
-											id="toLocation"
-											type="text"
-											name="toLocation"
-											class="form-control to-location"
-											area-label="trip planner to location"
-											aria-expanded="false"
-											aria-autocomplete="list"
-											aria-describedby="toLocationInstr"
-											aria-owns="toLocationSuggestions"
-											role="combobox"
-											onFocus="this.select()"
-											placeholder="Address, intersection or landmark" />
-										<label for="toLocation">To</label>
-										<span id="toLocationInstr" class="sr-only" style="display: none;">You can enter an address, intersection or landmark. When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
-									</div>
-								</fieldset>
-								<fieldset>
-									<legend>Floating labels example</legend>
-									<div class="form-group has-float-label required">
-										<input
-											type="text"
-											id="textField"
-											class="form-control"
-											name="textField"
-											placeholder="Enter some text"
-											required/>
-										<label for="textField">Text</label>
-									</div>
-									<div class="form-group has-float-label">
-										<input
-											type="number"
-											id="numberField"
-											class="form-control"
-											name="numberField"
-											placeholder="Enter a number"/>
-										<label for="numberField">Number</label>
-									</div>
-									<div class="form-group has-float-label">
-										<input
-											type="email"
-											id="emailField"
-											class="form-control"
-											name="emailField"
-											placeholder="Enter an email address"/>
-										<label for="emailField">Email</label>
-									</div>
-									<div class="form-group has-float-label">
-										<input
-											type="password"
-											id="passwordField"
-											class="form-control"
-											name="passwordField"
-											placeholder="Enter a password"/>
-										<label for="passwordField">Password</label>
-									</div>
-									<div class="form-group has-float-label">
-										<input
-											type="date"
-											id="dateField"
-											class="form-control"
-											name="dateField"
-											onclick="(this.type='date')">
-										<label for="dateField">Date</label>
-									</div>
-									<div class="form-group has-float-label">
-										<input
-											type="time"
-											id="timeField"
-											class="form-control"
-											name="timeField"
-											onclick="(this.type='time')" placeholder="hh:mm"/>
-										<label for="timeField">Time</label>
-									</div>
-									<div class="form-group has-float-label">
-										<input
-											type="url"
-											id="urlField"
-											class="form-control"
-											name="urlField"
-											placeholder="Enter a valid url"/>
-										<label for="urlField">URL</label>
-									</div>
-									<div class="form-group">
-										<select id="selectField" class="form-control custom-select" name="selectField" onclick="this.setAttribute('value', this.value);" value="">
-											<option value="" selected>Select...</option>
-											<option value="1">One</option>
-											<option value="2">Two</option>
-											<option value="3">Three</option>
-										</select>
-										<label for="selectField" class="sr-only">Select</label>
-									</div>
-									<div class="form-group">
-										<select
-											id="selectMultipleField"
-											class="form-control"
-											name="selectMultipleField"
-											size="3"
-											multiple>
-											<option value="">Select one or more</option>
-											<option value="1">One</option>
-											<option value="2">Two</option>
-											<option value="3">Three</option>
-											<option value="4">Four</option>
-											<option value="5">Five</option>
-										</select>
-										<label for="selectMultipleField" class="sr-only">Select multiple</label>
-									</div>
-									<div class="form-group has-float-label">
-										<textarea
-											id="textareaField"
-											class="form-control"
-											name="textareaField"
-											rows="3"
-											placeholder="Enter message here"></textarea>
-										<label for="textareaField">Textarea</label>
-									</div>
-									<!-- <div class="form-group has-float-label">
-										<div class="custom-file">
-											<input
-											type="file"
-											id="fileUploadField"
-											class="form-control custom-file-input"
-											name="fileUploadField"/>
-											<label for="fileUploadField" class="custom-file-label">Choose file</label>
-										</div>
-									</div>
-									<div class="form-group	">
-										<div class="form-check">
-											<input
-											type="checkbox"
-											id="checkboxSingle"
-											class="form-check-input"
-											name="checkboxSingle"
-											/>
-											<label class="form-check-label" for="checkbox">Checkbox</label>
-										</div>
-									</div> -->
-								<fieldset>
-									<legend>Checkbox group</legend>
-									<div class="form-group">
-										<div class="custom-control custom-checkbox">
-											<input
-												type="checkbox"
-												id="checkboxGroup1"
-												class="custom-control-input"
-												name="checkboxGroup"/>
-											<label class="custom-control-label" for="checkboxGroup1">Checkbox</label>
-										</div>
-										<div class="custom-control custom-checkbox">
-											<input
-												type="checkbox"
-												id="checkboxGroup2"
-												class="custom-control-input"
-												name="checkboxGroup"/>
-											<label class="custom-control-label" for="checkboxGroup2">Checkbox</label>
-										</div>
-										<div class="custom-control custom-checkbox">
-											<input
-												type="checkbox"
-												id="checkboxGroup3"
-												class="custom-control-input"
-												name="checkboxGroup"/>
-											<label class="custom-control-label" for="checkboxGroup3">Checkbox</label>
-										</div>
-									</div>
-								</fieldset>
-								<!-- <fieldset>
-									<legend>Radio group</legend>
-									<div class="form-group has-float-label">
-										<div class="form-check">
-											<input
-												type="radio"
-												id="radioGroup1"
-												class="form-check-input"
-												name="radioGroup"/>
-											<label class="form-check-label" for="radioGroup1">Radio 1</label>
-										</div>
-										<div class="form-check">
-											<input
-												type="radio"
-												id="radioGroup2"
-												class="form-check-input"
-												name="radioGroup"/>
-											<label class="form-check-label" for="radioGroup2">Radio 2</label>
-										</div>
-										<div class="form-check">
-											<input
-												type="radio"
-												id="radioGroup3"
-												class="form-check-input"
-												name="radioGroup"/>
-											<label class="form-check-label" for="radioGroup3">Radio 3</label>
-										</div>
-									</div>
-								</fieldset> -->
-								<hr />
-								<div class="text-center">
-									<button
-									type="submit"
-									class="btn btn-warning"
-									name="form2Submit"
-									value="Submit form">
-										Submit
-									</button>
-								</div>
-							</form>
-							
+								</section>
+							</div>
 						</section>
-
 					</div>
 				</div>
 			</div>
@@ -567,17 +419,17 @@
 	<script src="/js/jquery.js"></script>
 	<script src="/js/popper.js"></script>
 	<script src="/js/bootstrap.js"></script>
+	
 	<script src="/js/jquery.autocomplete.js"></script>
-	<!-- <script src="/js/jquery.validate.js"></script>
-	<script src="/js/form-validation.js"></script> -->
-	<script src="/js/moment.js"></script>
+	<!-- <script src="/js/jquery.validate.js"></script> -->
 	<script src="https://js.arcgis.com/3.28/"></script>
 	<script src="/js/TRIM.js"></script>
+	<script src="/js/bbs-map.js"></script>
 	<script src="/js/autocomplete.js"></script>
-	<script src="/js/trip-planner.js"></script>
-	<script src="js/stops-stations.js"></script>
+	<!-- <script src="/js/additional-methods.js"></script> -->
 	<script src="/js/nextrip.js"></script>
-	<script src="/js/alerts.js"></script>
+	<!-- <script src="/js/schedule.js"></script> -->
+	<!-- <script src="/js/form-validation.js"></script> -->
 	<script src="/js/scripts.js"></script>
 	<!-- End scripts -->
 	
