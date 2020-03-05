@@ -589,7 +589,7 @@ var TripPlan = (function($, window, document, undefined) {
 		$('#selectTime').on('change', function() {
 			// time & date inputs
 			if (this.value === 'depart-at' || this.value === 'arrive-by') {
-				$('#date').val(moment().format('YYYY-MM-DD'));
+				$('#date').val(moment().format('MM-DD-YYYY'));
 				$('#time').val(moment().format('HH:mm A'));
 				$('.time-elements').slideDown();
 			} else {
