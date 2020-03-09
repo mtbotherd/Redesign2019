@@ -3,17 +3,17 @@
 		width: 100%;
 	}
 
-	// Location toggle buttons
-	// button.location-toggler {
-	// 	background-color: $white;
-	// 	border: none;
-	// 	margin-left: 4px;
+	//Location toggle
+	buttons button.location-toggler {
+		background-color: $white !important;
+		border: none;
+		margin-left: 4px;
 
-	// 	.icon {
-	// 		width: 1rem;
-	// 		height: 1rem;
-	// 	}
-	// }
+		.icon {
+			width: 1rem;
+			height: 1rem;
+		}
+	}
 
 	.time-elements {
 		.input-group-append {
