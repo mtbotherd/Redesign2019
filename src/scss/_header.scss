@@ -2,6 +2,10 @@
 	.navbar {
 		padding: 0.5rem 15px;
 
+		.navbar-brand .logo {
+			width: 100% !important;
+		}
+
 		@include media-breakpoint-up(xl) {
 			padding: 0 !important;
 		}
@@ -311,6 +315,7 @@
 
 					.input-group {
 						width: 100%;
+						margin-bottom: 0;
 
 						.custom-width {
 							width: 275px;
@@ -334,7 +339,7 @@
 
 						.input-group-append .btn {
 							background-color: $white;
-							border-color: $border-color;
+							border: 1px solid $border-color;
 							border-left: none;
 							padding: 0 0.75rem;
 						}

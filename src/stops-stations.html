@@ -214,10 +214,11 @@
 				<div class="content-full-width">
 					<div class="htmlmodule">
 						<section class="section">
-							<div id="stopsStations" class="mt-4">
+							<h2 class="mb-5 text-center">Search for stops or stations all over the metro area</h2>
+							<div id="stopsStations">
 								<div id="findStopsStations"	class="auto-complete-search-box">
 									<div class="input-group">
-										<div class="has-float-label custom-width">
+										<div class="has-float-label custom-width d-flex">
 											<input type="text"
 												id="stopsStationsSearch"
 												name="stopsStations"
@@ -230,19 +231,19 @@
 												role="combobox"
 												onFocus="$(this).val('')"
 												>	
-											<label for="stopsStationsSearch">Search...</label>
+											<label for="stopsStationsSearch">Find stops or stations</label>
 										</div>
 										<div class="input-group-append">
-											<span class="input-group-text" id="searchIcon">
+											<div class="input-group-text" id="searchIcon">
 												<img alt="" class="icon search-gray"
 													src="/img/svg/search-gray.svg">
-											</span>
+											</div>
 										</div>
 										<span id="stopsStationsSearchInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
 
 									</div>
 								</div>
-								<div class="text-right d-lg-none">
+								<div class="text-right mt-2 mb-2 d-lg-none">
 									<span id="ssUseCurrentLoc">
 										<a href="#">Use current location&nbsp;<img alt="" src="/img/svg/pin-blue.svg"/></a>
 									</span>

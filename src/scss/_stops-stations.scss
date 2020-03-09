@@ -4,26 +4,25 @@
 		height: 2.5rem;
 	}
 
-	.input-group {
-		.form-control {
-			border-right: none;
-		}
-		.input-group-text {
-			background-color: $white;
-			border-left: none;
-			z-index: 10;
+	// .input-group {
+	// 	.form-control {
+	// 		border-right: none;
+	// 	}
+	// 	.input-group-text {
+	// 		background-color: $white;
+	// 		border-left: none;
+	// 		z-index: 10;
 
-			.icon {
-				width: 1.5rem;
-				height: 1.5rem;
-			}
-		}
-	}
+	// 		.icon {
+	// 			width: 1.5rem;
+	// 			height: 1.5rem;
+	// 		}
+	// 	}
+	// }
 
 	.auto-complete-search-box {
 		.input-group {
 			@include media-breakpoint-up(md) {
-				max-width: 570px;
 				margin: 0 auto 1rem auto;
 			}
 			@include media-breakpoint-up(lg) {
@@ -47,30 +46,35 @@
 			}
 
 			.custom-width {
-				width: 71%;
+				width: 250px;
 
 				@include media-breakpoint-up(md) {
-					width: 83%;
+					width: 482px;
 				}
 
 				@include media-breakpoint-up(lg) {
-					width: 81%;
+					width: 466px;
 				}
 			}
 
-			// Label default position
 			label {
 				left: 0.75rem;
 			}
 
-			// Floating label position on focus
-			.form-control:focus ~ label {
-				@include media-breakpoint-up(md) {
-					left: 0.75rem;
-				}
+			.input-group-append {
+				.input-group-text {
+					background-color: $white;
+					border-left: none;
 
-				@include media-breakpoint-up(lg) {
-					top: 1px;
+					.icon {
+						width: 1rem;
+						height: 1rem;
+
+						@include media-breakpoint-up(lg) {
+							width: 1.5rem;
+							height: 1.5rem;
+						}
+					}
 				}
 			}
 		}

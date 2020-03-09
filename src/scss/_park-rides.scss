@@ -9,38 +9,6 @@
 		}
 	}
 
-	.input-group {
-		.custom-width {
-			width: 250px;
-
-			@include media-breakpoint-up(md) {
-				width: 482px;
-			}
-
-			@include media-breakpoint-up(lg) {
-				width: 466px;
-			}
-		}
-		.form-control {
-			border-right: none;
-		}
-		.input-group-text {
-			background-color: $white;
-			border-left: none;
-			z-index: 10;
-
-			.icon {
-				width: 1rem;
-				height: 1rem;
-
-				@include media-breakpoint-up(lg) {
-					width: 1.5rem;
-					height: 1.5rem;
-				}
-			}
-		}
-	}
-
 	.auto-complete-search-box {
 		.input-group {
 			@include media-breakpoint-up(md) {
@@ -67,9 +35,38 @@
 				}
 			}
 
+			.custom-width {
+				width: 250px;
+
+				@include media-breakpoint-up(md) {
+					width: 482px;
+				}
+
+				@include media-breakpoint-up(lg) {
+					width: 466px;
+				}
+			}
+
 			// Label default position
 			label {
 				left: 0.75rem;
+			}
+
+			.input-group-append {
+				.input-group-text {
+					background-color: $white;
+					border-left: none;
+
+					.icon {
+						width: 1rem;
+						height: 1rem;
+
+						@include media-breakpoint-up(lg) {
+							width: 1.5rem;
+							height: 1.5rem;
+						}
+					}
+				}
 			}
 		}
 	}

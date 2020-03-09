@@ -1,6 +1,10 @@
 #tripPlannerModule {
 	.form-group {
 		width: 100%;
+
+		.input-group-append {
+			margin-left: 4px;
+		}
 	}
 
 	//Location toggle
@@ -86,7 +90,7 @@
 	}
 
 	#tpUseCurrentLoc {
-		padding-right: 1.75rem;
+		padding-right: 2.75rem;
 
 		@include media-breakpoint-up(lg) {
 			visibility: hidden;
