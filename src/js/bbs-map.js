@@ -1,8 +1,11 @@
-var bbsMap = (function($, window, document, undefined) {
+var bbsMap = (function($, window, document) {
 	'use strict';
 	var MAP = null; // this is the main MAP object
 	var GEOLOCATE = null; // this is the locate button object
 
+	var _isEmpty = function _isEmpty(str) {
+		return (!str || 0 === str.length);
+	};
 	var _isValue = function(x) {
 		// tests if value is NOT empty AND NOT blank and NOT NULL
 		var str = x.toString(); // this allows zero to test as a valid value
@@ -105,18 +108,21 @@ var bbsMap = (function($, window, document, undefined) {
 				'esri/geometry/Extent',
 				'esri/geometry/Point',
 				'esri/layers/ArcGISDynamicMapServiceLayer',
+				'esri/layers/FeatureLayer',
 				'esri/tasks/query',
 				'esri/tasks/QueryTask',
 				'esri/symbols/PictureMarkerSymbol',
 				'esri/symbols/SimpleMarkerSymbol',
 				'esri/dijit/Scalebar',
+				'esri/dijit/Legend',
 				'esri/dijit/Popup',
+				'esri/dijit/PopupTemplate',
 				'esri/dijit/LocateButton',
 				'dojo/on',
 				'dojo/domReady!',
 			], function(Map, esriBasemaps, esriConfig, Graphic, Color, SpatialReference, 
-				Extent, Point, ArcGISDynamicMapServiceLayer, Query, QueryTask, 
-				PictureMarkerSymbol, SimpleMarkerSymbol, Scalebar, Popup, LocateButton, on) {
+				Extent, Point, ArcGISDynamicMapServiceLayer, FeatureLayer, Query, QueryTask,
+				PictureMarkerSymbol, SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton, on) {
 				var ROUTENAMES = null;
 
 				var idMap = function(evt) {
@@ -298,41 +304,9 @@ var bbsMap = (function($, window, document, undefined) {
 					sliderPosition: 'bottom-right',
 					basemap: 'transitVector',
 					maxZoom: 18,
-					minZoom: 9,
+					minZoom: 10,
 					center: [-93.27, 44.975],
-					zoom: 14,
-				});
-
-				MAP.on('load', function() {
-					GEOLOCATE = new LocateButton(
-						{
-							map: MAP,
-							scale: 10000,
-						},
-						'betterStopsMapLocate'
-					);
-					GEOLOCATE.startup();
-					GEOLOCATE.on('locate', function(result) {
-						on.once(MAP, 'click', function() {
-							GEOLOCATE.clear();
-						});
-					});
-					var scalebar = new Scalebar({
-						map: MAP,
-						attachTo: 'bottom-left',
-						scalebarUnit: 'english',
-					});
-
-					MAP.disableScrollWheel();
-					$('#trimPopUp').show();
-					MAP.infoWindow.setContent($('#trimPopUp')[0]);
-				});
-
-				MAP.on('click', function(evt) {
-						if (MAP.infoWindow.isShowing) {
-							MAP.infoWindow.hide();
-						}
-						idMap(evt);
+					zoom: 12,
 				});
 
 				MAP.on('resize', function(extent, width, height) {});
@@ -364,7 +338,7 @@ var bbsMap = (function($, window, document, undefined) {
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
 					{
 						id: 'shelters',
-						opacity: 0.6,
+						opacity: 1,
 					}
 				);
 				sheltersLayer.setImageFormat('svg');
@@ -379,28 +353,98 @@ var bbsMap = (function($, window, document, undefined) {
 				);
 				newSheltersLayer.setImageFormat('svg');
 				newSheltersLayer.setVisibleLayers([3]);
-				// var layerQuerySettings = [];
-				// layerQuerySettings[4] = '1=1'; // query for sublayer 4 - show nothing
-				// newSheltersLayer.setLayerDefinitions(layerQuerySettings);
 
-				var allChangesLayer = new ArcGISDynamicMapServiceLayer(
+				var improvementsLayer = new ArcGISDynamicMapServiceLayer(
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
 					{
-						id: 'shelterChanges',
+						id: 'improvements',
 						opacity: 1,
 					}
 				);
-				allChangesLayer.setImageFormat('svg');
-				allChangesLayer.setVisibleLayers([0,1,2,4,5]);
+				improvementsLayer.setImageFormat('svg');
+				improvementsLayer.setVisibleLayers([5,4,2,1,0]);
 
-				var mapLayers = [];
+				// this feature layer is visible but transparent and overlays all the new and proposed existing changes
+				// =========================================================
+				 var template = new PopupTemplate();
+				 template.setTitle("Stop Number: ${site_id}");
+				 template.setContent('This is the content');
+				// =========================================================
+				 var refFeatureLayer = new FeatureLayer(
+					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer/7', {
+				 	id: 'allFeatures',
+				 	mode: FeatureLayer.MODE_SNAPSHOT,
+				 	infoTemplate: template,
+				 	opacity: 0,
+				 	visible: true,
+				 	outFields: ["*"]
+				 });
 
-					mapLayers = [
+				MAP.infoWindow.resize( 280, 260 );
+
+				on(refFeatureLayer, "mouse-over", function () {
+					MAP.setMapCursor("pointer");
+				});
+				on(refFeatureLayer, "mouse-out", function () {
+					MAP.setMapCursor("default");
+				});
+				on(refFeatureLayer, "click", function (evt) {
+					//console.dir(evt);
+				});
+				// var allChangesLayer = new ArcGISDynamicMapServiceLayer(
+				// 	'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+				// 	{
+				// 		id: 'allChanges',
+				// 		opacity: 0,  
+				// 	}
+				// );
+				// allChangesLayer.setImageFormat('svg');
+				// allChangesLayer.setVisibleLayers([7]);
+
+				var mapLayers = [
 						sheltersLayer,
-						allChangesLayer,
-						newSheltersLayer
+						newSheltersLayer,
+						improvementsLayer,
+						//allChangesLayer
+						refFeatureLayer
 					];
 				MAP.addLayers(mapLayers);
+
+				MAP.on('load', function() {
+					GEOLOCATE = new LocateButton(
+						{
+							map: MAP,
+							scale: 10000,
+						},
+						'betterStopsMapLocate'
+					);
+					GEOLOCATE.startup();
+					GEOLOCATE.on('locate', function(result) {
+						on.once(MAP, 'click', function() {
+							GEOLOCATE.clear();
+						});
+					});
+					var scalebar = new Scalebar({
+						map: MAP,
+						attachTo: 'bottom-left',
+						scalebarUnit: 'english',
+					});
+					var layerInfo = [
+						//{layer: refFeatureLayer, title: ""},
+						{layer: sheltersLayer, title: " "},
+						{layer: newSheltersLayer, title: " "},
+						{layer: improvementsLayer, title: " "}
+					];
+					var mapLegend = new Legend({
+						map: MAP,
+						layerInfos: layerInfo
+					}, "betterStopsLegend");
+					mapLegend.startup();
+
+					MAP.disableScrollWheel();
+					//$('#trimPopUp').show();
+					//MAP.infoWindow.setContent($('#trimPopUp')[0]);
+				});
 			});
 		}).promise();
 	};
@@ -440,13 +484,10 @@ $(function() {
 			console.log("Map loaded");
 		});
 		$('#betterStopsMapLayer1').click(function() {
-			bbsMap.toggleLayer('newShelters', /*zoomLevel*/ 14);
+			bbsMap.toggleLayer('newShelters', /*zoomLevel*/ 12);
 		});
 		$('#betterStopsMapLayer2').click(function() {
-			bbsMap.toggleLayer('shelters', /*zoomLevel*/ 10);
-		});
-		$('#betterStopsMapLayer3').click(function() {
-			bbsMap.toggleLayer('shelterChanges', /*zoomLevel*/ 10);
+			bbsMap.toggleLayer('improvements', /*zoomLevel*/ 12);
 		});
 	}
 });
