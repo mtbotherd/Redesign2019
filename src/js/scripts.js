@@ -158,7 +158,6 @@ var Main = (function($, window, document, undefined) {
 				$('#mailingAddress').fadeIn(300);
 				$('#mailingAddress input').attr('required', 'required');
 				$('#address2').removeAttr('required');
-				// alert('Checked');
 			} else if ($(this).is(':not(:checked)')) {
 				$('#mailingAddress input').removeAttr('required');
 				$('#mailingAddress').fadeOut(300);
