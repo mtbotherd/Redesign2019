@@ -152,6 +152,19 @@ var Main = (function($, window, document, undefined) {
 			).addClass('active');
 		}
 
+		// Lost & found form - Address toggeler
+		$('#mailItem').click(function() {
+			if ($(this).is(':checked')) {
+				$('#mailingAddress').fadeIn(300);
+				$('#mailingAddress input').attr('required', 'required');
+				$('#address2').removeAttr('required');
+				// alert('Checked');
+			} else if ($(this).is(':not(:checked)')) {
+				$('#mailingAddress input').removeAttr('required');
+				$('#mailingAddress').fadeOut(300);
+			}
+		});
+
 		// Google CSE
 		$('#siteSearchBtn').on('click', function() {
 			window.location =
