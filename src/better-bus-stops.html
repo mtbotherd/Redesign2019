@@ -212,110 +212,80 @@
 
 				<div class="content-full-width">
 					<div class="htmlmodule">
-
-						<section class="">
-							<div id="betterBusStops">						
-								<section class="section full-width">
-									<div class="container">
-										<div id="bbsMapContainer">
-											<div class="auto-complete-search-box mb-4 mb-lg-5">
-												<div class="input-group">
-													<div class="has-float-label custom-width">
-													<input type="text"
-															id="bbsMapSearch"
-															class="form-control"
-															placeholder="Address, intersection or landmark"
-															aria-expanded="false"
-															aria-autocomplete="list"
-															aria-describedby="bbsMapSearchInstr"
-															aria-owns="bbsMapSearchSuggestions"
-															aria-required="true"
-															role="combobox"
-															onFocus="$(this).val('')" />
-															<label for="searchButton">Search...</label>
-													</div>
-													<div class="input-group-append">
-														<div class="input-group-text" id="searchIcon">
-															<img alt="" class="icon search-gray" src="/img/svg/search-gray.svg">
-														</div>
-													</div>
-													<span id="bbsMapSearchInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>		
+						<div id="betterBusStops">						
+							<section class="section full-width">
+								<div class="container">
+									<div id="bbsMapContainer">
+										<div class="auto-complete-search-box mb-4 mb-lg-5">
+											<div class="input-group">
+												<div class="has-float-label custom-width">
+												<input type="text"
+														id="bbsMapSearch"
+														class="form-control"
+														placeholder="Address, intersection or landmark"
+														aria-expanded="false"
+														aria-autocomplete="list"
+														aria-describedby="bbsMapSearchInstr"
+														aria-owns="bbsMapSearchSuggestions"
+														aria-required="true"
+														role="combobox"
+														onFocus="$(this).val('')" />
+														<label for="searchButton">Search...</label>
 												</div>
+												<div class="input-group-append">
+													<div class="input-group-text" id="searchIcon">
+														<img alt="" class="icon search-gray" src="/img/svg/search-gray.svg">
+													</div>
+												</div>
+												<span id="bbsMapSearchInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>		
 											</div>
-											<div class="mb-4">
-												<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-													<input type="checkbox"
-															class="custom-control-input"
-															id="betterStopsMapLayer1"
-															checked />
-													<label class="custom-control-label"
-															for="betterStopsMapLayer1">Planned Shelters</label>
-												</div>
-												<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-													<input type="checkbox"
-															class="custom-control-input"
-															id="betterStopsMapLayer2"
-															checked />
-													<label class="custom-control-label"
-															for="betterStopsMapLayer2">Existing Shelter Changes</label>
-												</div>
-											</div>
+										</div>
 
-											<div class="map-container">
-												<div class="row">
-													
-													<div class="col-2">
-														<div id="betterStopsLegend" aria-label="graphic display of symbols used in the map" >
-														</div>
+										<div class="row mb-4">
+											<div class="col-2">Legend</div>
+											<div class="col-10">
+											<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+												<input type="checkbox"
+														class="custom-control-input"
+														id="betterStopsMapLayer1"
+														checked />
+												<label class="custom-control-label"
+														for="betterStopsMapLayer1">Planned Shelters</label>
+											</div>
+											<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+												<input type="checkbox"
+														class="custom-control-input"
+														id="betterStopsMapLayer2"
+														checked />
+												<label class="custom-control-label"
+														for="betterStopsMapLayer2">Existing Shelter Changes</label>
+											</div>
+											</div>
+										</div>
+
+										<div class="container">
+											<div class="row">
+												<div class="col-2">
+													<div id="betterStopsLegend" aria-label="graphic display of symbols used in the map" >
 													</div>
-													<div class="col-10">
-														<div id="betterStopsMap"
-																class="map border"
-																style="width:100%"
-																role="application"
-																aria-label="interactive map of transit shelter changes">
-															<div id="betterStopsMapLocate"></div>
-															<div class="mapLoading"></div>
-														</div>
-														<!-- <div id="trimPopUp"
-																style="display:none;">
-															<div id="mapPopUpStopDescription"
-																	class="stop-description"></div>
-															<div class="container">
-																<ul class="nav nav-tabs nav-justified">
-																	<li class="nav-item">
-																		<a class="nav-link active"
-																			data-toggle="tab"
-																			href="#mapPopUpTabNexTrip">NexTrip</a>
-																	</li>
-																	<li class="nav-item">
-																		<a class="nav-link"
-																			data-toggle="tab"
-																			href="#mapPopUpTabRoutes">Routes</a>
-																	</li>
-																</ul>
-																<div class="tab-content">
-																	<div class="tab-pane container active"
-																		id="mapPopUpTabNexTrip">
-																	<div id="mapPopUpDepartures"
-																			class="stop-departures"></div>
-																	</div>
-																	<div class="tab-pane container"
-																		id="mapPopUpTabRoutes">
-																	<div id="mapPopUpRoutes"
-																			class="route-list"></div>
-																	</div>
-																</div>
-															</div>
-														</div> -->
+												</div>
+												<div class="col-10">
+													<div id="betterStopsMap"
+															class="map border"
+															style="width:100%"
+															role="application"
+															aria-label="interactive map of transit shelter changes">
+														<div id="betterStopsMapLocate"></div>
+														<div class="mapLoading"></div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								</section>
-							</div>
-						</section>
+									<div id="bbsTextDescriptions" class="sr-only"></div>
+								</div>
+							</section>
+						</div>
 					</div>
 				</div>
 			</div>

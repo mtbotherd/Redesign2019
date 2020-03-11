@@ -88,16 +88,7 @@ var bbsMap = (function($, window, document) {
 	//@@@@@@@@@@@@@@@@@@@@
 	//@@@@@@@@@@@@@@@@@@@@
 	var init = function(mapElementID) {
-		var nexTrip_INTERVAL = null;
-
 		return $.Deferred(function(dfd) {
-			// mapType property on the <div>
-			var pType = document
-				.getElementById(mapElementID)
-				.getAttribute('maptype');
-			var mapType = pType !== null ? pType : 'full';
-			//console.log(mapElementID + " functionality is " + mapType);
-
 			require([
 				'esri/map',
 				'esri/basemaps',
@@ -246,14 +237,6 @@ var bbsMap = (function($, window, document) {
 					ymax: 5619877,
 					spatialReference: spatialRefWM,
 				});
-				//try {
-				//console.log("Cookie: " + cookie("map.Extent"));
-				//var extObj = dojo.fromJson(cookie("map.Extent"));
-				//var cookieExtent = new Extent(extObj);
-				//}
-				//catch (e) {
-				//    console.warn(e);
-				//}
 				var popUpDiv = document.createElement('div');
 				var mapPopup = new Popup(
 					{
@@ -263,6 +246,7 @@ var bbsMap = (function($, window, document) {
 						anchor: 'auto',
 						pagingControls: false,
 						pagingInfo: false,
+						titleInBody: false,
 						markerSymbol: new SimpleMarkerSymbol(
 							'circle',
 							32,
@@ -286,11 +270,6 @@ var bbsMap = (function($, window, document) {
 				};
 				esriBasemaps.transitVector = {
 					title: 'TransitVector',
-					// First version of the basemap with some extra parking lots and labels
-					//baseMapLayers: [{ url: "https://metrocouncil.maps.arcgis.com/sharing/rest/content/items/8cbdf505cd3f4dc39c4e5da6f5b49d95/resources/styles/root.json", type: "VectorTile" }]
-					//baseMapLayers: [{url:"/js/basemapStylev1.json", type: "VectorTile"}]                    };
-					// 2nd version of the basemap
-					//baseMapLayers: [{ url: "https://metrocouncil.maps.arcgis.com/sharing/rest/content/items/5c2ea8c24d7a46ed8c61cd058219504f/resources/styles/root.json", type: "VectorTile" }]
 					baseMapLayers: [
 						{ url: '/js/basemapStylev3.json', type: 'VectorTile' },
 					],
@@ -366,9 +345,12 @@ var bbsMap = (function($, window, document) {
 
 				// this feature layer is visible but transparent and overlays all the new and proposed existing changes
 				// =========================================================
-				 var template = new PopupTemplate();
-				 template.setTitle("Stop Number: ${site_id}");
-				 template.setContent('This is the content');
+				var template = new PopupTemplate();
+				template.setTitle('Stop Number: ${site_id}');
+				var content = ' ${location}<br/><br/>';
+				content += '<strong>&bull;</strong>${TextDescription}<br/>';
+				content += '<strong>&mdash;</strong> And another thing<br/>'
+				template.setContent(content);
 				// =========================================================
 				 var refFeatureLayer = new FeatureLayer(
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer/7', {
@@ -391,21 +373,11 @@ var bbsMap = (function($, window, document) {
 				on(refFeatureLayer, "click", function (evt) {
 					//console.dir(evt);
 				});
-				// var allChangesLayer = new ArcGISDynamicMapServiceLayer(
-				// 	'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
-				// 	{
-				// 		id: 'allChanges',
-				// 		opacity: 0,  
-				// 	}
-				// );
-				// allChangesLayer.setImageFormat('svg');
-				// allChangesLayer.setVisibleLayers([7]);
 
 				var mapLayers = [
 						sheltersLayer,
 						newSheltersLayer,
 						improvementsLayer,
-						//allChangesLayer
 						refFeatureLayer
 					];
 				MAP.addLayers(mapLayers);
@@ -430,7 +402,6 @@ var bbsMap = (function($, window, document) {
 						scalebarUnit: 'english',
 					});
 					var layerInfo = [
-						//{layer: refFeatureLayer, title: ""},
 						{layer: sheltersLayer, title: " "},
 						{layer: newSheltersLayer, title: " "},
 						{layer: improvementsLayer, title: " "}
@@ -442,8 +413,6 @@ var bbsMap = (function($, window, document) {
 					mapLegend.startup();
 
 					MAP.disableScrollWheel();
-					//$('#trimPopUp').show();
-					//MAP.infoWindow.setContent($('#trimPopUp')[0]);
 				});
 			});
 		}).promise();
