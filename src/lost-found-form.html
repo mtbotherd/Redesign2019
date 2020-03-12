@@ -200,7 +200,7 @@
 					<div class="secondary">
 						<div class="container">
 							<div class="page-title">
-								<h1>Lost &amp; Found Form</h1>
+								<h1>Lost &amp; Found</h1>
 							</div>
 						</div>
 					</div>
@@ -208,7 +208,8 @@
 
 				<div class=""> <!-- This class gets set in CMS -->
 					<div class="htmlmodule">
-						<section class="section">							
+						<section class="section">
+							<h2>Lost &amp; found form</h2>
 							<p>Complete the form below with information about where the item was lost, what the item looks like and how we can contact you.  Please include your email and phone number so that we can contact you if we locate your lost item.  A photo of the item will help us identify the item faster.  Items lost today on-board Metro Transit service, if recovered, will be available at Lost & Found the next business day. We will contact you if we find your item.</p>
 							<form>
 								<p class="denote-required">
@@ -219,7 +220,7 @@
 									<label for="date">Date item lost</label>
 								</div>
 								<div class="form-group has-float-label required">
-									<input type="text" class="form-control" id="route" name="route" placeholder="Route" />
+									<input type="text" class="form-control" id="route" name="route" placeholder="Route" required />
 									<label for="route">Route</label>
 								</div>
 								<div class="input-group has-float-label required">
@@ -263,7 +264,7 @@
 									<legend>Return by mail</legend>
 									<div class="custom-control custom-checkbox">
 										<input type="checkbox" class="custom-control-input" id="mailItem" name="mailItem" />
-										<label for="mailItem" class="custom-control-label">Return item by mail</label>
+										<label for="mailItem" class="custom-control-label">If found, return item by mail</label>
 									</div>
 									<div id="mailingAddress" style="display: none;">
 										<p>Please provide your mailng address to have the item mailed to you, if we are able to find it.</p>
