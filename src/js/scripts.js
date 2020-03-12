@@ -117,6 +117,7 @@ var Main = (function($, window, document, undefined) {
 
 		// Initialize Bootstrap Popover
 		$('[data-toggle="popover"]').popover({
+			html: true,
 			trigger: 'focus',
 		});
 
@@ -150,7 +151,7 @@ var Main = (function($, window, document, undefined) {
 			).addClass('active');
 		}
 
-		// Lost & found form - Address toggeler
+		// Lost & found form - Mail item toggeler
 		$('#mailItem').click(function() {
 			if ($(this).is(':checked')) {
 				$('#mailingAddress').fadeIn(300);
