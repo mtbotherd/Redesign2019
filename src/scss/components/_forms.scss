@@ -73,13 +73,12 @@ fieldset {
 		}
 	}
 
-	label {
-		color: $gray-300;
+	textarea.form-control {
+		height: 100px;
 	}
 
-	textarea {
-		width: 100%;
-		height: auto;
+	label {
+		color: $gray-300;
 	}
 }
 
@@ -115,13 +114,13 @@ fieldset {
 		}
 	}
 
-	.has-addon {
-		width: 86%;
+	// .has-addon {
+	// 	width: 86%;
 
-		@include media-breakpoint-up(md) {
-			width: 93%;
-		}
-	}
+	// 	@include media-breakpoint-up(md) {
+	// 		width: 93%;
+	// 	}
+	// }
 
 	.input-group-append {
 		.btn-primary {
@@ -145,7 +144,8 @@ fieldset {
 			}
 		}
 
-		a[data-toggle='popover'] {
+		a[data-toggle='popover'],
+		button[data-toggle='popover'] {
 			background-color: $white;
 			border: 1px solid $border-color;
 			border-left: none;

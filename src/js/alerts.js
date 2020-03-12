@@ -74,7 +74,10 @@ var Alerts = (function($, window, document, undefined) {
 				} else {
 					//here we already had the route of the current informed_entity in the alertsByRoute array, so all we
 					//need to do is add its index to the alert_index array property
-					current.alert_index.push(index);
+					if (current.alert_index.indexOf(index) === -1) {
+						current.alert_index.push(index);
+					}
+					//current.alert_index.push(index);
 				}
 			});
 		});
