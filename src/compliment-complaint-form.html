@@ -215,104 +215,110 @@
 							</p>
 							<form>
 								<fieldset>
-									<legend class="sr-only">Date and time pickers</legend>
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group has-float-label required">
-												<input type="date" class="form-control" id="date" name="date" date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy" required />
-												<label for="date">Date of occurrence</label>
+									<legend>Compliment or complaint details</legend>
+									<fieldset>
+										<legend class="sr-only">Date and time pickers</legend>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group has-float-label required">
+													<input type="date" class="form-control" id="date" name="date" date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy" required />
+													<label for="date">Date of occurrence</label>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group has-float-label required" style="max-width:355px;">
+													<input type="time" class="form-control" id="time" name="time" required />
+													<label for="time">Scheduled departure time</label>
+												</div>
 											</div>
 										</div>
-										<div class="col-md-6">
-											<div class="form-group has-float-label required" style="max-width:355px;">
-												<input type="time" class="form-control" id="time" name="time" required />
-												<label for="time">Scheduled departure time</label>
-											</div>
+									</fieldset>
+									<div class="input-group has-float-label required">
+										<input type="text" class="form-control" id="route" name="route" aria-describedby="routeHelpBlock" placeholder="Route" required />
+										<label for="route">Route</label>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" id="routeHelpBlock" class="btn btn-primary" data-toggle="popover" title="Route" data-content="<p>Include bus route number or METRO line.</p><p><strong>Example:</strong><br />12, A line or Blue Line.</p>">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
+										</div>
+									</div>
+									<div class="input-group has-float-label required">
+										<input type="text" class="form-control" id="location" name="location" aria-describedby="locationHelpBlock" placeholder="Location" required />
+										<label for="location">Location</label>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" id="locationHelpBlock" class="btn btn-primary" data-toggle="popover" title="Location" data-content="Include stop ID, station name or intersection.">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
+										</div>
+									</div>
+									<div class="input-group has-float-label">
+										<input type="number" class="form-control" id="vehicleNumber" name="vehicleNumber" aria-describedby="vehicleNumberHelpBlock" placeholder="Vehicle number" />
+										<label for ="vehicleNumber">Vehicle number</label>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" id="vehicleNumberHelpBlock" class="btn btn-primary" data-toggle="popover" title="Vehicle number" data-content="Located near the door of the vehicle or by the operator.">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
+										</div>
+									</div>
+									<div class="input-group has-float-label required">
+										<input type="text" class="form-control has-info" id="travelDirection" name="travelDirection" aria-describedby="directionHelpBlock" placeholder="Direction of travel" required />
+										<label for="travelDirection">Direction of travel</label>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" id="directionHelpBlock" class="btn btn-primary" data-toggle="popover" title="Direction of travel" data-content="Examples: <ul><li>North, South, East, West</li><li>Into or out of downtown Minneapolis or <abbr title='Saint'>St.</abbr> Paul.</li></ul>">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
+										</div>
+									</div>
+									<div class="input-group has-float-label">
+										<input type="number" class="form-control" id="employeeID" name="employeeID" aria-describedby="employeeIdHelpBlock" placeholder="Employee ID" />
+										<label for="employeeID">Employee ID</label>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" id="employeeIdHelpBlock" class="btn btn-primary" data-toggle="popover" title="Employee ID" data-content="Employee ID is on the patch on the right shoulder of the operator.">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
+										</div>
+									</div>
+									<div class="input-group has-float-label">
+										<textarea class="form-control" id="comment" name="comment" aria-describedby="commentsHelpBlock" placeholder="Comments"></textarea>
+										<label for="comment">Comments</label>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" id="commentsHelpBlock" class="btn btn-primary" data-toggle="popover" title="Comments" data-content="Please provide as much detail as possible. If the time and location of an occurrance/incident is different than the time you boarded, please make sure we have that detail in this seciton.">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
+										</div>
+									</div>
+									<div class="input-group">
+										<div class="custom-file">
+											<input
+											type="file"
+											id="itemPhoto"
+											class="custom-file-input"
+											name="itemPhoto"
+											aria-describedby="fileUploadHelpBlock" />
+											<label for="itemPhoto" class="custom-file-label">Add photo</label>
+										</div>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" class="btn btn-primary" data-toggle="popover" title="Add photo" data-content="File type can be .jpg, .jpeg, .gif or .png.<ul><li>The maximum file size limit for .jpeg/.jpg files is 10mb.</li><li>The maximum file size limit for .gif and .png is 4mb</li">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
 										</div>
 									</div>
 								</fieldset>
-								<div class="input-group has-float-label required">
-									<input type="text" class="form-control" id="route" name="route" aria-describedby="routeHelpBlock" placeholder="Route" required />
-									<label for="route">Route</label>
-									<div class="input-group-append">
-										<a tabindex="0" role="button" id="routeHelpBlock" class="btn btn-primary" data-toggle="popover" title="Route" data-content="<p>Include bus route number or METRO line.</p><p><strong>Example:</strong><br />12, A line or Blue Line.</p>">
-											<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
-										</a>
+								<fieldset>
+									<legend>Your contact info</legend>
+									<div class="form-group has-float-label required">
+										<input type="text" class="form-control" id="name" name="name" placeholder="Your name" required />
+										<label for="name">Your name</label>
 									</div>
-								</div>
-								<div class="input-group has-float-label required">
-									<input type="text" class="form-control" id="location" name="location" aria-describedby="locationHelpBlock" placeholder="Location" required />
-									<label for="location">Location</label>
-									<div class="input-group-append">
-										<a tabindex="0" role="button" id="locationHelpBlock" class="btn btn-primary" data-toggle="popover" title="Location" data-content="Include stop ID, station name or intersection.">
-											<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
-										</a>
+									<div class="form-group has-float-label required">
+										<input type="email" class="form-control" id="email" name="email" placeholder="Email" required />
+										<label for="email">Email</label>
 									</div>
-								</div>
-								<div class="input-group has-float-label">
-									<input type="number" class="form-control" id="vehicleNumber" name="vehicleNumber" aria-describedby="vehicleNumberHelpBlock" placeholder="Vehicle number" />
-									<label for ="vehicleNumber">Vehicle number</label>
-									<div class="input-group-append">
-										<a tabindex="0" role="button" id="vehicleNumberHelpBlock" class="btn btn-primary" data-toggle="popover" title="Vehicle number" data-content="Located near the door of the vehicle or by the operator.">
-											<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
-										</a>
+									<div class="form-group has-float-label">
+										<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" />
+										<label for="phone">Phone</label>
 									</div>
-								</div>
-								<div class="input-group has-float-label required">
-									<input type="text" class="form-control has-info" id="travelDirection" name="travelDirection" aria-describedby="directionHelpBlock" placeholder="Direction of travel" required />
-									<label for="travelDirection">Direction of travel</label>
-									<div class="input-group-append">
-										<a tabindex="0" role="button" id="directionHelpBlock" class="btn btn-primary" data-toggle="popover" title="Direction of travel" data-content="Examples: <ul><li>North, South, East, West</li><li>Into or out of downtown Minneapolis or <abbr title='Saint'>St.</abbr> Paul.</li></ul>">
-											<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
-										</a>
-									</div>
-								</div>
-								<div class="input-group has-float-label">
-									<input type="number" class="form-control" id="employeeID" name="employeeID" aria-describedby="employeeIdHelpBlock" placeholder="Employee ID" />
-									<label for="employeeID">Employee ID</label>
-									<div class="input-group-append">
-										<a tabindex="0" role="button" id="employeeIdHelpBlock" class="btn btn-primary" data-toggle="popover" title="Employee ID" data-content="Employee ID is on the patch on the right shoulder of the operator.">
-											<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
-										</a>
-									</div>
-								</div>
-								<div class="form-group has-float-label required">
-									<input type="text" class="form-control" id="name" name="name" placeholder="First &amp; last name" required />
-									<label for="name">Name</label>
-								</div>
-								<div class="form-group has-float-label required">
-									<input type="email" class="form-control" id="email" name="email" placeholder="Email" required />
-									<label for="email">Email</label>
-								</div>
-								<div class="form-group has-float-label">
-									<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" />
-									<label for="phone">Phone</label>
-								</div>
-								<div class="input-group has-float-label">
-									<textarea class="form-control" id="comment" name="comment" aria-describedby="commentsHelpBlock" placeholder="Comments"></textarea>
-									<label for="comment">Comments</label>
-									<div class="input-group-append">
-										<a tabindex="0" role="button" id="commentsHelpBlock" class="btn btn-primary" data-toggle="popover" title="Comments" data-content="Please provide as much detail as possible. If the time and location of an occurrance/incident is different than the time you boarded, please make sure we have that detail in this seciton.">
-											<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
-										</a>
-									</div>
-								</div>
-								<div class="input-group">
-									<div class="custom-file">
-										<input
-										type="file"
-										id="itemPhoto"
-										class="custom-file-input"
-										name="itemPhoto"
-										aria-describedby="fileUploadHelpBlock" />
-										<label for="itemPhoto" class="custom-file-label">Add photo</label>
-									</div>
-									<div class="input-group-append">
-										<a tabindex="0" role="button" class="btn btn-primary" data-toggle="popover" title="Add photo" data-content="File type can be .jpg, .jpeg, .gif or .png.<ul><li>The maximum file size limit for .jpeg/.jpg files is 10mb.</li><li>The maximum file size limit for .gif and .png is 4mb</li">
-											<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
-										</a>
-									</div>
-								</div>
+								</fieldset>
 								<fieldset>
 									<legend class="sr-only">Reply to email</legend>
 									<p>Would you like a reply regarding your compliment or complaint?</p>
