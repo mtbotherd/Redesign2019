@@ -1,0 +1,9 @@
+.popover {
+	.popover-body {
+		@include font-size(14);
+
+		@include media-breakpoint-up(lg) {
+			@include font-size(16);
+		}
+	}
+}

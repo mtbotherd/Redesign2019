@@ -200,7 +200,7 @@
 					<div class="secondary">
 						<div class="container">
 							<div class="page-title">
-								<h1>Student Pass Application</h1>
+								<h1>Permit Application</h1>
 							</div>
 						</div>
 					</div>
@@ -209,120 +209,329 @@
 				<div class=""> <!-- This class gets set in CMS -->
 					<div class="htmlmodule">
 						<section class="section">
-							<h2>Student Pass Application Form</h2>
+							<h2>Permit Application for Work Adjacent to Council-owned Rail Facilities</h2>
 							<p class="denote-required">
-								<span class="required-symbol">*</span> = Required Field
+								<span class="required-symbol">*</span> = Required
 							</p>
 							<form>
 								<fieldset>
-									<legend>School information</legend>
+									<legend>Applicant Information</legend>
 									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="schoolName" name="schoolName" placeholder="Full name" required>
-										<label for="schoolName">Name</label>
+										<input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name" required />
+										<label for="firstName">First name</label>
 									</div>
 									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="schoolAddress" name="schoolAddress" placeholder="School address" required>
-										<label for="schoolAddress">Address</label>
+										<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name" required />
+										<label for="lastName">Last name</label>
 									</div>
 									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="schoolCity" name="schoolCity" placeholder="City" required>
-										<label for="schoolCity">City</label>
+										<input type="text" class="form-control" id="organization" name="organization" placeholder="Agency/Company" required />
+										<label for="organization">Agency/Company</label>
 									</div>
 									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="schoolState" name="schoolState" placeholder="State" required>
-										<label for="schoolState">State</label>
+										<input type="email" class="form-control" id="email" name="email" placeholder="Email" required />
+										<label for="email">Email</label>
 									</div>
 									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="schoolZipCode" name="schoolZipCode" placeholder="Zip code" required>
-										<label for="schoolState">Zip code</label>
-									</div>
-									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="schoolPhone" name="schoolPhone" placeholder="Phone" required>
-										<label for="schoolPhone">Phone</label>
+										<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required />
+										<label for="phone">Phone</label>
 									</div>
 									<div class="form-group has-float-label">
-										<input type="text" class="form-control" id="schoolFax" name="schoolFax" placeholder="Fax">
-										<label for="schoolFax">Fax</label>
+										<input type="text" class="form-control" id="fax" name="fax" placeholder="Fax" />
+										<label for="fax">Fax</label>
 									</div>
 									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="schoolContact" name="schoolContact" placeholder="Name of contact person" required>
-										<label for="schoolContact">Contact name</label>
+										<input type="text" class="form-control" id="address" name="address" placeholder="Address" required />
+										<label for="address">Address</label>
 									</div>
 									<div class="form-group has-float-label required">
-										<input type="email" class="form-control" id="schoolContactEmail" name="schoolContactEmail" placeholder="Email" required>
-										<label for="schoolContactEmail">Email</label>
+										<input type="text" class="form-control" id="city" name="city" placeholder="City" required />
+										<label for="city">City</label>
+									</div>
+									<div class="form-group required">
+										<select class="custom-select" id="state" required>
+											<option value="">State</option>
+											<option value="AL">Alabama</option>
+											<option value="AK">Alaska</option>
+											<option value="AZ">Arizona</option>
+											<option value="AR">Arkansas</option>
+											<option value="CA">California</option>
+											<option value="CO">Colorado</option>
+											<option value="CT">Connecticut</option>
+											<option value="DE">Delaware</option>
+											<option value="DC">District Of Columbia</option>
+											<option value="FL">Florida</option>
+											<option value="GA">Georgia</option>
+											<option value="HI">Hawaii</option>
+											<option value="ID">Idaho</option>
+											<option value="IL">Illinois</option>
+											<option value="IN">Indiana</option>
+											<option value="IA">Iowa</option>
+											<option value="KS">Kansas</option>
+											<option value="KY">Kentucky</option>
+											<option value="LA">Louisiana</option>
+											<option value="ME">Maine</option>
+											<option value="MD">Maryland</option>
+											<option value="MA">Massachusetts</option>
+											<option value="MI">Michigan</option>
+											<option value="MN">Minnesota</option>
+											<option value="MS">Mississippi</option>
+											<option value="MO">Missouri</option>
+											<option value="MT">Montana</option>
+											<option value="NE">Nebraska</option>
+											<option value="NV">Nevada</option>
+											<option value="NH">New Hampshire</option>
+											<option value="NJ">New Jersey</option>
+											<option value="NM">New Mexico</option>
+											<option value="NY">New York</option>
+											<option value="NC">North Carolina</option>
+											<option value="ND">North Dakota</option>
+											<option value="OH">Ohio</option>
+											<option value="OK">Oklahoma</option>
+											<option value="OR">Oregon</option>
+											<option value="PA">Pennsylvania</option>
+											<option value="RI">Rhode Island</option>
+											<option value="SC">South Carolina</option>
+											<option value="SD">South Dakota</option>
+											<option value="TN">Tennessee</option>
+											<option value="TX">Texas</option>
+											<option value="UT">Utah</option>
+											<option value="VT">Vermont</option>
+											<option value="VA">Virginia</option>
+											<option value="WA">Washington</option>
+											<option value="WV">West Virginia</option>
+											<option value="WI">Wisconsin</option>
+											<option value="WY">Wyoming</option>
+										</select>
+										<label for="state" class="sr-only">State</label>		
 									</div>
 									<div class="form-group has-float-label required">
-										<input type="email" class="form-control" id="schoolInvoiceEmail" name="schoolInvoiceEmail" placeholder="Email" required>
-										<label for="schoolInvoiceEmail">Email for invoice</label>
+										<input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="Zip code" required />
+										<label for="zipCode">Zip code</label>
 									</div>
 								</fieldset>
 								<fieldset>
-									<legend>Administrator information</legend>
-									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="adminName" name="adminName" placeholder="Administrator name" required>
-										<label for="adminName">Name</label>
-									</div>
-									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="adminAddress" name="adminAddress" placeholder="Address" required>
-										<label for="adminAddress">Address</label>
-									</div>
-									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="adminCity" name="adminCity" placeholder="City" required>
-										<label for="adminCity">City</label>
-									</div>
-									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="adminState" placeholder="State" required>
-										<label for="adminState">State</label>
-									</div>
-									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="adminZipCode" placeholder="Zip code" required>
-										<label for="adminZipCode">Zip code</label>
-									</div>
-									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="adminPhone" name="adminPhone" placeholder="Phone" required>
-										<label for="adminPhone">Phone</label>
+									<legend>Project Owner Information</legend>
+									<div class="custom-control custom-checkbox pl-0">
+										<input type="checkbox" id="sameAsApplicant" name="sameAsApplicant" />
+										<label for="sameAsApplicant">Same as applicant</label>
 									</div>
 									<div class="form-group has-float-label">
-										<input type="text" class="form-control" id="adminFax" name="adminFax" placeholder="Fax">
-										<label for="adminFax">Fax</label>
+										<input type="text" class="form-control" id="ownerFirstName" name="ownerFirstName" placeholder="First name" />
+										<label for="ownerFirstName">First name</label>
 									</div>
-									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="adminContact" name="adminContact" placeholder="Name of contact person" required>
-										<label for="adminContact">Contact name</label>
+									<div class="form-group has-float-label">
+										<input type="text" class="form-control" id="ownerLastName" name="ownerLastName" placeholder="Last name" />
+										<label for="ownerLastName">Last name</label>
 									</div>
-									<div class="form-group has-float-label required">
-										<input type="email" class="form-control" id="adminEmail" name="adminEmail" placeholder="Email" required>
-										<label for="adminEmail">Email</label>
+									<div class="form-group has-float-label">
+										<input type="text" class="form-control" id="ownerOrganization" name="ownerOrganization" placeholder="Agency/Company" />
+										<label for="ownerOrganization">Agency/Company</label>
 									</div>
-									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="officeHours" name="officeHours" placeholder="Office hours" required>
-										<label for="officeHours">Office hours</label>
+									<div class="form-group has-float-label">
+										<input type="email" class="form-control" id="ownerEmail" name="ownerEmail" placeholder="Email" />
+										<label for="ownerEmail">Email</label>
+									</div>
+									<div class="form-group has-float-label">
+										<input type="text" class="form-control" id="ownerPhone" name="ownerPhone" placeholder="Phone" />
+										<label for="ownerPhone">Phone</label>
+									</div>
+									<div class="form-group has-float-label">
+										<input type="text" class="form-control" id="ownerFax" name="ownerFax" placeholder="Fax" />
+										<label for="ownerFax">Fax</label>
+									</div>
+									<div class="form-group has-float-label">
+										<input type="text" class="form-control" id="ownerAddress" name="ownerAddress" placeholder="Address" />
+										<label for="ownerAddress">Address</label>
+									</div>
+									<div class="form-group has-float-label">
+										<input type="text" class="form-control" id="ownerCity" name="ownerCity" placeholder="City" />
+										<label for="ownerCity">City</label>
+									</div>
+									<div class="form-group">
+										<select class="custom-select" id="ownerState">
+											<option value="">State</option>
+											<option value="AL">Alabama</option>
+											<option value="AK">Alaska</option>
+											<option value="AZ">Arizona</option>
+											<option value="AR">Arkansas</option>
+											<option value="CA">California</option>
+											<option value="CO">Colorado</option>
+											<option value="CT">Connecticut</option>
+											<option value="DE">Delaware</option>
+											<option value="DC">District Of Columbia</option>
+											<option value="FL">Florida</option>
+											<option value="GA">Georgia</option>
+											<option value="HI">Hawaii</option>
+											<option value="ID">Idaho</option>
+											<option value="IL">Illinois</option>
+											<option value="IN">Indiana</option>
+											<option value="IA">Iowa</option>
+											<option value="KS">Kansas</option>
+											<option value="KY">Kentucky</option>
+											<option value="LA">Louisiana</option>
+											<option value="ME">Maine</option>
+											<option value="MD">Maryland</option>
+											<option value="MA">Massachusetts</option>
+											<option value="MI">Michigan</option>
+											<option value="MN">Minnesota</option>
+											<option value="MS">Mississippi</option>
+											<option value="MO">Missouri</option>
+											<option value="MT">Montana</option>
+											<option value="NE">Nebraska</option>
+											<option value="NV">Nevada</option>
+											<option value="NH">New Hampshire</option>
+											<option value="NJ">New Jersey</option>
+											<option value="NM">New Mexico</option>
+											<option value="NY">New York</option>
+											<option value="NC">North Carolina</option>
+											<option value="ND">North Dakota</option>
+											<option value="OH">Ohio</option>
+											<option value="OK">Oklahoma</option>
+											<option value="OR">Oregon</option>
+											<option value="PA">Pennsylvania</option>
+											<option value="RI">Rhode Island</option>
+											<option value="SC">South Carolina</option>
+											<option value="SD">South Dakota</option>
+											<option value="TN">Tennessee</option>
+											<option value="TX">Texas</option>
+											<option value="UT">Utah</option>
+											<option value="VT">Vermont</option>
+											<option value="VA">Virginia</option>
+											<option value="WA">Washington</option>
+											<option value="WV">West Virginia</option>
+											<option value="WI">Wisconsin</option>
+											<option value="WY">Wyoming</option>
+										</select>
+										<label for="ownerState" class="sr-only">State</label>		
+									</div>
+									<div class="form-group has-float-label">
+										<input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="Zip code" />
+										<label for="zipCode">Zip code</label>
 									</div>
 								</fieldset>
 								<fieldset>
-									<legend>Other information</legend>
-									<div class="form-group has-float-label">
-										<textarea id="locations" name="locations" class="form-control" placeholder="If multiple locations please list"></textarea>
-										<label for="locations">Mulitple locations</label>
+									<legend>Project Information</legend>
+									<div class="form-group has-float-label required">
+										<input type="text" class="form-control" id="projectName" name="projectName" placeholder="Project name" required />
+										<label for="projectName">Project name</label>
 									</div>
 									<div class="form-group has-float-label required">
-										<input type="number" class="form-control" id="numberStudents" name="numberStudents" placeholder=" " required>
-										<label for="numberStudents">Number of students</label>
+										<input type="text" class="form-control" id="projectAddress" name="projectAddress" placeholder="Address" required />
+										<label for="projectAddress">Address</label>
 									</div>
 									<div class="form-group has-float-label required">
-										<input type="text" class="form-control" id="subsidyAmount" name="subsidyAmount" placeholder=" " required>
-										<label for="subsidyAmount">Subsidy amount per pass</label>
+										<input type="text" class="form-control" id="projectCity" name="projectCity" placeholder="City" required />
+										<label for="projectCity">City</label>
 									</div>
+									<div class="form-group required">
+										<select class="custom-select" id="projectState" required>
+											<option value="">State</option>
+											<option value="AL">Alabama</option>
+											<option value="AK">Alaska</option>
+											<option value="AZ">Arizona</option>
+											<option value="AR">Arkansas</option>
+											<option value="CA">California</option>
+											<option value="CO">Colorado</option>
+											<option value="CT">Connecticut</option>
+											<option value="DE">Delaware</option>
+											<option value="DC">District Of Columbia</option>
+											<option value="FL">Florida</option>
+											<option value="GA">Georgia</option>
+											<option value="HI">Hawaii</option>
+											<option value="ID">Idaho</option>
+											<option value="IL">Illinois</option>
+											<option value="IN">Indiana</option>
+											<option value="IA">Iowa</option>
+											<option value="KS">Kansas</option>
+											<option value="KY">Kentucky</option>
+											<option value="LA">Louisiana</option>
+											<option value="ME">Maine</option>
+											<option value="MD">Maryland</option>
+											<option value="MA">Massachusetts</option>
+											<option value="MI">Michigan</option>
+											<option value="MN">Minnesota</option>
+											<option value="MS">Mississippi</option>
+											<option value="MO">Missouri</option>
+											<option value="MT">Montana</option>
+											<option value="NE">Nebraska</option>
+											<option value="NV">Nevada</option>
+											<option value="NH">New Hampshire</option>
+											<option value="NJ">New Jersey</option>
+											<option value="NM">New Mexico</option>
+											<option value="NY">New York</option>
+											<option value="NC">North Carolina</option>
+											<option value="ND">North Dakota</option>
+											<option value="OH">Ohio</option>
+											<option value="OK">Oklahoma</option>
+											<option value="OR">Oregon</option>
+											<option value="PA">Pennsylvania</option>
+											<option value="RI">Rhode Island</option>
+											<option value="SC">South Carolina</option>
+											<option value="SD">South Dakota</option>
+											<option value="TN">Tennessee</option>
+											<option value="TX">Texas</option>
+											<option value="UT">Utah</option>
+											<option value="VT">Vermont</option>
+											<option value="VA">Virginia</option>
+											<option value="WA">Washington</option>
+											<option value="WV">West Virginia</option>
+											<option value="WI">Wisconsin</option>
+											<option value="WY">Wyoming</option>
+										</select>
+										<label for="projectState" class="sr-only">State</label>		
+									</div>
+									<div class="form-group has-float-label required">
+										<input type="text" class="form-control" id="porjectZipCode" name="porjectZipCode" placeholder="Zip code" required />
+										<label for="porjectZipCode">Zip code</label>
+									</div>
+									<fieldset>
+										<legend class="sr-only">Date and time pickers</legend>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group has-float-label required">
+													<input type="date" class="form-control" id="startDate" name="startDate" required />
+													<label for="startDate">Proposed construction start date</label>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group has-float-label required" style="max-width:355px;">
+													<input type="date" class="form-control" id="endDate" name="endDate" required />
+													<label for="endDate">Proposed construction end date</label>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+									<div class="form-group has-float-label required">
+										<input type="text" class="form-control" id="approximateValue" name="approximateValue" placeholder="Approximate value within 50’ of track" required />
+										<label for="approximateValue">Approximate value within 50’ of track</label>
+									</div>
+									<fieldset>
+										<legend class="required">Installation type</legend>
+										<div class="d-flex justify-content-start">
+											<div class="custom-control custom-radio mr-4">
+												<input type="radio" class="custom-control-input" id="permanent" name="installType" required />
+												<label for="permanent" class="custom-control-label">Permanent</label>
+											</div>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input" id="temporary" name="installType" required />
+												<label for="temporary" class="custom-control-label">Temporary</label>
+											</div>
+										</div>
+									</fieldset>
 								</fieldset>
-								<div class="custom-control custom-checkbox">
-									<input type="checkbox" id="copy_user" name="copyUser" class="custom-control-input" checked>
-									<label for="copy_user" class="custom-control-label">Please send me an email of the information submitted</label>
-								</div>
-								<hr>
-								<div class="text-center">
-									<button type="submit" class="btn btn-warning">Submit</button>
-								</div>
+								<fieldset>
+									<legend>Type of work</legend>
+									<p>Check all that apply.</p>
+								</fieldset>
+								<fieldset>
+									<legend>Utility Information</legend>
+									<p>If applicable</p>
+								</fieldset>
+								<fieldset>
+									<legend>Attachments</legend>
+									<small id="" class="">Required attachments include drawings of planned work, a map or layout showing affected Council property, and insurance certificates that comply with Exhibits A and B shown below</small>
+								</fieldset>
 							</form>
 						</section>
 					</div>

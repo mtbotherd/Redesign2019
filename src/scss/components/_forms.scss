@@ -6,6 +6,31 @@ fieldset {
 
 	legend {
 		font-weight: 700;
+
+		&.required {
+			position: relative;
+			@include font-size(16);
+			font-weight: normal;
+
+			@include media-breakpoint-up(lg) {
+				@include font-size(18);
+			}
+
+			&::after {
+				content: '*';
+				position: absolute;
+				top: 0;
+				left: 7rem;
+				@include font-size(43);
+				color: $red;
+				line-height: 1;
+
+				@include media-breakpoint-up(lg) {
+					left: 8rem;
+					@include font-size(47);
+				}
+			}
+		}
 	}
 }
 
@@ -35,6 +60,7 @@ fieldset {
 
 	.form-control,
 	.custom-select {
+		position: relative;
 		display: block;
 		height: 45px;
 		color: $gray-300;
@@ -55,11 +81,58 @@ fieldset {
 		width: 100%;
 		height: auto;
 	}
+}
+
+.input-group {
+	.form-control {
+		border-right: none;
+	}
+
+	> .custom-file {
+		height: 45px;
+
+		@include media-breakpoint-up(lg) {
+			height: 50px;
+		}
+
+		.custom-file-input {
+			height: 45px;
+
+			@include media-breakpoint-up(lg) {
+				height: 50px;
+			}
+		}
+
+		.custom-file-label {
+			@include media-breakpoint-up(lg) {
+				height: 50px;
+				@include font-size(23);
+
+				&::after {
+					height: 48px;
+				}
+			}
+		}
+	}
+
+	.has-addon {
+		width: 86%;
+
+		@include media-breakpoint-up(md) {
+			width: 93%;
+		}
+	}
 
 	.input-group-append {
 		.btn-primary {
 			background-color: $white;
 			border: none;
+
+			&:visited,
+			&:hover,
+			&:active {
+				background-color: $white;
+			}
 
 			.icon {
 				width: 1rem;
@@ -71,18 +144,13 @@ fieldset {
 				}
 			}
 		}
+
+		a[data-toggle='popover'] {
+			background-color: $white;
+			border: 1px solid $border-color;
+			border-left: none;
+		}
 	}
-
-	// .custom-file,
-	// input[type='file'] {
-	// 	height: 40px;
-
-	// 	@include media-breakpoint-up(lg) {
-	// 		height: 50px;
-	// 	}
-
-	// 	.custom-file-label {}
-	// }
 }
 
 .custom-control {

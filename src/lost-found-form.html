@@ -208,11 +208,45 @@
 
 				<div class=""> <!-- This class gets set in CMS -->
 					<div class="htmlmodule">
-						<section class="section">
-							<p class="denote-required">
-								<span class="required-symbol">*</span> = Required Field
-							</p>
+						<section class="section">							
+							<p>Complete the form below with information about where the item was lost, what the item looks like and how we can contact you.  Please include your email and phone number so that we can contact you if we locate your lost item.  A photo of the item will help us identify the item faster.  Items lost today on-board Metro Transit service, if recovered, will be available at Lost & Found the next business day. We will contact you if we find your item.</p>
 							<form>
+								<p class="denote-required">
+									<span class="required-symbol">*</span> = Required Field
+								</p>
+								<div class="form-group has-float-label required">
+									<input type="date" class="form-control" id="date" name="date" required />
+									<label for="date">Date item lost</label>
+								</div>
+								<div class="form-group has-float-label required">
+									<input type="text" class="form-control" id="route" name="route" placeholder="Route" />
+									<label for="route">Route</label>
+								</div>
+								<div class="input-group has-float-label required">
+									<textarea class="form-control" id="itemDescription" name="itemDescription" aria-describedby="descriptionHelpBlock" placeholder="Describe the item lost" required></textarea>
+									<label for="itemDescription">Description</label>
+									<div class="input-group-append">
+										<a tabindex="0" role="button" class="btn btn-primary" data-toggle="popover" title="Description" data-content="Please be as descriptive as possible, such as color, size, brand name etc.">
+											<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+										</a>
+									</div>
+								</div>
+								<div class="input-group">
+									<div class="custom-file">
+										<input
+										type="file"
+										id="itemPhoto"
+										class="custom-file-input"
+										name="itemPhoto"
+										aria-describedby="fileUploadHelpBlock" />
+										<label for="itemPhoto" class="custom-file-label">Add photo</label>
+									</div>
+									<div class="input-group-append">
+										<a tabindex="0" role="button" class="btn btn-primary" data-toggle="popover" title="Choose file" data-content="File type can be .jpg, .jpeg, .gif or .png. The maximum file size limit for .jpeg/.jpg files is 10mb. The maximum file size limit for .gif and .png is 4mb">
+											<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+										</a>
+									</div>
+								</div>
 								<div class="form-group has-float-label required">
 									<input type="text" class="form-control" id="name" name="name" placeholder="First &amp; last name" required />
 									<label for="name">Name</label>
@@ -221,38 +255,9 @@
 									<input type="email" class="form-control" id="email" name="email" placeholder="Email" required />
 									<label for="email">Email</label>
 								</div>
-								<div class="form-group has-float-label required">
-									<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required />
-									<label for="phone">Phone</label>
-								</div>
-								<div class="form-group has-float-label required">
-									<input type="text" class="form-control" id="route" name="route" placeholder="Route" />
-									<label for="route">Route</label>
-								</div>
-								<fieldset>
-									<legend class="sr-only">Date and time pickers</legend>
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group has-float-label required">
-												<input type="date" class="form-control" id="date" name="date" required />
-												<label for="date">Date</label>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group has-float-label required" style="max-width:355px;">
-												<input type="time" class="form-control" id="time" name="time" required />
-												<label for="time">Time</label>
-											</div>
-										</div>
-									</div>
-								</fieldset>
 								<div class="form-group has-float-label">
-									<input type="number" class="form-control" id="vehicleNumber" name="vehicleNumber" placeholder="Vehicle number" />
-									<label for ="vehicleNumber">Vehicle number</label>
-								</div>
-								<div class="form-group has-float-label requried">
-									<textarea class="form-control" id="itemDescription" name="itemDescription" placeholder="Describe the item lost" required></textarea>
-									<label for="itemDescription">Description</label>
+									<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" />
+									<label for="phone">Phone</label>
 								</div>
 								<fieldset>
 									<legend>Return by mail</legend>
@@ -261,7 +266,7 @@
 										<label for="mailItem" class="custom-control-label">Return item by mail</label>
 									</div>
 									<div id="mailingAddress" style="display: none;">
-										<p>Please provide your mailng address.</p>
+										<p>Please provide your mailng address to have the item mailed to you, if we are able to find it.</p>
 										<div class="form-group has-float-label required">
 											<input type="text" class="form-control" id="address" name="address" placeholder="Address" />
 											<label for="address">Address</label>
@@ -395,12 +400,14 @@
 	<script src="/js/jquery.js"></script>
 	<script src="/js/popper.js"></script>
 	<script src="/js/bootstrap.js"></script>
+	<script src="/js/date-input-polyfill.dist.js"></script>
+	<script src="/js/jquery.datetimepicker.js"></script>
 	<script src="/js/jquery.autocomplete.js"></script>
 	<!-- <script src="/js/jquery.validate.js"></script> -->
 	<!-- <script src="/js/additional-methods.js"></script> -->
 	<!-- <script src="/js/form-validation.js"></script> -->
 	<script src="https://js.arcgis.com/3.28/"></script>
-	<script src="/js/TRIM.js"></script>
+	<script src="/js/TRIM.js"></script>	
 	<script src="/js/scripts.js"></script>
 	<!-- End scripts -->
 	

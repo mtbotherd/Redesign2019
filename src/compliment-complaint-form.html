@@ -200,7 +200,7 @@
 					<div class="secondary">
 						<div class="container">
 							<div class="page-title">
-								<h1>Contact Us</h1>
+								<h1>Operator Compliment or Complaint</h1>
 							</div>
 						</div>
 					</div>
@@ -209,57 +209,82 @@
 				<div class=""> <!-- This class gets set in CMS -->
 					<div class="htmlmodule">
 						<section class="section">
-							<h2>Online forms</h2>
-							<h3><a href="/lost-found-form">Lost and found</a></h3>
-							<p>Use this form to report a lost item.</p>
-							<h3><a href="/compliment-complaint-form">Compliment or complaint</a></h3>
-							<p>Use this form to submit a complaint or compliment about a Metro Transit employee or transit service.</p>
-							<h3><a href="/issue-suggestions-form">Report an issue or submit a comment</a></h3>
-							<p>Use this form to report an issue or submit a comment about transit facilites or equipment.</p>
-							<h3><a href="/website-mobile-app-form">Website or Mobile App</a></h3>
-							<p>Use this form to report issues with our website or mobile app.</p>
-							<h3><a href="/transit-programs-form">Employer or organization transit programs</a></h3>
-							<p>Use this form to request information about employer or organization based reduced fare and commuter programs.</p>
-
-							<hr />
-							<h2>Phone</h2>
-							<h3>612-373-3333</h3>
-							<p>One number to reach all Metro Transit services.</p>
-							<h4>NexTrip</h4>
-							<p>NexTrip provides automated, real-time information 24 hours a day for trips departing in the next 20 minutes and scheduled times thereafter. You can also access it at <a href="/nextrip">metrotransit.org/nextrip</a>.</p>
-							<h4>Transit Information Center</h4>
-							<p>Speak with a transit expert about routes, schedules and fares. Open 6:30 a.m. to 9 p.m. weekdays and 8 a.m. to 4:30&nbsp;p.m. on weekends and holidays.&nbsp;Closed Thanksgiving Day and Christmas Day.</p>
-							<h4>Customer Relations</h4>
-							<p>Customer Relations staff are available to answer questions and take comments Monday through Friday&nbsp;from 8&nbsp;a.m. to 4:30 p.m.&nbsp;</p>
-							<h4>Lost &amp; Found</h4>
-							<p>Talk to a Customer Relations specialist&nbsp;to report items left on a bus or train.&nbsp;If staff locate the item, they will mail it to you or make arrangements for you to pick it up at Metro Transit (570 Sixth Avenue North, Minneapolis <a href="/Data/Sites/1/media/maps_schedules/LostAndFound_Map.pdf">see map</a>).</p>
-							<h4>Go-To Card balance</h4>
-							<p>Check your card's current balance or add value. You can also <a href="https://store.metrotransit.org">add value here</a>.</p>
-							<h4>By TTY</h4>
-							<p>711 –&nbsp;Minnesota Relay (hearing impaired)</p>
-
-							<hr />
-							<h2>Text</h2>
-							<h3>612-444-1161 | Text for Transit Information</h3>
-							<p>Text your general transit questions or trip planning requests to 612-444-1161, and a transit expert will get back to you within minutes with the answers.&nbsp;Available whenever the Transit Information Center is open:&nbsp;6:30 a.m. to 9 p.m. weekdays and 8 a.m. to 4:30&nbsp;p.m. on weekends and holidays.&nbsp;Closed Thanksgiving Day and Christmas Day.</p>
-							<h3>612-900-0411 | Text for Safety</h3>
-							<p>If you see something suspicious or inappropriate on a bus or&nbsp;train or at a transit station or stop, <a href="/textforsafety">Text for Safety</a>&nbsp;to silently report it to Metro Transit. Please include route, bus or train number, location and the issue. If you witness a crime or have an emergency, please call 9-1-1.</p>
-							<p>This service is also available via the <a href="/app">Metro Transit Mobile App</a>.</p>
-
-							<hr />
-							<h2>Metro Transit Police TipLine</h2>
-							<h3>612-349-7222</h3>
-							<p>If you witnessed a crime and you're able to provide details that could help police, please use this number to report the issue.</p>
-
-							<hr />
-							<h2>Mail</h2>
-							<p>Metro Transit<br />
-							560 Sixth Avenue North<br />
-							Minneapolis, MN 55411</p>
-
-							<hr />
-							<h2>Service Center</h2>
-							<p>Visit the&nbsp;<a href="/service-centers" title="Follow link to view Metro Transit Service Center addesses and additional info.">Metro Transit Service Center</a>&nbsp;in downtown Minneapolis or downtown St. Paul for trip planning assistance, to pick up printed schedules or to buy or add value to a Go-To Card.</p>	
+							<h2>Compliment or complaint about an operator form</h2>
+							<p class="denote-required">
+								<span class="required-symbol">*</span> = Required Field
+							</p>
+							<form>
+								<fieldset>
+									<legend class="sr-only">Date and time pickers</legend>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group has-float-label required">
+												<input type="date" class="form-control" id="date" name="date" date-format="mm/dd/yyyy" required />
+												<label for="date">Date of occurrence</label>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group has-float-label required" style="max-width:355px;">
+												<input type="time" class="form-control" id="time" name="time" required />
+												<label for="time">Scheduled departure time</label>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<div class="form-group has-float-label required">
+									<input type="text" class="form-control" id="route" name="route" placeholder="Route" />
+									<label for="route">Route</label>
+								</div>
+								<div class="input-group has-float-label required">
+									<input type="text" class="form-control" id="location" name="location" aria-describedby="locationHelpBlock" placeholder="Location" />
+									<label for="location">Location</label>
+									<div class="input-group-append">
+										<a tabindex="0" role="button" id="locationHelpBlock" class="btn btn-primary" data-toggle="popover" title="Location" data-content="Include stop ID, station name or intersection.">
+											<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+										</a>
+									</div>
+								</div>
+								<div class="form-group has-float-label required">
+									<input type="text" class="form-control has-info" id="travelDirection" name="travelDirection" placeholder="Direction of travel" required />
+									<label for="travelDirection">Direction of travel</label>
+								</div>
+								<div class="alert alert-info">
+									<h3>Note:</h3>
+									<p class="mb-0">Operator’s name or the vehicle number is needed in order to ensure the person receives the compliment or we are able to investigate the complaint.</p>
+								</div>
+								<div class="form-group has-float-label">
+									<input type="number" class="form-control" id="vehicleNumber" name="vehicleNumber" placeholder="Vehicle number" />
+									<label for ="vehicleNumber">Vehicle number (if known)</label>
+								</div>
+								<div class="form-group has-float-label">
+									<input type="text" class="form-control" id="operatorName" name="operatorName" placeholder="Operators name" />
+									<label for="operatorName">Operators name (if known)</label>
+								</div>
+								<div class="form-group has-float-label">
+									<input type="text" class="form-control" id="employeeID" name="employeeID" placeholder="Operators employee ID" />
+									<label for="employeeID">Operators employee ID (if known)</label>
+								</div>
+								<div class="form-group has-float-label">
+									<textarea class="form-control" id="comment" name="comment" placeholder="Comments"></textarea>
+									<label for="comment">Comments</label>
+								</div>
+								<div class="form-group has-float-label required">
+									<input type="text" class="form-control" id="name" name="name" placeholder="First &amp; last name" required />
+									<label for="name">Name</label>
+								</div>
+								<div class="form-group has-float-label required">
+									<input type="email" class="form-control" id="email" name="email" placeholder="Email" required />
+									<label for="email">Email</label>
+								</div>
+								<div class="form-group has-float-label">
+									<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" />
+									<label for="phone">Phone</label>
+								</div>
+								<hr />
+								<div class="ml-auto text-center">
+									<button type="submit" class="btn btn-warning">Submit</button>
+								</div>
+							</form>
 						</section>
 					</div>
 				</div>
@@ -363,10 +388,12 @@
 	<!-- End Footer -->
 
 	<!-- scripts -->
-	<script src="/js/detect-ie.js"></script>
 	<script src="/js/jquery.js"></script>
 	<script src="/js/popper.js"></script>
 	<script src="/js/bootstrap.js"></script>
+	<script src="/js/time-input-polyfill.auto.min.js"></script>
+	<script src="/js/date-input-polyfill.dist.js"></script>
+	<script src="/js/jquery.datetimepicker.js"></script>
 	<script src="/js/jquery.autocomplete.js"></script>
 	<!-- <script src="/js/jquery.validate.js"></script> -->
 	<!-- <script src="/js/additional-methods.js"></script> -->

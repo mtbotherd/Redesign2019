@@ -668,11 +668,11 @@
 																<div id="fromErrorMessage" class="is-invalid d-none">
 																	<span>Begin typing, then select an option from the list.</span>
 																</div>
-																<div class="form-group has-float-label mb-0 mb-lg-3 d-flex">
+																<div class="input-group has-float-label mb-0 mb-lg-3">
 																	<input
 																		id="fromLocation"
 																		type="text"
-																		class="form-control from-location"
+																		class="form-control from-location has-addon border"
 																		name="fromLocation"
 																		aria-label="trip planner from location"
 																		aria-expanded="false"
@@ -685,13 +685,13 @@
 																	<label for="fromLocation">From</label>
 																	<span class="sr-only">Enter an address, intersection or landmark.</span>
 																	<div class="input-group-append">
-																		<button type="button" class="btn btn-primary location-toggler">
+																		<a tabindex="0" role="button" class="btn btn-primary location-toggler">
 																			<img
 																				alt="Up arrow and down arrow side by side."
 																				class="icon location-switcher-blue"
 																				src="/img/svg/location-switcher-blue.svg" />
 																			<span class="sr-only">Pressing this button will swap the to and from locations.</span>
-																		</button>
+																		</a>
 																		<span id="fromLocationInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
 																	</div>
 																</div>
