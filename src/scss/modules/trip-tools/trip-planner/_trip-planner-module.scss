@@ -1,7 +1,9 @@
 #tripPlannerModule {
 	.form-group {
 		width: 100%;
+	}
 
+	.input-group {
 		.input-group-append {
 			margin-left: 4px;
 		}
@@ -90,7 +92,11 @@
 	}
 
 	#tpUseCurrentLoc {
-		padding-right: 2.75rem;
+		padding-right: 3rem;
+
+		@include media-breakpoint-up(md) {
+			padding-right: 3.5rem;
+		}
 
 		@include media-breakpoint-up(lg) {
 			visibility: hidden;
