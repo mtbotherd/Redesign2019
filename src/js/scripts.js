@@ -115,14 +115,10 @@ var Main = (function($, window, document, undefined) {
 				.appendTo($('a.store-icon'));
 		}
 
-		// Bootstrap Popover with HTML
-		$('[data-toggle="popover"]').popover({
-			html: true,
-			trigger: 'click',
-		});
+		// Initialize Bootstrap Popover
+		$('[data-toggle="popover"]').popover();
 
 		$('#header img.active').hide();
-
 		var navImg = $('#header .nav-item');
 		$(navImg).hover(
 			function() {
