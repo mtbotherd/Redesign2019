@@ -116,7 +116,9 @@ var Main = (function($, window, document, undefined) {
 		}
 
 		// Initialize Bootstrap Popover
-		$('[data-toggle="popover"]').popover();
+		$('[data-toggle="popover"]').popover({
+			trigger: 'focus',
+		});
 
 		$('#header img.active').hide();
 		var navImg = $('#header .nav-item');
