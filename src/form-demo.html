@@ -209,148 +209,155 @@
 				<div class=""> <!-- This class gets set in CMS -->
 					<div class="htmlmodule">
 						<section class="section">
-
 							<form>
 								<fieldset>
-									<legend>To and from location</legend>
-									<div id="fromErrorMessage" class="is-invalid d-none">
-										<span>Begin typing, then select an option from the list.</span>
-									</div>
-									<div class="form-group has-float-label mb-0 mb-lg-3 d-flex">
+									<legend>Supported HTML5 form elements</legend>
+									<div class="input-group has-float-label required">
 										<input
-											id="fromLocation"
 											type="text"
-											class="form-control from-location"
-											name="fromLocation"
-											aria-label="trip planner from location"
-											aria-expanded="false"
-											aria-autocomplete="list"
-											aria-describedby="fromLocationInstr"
-											aria-owns="fromLocationSuggestions"
-											role="combobox"
-											onFocus="this.select()"
-											placeholder="Address, intersection or landmark" />
-										<label for="fromLocation">From</label>
-										<span class="sr-only">Enter an address, intersection or landmark.</span>
+											class="form-control"
+											id="textField"
+											name="textField"
+											aria-describedby="textHelpBlock"
+											placeholder="Enter some text"
+											required />
+										<label for="textField">Text</label>
 										<div class="input-group-append">
-											<button type="button" class="btn btn-primary location-toggler">
-												<img
-													alt="Up arrow and down arrow side by side."
-													class="icon location-switcher-blue"
-													src="/img/svg/location-switcher-blue.svg" />
-												<span class="sr-only">Pressing this button will swap the to and from locations.</span>
-											</button>
-											<span id="fromLocationInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
+											<a tabindex="0" role="button" id="textHelpBlock" class="btn btn-primary" data-toggle="popover" title="Text" data-content="Accepts all characters.">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
 										</div>
 									</div>
-									<div class="text-right mt-2 mb-2 d-lg-none">
-										<span id="tpUseCurrentLoc">
-											<a href="#">Use current  location&nbsp;<img alt="" src="/img/svg/pin-blue.svg"/></a>
-										</span>
-									</div>
-									<div id="toErrorMessage" class="is-invalid d-none">
-										<span>Begin typing, then select an option from the list.</span>
-									</div>
-									<div class="form-group has-float-label">
-										<input
-											id="toLocation"
-											type="text"
-											name="toLocation"
-											class="form-control to-location"
-											area-label="trip planner to location"
-											aria-expanded="false"
-											aria-autocomplete="list"
-											aria-describedby="toLocationInstr"
-											aria-owns="toLocationSuggestions"
-											role="combobox"
-											onFocus="this.select()"
-											placeholder="Address, intersection or landmark" />
-										<label for="toLocation">To</label>
-										<span id="toLocationInstr" class="sr-only" style="display: none;">You can enter an address, intersection or landmark. When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
-									</div>
-								</fieldset>
-								<fieldset>
-									<legend>Floating labels example</legend>
-									<div class="form-group has-float-label required">
-										<input
-											type="text"
-											id="textField"
-											class="form-control"
-											name="textField"
-											placeholder="Enter some text"
-											required/>
-										<label for="textField">Text</label>
-									</div>
-									<div class="form-group has-float-label">
+									<div class="input-group has-float-label required">
 										<input
 											type="number"
-											id="numberField"
 											class="form-control"
+											id="numberField"
 											name="numberField"
-											placeholder="Enter a number"/>
+											aria-describedby="numberHelpBlock"
+											placeholder="Enter a number"
+											required />
 										<label for="numberField">Number</label>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" id="numberHelpBlock" class="btn btn-primary" data-toggle="popover" title="Text" data-content="Accepts +/- numbers only.">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
+										</div>
 									</div>
-									<div class="form-group has-float-label">
+									<div class="input-group has-float-label required">
 										<input
 											type="email"
-											id="emailField"
 											class="form-control"
+											id="emailField"
 											name="emailField"
-											placeholder="Enter an email address"/>
+											aria-describedby="emailHelpBlock"
+											placeholder="Enter a valid email address"
+											required />
 										<label for="emailField">Email</label>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" id="emailHelpBlock" class="btn btn-primary" data-toggle="popover" title="Text" data-content="The email address must contain the '@' symbol and must be a valid email address.">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
+										</div>
 									</div>
-									<div class="form-group has-float-label">
+									<div class="input-group has-float-label required">
 										<input
 											type="password"
+											class="form-control"
 											id="passwordField"
-											class="form-control"
 											name="passwordField"
-											placeholder="Enter a password"/>
+											aria-describedby="passwordHelpBlock"
+											placeholder="Enter a password"
+											required />
 										<label for="passwordField">Password</label>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" id="passwordHelpBlock" class="btn btn-primary" data-toggle="popover" title="Password" data-content="Insert password help instructions here.">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
+										</div>
 									</div>
-									<div class="form-group has-float-label">
-										<input
-											type="date"
-											id="dateField"
-											class="form-control"
-											name="dateField"
-											onclick="(this.type='date')">
-										<label for="dateField">Date</label>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="input-group has-float-label required">
+												<input
+													type="date"
+													class="form-control"
+													id="dateField"
+													name="dateField"
+													aria-describedby="dateHelpBlock"
+													placeholder="mm/dd/yyyy"
+													required />
+												<label for="dateField">Date</label>
+												<div class="input-group-append">
+													<a tabindex="0" role="button" id="dateHelpBlock" class="btn btn-primary" data-toggle="popover" title="Date" data-content="Insert date help instructions here.">
+														<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="input-group has-float-label required">
+												<input
+													type="time"
+													class="form-control"
+													id="timeField"
+													name="timeField"
+													aria-describedby="timeHelpBlock" 
+													required />
+												<label for="timeField">Time</label>
+												<div class="input-group-append">
+													<a tabindex="0" role="button" id="timeHelpBlock" class="btn btn-primary" data-toggle="popover" title="Time" data-content="Insert time help instructions here.">
+														<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+													</a>
+												</div>
+											</div>
+										</div>
 									</div>
-									<div class="form-group has-float-label">
-										<input
-											type="time"
-											id="timeField"
-											class="form-control"
-											name="timeField"
-											onclick="(this.type='time')" placeholder="hh:mm"/>
-										<label for="timeField">Time</label>
-									</div>
-									<div class="form-group has-float-label">
+									<div class="input-group has-float-label required">
 										<input
 											type="url"
-											id="urlField"
 											class="form-control"
+											id="urlField"
 											name="urlField"
-											placeholder="Enter a valid url"/>
+											aria-describedby="urlHelpBlock"
+											placeholder="Enter a valid url"
+											required />
 										<label for="urlField">URL</label>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" id="urlHelpBlock" class="btn btn-primary" data-toggle="popover" title="URL" data-content="Insert URL help instructions here.">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
+										</div>
 									</div>
-									<div class="form-group">
-										<select id="selectField" class="form-control custom-select" name="selectField" onclick="this.setAttribute('value', this.value);" value="">
+									<div class="input-group required">
+										<select 
+											class="form-control custom-select"
+											id="selectField"
+											name="selectField"
+											aria-describedby="selectHelpBlock"
+											value=""
+											required>
 											<option value="" selected>Select...</option>
 											<option value="1">One</option>
 											<option value="2">Two</option>
 											<option value="3">Three</option>
 										</select>
 										<label for="selectField" class="sr-only">Select</label>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" id="selectHelpBlock" class="btn btn-primary" data-toggle="popover" title="Select" data-content="Insert select help instructions here.">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
+										</div>
 									</div>
-									<div class="form-group">
+									<div class="input-group required">
 										<select
-											id="selectMultipleField"
 											class="form-control"
+											id="selectMultipleField"
 											name="selectMultipleField"
 											size="3"
-											multiple>
+											aria-describedby="selectMultipleHelpBlock"
+											multiple
+											required>
 											<option value="">Select one or more</option>
 											<option value="1">One</option>
 											<option value="2">Two</option>
@@ -359,104 +366,118 @@
 											<option value="5">Five</option>
 										</select>
 										<label for="selectMultipleField" class="sr-only">Select multiple</label>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" id="selectMultipleHelpBlock" class="btn btn-primary" data-toggle="popover" title="Select one or more" data-content="Insert select multiple help instructions here.">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
+										</div>
 									</div>
-									<div class="form-group has-float-label">
+									<div class="input-group has-float-label required">
 										<textarea
-											id="textareaField"
 											class="form-control"
+											id="textareaField"
 											name="textareaField"
 											rows="3"
-											placeholder="Enter message here"></textarea>
+											aria-describedby="textareaHelpBlock"
+											placeholder="Enter message here"
+											required></textarea>
 										<label for="textareaField">Textarea</label>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" id="textareaHelpBlock" class="btn btn-primary" data-toggle="popover" title="Textarea" data-content="Insert textarea help instructions here.">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
+										</div>
 									</div>
-									<!-- <div class="form-group has-float-label">
+									<div class="input-group required">
 										<div class="custom-file">
 											<input
 											type="file"
-											id="fileUploadField"
-											class="form-control custom-file-input"
-											name="fileUploadField"/>
-											<label for="fileUploadField" class="custom-file-label">Choose file</label>
+											id="fileUplaod"
+											class="custom-file-input"
+											name="fileUplaod"
+											aria-describedby="fileUploadHelpBlock"
+											placeholder="Add file"
+											required />
+											<label for="fileUplaod" class="custom-file-label">File upload</label>
+										</div>
+										<div class="input-group-append">
+											<a tabindex="0" role="button" class="btn btn-primary" id="fileUploadHelpBlock" data-toggle="popover" title="File upload" data-content="File type can be .jpg, .jpeg, .gif, .png or .pdf.<ul><li>The maximum file size limit for .jpeg/.jpg files is 10mb.</li><li>The maximum file size limit for .gif and .png is 4mb</li">
+												<img alt="" class="icon gray-circle-info" src="/img/svg/gray-circle-info.svg">
+											</a>
 										</div>
 									</div>
-									<div class="form-group	">
-										<div class="form-check">
-											<input
-											type="checkbox"
-											id="checkboxSingle"
-											class="form-check-input"
-											name="checkboxSingle"
-											/>
-											<label class="form-check-label" for="checkbox">Checkbox</label>
+									<div class="row">
+										<div class="col-md-6">
+											<fieldset>
+												<legend>Checkbox group</legend>
+												<div class="form-group">
+													<div class="custom-control custom-checkbox">
+														<input
+															type="checkbox"
+															class="custom-control-input"
+															id="checkboxGroup1"
+															name="checkboxGroup"/>
+														<label class="custom-control-label" for="checkboxGroup1">Checkbox</label>
+													</div>
+													<div class="custom-control custom-checkbox">
+														<input
+															type="checkbox"
+															class="custom-control-input"
+															id="checkboxGroup2"
+															name="checkboxGroup"/>
+														<label class="custom-control-label" for="checkboxGroup2">Checkbox</label>
+													</div>
+													<div class="custom-control custom-checkbox">
+														<input
+															type="checkbox"
+															class="custom-control-input"
+															id="checkboxGroup3"
+															name="checkboxGroup"/>
+														<label class="custom-control-label" for="checkboxGroup3">Checkbox</label>
+													</div>
+												</div>
+											</fieldset>
 										</div>
-									</div> -->
-								<fieldset>
-									<legend>Checkbox group</legend>
-									<div class="form-group">
-										<div class="custom-control custom-checkbox">
-											<input
-												type="checkbox"
-												id="checkboxGroup1"
-												class="custom-control-input"
-												name="checkboxGroup"/>
-											<label class="custom-control-label" for="checkboxGroup1">Checkbox</label>
-										</div>
-										<div class="custom-control custom-checkbox">
-											<input
-												type="checkbox"
-												id="checkboxGroup2"
-												class="custom-control-input"
-												name="checkboxGroup"/>
-											<label class="custom-control-label" for="checkboxGroup2">Checkbox</label>
-										</div>
-										<div class="custom-control custom-checkbox">
-											<input
-												type="checkbox"
-												id="checkboxGroup3"
-												class="custom-control-input"
-												name="checkboxGroup"/>
-											<label class="custom-control-label" for="checkboxGroup3">Checkbox</label>
+										<div class="col-md-6">
+											<fieldset>
+												<legend>Radio group</legend>
+												<div class="form-group">
+													<div class="custom-control custom-radio">
+														<input
+															type="radio"
+															class="custom-control-input"
+															id="radioGroup1"
+															name="radioGroup"/>
+														<label class="custom-control-label" for="radioGroup1">Radio 1</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input
+															type="radio"
+															class="custom-control-input"
+															id="radioGroup2"
+															name="radioGroup"/>
+														<label class="custom-control-label" for="radioGroup2">Radio 2</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input
+															type="radio"
+															class="custom-control-input"
+															id="radioGroup3"
+															name="radioGroup"/>
+														<label class="custom-control-label" for="radioGroup3">Radio 3</label>
+													</div>
+												</div>
+											</fieldset>
 										</div>
 									</div>
 								</fieldset>
-								<!-- <fieldset>
-									<legend>Radio group</legend>
-									<div class="form-group has-float-label">
-										<div class="form-check">
-											<input
-												type="radio"
-												id="radioGroup1"
-												class="form-check-input"
-												name="radioGroup"/>
-											<label class="form-check-label" for="radioGroup1">Radio 1</label>
-										</div>
-										<div class="form-check">
-											<input
-												type="radio"
-												id="radioGroup2"
-												class="form-check-input"
-												name="radioGroup"/>
-											<label class="form-check-label" for="radioGroup2">Radio 2</label>
-										</div>
-										<div class="form-check">
-											<input
-												type="radio"
-												id="radioGroup3"
-												class="form-check-input"
-												name="radioGroup"/>
-											<label class="form-check-label" for="radioGroup3">Radio 3</label>
-										</div>
-									</div>
-								</fieldset> -->
 								<hr />
-								<div class="text-center">
-									<button
-									type="submit"
-									class="btn btn-warning"
-									name="form2Submit"
-									value="Submit form">
-										Submit
-									</button>
+								<div class="custom-control custom-checkbox text-center ml-auto mb-4">
+									<input type="checkbox" class="custom-control-input" id="ccUser" name="ccUser" />
+									<label for="ccUser" class="custom-control-label">Please copy me on this emial</label>
+								</div>
+								<div class="ml-auto text-center">
+									<button type="submit" class="btn btn-warning">Submit</button>
 								</div>
 							</form>
 							
