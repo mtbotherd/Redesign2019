@@ -88,30 +88,17 @@ var bbsMap = (function($, window, document) {
 	//@@@@@@@@@@@@@@@@@@@@
 	//@@@@@@@@@@@@@@@@@@@@
 	var init = function(mapElementID) {
-		var nexTrip_INTERVAL = null;
-
 		return $.Deferred(function(dfd) {
-			// mapType property on the <div>
-			var pType = document
-				.getElementById(mapElementID)
-				.getAttribute('maptype');
-			var mapType = pType !== null ? pType : 'full';
-			//console.log(mapElementID + " functionality is " + mapType);
-
 			require([
 				'esri/map',
 				'esri/basemaps',
-				'esri/config',
-				'esri/graphic',
 				'esri/Color',
 				'esri/SpatialReference',
 				'esri/geometry/Extent',
-				'esri/geometry/Point',
 				'esri/layers/ArcGISDynamicMapServiceLayer',
 				'esri/layers/FeatureLayer',
 				'esri/tasks/query',
 				'esri/tasks/QueryTask',
-				'esri/symbols/PictureMarkerSymbol',
 				'esri/symbols/SimpleMarkerSymbol',
 				'esri/dijit/Scalebar',
 				'esri/dijit/Legend',
@@ -120,124 +107,12 @@ var bbsMap = (function($, window, document) {
 				'esri/dijit/LocateButton',
 				'dojo/on',
 				'dojo/domReady!',
-			], function(Map, esriBasemaps, esriConfig, Graphic, Color, SpatialReference, 
-				Extent, Point, ArcGISDynamicMapServiceLayer, FeatureLayer, Query, QueryTask,
-				PictureMarkerSymbol, SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton, on) {
-				var ROUTENAMES = null;
-
-				var idMap = function(evt) {
-					var showLocation = function(results2) {
-						var title =
-							'Map Click<hr/>' +
-							'Location found: <br/>' +
-							results2.address.address.Street +
-							'<br/>';
-
-						//$(".esriPopupMobile .sizer").css("height", "90px");
-						//$(".esriPopupMobile .titlePane").css("height", "90px");
-						MAP.infoWindow.setTitle(title);
-
-						var rsltScrPnt = MAP.toScreen(
-							results2.address.location
-						);
-						var num = MAP.height / 2;
-						var infoWindowOrigin;
-						var toppx = 0;
-						if (MAP.height / 2 < rsltScrPnt.y) {
-							//if click in the bottom half of the screen, change the click point by 50 pixels.
-							var curPoint = MAP.toScreen(
-								results2.address.location
-							);
-
-							curPoint.y = curPoint.y - 50;
-							infoWindowOrigin = curPoint;
-							//console.log("Click Y after adjustment1: " + curPoint.y);
-							if (
-								curPoint.y + 50 > MAP.height / 2 &&
-								MAP.height / 2 > curPoint.y
-							) {
-								//console.log("clicked in bottom half of map window, but adjustment moves it to top half");
-								//css top is supposed to be 104 pixels above (negative actually so less than, numerically) the map click, we're making the popup 50 pixels wider
-								toppx = curPoint.y - 54;
-								curPoint.y = curPoint.y + 50;
-								infoWindowOrigin = curPoint;
-							}
-						} else {
-							infoWindowOrigin = MAP.toScreen(
-								results2.address.location
-							);
-						}
-						MAP.infoWindow.show(MAP.toMap(infoWindowOrigin));
-						//if (toppx > 0) {
-						//    $(".esriPopupMobile").css("top", toppx + "px");
-						///}
-					};
-					var query = new Query();
-					var queryTask = new QueryTask(
-						'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer/7'
-					);
-					var pixelWidth = MAP.extent.getWidth() / MAP.width;
-					var toleraceInMapCoords = 20 * pixelWidth;
-					query.returnGeometry = true;
-					query.spatialRelationship = Query.SPATIAL_REL_INTERSECTS;
-					query.where = '1=1';
-					query.outFields = [
-						'site_id',
-						'location',
-						'corn_desc',
-						'NewShelter',
-						'ReplacementShelter',
-						'RemoveShelter',
-						'AddLight',
-						'AddHeat',
-						'SolarLight',
-						'AddPad'
-					];
-					query.geometry = new Extent(
-						evt.mapPoint.x - toleraceInMapCoords,
-						evt.mapPoint.y - toleraceInMapCoords,
-						evt.mapPoint.x + toleraceInMapCoords,
-						evt.mapPoint.y + toleraceInMapCoords,
-						MAP.spatialReference
-					);
-
-					MAP.infoWindow.hide();
-					MAP.getLayer('stops').clear();
-					queryTask.execute(query);
-					queryTask.on('error', function(err) {
-						console.warn('Bus Stop Query Error: ' + err);
-					});
-					queryTask.on('complete', function(fSet) {
-						if (fSet.featureSet.features.length === 0) {
-							//if there are no features, do a generic reverse geocode.
-							//locateAddress();
-						} else {
-							//console.log("Bus Stop Query Complete. There are " + fSet.featureSet.features.length + " features");
-							var feature = fSet.featureSet.features[0];
-
-							var atts = feature.attributes;
-							MAP.infoWindow.setTitle(
-								'Stop Number: ' + atts.site_id
-							);
-							MAP.infoWindow.setContent('Some content');
-
-							MAP.infoWindow.show(
-								evt.screenPoint,
-								MAP.getInfoWindowAnchor(evt.screenPoint)
-							);
-
-							if (evt.screenX > 760) {
-								MAP.centerAt(evt.mapPoint);
-							}
-						}
-					});
-				};
+			], function(Map, esriBasemaps, Color, SpatialReference, 
+				Extent, ArcGISDynamicMapServiceLayer, FeatureLayer, Query, QueryTask,
+				SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton, on) {
 				//===================================================================================
 				//  START OF MAP INITIALIZATION =====================================================
 				//===================================================================================
-
-				//esriConfig.defaults.map.panRate = 1;
-				//esriConfig.defaults.map.panDuration = 1;
 				const spatialRefWM = new SpatialReference({ wkid: 3857 });
 				const initExtent = new Extent({
 					xmin: -10385405,
@@ -246,14 +121,6 @@ var bbsMap = (function($, window, document) {
 					ymax: 5619877,
 					spatialReference: spatialRefWM,
 				});
-				//try {
-				//console.log("Cookie: " + cookie("map.Extent"));
-				//var extObj = dojo.fromJson(cookie("map.Extent"));
-				//var cookieExtent = new Extent(extObj);
-				//}
-				//catch (e) {
-				//    console.warn(e);
-				//}
 				var popUpDiv = document.createElement('div');
 				var mapPopup = new Popup(
 					{
@@ -263,6 +130,7 @@ var bbsMap = (function($, window, document) {
 						anchor: 'auto',
 						pagingControls: false,
 						pagingInfo: false,
+						titleInBody: false,
 						markerSymbol: new SimpleMarkerSymbol(
 							'circle',
 							32,
@@ -286,11 +154,6 @@ var bbsMap = (function($, window, document) {
 				};
 				esriBasemaps.transitVector = {
 					title: 'TransitVector',
-					// First version of the basemap with some extra parking lots and labels
-					//baseMapLayers: [{ url: "https://metrocouncil.maps.arcgis.com/sharing/rest/content/items/8cbdf505cd3f4dc39c4e5da6f5b49d95/resources/styles/root.json", type: "VectorTile" }]
-					//baseMapLayers: [{url:"/js/basemapStylev1.json", type: "VectorTile"}]                    };
-					// 2nd version of the basemap
-					//baseMapLayers: [{ url: "https://metrocouncil.maps.arcgis.com/sharing/rest/content/items/5c2ea8c24d7a46ed8c61cd058219504f/resources/styles/root.json", type: "VectorTile" }]
 					baseMapLayers: [
 						{ url: '/js/basemapStylev3.json', type: 'VectorTile' },
 					],
@@ -338,7 +201,7 @@ var bbsMap = (function($, window, document) {
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
 					{
 						id: 'shelters',
-						opacity: 1,
+						opacity: 0.6,
 					}
 				);
 				sheltersLayer.setImageFormat('svg');
@@ -366,9 +229,21 @@ var bbsMap = (function($, window, document) {
 
 				// this feature layer is visible but transparent and overlays all the new and proposed existing changes
 				// =========================================================
-				 var template = new PopupTemplate();
-				 template.setTitle("Stop Number: ${site_id}");
-				 template.setContent('This is the content');
+				var template = new PopupTemplate();
+				template.setTitle('Stop Number: ${site_id}');
+				template.setContent(function (graphic) {
+					//console.dir(graphic);
+					var a = graphic.attributes;
+					var content = '<strong>'+ a.location +'</strong><br/>';
+					if (a.New) { content += '<strong>&mdash;</strong> Adding a new shelter in ' + a.New + '<br/>';}
+					if (a.Replacement) { content += '<strong>&mdash;</strong> Replacing shelter in ' + a.Replacement + '<br/>';}
+					if (a.Remove) { content += '<strong>&mdash;</strong> Removing shelter in ' + a.Remove + '<br/>';}
+					if (a.AddLight) { content += '<strong>&mdash;</strong> Adding lights in ' + a.AddLight + '<br/>';}
+					if (a.SolarLight) { content += '<strong>&mdash;</strong> Adding solar lighting in ' + a.SolarLight + '<br/>';}
+					if (a.AddHeat) { content += '<strong>&mdash;</strong> Adding heat in ' + a.AddHeat + '<br/>';}
+					if (a.AddPad) { content += '<strong>&mdash;</strong> Adding a boarding pad in ' + a.AddPad + '<br/>';}
+					return content;
+				});
 				// =========================================================
 				 var refFeatureLayer = new FeatureLayer(
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer/7', {
@@ -388,24 +263,11 @@ var bbsMap = (function($, window, document) {
 				on(refFeatureLayer, "mouse-out", function () {
 					MAP.setMapCursor("default");
 				});
-				on(refFeatureLayer, "click", function (evt) {
-					//console.dir(evt);
-				});
-				// var allChangesLayer = new ArcGISDynamicMapServiceLayer(
-				// 	'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
-				// 	{
-				// 		id: 'allChanges',
-				// 		opacity: 0,  
-				// 	}
-				// );
-				// allChangesLayer.setImageFormat('svg');
-				// allChangesLayer.setVisibleLayers([7]);
 
 				var mapLayers = [
 						sheltersLayer,
 						newSheltersLayer,
 						improvementsLayer,
-						//allChangesLayer
 						refFeatureLayer
 					];
 				MAP.addLayers(mapLayers);
@@ -430,7 +292,6 @@ var bbsMap = (function($, window, document) {
 						scalebarUnit: 'english',
 					});
 					var layerInfo = [
-						//{layer: refFeatureLayer, title: ""},
 						{layer: sheltersLayer, title: " "},
 						{layer: newSheltersLayer, title: " "},
 						{layer: improvementsLayer, title: " "}
@@ -442,18 +303,32 @@ var bbsMap = (function($, window, document) {
 					mapLegend.startup();
 
 					MAP.disableScrollWheel();
-					//$('#trimPopUp').show();
-					//MAP.infoWindow.setContent($('#trimPopUp')[0]);
+
+					// Add a list of text descriptions of the better bus stop improvements
+					// These are hidden for the screen reader
+					var query = new Query();
+					var queryTask = new QueryTask('https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer/7');
+					query.returnGeometry = false;
+					query.where = '1=1'; // fetch all features
+					query.orderByFields=['site_id'];
+					query.outFields = ['TextDescription'];
+					queryTask.execute(query);
+					queryTask.on('error', function(err) {
+						console.warn('Improvements Query Error: ' + err);
+					});
+					queryTask.on('complete', function(fSet) {
+						console.log("TextDescription Query Complete. There are " + fSet.featureSet.features.length + " features");
+						fSet.featureSet.features.forEach(function (feature, idx) {
+							$('.bbsTextDescriptions').append('<div>'+feature.attributes.TextDescription+'</div>');
+						});
+					});
+					
 				});
 			});
 		}).promise();
 	};
 	return {
 		centerMarkerAtPoint: centerMarkerAtPoint,
-		//drawTrip: drawTrip,
-		//drawRouteStops: drawRouteStops,
-		//drawRoutes: drawRoutes,
-		//geoLocate: geoLocate,
 		toggleLayer: toggleLayer,
 		init: init,
 	};
