@@ -38,7 +38,8 @@
 						padding-left: 1rem;
 
 						@include media-breakpoint-up(xl) {
-							padding: 1.3rem;
+							//padding: 1.3rem;
+							padding: 1.3rem 1rem;
 						}
 					}
 
@@ -58,15 +59,32 @@
 						}
 					}
 
+					&.goto-icon:hover::before {
+						@include media-breakpoint-up(xl) {
+							display: block;
+							content: '';
+							background-image: url('../../../../../img/svg/goto-icon-white.svg');
+							background-repeat: no-repeat;
+							background-size: 1.6875rem;
+							width: 1.6875rem;
+							height: 1.6875rem;
+							@include media-breakpoint-up(xl) {
+								background-size: 2.25rem;
+								width: 2.25rem;
+								height: 2.25rem;
+							}
+						}
+					}
+
 					&.store-icon:hover::before {
 						@include media-breakpoint-up(xl) {
 							display: block;
 							content: '';
 							background-image: url('../../../../../img/svg/shopping-cart-white.svg');
 							background-repeat: no-repeat;
-							background-size: 1.5rem;
-							width: 1.5rem;
-							height: 1.5rem;
+							background-size: 1.6875rem;
+							width: 1.6875rem;
+							height: 1.6875rem;
 						}
 					}
 				}
@@ -92,9 +110,9 @@
 							content: '';
 							background-image: url('../../../../../img/svg/search-white.svg');
 							background-repeat: no-repeat;
-							background-size: 1.5rem;
-							width: 1.5rem;
-							height: 1.5rem;
+							background-size: 1.6875rem;
+							width: 1.6875rem;
+							height: 1.6875rem;
 						}
 					}
 
@@ -105,9 +123,9 @@
 								content: '';
 								background-image: url('../../../../../img/svg/avatar-gray.svg');
 								background-repeat: no-repeat;
-								background-size: 1.5rem;
-								width: 1.5rem;
-								height: 1.5rem;
+								background-size: 1.6875rem;
+								width: 1.6875rem;
+								height: 1.6875rem;
 							}
 						}
 
@@ -117,9 +135,9 @@
 								content: '';
 								background-image: url('../../../../../img/svg/avatar-white.svg');
 								background-repeat: no-repeat;
-								background-size: 1.5rem;
-								width: 1.5rem;
-								height: 1.5rem;
+								background-size: 1.6875rem;
+								width: 1.6875rem;
+								height: 1.6875rem;
 							}
 						}
 					}
@@ -188,22 +206,56 @@
 			}
 
 			.nav-item {
-				.store-icon:focus::before {
+				.goto-icon:focus::before {
+					display: block;
+					content: '';
+					background-image: url('../../../../../img/svg/goto-card-white.svg');
+					background-repeat: no-repeat;
+					background-size: 1.6875rem;
+					width: 1.6875rem;
+					height: 1.6875rem;
 					@include media-breakpoint-up(xl) {
-						display: block;
-						content: '';
-						background-image: url('../../../../../img/svg/shopping-cart-white.svg');
-						background-repeat: no-repeat;
-						background-size: 1.5rem;
-						width: 1.5rem;
-						height: 1.5rem;
+						background-size: 2.25rem;
+						width: 2.25rem;
+						height: 2.25rem;
 					}
+				}
+
+				.store-icon:focus::before {
+					display: block;
+					content: '';
+					background-image: url('../../../../../img/svg/shopping-cart-white.svg');
+					background-repeat: no-repeat;
+					background-size: 1.6875rem;
+					width: 1.6875rem;
+					height: 1.6875rem;
 				}
 
 				.nav-link {
 					&:link {
 						@include media-breakpoint-up(xl) {
-							padding: 1.4rem;
+							padding: 1.3rem 1.4rem;
+						}
+					}
+
+					&.goto-icon {
+						@include media-breakpoint-up(xl) {
+							padding: 1.0157rem 1.119rem;
+						}
+					}
+
+					&.goto-icon::before {
+						display: block;
+						content: '';
+						background-image: url('../../../../../img/svg/goto-icon-color.svg');
+						background-repeat: no-repeat;
+						background-size: 1.6875rem;
+						width: 1.6875rem;
+						height: 1.6875rem;
+						@include media-breakpoint-up(xl) {
+							background-size: 2.25rem;
+							width: 2.25rem;
+							height: 2.5rem;
 						}
 					}
 
@@ -212,9 +264,9 @@
 						content: '';
 						background-image: url('../../../../../img/svg/shopping-cart-green.svg');
 						background-repeat: no-repeat;
-						background-size: 1.5rem;
-						width: 1.5rem;
-						height: 1.5rem;
+						background-size: 1.6875rem;
+						width: 1.6875rem;
+						height: 1.6875rem;
 					}
 
 					&.store-icon {
@@ -247,21 +299,19 @@
 						content: '';
 						background-image: url('../../../../../img/svg/search-gray.svg');
 						background-repeat: no-repeat;
-						background-size: 1.5rem;
-						width: 1.5rem;
-						height: 1.5rem;
+						background-size: 1.6875rem;
+						width: 1.6875rem;
+						height: 1.6875rem;
 					}
 
 					&.search-icon:focus::before {
-						@include media-breakpoint-up(xl) {
-							display: block;
-							content: '';
-							background-image: url('../../../../../img/svg/search-white.svg');
-							background-repeat: no-repeat;
-							background-size: 1.5rem;
-							width: 1.5rem;
-							height: 1.5rem;
-						}
+						display: block;
+						content: '';
+						background-image: url('../../../../../img/svg/search-white.svg');
+						background-repeat: no-repeat;
+						background-size: 1.6875rem;
+						width: 1.6875rem;
+						height: 1.6875rem;
 					}
 
 					&.avatar-icon::before {
@@ -269,21 +319,19 @@
 						content: '';
 						background-image: url('../../../../../img/svg/avatar-gray.svg');
 						background-repeat: no-repeat;
-						background-size: 1.5rem;
-						width: 1.5rem;
-						height: 1.5rem;
+						background-size: 1.6875rem;
+						width: 1.6875rem;
+						height: 1.6875rem;
 					}
 
 					&.avatar-icon:focus::before {
-						@include media-breakpoint-up(xl) {
-							display: block;
-							content: '';
-							background-image: url('../../../../../img/svg/avatar-white.svg');
-							background-repeat: no-repeat;
-							background-size: 1.5rem;
-							width: 1.5rem;
-							height: 1.5rem;
-						}
+						display: block;
+						content: '';
+						background-image: url('../../../../../img/svg/avatar-white.svg');
+						background-repeat: no-repeat;
+						background-size: 1.6875rem;
+						width: 1.6875rem;
+						height: 1.6875rem;
 					}
 
 					&::after {
