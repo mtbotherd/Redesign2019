@@ -84,13 +84,13 @@
 	select:placeholder-shown:not(:focus) + *,
 	textarea:placeholder-shown:not(:focus) + * {
 		@include font-size(18);
-		top: 0.5em;
+		top: 0.65em;
 		text-transform: inherit;
 
 		@include media-breakpoint-up(lg) {
 			@include font-size(23);
 			left: 1.25rem;
-			top: 0.5rem;
+			top: 0.75rem;
 		}
 	}
 	input:focus,
