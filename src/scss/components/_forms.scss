@@ -136,6 +136,10 @@ form {
 				margin-bottom: 0;
 				padding: 0.563rem 1rem;
 
+				@include media-breakpoint-up(lg) {
+					padding: 0.7rem 1rem;
+				}
+
 				&:visited,
 				&:hover,
 				&:active {
@@ -162,7 +166,7 @@ form {
 		}
 	}
 
-	.row .col-md-6:last-child .input-group {
+	.row .col-md-6 .input-group {
 		@include media-breakpoint-up(md) {
 			width: 96%;
 		}
@@ -172,6 +176,7 @@ form {
 		&.custom-checkbox,
 		&.custom-radio {
 			.custom-control-label {
+				color: $body-color;
 				@include media-breakpoint-up(lg) {
 					line-height: 1.25;
 				}
