@@ -318,9 +318,11 @@ var bbsMap = (function($, window, document) {
 					});
 					queryTask.on('complete', function(fSet) {
 						console.log("TextDescription Query Complete. There are " + fSet.featureSet.features.length + " features");
+						$('.bbsTextDescriptions').append('List of shelter improvements by stop number.<ul>');
 						fSet.featureSet.features.forEach(function (feature, idx) {
-							$('.bbsTextDescriptions').append('<div>'+feature.attributes.TextDescription+'</div>');
+							$('.bbsTextDescriptions').append('<li>'+feature.attributes.TextDescription+'.</li>');
 						});
+						$('.bbsTextDescriptions').append('</ul>');
 					});
 					
 				});
