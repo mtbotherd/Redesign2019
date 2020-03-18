@@ -38,19 +38,19 @@
 		transition: all 0.2s;
 	}
 
-	// input::-moz-placeholder,
-	// select::-moz-placeholder,
-	// textarea::-moz-placeholder {
-	// 	opacity: 1;
-	// 	transition: all 0.2s;
-	// }
+	input::-moz-placeholder,
+	select::-moz-placeholder,
+	textarea::-moz-placeholder {
+		opacity: 1;
+		transition: all 0.2s;
+	}
 
-	// input:-ms-input-placeholder,
-	// select:-ms-input-placeholder,
-	// textarea:-ms-input-placeholder {
-	// 	opacity: 1;
-	// 	transition: all 0.2s;
-	// }
+	input:-ms-input-placeholder,
+	select:-ms-input-placeholder,
+	textarea:-ms-input-placeholder {
+		opacity: 1;
+		transition: all 0.2s;
+	}
 
 	input::placeholder,
 	select::placeholder,
@@ -60,21 +60,21 @@
 		transition: all 0.2s;
 	}
 
-	// input:placeholder-shown:not(:focus)::-webkit-input-placeholder,
-	// select:placeholder-shown:not(:focus)::-webkit-input-placeholder,
-	// textarea:placeholder-shown:not(:focus)::-webkit-input-placeholder {
-	// 	opacity: 0;
-	// }
-	// input:placeholder-shown:not(:focus)::-moz-placeholder,
-	// select:placeholder-shown:not(:focus)::-moz-placeholder,
-	// textarea:placeholder-shown:not(:focus)::-moz-placeholder {
-	// 	opacity: 0;
-	// }
-	// input:placeholder-shown:not(:focus):-ms-input-placeholder,
-	// select:placeholder-shown:not(:focus):-ms-input-placeholder,
-	// textarea:placeholder-shown:not(:focus):-ms-input-placeholder {
-	// 	opacity: 0;
-	// }
+	input:placeholder-shown:not(:focus)::-webkit-input-placeholder,
+	select:placeholder-shown:not(:focus)::-webkit-input-placeholder,
+	textarea:placeholder-shown:not(:focus)::-webkit-input-placeholder {
+		opacity: 0;
+	}
+	input:placeholder-shown:not(:focus)::-moz-placeholder,
+	select:placeholder-shown:not(:focus)::-moz-placeholder,
+	textarea:placeholder-shown:not(:focus)::-moz-placeholder {
+		opacity: 0;
+	}
+	input:placeholder-shown:not(:focus):-ms-input-placeholder,
+	select:placeholder-shown:not(:focus):-ms-input-placeholder,
+	textarea:placeholder-shown:not(:focus):-ms-input-placeholder {
+		opacity: 0;
+	}
 	input:placeholder-shown:not(:focus)::placeholder,
 	select:placeholder-shown:not(:focus)::placeholder,
 	textarea:placeholder-shown:not(:focus)::placeholder {
