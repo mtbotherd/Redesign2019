@@ -269,6 +269,20 @@
 						height: 1.6875rem;
 					}
 
+					&.store-icon:focus::before {
+						display: block;
+						content: '';
+						background-image: url('../../../../../img/svg/shopping-cart-green.svg');
+						background-repeat: no-repeat;
+						background-size: 1.6875rem;
+						width: 1.6875rem;
+						height: 1.6875rem;
+
+						@include media-breakpoint-up(lg) {
+							background-image: url('../../../../../img/svg/shopping-cart-white.svg');
+						}
+					}
+
 					&.store-icon {
 						position: relative;
 
@@ -307,11 +321,15 @@
 					&.search-icon:focus::before {
 						display: block;
 						content: '';
-						background-image: url('../../../../../img/svg/search-white.svg');
+						background-image: url('../../../../../img/svg/search-gray.svg');
 						background-repeat: no-repeat;
 						background-size: 1.6875rem;
 						width: 1.6875rem;
 						height: 1.6875rem;
+
+						@include media-breakpoint-up(lg) {
+							background-image: url('../../../../../img/svg/search-white.svg');
+						}
 					}
 
 					&.avatar-icon::before {
@@ -327,11 +345,15 @@
 					&.avatar-icon:focus::before {
 						display: block;
 						content: '';
-						background-image: url('../../../../../img/svg/avatar-white.svg');
+						background-image: url('../../../../../img/svg/avatar-grey.svg');
 						background-repeat: no-repeat;
 						background-size: 1.6875rem;
 						width: 1.6875rem;
 						height: 1.6875rem;
+
+						@include media-breakpoint-up(lg) {
+							background-image: url('../../../../../img/svg/avatar-white.svg');
+						}
 					}
 
 					&::after {
