@@ -6,6 +6,8 @@
 
 	.auto-complete-search-box {
 		.input-group {
+			width: 100%;
+			margin-bottom: 0;
 			.custom-width {
 				width: 297px;
 				@include media-breakpoint-up(md) {
@@ -52,106 +54,77 @@
 		}
 	}
 
-	.popular-routes {
-		margin-bottom: 1rem;
+	h2 {
+		position: relative;
+		padding: 0.5rem 0 0.5rem 3rem;
 
-		.routes {
-			margin-bottom: 1.12rem;
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 2rem;
+			padding: 0 0 0 3rem;
+		}
+
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			background-repeat: no-repeat;
+			background-size: 2.5rem;
+			width: 2.5rem;
+			height: 2.5rem;
+			margin-right: 0.5rem;
+		}
+
+		// METRO Light Rail
+		&.mlr::before {
+			background-image: url('../../../../../img/svg/circle-gray-lrt.svg');
+		}
+
+		// Popular bus routes
+		&.pbr::before {
+			background-image: url('../../../../../img/svg/circle-gray-outline-bus.svg');
+		}
+
+		// METRO Bus Rapid Transit
+		&.mbrt::before {
+			background-image: url('../../../../../img/svg/circle-gray-bus.svg');
+		}
+
+		// Commuter Rail
+		&.cr::before {
+			background-image: url('../../../../../img/svg/circle-gray-train.svg');
+		}
+
+		// Interactive map
+		&.ir::before {
+			background-image: url('../../../../../img/svg/schedules-maps-color.svg');
+		}
+	}
+
+	.btn-route-lg {
+		display: block;
+		margin: 0 auto 1rem auto;
+
+		&:last-child {
+			margin: 0 auto;
 
 			@include media-breakpoint-up(md) {
-				margin-right: 1rem;
-				margin-bottom: 1rem;
+				margin: 0 0 1rem 0;
 			}
 		}
-	}
-
-	.metro-brt,
-	.commuter-rail {
-		.btn-outline-secondary {
-			display: block;
-			margin-bottom: 1rem;
-
-			@include media-breakpoint-up(lg) {
-				display: inline-block;
-				margin-bottom: 0;
-			}
-		}
-	}
-
-	.btn-outline-info {
-		margin-bottom: 1rem;
-		width: 100%;
 
 		@include media-breakpoint-up(md) {
-			margin-right: 0;
-			width: 16.875rem;
+			margin: 0 0 1rem 0;
 		}
 	}
 
-	// /bus-schedules-maps.html
-	.bus-routes {
-		margin-bottom: 15px;
+	.btn-route {
 		@include media-breakpoint-up(lg) {
-			margin-bottom: 30px;
-		}
-		.btn-outline-secondary {
-			width: 70px;
-			height: 50px;
-			margin-right: 0.75rem;
-			margin-bottom: 0.75rem;
-
-			@include media-breakpoint-up(md) {
-				margin-right: 1.15rem;
-				margin-bottom: 1.15rem;
-			}
-
-			@include media-breakpoint-up(lg) {
-				&:nth-child(4n),
-				&:nth-child(8n) {
-					margin-right: 1.15rem;
-				}
-
-				&:nth-child(11n) {
-					margin-right: 0;
-				}
-			}
-
-			@include media-breakpoint-up(xl) {
-				margin-right: 1.215rem;
-				&:nth-child(11n) {
-					margin-right: 1.15rem;
-				}
-
-				&:nth-child(13n) {
-					margin-right: 0;
-				}
-			}
+			margin-right: 0.5rem;
 		}
 	}
 
-	// #interactiveMap {
-	// 	.auto-complete-search-box {
-	// 		.input-group::before {
-	// 			//background-image: none !important;
-	// 		}
-
-	// 		// .input-group-append {
-	// 		// 	.input-group-text {
-	// 		// 		background-color: #fff;
-	// 		// 		border-left: none;
-	// 		// 		z-index: 10;
-
-	// 		// 		.icon {
-	// 		// 			width: 1rem;
-	// 		// 			height: 1rem;
-
-	// 		// 			@include media-breakpoint-up(lg) {
-	// 		// 				width: 1.5rem;
-	// 		// 				height: 1.5rem;
-	// 		// 			}
-	// 		// 		}
-	// 		// 	}
-	// 		// }
-	// 	}
-	// }
+	#systemMaps h2 {
+		padding: 0;
+	}
 }
