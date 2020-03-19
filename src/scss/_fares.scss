@@ -1,114 +1,113 @@
 #fares {
+	.card-deck {
+		margin-bottom: 15px;
 
-  .card-deck {
-    margin-bottom: 15px;
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 30px;
+		}
 
-    @include media-breakpoint-up(lg) {
-      margin-bottom: 30px;
-    }
+		&.last {
+			margin-bottom: 30px;
 
-    &.last {
-      margin-bottom: 30px;
+			@include media-breakpoint-up(lg) {
+				margin-bottom: 45px;
+			}
+		}
 
-      @include media-breakpoint-up(lg) {
-        margin-bottom: 45px;
-      }
-    }
+		.card {
+			//margin-bottom: 15px;
 
-    .card {
-      //margin-bottom: 15px;
+			.card-header {
+				padding: 1.344rem 1.25rem;
 
-      .card-header {
-        padding: 1.344rem 1.25rem;
+				@include media-breakpoint-up(lg) {
+					height: 165px;
+					padding: 1.625rem 1.25rem;
+				}
 
-        @include media-breakpoint-up(lg) {
-          height: 165px;
-          padding: 1.625rem 1.25rem;
-        }
+				[data-toggle='popover'] {
+					cursor: pointer;
+				}
 
-        [data-toggle="popover"] {
-          cursor: pointer;
-        }
+				&.reduced-fare {
+					.gray-circle-info {
+						position: absolute;
+						top: 1.25rem;
+						right: 3rem;
 
-        &.reduced-fare {
-          .gray-circle-info {
-            position: absolute;
-            top: 1.25rem;
-            right: 3rem;
+						@include media-breakpoint-up(lg) {
+							top: -0.15rem;
+							right: 4rem;
+						}
+					}
+				}
 
-            @include media-breakpoint-up(lg) {
-              top: -0.15rem;
-              right: 4rem;
-            }
-          }
-        }
+				&.mobility-fare {
+					.gray-circle-info {
+						position: absolute;
+						top: 0;
+						right: 2.5rem;
 
-        &.mobility-fare {
-          .gray-circle-info {
-            position: absolute;
-            top: 0;
-            right: 2.5rem;
+						@include media-breakpoint-up(lg) {
+							top: -0.15rem;
+							right: 7.5rem;
+						}
+					}
+				}
+			}
+			.card-body {
+				background-color: $white;
 
-            @include media-breakpoint-up(lg) {
-              top: -0.15rem;
-              right: 7.5rem;
-            }
-          }
-        }
-      }
-      .card-body {
-        background-color: $white;
+				@include media-breakpoint-up(lg) {
+					padding-right: 5rem;
+					padding-left: 5rem;
+				}
 
-        @include media-breakpoint-up(lg) {
-          padding-right: 5rem;
-          padding-left: 5rem;
-        }
+				h3 {
+					margin-bottom: 1rem;
+				}
+			}
+			.card-footer {
+				background-color: $white;
+			}
+		}
+	}
 
-        h3 {
-          margin-bottom: 1rem;
-        }
-      }
-      .card-footer {
-        background-color: $white;
-      }
-    }
-  }
+	.accordion {
+		h3 {
+			max-width: 260px;
 
-  .accordion {
-    h3 {
-      max-width: 260px;
+			@include media-breakpoint-up(lg) {
+				max-width: 1030px;
+			}
 
-      @include media-breakpoint-up(lg) {
-        max-width: 1030px;
-      }
+			&.extend {
+				max-width: 290px;
 
-      &.extend {
-        max-width: 290px;
+				@include media-breakpoint-up(lg) {
+					max-width: 1030px;
+				}
+			}
+		}
 
-        @include media-breakpoint-up(lg) {
-          max-width: 1030px;
-        }
-      }
-    }
+		p.h3 {
+			font-weight: 400 !important;
+			margin-bottom: 1rem;
 
-    p.h3 {
-      font-weight: 400 !important;
-      margin-bottom: 1rem;
+			@include media-breakpoint-up(lg) {
+				margin-bottom: 0;
+			}
+		}
 
-      @include media-breakpoint-up(lg) {
-        margin-bottom: 0;
-      }
-    }
+		.mobility {
+			border-top: 1px solid $border-color;
+			padding-top: 1rem;
 
-    .mobility {
-      border-top: 1px solid $border-color;
-      padding-top: 1rem;
-
-      @include media-breakpoint-up(lg) {
-        border-top: none;
-        border-left: 1px solid $border-color;
-        padding-top: 0;
-      }
-    }
-  }
+			@include media-breakpoint-up(lg) {
+				border-top: none;
+				border-left: 1px solid $border-color;
+				padding-top: 0;
+			}
+		}
+	}
 }
