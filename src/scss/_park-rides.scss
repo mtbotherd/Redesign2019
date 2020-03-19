@@ -25,13 +25,14 @@
 				background-size: 2.5rem;
 				width: 2.5rem;
 				height: 2.5rem;
-				margin-right: 0.5rem;
-				// }
+				margin: 0.3rem 0.5rem 0.3rem 0;
+				//margin-right: 0.5rem;
 
 				@include media-breakpoint-up(lg) {
 					background-size: 3rem;
 					width: 3rem;
 					height: 3rem;
+					margin: 0.355rem 0.5rem 0.355rem 0;
 				}
 			}
 
@@ -44,6 +45,13 @@
 
 				@include media-breakpoint-up(lg) {
 					width: 466px;
+				}
+			}
+
+			.form-control {
+				height: 50px;
+				@include media-breakpoint-up(lg) {
+					height: 60px;
 				}
 			}
 
