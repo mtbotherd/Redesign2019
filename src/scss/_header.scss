@@ -259,6 +259,21 @@
 						}
 					}
 
+					&.goto-icon:focus::before {
+						display: block;
+						content: '';
+						background-image: url('../../../../../img/svg/goto-icon-white.svg');
+						background-repeat: no-repeat;
+						background-size: 1.6875rem;
+						width: 1.6875rem;
+						height: 1.6875rem;
+						@include media-breakpoint-up(xl) {
+							background-size: 2.25rem;
+							width: 2.25rem;
+							height: 2.5rem;
+						}
+					}
+
 					&.store-icon::before {
 						display: block;
 						content: '';
@@ -385,7 +400,12 @@
 
 					.input-group {
 						width: 100%;
-						margin-bottom: 0;
+						height: 50px;
+						margin: 0;
+
+						@include media-breakpoint-up(lg) {
+							height: 60px;
+						}
 
 						.custom-width {
 							width: 275px;
@@ -405,13 +425,19 @@
 
 						.form-control {
 							border-right: none;
+							height: 50px;
+
+							@include media-breakpoint-up(lg) {
+								height: 60px;
+							}
 						}
 
 						.input-group-append .btn {
 							background-color: $white;
 							border: 1px solid $border-color;
 							border-left: none;
-							padding: 0 0.75rem;
+							//padding: 0 0.75rem;
+							padding: 0.563rem 1rem;
 						}
 					}
 				}
