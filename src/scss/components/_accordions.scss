@@ -2,24 +2,38 @@
 	margin-bottom: 15px;
 
 	.card .card-header {
-		padding: 0 !important;
+		padding: 0.25rem !important;
+
+		// @include media-breakpoint-up(lg) {
+		// 	padding: 0.563rem !important;
+		// }
 
 		.btn {
 			color: $gray-600;
+			background-color: $teal;
 			@include font-size(18);
-			background-color: #d8ecfd;
 			margin-bottom: 0;
+			padding: 0.125rem 0.5rem;
 
 			@include media-breakpoint-up(lg) {
 				@include font-size(23);
+				padding: 0.438rem 0.5rem;
 			}
 
 			&.collapsed {
 				background-color: $gray-100;
 			}
 
-			&:focus {
-				color: #626462;
+			.icon {
+				margin-right: 1rem;
+			}
+
+			.btn-text {
+				width: 250px;
+
+				@include media-breakpoint-up(md) {
+					width: auto;
+				}
 			}
 		}
 
@@ -28,8 +42,8 @@
 			height: 2.25rem;
 
 			@include media-breakpoint-up(lg) {
-				width: 2.5rem;
-				height: 2.5rem;
+				width: 2.25rem;
+				height: 2.25rem;
 			}
 
 			&.chevron-down-blue {
