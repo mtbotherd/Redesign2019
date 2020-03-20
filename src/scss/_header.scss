@@ -10,6 +10,13 @@
 			padding: 0 !important;
 		}
 
+		.navbar-toggler {
+			.icon {
+				width: 1rem;
+				height: 1rem;
+			}
+		}
+
 		.section {
 			@include media-breakpoint-up(xl) {
 				padding-top: 0;
