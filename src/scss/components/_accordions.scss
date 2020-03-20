@@ -4,10 +4,6 @@
 	.card .card-header {
 		padding: 0.25rem !important;
 
-		// @include media-breakpoint-up(lg) {
-		// 	padding: 0.563rem !important;
-		// }
-
 		.btn {
 			color: $gray-600;
 			background-color: $teal;
@@ -33,7 +29,7 @@
 			}
 
 			.btn-text {
-				width: 250px;
+				width: 100%;
 
 				@include media-breakpoint-up(md) {
 					width: auto;

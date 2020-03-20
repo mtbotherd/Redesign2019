@@ -33,7 +33,7 @@
 							<!-- <span class="navbar-toggler-icon"></span> -->
 							Menu <img class="icon" src="/img/svg/chevron-down-gray.svg" />
 						</button>
-	
+		
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
 							<section>
 								<ul class="nav navbar-nav mx-auto">
@@ -277,297 +277,299 @@
 													<label for="toLocation">To</label>
 													<span id="toLocationInstr" class="sr-only" style="display: none;">You can enter an address, intersection or landmark. When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
 												</div>
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<select
-																id="selectTime"
-																name="selectTime"
-																class="custom-select">
-																<option value="leave-now" >Leave now</option>
-																<option value="depart-at">Depart at</option>
-																<option value="arrive-by">Arrive by</option>
-															</select>
-															<label for="selectTime" class="sr-only">Select time</label>
-														</div>
-														<div class="row time-elements">
-															<div class="col-xl-6">
-																<div class="form-group has-float-label mb-3">
-																	<input
-																		id="time"
-																		type="time"
-																		name="time"
-																		class="form-control"
-																		aria-label="depart/arrive by time"
-																		aria-describedby="time" />
-																	<label for="time">Time</label>
-																</div>
+											</fieldset>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+														<select
+															id="selectTime"
+															name="selectTime"
+															class="custom-select">
+															<option value="leave-now" >Leave now</option>
+															<option value="depart-at">Depart at</option>
+															<option value="arrive-by">Arrive by</option>
+														</select>
+														<label for="selectTime" class="sr-only">Select time</label>
+													</div>
+													<div class="row time-elements">
+														<div class="col-xl-6">
+															<div class="form-group has-float-label mb-3">
+																<input
+																	id="time"
+																	type="time"
+																	name="time"
+																	class="form-control"
+																	aria-label="depart/arrive by time"
+																	aria-describedby="time" />
+																<label for="time">Time</label>
 															</div>
-															<div class="col-xl-6">
-																<div class="form-group has-float-label mb-3">
-																	<input
-																		id="date"
-																		type="date"
-																		name="date"
-																		class="form-control"
-																		aria-label="depart/arrive by time"
-																		aria-describedby="date" />
-																	<label for="date">Date</label>
-																</div>
+														</div>
+														<div class="col-xl-6">
+															<div class="form-group has-float-label mb-3">
+																<input
+																	id="date"
+																	type="date"
+																	name="date"
+																	class="form-control"
+																	aria-label="depart/arrive by time"
+																	aria-describedby="date" />
+																<label for="date">Date</label>
 															</div>
 														</div>
 													</div>
-													<div class="col-md-6">
-														<div class="accordion more-options" role="tablist">
-															<div class="card">
-																<div class="card-header d-flex border" >
-																	<a href="#tpMoreOptions"
-																		data-toggle="collapse"
-																		class="btn d-flex align-items-center text-left btn-link btn-block collapsed"
-																		aria-controls="tpMoreOptions"
-																		aria-expanded="false"
-																		role="button">
-																		More options
-																		<img alt="" class="icon plus-blue ml-auto inactive" src="/img/svg/plus-blue.svg"/>
-																	</a>
-																</div>
-																<div id="tpMoreOptions"
-																	class="collapse"
-																	role="tabpanel">
-																	<div class="card-body border">
-																		<p class="card-text mb-0">
-																			<strong>I'm willing to walk:</strong>
-																		</p>
-																		<div
-																			class="custom-control custom-radio"
+												</div>
+												<div class="col-md-6">
+													<div class="accordion" role="tablist">
+														<div class="card">
+															<div class="card-header">
+																<h3>
+																	<button type="button" 
+																			class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" 
+																			data-target="#tpMoreOptions" 
+																			aria-expanded="false">
+																		<span class="btn-text">More options</span>
+																		<span class="ml-auto">
+																			<img alt="" class="icon plus-blue ml-2 inactive" src="/img/svg/plus-blue.svg"/>
+																		</span>
+																	</button>
+																</h3>
+															</div>
+															<div id="tpMoreOptions"
+																class="collapse"
+																role="tabpanel">
+																<div class="card-body border">
+																	<p class="card-text mb-0">
+																		<strong>I'm willing to walk:</strong>
+																	</p>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="quarterMile"
+																			type="radio"
+																			name="walkingDistance"
+																			value="0.25"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			for="quarterMile"
+																			class="custom-control-label"
+																			>1/4
+																			mile</label
 																		>
-																			<input
-																				id="quarterMile"
-																				type="radio"
-																				name="walkingDistance"
-																				value="0.25"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				for="quarterMile"
-																				class="custom-control-label"
-																				>1/4
-																				mile</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="halfMile"
+																			type="radio"
+																			name="walkingDistance"
+																			value="0.5"
+																			class="custom-control-input"
+																			checked
+																		/>
+																		<label
+																			for="halfMile"
+																			class="custom-control-label"
+																			>1/2
+																			mile</label
 																		>
-																			<input
-																				id="halfMile"
-																				type="radio"
-																				name="walkingDistance"
-																				value="0.5"
-																				class="custom-control-input"
-																				checked
-																			/>
-																			<label
-																				for="halfMile"
-																				class="custom-control-label"
-																				>1/2
-																				mile</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="oneMile"
+																			type="radio"
+																			name="walkingDistance"
+																			value="1"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			for="oneMile"
+																			class="custom-control-label"
+																			>1
+																			mile</label
 																		>
-																			<input
-																				id="oneMile"
-																				type="radio"
-																				name="walkingDistance"
-																				value="1"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				for="oneMile"
-																				class="custom-control-label"
-																				>1
-																				mile</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="anyType"
+																			type="radio"
+																			name="serviceType"
+																			value="BCLTX"
+																			class="custom-control-input"
+																			checked
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="anyType"
+																			>Any
+																			service
+																			type</label
 																		>
-																			<input
-																				id="anyType"
-																				type="radio"
-																				name="serviceType"
-																				value="BCLTX"
-																				class="custom-control-input"
-																				checked
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="anyType"
-																				>Any
-																				service
-																				type</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="railOnly"
+																			type="radio"
+																			name="serviceType"
+																			value="CLT"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="railOnly"
+																			>Rail
+																			only</label
 																		>
-																			<input
-																				id="railOnly"
-																				type="radio"
-																				name="serviceType"
-																				value="CLT"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="railOnly"
-																				>Rail
-																				only</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="busOnly"
+																			type="radio"
+																			name="serviceType"
+																			value="BX"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="busOnly"
+																			>Bus
+																			only</label
 																		>
-																			<input
-																				id="busOnly"
-																				type="radio"
-																				name="serviceType"
-																				value="BX"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="busOnly"
-																				>Bus
-																				only</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="noExpress"
+																			type="radio"
+																			name="serviceType"
+																			value="BCLT"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="noExpress"
+																			>No
+																			express</label
 																		>
-																			<input
-																				id="noExpress"
-																				type="radio"
-																				name="serviceType"
-																				value="BCLT"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="noExpress"
-																				>No
-																				express</label
-																			>
-																		</div>
-																		<hr />
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<hr />
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="fasterTrip"
+																			type="radio"
+																			name="convenience"
+																			value="Time"
+																			class="custom-control-input"
+																			checked
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="fasterTrip"
+																			>Faster
+																			trip</label
 																		>
-																			<input
-																				id="fasterTrip"
-																				type="radio"
-																				name="convenience"
-																				value="Time"
-																				class="custom-control-input"
-																				checked
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="fasterTrip"
-																				>Faster
-																				trip</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="fewerTransfers"
+																			type="radio"
+																			name="convenience"
+																			value="Xfers"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="fewerTransfers"
+																			>Fewer
+																			transfers</label
 																		>
-																			<input
-																				id="fewerTransfers"
-																				type="radio"
-																				name="convenience"
-																				value="Xfers"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="fewerTransfers"
-																				>Fewer
-																				transfers</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="lessWalking"
+																			type="radio"
+																			name="convenience"
+																			value="Walking"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="lessWalking"
+																			>Less
+																			walking</label
 																		>
-																			<input
-																				id="lessWalking"
-																				type="radio"
-																				name="convenience"
-																				value="Walking"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="lessWalking"
-																				>Less
-																				walking</label
-																			>
-																		</div>
-	
-																		<hr />
-	
-																		<p
-																			class="m-0"
+																	</div>
+
+																	<hr />
+
+																	<p
+																		class="m-0"
+																	>
+																		<strong>
+																			<img
+																				alt=""
+																				class="icon accessible-gray"
+																				src="/img/svg/accessible-gray.svg"
+																			/>&nbsp;Accessible
+																			stops
+																		</strong>
+																	</p>
+																	<div
+																		class="custom-control custom-radio custom-control-inline"
+																	>
+																		<input
+																			id="accessibleYes"
+																			type="radio"
+																			name="accessible"
+																			value="True"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="accessibleYes"
+																			>Yes</label
 																		>
-																			<strong>
-																				<img
-																					alt=""
-																					class="icon accessible-gray"
-																					src="/img/svg/accessible-gray.svg"
-																				/>&nbsp;Accessible
-																				stops
-																			</strong>
-																		</p>
-																		<div
-																			class="custom-control custom-radio custom-control-inline"
+																	</div>
+																	<div
+																		class="custom-control custom-radio custom-control-inline"
+																	>
+																		<input
+																			id="accessibleNo"
+																			type="radio"
+																			name="accessible"
+																			value="False"
+																			class="custom-control-input"
+																			checked
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="accessibleNo"
+																			>No</label
 																		>
-																			<input
-																				id="accessibleYes"
-																				type="radio"
-																				name="accessible"
-																				value="True"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="accessibleYes"
-																				>Yes</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio custom-control-inline"
-																		>
-																			<input
-																				id="accessibleNo"
-																				type="radio"
-																				name="accessible"
-																				value="False"
-																				class="custom-control-input"
-																				checked
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="accessibleNo"
-																				>No</label
-																			>
-																		</div>
 																	</div>
 																</div>
 															</div>
 														</div>
 													</div>
 												</div>
-											</fieldset>
+											</div>
 											<div
 												id="spinner"
 												class="d-none text-center p-4"
