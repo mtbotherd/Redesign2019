@@ -1,279 +1,279 @@
 #tripPlannerResults {
-  display: none;
+	display: none;
 
-  .no-trips-found {
-  }
+	.no-trips-found {
+	}
 
-  .trips-found {
-    .tp-results {
-      .card {
-        .card-header {
-          background-color: transparent;
+	.trips-found {
+		.tp-results {
+			.card {
+				.card-header {
+					background-color: transparent;
 
-          .btn {
-            background-color: transparent;
-            padding: 0;
-            border: 2px solid $gray-300;
-            &:focus {
-              border-color: #51cfff;
-              outline: 0;
-              box-shadow: 0 0 0 0.2rem rgba(0, 151, 208, 0.25);
+					.btn {
+						background-color: transparent;
+						padding: 0;
+						border: 2px solid $gray-300;
+						&:focus {
+							border-color: #51cfff;
+							outline: 0;
+							box-shadow: 0 0 0 0.2rem rgba(0, 151, 208, 0.25);
 
-              .tp-time {
-                background-color: $cyan;
-                border-right: 2px solid $cyan;
-                color: $white;
-              }
+							.tp-time {
+								background-color: $cyan;
+								border-right: 2px solid $cyan;
+								color: $white;
+							}
 
-              .tp-route {
-                background-color: $teal;
-              }
-            }
+							.tp-route {
+								background-color: $teal;
+							}
+						}
 
-            &:hover {
-              .tp-time {
-                background-color: $cyan;
-                border-right: 2px solid $cyan;
-                color: $white;
-              }
+						&:hover {
+							.tp-time {
+								background-color: $cyan;
+								border-right: 2px solid $cyan;
+								color: $white;
+							}
 
-              .tp-route {
-                background-color: $teal;
-              }
-            }
+							.tp-route {
+								background-color: $teal;
+							}
+						}
 
-            .tp-time {
-              border-right: 2px solid $gray-300;
-              @include font-size(18);
-              font-weight: $font-weight-bold;
-              padding: 0.5rem;
-              width: 112px;
+						.tp-time {
+							border-right: 2px solid $gray-300;
+							@include font-size(18);
+							font-weight: $font-weight-bold;
+							padding: 0.5rem;
+							width: 112px;
 
-              @include media-breakpoint-up(lg) {
-                @include font-size(23);
-                width: 144px;
-              }
+							@include media-breakpoint-up(lg) {
+								@include font-size(23);
+								width: 144px;
+							}
 
-              @include media-breakpoint-up(xl) {
-                width: 240px;
-              }
-            }
+							@include media-breakpoint-up(xl) {
+								width: 240px;
+							}
+						}
 
-            .tp-route {
-              position: relative;
-              display: block;
-              padding: 0.5rem 0.75rem;
-              width: 229px;
+						.tp-route {
+							position: relative;
+							display: block;
+							padding: 0.5rem 0.75rem;
+							width: 229px;
 
-              @include media-breakpoint-up(md) {
-                width: 604px;
-              }
+							@include media-breakpoint-up(md) {
+								width: 604px;
+							}
 
-              @include media-breakpoint-up(lg) {
-                width: 622px;
-              }
+							@include media-breakpoint-up(lg) {
+								width: 622px;
+							}
 
-              @include media-breakpoint-up(xl) {
-                width: 896px;
-              }
+							@include media-breakpoint-up(xl) {
+								width: 896px;
+							}
 
-              .tp-route-summary {
-                display: inline-block;
-                max-width: 174px;
+							.tp-route-summary {
+								display: inline-block;
+								max-width: 174px;
 
-                @include media-breakpoint-up(md) {
-                  max-width: 549px;
-                }
+								@include media-breakpoint-up(md) {
+									max-width: 549px;
+								}
 
-                @include media-breakpoint-up(lg) {
-                  max-width: 567px;
-                }
+								@include media-breakpoint-up(lg) {
+									max-width: 567px;
+								}
 
-                @include media-breakpoint-up(xl) {
-                  max-width: 841px;
-                }
+								@include media-breakpoint-up(xl) {
+									max-width: 841px;
+								}
 
-                img,
-                span {
-                  margin-right: 3px;
+								img,
+								span {
+									margin-right: 3px;
 
-                  @include media-breakpoint-up(lg) {
-                    margin-right: 5px;
-                  }
-                }
+									@include media-breakpoint-up(lg) {
+										margin-right: 5px;
+									}
+								}
 
-                .icon {
-                  width: 1rem;
-                  height: 1rem;
+								.icon {
+									width: 1rem;
+									height: 1rem;
 
-                  &.bus-gray {
-                    margin-right: 0;
-                  }
+									&.bus-gray {
+										margin-right: 0;
+									}
 
-                  &.chevron-right-gray {
-                    width: 0.75rem;
-                    height: 0.75rem;
-                  }
+									&.chevron-right-gray {
+										width: 0.75rem;
+										height: 0.75rem;
+									}
 
-                  &.chevron-down-blue {
-                    position: absolute;
-                    right: 0.75rem;
-                  }
+									&.chevron-down-blue {
+										position: absolute;
+										right: 0.75rem;
+									}
 
-                  @include media-breakpoint-up(lg) {
-                    width: 1.5rem;
-                    height: 1.5rem;
-                  }
-                }
+									@include media-breakpoint-up(lg) {
+										width: 1.5rem;
+										height: 1.5rem;
+									}
+								}
 
-                .route {
-                  @include font-size(12);
-                  line-height: 1;
+								.route {
+									@include font-size(12);
+									line-height: 1;
 
-                  @include media-breakpoint-up(lg) {
-                    @include font-size(18);
-                  }
-                }
+									@include media-breakpoint-up(lg) {
+										@include font-size(18);
+									}
+								}
 
-                .badge {
-                  border-radius: 0.25rem;
-                  @include font-size(10);
-                  padding: 0.25rem 0.25rem 0.25rem 0;
-                  width: 60px;
-                  height: 24px;
+								.badge {
+									border-radius: 0.25rem;
+									@include font-size(10);
+									padding: 0.25rem 0.25rem 0.25rem 0;
+									width: 60px;
+									height: 24px;
 
-                  @include media-breakpoint-up(lg) {
-                    @include font-size(16);
-                    width: 84px;
-                    height: 32px;
-                    padding-left: 0.25rem;
-                  }
+									@include media-breakpoint-up(lg) {
+										@include font-size(16);
+										width: 84px;
+										height: 32px;
+										padding-left: 0.25rem;
+									}
 
-                  .icon {
-                    width: 0.5rem;
-                    height: 1rem;
-                    margin-right: 0;
+									.icon {
+										width: 0.5rem;
+										height: 1rem;
+										margin-right: 0;
 
-                    @include media-breakpoint-up(lg) {
-                      @include font-size(16);
-                      width: 1rem;
-                      height: 1.5rem;
-                      margin-right: 0.25rem;
-                    }
-                  }
+										@include media-breakpoint-up(lg) {
+											@include font-size(16);
+											width: 1rem;
+											height: 1.5rem;
+											margin-right: 0.25rem;
+										}
+									}
 
-                  .caps {
-                    margin-right: 0;
-                    line-height: 1.5;
-                  }
-                }
-              }
-            }
-          }
-        }
+									.caps {
+										margin-right: 0;
+										line-height: 1.5;
+									}
+								}
+							}
+						}
+					}
+				}
 
-        .card-body {
-          border: 2px solid $border-color;
-          border-top: none;
-          padding: 15px;
+				.card-body {
+					border: 2px solid $border-color;
+					border-top: none;
+					padding: 15px;
 
-          @include media-breakpoint-up(lg) {
-            border: 1px solid $border-color;
-            padding: 1.75rem 1rem 1rem;
-          }
+					@include media-breakpoint-up(lg) {
+						border: 1px solid $border-color;
+						padding: 1.75rem 1rem 1rem;
+					}
 
-          .leg-time {
-            font-weight: $font-weight-bold;
-            width: 100px;
-            padding: 0.5rem;
-            padding-left: 0;
+					.leg-time {
+						font-weight: $font-weight-bold;
+						width: 100px;
+						padding: 0.5rem;
+						padding-left: 0;
 
-            @include media-breakpoint-up(lg) {
-              width: 115px;
-            }
-          }
+						@include media-breakpoint-up(lg) {
+							width: 115px;
+						}
+					}
 
-          .leg-mode {
-            width: auto;
-            line-height: 1.2;
-            margin-left: -1rem;
-            padding-bottom: 0.5rem;
-            padding-left: 1.75rem;
-            position: relative;
+					.leg-mode {
+						width: auto;
+						line-height: 1.2;
+						margin-left: -1rem;
+						padding-bottom: 0.5rem;
+						padding-left: 1.75rem;
+						position: relative;
 
-            @include media-breakpoint-up(md) {
-              margin-left: 0;
-              padding-bottom: 0.75rem;
-            }
+						@include media-breakpoint-up(md) {
+							margin-left: 0;
+							padding-bottom: 0.75rem;
+						}
 
-            p {
-              margin-top: 0;
-            }
+						p {
+							margin-top: 0;
+						}
 
-            .leg-mode-icon {
-              background-color: $white;
-              width: 2rem;
-              height: 2rem;
-              position: absolute;
-              top: 0;
-              left: -1.2rem;
+						.leg-mode-icon {
+							background-color: $white;
+							width: 2rem;
+							height: 2rem;
+							position: absolute;
+							top: 0;
+							left: -1.2rem;
 
-              @include media-breakpoint-up(lg) {
-                left: -1.3rem;
-                width: 2.25rem;
-                height: 2.25rem;
-              }
+							@include media-breakpoint-up(lg) {
+								left: -1.3rem;
+								width: 2.25rem;
+								height: 2.25rem;
+							}
 
-              .icon {
-                width: 2rem;
-                height: 2rem;
+							.icon {
+								width: 2rem;
+								height: 2rem;
 
-                @include media-breakpoint-up(lg) {
-                  width: 2.25rem;
-                  height: 2.25rem;
-                }
-              }
-            }
-          }
+								@include media-breakpoint-up(lg) {
+									width: 2.25rem;
+									height: 2.25rem;
+								}
+							}
+						}
+					}
 
-          .walk {
-            border-left: 4px dotted #7dcae7;
-          }
+					.walk {
+						border-left: 4px dotted #7dcae7;
+					}
 
-          .bus {
-            border-left: 4px solid #7dcae7;
-          }
+					.bus {
+						border-left: 4px solid #7dcae7;
+					}
 
-          .walk {
-            padding-top: 0.5rem;
-          }
+					.walk {
+						padding-top: 0.5rem;
+					}
 
-          .metro-Green {
-            border-left: 4px solid $green;
-          }
+					.metro-Green {
+						border-left: 4px solid $green;
+					}
 
-          .metro-Blue {
-            border-left: 4px solid $blue;
-          }
+					.metro-Blue {
+						border-left: 4px solid $blue;
+					}
 
-          .metro-red {
-            border-left: 4px solid $red;
-          }
+					.metro-red {
+						border-left: 4px solid $red;
+					}
 
-          .metro-a {
-          }
+					.metro-a {
+					}
 
-          .metro-c {
-          }
+					.metro-c {
+					}
 
-          .ns-train {
-          }
+					.ns-train {
+					}
 
-          .arrive {
-            border-left: 4px solid transparent;
-          }
-        }
-      }
-    }
-  }
+					.arrive {
+						border-left: 4px solid transparent;
+					}
+				}
+			}
+		}
+	}
 }
