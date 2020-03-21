@@ -70,7 +70,8 @@ var TripPlan = (function($, window, document, undefined) {
 			//console.dir(tripData);
 			$.ajax({
 				type: 'get',
-				url: '/Services/TripPlannerSvc.ashx',
+				url:
+					'https://www.metrotransit.org/Services/TripPlannerSvc.ashx',
 				data: tripData,
 				dataType: 'json',
 			})
