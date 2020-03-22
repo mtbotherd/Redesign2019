@@ -80,9 +80,6 @@
 	.gray-100 {
 		h2 {
 			margin-bottom: 0;
-
-			@include media-breakpoint-up(lg) {
-			}
 		}
 
 		.stop-id {
@@ -109,7 +106,7 @@
 				}
 				&::after {
 					position: absolute;
-					top: 0.25rem;
+					top: 0.1rem;
 					content: '';
 					background-image: url('../../../../../img/svg/pin-gray.svg');
 					background-repeat: no-repeat;
@@ -119,6 +116,7 @@
 					margin-left: 0.15rem;
 
 					@include media-breakpoint-up(lg) {
+						top: 0;
 						background-size: 1.5rem;
 						width: 1.5rem;
 						height: 1.5rem;
@@ -140,18 +138,12 @@
 
 		.transit-service {
 			.routes {
-				@include font-size(20);
 				margin-right: 0.5rem;
 				margin-bottom: 0.5rem !important;
-				width: 90px;
-				height: 50px;
-				line-height: 1;
-				padding: 0.25rem 0.75rem;
+
 				@include media-breakpoint-up(lg) {
 					margin-right: 30px;
-					margin-bottom: 30px !important;
-					width: 90px;
-					height: 50px;
+					margin-bottom: 0 !important;
 				}
 			}
 		}
