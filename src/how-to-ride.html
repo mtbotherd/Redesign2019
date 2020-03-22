@@ -23,15 +23,15 @@
 	<!-- Begin Header -->
 	<header id="header">
 		<nav class="navbar navbar-expand-xl navbar-light">
-			<!-- <a href="#pageContainer" class="skip-to-content">Skip to main content</a> -->
 			<div class="container">
 				<a class="navbar-brand" href="/">
 					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
 				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
+				<button class="navbar-toggler border-0" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
+					<!-- <span class="navbar-toggler-icon"></span> -->
+					Menu <img class="icon" src="/img/svg/chevron-down-gray.svg" />
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -100,6 +100,11 @@
 					</section>
 					<ul class="nav navbar-nav utilities ml-auto">
 						<li class="nav-item">
+							<a class="nav-link goto-icon" href="/go-to-card">
+								<span class="sr-only">Go-To Card</span>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a class="nav-link store-icon" href="https://store.metrotransit.org">
 								<span class="sr-only">store</span>
 							</a>
@@ -109,9 +114,9 @@
 								<span class="sr-only">site search</span>
 							</a>
 							<div class="dropdown-menu search-dropdown-menu">
-								<div class="input-group">
-									<label for="siteSearch" class="sr-only">Search</label>
-									<input type="text" id="siteSearch" class="form-control" placeholder="Search our site">
+								<div class="input-group has-float-label">
+									<input type="text" id="siteSearch" class="form-control mr-0" placeholder="Search our site" required>
+									<label for="siteSearch">Search our site</label>
 									<div class="input-group-append">
 										<button type="button" id="siteSearchBtn" class="btn btn-primary">
 											<span class="sr-only">Search button</span>
@@ -223,7 +228,9 @@
 										<h2>Bus</h2>									
 										<p>Buses are the backbone of the Metro Transit system, providing 55 million rides annually on local, express and suburban routes. Learn how to ride these convenient routes right in your neighborhood, many with built-in transit advantages.</p>
 									
-										<div class="text-center mx-auto mb-0"><a class="btn btn-outline-primary" href="/ride-the-bus">Learn more</a></div>
+										<div class="btn-container">
+											<a class="btn btn-secondary-ghost has-icon-right" href="/ride-the-bus">Learn more</a>
+										</div>
 									</div>
 								</div>
 									
@@ -239,7 +246,9 @@
 										
 										<p>The METRO network offers fast, frequent, all-day service, with light-rail trains on the Blue and Green lines and bus rapid transit service on the A and C lines. Pay before you board these lines that stop less often to keep you moving more.</p>
 										
-										<div class="text-center mx-auto mb-0"><a class="btn btn-outline-primary" href="/metro">Learn more</a></div>
+										<div class="btn-container">
+											<a class="btn btn-secondary-ghost has-icon-right" href="/metro">Learn more</a>
+										</div>
 									</div>
 								</div>
 									
@@ -255,7 +264,9 @@
 										
 										<p>Northstar Commuter Rail service operates mainly during rush hours with six trips each direction each weekday, less frequently on weekends, and serves Vikings and Twins games. Northstar trains have onboard restrooms, work tables, power outlets and free Wi-Fi.</p>
 										
-										<div class="text-center mx-auto mb-0"><a class="btn btn-outline-primary" href="/northstar">Learn more</a></div>
+										<div class="btn-container">
+											<a class="btn btn-secondary-ghost has-icon-right" href="/northstar">Learn more</a>
+										</div>
 									</div>
 								</div>
 								
@@ -271,9 +282,10 @@
 										
 										<p>On local buses, pay as you board with cash (exact fare only), the Metro Transit app or Go-To Cards. On METRO lines, buy a ticket from the machine on the platform with cash, credit or debit cards – just remember to pay before boarding. While onboard, be ready to show your proof of payment: your ticket, Metro Transit app or Go-To Card/pass.</p>
 										
-										<div class="btn-wrapper mt-0 mr-lg-4"><a class="btn btn-warning" href="https://store.metrotransit.org/">Buy a Go-To Card</a></div>
-										
-										<div class="text-center mx-auto mb-0"><a class="btn btn-outline-primary" href="/app">Get the app</a></div>
+										<div class="btn-container">
+											<a class="btn btn-primary mr-md-4" href="https://store.metrotransit.org/">Buy a Go-To Card</a>
+											<a class="btn btn-secondary-ghost has-icon-right" href="/app">Get the app</a>
+										</div>
 									</div>
 								</div>
 								
@@ -289,7 +301,9 @@
 										
 										<p>Metro Transit’s number one priority is making sure that you arrive at your destination safely. Safety is a shared responsibility. You can help by reporting unusual or dangerous behavior to a transit employee or submitting a report discreetly using Text to Safety at 612-900-0411.</p>
 										
-										<div class="text-center mx-auto mb-0"><a class="btn btn-outline-primary btn-extend" href="/contact-police">Contact Transit Police</a></div>
+										<div class="btn-container">
+											<a class="btn btn-secondary-ghost has-icon-right" href="/contact-police">Contact Transit Police</a>
+										</div>
 									</div>
 								</div>
 								
@@ -305,9 +319,10 @@
 										
 										<p>All Metro Transit buses and trains have free bike racks so you can pedal for part of your trip and ride for the rest. Each bus accommodates two bikes, there’s room for four bikes in every METRO rail car.</p>
 										
-										<div class="text-center mx-auto mb-0 mr-lg-4"><a class="btn btn-outline-primary" href="/bicycle">How to ride</a></div>
-										
-										<div class="text-center mx-auto mb-0"><a class="btn btn-outline-primary btn-extend" href="/bike-lockers">Stations with lockers</a></div>
+										<div class="btn-container">
+											<a class="btn btn-secondary-ghost has-icon-right mr-md-4" href="/bicycle">How to ride</a>
+											<a class="btn btn-secondary-ghost has-icon-right" href="/bike-lockers">Stations with lockers</a>
+										</div>
 									</div>
 								</div>
 								
@@ -323,7 +338,9 @@
 										
 										<p>Carpoolers save on gas and use the MnPass lanes on I-394, I-35W and I-35E for free! Save yourself time and money by doubling up with a fellow commuter. It’s easy and secure to create a profile and search our database of others looking to share the ride.</p>
 										
-										<div class="text-center mx-auto mb-0"><a class="btn btn-outline-primary btn-extend" href="/carpool">Find a fellow carpooler</a></div>
+										<div class="btn-container">
+											<a class="btn btn-secondary-ghost has-icon-right" href="/carpool">Find a fellow carpooler</a>
+										</div>
 									</div>
 								</div>
 								
