@@ -42,7 +42,7 @@ var ParkRideServices = (function($, window, document, undefined) {
 			};
 			$.ajax({
 				type: 'get',
-				url: '/Services/FinderSvc.ashx',
+				url: 'https://www.metrotransit.org/Services/FinderSvc.ashx',
 				data: serviceData,
 				dataType: 'json',
 			})
