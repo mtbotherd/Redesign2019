@@ -3,10 +3,6 @@
 	.input-group {
 		width: 100%;
 
-		// .input-group-append {
-		// 	margin-left: 3px;
-		// }
-
 		.form-control {
 			border-right: 1px solid $border-color; // re add right border removed in .compontent/_forms.scss
 		}
@@ -42,8 +38,6 @@
 	}
 
 	.accordion {
-		margin-bottom: 2rem;
-
 		.card {
 			.card-header {
 				background-color: transparent;
@@ -79,11 +73,13 @@
 					}
 				}
 
-				[data-toggle='collapse'][aria-expanded='true'] .icon {
-					width: 1rem;
-					height: 1rem;
-					margin-right: 0;
-					transform: rotate(45deg);
+				[data-toggle='collapse'][aria-expanded='true'] {
+					.plus-blue {
+						width: 1rem;
+						height: 1rem;
+						margin-right: 0;
+						transform: rotate(45deg);
+					}
 				}
 			}
 

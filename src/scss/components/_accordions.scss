@@ -1,8 +1,8 @@
 .accordion {
-	margin-bottom: 15px;
+	margin-bottom: 1rem;
 
 	.card .card-header {
-		padding: 0.25rem !important;
+		//padding: 0.25rem !important;
 
 		.btn {
 			color: $gray-600;
@@ -65,6 +65,15 @@
 					width: 2.5rem;
 					height: 2.5rem;
 				}
+			}
+		}
+
+		[data-toggle='collapse'][aria-expanded='true'] {
+			.chevron-down-blue {
+				width: 1rem;
+				height: 1rem;
+				margin-right: 0;
+				transform: rotate(180deg);
 			}
 		}
 	}
