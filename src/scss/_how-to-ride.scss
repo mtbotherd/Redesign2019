@@ -3,26 +3,9 @@
 		margin-bottom: 0 !important;
 	}
 
-	.btn-wrapper,
-	.text-center mx-auto {
-		display: block;
-		text-align: center !important;
-
-		@include media-breakpoint-up(lg) {
-			display: inline-block;
-			//text-align: left !important;
-		}
-	}
-
-	.btn-wrapper {
-		margin-bottom: 1rem;
-
+	.btn {
 		@include media-breakpoint-up(lg) {
 			margin-bottom: 0;
 		}
-	}
-
-	.embed-responsive {
-		margin-bottom: 1rem;
 	}
 }
