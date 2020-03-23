@@ -43,10 +43,11 @@
 						<a class="navbar-brand" href="/">
 							<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
 						</a>
-						<button class="navbar-toggler" type="button" data-toggle="collapse"
+						<button class="navbar-toggler border-0" type="button" data-toggle="collapse"
 							data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 							aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
+							<!-- <span class="navbar-toggler-icon"></span> -->
+							Menu <img class="icon" src="/img/svg/chevron-down-gray.svg" />
 						</button>
 		
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -129,9 +130,9 @@
 										<span class="sr-only">site search</span>
 									</a>
 									<div class="dropdown-menu search-dropdown-menu">
-										<div class="input-group">
-											<label for="siteSearch" class="sr-only">Search</label>
-											<input type="text" id="siteSearch" class="form-control" placeholder="Search our site">
+										<div class="input-group has-float-label">
+											<input type="text" id="siteSearch" class="form-control mr-0" placeholder="Search our site" required>
+											<label for="siteSearch">Search our site</label>
 											<div class="input-group-append">
 												<button type="button" id="siteSearchBtn" class="btn btn-primary">
 													<span class="sr-only">Search button</span>
@@ -217,7 +218,7 @@
             <!-- End Header -->
 
             <!-- Begin Main Content -->
-            <main id="pageContainer" class="container" tabindex="-1">
+            <main id="pageContainer" class="container">
                 <section id="homePage">
                     <h1 class="sr-only">Metro Transit Home</h1>
                     <section class="full-width">
@@ -245,37 +246,25 @@
 											</button>
 										</div>
 									</div>
-                                </div>
-                                <div class="cta-link-white mt-md-2 mt-xl-4">
-                                    <a
-                                        class="d-inline-flex nav-link stretched-link"
-                                        href="/schedules-maps"
-                                    >
-                                        View all Schedules &amp; Maps
-                                    </a>
-                                    <img
-                                        alt=""
-                                        class="icon"
-                                        src="/img/svg/arrow-right-white.svg"
-                                    />
-                                </div>
+								</div>
+								<div class="text-center mx-auto">
+									<a href="/schedules-maps" class="btn btn-cta-white has-icon-right mt-md-2 mt-xl-4">View all schedules &amp; maps</a>
+								</div>
                             </div>
                         </div>
                     </section>
                     <section id="homeContent">
-                        <section class="section full-width pt-0">
+                        <section class="section full-width tab-overlay">
                             <div class="container">
                                 <div id="tripToolsTabs" class="trip-tools-tabs">
                                     <div class="card">
                                         <div class="tabs">
                                             <ul
                                                 class="nav nav-tabs"
-                                                role="tab-list"
-                                            >
+                                                role="tab-list">
                                                 <li
                                                     class="nav-item mr-2"
-                                                    role="presentation"
-                                                >
+                                                    role="presentation">
                                                     <a
                                                         id="tpTab"
                                                         class="nav-link active p-md-3"
@@ -283,25 +272,21 @@
                                                         href="#tripPlanner"
                                                         role="tab"
                                                         aria-controls="tripPlanner"
-                                                        aria-selected="true"
-                                                    >
+                                                        aria-selected="true">
                                                         <img
                                                             alt=""
-                                                            class="icon mx-auto active"
-                                                            src="/img/svg/trip-planner-color.svg"
-                                                        />
+															class="icon mx-auto active"
+															src="/img/svg/trip-planner-color.svg" />
                                                         <img
                                                             alt=""
                                                             class="icon mx-auto inactive"
-                                                            src="/img/svg/trip-planner-white.svg"
-                                                        />
+                                                            src="/img/svg/trip-planner-white.svg" />
                                                         Trip Planner
                                                     </a>
                                                 </li>
                                                 <li
                                                     class="nav-item mr-2"
-                                                    role="presentation"
-                                                >
+                                                    role="presentation">
                                                     <a
                                                         id="nTab"
                                                         class="nav-link p-md-3"
@@ -309,25 +294,21 @@
                                                         href="#nextrip"
                                                         role="tab"
                                                         aria-controls="nextrip"
-                                                        aria-selected="true"
-                                                    >
+                                                        aria-selected="true">
                                                         <img
                                                             alt=""
                                                             class="icon mx-auto active"
-                                                            src="/img/svg/nextrip-color.svg"
-                                                        />
+                                                            src="/img/svg/nextrip-color.svg" />
                                                         <img
                                                             alt=""
                                                             class="icon mx-auto inactive"
-                                                            src="/img/svg/nextrip-white.svg"
-                                                        />
+                                                            src="/img/svg/nextrip-white.svg" />
                                                         NexTrip
                                                     </a>
                                                 </li>
                                                 <li
                                                     class="nav-item"
-                                                    role="presentation"
-                                                >
+                                                    role="presentation">
                                                     <a
                                                         id="aTab"
                                                         class="nav-link p-md-3"
@@ -335,18 +316,15 @@
                                                         href="#alerts"
                                                         role="tab"
                                                         aria-controls="alerts"
-                                                        aria-selected="true"
-                                                    >
+                                                        aria-selected="true">
                                                         <img
                                                             alt=""
                                                             class="icon mx-auto active"
-                                                            src="/img/svg/alerts-color.svg"
-                                                        />
+                                                            src="/img/svg/alerts-color.svg" />
                                                         <img
                                                             alt=""
                                                             class="icon mx-auto inactive"
-                                                            src="/img/svg/alerts-white.svg"
-                                                        />
+                                                            src="/img/svg/alerts-white.svg" />
                                                         Alerts
                                                     </a>
                                                 </li>
@@ -357,6 +335,422 @@
                                                     role="tabpanel"
 													aria-labelledby="tripPlannerTab">
 													<div id="tripPlannerModule">
+														<div id="planTrip" class="card">
+															<fieldset>
+																<legend class="sr-only">To and from location</legend>
+																<div id="fromErrorMessage" class="is-invalid d-none">
+																	<span>Begin typing, then select an option from the list.</span>
+																</div>
+																<div class="input-group has-float-label mb-0 mb-lg-3">
+																	<input
+																		id="fromLocation"
+																		type="text"
+																		class="form-control from-location"
+																		name="fromLocation"
+																		aria-label="trip planner from location"
+																		aria-expanded="false"
+																		aria-autocomplete="list"
+																		aria-describedby="fromLocationInstr"
+																		aria-owns="fromLocationSuggestions"
+																		role="combobox"
+																		onFocus="this.select()"
+																		placeholder="Address, intersection or landmark" />
+																	<label for="fromLocation">From</label>
+																	<span class="sr-only">Enter an address, intersection or landmark.</span>
+																	<div class="input-group-append">
+																		<button tabindex="0" type="button" class="btn btn-primary location-toggler">
+																			<img
+																				alt="Up arrow and down arrow side by side."
+																				class="icon location-switcher-blue"
+																				src="/img/svg/location-switcher-blue.svg" />
+																			<span class="sr-only">Pressing this button will swap the to and from locations.</span>
+																		</button>
+																		<span id="fromLocationInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
+																	</div>
+																</div>
+																<div class="text-right mt-2 mb-2 d-lg-none">
+																	<span id="tpUseCurrentLoc">
+																		<a href="#">Use current  location&nbsp;<img alt="" src="/img/svg/pin-blue.svg"/></a>
+																	</span>
+																</div>
+																<div id="toErrorMessage" class="is-invalid d-none">
+																	<span>Begin typing, then select an option from the list.</span>
+																</div>
+																<div class="form-group has-float-label">
+																	<input
+																		id="toLocation"
+																		type="text"
+																		name="toLocation"
+																		class="form-control to-location"
+																		area-label="trip planner to location"
+																		aria-expanded="false"
+																		aria-autocomplete="list"
+																		aria-describedby="toLocationInstr"
+																		aria-owns="toLocationSuggestions"
+																		role="combobox"
+																		onFocus="this.select()"
+																		placeholder="Address, intersection or landmark" />
+																	<label for="toLocation">To</label>
+																	<span id="toLocationInstr" class="sr-only" style="display: none;">You can enter an address, intersection or landmark. When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
+																</div>
+															</fieldset>
+															<div class="row mb-4">
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<select
+																			id="selectTime"
+																			name="selectTime"
+																			class="custom-select">
+																			<option value="leave-now" >Leave now</option>
+																			<option value="depart-at">Depart at</option>
+																			<option value="arrive-by">Arrive by</option>
+																		</select>
+																		<label for="selectTime" class="sr-only">Select time</label>
+																	</div>
+																	<div class="row time-elements">
+																		<div class="col-xl-6">
+																			<div class="form-group has-float-label mb-3">
+																				<input
+																					id="time"
+																					type="time"
+																					name="time"
+																					class="form-control"
+																					aria-label="depart/arrive by time"
+																					aria-describedby="time" />
+																				<label for="time">Time</label>
+																			</div>
+																		</div>
+																		<div class="col-xl-6">
+																			<div class="form-group has-float-label mb-3">
+																				<input
+																					id="date"
+																					type="date"
+																					name="date"
+																					class="form-control"
+																					aria-label="depart/arrive by time"
+																					aria-describedby="date" />
+																				<label for="date">Date</label>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-md-6">
+																	<div class="accordion" role="tablist">
+																		<div class="card">
+																			<div class="card-header">
+																				<h3>
+																					<button type="button" 
+																							class="btn d-flex align-items-center btn-block text-left" data-toggle="collapse" 
+																							data-target="#tpMoreOptions" 
+																							aria-expanded="false">
+																						<span class="btn-text">More options</span>
+																						<span class="ml-auto">
+																							<img alt="" class="icon plus-blue ml-2 inactive" src="/img/svg/plus-blue.svg"/>
+																						</span>
+																					</button>
+																				</h3>
+																			</div>
+																			<div id="tpMoreOptions"
+																				class="collapse"
+																				role="tabpanel">
+																				<div class="card-body border">
+																					<p class="card-text mb-0">
+																						<strong>I'm willing to walk:</strong>
+																					</p>
+																					<div
+																						class="custom-control custom-radio"
+																					>
+																						<input
+																							id="quarterMile"
+																							type="radio"
+																							name="walkingDistance"
+																							value="0.25"
+																							class="custom-control-input"
+																						/>
+																						<label
+																							for="quarterMile"
+																							class="custom-control-label"
+																							>1/4
+																							mile</label
+																						>
+																					</div>
+																					<div
+																						class="custom-control custom-radio"
+																					>
+																						<input
+																							id="halfMile"
+																							type="radio"
+																							name="walkingDistance"
+																							value="0.5"
+																							class="custom-control-input"
+																							checked
+																						/>
+																						<label
+																							for="halfMile"
+																							class="custom-control-label"
+																							>1/2
+																							mile</label
+																						>
+																					</div>
+																					<div
+																						class="custom-control custom-radio"
+																					>
+																						<input
+																							id="oneMile"
+																							type="radio"
+																							name="walkingDistance"
+																							value="1"
+																							class="custom-control-input"
+																						/>
+																						<label
+																							for="oneMile"
+																							class="custom-control-label"
+																							>1
+																							mile</label
+																						>
+																					</div>
+																					<div
+																						class="custom-control custom-radio"
+																					>
+																						<input
+																							id="anyType"
+																							type="radio"
+																							name="serviceType"
+																							value="BCLTX"
+																							class="custom-control-input"
+																							checked
+																						/>
+																						<label
+																							class="custom-control-label"
+																							for="anyType"
+																							>Any
+																							service
+																							type</label
+																						>
+																					</div>
+																					<div
+																						class="custom-control custom-radio"
+																					>
+																						<input
+																							id="railOnly"
+																							type="radio"
+																							name="serviceType"
+																							value="CLT"
+																							class="custom-control-input"
+																						/>
+																						<label
+																							class="custom-control-label"
+																							for="railOnly"
+																							>Rail
+																							only</label
+																						>
+																					</div>
+																					<div
+																						class="custom-control custom-radio"
+																					>
+																						<input
+																							id="busOnly"
+																							type="radio"
+																							name="serviceType"
+																							value="BX"
+																							class="custom-control-input"
+																						/>
+																						<label
+																							class="custom-control-label"
+																							for="busOnly"
+																							>Bus
+																							only</label
+																						>
+																					</div>
+																					<div
+																						class="custom-control custom-radio"
+																					>
+																						<input
+																							id="noExpress"
+																							type="radio"
+																							name="serviceType"
+																							value="BCLT"
+																							class="custom-control-input"
+																						/>
+																						<label
+																							class="custom-control-label"
+																							for="noExpress"
+																							>No
+																							express</label
+																						>
+																					</div>
+																					<hr />
+																					<div
+																						class="custom-control custom-radio"
+																					>
+																						<input
+																							id="fasterTrip"
+																							type="radio"
+																							name="convenience"
+																							value="Time"
+																							class="custom-control-input"
+																							checked
+																						/>
+																						<label
+																							class="custom-control-label"
+																							for="fasterTrip"
+																							>Faster
+																							trip</label
+																						>
+																					</div>
+																					<div
+																						class="custom-control custom-radio"
+																					>
+																						<input
+																							id="fewerTransfers"
+																							type="radio"
+																							name="convenience"
+																							value="Xfers"
+																							class="custom-control-input"
+																						/>
+																						<label
+																							class="custom-control-label"
+																							for="fewerTransfers"
+																							>Fewer
+																							transfers</label
+																						>
+																					</div>
+																					<div
+																						class="custom-control custom-radio"
+																					>
+																						<input
+																							id="lessWalking"
+																							type="radio"
+																							name="convenience"
+																							value="Walking"
+																							class="custom-control-input"
+																						/>
+																						<label
+																							class="custom-control-label"
+																							for="lessWalking"
+																							>Less
+																							walking</label
+																						>
+																					</div>
+				
+																					<hr />
+				
+																					<p
+																						class="m-0"
+																					>
+																						<strong>
+																							<img
+																								alt=""
+																								class="icon accessible-gray"
+																								src="/img/svg/accessible-gray.svg"
+																							/>&nbsp;Accessible
+																							stops
+																						</strong>
+																					</p>
+																					<div
+																						class="custom-control custom-radio custom-control-inline"
+																					>
+																						<input
+																							id="accessibleYes"
+																							type="radio"
+																							name="accessible"
+																							value="True"
+																							class="custom-control-input"
+																						/>
+																						<label
+																							class="custom-control-label"
+																							for="accessibleYes"
+																							>Yes</label
+																						>
+																					</div>
+																					<div
+																						class="custom-control custom-radio custom-control-inline"
+																					>
+																						<input
+																							id="accessibleNo"
+																							type="radio"
+																							name="accessible"
+																							value="False"
+																							class="custom-control-input"
+																							checked
+																						/>
+																						<label
+																							class="custom-control-label"
+																							for="accessibleNo"
+																							>No</label
+																						>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div
+																id="spinner"
+																class="d-none text-center p-4"
+															>
+																<div class="spinner-border" role="status">
+																	<span class="sr-only">Loading...</span>
+																</div>
+															</div>
+															<div class="text-center mx-auto">
+																<button type="button"
+																		id="planMyTrip"
+																		class="btn btn-primary"
+																		name="planMyTrip">
+																	Plan my trip
+																</button>
+															</div>
+														</div>
+														<div id="tripPlannerResults" class="card">
+															<div class="no-trips-found mb-1 mb-lg-5">
+																<div class="alert alert-primary" role="alert">
+																	<h2>No trips available</h2>
+																	<p>
+																		We were unable to plan a
+																		trip between those
+																		locations. Try adjusting
+																		your trip settings. You
+																		can also contact Transit
+																		Information for help by
+																		phone at 612-373-3333.
+																	</p>
+																</div>
+															</div>
+				
+															<div class="trips-found">
+																<h2 id="trip-result-count"></h2>
+																<p id="trip-result-msg"></p>
+																<div id="tripPlan">
+																	<div class="tp-results accordion"></div>
+																</div>
+																<!-- <div
+																	id="tripPlan"
+																	class="tp-results accordion mb-1 mb-lg-5"
+																	role="tablist"></div> -->
+																<div class="text-center mx-auto">
+																	<button
+																		type="button"
+																		id="editMyTrip"
+																		class="btn btn-primary">
+																		Edit my trip
+																		<img
+																			alt=""
+																			class="icon edit-blue"
+																			src="/img/svg/edit-blue.svg" />
+																	</button>
+																	<button
+																		type="button"
+																		id="startTripOver"
+																		class="btn btn-primary">
+																		Start over
+																	</button>
+																</div>
+															</div>
+														</div>
+													</div>
+													<!-- <div id="tripPlannerModule">
 														<div id="planTrip" class="card">
 															<fieldset>
 																<legend class="sr-only">To and from location</legend>
@@ -770,7 +1164,7 @@
 																</div>
 															</div>
 														</div>
-													</div>
+													</div> -->
                                                 </div>
                                                 <div id="nextrip"
                                                     class="tt-nextrip tab-pane fade"
@@ -933,90 +1327,38 @@
                                                     role="tabpanel"
                                                     aria-labelledby="alertsTab"
                                                 >
-                                                    <div id="alertsModule">
-                                                        <div
-                                                            class="modal fade"
-                                                            id="alertTextModal"
-                                                            tabindex="-1"
-                                                            role="dialog"
-                                                            aria-labelledby="alertsModalLabel"
-                                                            aria-hidden="true"
-                                                        >
-                                                            <div
-                                                                class="modal-dialog"
-                                                                role="document"
-                                                            >
-                                                                <div
-                                                                    class="modal-content"
-                                                                >
-                                                                    <div
-                                                                        class="modal-header"
-                                                                    >
-                                                                        <button
-                                                                            type="button"
-                                                                            class="close"
-                                                                            data-dismiss="modal"
-                                                                            aria-label="close"
-                                                                        >
-                                                                            <img
-                                                                                alt=""
-                                                                                class="icon close-grey"
-                                                                                src="/img/svg/close-gray.svg"
-                                                                                aria-idden="true"
-                                                                            />
-                                                                        </button>
-                                                                    </div>
-                                                                    <div
-                                                                        class="modal-body"
-                                                                    >
-                                                                        <div
-                                                                            id="alertText"
-                                                                        ></div>
-                                                                        <div
-                                                                            class="text-center"
-                                                                        >
-                                                                            <button
-                                                                                type="button"
-                                                                                class="btn btn-warning btn-sm"
-                                                                                data-dismiss="modal"
-                                                                            >
-                                                                                Close
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- Alerts list (expand/collapse) -->
-                                                        <div
-                                                            id="alertsCard"
-                                                            class="card"
-                                                        >
-                                                            <h2
-                                                                class="text-center"
-                                                            >
-                                                                Check planned
-                                                                detours, bus
-                                                                stop &amp;
-                                                                service changes
-                                                                and disruptions
-                                                            </h2>
-                                                            <div
-                                                                class="text-center mx-auto text-center mb-0"
-                                                            >
-                                                                <a
-                                                                    href="https://public.govdelivery.com/accounts/MNMETRO/subscriber/new"
-                                                                    class="btn btn-outline-primary btn-med-extend"
-                                                                    >Sign up for
-                                                                    alerts</a
-                                                                >
-                                                            </div>
-                                                            <section
-                                                                id="alertSection"
-                                                                class="section"
-                                                            ></section>
-                                                        </div>
-                                                    </div>
+													<div id="alertsModule">
+														<div class="modal fade" id="alertTextModal" tabindex="-1" role="dialog" aria-labelledby="alertsModalLabel" aria-hidden="true">
+															<div class="modal-dialog" role="document">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<button type="button" class="close" data-dismiss="modal" aria-label="close">
+																			<span aria-idden="true">
+																				<img alt="X" class="icon" src="/img/svg/close-gray.svg">
+																			</span>
+																		</button>
+																	</div>
+																	<div class="modal-body">
+																		<div id="alertText"></div>
+																		<div class="text-center">
+																			<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!-- Alerts list (expand/collapse) -->
+														<div id="alertsCard" class="card">
+															<h1 class="sr-only">Alerts</h1>
+															<h2 class="text-center">Check planned detours, bus stop, service changes, and disruptions</h2>
+															<div class="text-center mx-auto">
+																<a href="" class="btn btn-secondary-ghost mb-5">
+																	Sign up for alerts
+																</a>
+															</div>
+															<div id="alertSection"></div>
+														</div>
+													</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1026,14 +1368,10 @@
                         </section>
                         <section class="section full-width striped">
                             <div class="container">
-                                <div
-                                    class="text-center mx-auto position-relative text-center mb-0"
-                                >
+                                <div class="text-center mx-auto position-relative text-center mb-0">
                                     <a
                                         href="/how-to-ride"
-                                        class="btn btn-outline-primary"
-                                        >How to ride</a
-                                    >
+                                        class="btn btn-secondary-ghost has-icon-right">How to ride</a>
                                 </div>
                             </div>
                         </section>
@@ -1044,12 +1382,22 @@
                                         <div class="card border">
                                             <img
                                                 alt=""
-                                                src="https://wwwtest.metrotransit.org/Data/Sites/1/media/news/wp3124196-blue-lagoon-wallpapers.jpg"
-                                                class="card-img-top"
-                                            />
+												src="/img/placeholder-300x300.png"
+												class="card-img-top" />
                                             <div class="card-body">
                                                 <div class="text-center">
-                                                    <a href="#" class="stretched-link">Routes will change March 14</a>
+                                                    <a href="#" class="card-title stretched-link">Routes will change March 14</a>
+                                                </div>
+											</div>
+                                        </div>
+                                        <div class="card border">
+                                            <img
+                                                alt=""
+                                                src="/img/placeholder-300x300.png"
+                                                class="card-img-top" />
+                                            <div class="card-body">
+                                                <div class="text-center">
+                                                    <a href="#" class="card-title stretched-link">Get Connect sent directly to your inbox</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -1057,24 +1405,10 @@
                                             <img
                                                 alt=""
                                                 src="/img/placeholder-300x300.png"
-                                                class="card-img-top"
-                                            />
+                                                class="card-img-top" />
                                             <div class="card-body">
                                                 <div class="text-center">
-                                                    <a  href="#" class="stretched-link">Get Connect sent directly to your inbox</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <div class="card border">
-                                            <img
-                                                alt=""
-                                                src="/img/placeholder-300x300.png"
-                                                class="card-img-top"
-                                            />
-                                            <div class="card-body">
-                                                <div class="text-center">
-                                                    <a  href="#" class="stretched-link">Miller Free Rides arrive on March 17</a>
+                                                    <a href="#" class="card-title stretched-link">Miller Free Rides arrive on March 17</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -1082,23 +1416,20 @@
                                             <img
                                                 alt=""
                                                 src="/img/placeholder-300x300.png"
-                                                class="card-img-top"
-                                            />
+                                                class="card-img-top" />
                                             <div class="card-body">
                                                 <div class="text-center">
-                                                    <a href="#" class="stretched-link">Celebrate Transit Driver Appreciation Day on Wednesday, March 18</a>
+                                                    <a href="#" class="card-title stretched-link">Celebrate Transit Driver Appreciation Day on Wednesday, March 18</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div
-                                        class="text-center mx-auto text-center"
-                                    >
+                                        class="text-center mx-auto text-center">
                                         <a
-                                            class="btn btn-outline-primary"
+                                            class="btn btn-secondary-ghost has-icon-right"
                                             href="/news"
-                                            >More News &amp; Events</a
-                                        >
+                                            >More News &amp; Events</a>
                                     </div>
                                 </div>
                             </div>
@@ -1113,7 +1444,7 @@
 				<div class="container">
 					<div class="text-center mx-auto">
 						<a class="btn btn-secondary-ghost has-icon-right" href="/contact-us">Contact us</a>
-					</div>			
+					</div>		
 					<p class="text-center d-lg-none my-3"><a class="h2" href="tel:612-373-3333">612-373-3333</a></p>			
 						<div id="google_translate_element">&nbsp;</div>
 					<div class="d-none d-xl-block social-media text-center">
