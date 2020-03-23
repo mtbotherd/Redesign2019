@@ -153,16 +153,6 @@ p.small {
 		background-color: $white;
 	}
 }
-// .section {
-// 	padding-top: 30px;
-// 	padding-bottom: 30px;
-
-// 	@include media-breakpoint-up(lg) {
-// 		padding-top: 60px;
-// 		padding-bottom: 60px;
-// 	}
-// }
-
 .full-width {
 	width: 100vw;
 	position: relative;
@@ -170,10 +160,6 @@ p.small {
 	left: 50%;
 	overflow-x: hidden;
 }
-
-// .striped {
-// 	background-color: $gray-100;
-// }
 
 // Text colors
 .cyan {
