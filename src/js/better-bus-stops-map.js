@@ -113,14 +113,14 @@ var bbsMap = (function($, window, document) {
 				//===================================================================================
 				//  START OF MAP INITIALIZATION =====================================================
 				//===================================================================================
-				const spatialRefWM = new SpatialReference({ wkid: 3857 });
-				const initExtent = new Extent({
-					xmin: -10385405,
-					ymin: 5615111,
-					xmax: -10379460,
-					ymax: 5619877,
-					spatialReference: spatialRefWM,
-				});
+				// const spatialRefWM = new SpatialReference({ wkid: 3857 });
+				// const initExtent = new Extent({
+				// 	xmin: -10385405,
+				// 	ymin: 5615111,
+				// 	xmax: -10379460,
+				// 	ymax: 5619877,
+				// 	spatialReference: spatialRefWM,
+				// });
 				var popUpDiv = document.createElement('div');
 				var mapPopup = new Popup(
 					{
@@ -168,8 +168,8 @@ var bbsMap = (function($, window, document) {
 					basemap: 'transitVector',
 					maxZoom: 18,
 					minZoom: 10,
-					center: [-93.27, 44.975],
-					zoom: 12,
+					center: [-93.18, 45],
+					zoom: 11,
 				});
 
 				MAP.on('resize', function(extent, width, height) {});
@@ -196,7 +196,11 @@ var bbsMap = (function($, window, document) {
 						);
 					}
 				});
-
+				// ===================================================================
+				// This layer just shows a small grey dot on the map for each 
+				// existing shelter location. Note: these locations may be different 
+				// from the stop location used to indicate new and replacement shelters.
+				// ===================================================================
 				var sheltersLayer = new ArcGISDynamicMapServiceLayer(
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
 					{
@@ -206,27 +210,88 @@ var bbsMap = (function($, window, document) {
 				);
 				sheltersLayer.setImageFormat('svg');
 				sheltersLayer.setVisibleLayers([6]);
-
-				var newSheltersLayer = new ArcGISDynamicMapServiceLayer(
+				// ==========================================================================
+				// This layer combines several services using concentric circles to show 
+				// both the sites of new shelters as well as intended improvements for light,
+				// heat, and landing pads.
+				// ==========================================================================
+				var newShelterLayer = new ArcGISDynamicMapServiceLayer(
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
 					{
-						id: 'newShelters',
+						id: 'newShelterLayer',
 						opacity: 1,
 					}
 				);
-				newSheltersLayer.setImageFormat('svg');
-				newSheltersLayer.setVisibleLayers([3]);
-
-				var improvementsLayer = new ArcGISDynamicMapServiceLayer(
+				newShelterLayer.setImageFormat('svg');
+				newShelterLayer.setVisibleLayers([3]);
+				var newShelterHeatLayer = new ArcGISDynamicMapServiceLayer(
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
 					{
-						id: 'improvements',
+						id: 'newShelterHeatLayer',
 						opacity: 1,
 					}
 				);
-				improvementsLayer.setImageFormat('svg');
-				improvementsLayer.setVisibleLayers([5,4,2,1,0]);
-
+				newShelterHeatLayer.setImageFormat('svg');
+				newShelterHeatLayer.setVisibleLayers([8]);
+				var newShelterLightLayer = new ArcGISDynamicMapServiceLayer(
+					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					{
+						id: 'newShelterLightLayer',
+						opacity: 1,
+					}
+				);
+				newShelterLightLayer.setImageFormat('svg');
+				newShelterLightLayer.setVisibleLayers([9]);
+				var boardingPadLayer = new ArcGISDynamicMapServiceLayer(
+					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					{
+						id: 'boardingPadLayer',
+						opacity: 1,
+					}
+				);
+				boardingPadLayer.setImageFormat('svg');
+				boardingPadLayer.setVisibleLayers([2]);
+				// ===========================================================================
+				// This layer combines several services also using concentri circles to show
+				// both the existing sites slated for improvements as well as the intended
+				// improvements.
+				// ===========================================================================
+				var replaceShelterLayer = new ArcGISDynamicMapServiceLayer(
+					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					{
+						id: 'replaceShelterLayer',
+						opacity: 1,
+					}
+				);
+				replaceShelterLayer.setImageFormat('svg');
+				replaceShelterLayer.setVisibleLayers([4]);
+				var replaceShelterHeatLayer = new ArcGISDynamicMapServiceLayer(
+					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					{
+						id: 'replaceShelterHeatLayer',
+						opacity: 1,
+					}
+				);
+				replaceShelterHeatLayer.setImageFormat('svg');
+				replaceShelterHeatLayer.setVisibleLayers([0]);
+				var replaceShelterLightLayer = new ArcGISDynamicMapServiceLayer(
+					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					{
+						id: 'replaceShelterLightLayer',
+						opacity: 1,
+					}
+				);
+				replaceShelterLightLayer.setImageFormat('svg');
+				replaceShelterLightLayer.setVisibleLayers([1]);
+				var removeShelterLayer = new ArcGISDynamicMapServiceLayer(
+					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					{
+						id: 'removeShelterLayer',
+						opacity: 1,
+					}
+				);
+				removeShelterLayer.setImageFormat('svg');
+				removeShelterLayer.setVisibleLayers([5]);
 				// this feature layer is visible but transparent and overlays all the new and proposed existing changes
 				// =========================================================
 				var template = new PopupTemplate();
@@ -238,7 +303,7 @@ var bbsMap = (function($, window, document) {
 					if (a.New) { content += '<strong>&mdash;</strong> Adding a new shelter in ' + a.New + '<br/>';}
 					if (a.Replacement) { content += '<strong>&mdash;</strong> Replacing shelter in ' + a.Replacement + '<br/>';}
 					if (a.Remove) { content += '<strong>&mdash;</strong> Removing shelter in ' + a.Remove + '<br/>';}
-					if (a.AddLight) { content += '<strong>&mdash;</strong> Adding lights in ' + a.AddLight + '<br/>';}
+					if (a.AddLight) { content += '<strong>&mdash;</strong> Adding a light in ' + a.AddLight + '<br/>';}
 					if (a.SolarLight) { content += '<strong>&mdash;</strong> Adding solar lighting in ' + a.SolarLight + '<br/>';}
 					if (a.AddHeat) { content += '<strong>&mdash;</strong> Adding heat in ' + a.AddHeat + '<br/>';}
 					if (a.AddPad) { content += '<strong>&mdash;</strong> Adding a boarding pad in ' + a.AddPad + '<br/>';}
@@ -266,8 +331,14 @@ var bbsMap = (function($, window, document) {
 
 				var mapLayers = [
 						sheltersLayer,
-						newSheltersLayer,
-						improvementsLayer,
+						newShelterLayer,
+						newShelterLightLayer,
+						newShelterHeatLayer,
+						replaceShelterLayer,
+						replaceShelterLightLayer,
+						replaceShelterHeatLayer,
+						removeShelterLayer,
+						boardingPadLayer,
 						refFeatureLayer
 					];
 				MAP.addLayers(mapLayers);
@@ -292,13 +363,18 @@ var bbsMap = (function($, window, document) {
 						scalebarUnit: 'english',
 					});
 					var layerInfo = [
-						{layer: sheltersLayer, title: " "},
-						{layer: newSheltersLayer, title: " "},
-						{layer: improvementsLayer, title: " "}
+						{layer: removeShelterLayer, title: " "},
+						{layer: newShelterLayer, title: " "},
+						{layer: replaceShelterLayer, title: " "},
+						{layer: boardingPadLayer, title: " "},
+						{layer: newShelterLightLayer, title: " "},
+						{layer: newShelterHeatLayer, title: " "},
 					];
 					var mapLegend = new Legend({
 						map: MAP,
-						layerInfos: layerInfo
+						layerInfos: layerInfo,
+						respectCurrentMapScale: false,
+						autoUpdate: false
 					}, "betterStopsLegend");
 					mapLegend.startup();
 
@@ -361,10 +437,16 @@ $(function() {
 			console.log("Map loaded");
 		});
 		$('#betterStopsMapLayer1').click(function() {
-			bbsMap.toggleLayer('newShelters', /*zoomLevel*/ 12);
+			bbsMap.toggleLayer('newShelterLayer');
+			bbsMap.toggleLayer('newShelterHeatLayer');
+			bbsMap.toggleLayer('newShelterLightLayer');
+			bbsMap.toggleLayer('boardingPadLayer');
 		});
 		$('#betterStopsMapLayer2').click(function() {
-			bbsMap.toggleLayer('improvements', /*zoomLevel*/ 12);
+			bbsMap.toggleLayer('replaceShelterLayer');
+			bbsMap.toggleLayer('removeShelterLayer');
+			bbsMap.toggleLayer('replaceShelterHeatLayer');
+			bbsMap.toggleLayer('replaceShelterLightLayer');
 		});
 	}
 });
