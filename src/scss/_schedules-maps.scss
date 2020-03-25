@@ -26,6 +26,7 @@
 			.btn {
 				background-color: $white;
 				border: 0;
+				padding: 0.563rem 1rem;
 
 				.icon {
 					width: 1rem;
@@ -54,7 +55,7 @@
 		}
 	}
 
-	h2 {
+	h2.has-icon-left {
 		position: relative;
 		padding: 0.5rem 0 0.5rem 3rem;
 
@@ -64,7 +65,8 @@
 			padding: 0 0 0 3rem;
 		}
 
-		&::before {
+		// METRO Light Rail
+		&.mlr::before {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -74,30 +76,62 @@
 			width: 2.5rem;
 			height: 2.5rem;
 			margin-right: 0.5rem;
-		}
-
-		// METRO Light Rail
-		&.mlr::before {
 			background-image: url('../../../../../img/svg/circle-gray-lrt.svg');
 		}
 
 		// Popular bus routes
 		&.pbr::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			background-repeat: no-repeat;
+			background-size: 2.5rem;
+			width: 2.5rem;
+			height: 2.5rem;
+			margin-right: 0.5rem;
 			background-image: url('../../../../../img/svg/circle-gray-outline-bus.svg');
 		}
 
 		// METRO Bus Rapid Transit
 		&.mbrt::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			background-repeat: no-repeat;
+			background-size: 2.5rem;
+			width: 2.5rem;
+			height: 2.5rem;
+			margin-right: 0.5rem;
 			background-image: url('../../../../../img/svg/circle-gray-bus.svg');
 		}
 
 		// Commuter Rail
 		&.cr::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			background-repeat: no-repeat;
+			background-size: 2.5rem;
+			width: 2.5rem;
+			height: 2.5rem;
+			margin-right: 0.5rem;
 			background-image: url('../../../../../img/svg/circle-gray-train.svg');
 		}
 
 		// Interactive map
 		&.ir::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			background-repeat: no-repeat;
+			background-size: 2.5rem;
+			width: 2.5rem;
+			height: 2.5rem;
+			margin-right: 0.5rem;
 			background-image: url('../../../../../img/svg/schedules-maps-color.svg');
 		}
 	}
@@ -122,6 +156,20 @@
 	.btn-route {
 		@include media-breakpoint-up(lg) {
 			margin-right: 0.5rem;
+		}
+
+		&:last-child {
+			margin-bottom: 1rem;
+		}
+	}
+
+	.bus-routes {
+		.btn-route {
+			margin-right: 1.095rem;
+
+			&:nth-child(4n) {
+				margin-right: 0;
+			}
 		}
 	}
 

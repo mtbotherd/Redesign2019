@@ -1,37 +1,7 @@
 #gotoCards {
-	div.goto-card {
-		.btn-group {
-			@include media-breakpoint-up(lg) {
-				margin-left: 2.25rem;
-				padding-right: 2.75rem;
-			}
-		}
-
-		.btn-group-toggle {
-			.btn-outline-secondary {
-				margin-right: 1.19rem;
-				margin-bottom: 1.19rem !important;
-
-				@include media-breakpoint-up(lg) {
-					margin-right: 1.72rem;
-					margin-bottom: 1.72rem !important;
-				}
-
-				&:nth-child(4n) {
-					margin-right: 0;
-
-					@include media-breakpoint-up(lg) {
-						margin-right: 1.72rem;
-					}
-				}
-
-				&:nth-child(5n) {
-					@include media-breakpoint-up(lg) {
-						margin-right: 0;
-					}
-				}
-			}
-		}
+	.btn-container {
+		text-align: center;
+		margin: 0 auto;
 	}
 
 	div.seven-day-pass {
@@ -88,16 +58,6 @@
 					width: 1.5rem;
 					height: 1.5rem;
 				}
-			}
-		}
-	}
-
-	.northstar-passes {
-		h2 {
-			padding: 0 4rem;
-
-			@include media-breakpoint-up(lg) {
-				padding: 0;
 			}
 		}
 	}
@@ -169,27 +129,33 @@
 		.icon {
 			width: 2.5rem;
 			height: 2.5rem;
-			margin-bottom: 0.5rem;
-		}
-
-		.phone-white {
-			width: 25px;
-			height: 40px;
+			margin-right: 0.5rem;
+			margin-bottom: 0.75rem;
 
 			@include media-breakpoint-up(lg) {
-				width: 30px;
-				height: 48px;
+				width: 3rem;
+				height: 3rem;
 			}
 		}
 
-		.ticket-white {
-			width: 27px;
-			height: 40px;
+		// .phone-white {
+		// 	width: 25px;
+		// 	height: 40px;
 
-			@include media-breakpoint-up(lg) {
-				width: 33px;
-				height: 48px;
-			}
-		}
+		// 	@include media-breakpoint-up(lg) {
+		// 		width: 30px;
+		// 		height: 48px;
+		// 	}
+		// }
+
+		// .ticket-white {
+		// 	width: 24px;
+		// 	height: 24px;
+
+		// 	@include media-breakpoint-up(lg) {
+		// 		width: 40px;
+		// 		height: 40px;
+		// 	}
+		// }
 	}
 }

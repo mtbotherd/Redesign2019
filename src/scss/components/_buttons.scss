@@ -1,18 +1,9 @@
 .btn-container {
 	text-align: center;
 	margin: 0 auto;
-	margin-bottom: 1rem;
 
-	@include media-breakpoint-up(md) {
-		margin: 0;
-	}
-
-	@include media-breakpoint-up(lg) {
+	@include media-breakpoint-up(xl) {
 		text-align: left;
-	}
-
-	&:last-child {
-		margin-bottom: 0;
 	}
 }
 
@@ -22,11 +13,20 @@
 	min-width: 13.75rem;
 	margin-bottom: 1rem;
 
+	@include media-breakpoint-up(md) {
+		margin-right: 1rem;
+	}
+
 	@include media-breakpoint-up(lg) {
 		@include font-size(23);
 		min-width: 16.875rem;
 		padding: 0.688rem 0.75rem;
-		margin-bottom: 0;
+		//margin-right: 0;
+		margin-bottom: 1rem;
+	}
+
+	@include media-breakpoint-up(xl) {
+		margin-right: 1rem;
 	}
 
 	&:last-child {
@@ -301,48 +301,39 @@
 			}
 		}
 	}
-}
 
-// .cta-link-white {
-// 	position: relative;
-// 	border: 2px solid #ffffff;
-// }
-// .cta-link-white .nav-link {
-// 	color: white;
-// 	font-size: 17px !important;
-// 	font-size: 1.0625rem !important;
-// 	font-weight: 700;
-// 	text-decoration: none;
-// }
-// @media (min-width: 992px) {
-// 	.cta-link-white .nav-link {
-// 		font-size: 23px !important;
-// 		font-size: 1.4375rem !important;
-// 		margin-right: 0;
-// 	}
-// }
-// .cta-link-white .icon {
-// 	width: 1.25rem;
-// 	height: 1.25rem;
-// 	position: absolute;
-// 	top: 0.75rem;
-// 	right: 1rem;
-// }
-// @media (min-width: 768px) {
-// 	.cta-link-white .icon {
-// 		right: 13rem;
-// 	}
-// }
-// @media (min-width: 992px) {
-// 	.cta-link-white .icon {
-// 		top: 1rem;
-// 		right: auto;
-// 	}
-// }
-// @media (min-width: 768px) {
-// 	.cta-link-white {
-// 		border: 0;
-// 		display: block;
-// 		text-align: center;
-// 	}
-// }
+	&.btn-link-white {
+		color: $white;
+		margin-bottom: 0;
+		min-width: auto;
+		position: relative;
+		padding: 0.5rem 3rem;
+		padding-left: 0;
+		text-align: left;
+
+		@include media-breakpoint-up(lg) {
+			border: none;
+			padding: 0.688rem 3rem;
+		}
+
+		&.has-icon-right {
+			&::after {
+				position: absolute;
+				content: '';
+				background-image: url('../../../../../img/svg/arrow-right-white.svg');
+				background-repeat: no-repeat;
+				top: 0.95rem;
+				right: 0.75rem;
+				width: 1.25rem;
+				height: 1.25rem;
+
+				@include media-breakpoint-up(lg) {
+					top: 1.15rem;
+					background-size: 1.25rem;
+					width: 1.25rem;
+					height: 1.25rem;
+				}
+			}
+		}
+	}
+}

@@ -33,7 +33,7 @@
 	input::-webkit-input-placeholder,
 	select::-webkit-input-placeholder,
 	textarea::-webkit-input-placeholder {
-		opacity: 1;
+		opacity: 0;
 		-webkit-transition: all 0.2s;
 		transition: all 0.2s;
 	}
@@ -41,24 +41,26 @@
 	input::-moz-placeholder,
 	select::-moz-placeholder,
 	textarea::-moz-placeholder {
-		opacity: 1;
+		opacity: 0;
 		transition: all 0.2s;
 	}
 
 	input:-ms-input-placeholder,
 	select:-ms-input-placeholder,
 	textarea:-ms-input-placeholder {
-		opacity: 1;
+		opacity: 0;
 		transition: all 0.2s;
 	}
 
 	input::placeholder,
 	select::placeholder,
 	textarea::placeholder {
-		opacity: 1;
+		opacity: 0;
 		-webkit-transition: all 0.2s;
 		transition: all 0.2s;
 	}
+
+	// End setting opacity to zero
 
 	input:placeholder-shown:not(:focus)::-webkit-input-placeholder,
 	select:placeholder-shown:not(:focus)::-webkit-input-placeholder,

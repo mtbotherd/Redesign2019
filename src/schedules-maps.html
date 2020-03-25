@@ -25,17 +25,17 @@
 		<!-- Begin Header -->
 		<header id="header">
 			<nav class="navbar navbar-expand-xl navbar-light">
-				<!-- <a href="#pageContainer" class="skip-to-content">Skip to main content</a> -->
 				<div class="container">
 					<a class="navbar-brand" href="/">
 						<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
 					</a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
+					<button class="navbar-toggler border-0" type="button" data-toggle="collapse"
 						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 						aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
+						<!-- <span class="navbar-toggler-icon"></span> -->
+						Menu <img class="icon" src="/img/svg/chevron-down-gray.svg" />
 					</button>
-
+	
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<section>
 							<ul class="nav navbar-nav mx-auto">
@@ -102,6 +102,11 @@
 						</section>
 						<ul class="nav navbar-nav utilities ml-auto">
 							<li class="nav-item">
+								<a class="nav-link goto-icon" href="/go-to-card">
+									<span class="sr-only">Go-To Card</span>
+								</a>
+							</li>
+							<li class="nav-item">
 								<a class="nav-link store-icon" href="https://store.metrotransit.org">
 									<span class="sr-only">store</span>
 								</a>
@@ -111,9 +116,9 @@
 									<span class="sr-only">site search</span>
 								</a>
 								<div class="dropdown-menu search-dropdown-menu">
-									<div class="input-group">
-										<input type="text" id="siteSearch" class="form-control" placeholder="Search our site">
-										<label for="siteSearch" class="sr-only">Search</label>
+									<div class="input-group has-float-label">
+										<input type="text" id="siteSearch" class="form-control mr-0" placeholder="Search our site" required>
+										<label for="siteSearch">Search our site</label>
 										<div class="input-group-append">
 											<button type="button" id="siteSearchBtn" class="btn btn-primary">
 												<span class="sr-only">Search button</span>
@@ -214,13 +219,12 @@
 
 					<div class="content-full-width">
 						<div class="htmlmodule">
-
 							<section class="">
 								<div id="schedulesMaps">
 									<section class="section full-width">
 										<div class="container">
 											<div id="findSchedulesByRoute" class="auto-complete-search-box">
-												<div class="input-group has-float-label custom-width d-flex">
+												<div class="input-group has-float-label custom-width">
 													<input 
 														type="text"
 														id="schedulesByRoute"
@@ -249,12 +253,12 @@
 										<div class="container">
 											<div class="row">
 												<div class="col-md-5 mb-5 mb-md-0">
-													<h2 class="mlr">METRO Light Rail</h2>
+													<h2 class="has-icon-left mlr">METRO Light Rail</h2>
 													<a href="/route/901" class="btn btn-route-lg">Blue Line</a>
 													<a href="/route/902" class="btn btn-route-lg mb-0">Green Line</a>
 												</div>
 												<div class="col-md-7">
-													<h2 class="pbr">Popular bus routes</h2>
+													<h2 class="has-icon-left pbr">Popular bus routes</h2>
 													<div class="d-flex justify-content-between justify-content-lg-start flex-wrap mb-3">
 														<a href="/route/2"
 															class="btn btn-route routes">2</a>
@@ -308,7 +312,7 @@
 									
 									<section class="section full-width">
 										<div class="container">
-											<h2 class="mbrt">METRO Bus Rapid Transit</h2>
+											<h2 class="has-icon-left mbrt">METRO Bus Rapid Transit</h2>
 											<div class="d-md-flex justify-content-md-between">
 												<a href="/route/921" class="btn btn-route-lg mb-md-0">A Line</a>
 												<a href="/route/923" class="btn btn-route-lg mb-md-0">C Line</a>
@@ -319,7 +323,7 @@
 									
 									<section class="section full-width">
 										<div class="container">
-											<h2 class="cr">Commuter Rail</h2>
+											<h2 class="has-icon-left cr">Commuter Rail</h2>
 											<div class="commuter-rail">
 												<a href="/route/888" class="btn btn-route-lg mb-0">Northstar</a>
 											</div>
@@ -329,7 +333,7 @@
 									<section class="section full-width">
 										<div class="container">
 											<div id="interactiveMap">
-												<h2 class="ir">Interactive Map</h2>
+												<h2 class="has-icon-left ir">Interactive Map</h2>
 												<div class="auto-complete-search-box mb-4 mb-lg-5">
 													<div class="input-group has-float-label custom-width">
 														<input type="text"
