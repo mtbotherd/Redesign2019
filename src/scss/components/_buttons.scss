@@ -1,6 +1,8 @@
 .btn-container {
 	text-align: center;
 	margin: 0 auto;
+	padding: 0;
+	width: 100%;
 
 	@include media-breakpoint-up(xl) {
 		text-align: left;
@@ -10,7 +12,7 @@
 .btn {
 	@include font-size(20);
 	font-weight: $font-weight-bold;
-	min-width: 13.75rem;
+	min-width: 220px;
 	margin-bottom: 1rem;
 
 	@include media-breakpoint-up(md) {
@@ -22,15 +24,11 @@
 		min-width: 16.875rem;
 		padding: 0.688rem 0.75rem;
 		//margin-right: 0;
-		margin-bottom: 1rem;
+		margin-bottom: 0;
 	}
 
 	@include media-breakpoint-up(xl) {
 		margin-right: 1rem;
-	}
-
-	&:last-child {
-		margin-bottom: 0;
 	}
 
 	&.btn-primary {
