@@ -37,7 +37,7 @@
 
 						@include media-breakpoint-up(lg) {
 							top: -0.15rem;
-							right: 4rem;
+							right: 1rem;
 						}
 					}
 				}
@@ -50,7 +50,7 @@
 
 						@include media-breakpoint-up(lg) {
 							top: -0.15rem;
-							right: 7.5rem;
+							right: 4.5rem;
 						}
 					}
 				}
@@ -71,6 +71,12 @@
 				background-color: $white;
 			}
 		}
+	}
+
+	.btn-container {
+		text-align: center;
+		margin-right: auto;
+		margin-left: auto;
 	}
 
 	.accordion {
