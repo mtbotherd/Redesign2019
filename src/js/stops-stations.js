@@ -42,7 +42,8 @@ var StopServices = (function($, window, document, undefined) {
 			};
 			$.ajax({
 				type: 'get',
-				url: '/Services/ServiceFinderSvc.ashx',
+				url:
+					'https://www.metrotransit.org/Services/ServiceFinderSvc.ashx',
 				data: serviceData,
 				dataType: 'json',
 			})
@@ -111,7 +112,7 @@ var StopServices = (function($, window, document, undefined) {
 						//  src="/img/svg/circle-gray-outline-train.svg">
 						// img/svg/circle-green-outline-lrt.svg"/>':'<img class="icon" src="/img/svg/circle-blue-outline-lrt.svg"/>'}
 						serviceDetail.push(
-							`<a href="/route/${service.Route}" class="btn btn-outline-secondary routes">${route} ${service.Direction}</a>`
+							`<a href="/route/${service.Route}" class="btn btn-route-lg routes">${route} ${service.Direction}</a>`
 						);
 					}
 					serviceDetail.push('</div></div></div>');

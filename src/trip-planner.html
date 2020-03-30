@@ -22,498 +22,183 @@
 
             <!-- Begin Header -->
             <header id="header">
-                <nav class="navbar navbar-expand-xl navbar-light">
-                    <!-- <a href="#pageContainer" class="skip-to-content">Skip to main content</a> -->
-                    <div class="container">
-                        <a class="navbar-brand" href="/">
-                            <img
-                                alt="metro transit logo"
-                                src="/img/MetroTransitLogo.svg"
-                                class="logo d-inline-block"
-                            />
-                        </a>
-                        <button
-                            class="navbar-toggler"
-                            type="button"
-                            data-toggle="collapse"
-                            data-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation"
-                        >
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-
-                        <div
-                            class="collapse navbar-collapse"
-                            id="navbarSupportedContent"
-                        >
-                            <section>
-                                <ul class="nav navbar-nav mx-auto">
-                                    <li class="nav-item dropdown">
-                                        <a
-                                            class="nav-link dropdown-toggle"
-                                            href="/trip-planner"
-                                            id="tripToolsDropdown"
-                                            role="button"
-                                            data-toggle="dropdown"
-                                            aria-haspopup="true"
-                                            aria-expanded="false"
-                                        >
-                                            Trip Tools
-                                        </a>
-                                        <div
-                                            class="dropdown-menu"
-                                            aria-labelledby="tripToolsDropdown"
-                                        >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/trip-planner"
-                                                >Trip Planner</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/nextrip"
-                                                >NexTrip</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/rider-alerts"
-                                                >Alerts</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/park-rides"
-                                                >Find a Park &amp; Ride</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/stops-stations"
-                                            >
-                                                Find a Stop or Station
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link no-dropdown"
-                                            href="/schedules-maps"
-                                        >
-                                            Schedules &amp; Maps
-                                        </a>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a
-                                            class="nav-link dropdown-toggle"
-                                            href="#"
-                                            id="faresDropdown"
-                                            role="button"
-                                            data-toggle="dropdown"
-                                            aria-haspopup="true"
-                                            aria-expanded="false"
-                                        >
-                                            Fares
-                                        </a>
-                                        <div
-                                            class="dropdown-menu"
-                                            aria-labelledby="faresDropdown"
-                                        >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/fares"
-                                                >Fares</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/go-to-card"
-                                                >Go-To Card</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/passes"
-                                                >Pass Programs</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="https://store.metrotransit.org/"
-                                                >Store</a
-                                            >
-                                        </div>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a
-                                            class="nav-link dropdown-toggle"
-                                            href="#"
-                                            id="moreDropdown"
-                                            role="button"
-                                            data-toggle="dropdown"
-                                            aria-haspopup="true"
-                                            aria-expanded="false"
-                                        >
-                                            More
-                                        </a>
-                                        <div
-                                            class="dropdown-menu"
-                                            aria-labelledby="moreDropdown"
-                                        >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/carpool-vanpool"
-                                                >Carpool &amp; Vanpool</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/transit-link"
-                                                >Transit Link</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/guaranteed-ride-home"
-                                                >Guaranteed Ride Home</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/bike"
-                                                >Bicycle</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/news"
-                                                >News &amp; Events</a
-                                            >
-                                        </div>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a
-                                            class="nav-link dropdown-toggle"
-                                            href="#"
-                                            id="helpDropdown"
-                                            role="button"
-                                            data-toggle="dropdown"
-                                            aria-haspopup="true"
-                                            aria-expanded="false"
-                                        >
-                                            Help
-                                        </a>
-                                        <div
-                                            class="dropdown-menu"
-                                            aria-labelledby="helpDropdown"
-                                        >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/how-to-ride"
-                                                >How to Ride</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/contact-us"
-                                                >Contact Us</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/lost-found"
-                                                >Lost &amp; Found</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/accessibility"
-                                                >Accessibility</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/languages"
-                                                >Languages</a
-                                            >
-                                            <a
-                                                class="dropdown-item"
-                                                href="/police"
-                                                >Transit Police</a
-                                            >
-                                        </div>
-                                    </li>
-                                </ul>
-                            </section>
-                            <ul class="nav navbar-nav utilities ml-auto">
-                                <li class="nav-item">
-                                    <a
-                                        class="nav-link store-icon"
-                                        href="https://store.metrotransit.org"
-                                    >
-                                        <span class="sr-only">store</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a
-                                        data-toggle="dropdown"
-                                        class="nav-link dropdown-toggle search-icon"
-                                        href="#"
-                                    >
-                                        <span class="sr-only">site search</span>
-                                    </a>
-                                    <div
-                                        class="dropdown-menu search-dropdown-menu"
-                                    >
-                                        <div class="input-group">
-                                            <label
-                                                for="siteSearch"
-                                                class="sr-only"
-                                                >Search</label
-                                            >
-                                            <input
-                                                type="text"
-                                                id="siteSearch"
-                                                class="form-control"
-                                                placeholder="Search our site"
-                                            />
-                                            <div class="input-group-append">
-                                                <button
-                                                    type="button"
-                                                    id="siteSearchBtn"
-                                                    class="btn btn-primary"
-                                                >
-                                                    <span class="sr-only"
-                                                        >Search button</span
-                                                    >
-                                                    <img
-                                                        alt="site search submit button"
-                                                        class="icon"
-                                                        src="/img/svg/search-gray.svg"
-                                                    />
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a
-                                        class="nav-link dropdown-toggle avatar-icon"
-                                        href="#"
-                                        id="accountDropdown"
-                                        role="button"
-                                        data-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                    >
-                                        <span class="sr-only"
-                                            >Sign in / create account</span
-                                        >
-                                    </a>
-                                    <div
-                                        class="dropdown-menu dropdown-menu-right"
-                                        aria-labelledby="accountDropdown"
-                                    >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/logoff.aspx?returnurl=https%3a%2f%2fwwwtest.metrotransit.org%2fDefault.aspx"
-                                            >Sign Out</a
-                                        >
-                                        <a
-                                            class="dropdown-item"
-                                            href="https://account.metrotransit.org/edit.aspx?returnurl=https%3a%2f%2fwwwtest.metrotransit.org%2fDefault.aspx"
-                                            >Edit Account</a
-                                        >
-                                    </div>
-                                </li>
-                            </ul>
-                            <ul class="nav navbar-nav d-xl-none border-top-0">
-                                <li class="nav-item dropdown">
-                                    <a
-                                        class="nav-link dropdown-toggle"
-                                        href="#"
-                                        id="aboutDropdown"
-                                        role="button"
-                                        data-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                        >About Metro Transit</a
-                                    >
-                                    <div
-                                        class="dropdown-menu"
-                                        aria-labelledby="aboutDropdown"
-                                    >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/transit-improvements"
-                                            >Transit Improvements</a
-                                        >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/facilities-people"
-                                            >Facilities</a
-                                        >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/riders-almanac-blog"
-                                            >Rider's Almanac</a
-                                        >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/use-of-transit-property"
-                                            >Use of Transit Property</a
-                                        >
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a
-                                        class="nav-link dropdown-toggle"
-                                        href="#"
-                                        id="mediaRelationsDropdown"
-                                        role="button"
-                                        data-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                        >Media Relations</a
-                                    >
-                                    <div
-                                        class="dropdown-menu"
-                                        aria-labelledby="mediaRelationsDropdown"
-                                    >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/logos-images"
-                                            >Media Resources</a
-                                        >
-                                        <a class="dropdown-item" href="/awards"
-                                            >Awards</a
-                                        >
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a
-                                        class="nav-link dropdown-toggle"
-                                        href="#"
-                                        id="careersDropdown"
-                                        role="button"
-                                        data-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                        >Careers</a
-                                    >
-                                    <div
-                                        class="dropdown-menu"
-                                        aria-labelledby="careersDropdown"
-                                    >
-                                        <a class="dropdown-item" href="/jobs"
-                                            >Available Job Opportunities</a
-                                        >
-                                        <a class="dropdown-item" href="/drive"
-                                            >Become a Bus Driver</a
-                                        >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/transit-police-careers"
-                                            >Join the Transit Police</a
-                                        >
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a
-                                        class="nav-link dropdown-toggle"
-                                        href="#"
-                                        id="policeDropdown"
-                                        role="button"
-                                        data-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                        >Policies</a
-                                    >
-                                    <div
-                                        class="dropdown-menu"
-                                        aria-labelledby="policeDropdown"
-                                    >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/social-media-policy"
-                                            >Social Media Policy</a
-                                        >
-                                        <a
-                                            class="dropdown-item"
-                                            href="https://metrocouncil.org/Privacy-Policy.aspx"
-                                            >Privacy Policy</a
-                                        >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/code-of-conduct"
-                                            >Code of Conduct</a
-                                        >
-                                        <a class="dropdown-item" href="/titlevi"
-                                            >Title VI: Commitment to Fairness</a
-                                        >
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a
-                                        class="nav-link dropdown-toggle"
-                                        href="#"
-                                        id="missionDropdown"
-                                        role="button"
-                                        data-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                        >Mission &amp; Impact</a
-                                    >
-                                    <div
-                                        class="dropdown-menu"
-                                        aria-labelledby="missionDropdown"
-                                    >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/about-metro-transit"
-                                            >Mission &amp; Funding</a
-                                        >
-                                        <a class="dropdown-item" href="/equity"
-                                            >Equity &amp; Inclusion</a
-                                        >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/public-art-in-transit"
-                                            >Public Art</a
-                                        >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/outreach"
-                                            >Outreach</a
-                                        >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/transit-oriented-development"
-                                            >Transit Oriented Development</a
-                                        >
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a
-                                        class="nav-link dropdown-toggle"
-                                        href="#"
-                                        id="resourcesDropdown"
-                                        role="button"
-                                        data-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                        >Resources</a
-                                    >
-                                    <div
-                                        class="dropdown-menu"
-                                        aria-labelledby="resourcesDropdown"
-                                    >
-                                        <a class="dropdown-item" href="/app"
-                                            >Try the Metro Transit App</a
-                                        >
-                                        <a
-                                            class="dropdown-item"
-                                            href="/advertise-with-metro-transit"
-                                            >Advertise with Us</a
-                                        >
-                                        <a class="dropdown-item" href="/apps"
-                                            >API Resources for Developers</a
-                                        >
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </header>
+				<nav class="navbar navbar-expand-xl navbar-light">
+					<div class="container">
+						<a class="navbar-brand" href="/">
+							<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
+						</a>
+						<button class="navbar-toggler border-0" type="button" data-toggle="collapse"
+							data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<!-- <span class="navbar-toggler-icon"></span> -->
+							Menu <img class="icon" src="/img/svg/chevron-down-gray.svg" />
+						</button>
+		
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<section>
+								<ul class="nav navbar-nav mx-auto">
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="/trip-planner" id="tripToolsDropdown" role="button"
+											data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											Trip Tools
+										</a>
+										<div class="dropdown-menu" aria-labelledby="tripToolsDropdown">
+											<a class="dropdown-item" href="/trip-planner">Trip Planner</a>
+											<a class="dropdown-item" href="/nextrip">NexTrip</a>
+											<a class="dropdown-item" href="/rider-alerts">Alerts</a>
+											<a class="dropdown-item" href="/park-rides">Find a Park &amp; Ride</a>
+											<a class="dropdown-item" href="/stops-stations">
+												Find a Stop or Station
+											</a>
+										</div>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link no-dropdown" href="/schedules-maps">
+											Schedules &amp; Maps
+										</a>
+									</li>
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" id="faresDropdown" role="button"
+											data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											Fares
+										</a>
+										<div class="dropdown-menu" aria-labelledby="faresDropdown">
+											<a class="dropdown-item" href="/fares">Fares</a>
+											<a class="dropdown-item" href="/go-to-card">Go-To Card</a>
+											<a class="dropdown-item" href="/passes">Pass Programs</a>
+											<a class="dropdown-item" href="https://store.metrotransit.org/">Store</a>
+										</div>
+									</li>
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button"
+											data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											More
+										</a>
+										<div class="dropdown-menu" aria-labelledby="moreDropdown">
+											<a class="dropdown-item" href="/carpool-vanpool">Carpool &amp; Vanpool</a>
+											<a class="dropdown-item" href="/transit-link">Transit Link</a>
+											<a class="dropdown-item" href="/guaranteed-ride-home">Guaranteed Ride Home</a>
+											<a class="dropdown-item" href="/bike">Bicycle</a>
+											<a class="dropdown-item" href="/news">News &amp; Events</a>
+										</div>
+									</li>
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" id="helpDropdown" role="button"
+											data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											Help
+										</a>
+										<div class="dropdown-menu" aria-labelledby="helpDropdown">
+											<a class="dropdown-item" href="/how-to-ride">How to Ride</a>
+											<a class="dropdown-item" href="/contact-us">Contact Us</a>
+											<a class="dropdown-item" href="/lost-found">Lost &amp; Found</a>
+											<a class="dropdown-item" href="/accessibility">Accessibility</a>
+											<a class="dropdown-item" href="/languages">Languages</a>
+											<a class="dropdown-item" href="/police">Transit Police</a>
+										</div>
+									</li>
+								</ul>
+							</section>
+							<ul class="nav navbar-nav utilities ml-auto">
+								<li class="nav-item">
+									<a class="nav-link goto-icon" href="/go-to-card">
+										<span class="sr-only">Go-To Card</span>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link store-icon" href="https://store.metrotransit.org">
+										<span class="sr-only">store</span>
+									</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a data-toggle="dropdown" class="nav-link dropdown-toggle search-icon" href="#">
+										<span class="sr-only">site search</span>
+									</a>
+									<div class="dropdown-menu search-dropdown-menu">
+										<div class="input-group has-float-label">
+											<input type="text" id="siteSearch" class="form-control mr-0" placeholder="Search our site" required>
+											<label for="siteSearch">Search our site</label>
+											<div class="input-group-append">
+												<button type="button" id="siteSearchBtn" class="btn btn-primary">
+													<span class="sr-only">Search button</span>
+													<img alt="site search submit button" class="icon" src="/img/svg/search-gray.svg">
+												</button>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle avatar-icon" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<span class="sr-only">Sign in / create account</span>
+									</a>
+									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
+										<a class="dropdown-item" href="/logoff.aspx?returnurl=https%3a%2f%2fwwwtest.metrotransit.org%2fDefault.aspx">Sign Out</a>
+										<a class="dropdown-item" href="https://account.metrotransit.org/edit.aspx?returnurl=https%3a%2f%2fwwwtest.metrotransit.org%2fDefault.aspx">Edit Account</a>
+									</div>
+								</li>
+							</ul>
+							<ul class="nav navbar-nav d-xl-none border-top-0">
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Metro Transit</a>
+									<div class="dropdown-menu" aria-labelledby="aboutDropdown">
+										<a class="dropdown-item" href="/transit-improvements">Transit Improvements</a>
+										<a class="dropdown-item" href="/facilities-people">Facilities</a>
+										<a class="dropdown-item" href="/riders-almanac-blog">Rider's Almanac</a>
+										<a class="dropdown-item" href="/use-of-transit-property">Use of Transit Property</a>
+									</div>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="mediaRelationsDropdown" role="button"
+										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Media Relations</a>
+									<div class="dropdown-menu" aria-labelledby="mediaRelationsDropdown">
+										<a class="dropdown-item" href="/logos-images">Media Resources</a>
+										<a class="dropdown-item" href="/awards">Awards</a>
+									</div>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="careersDropdown" role="button"
+										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Careers</a>
+									<div class="dropdown-menu" aria-labelledby="careersDropdown">
+										<a class="dropdown-item" href="/jobs">Available Job Opportunities</a>
+										<a class="dropdown-item" href="/drive">Become a Bus Driver</a>
+										<a class="dropdown-item" href="/transit-police-careers">Join the Transit Police</a>
+									</div>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="policeDropdown" role="button"
+										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Policies</a>
+									<div class="dropdown-menu" aria-labelledby="policeDropdown">
+										<a class="dropdown-item" href="/social-media-policy">Social Media Policy</a>
+										<a class="dropdown-item" href="https://metrocouncil.org/Privacy-Policy.aspx">Privacy Policy</a>
+										<a class="dropdown-item" href="/code-of-conduct">Code of Conduct</a>
+										<a class="dropdown-item" href="/titlevi">Title VI: Commitment to Fairness</a>
+									</div>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="missionDropdown" role="button"
+										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mission &amp; Impact</a>
+									<div class="dropdown-menu" aria-labelledby="missionDropdown">
+										<a class="dropdown-item" href="/about-metro-transit">Mission &amp; Funding</a>
+										<a class="dropdown-item" href="/equity">Equity &amp; Inclusion</a>
+										<a class="dropdown-item" href="/public-art-in-transit">Public Art</a>
+										<a class="dropdown-item" href="/outreach">Outreach</a>
+										<a class="dropdown-item" href="/transit-oriented-development">Transit Oriented Development</a>
+									</div>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
+										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+									<div class="dropdown-menu" aria-labelledby="resourcesDropdown">
+										<a class="dropdown-item" href="/app">Try the Metro Transit App</a>
+										<a class="dropdown-item" href="/advertise-with-metro-transit">Advertise with Us</a>
+										<a class="dropdown-item" href="/apps">API Resources for Developers</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</header>
             <!-- End Header -->
 
             <!-- Begin Main Content -->
@@ -544,7 +229,7 @@
 													<input
 														id="fromLocation"
 														type="text"
-														class="form-control from-location has-addon border"
+														class="form-control from-location"
 														name="fromLocation"
 														aria-label="trip planner from location"
 														aria-expanded="false"
@@ -592,297 +277,299 @@
 													<label for="toLocation">To</label>
 													<span id="toLocationInstr" class="sr-only" style="display: none;">You can enter an address, intersection or landmark. When autocomplete results are available use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.</span>
 												</div>
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<select
-																id="selectTime"
-																name="selectTime"
-																class="custom-select">
-																<option value="leave-now" >Leave now</option>
-																<option value="depart-at">Depart at</option>
-																<option value="arrive-by">Arrive by</option>
-															</select>
-															<label for="selectTime" class="sr-only">Select time</label>
-														</div>
-														<div class="row time-elements">
-															<div class="col-xl-6">
-																<div class="form-group has-float-label mb-3">
-																	<input
-																		id="time"
-																		type="time"
-																		name="time"
-																		class="form-control"
-																		aria-label="depart/arrive by time"
-																		aria-describedby="time" />
-																	<label for="time">Time</label>
-																</div>
+											</fieldset>
+											<div class="row mb-4">
+												<div class="col-md-6">
+													<div class="form-group">
+														<select
+															id="selectTime"
+															name="selectTime"
+															class="custom-select">
+															<option value="leave-now" >Leave now</option>
+															<option value="depart-at">Depart at</option>
+															<option value="arrive-by">Arrive by</option>
+														</select>
+														<label for="selectTime" class="sr-only">Select time</label>
+													</div>
+													<div class="row time-elements">
+														<div class="col-xl-6">
+															<div class="form-group has-float-label mb-3">
+																<input
+																	id="time"
+																	type="time"
+																	name="time"
+																	class="form-control"
+																	aria-label="depart/arrive by time"
+																	aria-describedby="time" />
+																<label for="time">Time</label>
 															</div>
-															<div class="col-xl-6">
-																<div class="form-group has-float-label mb-3">
-																	<input
-																		id="date"
-																		type="date"
-																		name="date"
-																		class="form-control"
-																		aria-label="depart/arrive by time"
-																		aria-describedby="date" />
-																	<label for="date">Date</label>
-																</div>
+														</div>
+														<div class="col-xl-6">
+															<div class="form-group has-float-label mb-3">
+																<input
+																	id="date"
+																	type="date"
+																	name="date"
+																	class="form-control"
+																	aria-label="depart/arrive by time"
+																	aria-describedby="date" />
+																<label for="date">Date</label>
 															</div>
 														</div>
 													</div>
-													<div class="col-md-6">
-														<div class="accordion more-options" role="tablist">
-															<div class="card">
-																<div class="card-header d-flex border" >
-																	<a href="#tpMoreOptions"
-																		data-toggle="collapse"
-																		class="btn d-flex align-items-center text-left btn-link btn-block collapsed"
-																		aria-controls="tpMoreOptions"
-																		aria-expanded="false"
-																		role="button">
-																		More options
-																		<img alt="" class="icon plus-blue ml-auto inactive" src="/img/svg/plus-blue.svg"/>
-																	</a>
-																</div>
-																<div id="tpMoreOptions"
-																	class="collapse"
-																	role="tabpanel">
-																	<div class="card-body border">
-																		<p class="card-text mb-0">
-																			<strong>I'm willing to walk:</strong>
-																		</p>
-																		<div
-																			class="custom-control custom-radio"
+												</div>
+												<div class="col-md-6">
+													<div class="accordion" role="tablist">
+														<div class="card">
+															<div class="card-header">
+																<h3>
+																	<button type="button" 
+																			class="btn d-flex align-items-center btn-block text-left" data-toggle="collapse" 
+																			data-target="#tpMoreOptions" 
+																			aria-expanded="false">
+																		<span class="btn-text">More options</span>
+																		<span class="ml-auto">
+																			<img alt="" class="icon plus-blue ml-2 inactive" src="/img/svg/plus-blue.svg"/>
+																		</span>
+																	</button>
+																</h3>
+															</div>
+															<div id="tpMoreOptions"
+																class="collapse"
+																role="tabpanel">
+																<div class="card-body border">
+																	<p class="card-text mb-0">
+																		<strong>I'm willing to walk:</strong>
+																	</p>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="quarterMile"
+																			type="radio"
+																			name="walkingDistance"
+																			value="0.25"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			for="quarterMile"
+																			class="custom-control-label"
+																			>1/4
+																			mile</label
 																		>
-																			<input
-																				id="quarterMile"
-																				type="radio"
-																				name="walkingDistance"
-																				value="0.25"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				for="quarterMile"
-																				class="custom-control-label"
-																				>1/4
-																				mile</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="halfMile"
+																			type="radio"
+																			name="walkingDistance"
+																			value="0.5"
+																			class="custom-control-input"
+																			checked
+																		/>
+																		<label
+																			for="halfMile"
+																			class="custom-control-label"
+																			>1/2
+																			mile</label
 																		>
-																			<input
-																				id="halfMile"
-																				type="radio"
-																				name="walkingDistance"
-																				value="0.5"
-																				class="custom-control-input"
-																				checked
-																			/>
-																			<label
-																				for="halfMile"
-																				class="custom-control-label"
-																				>1/2
-																				mile</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="oneMile"
+																			type="radio"
+																			name="walkingDistance"
+																			value="1"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			for="oneMile"
+																			class="custom-control-label"
+																			>1
+																			mile</label
 																		>
-																			<input
-																				id="oneMile"
-																				type="radio"
-																				name="walkingDistance"
-																				value="1"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				for="oneMile"
-																				class="custom-control-label"
-																				>1
-																				mile</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="anyType"
+																			type="radio"
+																			name="serviceType"
+																			value="BCLTX"
+																			class="custom-control-input"
+																			checked
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="anyType"
+																			>Any
+																			service
+																			type</label
 																		>
-																			<input
-																				id="anyType"
-																				type="radio"
-																				name="serviceType"
-																				value="BCLTX"
-																				class="custom-control-input"
-																				checked
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="anyType"
-																				>Any
-																				service
-																				type</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="railOnly"
+																			type="radio"
+																			name="serviceType"
+																			value="CLT"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="railOnly"
+																			>Rail
+																			only</label
 																		>
-																			<input
-																				id="railOnly"
-																				type="radio"
-																				name="serviceType"
-																				value="CLT"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="railOnly"
-																				>Rail
-																				only</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="busOnly"
+																			type="radio"
+																			name="serviceType"
+																			value="BX"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="busOnly"
+																			>Bus
+																			only</label
 																		>
-																			<input
-																				id="busOnly"
-																				type="radio"
-																				name="serviceType"
-																				value="BX"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="busOnly"
-																				>Bus
-																				only</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="noExpress"
+																			type="radio"
+																			name="serviceType"
+																			value="BCLT"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="noExpress"
+																			>No
+																			express</label
 																		>
-																			<input
-																				id="noExpress"
-																				type="radio"
-																				name="serviceType"
-																				value="BCLT"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="noExpress"
-																				>No
-																				express</label
-																			>
-																		</div>
-																		<hr />
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<hr />
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="fasterTrip"
+																			type="radio"
+																			name="convenience"
+																			value="Time"
+																			class="custom-control-input"
+																			checked
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="fasterTrip"
+																			>Faster
+																			trip</label
 																		>
-																			<input
-																				id="fasterTrip"
-																				type="radio"
-																				name="convenience"
-																				value="Time"
-																				class="custom-control-input"
-																				checked
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="fasterTrip"
-																				>Faster
-																				trip</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="fewerTransfers"
+																			type="radio"
+																			name="convenience"
+																			value="Xfers"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="fewerTransfers"
+																			>Fewer
+																			transfers</label
 																		>
-																			<input
-																				id="fewerTransfers"
-																				type="radio"
-																				name="convenience"
-																				value="Xfers"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="fewerTransfers"
-																				>Fewer
-																				transfers</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio"
+																	</div>
+																	<div
+																		class="custom-control custom-radio"
+																	>
+																		<input
+																			id="lessWalking"
+																			type="radio"
+																			name="convenience"
+																			value="Walking"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="lessWalking"
+																			>Less
+																			walking</label
 																		>
-																			<input
-																				id="lessWalking"
-																				type="radio"
-																				name="convenience"
-																				value="Walking"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="lessWalking"
-																				>Less
-																				walking</label
-																			>
-																		</div>
-	
-																		<hr />
-	
-																		<p
-																			class="m-0"
+																	</div>
+
+																	<hr />
+
+																	<p
+																		class="m-0"
+																	>
+																		<strong>
+																			<img
+																				alt=""
+																				class="icon accessible-gray"
+																				src="/img/svg/accessible-gray.svg"
+																			/>&nbsp;Accessible
+																			stops
+																		</strong>
+																	</p>
+																	<div
+																		class="custom-control custom-radio custom-control-inline"
+																	>
+																		<input
+																			id="accessibleYes"
+																			type="radio"
+																			name="accessible"
+																			value="True"
+																			class="custom-control-input"
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="accessibleYes"
+																			>Yes</label
 																		>
-																			<strong>
-																				<img
-																					alt=""
-																					class="icon accessible-gray"
-																					src="/img/svg/accessible-gray.svg"
-																				/>&nbsp;Accessible
-																				stops
-																			</strong>
-																		</p>
-																		<div
-																			class="custom-control custom-radio custom-control-inline"
+																	</div>
+																	<div
+																		class="custom-control custom-radio custom-control-inline"
+																	>
+																		<input
+																			id="accessibleNo"
+																			type="radio"
+																			name="accessible"
+																			value="False"
+																			class="custom-control-input"
+																			checked
+																		/>
+																		<label
+																			class="custom-control-label"
+																			for="accessibleNo"
+																			>No</label
 																		>
-																			<input
-																				id="accessibleYes"
-																				type="radio"
-																				name="accessible"
-																				value="True"
-																				class="custom-control-input"
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="accessibleYes"
-																				>Yes</label
-																			>
-																		</div>
-																		<div
-																			class="custom-control custom-radio custom-control-inline"
-																		>
-																			<input
-																				id="accessibleNo"
-																				type="radio"
-																				name="accessible"
-																				value="False"
-																				class="custom-control-input"
-																				checked
-																			/>
-																			<label
-																				class="custom-control-label"
-																				for="accessibleNo"
-																				>No</label
-																			>
-																		</div>
 																	</div>
 																</div>
 															</div>
 														</div>
 													</div>
 												</div>
-											</fieldset>
+											</div>
 											<div
 												id="spinner"
 												class="d-none text-center p-4"
@@ -891,10 +578,10 @@
 													<span class="sr-only">Loading...</span>
 												</div>
 											</div>
-											<div class="btn-wrapper mx-auto text-center">
+											<div class="text-center mx-auto">
 												<button type="button"
 														id="planMyTrip"
-														class="btn btn-warning"
+														class="btn btn-primary"
 														name="planMyTrip">
 													Plan my trip
 												</button>
@@ -918,30 +605,25 @@
 
                                             <div class="trips-found">
                                                 <h2 id="trip-result-count"></h2>
-                                                <p id="trip-result-msg"></p>
-                                                <div
-                                                    id="tripPlan"
-                                                    class="tp-results accordion mb-1 mb-lg-5"
-                                                    role="tablist"
-                                                ></div>
-                                                <div class="text-center">
+												<p id="trip-result-msg"></p>
+												<div id="tripPlan">
+													<div class="tp-results accordion"></div>
+												</div>
+                                                <div class="text-center mx-auto">
                                                     <button
                                                         type="button"
                                                         id="editMyTrip"
-                                                        class="btn btn-warning mr-0 mr-md-4 mb-4 mb-md-0"
-                                                    >
+                                                        class="btn btn-primary mb-md-0">
                                                         Edit my trip
                                                         <img
                                                             alt=""
                                                             class="icon edit-blue"
-                                                            src="/img/svg/edit-blue.svg"
-                                                        />
+                                                            src="/img/svg/edit-blue.svg" />
                                                     </button>
                                                     <button
                                                         type="button"
                                                         id="startTripOver"
-                                                        class="btn btn-warning"
-                                                    >
+                                                        class="btn btn-primary">
                                                         Start over
                                                     </button>
                                                 </div>
@@ -959,9 +641,9 @@
             <!-- Begin Footer -->
             <footer class="section">
 				<div class="container">
-					<div class="button-container-icon-right">
-						<a class="btn btn-outline-primary" href="/contact-us">Contact us</a>
-					</div>			
+					<div class="text-center mx-auto">
+						<a class="btn btn-secondary-ghost has-icon-right" href="/contact-us">Contact us</a>
+					</div>		
 					<p class="text-center d-lg-none my-3"><a class="h2" href="tel:612-373-3333">612-373-3333</a></p>			
 						<div id="google_translate_element">&nbsp;</div>
 					<div class="d-none d-xl-block social-media text-center">

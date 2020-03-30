@@ -1,17 +1,15 @@
 #tripPlannerModule {
-	.form-group {
-		width: 100%;
-	}
-
+	.form-group,
 	.input-group {
 		width: 100%;
-		.input-group-append {
-			margin-left: 3px;
+
+		.form-control {
+			border-right: 1px solid $border-color; // re add right border removed in .compontent/_forms.scss
 		}
 	}
 
-	//Location toggle
-	buttons button.location-toggler {
+	//Location toggle button
+	button.location-toggler {
 		background-color: $white !important;
 		border: none;
 		margin-left: 4px;
@@ -28,10 +26,6 @@
 		}
 	}
 
-	input::placeholder {
-		font-weight: $font-weight-bold;
-	}
-
 	.custom-select {
 		@include font-size(18);
 		font-weight: $font-weight-medium;
@@ -43,57 +37,70 @@
 		}
 	}
 
-	.more-options {
-		margin-bottom: 1rem;
-		.card-header {
-			border-bottom: 0;
-			padding: 0;
+	.accordion {
+		.card {
+			.card-header {
+				background-color: transparent;
+				border: 1px solid $border-color;
+				padding: 0.25rem !important;
 
-			.btn-link {
-				background-color: $white;
-				text-decoration: none;
-				color: $gray-300;
-				font-weight: 500;
-				padding: 0.375rem 0.75rem;
+				.btn {
+					background-color: transparent;
+					padding: 0.344rem 0.5rem;
+					color: $gray-300;
 
-				@include media-breakpoint-up(lg) {
-					@include font-size(23);
-					padding-left: 1.25rem;
+					@include media-breakpoint-up(lg) {
+						padding: 0.438rem 0.5rem;
+					}
+					&.collapsed {
+						background-color: transparent;
+						color: $gray-300;
+						padding: 0.344rem 0.5rem;
+
+						@include media-breakpoint-up(lg) {
+							padding: 0.438rem 0.5rem;
+						}
+					}
+
+					.icon {
+						width: 1rem;
+						height: 1rem;
+						margin-right: 0;
+					}
+
+					.btn-text {
+						font-weight: normal;
+					}
 				}
 
-				&:focus {
-					color: #626462;
-					background-color: #fff;
+				[data-toggle='collapse'][aria-expanded='true'] {
+					.plus-blue {
+						width: 1rem;
+						height: 1rem;
+						margin-right: 0;
+						transform: rotate(45deg);
+					}
+				}
+			}
+
+			.card-body {
+				background-color: $gray-100;
+
+				hr {
+					border-top: 1px solid $gray-600;
+					margin: 0.25rem 0;
 				}
 
-				.icon {
+				.accessible-gray {
 					width: 1rem;
 					height: 1rem;
 				}
-
-				.active {
-					transform: rotate(45deg);
-				}
-			}
-		}
-
-		.card-body {
-			background-color: $gray-100;
-
-			hr {
-				border-top: 1px solid $gray-600;
-				margin: 0.25rem 0;
-			}
-
-			.accessible-gray {
-				width: 1rem;
-				height: 1rem;
 			}
 		}
 	}
 
 	#tpUseCurrentLoc {
-		padding-right: 2.75rem;
+		padding-right: 3rem;
 
 		@include media-breakpoint-up(lg) {
 			visibility: hidden;

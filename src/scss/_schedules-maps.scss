@@ -6,6 +6,8 @@
 
 	.auto-complete-search-box {
 		.input-group {
+			width: 100%;
+			margin-bottom: 0;
 			.custom-width {
 				width: 297px;
 				@include media-breakpoint-up(md) {
@@ -24,6 +26,7 @@
 			.btn {
 				background-color: $white;
 				border: 0;
+				padding: 0.563rem 1rem;
 
 				.icon {
 					width: 1rem;
@@ -52,106 +55,249 @@
 		}
 	}
 
-	.popular-routes {
-		margin-bottom: 1rem;
+	h2.has-icon-left {
+		position: relative;
+		padding: 0.5rem 0 0.5rem 3rem;
 
-		.routes {
-			margin-bottom: 1.12rem;
+		@include media-breakpoint-up(lg) {
+			line-height: 1.35;
+			margin-bottom: 2rem;
+			padding: 0 0 0 3rem;
+		}
+
+		// METRO Light Rail
+		&.mlr::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			background-repeat: no-repeat;
+			background-size: 2.5rem;
+			width: 2.5rem;
+			height: 2.5rem;
+			margin-right: 0.5rem;
+			background-image: url('../../../../../img/svg/circle-gray-lrt.svg');
+		}
+
+		// Popular bus routes
+		&.pbr::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			background-repeat: no-repeat;
+			background-size: 2.5rem;
+			width: 2.5rem;
+			height: 2.5rem;
+			margin-right: 0.5rem;
+			background-image: url('../../../../../img/svg/circle-gray-outline-bus.svg');
+		}
+
+		// METRO Bus Rapid Transit
+		&.mbrt::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			background-repeat: no-repeat;
+			background-size: 2.5rem;
+			width: 2.5rem;
+			height: 2.5rem;
+			margin-right: 0.5rem;
+			background-image: url('../../../../../img/svg/circle-gray-bus.svg');
+		}
+
+		// Commuter Rail
+		&.cr::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			background-repeat: no-repeat;
+			background-size: 2.5rem;
+			width: 2.5rem;
+			height: 2.5rem;
+			margin-right: 0.5rem;
+			background-image: url('../../../../../img/svg/circle-gray-train.svg');
+		}
+
+		// Interactive map
+		&.ir::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			background-repeat: no-repeat;
+			background-size: 2.5rem;
+			width: 2.5rem;
+			height: 2.5rem;
+			margin-right: 0.5rem;
+			background-image: url('../../../../../img/svg/schedules-maps-color.svg');
+		}
+	}
+
+	.btn-container {
+		text-align: center;
+		margin: 0 auto;
+
+		.btn {
+			margin-bottom: 1rem;
+		}
+	}
+
+	.metro-light-rail {
+		padding: 0;
+		.btn-route-lg {
+			display: block;
+			margin: 0 auto 1rem auto;
+
+			@include media-breakpoint-up(md) {
+				//margin-right: 0;
+				margin-left: 0;
+			}
+
+			@include media-breakpoint-up(lg) {
+				margin-right: 1rem;
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+
+				@include media-breakpoint-up(lg) {
+					margin-bottom: 1rem;
+				}
+			}
+		}
+
+		@include media-breakpoint-up(lg) {
+			display: flex;
+			justify-content: start;
+			flex-wrap: wrap;
+		}
+	}
+
+	.metro-brt {
+		@include media-breakpoint-up(md) {
+			display: flex;
+			justify-content: start;
+			flex-wrap: wrap;
+		}
+
+		.btn-route-lg {
+			display: block;
+			text-align: center;
+			margin-right: auto;
+			margin-left: auto;
 
 			@include media-breakpoint-up(md) {
 				margin-right: 1rem;
+				margin-left: 0;
+			}
+		}
+	}
+
+	.commuter-rail {
+		@include media-breakpoint-up(md) {
+			display: flex;
+			justify-content: start;
+			flex-wrap: wrap;
+		}
+	}
+
+	.popular-bus-routes {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+
+		@include media-breakpoint-up(lg) {
+			justify-content: start;
+		}
+
+		.btn-route {
+			&:last-child {
 				margin-bottom: 1rem;
 			}
 		}
 	}
 
-	.metro-brt,
-	.commuter-rail {
-		.btn-outline-secondary {
-			display: block;
-			margin-bottom: 1rem;
-
-			@include media-breakpoint-up(lg) {
-				display: inline-block;
-				margin-bottom: 0;
-			}
-		}
-	}
-
-	.btn-outline-info {
-		margin-bottom: 1rem;
-		width: 100%;
-
+	.btn-anchor-container {
 		@include media-breakpoint-up(md) {
-			margin-right: 0;
-			width: 16.875rem;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
 		}
-	}
 
-	// /bus-schedules-maps.html
-	.bus-routes {
-		margin-bottom: 15px;
-		@include media-breakpoint-up(lg) {
-			margin-bottom: 30px;
+		@include media-breakpoint-up(xl) {
+			justify-content: start;
 		}
-		.btn-outline-secondary {
-			width: 70px;
-			height: 50px;
-			margin-right: 0.75rem;
-			margin-bottom: 0.75rem;
+
+		.btn-anchor {
+			display: block;
+			width: 220px;
+			text-align: center;
+			margin-right: auto;
+			margin-bottom: 1rem;
+			margin-left: auto;
+
+			&:last-child {
+				margin-bottom: 0rem;
+			}
 
 			@include media-breakpoint-up(md) {
-				margin-right: 1.15rem;
-				margin-bottom: 1.15rem;
+				margin: 0;
+				margin-bottom: 1rem;
+
+				&:nth-child(7),
+				&:nth-child(8) {
+					margin-bottom: 0;
+				}
 			}
 
 			@include media-breakpoint-up(lg) {
-				&:nth-child(4n),
-				&:nth-child(8n) {
-					margin-right: 1.15rem;
+				&:nth-child(7),
+				&:nth-child(8) {
+					margin-bottom: 1rem;
 				}
 
-				&:nth-child(11n) {
-					margin-right: 0;
+				&:nth-child(9) {
+					margin-bottom: 0;
 				}
 			}
 
 			@include media-breakpoint-up(xl) {
-				margin-right: 1.215rem;
-				&:nth-child(11n) {
-					margin-right: 1.15rem;
+				margin: 0;
+				margin-right: 0.625rem;
+				margin-bottom: 1rem;
+
+				&:nth-child(5n) {
+					margin-right: 0;
 				}
 
-				&:nth-child(13n) {
-					margin-right: 0;
+				&:nth-child(6),
+				&:nth-child(7),
+				&:nth-child(8) {
+					margin-bottom: 0;
 				}
 			}
 		}
 	}
 
-	// #interactiveMap {
-	// 	.auto-complete-search-box {
-	// 		.input-group::before {
-	// 			//background-image: none !important;
-	// 		}
+	.btn-route-container {
+		display: flex;
+		justify-content: start;
+		flex-wrap: wrap;
 
-	// 		// .input-group-append {
-	// 		// 	.input-group-text {
-	// 		// 		background-color: #fff;
-	// 		// 		border-left: none;
-	// 		// 		z-index: 10;
+		.btn-route {
+			margin-right: 1rem;
 
-	// 		// 		.icon {
-	// 		// 			width: 1rem;
-	// 		// 			height: 1rem;
+			&:last-child {
+				margin-bottom: 1rem;
+			}
+		}
+	}
 
-	// 		// 			@include media-breakpoint-up(lg) {
-	// 		// 				width: 1.5rem;
-	// 		// 				height: 1.5rem;
-	// 		// 			}
-	// 		// 		}
-	// 		// 	}
-	// 		// }
-	// 	}
-	// }
+	#systemMaps h2 {
+		padding: 0;
+	}
 }

@@ -1,28 +1,11 @@
 #howToRide {
-  h2 {
-    margin-bottom: 0 !important;
-  }
+	h2 {
+		margin-bottom: 0 !important;
+	}
 
-  .btn-wrapper,
-  .button-container-icon-right {
-    display: block;
-    text-align: center !important;
-
-    @include media-breakpoint-up(lg) {
-      display: inline-block;
-      //text-align: left !important;
-    }
-  }
-
-  .btn-wrapper {
-    margin-bottom: 1rem;
-
-    @include media-breakpoint-up(lg) {
-      margin-bottom: 0;
-    }
-  }
-
-  .embed-responsive {
-    margin-bottom: 1rem;
-  }
+	.btn {
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 0;
+		}
+	}
 }

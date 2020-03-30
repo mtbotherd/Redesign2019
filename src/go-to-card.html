@@ -21,15 +21,15 @@
 	<!-- Begin Header -->
 	<header id="header">
 		<nav class="navbar navbar-expand-xl navbar-light">
-			<!-- <a href="#pageContainer" class="skip-to-content">Skip to main content</a> -->
 			<div class="container">
 				<a class="navbar-brand" href="/">
 					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
 				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
+				<button class="navbar-toggler border-0" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
+					<!-- <span class="navbar-toggler-icon"></span> -->
+					Menu <img class="icon" src="/img/svg/chevron-down-gray.svg" />
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -98,6 +98,11 @@
 					</section>
 					<ul class="nav navbar-nav utilities ml-auto">
 						<li class="nav-item">
+							<a class="nav-link goto-icon" href="/go-to-card">
+								<span class="sr-only">Go-To Card</span>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a class="nav-link store-icon" href="https://store.metrotransit.org">
 								<span class="sr-only">store</span>
 							</a>
@@ -107,9 +112,9 @@
 								<span class="sr-only">site search</span>
 							</a>
 							<div class="dropdown-menu search-dropdown-menu">
-								<div class="input-group">
-									<label for="siteSearch" class="sr-only">Search</label>
-									<input type="text" id="siteSearch" class="form-control" placeholder="Search our site">
+								<div class="input-group has-float-label">
+									<input type="text" id="siteSearch" class="form-control mr-0" placeholder="Search our site" required>
+									<label for="siteSearch">Search our site</label>
 									<div class="input-group-append">
 										<button type="button" id="siteSearchBtn" class="btn btn-primary">
 											<span class="sr-only">Search button</span>
@@ -211,146 +216,191 @@
 				<div class="content-full-width">
 					<div class="htmlmodule">
 						<section class="">
-							<div id="gotoCards" class="goto-card">
-								<!-- on the cms there is a class of pt-1 on this bottom section tag -->
-								<section class="section ">
-									<h2>Using Your Go-To Card</h2>
-									<div class="row">
-										<div class="col-md-8">
-											<div class="embed-responsive embed-responsive-16by9">
-												<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qliKQEuj67Y" allowfullscreen></iframe>
-											</div>
-										</div>
-										<div class="col-md-4">
-											<p>Go-To Cards provide maximum flexibility and ease of use. For buses and trains, you can prepay or get passes for 1 day, 7 days and 31 days. Northstar Family Passes are also available. Passes don’t expire until 10 years after the date of purchase.</p>
-											<!-- <div class="text-center mb-4">
-												<a href="https://store.metrotransit.org" class="btn btn-warning">Buy a Go-To Card</a>
-											</div> -->
-											<div class="button-container-icon-right">
-												<a href="/how-to-ride" class="btn btn-outline-primary">How to Ride</a>
-											</div>
-											<div class="button-container-icon-right">
-												<a href="/about-go-to-card" class="btn btn-outline-primary btn-extend">Which pass is right for me?</a>
-											</div>
-										</div>
-									</div>
-								</section>
-						
-								<section class="section full-width striped">
-									<div class="d-flex justify-content-center flex-wrap">
-										<div class="button-container-icon-right text-center mb-4 mb-xl-0 mr-xl-5">
-											<a href="https://store.metrotransit.org/" class="btn btn-outline-primary btn-extend">Add Value/Check Balance</a>
-										</div>
-										<div class="button-container-icon-right text-center mb-0">
-											<a href="/service-centers" class="btn btn-outline-primary">Buy in person</a>
+							<nav class="secondary-nav mt-4">
+								<ul class="nav">
+									<li class="nav-item"><a class="nav-link secondary-nav-item active" href="/go-to-card">Go-To Card</a></li>
+									<li class="nav-item"><a class="nav-link secondary-nav-item" href="/goto-card-retailers">Find a Go-To Card Retailer</a></li>
+									<li class="nav-item"><a class="nav-link secondary-nav-item" href="/go-to-card-users-guide">Lost or stolen card</a></li>
+								</ul>
+							</nav>
+						</section>
+					</div>
+				</div>
+				
+				<div class="">
+					<div class="htmlmodule">
+						<section class="">
+							<div id="gotoCards" class="goto-card">						
+								<section class="section reverse full-width">
+									<div class="container">
+										<div class="btn-container">
+											<a href="" class="btn btn-secondary-ghost has-icon-right">Get a Go-To Card</a>
+											<a href="" class="btn btn-secondary-ghost has-icon-right">Add value to my card</a>
 										</div>
 									</div>
 								</section>
-						
-								<section class="section">
-									<div class="multiday-pass">
-										<h2 class="multiday-passes text-center">Multi-day passes</h2>
-
-										<div class="seven-day-pass">
-											<h3 class="text-center mb-2">7-Day Pass</h3>
-											<p class="lead text-center">Good for unlimited rides at the $2.50 fare until midnight on the 7th day after first use.</p>
-											<div class="row">
-												<div class="col-6 offset-3 col-lg-4 offset-lg-4">
-													<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">$2.50 fare</h4>
-													<p class="h3 gray-100 text-center pt-2 pb-2">$24</p>
-												</div>
+								
+								<section class="section reverse full-width">
+									<div class="container body-content">
+										<div class="row">
+											<div class="col-md-6">
+												<p><img class="img-fluid" alt="" src="/img/go-to-card.png" /></p>
+											</div>
+											<div class="col-md-6">
+												<p>Go-To Cards provide maximum flexibility and ease of use. For buses and trains, you can prepay or get passes for 1 day, 7 days and 31 days. Go-To Cards don’t expire until 10 years after the date of purchase.</p>
 											</div>
 										</div>
+										<div class="btn-container">
+											<a href="#" class="btn btn-secondary-ghost has-icon-right">Which pass is right for me?</a>
+										</div>
+									</div>
+								</section>
 
-										<div class="thirtyone-day-pass">
-											<h3 class="text-center">31-Day Pass</h3>
-											<p class="lead text-center">Valid for unlimited rides for the corresponding cash fare until midnight on the 31st day after first use.</p>
-											<div class="row mb-4">
-												<div class="col-lg-4 offset-lg-4">
-													<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">$2 fares</h4>
-													<div class="gray-100">
-														<p class="small">Good for unlimited rides during non-rush hours for adults on local buses and METRO lines.</p>
-														<p class="h3 text-center pt-2 pb-2">$65</p>
+								<section class="section reverse full-width">
+									<div class="container">
+										<div class="multiday-pass">
+											<h2 class="multiday-passes text-center">Multi-day passes</h2>
+
+											<div class="seven-day-pass">
+												<h3 class="text-center mb-2">7-Day Pass</h3>
+												<p class="lead text-center">Good for unlimited rides at the $2.50 fare until midnight on the 7th day after first use.</p>
+												<div class="row">
+													<div class="col-6 offset-3 col-lg-4 offset-lg-4">
+														<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">$2.50 fare</h4>
+														<p class="h3 white-bg text-center pt-2 pb-2">$24</p>
 													</div>
 												</div>
 											</div>
-											<div class="row mb-4">
-												<div class="col-lg-4 offset-lg-4">
-													<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">$2.50 fares</h4>
-													<div class="gray-100">
-														<p class="small">Good for unlimited rides during rush hours for adults on local bus and METRO lines and on Express buses during non-rush hours.</p>
-														<p class="h3 text-center pt-2 pb-2">$90</p>
-													</div>
-												</div>
-											</div>
-											<div class="row mb-4">
-												<div class="col-lg-4 offset-lg-4">
-													<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">$3.25 fares</h4>
-													<div class="gray-100">
-														<p class="small">Good for unlimited rides during rush hours for adults on Express buses. Also good for all local buses and METRO lines at all times.</p>
-														<p class="h3 text-center pt-2 pb-2">$120</p>
-													</div>
-												</div>
-											</div>
-											<div class="row mb-4">
-												<div class="col-lg-4 offset-lg-4">
-													<h4 class="green-bg text-center pt-1 pb-1 mb-0">$1 fares</h4>
-													<div class="gray-100">
-														<p class="small">Good during non-rush hours for persons with limited mobility, who must show proper ID for purchase and use. Get details about $1 rides through the <a href="/tap">Transit Assistance Program</a>.</p>
-														<div class="tap-riders">
-															<p class="h3 text-center pt-2 pb-2">$36</p>
-															<img alt="" class="icon" src="/img/svg/gray-circle-info.svg" data-toggle="popover" 
-															data-placement="top" data-content="$36 pass is available only to customers with limited mobility, who must show proper ID for purchase and use. NOTE: Not valid on Metro Mobility. For details on certification, call Customer Relations at 612-373-3333" data-original-title="" title="">
+
+											<div class="thirtyone-day-pass">
+												<h3 class="text-center">31-Day Pass</h3>
+												<p class="lead text-center">Valid for unlimited rides for the corresponding cash fare until midnight on the 31st day after first use.</p>
+												<div class="row mb-4">
+													<div class="col-lg-4 offset-lg-4">
+														<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">$2 fares</h4>
+														<div class="white-bg">
+															<p class="small">Good for unlimited rides during non-rush hours for adults on local buses and METRO lines.</p>
+															<p class="h3 text-center pt-2 pb-2">$65</p>
 														</div>
 													</div>
 												</div>
-											</div>
-											<div class="text-center">
-												<a href="https://store.metrotransit.org/" class="btn btn-warning">Buy a pass</a>
+												<div class="row mb-4">
+													<div class="col-lg-4 offset-lg-4">
+														<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">$2.50 fares</h4>
+														<div class="white-bg">
+															<p class="small">Good for unlimited rides during rush hours for adults on local bus and METRO lines and on Express buses during non-rush hours.</p>
+															<p class="h3 text-center pt-2 pb-2">$90</p>
+														</div>
+													</div>
+												</div>
+												<div class="row mb-4">
+													<div class="col-lg-4 offset-lg-4">
+														<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">$3.25 fares</h4>
+														<div class="white-bg">
+															<p class="small">Good for unlimited rides during rush hours for adults on Express buses. Also good for all local buses and METRO lines at all times.</p>
+															<p class="h3 text-center pt-2 pb-2">$120</p>
+														</div>
+													</div>
+												</div>
+												<div class="row mb-4">
+													<div class="col-lg-4 offset-lg-4">
+														<h4 class="green-bg text-center pt-1 pb-1 mb-0">$1 fares</h4>
+														<div class="white-bg">
+															<p class="small">Good during non-rush hours for persons with limited mobility, who must show proper ID for purchase and use. Get details about $1 rides through the <a href="/tap">Transit Assistance Program</a>.</p>
+															<div class="tap-riders">
+																<p class="h3 text-center pt-2 pb-2">$36</p>
+																<img alt="" class="icon" src="/img/svg/gray-circle-info.svg" data-toggle="popover" 
+																data-placement="top" data-content="$36 pass is available only to customers with limited mobility, who must show proper ID for purchase and use. NOTE: Not valid on Metro Mobility. For details on certification, call Customer Relations at 612-373-3333" data-original-title="" title="">
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="btn-container">
+													<a href="https://store.metrotransit.org/" class="btn btn-primary">Buy a pass</a>
+												</div>
 											</div>
 										</div>
-									</div>
 
-									<hr>
-									
-									<div class="northstar-passes">
-										<h2 class="northstar-family-pass text-center">Northstar Commuter Rail Family Pass</h2>
-										<h3 class="text-center mb-2">Roundtrip rides for the whole family</h3>
-										<p class="text-center mb-4 mb-lg-5">Pay one low price and get roundtrip Northstar rides for two adults and up to three kids (ages 6-17) or seniors (65+). Kids five and under ride free! It’s perfect for weekend trips and special events. <strong>Purchase your pass at <a href="/how-to-use-a-ticket-machine">ticket machines</a>, at any suburban Northstar station or via the <a href="/app">Metro Transit App</a>.</strong></p>
-										<div class="row mb-4">
-											<div class="col-lg-4 offset-lg-4">
-												<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">Big Lake / Minneapolis</h4>
-												<p class="h3 gray-100 text-center pt-2 pb-2">$25</p>
+										<!-- <hr>
+										
+										<div class="northstar-passes">
+											<h2 class="northstar-family-pass text-center">Northstar Commuter Rail Family Pass</h2>
+											<h3 class="text-center mb-2">Roundtrip rides for the whole family</h3>
+											<p class="text-center mb-4 mb-lg-5">Pay one low price and get roundtrip Northstar rides for two adults and up to three kids (ages 6-17) or seniors (65+). Kids five and under ride free! It’s perfect for weekend trips and special events. <strong>Purchase your pass at <a href="/how-to-use-a-ticket-machine">ticket machines</a>, at any suburban Northstar station or via the <a href="/app">Metro Transit App</a>.</strong></p>
+											<div class="row mb-4">
+												<div class="col-lg-4 offset-lg-4">
+													<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">Big Lake / Minneapolis</h4>
+													<p class="h3 gray-100 text-center pt-2 pb-2">$25</p>
+												</div>
 											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-lg-4 offset-lg-4">
-												<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">Elk River / Minneapolis</h4>
-												<p class="h3 gray-100 text-center pt-2 pb-2">$19</p>
+											<div class="row mb-4">
+												<div class="col-lg-4 offset-lg-4">
+													<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">Elk River / Minneapolis</h4>
+													<p class="h3 gray-100 text-center pt-2 pb-2">$19</p>
+												</div>
 											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-lg-4 offset-lg-4">
-												<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">Ramsey / Minneapolis</h4>
-												<p class="h3 gray-100 text-center pt-2 pb-2">$15</p>
+											<div class="row mb-4">
+												<div class="col-lg-4 offset-lg-4">
+													<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">Ramsey / Minneapolis</h4>
+													<p class="h3 gray-100 text-center pt-2 pb-2">$15</p>
+												</div>
 											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-lg-4 offset-lg-4">
-												<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">Anoka / Minneapolis</h4>
-												<p class="h3 gray-100 text-center pt-2 pb-2">$13</p>
+											<div class="row mb-4">
+												<div class="col-lg-4 offset-lg-4">
+													<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">Anoka / Minneapolis</h4>
+													<p class="h3 gray-100 text-center pt-2 pb-2">$13</p>
+												</div>
 											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-lg-4 offset-lg-4">
-												<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">Coon Rapids / Minneapolis</h4>
-												<p class="h3 gray-100 text-center pt-2 pb-2">$13</p>
+											<div class="row mb-4">
+												<div class="col-lg-4 offset-lg-4">
+													<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">Coon Rapids / Minneapolis</h4>
+													<p class="h3 gray-100 text-center pt-2 pb-2">$13</p>
+												</div>
 											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-lg-4 offset-lg-4">
-												<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">Fridley / Minneapolis</h4>
-												<p class="h3 gray-100 text-center pt-2 pb-2">$13</p>
+											<div class="row mb-4">
+												<div class="col-lg-4 offset-lg-4">
+													<h4 class="cyan-bg text-center pt-1 pb-1 mb-0">Fridley / Minneapolis</h4>
+													<p class="h3 gray-100 text-center pt-2 pb-2">$13</p>
+												</div>
+											</div>
+										</div> -->
+									</div>
+								</section>
+
+								<section class="blue-cyan-bg full-width">
+									<div class="container">
+										<div class="row">
+											<div class="col-lg-6 blue-bg">
+												<h2>Other ways to purchase fares</h2>
+												<div class="h3">
+													<img alt="" class="icon" src="/img/svg/phone-white.svg" />
+													<a class="stretched-link" href="/app">Metro Transit App</a>
+												</div>
+												<div class="h3">
+													<img alt="" class="icon" src="/img/svg/store-white.svg" />
+													<a class="stretched-link" href="https://www.metrotransit.org/service-centers">Authorized fare retailer</a>
+												</div>
+												<div class="h3">
+													<img alt="" class="icon ticket-white" src="/img/svg/ticket-white.svg">
+													<a class="stretched-link" href="https://www.metrotransit.org/how-to-use-a-ticket-machine">Ticket machine on rail platforms</a>
+												</div>
+												<div class="h3">
+													<img alt="" class="icon" src="/img/svg/mail-white.svg">
+													<a class="stretched-link" href="https://www.metrotransit.org/buy-by-mail">By mail</a>
+												</div>
+												<div class="h3">
+													<img alt="" class="icon" src="/img/svg/phone-white.svg" />
+													<span>By phone</span>
+												</div>
+											</div>		
+											<div class="col-lg-6 cyan-bg">
+												<h2>Go-To Card features</h2>
+												<div class="btn-container text-left">
+													<a class="btn btn-link-white has-icon-right border-0 pl-0" href="">Register card</a><br />
+													<a class="btn btn-link-white has-icon-right border-0 pl-0" href="">Enroll in Auto Refill</a><br />
+													<a class="btn btn-link-white has-icon-right border-0 pl-0" href="">Lost or stolen card</a><br />
+													<a class="btn btn-link-white has-icon-right border-0 pl-0" href="">Create My Fare Card list</a>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -367,8 +417,9 @@
 	<!-- Begin Footer -->
 	<footer class="section">
 		<div class="container">
-			<div class="button-container-icon-right">
-				<a class="btn btn-outline-primary" href="/contact-us">Contact us</a>
+			<!-- <div class="text-center mx-auto"> -->
+			<div class="text-center mx-auto mb-4">
+				<a class="btn btn-secondary-ghost has-icon-right" href="/contact-us">Contact us</a>
 			</div>			
 			<p class="text-center d-lg-none my-3"><a class="h2" href="tel:612-373-3333">612-373-3333</a></p>			
 				<div id="google_translate_element">&nbsp;</div>

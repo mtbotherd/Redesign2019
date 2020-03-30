@@ -3,20 +3,16 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport"
-		  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="web-service-uri" content="https://svc.metrotransit.org">
 	<title>Metro Transit</title>
-	<link rel="shortcut icon"
-		  href="favicon.ico"
-		  type="image/x-icon">
-	<link rel="stylesheet" href="https://js.arcgis.com/3.28/esri/css/esri.css">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="/css/app.css">
 
 </head>
 
 <body>
 	<form>
-
 		<div role="link" aria-labelledby="skipNav">
 			<a id="skipNav" href="#pageContainer" class="skip-to-content">Skip to main content</a>
 		</div>
@@ -28,13 +24,12 @@
 					<a class="navbar-brand" href="/">
 						<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
 					</a>
-					<button class="navbar-toggler border-0" type="button" data-toggle="collapse"
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
 						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 						aria-label="Toggle navigation">
-						<!-- <span class="navbar-toggler-icon"></span> -->
-						Menu <img class="icon" src="/img/svg/chevron-down-gray.svg" />
+						<span class="navbar-toggler-icon"></span>
 					</button>
-	
+
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<section>
 							<ul class="nav navbar-nav mx-auto">
@@ -205,237 +200,37 @@
 		<!-- Begin Main Content -->
 		<main id="pageContainer" class="container">
 			<section>
-				<div class="page-content">				
+				<div class="page-content">
 					<div class="full-width">
-						<div class="primary hero schedules-maps-bg">
+						<div class="secondary">
 							<div class="container">
 								<div class="page-title">
-									<h1>Schedules &amp; Maps</h1>
+									<h1>Accordion Demo</h1>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<div class="content-full-width">
+					<div class=""> <!-- This class gets set in CMS -->
 						<div class="htmlmodule">
-							<section class="">
-								<div id="schedulesMaps">
-									<section class="section full-width">
-										<div class="container">
-											<div id="findSchedulesByRoute" class="auto-complete-search-box">
-												<div class="input-group has-float-label custom-width">
-													<input 
-														type="text"
-														id="schedulesByRoute"
-														name="schedulesByRoute"
-														class="form-control"
-														placeholder="Enter route number"
-														aria-describedby="searchRoutesButton"
-														required="required" />
-													<label for="schedulesByRoute">Find schedules by route</label>
-													<div class="input-group-append">
-														<button id="searchRoutesButton" 
-																type="button"
-																name="searchRoutesButton"
-																class="btn btn-primary border-top border-right border-bottom ml-0"
-																onclick="Schedule.searchSchedules();">
-															<span class="sr-only">Search button</span>
-															<img alt="" class="icon" src="/img/svg/search-gray.svg" />
-														</button>
-													</div>
-												</div>
+							<section class="section">
+								<div class="accordion">
+									<div class="card">
+										<div class="card-header">
+											<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#demo" aria-expanded="false">
+												<img alt="" class="icon" src="/img/svg/circle-gray-outline-train.svg" />
+												<span class="btn-text">Heading</span>
+												<span class="ml-auto">
+													<img alt="" class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
+												</span>
+											</button>
+										</div>
+										<div id="demo" class="collapse">
+											<div class="card-body border">
+												<p>Expandable content goes here.</p>
 											</div>
 										</div>
-									</section>
-									
-									<section class="section full-width">
-										<div class="container">
-											<div class="row">
-												<div class="col-md-5 mb-5">
-													<h2 class="has-icon-left mlr">METRO Light Rail</h2>
-													<div class="btn-container metro-light-rail">
-														<a href="/route/901" class="btn btn-route-lg">Blue Line</a>
-														<a href="/route/902" class="btn btn-route-lg">Green Line</a>
-													</div>
-												</div>
-												<div class="col-md-7">
-													<h2 class="has-icon-left pbr">Popular bus routes</h2>
-													<div class="btn-container popular-bus-routes">
-														<a href="/route/2" class="btn btn-route routes">2</a>
-														<a href="/route/3" class="btn btn-route routes">3</a>
-														<a href="/route/4" class="btn btn-route routes">4</a>
-														<a href="/route/5" class="btn btn-route routes">5</a>
-														<a href="/route/6" class="btn btn-route routes">6</a>
-														<a href="/route/9" class="btn btn-route routes">9</a>
-														<a href="/route/10" class="btn btn-route routes">10</a>
-														<a href="/route/11" class="btn btn-route routes">11</a>
-														<a href="/route/14" class="btn btn-route routes">14</a>
-														<a href="/route/17" class="btn btn-route routes">17</a>
-														<a href="/route/18" class="btn btn-route routes">18</a>
-														<a href="/route/21" class="btn btn-route routes">21</a>
-														<a href="/route/22" class="btn btn-route routes">22</a>
-														<a href="/route/54" class="btn btn-route routes">54</a>
-														<a href="/route/61" class="btn btn-route routes">61</a>
-														<a href="/route/62" class="btn btn-route routes">62</a>
-														<a href="/route/63" class="btn btn-route routes">63</a>
-														<a href="/route/64" class="btn btn-route routes">64</a>
-														<a href="/route/68" class="btn btn-route routes">68</a>
-														<a href="/route/74" class="btn btn-route routes">74</a>
-													</div>
-													<div class="text-center mx-auto">
-														<a href="/bus-schedules-maps" class="btn btn-primary mb-0">View all</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</section>
-									
-									<section class="section full-width">
-										<div class="container">
-											<h2 class="has-icon-left mbrt">METRO Bus Rapid Transit</h2>
-											<div class="btn-container metro-brt">
-												<a href="/route/921" class="btn btn-route-lg">A Line</a>
-												<a href="/route/923" class="btn btn-route-lg">C Line</a>
-												<a href="/route/903" class="btn btn-route-lg">Red Line</a>
-											</div>
-										</div>
-									</section>
-									
-									<section class="section full-width">
-										<div class="container">
-											<h2 class="has-icon-left cr">Commuter Rail</h2>
-											<div class="btn-container commuter-rail">
-												<a href="/route/888" class="btn btn-route-lg mb-0">Northstar</a>
-											</div>
-										</div>
-									</section>
-									
-									<section class="section full-width">
-										<div class="container">
-											<div id="interactiveMap">
-												<h2 class="has-icon-left ir">Interactive Map</h2>
-												<div class="auto-complete-search-box mb-4 mb-lg-5">
-													<div class="input-group has-float-label custom-width">
-														<input type="text"
-																id="interactiveMapSearch"
-																class="form-control"
-																placeholder="Search by address, intersection or landmark"
-																aria-expanded="false"
-																aria-autocomplete="list"
-																aria-describedby="interactiveMapSearchInstr"
-																aria-owns="interactiveMapSearchSuggestions"
-																aria-required="true"
-																role="combobox"
-																onFocus="$(this).val('')" />
-														<label for="searchButton">Search interactive map</label>
-														<div class="input-group-append">
-															<div class="input-group-text" id="searchIcon">
-																<img alt="" class="icon search-gray" src="/img/svg/search-gray.svg">
-															</div>
-														</div>
-														<span id="interactiveMapSearchInstr" class="sr-only">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>		
-													</div>
-												</div>
-												<div class="mb-4">
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-														<input type="checkbox"
-																class="custom-control-input"
-																id="stopsStationsMapLayer"
-																checked />
-														<label class="custom-control-label"
-																for="stopsStationsMapLayer">Stops &amp; Stations</label>
-													</div>
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-														<input type="checkbox"
-																class="custom-control-input"
-																id="parkRideMapLayer"
-																checked />
-														<label class="custom-control-label"
-																for="parkRideMapLayer">Park &amp; Rides</label>
-													</div>
-													<!-- <div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-														<input type="checkbox"
-																class="custom-control-input"
-																id="niceRideMapLayer" />
-														<label class="custom-control-label"
-																for="niceRideMapLayer">Nice Ride</label>
-													</div>
-												</div> -->
-																				</div>
-												<div class="map-container border">
-													<div id="TRIMap"
-															class="map"
-															mapType="full"
-															role="application"
-															aria-label="interactive map of transit stops">
-														<div id="trimLocate"></div>
-														<div class="mapLoading"></div>
-													</div>
-													<div id="trimPopUp"
-															style="display:none;">
-														<div id="mapPopUpStopDescription"
-																class="stop-description"></div>
-														<div class="container">
-															<ul class="nav nav-tabs nav-justified">
-																<li class="nav-item">
-																	<a class="nav-link active"
-																		data-toggle="tab"
-																		href="#mapPopUpTabNexTrip">NexTrip</a>
-																</li>
-																<li class="nav-item">
-																	<a class="nav-link"
-																		data-toggle="tab"
-																		href="#mapPopUpTabRoutes">Routes</a>
-																</li>
-															</ul>
-															<div class="tab-content">
-																<div class="tab-pane container active"
-																	id="mapPopUpTabNexTrip">
-																<div id="mapPopUpDepartures"
-																		class="stop-departures"></div>
-																</div>
-																<div class="tab-pane container"
-																	id="mapPopUpTabRoutes">
-																<div id="mapPopUpRoutes"
-																		class="route-list"></div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-										</div>
-									</section>
-									
-									<section class="section full-width">
-										<div class="container">
-											<div id="systemMaps">
-												<h2>System Maps</h2>
-												<div class="row">
-													<div class="col-md-6 mb-4">
-														<a href="/Data/Sites/1/media/pdfs/system-map.pdf">
-															<img alt="Entire system map" src="/Data/Sites/1/media/schedules-maps/system-map-thumbnail.png" class="img-fluid mb-2" />
-														</a>
-														<p class="h4">Entire system (PDF)</p>
-													</div>
-													<div class="col-md-6 mb-4">
-														<a href="/Data/Sites/1/media/pdfs/metro-diagram-map_final-cline.pdf">
-															<img alt="METRO network map" src="/Data/Sites/1/media/schedules-maps/metro-network-map-thumbnail.png" class="img-fluid mb-2" />
-														</a>
-														<p class="h4">METRO Network Map</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</section>
-					
-									<section class="section full-width cyan-bg">
-										<div class="container">
-											<div class="text-center">
-												<a class="btn btn-secondary-ghost-alt mb-0"
-													href="https://public.govdelivery.com/accounts/MNMETRO/subscriber/new">Sign up for alerts</a>
-											</div>
-										</div>
-									</section>
+									</div>
 								</div>
 							</section>
 						</div>
@@ -450,7 +245,7 @@
 			<div class="container">
 				<div class="text-center mx-auto">
 					<a class="btn btn-secondary-ghost has-icon-right" href="/contact-us">Contact us</a>
-				</div>			
+				</div>		
 				<p class="text-center d-lg-none my-3"><a class="h2" href="tel:612-373-3333">612-373-3333</a></p>			
 					<div id="google_translate_element">&nbsp;</div>
 				<div class="d-none d-xl-block social-media text-center">
@@ -538,23 +333,18 @@
 			</div>
 		</footer>
 		<!-- End Footer -->
-
 	</form>
 
 	<!-- scripts -->
 	<script src="/js/jquery.js"></script>
 	<script src="/js/popper.js"></script>
 	<script src="/js/bootstrap.js"></script>
-	
 	<script src="/js/jquery.autocomplete.js"></script>
 	<!-- <script src="/js/jquery.validate.js"></script> -->
+	<!-- <script src="/js/additional-methods.js"></script> -->
+	<!-- <script src="/js/form-validation.js"></script> -->
 	<script src="https://js.arcgis.com/3.28/"></script>
 	<script src="/js/TRIM.js"></script>
-	<script src="/js/autocomplete.js"></script>
-	<!-- <script src="/js/additional-methods.js"></script> -->
-	<script src="/js/nextrip.js"></script>
-	<script src="/js/schedule.js"></script>
-	<!-- <script src="/js/form-validation.js"></script> -->
 	<script src="/js/scripts.js"></script>
 	<!-- End scripts -->
 	

@@ -130,6 +130,10 @@
 		.route-number {
 			font-weight: $font-weight-bold;
 			width: 50px;
+
+			@include media-breakpoint-up(lg) {
+				width: 75px;
+			}
 		}
 
 		.route-name {

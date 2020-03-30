@@ -3,13 +3,15 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Metro Transit</title>
 	<link rel="shortcut icon"
-		  href="favicon.ico"
-		  type="image/x-icon">
-	<link rel="stylesheet"
-		  href="/css/app.css">
+			href="favicon.ico"
+			type="image/x-icon">
+	<link rel="stylesheet" href="https://js.arcgis.com/3.28/esri/css/esri.css">
+	<link rel="stylesheet" href="/css/app.css">
+
 </head>
 
 <body>
@@ -21,7 +23,6 @@
 	<!-- Begin Header -->
 	<header id="header">
 		<nav class="navbar navbar-expand-xl navbar-light">
-			<!-- <a href="#pageContainer" class="skip-to-content">Skip to main content</a> -->
 			<div class="container">
 				<a class="navbar-brand" href="/">
 					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
@@ -97,6 +98,11 @@
 						</ul>
 					</section>
 					<ul class="nav navbar-nav utilities ml-auto">
+						<li class="nav-item">
+							<a class="nav-link goto-icon" href="/go-to-card">
+								<span class="sr-only">Go-To Card</span>
+							</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link store-icon" href="https://store.metrotransit.org">
 								<span class="sr-only">store</span>
@@ -199,135 +205,66 @@
 		<section>
 			<div class="page-content">
 				<div class="full-width">
-					<div class="primary hero pass-programs-bg">
+					<div class="secondary">
 						<div class="container">
 							<div class="page-title">
-								<h1>Pass Programs</h1>
+								<h1>Buttons & Links Demo</h1>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="content-full-width">
+				<div class=""> <!-- This class gets set in CMS -->
 					<div class="htmlmodule">
 						<section class="section">
-							<div id="passPrograms">
-								<p>Metro Transit offers several transit passes available through employers, schools and organizations. All of them offer the same convenience of the Go-To Card — faster boarding, seamless transfers and balance protection – but in addition, these passes are valid for unlimited rides on bus and METRO lines. Rides on Northstar may require additional stored value.</p>
-							
-								<p>These passes are often the best value if you ride transit frequently. If you don’t have access to these passes through your employer, school or organization learn about other money-saving passes available on a Go-To Card.</p>
-								
-								<hr />
-								<div class="row">
-									<div class="col-md-4">
-										<img alt="go-to card" class="img-fluid" src="/img/go-to-card.png" />
-									</div>										
-									<div class="col-md-8">
-										<h2>Transit Assistance Program (TAP)</h2>										
-										<p><strong>TAP makes transit more affordable for low-income residents.</strong></p>
-										
-										<p>Once qualified, you can get a TAP card that, when you add money to it, you get a $1.00 fare (plus a 2½-hour transfer!) on every ride you take. The card must be registered and cannot be used by another person.</p>
-										<div class="button-container-icon-right">
-											<a class="btn btn-outline-primary" href="/tap-riders">Eligibility</a>
-										</div>									
-										<div class="button-container-icon-right">
-											<a class="btn btn-outline-primary" href="/how-to-ride">How to ride</a>
-										</div>
-									</div>
-								</div>
-							
-								<hr />
-								<div class="row">
-									<div class="col-md-4"><img alt="metro pass card" class="img-fluid" src="/img/metro-pass-card.png" /></div>
-								
-									<div class="col-md-8">
-										<h2>Metropass</h2>
-										
-										<p><strong>Companies and organizations enroll in Metropass,</strong> then you get unlimited access to all regional buses and trains for $83 per month; even less if your organization offers pre-tax benefits or subsidizes your pass. Add stored value to to pay fares above $3.25 (at some Northstar stations.</p>
-										
-										<div class="button-container-icon-right"><a class="btn btn-outline-primary btn-extend" href="/metropass-participants">Participating organizations</a></div>
-										
-										<div class="button-container-icon-right"><a class="btn btn-outline-primary" href="/metropass-overview">Learn more</a></div>
-									</div>
-								</div>
-								
-								<hr />
-								<div class="row">
-									<div class="col-md-4"><img alt="student pass card" class="img-fluid" src="/img/student-pass-card.png" /></div>
-									
-									<div class="col-md-8">
-										<h2>Student Pass</h2>
-										
-										<p><strong>When your high school signs up for Student Pass, you’re eligible for access to all regional buses and trains.</strong></p>
-										
-										<p>Ask your school today if you are eligible for the easiest and least expensive way to get to school and extracurricular activities. Your student ID is required along with the pass; the card is valid only when used by the named cardholder. All students agree to the Metro Transit Code of Conduct. Failure to adhere to the policies of your school or Metro Transit may result in pass deactivation.</p>
-										
-										<p><a href="/mps-student-pass">Pass for Minneapolis Public Schools</a> / Student Pass for St. Paul Public Schools</p>
-										
-										<div class="button-container-icon-right"><a class="btn btn-outline-primary" href="/how-to-ride">How to ride</a></div>
-									</div>
-								</div>
-								
-								<hr />
-								<div class="row">
-									<div class="col-md-4"><img alt="college pass card" class="img-fluid" src="/img/college-pass-card.png" /></div>
-									
-									<div class="col-md-8">
-										<h2>College Pass</h2>
-										
-										<p><strong>Whether it’s to class, work or fun, make a smart choice and get around town with a College Pass for $165 or less per semester.</strong></p>
-										
-										<p>When your school offers the College Pass, you’re eligible for unlimited rides on buses and trains for an entire semester. College Passes are sold at each school and expire at the end of each semester. Add stored value to your College Pass to pay fares above $3.25 (at some Northstar stations).</p>
-										
-										<div class="button-container-icon-right"><a class="btn btn-outline-primary btn-extend" href="/Data/Sites/1/media/college-pass/76065_2019-college-pass-school-listing.pdf">Participating organizations</a></div>
-										
-										<div class="button-container-icon-right"><a class="btn btn-outline-primary" href="/college-pass">Learn more</a></div>
-									</div>
-								</div>
-								
-								<hr />
-								<div class="row">
-									<div class="col-md-4"><img alt="u pass card" class="img-fluid" src="/img/u-pass-card.png" /></div>
-									
-									<div class="col-md-8">
-										<h2>U-Pass</h2>
-										
-										<p><strong>U-Pass is available to currently enrolled students at the University of Minnesota.</strong></p>
-										
-										<p>It is valid for unlimited rides on buses and trains – including the METRO Green Line that travels through the heart of campus – for an entire semester. It can be purchased here.</p>
-										
-										<div class="button-container-icon-right"><a class="btn btn-outline-primary" href="/how-to-ride">How to ride</a></div>
-									</div>
-								</div>
-								
-								<hr />
-
-								<h2>More passes</h2>
-								<div class="button-container-icon-right">
-									<a class="btn btn-outline-primary" href="/metropass-overview">Employers</a>
-								</div>										
-								<div class="button-container-icon-right">
-									<a class="btn btn-outline-primary" href="/schools">Schools</a>
-								</div>										
-								<div class="button-container-icon-right">
-									<a class="btn btn-outline-primary" href="/non-profit">Non-profits</a>
-								</div>										
-								<div class="button-container-icon-right">
-									<a class="btn btn-outline-primary" href="/special-events">Special Events</a>
-								</div>
-							</div>										
+							<h2>Button styles</h2>
+							<h3>Primary</h3>
+							<div class="btn-container p-4">
+								<button type="button" class="btn btn-primary">Primary</button>
+								<button type="button" class="btn btn-primary has-icon-right">Primary</button>
+							</div>
+							<h3>Secondary (ghost)</h3>
+							<div class="btn-container p-4">
+								<a href="#" class="btn btn-secondary-ghost">Secondary</a>
+							</div>
+							<h4>Secondary (ghost) with icon</h4>
+							<div class="btn-container p-4">
+								<a href="#" class="btn btn-secondary-ghost has-icon-right">Secondary</a>
+								<a href="#" class="btn btn-secondary-ghost has-icon-left">Secondary</a>
+							</div>
+							<h4>Secondary (ghost) alternate</h4>
+							<div class="btn-container cyan-bg p-4 mb-4">
+								<a href="#" class="btn btn-secondary-ghost-alt has-icon-right">Secondary alt</a>
+								<a href="#" class="btn btn-secondary-ghost-alt has-icon-left">Secondary alt</a>
+							</div>
+							<h3>Anchors</h3>
+							<div class="btn-container p-4">
+								<a href="#" class="btn btn-anchor">Route 1-99</a>
+								<a href="#" class="btn btn-anchor-lg">Southbound</a>
+							</div>
+							<h3>Route (website) / Value (store)</h3>
+							<div class="btn-container p-4">
+								<a href="#" class="btn btn-route">2</a>
+								<a href="#" class="btn btn-route-lg mr-0">Blue Line</a> / 
+								<a href="#" class="btn btn-value">$5</a>
+								<a href="#" class="btn btn-value-lg disabled">Value</a>
+							</div>
+							<hr />
+							<h2>Link styles</h2>
 						</section>
 					</div>
-				</div>			
+				</div>
 			</div>
 		</section>
 	</main>
+	<!-- End Main Content -->
 
 	<!-- Begin Footer -->
 	<footer class="section">
 		<div class="container">
-			<div class="button-container-icon-right">
-				<a class="btn btn-outline-primary" href="/contact-us">Contact us</a>
-			</div>			
+			<div class="text-center mx-auto">
+				<a class="btn btn-secondary-ghost has-icon-right" href="/contact-us">Contact us</a>
+			</div>		
 			<p class="text-center d-lg-none my-3"><a class="h2" href="tel:612-373-3333">612-373-3333</a></p>			
 				<div id="google_translate_element">&nbsp;</div>
 			<div class="d-none d-xl-block social-media text-center">
@@ -420,14 +357,15 @@
 	<script src="/js/jquery.js"></script>
 	<script src="/js/popper.js"></script>
 	<script src="/js/bootstrap.js"></script>
-	
 	<script src="/js/jquery.autocomplete.js"></script>
 	<!-- <script src="/js/jquery.validate.js"></script> -->
 	<!-- <script src="/js/additional-methods.js"></script> -->
 	<!-- <script src="/js/form-validation.js"></script> -->
+	<script src="https://js.arcgis.com/3.28/"></script>
+	<script src="/js/TRIM.js"></script>
 	<script src="/js/scripts.js"></script>
 	<!-- End scripts -->
-
-	<script src="/js/scripts.js"></script>
+	
 </body>
+
 </html>

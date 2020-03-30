@@ -24,15 +24,15 @@
 	<!-- Begin Header -->
 	<header id="header">
 		<nav class="navbar navbar-expand-xl navbar-light">
-			<!-- <a href="#pageContainer" class="skip-to-content">Skip to main content</a> -->
 			<div class="container">
 				<a class="navbar-brand" href="/">
 					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
 				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
+				<button class="navbar-toggler border-0" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
+					<!-- <span class="navbar-toggler-icon"></span> -->
+					Menu <img class="icon" src="/img/svg/chevron-down-gray.svg" />
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -101,6 +101,11 @@
 					</section>
 					<ul class="nav navbar-nav utilities ml-auto">
 						<li class="nav-item">
+							<a class="nav-link goto-icon" href="/go-to-card">
+								<span class="sr-only">Go-To Card</span>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a class="nav-link store-icon" href="https://store.metrotransit.org">
 								<span class="sr-only">store</span>
 							</a>
@@ -110,9 +115,9 @@
 								<span class="sr-only">site search</span>
 							</a>
 							<div class="dropdown-menu search-dropdown-menu">
-								<div class="input-group">
-									<label for="siteSearch" class="sr-only">Search</label>
-									<input type="text" id="siteSearch" class="form-control" placeholder="Search our site">
+								<div class="input-group has-float-label">
+									<input type="text" id="siteSearch" class="form-control mr-0" placeholder="Search our site" required>
+									<label for="siteSearch">Search our site</label>
 									<div class="input-group-append">
 										<button type="button" id="siteSearchBtn" class="btn btn-primary">
 											<span class="sr-only">Search button</span>
@@ -238,12 +243,12 @@
 								<div id="alertsCard" class="card">
 									<h1 class="sr-only">Alerts</h1>
 									<h2 class="text-center">Check planned detours, bus stop, service changes, and disruptions</h2>
-									<div class="button-container-icon-right text-center mb-0">
-										<a href="" class="btn btn-outline-primary">
+									<div class="btn-container text-center mx-auto">
+										<a href="" class="btn btn-secondary-ghost has-icon-right mb-4">
 											Sign up for alerts
 										</a>
 									</div>
-									<section id="alertSection" class="section"></section>
+									<div id="alertSection"></div>
 								</div>
 							</div>
 						</section>
@@ -257,9 +262,9 @@
 	<!-- Begin Footer -->
 	<footer class="section">
 		<div class="container">
-			<div class="button-container-icon-right">
-				<a class="btn btn-outline-primary" href="/contact-us">Contact us</a>
-			</div>			
+			<div class="text-center mx-auto">
+				<a class="btn btn-secondary-ghost has-icon-right" href="/contact-us">Contact us</a>
+			</div>		
 			<p class="text-center d-lg-none my-3"><a class="h2" href="tel:612-373-3333">612-373-3333</a></p>			
 				<div id="google_translate_element">&nbsp;</div>
 			<div class="d-none d-xl-block social-media text-center">

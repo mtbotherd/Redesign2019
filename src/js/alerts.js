@@ -167,11 +167,7 @@ var Alerts = (function($, window, document, undefined) {
 					)
 			);
 
-			card.append(
-				$('<div/>', { class: 'card-header' })
-					.append($('<h3/>', { class: 'mb-0' }))
-					.append(btn)
-			);
+			card.append($('<div/>', { class: 'card-header' }).append(btn));
 
 			var alertList = $('<div/>', { class: 'card-body border' });
 			route.alert_index.forEach(function(alertIndex, idx) {

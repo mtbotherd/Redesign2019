@@ -70,7 +70,8 @@ var TripPlan = (function($, window, document, undefined) {
 			//console.dir(tripData);
 			$.ajax({
 				type: 'get',
-				url: '/Services/TripPlannerSvc.ashx',
+				url:
+					'https://www.metrotransit.org/Services/TripPlannerSvc.ashx',
 				data: tripData,
 				dataType: 'json',
 			})
@@ -365,9 +366,9 @@ var TripPlan = (function($, window, document, undefined) {
 		`);
 			$('.tp-results').append(
 				`
-			  <div class="card mb-4" data-child="collapseTrip${i}" >
-				  <div id="" class="card-header">
-						  <button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
+				<div class="card" data-child="collapseTrip${i}" >
+					<div id="" class="card-header">
+						<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseTrip${i}" name="thisName${i}" role="button" aria-expanded="false" aria-controls="collapseTrip${i}">
 							<span class="d-flex">
 								<span class="d-flex align-items-center tp-time">${returnTime(
 									tpDepartTime
@@ -377,31 +378,30 @@ var TripPlan = (function($, window, document, undefined) {
 										'<img alt="" class="icon chevron-right-gray" src="/img/svg/chevron-right-gray.svg">'
 									)}</span>
 									<img alt="" class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
-								  </span>
-							  </span>
-						  </button>
-				  </div>
-				  <div id="collapseTrip${i}" class="collapse" aria-labelledby="" data-parent="#tripPlan">
-				  <div class="card-body">
-					  <div class="row flex-row">
-						  <div class="col-lg-5">
-							  <div class="d-block">
-							  ` +
+								</span>
+							</span>
+						</button>
+					</div>
+					<div id="collapseTrip${i}" class="collapse" aria-labelledby="" data-parent="#tripPlan">
+						<div class="card-body">
+							<div class="row flex-row">
+								<div class="col-lg-5">
+									<div class="d-block">
+										` +
 					tpDetail.join(' ') +
 					`
-							  </div>
-							  <div class="clearfix"></div>
-							  <hr class="d-block d-lg-none">
-						  </div>
-						  <div class="col-lg-7">
-							  <div class="tp-basemap esrimap${i}">
-							  </div>
-						  </div>
-					  </div>
-				  </div>
-				  </div>
-			  </div>
-		  `
+									</div>
+								<div class="clearfix"></div>
+								<hr class="d-block d-lg-none">
+							</div>
+							<div class="col-lg-7">
+								<div class="tp-basemap esrimap${i}">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				`
 			);
 		});
 		var esriMapDOM = function() {
