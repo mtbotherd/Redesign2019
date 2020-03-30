@@ -213,31 +213,6 @@
 			}
 
 			.nav-item {
-				.goto-icon:focus::before {
-					display: block;
-					content: '';
-					background-image: url('../../../../../img/svg/goto-card-white.svg');
-					background-repeat: no-repeat;
-					background-size: 1.6875rem;
-					width: 1.6875rem;
-					height: 1.6875rem;
-					@include media-breakpoint-up(xl) {
-						background-size: 2.25rem;
-						width: 2.25rem;
-						height: 2.25rem;
-					}
-				}
-
-				.store-icon:focus::before {
-					display: block;
-					content: '';
-					background-image: url('../../../../../img/svg/shopping-cart-white.svg');
-					background-repeat: no-repeat;
-					background-size: 1.6875rem;
-					width: 1.6875rem;
-					height: 1.6875rem;
-				}
-
 				.nav-link {
 					&:link {
 						@include media-breakpoint-up(xl) {
@@ -247,7 +222,8 @@
 
 					&.goto-icon {
 						@include media-breakpoint-up(xl) {
-							padding: 1.0157rem 1.119rem;
+							padding: 1rem 1.119rem;
+							height: 68.58px;
 						}
 					}
 
