@@ -8,6 +8,12 @@
 		}
 	}
 
+	.has-float-label {
+		label {
+			z-index: 2000;
+		}
+	}
+
 	//Location toggle button
 	button.location-toggler {
 		background-color: $white !important;
