@@ -1,6 +1,33 @@
 /**********************************************
     Form styles
 **********************************************/
+// Required form elements styles
+/* Denote label at top of forms */
+.denote-required {
+	position: relative;
+	@include font-size(18);
+	margin-left: 1.25rem;
+
+	@include media-breakpoint-up(lg) {
+		@include font-size(23);
+	}
+
+	.required-symbol {
+		@include font-size(43);
+		position: absolute;
+		top: -0.5rem;
+		left: -1.25rem;
+		color: $red;
+
+		@include media-breakpoint-up(lg) {
+			@include font-size(47);
+			line-height: 0;
+			margin-right: 0.25rem;
+			top: 1.7rem;
+		}
+	}
+}
+
 form {
 	fieldset {
 		width: 100%;
@@ -66,7 +93,7 @@ form {
 			height: 50px;
 			color: $gray-300;
 			@include font-size(18);
-			padding: 0.65rem 0.75rem;
+			padding: 0.75rem;
 
 			@include media-breakpoint-up(lg) {
 				height: 60px;
@@ -86,6 +113,7 @@ form {
 
 		label {
 			color: $gray-300;
+			pointer-events: none;
 		}
 	}
 
@@ -186,43 +214,3 @@ form {
 		}
 	}
 }
-
-// Required form elements styles
-/* Denote label at top of forms */
-.denote-required {
-	position: relative;
-	@include font-size(18);
-	margin-left: 1.25rem;
-
-	@include media-breakpoint-up(lg) {
-		@include font-size(23);
-	}
-
-	.required-symbol {
-		@include font-size(43);
-		position: absolute;
-		top: -0.5rem;
-		left: -1.25rem;
-		color: $red;
-
-		@include media-breakpoint-up(lg) {
-			@include font-size(47);
-			line-height: 0;
-			margin-right: 0.25rem;
-			top: 1.7rem;
-		}
-	}
-}
-
-// .custom-file {
-// 	.custom-file-label {
-// 		@include media-breakpoint-up(lg) {
-// 			height: 50px;
-// 			@include font-size(23);
-
-// 			&::after {
-// 				height: 48px;
-// 			}
-// 		}
-// 	}
-// }
