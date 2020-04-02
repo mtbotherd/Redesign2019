@@ -43,33 +43,7 @@
 				transition: 0.3s transform ease-in-out;
 				transform: rotate(-180deg);
 				transition: 0.3s transform ease-in-out;
-				// position: absolute;
-				// top: 0.5rem;
-				// right: 0.75rem;
-				// content: '';
-				// background-image: url('../../../../../img/svg/chevron-up-gray.svg');
-				// background-repeat: no-repeat;
-				// background-size: 0.75rem;
-				// width: 0.75rem;
-				// height: 0.75rem;
-				// border: none;
 			}
-
-			// &:focus::after {
-			// 	// position: relative;
-			// 	// top: 0.25rem;
-			// 	content: '';
-			// 	background-image: url('../../../../../img/svg/chevron-down-white.svg');
-			// 	background-repeat: no-repeat;
-			// 	background-size: 0.75rem;
-			// 	width: 0.75rem;
-			// 	height: 0.75rem;
-			// 	border: none;
-			// }
-			// .icon {
-			// 	width: 1rem;
-			// 	height: 1rem;
-			// }
 		}
 
 		.section {
@@ -404,18 +378,6 @@
 					}
 				}
 
-				.dropdown {
-					@include media-breakpoint-up(xl) {
-						position: relative;
-					}
-
-					.dropdown-menu {
-						@include media-breakpoint-up(xl) {
-							margin-top: 0;
-						}
-					}
-				}
-
 				.search-dropdown-menu {
 					padding-right: 15px;
 					padding-left: 15px;
@@ -466,6 +428,21 @@
 							border-left: none;
 							padding: 0.563rem 1rem;
 						}
+					}
+				}
+
+				// Sets search menu item to active when menu is open
+				&.show {
+					background-color: $cyan;
+
+					.search-icon::before {
+						display: block;
+						content: '';
+						background-image: url('../../../../../img/svg/search-white.svg');
+						background-repeat: no-repeat;
+						background-size: 1.6875rem;
+						width: 1.6875rem;
+						height: 1.6875rem;
 					}
 				}
 			}
