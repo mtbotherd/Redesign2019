@@ -84,6 +84,10 @@
 	#nextripDepartures {
 		display: none;
 
+		.stop-departures {
+			margin-bottom: 1rem;
+		}
+
 		.card {
 			background-color: $gray-100 !important;
 
@@ -96,15 +100,12 @@
 			}
 		}
 
-		.btn {
-			text-align: left;
-			width: auto;
-			padding-left: 0;
-		}
-
 		.show {
 			cursor: pointer;
-			padding-top: 1rem;
+			text-align: left;
+			width: 250px;
+			margin-bottom: 0;
+			padding: 0;
 			position: relative;
 
 			&.less {
@@ -115,14 +116,18 @@
 				position: relative;
 				color: $gray-600;
 				line-height: 1.5;
-				margin-left: 2rem;
+				margin-left: 1.75rem;
 			}
 
 			.icon {
 				position: absolute;
-				top: 1.25rem;
-				width: 1.5rem;
-				height: 1.5rem;
+				top: 0.35rem;
+				width: 1.25rem;
+				height: 1.25rem;
+
+				@include media-breakpoint-up(lg) {
+					top: 0.5rem;
+				}
 			}
 
 			.map-container {
