@@ -100,12 +100,16 @@
 			}
 		}
 
-		.show {
-			cursor: pointer;
+		.btn-toggle {
 			text-align: left;
 			width: 250px;
-			margin-bottom: 0;
-			padding: 0;
+			margin: 0;
+			padding: 0 !important;
+		}
+
+		.show {
+			cursor: pointer;
+			padding-top: 1rem;
 			position: relative;
 
 			&.less {
