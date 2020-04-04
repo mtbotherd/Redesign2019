@@ -214,11 +214,13 @@
 					<div class=""> <!-- This class gets set in CMS -->
 						<div class="htmlmodule">
 							<section class="section">
+								<h2>Accordion types</h2>
+								<h3>Basic</h3>
 								<div class="accordion">
 									<div class="card">
 										<div class="card-header">
 											<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#demo" aria-expanded="false">
-												<img alt="" class="icon" src="/img/svg/circle-gray-outline-train.svg" />
+												<!-- <img alt="" class="icon" src="/img/svg/circle-gray-outline-train.svg" /> -->
 												<span class="btn-text">Heading</span>
 												<span class="ml-auto">
 													<img alt="" class="icon chevron-down-blue ml-2" src="/img/svg/chevron-down-blue.svg">
@@ -228,6 +230,45 @@
 										<div id="demo" class="collapse">
 											<div class="card-body border">
 												<p>Expandable content goes here.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<h3>Route page alerts</h3>
+								<div id="alerts" class="accordion service-alerts">
+									<div class="modal fade" id="alertTextModal" tabindex="-1" role="dialog" aria-labelledby="alertsModalLabel" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-label="close">
+														<span aria-hidden="true">
+															<img alt="X" class="icon" src="/img/svg/close-gray.svg">
+														</span>
+													</button>
+												</div>
+												<div class="modal-body">
+													<div id="alertText"></div>
+													<div class="text-center">
+														<button type="button" class="btn btn-warning mt-4" data-dismiss="modal">Close</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="card alertsCard">
+										<div class="card-header">
+											<button type="button" class="btn d-flex align-items-center btn-block text-left collapsed" data-toggle="collapse" data-target="#collapseAlert" aria-expanded="false">
+												<img class="icon mr-3" src="/img/svg/alerts-color.svg">
+												<p class="h3 mb-0">Alerts</p>
+												<img class="icon chevron-down-blue ml-auto" src="/img/svg/chevron-down-blue.svg">
+											</button>
+										</div>
+										<div id="collapseAlert" class="collapse" style="">
+											<div class="card-body p-0">
+												<div class="border p-4">
+													<button type="button" class="btn btn-link-cyan d-block" id="this00" data-index="0">Sample alert</button>
+												</div>
 											</div>
 										</div>
 									</div>
