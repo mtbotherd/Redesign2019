@@ -337,7 +337,10 @@
 
 	&.btn-link-cyan {
 		color: $cyan;
+		@include font-size(16);
+		font-weight: normal;
 		margin-right: 0;
 		margin-bottom: 0;
+		text-align: left !important;
 	}
 }
