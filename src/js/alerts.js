@@ -197,6 +197,7 @@ var Alerts = (function($, window, document, undefined) {
 			route.alert_index.forEach(function(alertIndex, idx) {
 				alertList.append(
 					$('<button/>', {
+						type: 'button',
 						class: 'btn btn-link-cyan d-block',
 						id: 'this' + alertIndex + idx,
 					})
