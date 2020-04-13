@@ -4,8 +4,21 @@
 	padding: 0;
 	width: 100%;
 
+	&.left {
+		text-align: left !important;
+
+		.btn {
+			min-width: 0;
+		}
+	}
+
 	@include media-breakpoint-up(xl) {
 		text-align: left;
+
+		&.center {
+			text-align: center;
+			margin: 0 auto;
+		}
 	}
 }
 
@@ -342,5 +355,18 @@
 		margin-right: 0;
 		margin-bottom: 0;
 		text-align: left !important;
+	}
+
+	&.btn-link-text {
+		@include font-size(16);
+		color: $cyan;
+		font-weight: normal;
+		margin: 0;
+		padding: 0;
+		text-align: left;
+
+		@include media-breakpoint-up(lg) {
+			@include font-size(18);
+		}
 	}
 }
