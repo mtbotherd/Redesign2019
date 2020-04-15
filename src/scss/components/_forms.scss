@@ -159,7 +159,8 @@ form {
 		.input-group-append {
 			.btn-primary {
 				background-color: $white;
-				border: none;
+				border: 1px solid $border-color;
+				border-left: none;
 				min-width: 1rem;
 				margin-right: 0;
 				margin-bottom: 0;
@@ -186,12 +187,12 @@ form {
 				}
 			}
 
-			a[data-toggle='popover'],
-			button[data-toggle='popover'] {
-				background-color: $white;
-				border: 1px solid $border-color;
-				border-left: none;
-			}
+			// a[data-toggle='popover'],
+			// button[data-toggle='popover'] {
+			// 	background-color: $white;
+			// 	border: 1px solid $border-color;
+			// 	border-left: none;
+			// }
 		}
 	}
 
