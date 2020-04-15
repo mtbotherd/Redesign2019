@@ -168,7 +168,7 @@ var bbsMap = (function($, window, document) {
 					basemap: 'transitVector',
 					maxZoom: 18,
 					minZoom: 9,
-					center: [-93.18, 45.2],
+					center: [-93.18, 45.25],
 					zoom: 9,
 				});
 
@@ -343,7 +343,7 @@ var bbsMap = (function($, window, document) {
 				 	outFields: ["*"]
 				 });
 
-				MAP.infoWindow.resize( 280, 260 );
+				MAP.infoWindow.resize( 300, 260 );
 
 				on(refFeatureLayer, "mouse-over", function () {
 					MAP.setMapCursor("pointer");
@@ -386,13 +386,20 @@ var bbsMap = (function($, window, document) {
 						attachTo: 'bottom-left',
 						scalebarUnit: 'english',
 					});
+					//
+					// Notes: Since we've duplicated some symbols into different layers
+					// we need to have the Heat and Light legends show aloways.
+					// That's why autoUpdate and respectCurrentMapScale are false.
+					// Legend will display even if layer is not visible.
 					var layerInfo = [
+						{layer: stopsLayer, title: " "},
+						{layer: sheltersLayer, title: " "},
 						{layer: removeShelterLayer, title: " "},
 						{layer: newShelterLayer, title: " "},
 						{layer: replaceShelterLayer, title: " "},
 						{layer: boardingPadLayer, title: " "},
 						{layer: newShelterLightLayer, title: " "},
-						{layer: newShelterHeatLayer, title: " "},
+						{layer: newShelterHeatLayer, title: " "}
 					];
 					var mapLegend = new Legend({
 						map: MAP,
