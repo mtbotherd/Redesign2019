@@ -167,9 +167,9 @@ var bbsMap = (function($, window, document) {
 					sliderPosition: 'bottom-right',
 					basemap: 'transitVector',
 					maxZoom: 18,
-					minZoom: 10,
-					center: [-93.18, 45],
-					zoom: 11,
+					minZoom: 9,
+					center: [-93.18, 45.25],
+					zoom: 9,
 				});
 
 				MAP.on('resize', function(extent, width, height) {});
@@ -210,6 +210,20 @@ var bbsMap = (function($, window, document) {
 				);
 				sheltersLayer.setImageFormat('svg');
 				sheltersLayer.setVisibleLayers([6]);
+
+				// ===================================================================
+				// This layer shows bus stops with the old icon. 
+				// ===================================================================
+				var stopsLayer = new ArcGISDynamicMapServiceLayer(
+					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					{
+						id: 'stops',
+						opacity: 0.9,
+					}
+				);
+				stopsLayer.setImageFormat('svg');
+				stopsLayer.setVisibleLayers([10]);
+
 				// ==========================================================================
 				// This layer combines several services using concentric circles to show 
 				// both the sites of new shelters as well as intended improvements for light,
@@ -224,6 +238,7 @@ var bbsMap = (function($, window, document) {
 				);
 				newShelterLayer.setImageFormat('svg');
 				newShelterLayer.setVisibleLayers([3]);
+
 				var newShelterHeatLayer = new ArcGISDynamicMapServiceLayer(
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
 					{
@@ -233,6 +248,7 @@ var bbsMap = (function($, window, document) {
 				);
 				newShelterHeatLayer.setImageFormat('svg');
 				newShelterHeatLayer.setVisibleLayers([8]);
+
 				var newShelterLightLayer = new ArcGISDynamicMapServiceLayer(
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
 					{
@@ -242,6 +258,7 @@ var bbsMap = (function($, window, document) {
 				);
 				newShelterLightLayer.setImageFormat('svg');
 				newShelterLightLayer.setVisibleLayers([9]);
+
 				var boardingPadLayer = new ArcGISDynamicMapServiceLayer(
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
 					{
@@ -251,6 +268,7 @@ var bbsMap = (function($, window, document) {
 				);
 				boardingPadLayer.setImageFormat('svg');
 				boardingPadLayer.setVisibleLayers([2]);
+
 				// ===========================================================================
 				// This layer combines several services also using concentri circles to show
 				// both the existing sites slated for improvements as well as the intended
@@ -265,6 +283,7 @@ var bbsMap = (function($, window, document) {
 				);
 				replaceShelterLayer.setImageFormat('svg');
 				replaceShelterLayer.setVisibleLayers([4]);
+
 				var replaceShelterHeatLayer = new ArcGISDynamicMapServiceLayer(
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
 					{
@@ -274,6 +293,7 @@ var bbsMap = (function($, window, document) {
 				);
 				replaceShelterHeatLayer.setImageFormat('svg');
 				replaceShelterHeatLayer.setVisibleLayers([0]);
+
 				var replaceShelterLightLayer = new ArcGISDynamicMapServiceLayer(
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
 					{
@@ -283,6 +303,7 @@ var bbsMap = (function($, window, document) {
 				);
 				replaceShelterLightLayer.setImageFormat('svg');
 				replaceShelterLightLayer.setVisibleLayers([1]);
+
 				var removeShelterLayer = new ArcGISDynamicMapServiceLayer(
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
 					{
@@ -292,8 +313,9 @@ var bbsMap = (function($, window, document) {
 				);
 				removeShelterLayer.setImageFormat('svg');
 				removeShelterLayer.setVisibleLayers([5]);
+				// =========================================================================================
 				// this feature layer is visible but transparent and overlays all the new and proposed existing changes
-				// =========================================================
+				// =========================================================================================
 				var template = new PopupTemplate();
 				template.setTitle('Stop Number: ${site_id}');
 				template.setContent(function (graphic) {
@@ -307,6 +329,7 @@ var bbsMap = (function($, window, document) {
 					if (a.SolarLight) { content += '<strong>&mdash;</strong> Adding solar lighting in ' + a.SolarLight + '<br/>';}
 					if (a.AddHeat) { content += '<strong>&mdash;</strong> Adding heat in ' + a.AddHeat + '<br/>';}
 					if (a.AddPad) { content += '<strong>&mdash;</strong> Adding a boarding pad in ' + a.AddPad + '<br/>';}
+					if (a.Comments) { content += '<br/>Comments: '+ a.Comments;}
 					return content;
 				});
 				// =========================================================
@@ -320,7 +343,7 @@ var bbsMap = (function($, window, document) {
 				 	outFields: ["*"]
 				 });
 
-				MAP.infoWindow.resize( 280, 260 );
+				MAP.infoWindow.resize( 300, 260 );
 
 				on(refFeatureLayer, "mouse-over", function () {
 					MAP.setMapCursor("pointer");
@@ -330,6 +353,7 @@ var bbsMap = (function($, window, document) {
 				});
 
 				var mapLayers = [
+						stopsLayer,
 						sheltersLayer,
 						newShelterLayer,
 						newShelterLightLayer,
@@ -362,13 +386,20 @@ var bbsMap = (function($, window, document) {
 						attachTo: 'bottom-left',
 						scalebarUnit: 'english',
 					});
+					//
+					// Notes: Since we've duplicated some symbols into different layers
+					// we need to have the Heat and Light legends show aloways.
+					// That's why autoUpdate and respectCurrentMapScale are false.
+					// Legend will display even if layer is not visible.
 					var layerInfo = [
+						{layer: stopsLayer, title: " "},
+						{layer: sheltersLayer, title: " "},
 						{layer: removeShelterLayer, title: " "},
 						{layer: newShelterLayer, title: " "},
 						{layer: replaceShelterLayer, title: " "},
 						{layer: boardingPadLayer, title: " "},
 						{layer: newShelterLightLayer, title: " "},
-						{layer: newShelterHeatLayer, title: " "},
+						{layer: newShelterHeatLayer, title: " "}
 					];
 					var mapLegend = new Legend({
 						map: MAP,
