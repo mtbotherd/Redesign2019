@@ -68,11 +68,12 @@
 		}
 	}
 
-	.blue-cyan-bg {
+	.cyan-blue-bg {
 		color: $white;
+		padding: 0;
 
 		@include media-breakpoint-up(lg) {
-			background-image: url('/img/blue-cyan-bg.png');
+			background-image: url('/img/cyan-blue-bg.png');
 			background-size: cover;
 			background-position: 50%;
 			background-repeat: no-repeat;
@@ -111,8 +112,22 @@
 				padding: 0 3rem;
 			}
 
-			a {
+			a,
+			span {
 				color: $white;
+				@include font-size(20);
+				font-weight: 700;
+				border-bottom: none;
+				margin-left: 0.25rem;
+
+				@include media-breakpoint-up(md) {
+					margin-left: 0.5rem;
+				}
+
+				@include media-breakpoint-up(lg) {
+					@include font-size(23);
+					margin-left: 1rem;
+				}
 			}
 		}
 
@@ -130,14 +145,19 @@
 		}
 
 		.icon {
-			width: 2.5rem;
-			height: 2.5rem;
-			margin-right: 0.5rem;
-			margin-bottom: 0.75rem;
+			width: 1.75rem;
+			height: 1.75rem;
+			margin-bottom: 0.5rem;
 
 			@include media-breakpoint-up(lg) {
+				width: 2.25rem;
+				height: 2.25rem;
+			}
+
+			@include media-breakpoint-up(xl) {
 				width: 3rem;
 				height: 3rem;
+				margin-bottom: 0.75rem;
 			}
 		}
 	}
