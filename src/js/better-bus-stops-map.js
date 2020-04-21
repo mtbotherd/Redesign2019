@@ -162,7 +162,7 @@ var bbsMap = (function($, window, document) {
 				MAP = new Map(mapElementID, {
 					autoResize: true,
 					logo: false,
-					showAttribution: true,
+					showAttribution: false,
 					infoWindow: mapPopup,
 					sliderPosition: 'bottom-right',
 					basemap: 'transitVector',

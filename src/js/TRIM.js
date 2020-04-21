@@ -1424,7 +1424,7 @@ var TRIM = (function($, window, document, undefined) {
 				MAP = new Map(mapElementID, {
 					autoResize: true,
 					logo: false,
-					showAttribution: true,
+					showAttribution: false,
 					//infoWindow: popup,
 					infoWindow: mapPopup,
 					sliderPosition: 'bottom-right',
@@ -2394,7 +2394,7 @@ var BOM = (function($, window, document, undefined) {
 				_MAP = new Map(mapElementID, {
 					//autoResize: true,
 					logo: false,
-					//showAttribution: true,
+					showAttribution: false,
 					sliderPosition: 'bottom-right',
 					basemap: 'transitVector',
 					maxZoom: 18,
