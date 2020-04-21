@@ -25,18 +25,38 @@
 			padding-right: 2rem;
 			text-transform: uppercase;
 			@include font-size(12);
-			&[aria-expanded='false']::after {
+
+			@include media-breakpoint-up(lg) {
+				@include font-size(16);
+			}
+
+			&::after {
 				position: absolute;
 				top: 0.25rem;
 				right: 0.75rem;
 				content: '';
-				background-image: url('/img/svg/chevron-down-gray.svg');
 				background-repeat: no-repeat;
 				background-size: 0.75rem;
 				width: 0.75rem;
 				height: 0.75rem;
 				border: none;
+
+				@include media-breakpoint-up(lg) {
+					background-size: 1rem;
+					width: 1rem;
+					height: 1rem;
+				}
+			}
+
+			&[aria-expanded='false']::after {
+				background-image: url('../../../../../img/svg/chevron-down-gray.svg');
 				transform: rotate(0deg);
+				transition: 0.3s transform ease-in-out;
+			}
+
+			&[aria-expanded='true']::after {
+				background-image: url('../../../../../img/svg/chevron-down-gray.svg');
+				transform: rotate(-180deg);
 				transition: 0.3s transform ease-in-out;
 			}
 		}
