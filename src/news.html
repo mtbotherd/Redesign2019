@@ -23,7 +23,6 @@
 	<!-- Begin Header -->
 	<header id="header">
 		<nav class="navbar navbar-expand-xl navbar-light">
-			<!-- <a href="#pageContainer" class="skip-to-content">Skip to main content</a> -->
 			<div class="container">
 				<a class="navbar-brand" href="/">
 					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
@@ -31,8 +30,8 @@
 				<button class="navbar-toggler border-0" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 					aria-label="Toggle navigation">
-					Menu
-				</button>
+					Menu <img class="icon" src="/img/svg/chevron-down-gray.svg" />
+				</button>	
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<section>
 						<ul class="nav navbar-nav mx-auto">
@@ -99,6 +98,11 @@
 					</section>
 					<ul class="nav navbar-nav utilities ml-auto">
 						<li class="nav-item">
+							<a class="nav-link goto-icon" href="/go-to-card">
+								<span class="sr-only">Go-To Card</span>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a class="nav-link store-icon" href="https://store.metrotransit.org">
 								<span class="sr-only">store</span>
 							</a>
@@ -108,9 +112,9 @@
 								<span class="sr-only">site search</span>
 							</a>
 							<div class="dropdown-menu search-dropdown-menu">
-								<div class="input-group">
-									<label for="siteSearch" class="sr-only">Search</label>
-									<input type="text" id="siteSearch" class="form-control" placeholder=" ">
+								<div class="input-group has-float-label">
+									<input type="text" id="siteSearch" class="form-control mr-0" placeholder=" " />
+									<label for="siteSearch">Search our site</label>
 									<div class="input-group-append">
 										<button type="button" id="siteSearchBtn" class="btn btn-primary">
 											<span class="sr-only">Search button</span>
@@ -214,8 +218,9 @@
 				<div class="content-full-width">
 					<!-- This block is a HTML Module in CMS -->
 					<div class="htmlmodule">
+						<span class="modulelinks"> <a title="Edit Settings For this Content Instance" class="ModuleEditLink" href="https://dev.metrotransittest.org/Admin/ModuleSettings.aspx?mid=393&amp;pageid=18">Settings</a> <a title="Edit Module Articles" class="ModuleEditLink" href="/TransitArticles/ArticlesEdit.aspx?mid=393&amp;pageid=18">Edit Module Articles</a></span>
 						<section id="news" class="section">
-                            <div id="ctl00_mainContent_ctl01_pnlArticle" class="section body-content news-list">
+                            <div id="ctl00_mainContent_ctl01_pnlArticle" class="body-content news-list">
 								<div id="ctl00_mainContent_ctl01_rptArticle_ctl01_articleDisplayTitle" class="articleDisplayTitle">							
 									<h2><a id="ctl00_mainContent_ctl01_rptArticle_ctl01_articleTitleLink" class="articleTitleLink" href="get-connect-sent-directly-to-your-inbox">Get Connect sent directly to your inbox *</a></h2>
 								</div>
@@ -250,7 +255,7 @@
 		<div class="container">
 			<div class="text-center mx-auto">
 				<a class="btn btn-secondary-ghost has-icon-right" href="/contact-us">Contact us</a>
-			</div>			
+			</div>		
 			<p class="text-center d-lg-none my-3"><a class="h2" href="tel:612-373-3333">612-373-3333</a></p>			
 				<div id="google_translate_element">&nbsp;</div>
 			<div class="d-none d-xl-block social-media text-center">
