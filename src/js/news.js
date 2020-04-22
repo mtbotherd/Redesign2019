@@ -29,10 +29,8 @@ var News = (function($, window, document, undefined) {
 				.find('img.card-img-top')
 				.attr('src', newsStories[index].img);
 			$(item)
-				.find('h4.card-title')
-				.text(newsStories[index].title);
-			$(item)
-				.find('.card-footer a.btn')
+				.find('a.card-title')
+				.text(newsStories[index].title)
 				.attr('href', newsStories[index].link);
 		});
 	};
