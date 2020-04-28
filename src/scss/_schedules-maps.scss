@@ -137,84 +137,89 @@
 		text-align: center;
 		margin: 0 auto;
 
-		.btn {
-			margin-bottom: 1rem;
-		}
-	}
+		&.light-rail {
+			padding: 0;
+			.btn-route-lg {
+				display: block;
+				margin: 0 auto 1rem auto;
 
-	.metro-light-rail {
-		padding: 0;
-		.btn-route-lg {
-			display: block;
-			margin: 0 auto 1rem auto;
+				@include media-breakpoint-up(md) {
+					margin-left: 0;
+				}
 
-			@include media-breakpoint-up(md) {
-				//margin-right: 0;
-				margin-left: 0;
+				// @include media-breakpoint-up(lg) {
+				// 	margin-right: 1rem;
+				// 	margin-left: 0;
+				// }
+
+				&:last-child {
+					margin-right: auto !important;
+					margin-bottom: 0;
+
+					@include media-breakpoint-up(lg) {
+						margin-right: 0 !important;
+					}
+				}
 			}
 
 			@include media-breakpoint-up(lg) {
-				margin-right: 1rem;
+				display: flex;
+				justify-content: start;
+				flex-wrap: wrap;
+			}
+		}
+
+		&.metro-brt {
+			@include media-breakpoint-up(md) {
+				text-align: left;
+				margin-right: 0;
 				margin-left: 0;
 			}
+			.btn-route-lg {
+				display: block;
+				margin: 0 auto 1rem auto;
 
-			&:last-child {
-				margin-bottom: 0;
+				@include media-breakpoint-up(md) {
+					display: inline-block;
+					margin: 0 1rem 0 0;
+				}
 
-				@include media-breakpoint-up(lg) {
-					margin-bottom: 1rem;
+				&:last-child {
+					margin-right: auto !important;
 				}
 			}
 		}
 
-		@include media-breakpoint-up(lg) {
-			display: flex;
-			justify-content: start;
-			flex-wrap: wrap;
-		}
-	}
-
-	.metro-brt {
-		@include media-breakpoint-up(md) {
-			display: flex;
-			justify-content: start;
-			flex-wrap: wrap;
-		}
-
-		.btn-route-lg {
-			display: block;
-			text-align: center;
-			margin-right: auto;
-			margin-left: auto;
-
+		&.commuter-rail {
 			@include media-breakpoint-up(md) {
-				margin-right: 1rem;
-				margin-left: 0;
+				display: flex;
+				justify-content: start;
+				flex-wrap: wrap;
 			}
 		}
-	}
 
-	.commuter-rail {
-		@include media-breakpoint-up(md) {
+		&.popular-bus-routes {
 			display: flex;
-			justify-content: start;
+			justify-content: space-between;
 			flex-wrap: wrap;
-		}
-	}
 
-	.popular-bus-routes {
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-
-		@include media-breakpoint-up(lg) {
-			justify-content: start;
-		}
-
-		.btn-route {
-			&:last-child {
-				margin-bottom: 1rem;
+			@include media-breakpoint-up(lg) {
+				justify-content: start;
 			}
+
+			.btn-route {
+				&:last-child {
+					margin-bottom: 1rem;
+
+					@include media-breakpoint-up(md) {
+						margin-right: 1rem !important;
+					}
+				}
+			}
+		}
+
+		.btn {
+			margin-bottom: 1rem;
 		}
 	}
 

@@ -48,6 +48,10 @@
 		margin-right: 1rem;
 	}
 
+	&:last-child {
+		margin-bottom: 0;
+	}
+
 	&.btn-primary {
 		position: relative;
 		background-color: $yellow;

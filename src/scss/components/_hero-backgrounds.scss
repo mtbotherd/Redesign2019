@@ -112,4 +112,9 @@
 
 .trip-planner-bg {
 	background-image: url('../../../../../img/trip-planner.jpg');
+	background-position: 25%;
+
+	@include media-breakpoint-up(lg) {
+		background-position: 0;
+	}
 }

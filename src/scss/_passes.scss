@@ -1,0 +1,17 @@
+#passes {
+	h2 {
+		margin-bottom: 15px;
+	}
+
+	img {
+		margin-bottom: 1rem;
+		@include media-breakpoint-up(md) {
+			margin-bottom: 0;
+		}
+	}
+
+	.btn:last-child {
+		margin-right: 0;
+		margin-bottom: 0;
+	}
+}
