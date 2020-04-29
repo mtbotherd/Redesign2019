@@ -859,7 +859,6 @@ var TRIM = (function($, window, document, undefined) {
 								CartographicLineSymbol.CAP_ROUND,
 								CartographicLineSymbol.JOIN_ROUND
 							);
-							infoTemplate = new InfoTemplate('Title', 'Content');
 							attr = {};
 							break;
 						case 1: //Light Rail
@@ -880,7 +879,6 @@ var TRIM = (function($, window, document, undefined) {
 								CartographicLineSymbol.CAP_ROUND,
 								CartographicLineSymbol.JOIN_ROUND
 							);
-							infoTemplate = new InfoTemplate('Title', 'Content');
 							attr = {};
 							break;
 						case 2: // NorthStar Train  BROWN LINE
@@ -891,7 +889,6 @@ var TRIM = (function($, window, document, undefined) {
 								CartographicLineSymbol.CAP_ROUND,
 								CartographicLineSymbol.JOIN_ROUND
 							);
-							infoTemplate = new InfoTemplate('Title', 'Content');
 							attr = {};
 							break;
 						case 3: //Walk  DASHED LINE
@@ -902,7 +899,6 @@ var TRIM = (function($, window, document, undefined) {
 								CartographicLineSymbol.CAP_ROUND,
 								CartographicLineSymbol.JOIN_ROUND
 							);
-							infoTemplate = new InfoTemplate('Title', 'Content');
 							attr = {};
 							break;
 						default:
@@ -913,7 +909,6 @@ var TRIM = (function($, window, document, undefined) {
 								CartographicLineSymbol.CAP_ROUND,
 								CartographicLineSymbol.JOIN_ROUND
 							);
-							infoTemplate = new InfoTemplate('Title', 'Content');
 							attr = {};
 							break;
 					}
@@ -947,7 +942,7 @@ var TRIM = (function($, window, document, undefined) {
 						newPoints.push(WebMercXY);
 					}
 					theTripLine.addPath(newPoints);
-					graphic = new Graphic(theTripLine, cls1, attr, null);
+					var graphic = new Graphic(theTripLine, cls1, attr, null);
 					MAP.getLayer('trip').add(graphic);
 					segExt = new Extent({
 						xmin: graphic.geometry.getExtent().xmin,
