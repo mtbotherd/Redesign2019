@@ -24,17 +24,15 @@
 	<!-- Begin Header -->
 	<header id="header">
 		<nav class="navbar navbar-expand-xl navbar-light">
-			<!-- <a href="#pageContainer" class="skip-to-content">Skip to main content</a> -->
 			<div class="container">
 				<a class="navbar-brand" href="/">
 					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
 				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
+				<button class="navbar-toggler border-0" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
+					Menu
 				</button>
-
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<section>
 						<ul class="nav navbar-nav mx-auto">
@@ -101,6 +99,11 @@
 					</section>
 					<ul class="nav navbar-nav utilities ml-auto">
 						<li class="nav-item">
+							<a class="nav-link goto-icon" href="/go-to-card">
+								<span class="sr-only">Go-To Card</span>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a class="nav-link store-icon" href="https://store.metrotransit.org">
 								<span class="sr-only">store</span>
 							</a>
@@ -110,9 +113,9 @@
 								<span class="sr-only">site search</span>
 							</a>
 							<div class="dropdown-menu search-dropdown-menu">
-								<div class="input-group">
-									<label for="siteSearch" class="sr-only">Search</label>
-									<input type="text" id="siteSearch" class="form-control" placeholder=" ">
+								<div class="input-group has-float-label">
+									<input type="text" id="siteSearch" class="form-control mr-0" placeholder=" " />
+									<label for="siteSearch">Search our site</label>
 									<div class="input-group-append">
 										<button type="button" id="siteSearchBtn" class="btn btn-primary">
 											<span class="sr-only">Search button</span>
@@ -227,7 +230,7 @@
 														aria-expanded="false">
 													<img alt="" class="icon bus-broadcast-color mr-3"
 															src="/img/svg/bus-broadcast-color.svg">
-													<p class="h3 mb-0">Show my bus</p>
+													<span class="btn-text">Show my bus</span>
 													<img alt="" class="icon chevron-down-blue ml-auto"
 															src="/img/svg/chevron-down-blue.svg">
 												</button>
@@ -291,28 +294,30 @@
 										<div class="schedule-days d-flex flex-column mb-4 mb-lg-0">
 											<fieldset>
 												<legend class="h2 mb-2">Weekday</legend>
-												<button type="button"
-													class="btn btn-secondary-ghost">Eastbound</button>
-												<button type="button"
-													class="btn btn-secondary-ghost">Westbound</button>
+												<div class="btn-container">
+													<button type="button"
+														class="btn btn-anchor-lg">Eastbound</button>
+													<button type="button"
+														class="btn btn-anchor-lg">Westbound</button>
+												</div>
 											</fieldset>
 										</div>
 										<div class="schedule-days d-flex flex-column mb-4 mb-lg-0">
 											<fieldset>
 												<legend class="h2 mb-2">Saturday</legend>
 												<button type="button"
-													class="btn btn-secondary-ghost">Eastbound</button>
+													class="btn btn-anchor-lg">Eastbound</button>
 												<button type="button"
-													class="btn btn-secondary-ghost">Westbound</button>
+													class="btn btn-anchor-lg">Westbound</button>
 											</fieldset>
 										</div>
 										<div class="schedule-days d-flex flex-column mb-4 mb-lg-0">
 											<fieldset>
 												<legend class="h2 mb-2">Sunday</legend>
 												<button type="button"
-													class="btn btn-secondary-ghost">Eastbound</button>
+													class="btn btn-anchor-lg">Eastbound</button>
 												<button type="button"
-													class="btn btn-secondary-ghost">Westbound</button>
+													class="btn btn-anchor-lg">Westbound</button>
 											</fieldset>
 										</div>
 									</div>
@@ -10629,17 +10634,17 @@
 							<section class="section full-width striped">
 								<div class="container">
 									<div class="row">
-										<div class="col-lg-4 text-center mx-auto mb-4 mb-lg-0">
-											<button id="maplink" type="button" class="btn btn-outline-primary" data-link="7">View route map</button>
+										<div class="col-lg-4 text-center mx-auto mb-3 mb-lg-0">
+											<button id="maplink" type="button" class="btn btn-secondary-ghost has-icon-right mr-0" data-link="7">Interactive map</button>
 										</div>
-										<div class="col-lg-4">
-											<p class="link-pdf-container mb-0 mt-lg-3">
-												<a class="text-link" href="/data/sites/1/media/pdfs/schedules/routemaps/46/007Map.pdf">Download PDF of detailed route map</a>
+										<div class="col-lg-4 text-center">
+											<p class="moovel-hide">
+												<a class="text-link" href="#">Download PDF of detailed route map</a>
 											</p>
 										</div>
-										<div class="col-lg-4">
-											<div class="btn-wrapper mt-4 mt-lg-0">
-												<button id="printlink" type="button" class="btn btn-warning">Print schedule</button>
+										<div class="col-lg-4 text-center">
+											<div class="btn-wrapper mt-lg-0">
+												<button id="printlink" type="button" class="btn btn-primary mr-0">Print schedule</button>
 											</div>
 										</div>
 									</div>
@@ -10732,8 +10737,8 @@
 
 							<section class="section full-width cyan-bg">
 								<div class="container">
-									<div class="link-container-icon-right mt-0 mb-0">
-										<a class="btn btn-outline-white"
+									<div class="btn-container">
+										<a class="btn btn-secondary-ghost-alt has-icon-right"
 											href="https://public.govdelivery.com/accounts/MNMETRO/subscriber/new">Sign up for
 											alerts
 										</a>
@@ -10752,7 +10757,7 @@
 		<div class="container">
 			<div class="btn-container center">
 				<a class="btn btn-secondary-ghost has-icon-right" href="/contact-us">Contact us</a>
-			</div>			
+			</div>		
 			<p class="text-center d-lg-none my-3"><a class="h2" href="tel:612-373-3333">612-373-3333</a></p>			
 				<div id="google_translate_element">&nbsp;</div>
 			<div class="d-none d-xl-block social-media text-center">

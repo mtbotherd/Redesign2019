@@ -2,18 +2,18 @@
 	margin-bottom: 1rem;
 
 	.card .card-header {
-		padding: 0.25rem !important;
+		padding: 0 !important;
 
 		.btn {
 			color: $gray-600;
 			background-color: $teal;
 			@include font-size(18);
 			margin-bottom: 0;
-			padding: 0.125rem 0.5rem;
+			padding: 0.657rem 0.5rem;
 
 			@include media-breakpoint-up(lg) {
 				@include font-size(23);
-				padding: 0.438rem 0.5rem;
+				padding: 0.75rem 1rem;
 			}
 
 			&.collapsed {
@@ -38,8 +38,8 @@
 		}
 
 		.icon {
-			width: 2.25rem;
-			height: 2.25rem;
+			width: 1.625rem;
+			height: 1.625rem;
 
 			@include media-breakpoint-up(lg) {
 				width: 2.25rem;
@@ -53,17 +53,6 @@
 				@include media-breakpoint-up(lg) {
 					width: 1rem;
 					height: 1rem;
-				}
-			}
-
-			&.bus-broadcast-color,
-			&.alerts-color {
-				width: 1.625rem;
-				height: 1.625rem;
-
-				@include media-breakpoint-up(lg) {
-					width: 2.5rem;
-					height: 2.5rem;
 				}
 			}
 		}

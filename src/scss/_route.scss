@@ -1,4 +1,15 @@
 .route {
+	.accordion {
+		.card .card-header {
+			.btn {
+				padding: 0.657rem 0.5rem;
+
+				@include media-breakpoint-up(lg) {
+					padding: 0.688rem 1rem;
+				}
+			}
+		}
+	}
 	.schedule-days {
 		margin-right: 2.5rem;
 
@@ -40,10 +51,10 @@
 		}
 	}
 
-	.text-center mx-auto,
-	.link-pdf-container,
+	.text-center .mx-auto,
 	.btn-wrapper {
 		text-align: center !important;
+		margin: 0 auto;
 	}
 
 	.btn-block {
@@ -218,12 +229,11 @@
 	.text-link {
 		font-size: 18px !important;
 		position: relative;
-
 		&::after,
 		&:hover::after {
 			position: absolute;
 			right: -0.5rem;
-			background-image: url('../../../../../img/svg/pdf.svg');
+			background-image: url(../../../../../img/svg/pdf.svg);
 			background-size: 1rem;
 			width: 1.5rem;
 			height: 1.5rem;
