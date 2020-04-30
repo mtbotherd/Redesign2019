@@ -38,7 +38,7 @@
 	"dependencies": {
 		"bootstrap": "^4.4.1",
 		"date-input-polyfill": "^2.14.0",
-		"jquery": "^3.4.1",
+		"jquery": "^3.5.0",
 		"jquery-datetimepicker": "^2.5.21",
 		"popper.js": "^1.16.1",
 		"svgxuse": "^1.2.6",
