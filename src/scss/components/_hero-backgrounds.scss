@@ -11,7 +11,7 @@
 		height: 18rem;
 	}
 	@include media-breakpoint-up(lg) {
-		height: 17rem;
+		height: 17.2rem;
 	}
 	@include media-breakpoint-up(xl) {
 		height: 20rem;
@@ -56,6 +56,15 @@
 
 .goto-card-bg {
 	background-image: url('../../../../../img/goto-card.jpg');
+	background-position: 13%;
+
+	@include media-breakpoint-up(md) {
+		background-position: 25%;
+	}
+
+	@include media-breakpoint-up(lg) {
+		background-position: 42%;
+	}
 }
 
 .home-bg {

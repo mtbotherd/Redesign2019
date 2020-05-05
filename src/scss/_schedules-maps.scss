@@ -147,11 +147,6 @@
 					margin-left: 0;
 				}
 
-				// @include media-breakpoint-up(lg) {
-				// 	margin-right: 1rem;
-				// 	margin-left: 0;
-				// }
-
 				&:last-child {
 					margin-right: auto !important;
 					margin-bottom: 0;
@@ -238,16 +233,14 @@
 			display: block;
 			width: 220px;
 			text-align: center;
-			margin-right: auto;
-			margin-bottom: 1rem;
-			margin-left: auto;
+			margin: 0 auto 1rem auto;
 
 			&:last-child {
-				margin-bottom: 0rem;
+				margin-bottom: 0;
+				margin-right: auto !important;
 			}
 
 			@include media-breakpoint-up(md) {
-				margin: 0;
 				margin-bottom: 1rem;
 
 				&:nth-child(7),
@@ -268,13 +261,7 @@
 			}
 
 			@include media-breakpoint-up(xl) {
-				margin: 0;
-				margin-right: 0.625rem;
 				margin-bottom: 1rem;
-
-				&:nth-child(5n) {
-					margin-right: 0;
-				}
 
 				&:nth-child(6),
 				&:nth-child(7),
