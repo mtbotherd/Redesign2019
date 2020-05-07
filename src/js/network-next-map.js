@@ -9,7 +9,7 @@ var NetworkNextMap = (function ($, window, document) {
 	var _isValue = function (x) {
 		// tests if value is NOT empty AND NOT blank and NOT NULL
 		var str = x.toString(); // this allows zero to test as a valid value
-		//console.write("test value is " + x)
+		//console.write('test value is ' + x)
 		if (str) {
 			return /\S/.test(str);
 		}
@@ -104,8 +104,9 @@ var NetworkNextMap = (function ($, window, document) {
 				'esri/dijit/Popup',
 				'esri/dijit/PopupTemplate',
 				'esri/dijit/LocateButton',
-				'dojo/domReady!',
-			], function (Map, esriBasemaps, Color, SpatialReference, Extent, ArcGISDynamicMapServiceLayer, FeatureLayer, Query, QueryTask, SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton) {
+				'dojo/domReady!'
+			], function (Map, esriBasemaps, Color, SpatialReference, Extent, ArcGISDynamicMapServiceLayer,
+				FeatureLayer, Query, QueryTask, SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton) {
 				//===================================================================================
 				//  START OF MAP INITIALIZATION =====================================================
 				//===================================================================================
@@ -125,7 +126,7 @@ var NetworkNextMap = (function ($, window, document) {
 							null,
 							new Color([0, 0, 0, 0.25])
 						),
-						highlight: true,
+						highlight: true
 					},
 					popUpDiv
 				);
@@ -152,7 +153,7 @@ var NetworkNextMap = (function ($, window, document) {
 					maxZoom: 18,
 					minZoom: 9,
 					center: [-93.18, 45.25],
-					zoom: 9,
+					zoom: 9
 				});
 
 				MAP.on('resize', function (extent, width, height) { });
@@ -171,12 +172,7 @@ var NetworkNextMap = (function ($, window, document) {
 				});
 				MAP.on('layer-add-result', function (result) {
 					if (result.error) {
-						console.error(
-							'Layer add ' +
-							result.error +
-							' for ' +
-							result.layer.url
-						);
+						console.error('Layer add ' + result.error + ' for ' + result.layer.url);
 					}
 				});
 				// ===================================================================
@@ -188,7 +184,7 @@ var NetworkNextMap = (function ($, window, document) {
 					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
 					{
 						id: 'shelters',
-						opacity: 0.6,
+						opacity: 0.6
 					}
 				);
 				sheltersLayer.setImageFormat('svg');
@@ -234,7 +230,7 @@ var NetworkNextMap = (function ($, window, document) {
 					GEOLOCATE = new LocateButton(
 						{
 							map: MAP,
-							scale: 10000,
+							scale: 10000
 						},
 						'networkNextMapLocate'
 					);
@@ -283,10 +279,8 @@ var NetworkNextMap = (function ($, window, document) {
 						console.warn('Improvements Query Error: ' + err);
 					});
 					queryTask.on('complete', function (fSet) {
-						console.log(
-							'TextDescription Query Complete. There are ' +
-							fSet.featureSet.features.length +
-							' features'
+						console.log('TextDescription Query Complete. There are ' +
+							fSet.featureSet.features.length + ' features'
 						);
 					});
 				});
