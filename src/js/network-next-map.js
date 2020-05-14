@@ -152,8 +152,8 @@ var NetworkNextMap = (function ($, window, document) {
 					basemap: 'transitVector',
 					maxZoom: 18,
 					minZoom: 9,
-					center: [-93.18, 45.25],
-					zoom: 9
+					center: [-93.18, 44.93],
+					zoom: 10
 				});
 
 				MAP.on('resize', function (extent, width, height) { });
@@ -208,7 +208,7 @@ var NetworkNextMap = (function ($, window, document) {
 						id: 'allFeatures',
 						mode: FeatureLayer.MODE_SNAPSHOT,
 						infoTemplate: template,
-						opacity: 0,
+						opacity: 1,
 						visible: true,
 						outFields: ['*']
 					}
@@ -216,10 +216,10 @@ var NetworkNextMap = (function ($, window, document) {
 
 				MAP.infoWindow.resize(300, 260);
 
-				on(refFeatureLayer, 'mouse-over', function () {
+				refFeatureLayer.on('mouse-over', function () {
 					MAP.setMapCursor('pointer');
 				});
-				on(refFeatureLayer, 'mouse-out', function () {
+				refFeatureLayer.on('mouse-out', function () {
 					MAP.setMapCursor('default');
 				});
 
@@ -250,7 +250,7 @@ var NetworkNextMap = (function ($, window, document) {
 					// we need to have the Heat and Light legends show aloways.
 					// That's why autoUpdate and respectCurrentMapScale are false.
 					// Legend will display even if layer is not visible.
-					var layerInfo = [{ layer: routesLayer, title: ' ' }];
+					var layerInfo = [{ layer: sheltersLayer, title: ' ' }];
 					var mapLegend = new Legend(
 						{
 							map: MAP,
@@ -315,7 +315,7 @@ $(function () {
 				);
 			}
 		);
-		NetworkNextMap.init('networkNextMapContainer').then(function () {
+		NetworkNextMap.init('networkNextInteractiveMap').then(function () {
 			console.log('Map loaded');
 		});
 		$('#networkNextMapLayer1').click(function () {
