@@ -1,7 +1,13 @@
 var NetworkNextMap = (function ($, window, document) {
 	'use strict';
+	const TRIM_MapService =
+		'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer';
+	const Route_MapService =
+		'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/Transit_Routes_Individual/MapServer';
 	var MAP = null; // this is the main MAP object
 	var GEOLOCATE = null; // this is the locate button object
+	var ROUTENAMES = null; // an object with the route number as the key and route name as the data
+	var ROUTEITEMS = []; // an array of object with id, route, and name fields -- used for displays
 
 	var _isEmpty = function _isEmpty(str) {
 		return !str || 0 === str.length;
@@ -65,6 +71,78 @@ var NetworkNextMap = (function ($, window, document) {
 			});
 		});
 	};
+	//
+	// pass routes array to highlight those routes in color
+	// pass nothing to clear them off
+	//
+	var drawRoutes = function (/*[string]*/ routes, zoom) {
+		zoom = typeof zoom !== 'undefined' ? zoom : false;
+		var routeLayer = MAP.getLayer('Routes');
+		if (!routeLayer) return;
+
+		var routesQuery = [];
+		routesQuery[4] = '1=0';
+		if (routes) {
+			routes = routes.filter(function (value, idx, arr) {
+				return value !== '906'; // remove 906 from list
+			});
+			var queryWhere = 'ROUTENUMBER in (';
+			for (let i = 0, l = routes.length; i < l; i++) {
+				if (i > 0) {
+					queryWhere += ',';
+				}
+				queryWhere += routes[i];
+			}
+			queryWhere += ')';
+			routesQuery[4] = queryWhere; // query for sublayer 4
+		}
+		routeLayer.setLayerDefinitions(routesQuery);
+		// route(s) should now be displaying
+		if (routes && zoom) {
+			// This routine does nothing more than extract the line features for the
+			// requested routes and determine the extent of the features
+			// by unioning their extents and then it zooms to the extent
+			$.ajax({
+				type: 'get',
+				url: routeLayer.url + '/4/query',
+				data: {
+					where: queryWhere,
+					returnGeometry: true,
+					outFields: 'ROUTENUMBER',
+					f: 'json',
+				},
+				dataType: 'json',
+			})
+				.done(function (result, status, xhr) {
+					if (result.features.length > 0) {
+						require(['esri/geometry/Polyline'], function (Polyline) {
+							var extent;
+							for (
+								let i = 0, l = result.features.length;
+								i < l;
+								i++
+							) {
+								var g = new Polyline({
+									paths: result.features[i].geometry.paths,
+									spatialReference: result.spatialReference,
+								});
+								if (i === 0) {
+									extent = g.getExtent();
+								} else {
+									extent = extent.union(g.getExtent());
+								}
+							}
+							MAP.setExtent(extent, true);
+						});
+					}
+				})
+				.fail(function (err) {
+					console.warn(
+						'Routes fatal error fetching polylines: ' + err.Message
+					);
+				});
+		}
+	};
 	var toggleLayer = function (/*string*/ layer, /*integer*/ zoomLevel) {
 		var l = MAP.getLayer(layer);
 		if (l) {
@@ -81,6 +159,64 @@ var NetworkNextMap = (function ($, window, document) {
 			console.warn('ToggleLayer: ' + layer + ' not found.');
 		}
 	};
+	var toggleRoute = function (/*string*/route) {
+		var i = ROUTESTOSHOW.indexOf(route); // check if the route already in the list
+		if (i === -1) {
+			ROUTESTOSHOW.push(route);
+		} else {
+			ROUTESTOSHOW.splice(i, 1);
+		}
+		drawRoutes(ROUTESTOSHOW, zoom);
+	}
+	var idMapRoutes = function (evt) {
+		require(['esri/tasks/query',
+			'esri/tasks/QueryTask',
+			'esri/geometry/Extent'
+		],
+			function (Query, QueryTask, Extent) {
+				var query = new Query();
+				var queryTask = new QueryTask(Route_MapService + '/0');
+				var pixelWidth = MAP.extent.getWidth() / MAP.width;
+				var toleraceInMapCoords = 20 * pixelWidth;
+				query.returnGeometry = true;
+				query.spatialRelationship = Query.SPATIAL_REL_INTERSECTS;
+				query.where = '1=1';
+				query.outFields = ['routesort', 'route', 'routedscrp', 'routetype', 'route_oper'];
+				query.geometry = new Extent(evt.mapPoint.x - toleraceInMapCoords, evt.mapPoint.y - toleraceInMapCoords,
+					evt.mapPoint.x + toleraceInMapCoords,
+					evt.mapPoint.y + toleraceInMapCoords,
+					MAP.spatialReference);
+
+				queryTask.execute(query);
+				queryTask.on('error', function (err) {
+					console.warn('Bus Route Query Error: ' + err);
+				});
+				queryTask.on('complete', function (fSet) {
+
+					if (fSet.featureSet.features.length === 0) {
+						console.warn('No features to show');
+					}
+					else {
+						var features = fSet.featureSet.features;
+						var routes = '';
+						for (var i = 0, len = features.length; i < len; i++) {
+							var f = features[i];
+							var atts = f.attributes;
+							if (i > 0) {
+								routes += ' ';
+							}
+							routes += atts.route;
+						}
+						var content = formatRouteList(routes);
+
+						MAP.infoWindow.setTitle('Route Service');
+						MAP.infoWindow.setContent(content);
+						MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
+					}
+				});
+			});
+	};
+
 
 	//@@@@@@@@@@@@@@@@@@@@
 	//@@@  I N I T @@@@@@@
@@ -92,8 +228,6 @@ var NetworkNextMap = (function ($, window, document) {
 				'esri/map',
 				'esri/basemaps',
 				'esri/Color',
-				'esri/SpatialReference',
-				'esri/geometry/Extent',
 				'esri/layers/ArcGISDynamicMapServiceLayer',
 				'esri/layers/FeatureLayer',
 				'esri/tasks/query',
@@ -105,8 +239,77 @@ var NetworkNextMap = (function ($, window, document) {
 				'esri/dijit/PopupTemplate',
 				'esri/dijit/LocateButton',
 				'dojo/domReady!'
-			], function (Map, esriBasemaps, Color, SpatialReference, Extent, ArcGISDynamicMapServiceLayer,
-				FeatureLayer, Query, QueryTask, SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton) {
+			], function (Map, esriBasemaps, Color, ArcGISDynamicMapServiceLayer, FeatureLayer,
+				Query, QueryTask, SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton) {
+
+				function createRouteList() {
+					var query = new Query();
+					var queryTask = new QueryTask(Route_MapService + '/0');
+					query.returnGeometry = false;
+					query.where = '1=1'; // extract them all
+					query.outFields = ['routesort', 'route', 'routetype', 'routedscrp'];
+					query.orderByFields = ['routesort'];
+					queryTask.execute(query);
+					queryTask.on('error', function (err) {
+						console.warn('createRouteList error');
+						console.dir(err);
+					});
+					queryTask.on('complete', function (fSet) {
+						if (fSet.featureSet.features.length > 0) {
+							ROUTENAMES = {};
+							ROUTEITEMS = [];
+							// Outformat { '901': 'METRO Blue Line' }
+							for (var i = 0, l = fSet.featureSet.features.length; i < l; i++) {
+								var route = fSet.featureSet.features[i].attributes;
+								if (route.ROUTENUM > 887) {
+									ROUTENAMES[route.routesort] = route.routedscrp;
+								} else {
+									ROUTENAMES[route.routesort] = route.route + ' - ' + route.routedscrp;
+								}
+
+								ROUTEITEMS.push({
+									'id': route.routesort,
+									'route': route.route,
+									'type': route.routetype,
+									'name': route.routedscrp
+								});
+							}
+							console.dir(ROUTENAMES);
+							console.dir(ROUTEITEMS);
+						}
+					});
+
+				}
+				var formatRouteList = function formatRouteList(/*string*/routeList) {
+					var w = routeList;
+					if (typeof routeList === 'string') {
+						var routestring = '';
+						w = routeList.split(' ').sort(function (a, b) { return parseInt(a) - parseInt(b); });
+					}
+					if (w.length > 0) {
+						for (var i = 0, len = w.length; i < len; i++) {
+							if (i > 0) { routestring += '<br/>'; }
+							var rt = w[i];
+							var rtName = '';
+							if (ROUTENAMES) rtName = ROUTENAMES[rt];
+							var html = '<input id="cb' + rt + '"';
+							html += 'onclick="javascript: NetworkNextMap.toggleRoute(' + rt + '); return true; "';
+							html += 'type="checkbox"';
+							var ix = ROUTESTOSHOW.indexOf(parseInt(rt)); // check if route already in the list
+							if (ix !== -1) {
+								html += ' checked="checked" ';
+							}
+							html += '/>';
+							//html += '<label for='cb' + rt + ''><a href='https://www.metrotransit.org/route/' + rt + '' target='_blank'>' + rtName + '</a></label>';
+							html += '<label for="cb' + rt + '">' + rtName + '</label>';
+							routestring += html;
+						}
+					} else {
+						routestring = '<span style="font-size:larger;">No routes service here.</span>';
+					}
+					//console.log(routestring);
+					return routestring;
+				};
 				//===================================================================================
 				//  START OF MAP INITIALIZATION =====================================================
 				//===================================================================================
@@ -175,20 +378,18 @@ var NetworkNextMap = (function ($, window, document) {
 						console.error('Layer add ' + result.error + ' for ' + result.layer.url);
 					}
 				});
-				// ===================================================================
-				// This layer just shows a small grey dot on the map for each
-				// existing shelter location. Note: these locations may be different
-				// from the stop location used to indicate new and replacement shelters.
-				// ===================================================================
-				var sheltersLayer = new ArcGISDynamicMapServiceLayer(
-					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+				var routesLayer = new ArcGISDynamicMapServiceLayer(
+					Route_MapService,
 					{
-						id: 'shelters',
-						opacity: 0.6
+						id: 'routes',
+						opacity: 0.7,
 					}
 				);
-				sheltersLayer.setImageFormat('svg');
-				sheltersLayer.setVisibleLayers([6]);
+				routesLayer.setImageFormat('svg');
+				routesLayer.setVisibleLayers([0]);
+				var layerQuerySettings = [];
+				layerQuerySettings[0] = '1=0'; // query for sublayer 4 - show nothing
+				routesLayer.setLayerDefinitions(layerQuerySettings);
 
 				// =========================================================================================
 				// this feature layer is visible but transparent and overlays all the new and proposed existing changes
@@ -201,29 +402,34 @@ var NetworkNextMap = (function ($, window, document) {
 					var content = '<strong>' + a.location + '</strong><br/>';
 					return content;
 				});
-				// =========================================================
-				var refFeatureLayer = new FeatureLayer(
-					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer/7',
+				// ===================================================================
+				// This layer services the map click to determine which routes
+				// services a specific point
+				// ===================================================================
+				var allRoutesLayer = new FeatureLayer(
+					Route_MapService + '/0',
 					{
-						id: 'allFeatures',
+						id: 'allRoutes',
 						mode: FeatureLayer.MODE_SNAPSHOT,
-						infoTemplate: template,
-						opacity: 1,
+						//infoTemplate: template,
+						opacity: 0,
 						visible: true,
 						outFields: ['*']
 					}
 				);
-
 				MAP.infoWindow.resize(300, 260);
 
-				refFeatureLayer.on('mouse-over', function () {
+				allRoutesLayer.on('mouse-over', function () {
 					MAP.setMapCursor('pointer');
 				});
-				refFeatureLayer.on('mouse-out', function () {
+				allRoutesLayer.on('mouse-out', function () {
 					MAP.setMapCursor('default');
 				});
+				allRoutesLayer.on('click', function (evt) {
+					idMapRoutes(evt);
+				});
 
-				var mapLayers = [sheltersLayer, refFeatureLayer];
+				var mapLayers = [routesLayer, allRoutesLayer];
 				MAP.addLayers(mapLayers);
 
 				MAP.on('load', function () {
@@ -245,44 +451,22 @@ var NetworkNextMap = (function ($, window, document) {
 						attachTo: 'bottom-left',
 						scalebarUnit: 'english'
 					});
-					//
-					// Notes: Since we've duplicated some symbols into different layers
-					// we need to have the Heat and Light legends show aloways.
-					// That's why autoUpdate and respectCurrentMapScale are false.
-					// Legend will display even if layer is not visible.
-					var layerInfo = [{ layer: sheltersLayer, title: ' ' }];
-					var mapLegend = new Legend(
-						{
-							map: MAP,
-							//layerInfos: layerInfo,
-							respectCurrentMapScale: false,
-							autoUpdate: false
-						},
-						'networkNextMapLegend'
-					);
-					mapLegend.startup();
+
+					// var layerInfo = [{ layer: routeLayer, title: ' ' }];
+					// var mapLegend = new Legend(
+					// 	{
+					// 		map: MAP,
+					// 		//layerInfos: layerInfo,
+					// 		respectCurrentMapScale: false,
+					// 		autoUpdate: false
+					// 	},
+					// 	'networkNextMapLegend'
+					// );
+					// mapLegend.startup();
 
 					MAP.disableScrollWheel();
 
-					// Add a list of text descriptions of the better bus stop improvements
-					// These are hidden for the screen reader
-					var query = new Query();
-					var queryTask = new QueryTask(
-						'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer/7'
-					);
-					query.returnGeometry = false;
-					query.where = '1=1'; // fetch all features
-					query.orderByFields = ['site_id'];
-					query.outFields = ['TextDescription'];
-					queryTask.execute(query);
-					queryTask.on('error', function (err) {
-						console.warn('Improvements Query Error: ' + err);
-					});
-					queryTask.on('complete', function (fSet) {
-						console.log('TextDescription Query Complete. There are ' +
-							fSet.featureSet.features.length + ' features'
-						);
-					});
+					createRouteList();
 				});
 			});
 		}).promise();
@@ -290,6 +474,7 @@ var NetworkNextMap = (function ($, window, document) {
 	return {
 		centerMarkerAtPoint: centerMarkerAtPoint,
 		toggleLayer: toggleLayer,
+		toggleRoute: toggleRoute,
 		init: init
 	};
 })(jQuery, window, document);
