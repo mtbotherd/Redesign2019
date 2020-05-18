@@ -1,4 +1,4 @@
-var bbsMap = (function($, window, document) {
+var bbsMap = (function ($, window, document) {
 	'use strict';
 	var MAP = null; // this is the main MAP object
 	var GEOLOCATE = null; // this is the locate button object
@@ -6,7 +6,7 @@ var bbsMap = (function($, window, document) {
 	var _isEmpty = function _isEmpty(str) {
 		return (!str || 0 === str.length);
 	};
-	var _isValue = function(x) {
+	var _isValue = function (x) {
 		// tests if value is NOT empty AND NOT blank and NOT NULL
 		var str = x.toString(); // this allows zero to test as a valid value
 		//console.write("test value is " + x)
@@ -15,7 +15,7 @@ var bbsMap = (function($, window, document) {
 		}
 		return false;
 	};
-	var _isNumber = function(x) {
+	var _isNumber = function (x) {
 		// tests if value is any sort of number with +/- or decimals
 		if (_isValue(x)) {
 			return !isNaN(x - 0);
@@ -29,10 +29,10 @@ var bbsMap = (function($, window, document) {
 	 * ==============================================================================
 	 */
 	// this is the external call to have the map zoom to the user's location
-	var geoLocate = function() {
+	var geoLocate = function () {
 		GEOLOCATE.locate();
 	};
-	var centerMarkerAtPoint = function(
+	var centerMarkerAtPoint = function (
 		/*float*/ x,
 		/*float*/ y,
 		/*int*/ zoomLevel
@@ -44,7 +44,7 @@ var bbsMap = (function($, window, document) {
 			'esri/graphic',
 			'esri/geometry/Point',
 			'esri/symbols/PictureMarkerSymbol',
-		], function(Graphic, Point, PictureMarkerSymbol) {
+		], function (Graphic, Point, PictureMarkerSymbol) {
 			var p = new Point(x, y);
 			var g = new Graphic();
 			g.setGeometry(p);
@@ -58,14 +58,14 @@ var bbsMap = (function($, window, document) {
 			stopSymbol.setOffset(0, 15);
 			g.setSymbol(stopSymbol);
 			MAP.graphics.add(g);
-			MAP.centerAt(p).then(function() {
+			MAP.centerAt(p).then(function () {
 				if (level) {
 					MAP.setLevel(level);
 				}
 			});
 		});
 	};
-	var toggleLayer = function(/*string*/ layer, /*integer*/ zoomLevel) {
+	var toggleLayer = function (/*string*/ layer, /*integer*/ zoomLevel) {
 		var l = MAP.getLayer(layer);
 		if (l) {
 			if (l.visible) {
@@ -87,8 +87,8 @@ var bbsMap = (function($, window, document) {
 	//@@@  I N I T @@@@@@@
 	//@@@@@@@@@@@@@@@@@@@@
 	//@@@@@@@@@@@@@@@@@@@@
-	var init = function(mapElementID) {
-		return $.Deferred(function(dfd) {
+	var init = function (mapElementID) {
+		return $.Deferred(function (dfd) {
 			require([
 				'esri/map',
 				'esri/basemaps',
@@ -107,7 +107,7 @@ var bbsMap = (function($, window, document) {
 				'esri/dijit/LocateButton',
 				'dojo/on',
 				'dojo/domReady!',
-			], function(Map, esriBasemaps, Color, SpatialReference, 
+			], function (Map, esriBasemaps, Color, SpatialReference,
 				Extent, ArcGISDynamicMapServiceLayer, FeatureLayer, Query, QueryTask,
 				SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton, on) {
 				//===================================================================================
@@ -172,37 +172,47 @@ var bbsMap = (function($, window, document) {
 					zoom: 9,
 				});
 
-				MAP.on('resize', function(extent, width, height) {});
+				MAP.on('resize', function (extent, width, height) { });
 
-				MAP.on('update-start', function() {
+				MAP.on('update-start', function () {
 					$('.mapLoading').show();
 				});
-				MAP.on('update-end', function(err) {
+				MAP.on('update-end', function (err) {
 					$('.mapLoading').hide();
 				});
+				var _layerErrorCount = 0;
+				MAP.on('layers-add-result', function (result) {
+					if (_layerErrorCount > 0) {
+						// If we encounter a service error, assume the page is broken, display an alert and
+						// replace the page contents with an error text.
+						$('#bbsMapContainer').html('Due to errors, we are unable to display this page at this time.');
+						alert('One or more geographic services needed for this map have failed to load properly.' +
+							'\n\nBecause of this, the map may not work as expected. \n\nTry again later.');
+					}
 
-				MAP.on('layers-add-result', function(result) {
 					//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 					dfd.resolve();
 					//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 				});
-				MAP.on('layer-add-result', function(result) {
+				MAP.on('layer-add-result', function (result) {
 					if (result.error) {
 						console.error(
 							'Layer add ' +
-								result.error +
-								' for ' +
-								result.layer.url
+							result.error +
+							' for ' +
+							result.layer.url
 						);
+						_layerErrorCount++
 					}
 				});
+				const _bbsService = 'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer';
 				// ===================================================================
 				// This layer just shows a small grey dot on the map for each 
 				// existing shelter location. Note: these locations may be different 
 				// from the stop location used to indicate new and replacement shelters.
 				// ===================================================================
 				var sheltersLayer = new ArcGISDynamicMapServiceLayer(
-					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					_bbsService,
 					{
 						id: 'shelters',
 						opacity: 0.6,
@@ -215,7 +225,7 @@ var bbsMap = (function($, window, document) {
 				// This layer shows bus stops with the old icon. 
 				// ===================================================================
 				var stopsLayer = new ArcGISDynamicMapServiceLayer(
-					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					_bbsService,
 					{
 						id: 'stops',
 						opacity: 0.9,
@@ -230,7 +240,7 @@ var bbsMap = (function($, window, document) {
 				// heat, and landing pads.
 				// ==========================================================================
 				var newShelterLayer = new ArcGISDynamicMapServiceLayer(
-					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					_bbsService,
 					{
 						id: 'newShelterLayer',
 						opacity: 1,
@@ -240,7 +250,7 @@ var bbsMap = (function($, window, document) {
 				newShelterLayer.setVisibleLayers([3]);
 
 				var newShelterHeatLayer = new ArcGISDynamicMapServiceLayer(
-					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					_bbsService,
 					{
 						id: 'newShelterHeatLayer',
 						opacity: 1,
@@ -250,7 +260,7 @@ var bbsMap = (function($, window, document) {
 				newShelterHeatLayer.setVisibleLayers([8]);
 
 				var newShelterLightLayer = new ArcGISDynamicMapServiceLayer(
-					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					_bbsService,
 					{
 						id: 'newShelterLightLayer',
 						opacity: 1,
@@ -260,7 +270,7 @@ var bbsMap = (function($, window, document) {
 				newShelterLightLayer.setVisibleLayers([9]);
 
 				var boardingPadLayer = new ArcGISDynamicMapServiceLayer(
-					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					_bbsService,
 					{
 						id: 'boardingPadLayer',
 						opacity: 1,
@@ -275,7 +285,7 @@ var bbsMap = (function($, window, document) {
 				// improvements.
 				// ===========================================================================
 				var replaceShelterLayer = new ArcGISDynamicMapServiceLayer(
-					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					_bbsService,
 					{
 						id: 'replaceShelterLayer',
 						opacity: 1,
@@ -285,7 +295,7 @@ var bbsMap = (function($, window, document) {
 				replaceShelterLayer.setVisibleLayers([4]);
 
 				var replaceShelterHeatLayer = new ArcGISDynamicMapServiceLayer(
-					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					_bbsService,
 					{
 						id: 'replaceShelterHeatLayer',
 						opacity: 1,
@@ -295,7 +305,7 @@ var bbsMap = (function($, window, document) {
 				replaceShelterHeatLayer.setVisibleLayers([0]);
 
 				var replaceShelterLightLayer = new ArcGISDynamicMapServiceLayer(
-					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					_bbsService,
 					{
 						id: 'replaceShelterLightLayer',
 						opacity: 1,
@@ -305,7 +315,7 @@ var bbsMap = (function($, window, document) {
 				replaceShelterLightLayer.setVisibleLayers([1]);
 
 				var removeShelterLayer = new ArcGISDynamicMapServiceLayer(
-					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer',
+					_bbsService,
 					{
 						id: 'removeShelterLayer',
 						opacity: 1,
@@ -321,29 +331,29 @@ var bbsMap = (function($, window, document) {
 				template.setContent(function (graphic) {
 					//console.dir(graphic);
 					var a = graphic.attributes;
-					var content = '<strong>'+ a.location +'</strong><br/>';
-					if (a.New) { content += '<strong>&mdash;</strong> Adding a new shelter in ' + a.New + '<br/>';}
-					if (a.Replacement) { content += '<strong>&mdash;</strong> Replacing shelter in ' + a.Replacement + '<br/>';}
-					if (a.Remove) { content += '<strong>&mdash;</strong> Removing shelter in ' + a.Remove + '<br/>';}
-					if (a.AddLight) { content += '<strong>&mdash;</strong> Adding a light in ' + a.AddLight + '<br/>';}
-					if (a.SolarLight) { content += '<strong>&mdash;</strong> Adding solar lighting in ' + a.SolarLight + '<br/>';}
-					if (a.AddHeat) { content += '<strong>&mdash;</strong> Adding heat in ' + a.AddHeat + '<br/>';}
-					if (a.AddPad) { content += '<strong>&mdash;</strong> Adding a boarding pad in ' + a.AddPad + '<br/>';}
-					if (a.Comments) { content += '<br/>Comments: '+ a.Comments;}
+					var content = '<strong>' + a.location + '</strong><br/>';
+					if (a.New) { content += '<strong>&mdash;</strong> Adding a new shelter in ' + a.New + '<br/>'; }
+					if (a.Replacement) { content += '<strong>&mdash;</strong> Replacing shelter in ' + a.Replacement + '<br/>'; }
+					if (a.Remove) { content += '<strong>&mdash;</strong> Removing shelter in ' + a.Remove + '<br/>'; }
+					if (a.AddLight) { content += '<strong>&mdash;</strong> Adding a light in ' + a.AddLight + '<br/>'; }
+					if (a.SolarLight) { content += '<strong>&mdash;</strong> Adding solar lighting in ' + a.SolarLight + '<br/>'; }
+					if (a.AddHeat) { content += '<strong>&mdash;</strong> Adding heat in ' + a.AddHeat + '<br/>'; }
+					if (a.AddPad) { content += '<strong>&mdash;</strong> Adding a boarding pad in ' + a.AddPad + '<br/>'; }
+					if (a.Comments) { content += '<br/>Comments: ' + a.Comments; }
 					return content;
 				});
 				// =========================================================
-				 var refFeatureLayer = new FeatureLayer(
-					'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer/7', {
-				 	id: 'allFeatures',
-				 	mode: FeatureLayer.MODE_SNAPSHOT,
-				 	infoTemplate: template,
-				 	opacity: 0,
-				 	visible: true,
-				 	outFields: ["*"]
-				 });
+				var refFeatureLayer = new FeatureLayer(
+					_bbsService + '/7', {
+					id: 'allFeatures',
+					mode: FeatureLayer.MODE_SNAPSHOT,
+					infoTemplate: template,
+					opacity: 0,
+					visible: true,
+					outFields: ["*"]
+				});
 
-				MAP.infoWindow.resize( 300, 260 );
+				MAP.infoWindow.resize(300, 260);
 
 				on(refFeatureLayer, "mouse-over", function () {
 					MAP.setMapCursor("pointer");
@@ -353,21 +363,21 @@ var bbsMap = (function($, window, document) {
 				});
 
 				var mapLayers = [
-						stopsLayer,
-						sheltersLayer,
-						newShelterLayer,
-						newShelterLightLayer,
-						newShelterHeatLayer,
-						replaceShelterLayer,
-						replaceShelterLightLayer,
-						replaceShelterHeatLayer,
-						removeShelterLayer,
-						boardingPadLayer,
-						refFeatureLayer
-					];
+					stopsLayer,
+					sheltersLayer,
+					newShelterLayer,
+					newShelterLightLayer,
+					newShelterHeatLayer,
+					replaceShelterLayer,
+					replaceShelterLightLayer,
+					replaceShelterHeatLayer,
+					removeShelterLayer,
+					boardingPadLayer,
+					refFeatureLayer
+				];
 				MAP.addLayers(mapLayers);
 
-				MAP.on('load', function() {
+				MAP.on('load', function () {
 					GEOLOCATE = new LocateButton(
 						{
 							map: MAP,
@@ -376,8 +386,8 @@ var bbsMap = (function($, window, document) {
 						'betterStopsMapLocate'
 					);
 					GEOLOCATE.startup();
-					GEOLOCATE.on('locate', function(result) {
-						on.once(MAP, 'click', function() {
+					GEOLOCATE.on('locate', function (result) {
+						on.once(MAP, 'click', function () {
 							GEOLOCATE.clear();
 						});
 					});
@@ -392,14 +402,14 @@ var bbsMap = (function($, window, document) {
 					// That's why autoUpdate and respectCurrentMapScale are false.
 					// Legend will display even if layer is not visible.
 					var layerInfo = [
-						{layer: stopsLayer, title: " "},
-						{layer: sheltersLayer, title: " "},
-						{layer: removeShelterLayer, title: " "},
-						{layer: newShelterLayer, title: " "},
-						{layer: replaceShelterLayer, title: " "},
-						{layer: boardingPadLayer, title: " "},
-						{layer: newShelterLightLayer, title: " "},
-						{layer: newShelterHeatLayer, title: " "}
+						{ layer: stopsLayer, title: " " },
+						{ layer: sheltersLayer, title: " " },
+						{ layer: removeShelterLayer, title: " " },
+						{ layer: newShelterLayer, title: " " },
+						{ layer: replaceShelterLayer, title: " " },
+						{ layer: boardingPadLayer, title: " " },
+						{ layer: newShelterLightLayer, title: " " },
+						{ layer: newShelterHeatLayer, title: " " }
 					];
 					var mapLegend = new Legend({
 						map: MAP,
@@ -417,21 +427,21 @@ var bbsMap = (function($, window, document) {
 					var queryTask = new QueryTask('https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/BetterBusStops/MapServer/7');
 					query.returnGeometry = false;
 					query.where = '1=1'; // fetch all features
-					query.orderByFields=['site_id'];
+					query.orderByFields = ['site_id'];
 					query.outFields = ['TextDescription'];
 					queryTask.execute(query);
-					queryTask.on('error', function(err) {
+					queryTask.on('error', function (err) {
 						console.warn('Improvements Query Error: ' + err);
 					});
-					queryTask.on('complete', function(fSet) {
+					queryTask.on('complete', function (fSet) {
 						console.log("TextDescription Query Complete. There are " + fSet.featureSet.features.length + " features");
 						$('.bbsTextDescriptions').append('List of shelter improvements by stop number.<ul>');
 						fSet.featureSet.features.forEach(function (feature, idx) {
-							$('.bbsTextDescriptions').append('<li>'+feature.attributes.TextDescription+'.</li>');
+							$('.bbsTextDescriptions').append('<li>' + feature.attributes.TextDescription + '.</li>');
 						});
 						$('.bbsTextDescriptions').append('</ul>');
 					});
-					
+
 				});
 			});
 		}).promise();
@@ -443,7 +453,7 @@ var bbsMap = (function($, window, document) {
 	};
 })(jQuery, window, document);
 
-$(function() {
+$(function () {
 	// ----------------------------------------------------
 	// schedules-maps
 	// ----------------------------------------------------
@@ -453,7 +463,7 @@ $(function() {
 		AutocompleteAddress.init(
 			'bbsMapSearch',
 			/*UTMout*/ false,
-			function() {
+			function () {
 				var choice = AutocompleteAddress.getChoice(
 					'bbsMapSearch'
 				);
@@ -464,16 +474,16 @@ $(function() {
 				);
 			}
 		);
-		bbsMap.init('betterStopsMap').then(function() {
-			console.log("Map loaded");
+		bbsMap.init('betterStopsMap').then(function () {
+			//console.log('Map loaded');
 		});
-		$('#betterStopsMapLayer1').click(function() {
+		$('#betterStopsMapLayer1').click(function () {
 			bbsMap.toggleLayer('newShelterLayer');
 			bbsMap.toggleLayer('newShelterHeatLayer');
 			bbsMap.toggleLayer('newShelterLightLayer');
 			bbsMap.toggleLayer('boardingPadLayer');
 		});
-		$('#betterStopsMapLayer2').click(function() {
+		$('#betterStopsMapLayer2').click(function () {
 			bbsMap.toggleLayer('replaceShelterLayer');
 			bbsMap.toggleLayer('removeShelterLayer');
 			bbsMap.toggleLayer('replaceShelterHeatLayer');
