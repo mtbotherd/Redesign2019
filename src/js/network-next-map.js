@@ -8,6 +8,7 @@ var NetworkNextMap = (function ($, window, document) {
 	var GEOLOCATE = null; // this is the locate button object
 	var ROUTENAMES = null; // an object with the route number as the key and route name as the data
 	var ROUTEITEMS = []; // an array of object with id, route, and name fields -- used for displays
+	var ROUTESTOSHOW = [];
 
 	var _isEmpty = function _isEmpty(str) {
 		return !str || 0 === str.length;
@@ -75,9 +76,9 @@ var NetworkNextMap = (function ($, window, document) {
 	// pass routes array to highlight those routes in color
 	// pass nothing to clear them off
 	//
-	var drawRoutes = function (/*[string]*/ routes, zoom) {
+	var drawRoutes = function (/*[string]*/ routes, layerId, zoom) {
 		zoom = typeof zoom !== 'undefined' ? zoom : false;
-		var routeLayer = MAP.getLayer('Routes');
+		var routeLayer = MAP.getLayer(layerId);
 		if (!routeLayer) return;
 
 		var routesQuery = [];
@@ -166,8 +167,38 @@ var NetworkNextMap = (function ($, window, document) {
 		} else {
 			ROUTESTOSHOW.splice(i, 1);
 		}
-		drawRoutes(ROUTESTOSHOW, zoom);
+		drawRoutes(ROUTESTOSHOW, 'currentRoutes', /*zoom*/ false);
 	}
+	var formatRouteList = function formatRouteList(/*string*/routeList) {
+		var w = routeList;
+		if (typeof routeList === 'string') {
+			var routestring = '';
+			w = routeList.split(' ').sort(function (a, b) { return parseInt(a) - parseInt(b); });
+		}
+		if (w.length > 0) {
+			for (var i = 0, len = w.length; i < len; i++) {
+				if (i > 0) { routestring += '<br/>'; }
+				var rt = w[i];
+				var rtName = '';
+				if (ROUTENAMES) rtName = ROUTENAMES[rt];
+				var html = '<input id="cb' + rt + '"';
+				html += 'onclick="javascript: NetworkNextMap.toggleRoute(' + rt + '); return true; "';
+				html += 'type="checkbox"';
+				var ix = ROUTESTOSHOW.indexOf(parseInt(rt)); // check if route already in the list
+				if (ix !== -1) {
+					html += ' checked="checked" ';
+				}
+				html += '/>';
+				//html += '<label for='cb' + rt + ''><a href='https://www.metrotransit.org/route/' + rt + '' target='_blank'>' + rtName + '</a></label>';
+				html += '<label for="cb' + rt + '">' + rtName + '</label>';
+				routestring += html;
+			}
+		} else {
+			routestring = '<span style="font-size:larger;">No routes service here.</span>';
+		}
+		//console.log(routestring);
+		return routestring;
+	};
 	var idMapRoutes = function (evt) {
 		require(['esri/tasks/query',
 			'esri/tasks/QueryTask',
@@ -280,36 +311,6 @@ var NetworkNextMap = (function ($, window, document) {
 					});
 
 				}
-				var formatRouteList = function formatRouteList(/*string*/routeList) {
-					var w = routeList;
-					if (typeof routeList === 'string') {
-						var routestring = '';
-						w = routeList.split(' ').sort(function (a, b) { return parseInt(a) - parseInt(b); });
-					}
-					if (w.length > 0) {
-						for (var i = 0, len = w.length; i < len; i++) {
-							if (i > 0) { routestring += '<br/>'; }
-							var rt = w[i];
-							var rtName = '';
-							if (ROUTENAMES) rtName = ROUTENAMES[rt];
-							var html = '<input id="cb' + rt + '"';
-							html += 'onclick="javascript: NetworkNextMap.toggleRoute(' + rt + '); return true; "';
-							html += 'type="checkbox"';
-							var ix = ROUTESTOSHOW.indexOf(parseInt(rt)); // check if route already in the list
-							if (ix !== -1) {
-								html += ' checked="checked" ';
-							}
-							html += '/>';
-							//html += '<label for='cb' + rt + ''><a href='https://www.metrotransit.org/route/' + rt + '' target='_blank'>' + rtName + '</a></label>';
-							html += '<label for="cb' + rt + '">' + rtName + '</label>';
-							routestring += html;
-						}
-					} else {
-						routestring = '<span style="font-size:larger;">No routes service here.</span>';
-					}
-					//console.log(routestring);
-					return routestring;
-				};
 				//===================================================================================
 				//  START OF MAP INITIALIZATION =====================================================
 				//===================================================================================
@@ -387,19 +388,32 @@ var NetworkNextMap = (function ($, window, document) {
 						_layerErrorCount++
 					}
 				});
-				var routesLayer = new ArcGISDynamicMapServiceLayer(
+				var routesCurrentLayer = new ArcGISDynamicMapServiceLayer(
 					Route_MapService,
 					{
-						id: 'routes',
+						id: 'routesCurrent',
 						opacity: 0.7,
 					}
 				);
-				routesLayer.setImageFormat('svg');
-				routesLayer.setVisibleLayers([0]);
-				var layerQuerySettings = [];
-				layerQuerySettings[0] = '1=0'; // query for sublayer 4 - show nothing
-				routesLayer.setLayerDefinitions(layerQuerySettings);
+				routesCurrentLayer.setImageFormat('svg');
+				routesCurrentLayer.setVisibleLayers([0]);
+				var layerQuerySettings1 = [];
+				layerQuerySettings1[0] = 'routetype=\'Urb Loc\''; // query for sublayer - show nothing
+				routesCurrentLayer.setLayerDefinitions(layerQuerySettings1);
 
+				var routesProposedLayer = new ArcGISDynamicMapServiceLayer(
+					Route_MapService,
+					{
+						id: 'routesProposed',
+						opacity: 0.7,
+						visible: false
+					}
+				);
+				routesProposedLayer.setImageFormat('svg');
+				routesProposedLayer.setVisibleLayers([0]);
+				var layerQuerySettings2 = [];
+				layerQuerySettings2[0] = 'routetype=\'Express\''; // query for sublayer - show nothing
+				routesProposedLayer.setLayerDefinitions(layerQuerySettings2);
 				// =========================================================================================
 				// this feature layer is visible but transparent and overlays all the new and proposed existing changes
 				// =========================================================================================
@@ -438,7 +452,11 @@ var NetworkNextMap = (function ($, window, document) {
 					idMapRoutes(evt);
 				});
 
-				var mapLayers = [routesLayer, allRoutesLayer];
+				var mapLayers = [
+					routesCurrentLayer,
+					routesProposedLayer,
+					allRoutesLayer
+				];
 				MAP.addLayers(mapLayers);
 
 				MAP.on('load', function () {
@@ -513,7 +531,10 @@ $(function () {
 			console.log('Map loaded');
 		});
 		$('#networkNextMapLayer1').click(function () {
-			NetworkNextMap.toggleLayer('shelters');
+			NetworkNextMap.toggleLayer('routesCurrent');
+		});
+		$('#networkNextMapLayer2').click(function () {
+			NetworkNextMap.toggleLayer('routesProposed');
 		});
 	}
 });
