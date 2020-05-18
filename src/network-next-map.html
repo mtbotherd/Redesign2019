@@ -227,73 +227,75 @@
 									comment form</a>
 							</div>
 							<section class="section full-width">
-								<div class="auto-complete-search-box mb-4 mb-lg-5">
-									<div class="input-group">
-										<div class="has-float-label custom-width">
-											<input type="text" id="networkNextMapSearch" class="form-control"
-												placeholder=" " aria-expanded="false" aria-autocomplete="list"
-												aria-describedby="networkNextMapSearchInstr"
-												aria-owns="networkNextMapSearchSuggestions" aria-required="true"
-												role="combobox" onFocus="$(this).val('')" />
-											<label for="searchButton">Search...</label>
+								<div id="networkNextMapContainer">
+									<div class="auto-complete-search-box mb-4 mb-lg-5">
+										<div class="input-group">
+											<div class="has-float-label custom-width">
+												<input type="text" id="networkNextMapSearch" class="form-control"
+													placeholder=" " aria-expanded="false" aria-autocomplete="list"
+													aria-describedby="networkNextMapSearchInstr"
+													aria-owns="networkNextMapSearchSuggestions" aria-required="true"
+													role="combobox" onFocus="$(this).val('')" />
+												<label for="searchButton">Search...</label>
+											</div>
+											<div class="input-group-append">
+												<div class="input-group-text" id="searchIcon">
+													<img alt="" class="icon search-gray" src="/img/svg/search-gray.svg">
+												</div>
+											</div>
+											<span id="networkNextMapSearchInstr" class="sr-only">When autocomplete
+												results are available use up and down arrows to review and enter to
+												select. Touch device users, explore by touch or with swipe
+												gestures.</span>
 										</div>
-										<div class="input-group-append">
-											<div class="input-group-text" id="searchIcon">
-												<img alt="" class="icon search-gray" src="/img/svg/search-gray.svg">
+									</div>
+									<div class="container">
+										<div class="row mb-4">
+											<div class="col-2"></div>
+											<div class="col-10">
+												<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+													<input type="checkbox" class="custom-control-input"
+														id="networkNextMapLayer1" checked />
+													<label class="custom-control-label"
+														for="networkNextMapLayer1">Proposed
+														Routes</label>
+												</div>
 											</div>
 										</div>
-										<span id="networkNextMapSearchInstr" class="sr-only">When autocomplete
-											results are available use up and down arrows to review and enter to
-											select. Touch device users, explore by touch or with swipe
-											gestures.</span>
+									</div>
+									<div class="container">
+										<div class="row">
+											<div class="col-lg-2"></div>
+											<div class="col-lg-10 small">
+												<div>Click on map symbols for more information about planned
+													improvements and changes. Plans are subject to change.</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-2">
+												<div id="networkNextMapLegend"
+													aria-label="graphic display of symbols used in the map">&nbsp;</div>
+											</div>
+											<div class="col-lg-10 map-container">
+												<div id="networkNextInteractiveMap" class="map border"
+													aria-label="interactive map of proposed route changes">
+													<div id="networkNextMapLocate">&nbsp;</div>
+													<div class="mapLoading">&nbsp;</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-2"></div>
+											<div class="col-lg-10 small">
+												<div>For more information, link to <a
+														href="https://www.metrotransit.org/network-next">https://www.metrotransit.org/better-bus-stops</a>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
-								<div class="container">
-									<div class="row mb-4">
-										<div class="col-2"></div>
-										<div class="col-10">
-											<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-												<input type="checkbox" class="custom-control-input"
-													id="networkNextMapLayer1" checked />
-												<label class="custom-control-label" for="networkNextMapLayer1">Proposed
-													Routes</label>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-2"></div>
-										<div class="col-lg-10 small">
-											<div>Click on map symbols for more information about planned
-												improvements and changes. Plans are subject to change.</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-lg-2">
-											<div id="networkNextMapLegend"
-												aria-label="graphic display of symbols used in the map">&nbsp;</div>
-										</div>
-										<div class="col-lg-10 map-container">
-											<div id="networkNextInteractiveMap" class="map border"
-												aria-label="interactive map of proposed route changes">
-												<div id="networkNextMapLocate">&nbsp;</div>
-												<div class="mapLoading">&nbsp;</div>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-lg-2"></div>
-										<div class="col-lg-10 small">
-											<div>For more information, link to <a
-													href="https://www.metrotransit.org/network-next">https://www.metrotransit.org/better-bus-stops</a>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div id="networkNextCommentForm" class="sr-only">&nbsp;</div>
 							</section>
+							<div id="networkNextCommentForm" class="sr-only">&nbsp;</div>
 						</div>
 					</div>
 				</div>

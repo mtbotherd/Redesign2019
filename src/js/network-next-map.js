@@ -368,7 +368,15 @@ var NetworkNextMap = (function ($, window, document) {
 					$('.mapLoading').hide();
 				});
 
+				var _layerErrorCount = 0;
 				MAP.on('layers-add-result', function (result) {
+					if (_layerErrorCount > 0) {
+						// If we encounter a service error, assume the page is broken, display an alert and
+						// replace the page contents with an error text.
+						$('#networkNextMapContainer').html('Due to errors, we are unable to display this page at this time.');
+						alert('One or more geographic services needed for this map have failed to load properly.' +
+							'\n\nBecause of this, the map may not work as expected. \n\nTry again later.');
+					}
 					//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 					dfd.resolve();
 					//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -376,6 +384,7 @@ var NetworkNextMap = (function ($, window, document) {
 				MAP.on('layer-add-result', function (result) {
 					if (result.error) {
 						console.error('Layer add ' + result.error + ' for ' + result.layer.url);
+						_layerErrorCount++
 					}
 				});
 				var routesLayer = new ArcGISDynamicMapServiceLayer(
