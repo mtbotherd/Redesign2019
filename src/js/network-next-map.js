@@ -1,13 +1,11 @@
 var NetworkNextMap = (function ($, window, document) {
 	'use strict';
-	const TRIM_MapService =
-		'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer';
-	const Route_MapService =
-		'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/Transit_Routes_Individual/MapServer';
+	const ROUTE_MAPSERVICE =
+		'https://arcgis.metc.state.mn.us/arcgis/rest/services/transit/NetworkNext/MapServer';
+
 	var MAP = null; // this is the main MAP object
 	var GEOLOCATE = null; // this is the locate button object
 	var ROUTENAMES = null; // an object with the route number as the key and route name as the data
-	var ROUTEITEMS = []; // an array of object with id, route, and name fields -- used for displays
 	var ROUTESTOSHOW = [];
 
 	var _isEmpty = function _isEmpty(str) {
@@ -76,7 +74,7 @@ var NetworkNextMap = (function ($, window, document) {
 	// pass routes array to highlight those routes in color
 	// pass nothing to clear them off
 	//
-	var drawRoutes = function (/*[string]*/ routes, layerId, zoom) {
+	var drawRoutes = function (/*[string]*/ routes, /*string*/layerId, /*bool*/zoom) {
 		zoom = typeof zoom !== 'undefined' ? zoom : false;
 		var routeLayer = MAP.getLayer(layerId);
 		if (!routeLayer) return;
@@ -144,7 +142,7 @@ var NetworkNextMap = (function ($, window, document) {
 				});
 		}
 	};
-	var toggleLayer = function (/*string*/ layer, /*integer*/ zoomLevel) {
+	var toggleLayer = function (/*string*/ layer, /*int*/ zoomLevel) {
 		var l = MAP.getLayer(layer);
 		if (l) {
 			if (l.visible) {
@@ -206,13 +204,14 @@ var NetworkNextMap = (function ($, window, document) {
 		],
 			function (Query, QueryTask, Extent) {
 				var query = new Query();
-				var queryTask = new QueryTask(Route_MapService + '/0');
+				var queryTask = new QueryTask(
+					'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/4');
 				var pixelWidth = MAP.extent.getWidth() / MAP.width;
 				var toleraceInMapCoords = 20 * pixelWidth;
 				query.returnGeometry = true;
 				query.spatialRelationship = Query.SPATIAL_REL_INTERSECTS;
 				query.where = '1=1';
-				query.outFields = ['routesort', 'route', 'routedscrp', 'routetype', 'route_oper'];
+				query.outFields = ['LINE_ID', 'ROUTENUM', 'ROUTEDESCRIPTION'];
 				query.geometry = new Extent(evt.mapPoint.x - toleraceInMapCoords, evt.mapPoint.y - toleraceInMapCoords,
 					evt.mapPoint.x + toleraceInMapCoords,
 					evt.mapPoint.y + toleraceInMapCoords,
@@ -236,7 +235,7 @@ var NetworkNextMap = (function ($, window, document) {
 							if (i > 0) {
 								routes += ' ';
 							}
-							routes += atts.route;
+							routes += atts.LINE_ID;
 						}
 						var content = formatRouteList(routes);
 
@@ -273,13 +272,14 @@ var NetworkNextMap = (function ($, window, document) {
 			], function (Map, esriBasemaps, Color, ArcGISDynamicMapServiceLayer, FeatureLayer,
 				Query, QueryTask, SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton) {
 
-				function createRouteList() {
+				var createRouteList = function () {
 					var query = new Query();
-					var queryTask = new QueryTask(Route_MapService + '/0');
+					var queryTask = new QueryTask(
+						'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/4'
+					);
 					query.returnGeometry = false;
 					query.where = '1=1'; // extract them all
-					query.outFields = ['routesort', 'route', 'routetype', 'routedscrp'];
-					query.orderByFields = ['routesort'];
+					query.outFields = ['ROUTENUM', 'ROUTEDESCRIPTION'];
 					queryTask.execute(query);
 					queryTask.on('error', function (err) {
 						console.warn('createRouteList error');
@@ -288,29 +288,23 @@ var NetworkNextMap = (function ($, window, document) {
 					queryTask.on('complete', function (fSet) {
 						if (fSet.featureSet.features.length > 0) {
 							ROUTENAMES = {};
-							ROUTEITEMS = [];
-							// Outformat { '901': 'METRO Blue Line' }
-							for (var i = 0, l = fSet.featureSet.features.length; i < l; i++) {
-								var route = fSet.featureSet.features[i].attributes;
+							// Outformat { "901": "METRO Blue Line" }
+							for (let i = 0, l = fSet.featureSet.features.length; i < l; i++) {
+								var route =
+									fSet.featureSet.features[i].attributes;
 								if (route.ROUTENUM > 887) {
-									ROUTENAMES[route.routesort] = route.routedscrp;
+									ROUTENAMES[route.ROUTENUM] =
+										route.ROUTEDESCRIPTION;
 								} else {
-									ROUTENAMES[route.routesort] = route.route + ' - ' + route.routedscrp;
+									ROUTENAMES[route.ROUTENUM] =
+										route.ROUTENUM.toString() +
+										' ' +
+										route.ROUTEDESCRIPTION;
 								}
-
-								ROUTEITEMS.push({
-									'id': route.routesort,
-									'route': route.route,
-									'type': route.routetype,
-									'name': route.routedscrp
-								});
 							}
-							console.dir(ROUTENAMES);
-							console.dir(ROUTEITEMS);
 						}
 					});
-
-				}
+				};
 				//===================================================================================
 				//  START OF MAP INITIALIZATION =====================================================
 				//===================================================================================
@@ -374,7 +368,7 @@ var NetworkNextMap = (function ($, window, document) {
 					if (_layerErrorCount > 0) {
 						// If we encounter a service error, assume the page is broken, display an alert and
 						// replace the page contents with an error text.
-						$('#networkNextMapContainer').html('Due to errors, we are unable to display this page at this time.');
+						$('#networkNextMapContainer').html('We are currently experiencing difficulties and are unable to display this page at this time.');
 						alert('One or more geographic services needed for this map have failed to load properly.' +
 							'\n\nBecause of this, the map may not work as expected. \n\nTry again later.');
 					}
@@ -388,49 +382,85 @@ var NetworkNextMap = (function ($, window, document) {
 						_layerErrorCount++
 					}
 				});
-				var routesCurrentLayer = new ArcGISDynamicMapServiceLayer(
-					Route_MapService,
-					{
-						id: 'routesCurrent',
-						opacity: 0.7,
-					}
-				);
-				routesCurrentLayer.setImageFormat('svg');
-				routesCurrentLayer.setVisibleLayers([0]);
-				var layerQuerySettings1 = [];
-				layerQuerySettings1[0] = 'routetype=\'Urb Loc\''; // query for sublayer - show nothing
-				routesCurrentLayer.setLayerDefinitions(layerQuerySettings1);
 
-				var routesProposedLayer = new ArcGISDynamicMapServiceLayer(
-					Route_MapService,
+				var layerMetroRoutes = new ArcGISDynamicMapServiceLayer(
+					ROUTE_MAPSERVICE,
 					{
-						id: 'routesProposed',
-						opacity: 0.7,
-						visible: false
+						id: 'metroRoutes',
+						opacity: 1,
 					}
 				);
-				routesProposedLayer.setImageFormat('svg');
-				routesProposedLayer.setVisibleLayers([0]);
-				var layerQuerySettings2 = [];
-				layerQuerySettings2[0] = 'routetype=\'Express\''; // query for sublayer - show nothing
-				routesProposedLayer.setLayerDefinitions(layerQuerySettings2);
+				layerMetroRoutes.setImageFormat('svg');
+				layerMetroRoutes.setVisibleLayers([0]);
+				var layerHiFreqRoutes = new ArcGISDynamicMapServiceLayer(
+					ROUTE_MAPSERVICE,
+					{
+						id: 'hiFreqRoutes',
+						opacity: 1,
+					}
+				);
+				layerHiFreqRoutes.setImageFormat('svg');
+
+				layerHiFreqRoutes.setVisibleLayers([1]);
+				var layerLocalRoutes = new ArcGISDynamicMapServiceLayer(
+					ROUTE_MAPSERVICE,
+					{
+						id: 'localRoutes',
+						opacity: 1,
+					}
+				);
+				layerLocalRoutes.setImageFormat('svg');
+				layerLocalRoutes.setVisibleLayers([2]);
+
+				var layerExpressRoutes = new ArcGISDynamicMapServiceLayer(
+					ROUTE_MAPSERVICE,
+					{
+						id: 'expressRoutes',
+						opacity: 1,
+					}
+				);
+				layerExpressRoutes.setImageFormat('svg');
+				layerExpressRoutes.setVisibleLayers([3]);
+
+				var layerSubRoutes = new ArcGISDynamicMapServiceLayer(
+					ROUTE_MAPSERVICE,
+					{
+						id: 'subRoutes',
+						opacity: 1,
+					}
+				);
+				layerSubRoutes.setImageFormat('svg');
+				layerSubRoutes.setVisibleLayers([4]);
+
+
+				// var routesProposedLayer = new ArcGISDynamicMapServiceLayer(
+				// 	ROUTE_MAPSERVICE,
+				// 	{
+				// 		id: 'routesProposed',
+				// 		opacity: 0.7,
+				// 		visible: false
+				// 	}
+				// );
+				// routesProposedLayer.setImageFormat('svg');
+				// routesProposedLayer.setVisibleLayers([0]);
+
 				// =========================================================================================
 				// this feature layer is visible but transparent and overlays all the new and proposed existing changes
 				// =========================================================================================
-				var template = new PopupTemplate();
-				template.setTitle('Stop Number: ${site_id}');
-				template.setContent(function (graphic) {
-					//console.dir(graphic);
-					var a = graphic.attributes;
-					var content = '<strong>' + a.location + '</strong><br/>';
-					return content;
-				});
+				// var template = new PopupTemplate();
+				// template.setTitle('Stop Number: ${site_id}');
+				// template.setContent(function (graphic) {
+				// 	//console.dir(graphic);
+				// 	var a = graphic.attributes;
+				// 	var content = '<strong>' + a.location + '</strong><br/>';
+				// 	return content;
+				// });
 				// ===================================================================
 				// This layer services the map click to determine which routes
 				// services a specific point
 				// ===================================================================
 				var allRoutesLayer = new FeatureLayer(
-					Route_MapService + '/0',
+					'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/4',
 					{
 						id: 'allRoutes',
 						mode: FeatureLayer.MODE_SNAPSHOT,
@@ -453,8 +483,11 @@ var NetworkNextMap = (function ($, window, document) {
 				});
 
 				var mapLayers = [
-					routesCurrentLayer,
-					routesProposedLayer,
+					layerMetroRoutes,
+					layerHiFreqRoutes,
+					layerLocalRoutes,
+					layerExpressRoutes,
+					layerSubRoutes,
 					allRoutesLayer
 				];
 				MAP.addLayers(mapLayers);
@@ -531,10 +564,17 @@ $(function () {
 			console.log('Map loaded');
 		});
 		$('#networkNextMapLayer1').click(function () {
-			NetworkNextMap.toggleLayer('routesCurrent');
+			NetworkNextMap.toggleLayer('metroRoutes');
 		});
 		$('#networkNextMapLayer2').click(function () {
-			NetworkNextMap.toggleLayer('routesProposed');
+			NetworkNextMap.toggleLayer('localRoutes');
+		});
+		$('#networkNextMapLayer1').click(function () {
+			NetworkNextMap.toggleLayer('expressRoutes');
+		});
+		$('#networkNextMapLayer2').click(function () {
+			NetworkNextMap.toggleLayer('subRoutes');
 		});
 	}
+
 });

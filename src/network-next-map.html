@@ -273,17 +273,80 @@
 										</div>
 										<div class="row">
 											<div class="col-lg-3">
-												<div class="mb-4">Existing Routes
+												<!-- <div class="mb-4">Show Times
+													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+														<input type="radio" class="custom-control-input"
+															id="networkNextTimeSelect1" checked />
+														<label class="custom-control-label"
+															for="networkNextMapLayer1">Current
+														</label>
+													</div>
+													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+														<input type="radio" class="custom-control-input"
+															id="networkNextTimeSelect2" />
+														<label class="custom-control-label"
+															for="networkNextMapLayer2">TBD1
+														</label>
+													</div>
+													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+														<input type="radio" class="custom-control-input"
+															id="networkNextTimeSelect3" />
+														<label class="custom-control-label"
+															for="networkNextMapLayer3">TBD2
+														</label>
+													</div>
+													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+														<input type="radio" class="custom-control-input"
+															id="networkNextTimeSelect4" />
+														<label class="custom-control-label"
+															for="networkNextMapLayer4">2040
+														</label>
+													</div>
+												</div> -->
+												<fieldset>
+													<legend class="h4">Show Times</legend>
+													<div class="custom-control custom-radio">
+														<input id="networkNextTimeSelect1" type="radio"
+															class="custom-control-input" name="selecttime" value="2020"
+															checked />
+														<label for="networkNextTimeSelect1"
+															class="custom-control-label">Current</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input id="networkNextTimeSelect2" type="radio"
+															class="custom-control-input" name="selecttime"
+															value="2025" />
+														<label for="networkNextTimeSelect2"
+															class="custom-control-label">2025</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input id="networkNextTimeSelect3" type="radio"
+															class="custom-control-input" name="selecttime"
+															value="2030" />
+														<label for="networkNextTimeSelect3"
+															class="custom-control-label">2030</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input id="networkNextTimeSelect4" type="radio"
+															class="custom-control-input" name="selecttime"
+															value="2040" />
+														<label for="networkNextTimeSelect4"
+															class="custom-control-label">2040</label>
+													</div>
+												</fieldset>
+												<hr />
+												<fieldset>
+													<legend class="h4">Show Routes</legend>
+
+
 													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
 
 														<input type="checkbox" class="custom-control-input"
 															id="networkNextMapLayer1" checked />
 														<label class="custom-control-label"
-															for="networkNextMapLayer1">Core
+															for="networkNextMapLayer1">Metro
 														</label>
 													</div>
-												</div>
-												<div class="">Proposed Routes
 													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
 
 														<input type="checkbox" class="custom-control-input"
@@ -292,7 +355,23 @@
 															for="networkNextMapLayer2">Core
 														</label>
 													</div>
-												</div>
+													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+
+														<input type="checkbox" class="custom-control-input"
+															id="networkNextMapLayer3" />
+														<label class="custom-control-label"
+															for="networkNextMapLayer3">Express
+														</label>
+													</div>
+													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+
+														<input type="checkbox" class="custom-control-input"
+															id="networkNextMapLayer4" />
+														<label class="custom-control-label"
+															for="networkNextMapLayer4">Connecting
+														</label>
+													</div>
+												</fieldset>
 												<div id="networkNextMapLegend"
 													aria-label="graphic display of symbols used in the map">&nbsp;</div>
 											</div>
