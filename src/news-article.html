@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Metro Transit</title>
+	<link rel="shortcut icon"
+		  href="favicon.ico"
+		  type="image/x-icon">
+	<link rel="stylesheet"
+		  href="/css/app.css">
+
+</head>
+
+<body>
+
+	<div role="link" aria-labelledby="skipNav">
+		<a id="skipNav" href="#pageContainer" class="skip-to-content">Skip to main content</a>
+	</div>
+
+	<!-- Begin Header -->
+	<header id="header">
+		<nav class="navbar navbar-expand-xl navbar-light">
+			<div class="container">
+				<a class="navbar-brand" href="/">
+					<img alt="metro transit logo" src="/img/MetroTransitLogo.svg" class="logo d-inline-block">
+				</a>
+				<button class="navbar-toggler border-0" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					Menu <img class="icon" src="/img/svg/chevron-down-gray.svg" />
+				</button>	
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<section>
+						<ul class="nav navbar-nav mx-auto">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="/trip-planner" id="tripToolsDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Trip Tools
+								</a>
+								<div class="dropdown-menu" aria-labelledby="tripToolsDropdown">
+									<a class="dropdown-item" href="/trip-planner">Trip Planner</a>
+									<a class="dropdown-item" href="/nextrip">NexTrip</a>
+									<a class="dropdown-item" href="/rider-alerts">Alerts</a>
+									<a class="dropdown-item" href="/park-rides">Find a Park &amp; Ride</a>
+									<a class="dropdown-item" href="/stops-stations">
+										Find a Stop or Station
+									</a>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link no-dropdown" href="/schedules-maps">
+									Schedules &amp; Maps
+								</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="faresDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Fares
+								</a>
+								<div class="dropdown-menu" aria-labelledby="faresDropdown">
+									<a class="dropdown-item" href="/fares">Fares</a>
+									<a class="dropdown-item" href="/go-to-card">Go-To Card</a>
+									<a class="dropdown-item" href="/passes">Pass Programs</a>
+									<a class="dropdown-item" href="https://store.metrotransit.org/">Store</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									More
+								</a>
+								<div class="dropdown-menu" aria-labelledby="moreDropdown">
+									<a class="dropdown-item" href="/carpool-vanpool">Carpool &amp; Vanpool</a>
+									<a class="dropdown-item" href="/transit-link">Transit Link</a>
+									<a class="dropdown-item" href="/guaranteed-ride-home">Guaranteed Ride Home</a>
+									<a class="dropdown-item" href="/bike">Bicycle</a>
+									<a class="dropdown-item" href="/news">News &amp; Events</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="helpDropdown" role="button"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Help
+								</a>
+								<div class="dropdown-menu" aria-labelledby="helpDropdown">
+									<a class="dropdown-item" href="/how-to-ride">How to Ride</a>
+									<a class="dropdown-item" href="/contact-us">Contact Us</a>
+									<a class="dropdown-item" href="/lost-found">Lost &amp; Found</a>
+									<a class="dropdown-item" href="/accessibility">Accessibility</a>
+									<a class="dropdown-item" href="/languages">Languages</a>
+									<a class="dropdown-item" href="/police">Transit Police</a>
+								</div>
+							</li>
+						</ul>
+					</section>
+					<ul class="nav navbar-nav utilities ml-auto">
+						<li class="nav-item">
+							<a class="nav-link goto-icon" href="/go-to-card">
+								<span class="sr-only">Go-To Card</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link store-icon" href="https://store.metrotransit.org">
+								<span class="sr-only">store</span>
+							</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a data-toggle="dropdown" class="nav-link dropdown-toggle search-icon" href="#">
+								<span class="sr-only">site search</span>
+							</a>
+							<div class="dropdown-menu search-dropdown-menu">
+								<div class="input-group has-float-label">
+									<input type="text" id="siteSearch" class="form-control mr-0" placeholder=" " />
+									<label for="siteSearch">Search our site</label>
+									<div class="input-group-append">
+										<button type="button" id="siteSearchBtn" class="btn btn-primary">
+											<span class="sr-only">Search button</span>
+											<img alt="site search submit button" class="icon" src="/img/svg/search-gray.svg">
+										</button>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle avatar-icon" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="sr-only">Sign in / create account</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
+								<a class="dropdown-item" href="/logoff.aspx?returnurl=https%3a%2f%2fwwwtest.metrotransit.org%2fDefault.aspx">Sign Out</a>
+								<a class="dropdown-item" href="https://account.metrotransit.org/edit.aspx?returnurl=https%3a%2f%2fwwwtest.metrotransit.org%2fDefault.aspx">Edit Account</a>
+							</div>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav d-xl-none border-top-0">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Metro Transit</a>
+							<div class="dropdown-menu" aria-labelledby="aboutDropdown">
+								<a class="dropdown-item" href="/transit-improvements">Transit Improvements</a>
+								<a class="dropdown-item" href="/facilities-people">Facilities</a>
+								<a class="dropdown-item" href="/riders-almanac-blog">Rider's Almanac</a>
+								<a class="dropdown-item" href="/use-of-transit-property">Use of Transit Property</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="mediaRelationsDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Media Relations</a>
+							<div class="dropdown-menu" aria-labelledby="mediaRelationsDropdown">
+								<a class="dropdown-item" href="/logos-images">Media Resources</a>
+								<a class="dropdown-item" href="/awards">Awards</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="careersDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Careers</a>
+							<div class="dropdown-menu" aria-labelledby="careersDropdown">
+								<a class="dropdown-item" href="/jobs">Available Job Opportunities</a>
+								<a class="dropdown-item" href="/drive">Become a Bus Driver</a>
+								<a class="dropdown-item" href="/transit-police-careers">Join the Transit Police</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="policeDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Policies</a>
+							<div class="dropdown-menu" aria-labelledby="policeDropdown">
+								<a class="dropdown-item" href="/social-media-policy">Social Media Policy</a>
+								<a class="dropdown-item" href="https://metrocouncil.org/Privacy-Policy.aspx">Privacy Policy</a>
+								<a class="dropdown-item" href="/code-of-conduct">Code of Conduct</a>
+								<a class="dropdown-item" href="/titlevi">Title VI: Commitment to Fairness</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="missionDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mission &amp; Impact</a>
+							<div class="dropdown-menu" aria-labelledby="missionDropdown">
+								<a class="dropdown-item" href="/about-metro-transit">Mission &amp; Funding</a>
+								<a class="dropdown-item" href="/equity">Equity &amp; Inclusion</a>
+								<a class="dropdown-item" href="/public-art-in-transit">Public Art</a>
+								<a class="dropdown-item" href="/outreach">Outreach</a>
+								<a class="dropdown-item" href="/transit-oriented-development">Transit Oriented Development</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+							<div class="dropdown-menu" aria-labelledby="resourcesDropdown">
+								<a class="dropdown-item" href="/app">Try the Metro Transit App</a>
+								<a class="dropdown-item" href="/advertise-with-metro-transit">Advertise with Us</a>
+								<a class="dropdown-item" href="/apps">API Resources for Developers</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End Header -->
+
+	<!-- Begin Main Content -->
+	<main id="pageContainer" class="container">
+		<section>
+			<div class="page-content">
+				<div class="full-width">
+					<!-- This block is a Conrol Module in CMS -->
+					<div class="primary hero news-bg">
+						<div class="container">
+							<div class="page-title">
+								<h1>News &amp; Events</h1>
+							</div>
+						</div>
+					</div>
+					<!-- End of Control Module -->
+				</div>
+
+				<div class="content-full-width">
+					<div id="ctl00_mainContent_pnlMainContent" class="section body-content">
+                        <a id="ctl00_mainContent_lnkEdit" href="/TransitArticles/ArticleEdit.aspx?pageid=18&amp;mid=393&amp;articleid=25983">Edit</a>
+                        <div id="ctl00_mainContent_articleDisplayTitle" class="articleStoryDisplayTitle">
+                            <h2><span id="ctl00_mainContent_lblArticleTitle">Minor service adjustments begin Saturday, June 13</span></h2>                        
+                        </div>
+                        <div id="ctl00_mainContent_articleDisplayText" class="articleDisplayText">                            
+                            <p>As part of the ongoing, shared effort to limit the spread of COVID-19, Metro Transit will continue a reduced service schedule on Saturday, June 13. This is to address a sharp decline in ridership and to focus our resources where they are most needed to provide critical travel during this crisis.<br>
+                            Schedules that will go into effect&nbsp;on June 13&nbsp;will keep service at about the same level&nbsp;it’s&nbsp;at today – roughly 65%&nbsp;what it was at the beginning of the year&nbsp;– with some minor adjustments to add&nbsp;peak-hour service.&nbsp;Light rail and&nbsp;Northstar&nbsp;schedules will remain as is.&nbsp;</p>
+                        
+                            <p>Continue to watch <a href="https://www.metrotransit.org/metro-transit%E2%80%99s-response-to-covid-19-coronavirus">metrotransit.org/health</a> for the latest information.&nbsp;</p>
+                            
+                            <p>Remember:</p>
+                            
+                            <ul>
+                                <li>Use transit for <strong>essential travel only</strong></li>
+                                <li>Cover your nose and mouth with a fabric face covering while riding and at transit stops or stations.</li>
+                                <li>Board and exit buses using the back door.&nbsp;The front doors and ramps are available for those who need it for any reason.</li>
+                                <li>Keep distance between you and others, especially the driver.</li>
+                                <li>When boarding, if the bus or train does not have space to allow adequate social distancing, the operator will display "Next Bus Please" on the overhead sign, notifying customers that they need to wait for the next trip.&nbsp;</li>
+                                <li>Metro Transit Service Centers and Lost &amp; Found are closed. Transit Information is available by phone (612-373-3333) and text (612-444-1161) Monday-Friday 6:30 a.m. – 9 p.m.; Customer Relations is available by phone (612-373-3333) and <a href="http://metrotransit.org/contact-us">online</a> Monday-Friday 8 a.m. – 4:30 p.m.</li>
+                            </ul>
+                            
+                            <h3><strong>Summary of Metro Transit service beginning Saturday, June 13:</strong></h3>
+                            
+                            <ul>
+                                <li><strong>On weekdays: </strong>
+                            
+                                <ul style="list-style-type:circle;">
+                                    <li><strong>Most local bus routes will follow SATURDAY schedules</strong></li>
+                                    <li><strong>Some routes will follow Saturday schedules with trips added Monday through Friday</strong></li>
+                                    <li><strong>Commuter express routes will continue to operate at a reduced level</strong><br>
+                                    &nbsp;</li>
+                                </ul>
+                                </li>
+                                <li><strong>On all days of the week, many bus trips after 11 p.m. and before 4:30 a.m. have been restored on the following routes:</strong> <strong><a> </a></strong><br>
+                                2, 3, 4, 5, 6, 7, 9, 10, 11, 14, 17, 18, 21, 22, 23, 54, 62, 63, 64, 65, 68, 71, 74, 87, 515, 612, 722, 724, METRO A Line, METRO C Line.<br>
+                                &nbsp;</li>
+                                <li><strong>On all days of the week, light&nbsp;rail service will continue operation between&nbsp;6 a.m. and&nbsp;9 p.m. daily.&nbsp;</strong><br>
+                                (METRO Blue Line airport shuttle between Terminal 1 and Terminal 2 stations continues to operate 24 hours-a-day.)<br>
+                                &nbsp;</li>
+                            </ul>
+                            
+                            <p>Sign up for Rider Alerts at <strong><a href="http://metrotransit.org/alerts">metrotransit.org/alerts</a></strong> to learn about future changes to your specific routes via text or email.&nbsp;</p>
+                            
+                            <h3><strong>Check your route below for a summary of service that begins June 13. </strong><br>
+                            &nbsp;</h3>
+                            <div class="btn-container text-md-left mb-3">
+                                <a href="#metroLines" class="btn btn-anchor d-block d-md-inline-block">Metro lines</a>
+                                <a href="#1%20-%2099" class="btn btn-anchor d-block d-md-inline-block">Routes 1 - 99</a>
+                                <a href="#100s" class="btn btn-anchor d-block d-md-inline-block">Routes 100s</a>
+                                <a href="#200s" class="btn btn-anchor d-block d-md-inline-block">Routes 200s</a>
+                                <a href="#300s" class="btn btn-anchor d-block d-md-inline-block">Routes 300s</a>
+                                <a href="#400s" class="btn btn-anchor d-block d-md-inline-block">Routes 400s</a>
+                                <a href="#500s" class="btn btn-anchor d-block d-md-inline-block">Routes 500s</a>
+                                <a href="#600s" class="btn btn-anchor d-block d-md-inline-block">Routes 600s</a>
+                                <a href="#700s" class="btn btn-anchor d-block d-md-inline-block">Routes 700s</a>
+                                <a href="#800s" class="btn btn-anchor d-block d-md-inline-block">Routes 800s</a>
+                                <a href="#mapleGrove" class="btn btn-anchor d-block d-md-inline-block mb-3">Maple Grove</a>
+                            </div>
+                            <p id="metroLines"><strong>METRO BLUE LINE</strong><br>
+                            20-minute service all day</p>
+                            
+                            <p><strong>METRO GREEN LINE</strong><br>
+                            20-minute service all day</p>
+                            
+                            <p><strong>METRO RED LINE</strong><br>
+                            Normal WEEKDAY service</p>
+                            
+                            <p><strong>METRO A Line</strong><br>
+                            Normal SATURDAY service</p>
+                            
+                            <p><strong>METRO C Line</strong><br>
+                            Normal SATURDAY service</p>
+                            
+                            <p><strong>NORTHSTAR LINE&nbsp;[No service on Saturday and Sunday]</strong><br>
+                            These trips will operate weekdays only:</p>
+                            
+                            <ul>
+                                <li>Trips to downtown, leaving Big Lake Station at 5:48 and 7:18 a.m.</li>
+                                <li>Trips to Big Lake, leaving Target Field Station at 4:27 and 5:30 p.m.</li>
+                            </ul>
+
+                            <p id="1%20-%2099"><strong>ROUTE 2</strong><br>
+                            Saturday service</p>
+
+                            <p><strong>ROUTE 3</strong><br>
+                            Saturday service plus:</p>
+                            
+                            <ul>
+                                <li>Added 3K trips to Minneapolis (via Kasota), leaving Como &amp; Eustis at 7:41 a.m. and 3:40 p.m., 4:30, 7:11 and 10:31 p.m.</li>
+                                <li>Added 3A trip to Minneapolis (via Maryland), leaving Union Depot at 5:59 a.m.</li>
+                                <li>Added 3A trip to St. Paul (via Kasota and via Maryland) leaving Ramp B/5th St. Transit Center at 5:56 a.m.</li>
+                                <li>Added 3K trips to Como &amp; Eustis (via&nbsp; Elm St SEHwy. 280 &amp; Kasota), leaving Ramp B/5th St. Transit Center at&nbsp; 5:56 6:56 and 7:22 a.m. and 2:20 and 10:03 p.m.</li>
+                                <li>Weekday eastbound trips starting at 4:05 and 4:38 p.m., and s Selected Saturday evening trips will be shortened from the S terminal at Energy Park to the E terminal at Eustis &amp; Como.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 4</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 5</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 6</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 7</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 9</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 10</strong><br>
+                            Saturday service plus:</p>
+                            
+                            <ul>
+                                <li>Added trip to downtown, leaving 53rd Ave. &amp; Target at 5:42 a.m.</li>
+                                <li>Added trip to downtown, leaving Northtown at 6:06 a.m. (via University Ave.)</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 11</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 12</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 14</strong><br>
+                            Saturday service plus</p>
+                            
+                            <ul>
+                                <li>Added Route 14L trips to Robbinsdale Transit Center, leaving 7th St. &amp; Nicollet at 4:11 and 5:11 p.m.</li>
+                                <li>Added trips to downtown, leaving Robbinsdale Transit Center at 6:54 a.m. (via Broadway) and 6:18 and 6:48 a.m. (via Noble Ave.)</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 16</strong><br>
+                            Saturday service</p>
+                            
+                            <ul>
+                                <li>Schedule times will be adjusted for all days of the week to better reflect actual travel times.</li>
+                                <li>First weekday eastbound trip will start 2 minutes earlier, leaving University &amp; Fairview at 6:30 a.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 17</strong><br>
+                            Saturday service plus:</p>
+                            
+                            <ul>
+                                <li>Added trips to downtown, leaving Tyler &amp; Lake St. at 5:56, and 7:16 a.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 18</strong><br>
+                            Saturday service plus:</p>
+                            
+                            <ul>
+                                <li>Added trip to downtown, leaving 104th St. &amp; West Bloomington at 6:43 a.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 19</strong><br>
+                            Saturday service<br>
+                            &nbsp;</p>
+                            
+                            <p><strong>ROUTE 21</strong><br>
+                            Saturday service</p>
+                            
+                            <ul>
+                                <li>Schedule times will be adjusted for all days of the week to better reflect actual travel times due to Lake St. construction.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 22</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 23</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 25</strong><br>
+                            Normal WEEKDAY service</p>
+                            
+                            <p><strong>ROUTE 27</strong><br>
+                            Normal WEEKDAY service</p>
+                            
+                            <p><strong>ROUTE 30</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 32</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 39</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 46</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 53</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 54</strong><br>
+                            Saturday service plus:</p>
+                            
+                            <ul>
+                                <li>Added trip to Union Depot, leaving Mall of America Transit Station at 12:38 a.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 59</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 61</strong><br>
+                            Normal WEEKDAY service<br>
+                            &nbsp;</p>
+                            
+                            <p><strong>ROUTE 62</strong><br>
+                            Saturday service plus:</p>
+                            
+                            <ul>
+                                <li>Added trip to downtown, leaving Shoreview Community Center at 6&nbsp;a.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 63</strong><br>
+                            Saturday service<br>
+                            &nbsp;</p>
+                            
+                            <p><strong>ROUTE 64</strong><br>
+                            Saturday service plus:</p>
+                            
+                            <ul>
+                                <li>Added trips to downtown, leaving Maplewood Mall at 4:55 a.m. (via North St. Paul), 5:51 and 6:47 a.m. (via English).<br>
+                                &nbsp;</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 65</strong><br>
+                            Saturday service<br>
+                            &nbsp;</p>
+                            
+                            <p><strong>ROUTE 67</strong><br>
+                            Saturday service<br>
+                            &nbsp;</p>
+                            
+                            <p><strong>ROUTE 68</strong><br>
+                            Saturday service<br>
+                            &nbsp;</p>
+                            
+                            <p><strong>ROUTE 70</strong><br>
+                            Normal WEEKDAY service</p>
+                            
+                            <p><strong>ROUTE 71</strong><br>
+                            Saturday service plus:</p>
+                            
+                            <ul>
+                                <li>Added Route 71D trips to downtown/Inver Hills Community College via Westminster St. and Armour/Hardman, leaving Sloan &amp; Roselawn&nbsp;at 5:23 and 5:52 a.m.</li>
+                                <li>Added trip to 6th St. &amp; Robert, leaving Inver Hills Community College at 7:03 a.m.</li>
+                                <li>Added trip to Inver Hills Community College, leaving 14th St &amp; Jackson at 4:40 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 74</strong><br>
+                            Saturday service plus:</p>
+                            
+                            <ul>
+                                <li>Added trip to 46th St. Station, leaving Sun Ray Transit Center at 5:52 a.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 75</strong><br>
+                            Normal WEEKDAY service</p>
+                            
+                            <p><strong>ROUTE 80</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 83</strong><br>
+                            Saturday service</p>
+                            
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • Schedule times will be adjusted for all days of the week to better reflect actual travel times.</p>
+                            
+                            <p><strong>ROUTE 84</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 87</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 94</strong><br>
+                            Normal WEEKDAY service</p>
+                            
+                            <p id="100s"><strong>ROUTE 111</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 113</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 114</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 115</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 118</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 129</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 133</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 134</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trips to downtown Minneapolis, leaving Norfolk &amp; Gannon at 7:02 and 7:39 a.m.</li>
+                                <li>Trip to Cleveland &amp; Montreal, leaving Ramp A/7th St. Transit Center at 4 p.m.</li>
+                                <li>Trip to Norfolk &amp; Gannon, leaving Ramp A/7th St. Transit Center at 4:37 p.m.</li>
+                                <li>Eastbound schedule will be adjusted to account for return to 1st Ave. N.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 135</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 141</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trip to downtown, leaving 1st Ave. NW &amp; Old Hwy. 8 at 7:05 a.m.</li>
+                                <li>Trip to 1st Ave. &amp; Old Hwy. 8, leaving Minneapolis Community and Technical College at 4:28 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 146</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 156</strong><br>
+                            No service</p>
+                            
+                            <p id="200s"><strong>ROUTE 219</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 223</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 225</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 227</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 250</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trips to downtown, leaving 95th Ave. Park &amp; Ride at 5:18, 6:15, 6:38, 7:03, 7:36 and 8:05 a.m. (all via Co. Rd. H Park &amp; Ride)</li>
+                                <li>Trip to downtown, leaving 95th Ave. Park &amp; Ride at 3:59 p.m. (via Wells Fargo and Medtronic)</li>
+                                <li>Route 250M trip to 95th Ave. Park &amp; Ride, leaving 2nd Ave. &amp; 11th St. at 6:48 a.m. (via Wells Fargo and Medtronic)</li>
+                                <li>Route 250C trips to 95th Ave. Park &amp; Ride, leaving 2nd Ave. &amp; 11th St. at 1:14, 3:08, 3:45, 4:09, 4:41 and 5:28 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 252</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 261</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 262</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 263</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 264</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trips to downtown, leaving Rosedale Transit Center at 6:47,* 7:12,* 7:46* and 10:10* a.m.</li>
+                                <li>Trips to Rosedale Transit Center, leaving 2nd Ave. &amp; 11th St. at 9:41 a.m. and 4:09,* 4:43* and 5:14 p.m.*<br>
+                                * These trips will serve I-35W &amp; Co. Rd. C Park &amp; Ride</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 265</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 270</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Route 270P trips to downtown, leaving Maplewood Mall at 5:47, 6:13, 6:47, 7:10, 7:31 and 8:08 a.m.</li>
+                                <li>Route 270P trips to Maplewood Mall, leaving 2nd Ave. &amp; 11th St. at 2:43, 3:13, 3:47, 4:16, 4:44 and 5:11 p.m.</li>
+                                <li><a>All trips serve the Hwy. 61 &amp; Co. Rd. C Park &amp; Ride and the Hwy. 36 &amp; Rice St. Park &amp; Ride.</a>&nbsp;</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 272</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 275</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 288</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 294</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trip from Stillwater to downtown St. Paul, leaving St. Croix Valley Park &amp; Ride at 6:09 a.m.</li>
+                                <li>Trip to Stillwater, leaving Smith Ave. Ramp at 4:07 p.m.</li>
+                            </ul>
+                            
+                            <p id="300s"><strong>ROUTE 350</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTES 351/353/355</strong><br>
+                            No regular Saturday service. These Route 353 trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trips to downtown St. Paul and Minneapolis, leaving Woodbury Theatre Park &amp; Ride at 5:41, 6:30, 7:00 and 7:30 a.m.<br>
+                                - those westbound trips arrive at 6th St. &amp; Cedar at 6:02, 6:51, 7:21 and 7:51 a.m., respectively, and then arrive at 7th St. &amp; Hennepin at 6:23, 7:12, 7:42 and 8:12 a.m., respectively.</li>
+                                <li>Trips to Woodbury, leaving Ramp B/5th St. Transit Center at 3:43, 4:10, 4:42 and 5:18 p.m.<br>
+                                - those eastbound trips then leave 5th St. &amp; Minnesota in downtown St. Paul at 4:08, 4:35, 5:07 and 5:43 p.m., respectively.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTES 361/364/365</strong><br>
+                            No regular Saturday service. These Route 361 trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trip to downtown St. Paul, leaving Ivystone &amp; 80th St. at 6:49 a.m. (trip leaves Cottage Grove Park &amp; Ride at 7:10 a.m.)</li>
+                                <li>Route 361B trip to Ivystone &amp; 80th St., leaving Smith Ave. Ramp at 4:41 p.m.</li>
+                                <li>In lieu of Route 365, express Route 94 provides connecting service between Route 361 in downtown St. Paul and downtown Minneapolis.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 375</strong><br>
+                            No service</p>
+                            
+                            <p id="400s"><strong>ROUTE 415</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 417</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 452</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 467</strong><br>
+                            No service</p>
+                            
+                            <p id="500s"><strong>ROUTE 515</strong><br>
+                            Normal WEEKDAY service</p>
+                            
+                            <p><strong>ROUTE 535</strong><br>
+                            No regular Saturday service. These Route 535 trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trips to Normandale Community College, leaving 3rd Ave. &amp; 2nd St. at 5:55,** 6:54,** 7:58,** &nbsp;9, 10 and 11 a.m.,12 noon, 1,* 2,* 3:01,* 3:33,* 5:33* and 6:03* p.m.</li>
+                                <li>Trips to downtown, leaving Normandale Community College at 9:15,* 10:16* and 11:16* a.m. and 12:16,* 1:16,* 2:14,* 3:10,** 4:08,** 5:09** and 5:44 p.m.</li>
+                                <li>Trips to downtown, leaving 102nd St. &amp; 2nd Ave. at 6:02,*** 6:30*** and 6:56*** a.m.</li>
+                                <li>Trips to 102nd St. &amp; 2nd Ave., leaving 3rd Ave. &amp; 2nd St. at 4:03,*** 4:32*** and 5:01*** p.m.</li>
+                                <li>trip to downtown, leaving Bloomington Transit Center at 5:39* a.m.</li>
+                            </ul>
+                            
+                            <p>* These trips will serve Knox Ave. Park &amp; Ride<br>
+                            ** These trips will serve James Ave. &amp; 94th St.<br>
+                            *** These trips will serve Knox Ave. Park &amp; Ride and 86th St. &amp; Lyndale</p>
+                            
+                            <p><strong>ROUTE 537</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 538</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 539</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 540</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 542</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 552</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 553</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trip to downtown, leaving Old Shakopee Rd. &amp; 10th Ave. at 7:06 a.m.</li>
+                                <li>Trip to Old Shakopee &amp; 10th Ave., leaving DeLaSalle High School at 4:41 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 554</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 558</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 578</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trip to downtown, leaving Johnson &amp; 78th St. at 7:40 a.m.</li>
+                                <li>Route 578B trips to Johnson &amp; 78th St., leaving Washington &amp; 2nd Ave. S. at 3:28 and 4:58 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 579</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 587</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 588</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 589</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 597</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>trip to downtown, leaving Normandale Community College at 7:08 a.m.</li>
+                                <li>Route 597B trip to Normandale Community College, leaving 2nd St. &amp; 3rd Ave. at 4:28 p.m.</li>
+                            </ul>
+                            
+                            <p id="600s"><strong>ROUTE 604</strong><br>
+                            Normal WEEKDAY service</p>
+                            
+                            <p><strong>ROUTE 612</strong><br>
+                            Saturday service plus:</p>
+                            
+                            <ul>
+                                <li>Added trip to Lagoon &amp; Emerson, leaving Opportunity Court at 5:33 a.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 615</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 643</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 645</strong><br>
+                            Saturday service plus:</p>
+                            
+                            <ul>
+                                <li>Added trips to 5th St. &amp; Marquette, leaving Wayzata Park &amp; Ride at 5:26, 6:11 and 6:40 a.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 652</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 663</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trips to downtown, leaving Hedberg Dr. at 6:45 and 8:11 a.m.</li>
+                                <li>Trips to Hedberg Dr., leaving 6th St. &amp; 10th Ave. at 2:57 and 4:30 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 664</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trip to downtown, leaving Smetana Dr. &amp; Smetana Rd. at 6:58 a.m.</li>
+                                <li>Trip to Smetana Dr. &amp; Green Circle Rd., leaving 1st St. &amp; 1st. Ave. at 4:32 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 667</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trip to downtown, leaving Co. Rd. 101 &amp; 62nd St. at 6:49 a.m.</li>
+                                <li>Trips to downtown, leaving Amhurst at 6:48 and 8:14 a.m.</li>
+                                <li>Route 667B trip to Amhurst, leaving Washington St. &amp; Hennepin Ave. at 4:06 p.m.</li>
+                                <li>Route 667H trip to Co. Rd. 101 &amp; 62nd St., leaving Washington St. &amp; Hennepin Ave. at 4:40 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 668</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 670</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trip to downtown leaving Water St. &amp; George at 6:40 a.m.</li>
+                                <li>Trip to Water St. &amp; George, leaving 3rd St. &amp; Marquette at 4:43 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 671</strong><br>
+                            No service<br>
+                            <br>
+                            <strong>ROUTE 672</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 673</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 677</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 679</strong><br>
+                            No service</p>
+                            
+                            <p id="700s"><strong>ROUTE 705</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 716</strong><br>
+                            Saturday Service</p>
+                            
+                            <p><strong>ROUTE 717</strong><br>
+                            Normal WEEKDAY service</p>
+                            
+                            <p><strong>ROUTE 721</strong><br>
+                            Normal WEEKDAY service</p>
+                            
+                            <p><strong>ROUTE 722</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 723</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 724</strong><br>
+                            Saturday service plus:</p>
+                            
+                            <ul>
+                                <li>Added C branch trips to Target Northern Campus, leaving Brooklyn Center Transit Center at 5:33 and 7:30 a.m. and 1:58 and 7:35 p.m.</li>
+                                <li>Added trips to Brooklyn Center Transit Center, leaving Target Northern Campus at 8:32 a.m. and 2:58, 3:44 and 8:27 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 755</strong><br>
+                            Normal WEEKDAY service</p>
+                            
+                            <p><strong>ROUTE 756</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trip to downtown, leaving Boone Ave. &amp; Science Center Dr. at 7:05 a.m.</li>
+                                <li>Trip to Boone &amp; Science Center Dr., leaving Gateway Ramp at 4:22 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 758</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 760</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trips to downtown, leaving 85th St. &amp; Xylon Ave. at 5:59, 6:30 and 7:25 a.m. (all via Candlewood)</li>
+                                <li>Route 760E trips to 85th St. &amp; Xylon, leaving 12th St. &amp; Hennepin at 3:37, 4:29 and 5:02 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 761</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trips to downtown, leaving Yates Ave. &amp; 80th Ave. at 6:28 and 6:56 a.m.</li>
+                                <li>Trip to Yates &amp; 80th, leaving 12th St. &amp; Hennepin at 5:07 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 762</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 763</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trip to downtown, leaving France Ave. &amp; 73rd Ave. at 7:03 a.m.</li>
+                                <li>Trip to France Ave. &amp; 73rd, leaving 12th St. &amp; Hennepin at 4:35 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 764</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trip to downtown, leaving Starlite Transit Center at 7:02 a.m.</li>
+                                <li>Trip to Starlite Transit Center, leaving Gateway Ramp at 4:30 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 765</strong><br>
+                            Normal WEEKDAY service</p>
+                            
+                            <p><strong>ROUTE 766</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Route 766G trips to downtown, leaving Richardson Park Park &amp; Ride at 6:05 and 8:08 a.m.</li>
+                                <li>Route 766F trips to downtown, leaving Richardson Park Park &amp; Ride at 6:23 and 6:47 a.m.</li>
+                                <li>Route 766E trip to Main St. &amp; 4th Ave., leaving 2nd Ave. &amp; 10th St. at 12:39 p.m.</li>
+                                <li>Route 766G trips to Richardson Park Park &amp; Ride, leaving 2nd Ave. &amp; 10th St. at 3:12, and 5:42 p.m.</li>
+                                <li>Route 766F trips to Richardson Park Park &amp; Ride, leaving 2nd &amp; 10th at 4:06, 4:39 and 5:13 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 768</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trips to downtown, leaving Noble Park &amp; Ride at 6:01, 6:18, 6:56, 7:20, 8:15 and 8:55 a.m.</li>
+                                <li>Trips to Noble Park &amp; Ride, leaving 2nd Ave. &amp; 10th St. at 1:08, 2:13, 3:18, 3:36, 4:02, 4:46 and 5:12 p.m.</li>
+                            </ul>
+                            
+                            <p id="800s"><strong>ROUTE 801</strong><br>
+                            Normal WEEKDAY service</p>
+                            
+                            <p><strong>ROUTE 805</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 824</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trips to downtown, leaving Northtown at 6:31 and 6:59 a.m.</li>
+                                <li>Trips to Northtown, leaving 2nd Ave. &amp; 11th St. at 4:11 and 4:41 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 825</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 831</strong><br>
+                            Normal WEEKDAY service except:</p>
+                            
+                            <ul>
+                                <li>First two morning northbound and southbound trips will not operate.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTE 850</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trips to downtown, leaving Anoka Technical College, via Foley Blvd. Park &amp; Ride, at 5:57, 6:26, 6:43,</li>
+                                <li>Trip to downtown, leaving Coon Rapids Station at 6:58 a.m.</li>
+                                <li>Trips to downtown, leaving Foley Blvd. Park &amp; Ride at 5:35, 5:50, 6:12 and 7:47 a.m.&nbsp;</li>
+                                <li>These northbound trips leave 2nd Ave. &amp; 11th St.:</li>
+                            </ul>
+                            
+                            <p>- Route 850A trips at 3:09, 4:08, 4:36 and 5:29 p.m.<br>
+                            - Route 850F trip at 2:48, 3:42 and 5:06 p.m.<br>
+                            - Route 850N trip at 4:51 p.m.</p>
+                            
+                            <p><strong>ROUTE 852</strong><br>
+                            Saturday service</p>
+                            
+                            <p><strong>ROUTE 854</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 860</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 865</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trips to downtown, leaving Paul Pkwy. Park &amp; Ride at 6:44 and 8:05 a.m.</li>
+                                <li>Trips to Paul Pkwy. Park &amp; Ride, leaving 2nd Ave. &amp; 11th St. at 3:08 and 4:34 p.m.</li>
+                            </ul>
+                            
+                            <p id="mapleGrove"><strong>MAPLE GROVE</strong></p>
+                            
+                            <p><strong>ROUTE 780</strong><br>
+                            No service</p>
+                            
+                            <p><strong>ROUTE 781</strong><br>
+                            No regular Saturday service. These trips will operate:</p>
+                            
+                            <ul>
+                                <li>Trips to downtown, leaving Maple Grove Transit Station at 5:05, 5:30, 6:17, 6:28, 6:47, 7:00, 7:12, 7:30, 7:41, 8:09, 8:30&nbsp;and 11:26 a.m.</li>
+                                <li>Trips to downtown, leaving Maple Grove Transit Station at 2:30, 4:00, and 5:00 p.m.</li>
+                                <li>Trips to Maple Grove Transit Station, leaving 2nd Ave &amp; 10th St at 5:50 and 6:33 a.m.</li>
+                                <li>Trips to Maple Grove Transit Station, leaving 2nd Ave &amp; 10th St at 12:16, 3:14, 3:37, 3:56, 4:14, 4:29, 4:40, 4:49, 5:00, 5:11, 6:06 and 6:36 p.m.</li>
+                            </ul>
+                            
+                            <p><strong>ROUTES 782, 783, 785, 787, 788 and 789</strong><br>
+                            No service</p>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<!-- End Main Content -->
+
+	<!-- Begin Footer -->
+	<footer class="section">
+		<div class="container">
+			<div class="btn-container center">
+				<a class="btn btn-secondary-ghost has-icon-right" href="/contact-us">Contact us</a>
+			</div>		
+			<p class="text-center d-lg-none my-3"><a class="h2" href="tel:612-373-3333">612-373-3333</a></p>			
+				<div id="google_translate_element">&nbsp;</div>
+			<div class="d-none d-xl-block social-media text-center">
+				<a href="https://www.twitter.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/twitter-gray.svg" /></a>
+				<a href="https://www.facebook.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/facebook-gray.svg" /></a>
+				<a href="https://www.youtube.com/MetroTransitMN"><img class="icon mr-2" src="/img/svg/youtube-gray.svg" /></a>
+				<a href="https://instagram.com/metrotransitmn"><img class="icon mr-2" src="/img/svg/instagram-gray.svg" /></a>
+				<a href="https://www.linkedin.com/company/metro-transit"><img class="icon mr-2" src="/img/svg/linkedin-gray.svg" /></a>
+				<a href="https://www.flickr.com/photos/metrotransitmn/"><img class="icon" src="/img/svg/flickr-gray.svg" /></a>
+			</div>			
+			<div class="footer d-none d-xl-block">
+				<div class="card-deck">
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">About Metro Transit</h4>						
+							<ul class="nav flex-column">
+								<li class="nav-item"><a class="nav-link" href="/transit-improvements">Transit Improvements</a></li>
+								<li class="nav-item"><a class="nav-link" href="/facilities-people">Facilities</a></li>
+								<li class="nav-item"><a class="nav-link" href="/riders-almanac-blog">Riders Almanac</a></li>
+								<li class="nav-item"><a class="nav-link" href="/use-of-transit-property">Use of Transit Property</a></li>
+							</ul>
+						</div>
+					</div>					
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Media Relations</h4>									
+							<ul class="nav flex-column">
+								<li class="nav-item"><a class="nav-link" href="/logos-images">Media Resources</a></li>
+								<li class="nav-item"><a class="nav-link" href="/awards">Awards</a></li>
+							</ul>
+						</div>
+					</div>				
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Careers</h4>							
+							<ul class="nav flex-column">
+								<li class="nav-item"><a class="nav-link" href="/jobs">Available Job Opportunities</a></li>
+								<li class="nav-item"><a class="nav-link" href="/drive">Become a Bus Driver</a></li>
+								<li class="nav-item"><a class="nav-link" href="/transit-police-careers">Join the Transit Police</a></li>
+							</ul>
+						</div>
+					</div>				
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Policies</h4>							
+							<ul class="nav flex-column">
+								<li class="nav-item"><a class="nav-link" href="/social-media-policy">Social Media Policy</a></li>
+								<li class="nav-item"><a class="nav-link" href="https://metrocouncil.org/Privacy-Policy.aspx" target="_blank">Privacy Policy</a></li>
+								<li class="nav-item"><a class="nav-link" href="/code-of-conduct">Code of Conduct</a></li>
+								<li class="nav-item"><a class="nav-link" href="/titlevi">Title VI: Commitment to Fairness</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>			
+				<div class="card-deck">
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Mission &amp; Impact</h4>							
+							<ul class="nav flex-column">
+								<li class="nav-item"><a class="nav-link" href="/about-metro-transit">Mission &amp; Funding</a></li>
+								<li class="nav-item"><a class="nav-link" href="/equity">Equity &amp; Inclusion</a></li>
+								<li class="nav-item"><a class="nav-link" href="/public-art-in-transit">Public Art</a></li>
+								<li class="nav-item"><a class="nav-link" href="/outreach">Outreach</a></li>
+								<li><a class="nav-link" href="/transit-oriented-development">Transit Oriented Development</a></li>
+							</ul>
+						</div>
+					</div>					
+					<div class="card border-0">
+						<div class="card-body">
+							<h4 class="card-title">Resources</h4>						
+							<ul class="nav flex-column">
+								<li class="nav-item"><a class="nav-link" href="/app">Try the Metro Transit App</a></li>
+								<li class="nav-item"><a class="nav-link" href="/advertise-with-metro-transit">Advertise with Us</a></li>
+								<li class="nav-item"><a class="nav-link" href="/apps">API Resources for Developers</a></li>
+							</ul>
+						</div>
+					</div>					
+					<div class="card border-0">&nbsp;</div>					
+					<div class="card border-0">&nbsp;</div>
+				</div>
+			</div>			
+			<p class="copyright">Metro Transit is a service of the <a href="https://metrocouncil.org/" target="_blank">Metropolitan Council</a>.<br />
+			Minneapolis/St. Paul, MN<br />
+			© 2020 Metro Transit</p>
+		</div>
+	</footer>
+	<!-- End Footer -->
+
+	<!-- scripts -->
+	<script src="/js/jquery.js"></script>
+	<script src="/js/popper.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	
+	<script src="/js/jquery.autocomplete.js"></script>
+	<!-- <!-- <script src="/js/jquery.validate.js"></script> -->
+	<!-- <script src="/js/additional-methods.js"></script> -->
+	<script src="/js/nextrip.js"></script>
+	<!-- <!-- <script src="/js/form-validation.js"></script> -->
+	<script src="https://js.arcgis.com/3.28/"></script>
+	<script src="/js/TRIM.js"></script>
+	<script src="/js/scripts.js"></script>
+	<!-- End scripts -->
+</body>
+
+</html>
