@@ -370,7 +370,7 @@ var NetworkNextMap = (function ($, window, document) {
 						// replace the page contents with an error text.
 						$('#networkNextMapContainer').html('We are currently experiencing difficulties and are unable to display this page at this time.');
 						alert('One or more geographic services needed for this map have failed to load properly.' +
-							'\n\nBecause of this, the map may not work as expected. \n\nTry again later.');
+							'\n\nBecause of this, the map may not work as expected. \n\nWe are working to correct the probelm.');
 					}
 					//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 					dfd.resolve();
@@ -388,25 +388,29 @@ var NetworkNextMap = (function ($, window, document) {
 					{
 						id: 'metroRoutes',
 						opacity: 1,
+						visible: false
 					}
 				);
 				layerMetroRoutes.setImageFormat('svg');
 				layerMetroRoutes.setVisibleLayers([0]);
+
 				var layerHiFreqRoutes = new ArcGISDynamicMapServiceLayer(
 					ROUTE_MAPSERVICE,
 					{
 						id: 'hiFreqRoutes',
 						opacity: 1,
+						visible: false
 					}
 				);
 				layerHiFreqRoutes.setImageFormat('svg');
-
 				layerHiFreqRoutes.setVisibleLayers([1]);
+
 				var layerLocalRoutes = new ArcGISDynamicMapServiceLayer(
 					ROUTE_MAPSERVICE,
 					{
 						id: 'localRoutes',
-						opacity: 1,
+						opacity: 0.6,
+						visible: true
 					}
 				);
 				layerLocalRoutes.setImageFormat('svg');
@@ -417,6 +421,7 @@ var NetworkNextMap = (function ($, window, document) {
 					{
 						id: 'expressRoutes',
 						opacity: 1,
+						visible: false
 					}
 				);
 				layerExpressRoutes.setImageFormat('svg');
@@ -427,6 +432,7 @@ var NetworkNextMap = (function ($, window, document) {
 					{
 						id: 'subRoutes',
 						opacity: 1,
+						visible: false
 					}
 				);
 				layerSubRoutes.setImageFormat('svg');
@@ -484,7 +490,7 @@ var NetworkNextMap = (function ($, window, document) {
 
 				var mapLayers = [
 					layerMetroRoutes,
-					layerHiFreqRoutes,
+					//layerHiFreqRoutes,
 					layerLocalRoutes,
 					layerExpressRoutes,
 					layerSubRoutes,
@@ -531,10 +537,67 @@ var NetworkNextMap = (function ($, window, document) {
 			});
 		}).promise();
 	};
+	var updateLayersByTime = function (/*int*/phase) {
+		// first hide all visible layers in the MAP
+		$.each(MAP.layerIds, function (idx, layerId) {
+			if (MAP.getLayer(layerId).visible && layerId !== 'layer0') {
+				MAP.getLayer(layerId).hide();
+			}
+		});
+		// then based on which Time period we're showing, turn on the layers
+		// as selected in the route set switches
+		switch (phase) {
+			case 1: // current
+				if ($('#networkNextMapLayer1').is(':checked')) {
+					MAP.getLayer('metroRoutes').show();
+				}
+				if ($('#networkNextMapLayer2').is(':checked')) {
+					MAP.getLayer('localRoutes').show();
+				}
+				if ($('#networkNextMapLayer3').is(':checked')) {
+					MAP.getLayer('expressRoutes').show();
+				}
+				if ($('#networkNextMapLayer4').is(':checked')) {
+					MAP.getLayer('subRoutes').show();
+				}
+				break;
+			default:
+				break;
+		}
+
+	};
+	var updateLayersByType = function (/*int*/type) {
+		switch (type) {
+			case 1: // metro
+				if ($('#networkNextTimeSelect1').is(':checked')) {
+					toggleLayer('metroRoutes');
+				}
+				break;
+			case 2: // local
+				if ($('#networkNextTimeSelect1').is(':checked')) {
+					toggleLayer('localRoutes');
+				}
+				break;
+			case 3: // express
+				if ($('#networkNextTimeSelect1').is(':checked')) {
+					toggleLayer('expressRoutes');
+				}
+				break;
+			case 4: // express
+				if ($('#networkNextTimeSelect1').is(':checked')) {
+					toggleLayer('subRoutes');
+				}
+				break;
+			default:
+				break;
+		}
+	};
 	return {
 		centerMarkerAtPoint: centerMarkerAtPoint,
 		toggleLayer: toggleLayer,
 		toggleRoute: toggleRoute,
+		updateLayersByTime: updateLayersByTime,
+		updateLayersByType: updateLayersByType,
 		init: init
 	};
 })(jQuery, window, document);
@@ -564,16 +627,28 @@ $(function () {
 			console.log('Map loaded');
 		});
 		$('#networkNextMapLayer1').click(function () {
-			NetworkNextMap.toggleLayer('metroRoutes');
+			NetworkNextMap.updateLayersByType(1);
 		});
 		$('#networkNextMapLayer2').click(function () {
-			NetworkNextMap.toggleLayer('localRoutes');
+			NetworkNextMap.updateLayersByType(2);
 		});
-		$('#networkNextMapLayer1').click(function () {
-			NetworkNextMap.toggleLayer('expressRoutes');
+		$('#networkNextMapLayer3').click(function () {
+			NetworkNextMap.updateLayersByType(3);
 		});
-		$('#networkNextMapLayer2').click(function () {
-			NetworkNextMap.toggleLayer('subRoutes');
+		$('#networkNextMapLayer4').click(function () {
+			NetworkNextMap.updateLayersByType(4);
+		});
+		$('#networkNextTimeSelect1').click(function () {
+			NetworkNextMap.updateLayersByTime(1);
+		});
+		$('#networkNextTimeSelect2').click(function () {
+			NetworkNextMap.updateLayersByTime(2);
+		});
+		$('#networkNextTimeSelect3').click(function () {
+			NetworkNextMap.updateLayersByTime(3);
+		});
+		$('#networkNextTimeSelect4').click(function () {
+			NetworkNextMap.updateLayersByTime(4);
 		});
 	}
 

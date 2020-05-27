@@ -249,84 +249,33 @@
 												gestures.</span>
 										</div>
 									</div>
-									<!-- <div class="container">
-										<div class="row mb-4">
-											<div class="col-2"></div>
-											<div class="col-10">
-												<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-													<input type="checkbox" class="custom-control-input"
-														id="networkNextMapLayer1" checked />
-													<label class="custom-control-label"
-														for="networkNextMapLayer1">Proposed
-														Routes</label>
-												</div>
-											</div>
-										</div>
-									</div> -->
 									<div class="container">
 										<div class="row">
-											<div class="col-lg-3"></div>
-											<div class="col-lg-9 small">
-												<div>Click on map symbols for more information about planned changes.
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-lg-3">
-												<!-- <div class="mb-4">Show Times
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-														<input type="radio" class="custom-control-input"
-															id="networkNextTimeSelect1" checked />
-														<label class="custom-control-label"
-															for="networkNextMapLayer1">Current
-														</label>
-													</div>
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-														<input type="radio" class="custom-control-input"
-															id="networkNextTimeSelect2" />
-														<label class="custom-control-label"
-															for="networkNextMapLayer2">TBD1
-														</label>
-													</div>
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-														<input type="radio" class="custom-control-input"
-															id="networkNextTimeSelect3" />
-														<label class="custom-control-label"
-															for="networkNextMapLayer3">TBD2
-														</label>
-													</div>
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-														<input type="radio" class="custom-control-input"
-															id="networkNextTimeSelect4" />
-														<label class="custom-control-label"
-															for="networkNextMapLayer4">2040
-														</label>
-													</div>
-												</div> -->
+											<div class="col-lg-2 mt-1">
 												<fieldset>
-													<legend class="h4">Show Times</legend>
-													<div class="custom-control custom-radio">
+													<legend class="h4"></legend>
+													<div class="custom-control custom-radio d-sm-inline-flex mr-sm-5">
 														<input id="networkNextTimeSelect1" type="radio"
 															class="custom-control-input" name="selecttime" value="2020"
 															checked />
 														<label for="networkNextTimeSelect1"
 															class="custom-control-label">Current</label>
 													</div>
-													<div class="custom-control custom-radio">
+													<div class="custom-control custom-radio d-sm-inline-flex mr-sm-5">
 														<input id="networkNextTimeSelect2" type="radio"
 															class="custom-control-input" name="selecttime"
 															value="2025" />
 														<label for="networkNextTimeSelect2"
 															class="custom-control-label">2025</label>
 													</div>
-													<div class="custom-control custom-radio">
+													<div class="custom-control custom-radio d-sm-inline-flex mr-sm-5">
 														<input id="networkNextTimeSelect3" type="radio"
 															class="custom-control-input" name="selecttime"
 															value="2030" />
 														<label for="networkNextTimeSelect3"
 															class="custom-control-label">2030</label>
 													</div>
-													<div class="custom-control custom-radio">
+													<div class="custom-control custom-radio d-sm-inline-flex mr-sm-5">
 														<input id="networkNextTimeSelect4" type="radio"
 															class="custom-control-input" name="selecttime"
 															value="2040" />
@@ -339,23 +288,23 @@
 													<legend class="h4">Show Routes</legend>
 
 
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+													<div class="custom-control custom-switch d-sm-inline-flex mr-sm-5">
 
 														<input type="checkbox" class="custom-control-input"
-															id="networkNextMapLayer1" checked />
+															id="networkNextMapLayer1" />
 														<label class="custom-control-label"
 															for="networkNextMapLayer1">Metro
 														</label>
 													</div>
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+													<div class="custom-control custom-switch d-sm-inline-flex mr-sm-5">
 
 														<input type="checkbox" class="custom-control-input"
-															id="networkNextMapLayer2" />
+															id="networkNextMapLayer2" checked />
 														<label class="custom-control-label"
 															for="networkNextMapLayer2">Core
 														</label>
 													</div>
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+													<div class="custom-control custom-switch d-sm-inline-flex mr-sm-5">
 
 														<input type="checkbox" class="custom-control-input"
 															id="networkNextMapLayer3" />
@@ -363,7 +312,7 @@
 															for="networkNextMapLayer3">Express
 														</label>
 													</div>
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+													<div class="custom-control custom-switch d-sm-inline-flex mr-sm-5">
 
 														<input type="checkbox" class="custom-control-input"
 															id="networkNextMapLayer4" />
@@ -375,20 +324,17 @@
 												<div id="networkNextMapLegend"
 													aria-label="graphic display of symbols used in the map">&nbsp;</div>
 											</div>
-											<div class="col-lg-9 map-container">
+											<div class="col-lg-10 map-container">
+												<span class="small">Click on route line for more information about
+													planned changes.
+												</span>
 												<div id="networkNextInteractiveMap" class="map border"
 													aria-label="interactive map of proposed route changes">
 													<div id="networkNextMapLocate">&nbsp;</div>
 													<div class="mapLoading">&nbsp;</div>
 												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-lg-2"></div>
-											<div class="col-lg-10 small">
-												<div>For more information, link to <a
-														href="https://www.metrotransit.org/network-next">https://www.metrotransit.org/network-next</a>
-												</div>
+												<span class="small">For more information, link to <a
+														href="https://www.metrotransit.org/network-next">https://www.metrotransit.org/network-next</a></span>
 											</div>
 										</div>
 									</div>
