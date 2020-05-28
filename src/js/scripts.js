@@ -1,40 +1,57 @@
+'use strict';
+
 var Main = (function($, window, document, undefined) {
 	'use strict';
 
-	var getCookie = function(check_name) {
+	var getCookie = function getCookie(check_name) {
 		var a_all_cookies = document.cookie.split(';');
 		var a_temp_cookie = '';
 		var cookie_name = '';
 		var cookie_value = '';
 		var b_cookie_found = false;
 		var i = '';
+
 		for (i = 0; i < a_all_cookies.length; i++) {
 			a_temp_cookie = a_all_cookies[i].split('=');
 			cookie_name = a_temp_cookie[0].replace(/^\s+|\s+$/g, '');
+
 			if (cookie_name === check_name) {
 				b_cookie_found = true;
+
 				if (a_temp_cookie.length > 1) {
 					cookie_value = unescape(
 						a_temp_cookie[1].replace(/^\s+|\s+$/g, '')
 					);
 				}
+
 				return cookie_value;
 				break;
 			}
+
 			a_temp_cookie = null;
 			cookie_name = '';
 		}
+
 		if (!b_cookie_found) {
 			return null;
 		}
 	};
 
-	var setCookie = function(name, value, expires, path, domain, secure) {
+	var setCookie = function setCookie(
+		name,
+		value,
+		expires,
+		path,
+		domain,
+		secure
+	) {
 		var today = new Date();
 		today.setTime(today.getTime());
+
 		if (expires) {
 			expires = expires * 1000 * 60 * 60 * 24;
 		}
+
 		var expires_date = new Date(today.getTime() + expires);
 		document.cookie =
 			name +
@@ -46,7 +63,7 @@ var Main = (function($, window, document, undefined) {
 			(secure ? ';secure' : '');
 	};
 
-	var deleteCookie = function(name, path, domain) {
+	var deleteCookie = function deleteCookie(name, path, domain) {
 		if (getCookie(name))
 			document.cookie =
 				name +
@@ -56,8 +73,8 @@ var Main = (function($, window, document, undefined) {
 				';expires=Thu, 01-Jan-1970 00:00:01 GMT';
 	};
 
-	var popupAlertNotice = function(cookieID, expire) {
-		if ($('#special-alert-notice').hasClass('alert-popup')) {
+	var popupAlertNotice = function popupAlertNotice(cookieID, expire) {
+		if ($('.alert-popup').length) {
 			if (
 				cookieID.substring(0, 3) === 'pop' &&
 				getCookie('PopupNoticeShown' + cookieID) !== 'true'
@@ -67,34 +84,36 @@ var Main = (function($, window, document, undefined) {
 					.prependTo('body')
 					.addClass('alert-popup-overlay');
 				$('body').addClass('hidden-overflow');
-				$('#special-alert-notice').show();
-				$('button[data-dismiss="alert"]').one('click', function() {
-					$('#special-alert-notice').hide();
+				$('.alert-popup').show();
+				$('button[data-dismiss="alert"]').on('click', function() {
+					$('.alert-popup').hide();
 					$('.alert-popup-overlay').remove();
 					$('body').removeClass('hidden-overflow');
 				});
 			}
 		}
 
-		if ($('#special-alert-notice').hasClass('alert-topmargin')) {
+		if ($('.alert-topmargin').length) {
 			if (
 				cookieID.substring(0, 3) === 'top' &&
 				getCookie('PopupNoticeShown' + cookieID) !== 'true'
 			) {
-				$('body').prepend($('#special-alert-notice').show());
+				$('body').prepend($('.alert-topmargin').show());
 			}
-			$('#special-alert-notice').on('close.bs.alert', function() {
+
+			$('.alert-topmargin').on('close.alert-topmargin', function() {
 				setCookie('PopupNoticeShown' + cookieID, 'true', expire);
 			});
 		}
 	};
 
-	var enterKeyPressHandler = function(f, t) {
+	var enterKeyPressHandler = function enterKeyPressHandler(f, t) {
 		var field = $(f);
 		field.on('focus', function() {
 			$(document).on('keydown', function(event) {
 				if (field.attr('id') !== event.target.id) return;
 				if (field.val() === '') return;
+
 				if (event.which === 13) {
 					event.preventDefault();
 					$(t).trigger('click');
@@ -106,21 +125,22 @@ var Main = (function($, window, document, undefined) {
 		});
 	};
 
-	var init = function() {
+	var init = function init() {
 		// shopping cart number
-		let qty = getCookie('cart_status');
+		var qty = getCookie('cart_status');
+
 		if (qty !== null && qty > 0) {
-			$('<span/>', { class: 'badge badge-info' })
+			$('<span/>', {
+				class: 'badge badge-info',
+			})
 				.text(qty)
 				.appendTo($('a.store-icon'));
-		}
+		} // Initialize Bootstrap Popover
 
-		// Initialize Bootstrap Popover
 		$('[data-toggle="popover"]').popover({
 			html: true,
 			trigger: 'focus',
 		});
-
 		$('#header img.active').hide();
 		var navImg = $('#header .nav-item');
 		$(navImg).hover(
@@ -140,18 +160,16 @@ var Main = (function($, window, document, undefined) {
 					.find('img.active')
 					.hide();
 			}
-		);
+		); // Secondary nav set active item
 
-		// Secondary nav set active item
 		if ($('.secondary-nav').length) {
 			$(
-				'.secondary-nav > ul > li > a[href^="' +
+				'.secondary-nav > ul > li > a[href="' +
 					location.pathname.replace('/', '\\/') +
 					'"]'
 			).addClass('active');
-		}
+		} // Lost & found form - Mail item toggeler
 
-		// Lost & found form - Mail item toggeler
 		$('#mailItem').click(function() {
 			if ($(this).is(':checked')) {
 				$('#mailingAddress').fadeIn(300);
@@ -161,9 +179,8 @@ var Main = (function($, window, document, undefined) {
 				$('#mailingAddress input').removeAttr('required');
 				$('#mailingAddress').fadeOut(300);
 			}
-		});
+		}); // Google CSE
 
-		// Google CSE
 		$('#siteSearchBtn').on('click', function() {
 			window.location =
 				$('meta[name=metrotransit-org-uri]').attr('content') +
@@ -183,8 +200,8 @@ var Main = (function($, window, document, undefined) {
 $(function() {
 	Main.init();
 });
-
 /* for google translate element in the footer */
+
 function googleTranslateElementInit() {
 	new google.translate.TranslateElement(
 		{
