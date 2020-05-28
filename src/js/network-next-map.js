@@ -1,3 +1,62 @@
+var randomColor = (function () {
+	const Colors = {};
+	Colors.names = {
+		aqua: "#00ffff",
+		azure: "#f0ffff",
+		beige: "#f5f5dc",
+		black: "#000000",
+		blue: "#0000ff",
+		brown: "#a52a2a",
+		cyan: "#00ffff",
+		darkblue: "#00008b",
+		darkcyan: "#008b8b",
+		darkgrey: "#a9a9a9",
+		darkgreen: "#006400",
+		darkkhaki: "#bdb76b",
+		darkmagenta: "#8b008b",
+		darkolivegreen: "#556b2f",
+		darkorange: "#ff8c00",
+		darkorchid: "#9932cc",
+		darkred: "#8b0000",
+		darksalmon: "#e9967a",
+		darkviolet: "#9400d3",
+		fuchsia: "#ff00ff",
+		gold: "#ffd700",
+		green: "#008000",
+		indigo: "#4b0082",
+		khaki: "#f0e68c",
+		lightblue: "#add8e6",
+		lightcyan: "#e0ffff",
+		lightgreen: "#90ee90",
+		lightgrey: "#d3d3d3",
+		lightpink: "#ffb6c1",
+		lightyellow: "#ffffe0",
+		lime: "#00ff00",
+		magenta: "#ff00ff",
+		maroon: "#800000",
+		navy: "#000080",
+		olive: "#808000",
+		orange: "#ffa500",
+		pink: "#ffc0cb",
+		purple: "#800080",
+		violet: "#800080",
+		red: "#ff0000",
+		silver: "#c0c0c0",
+		white: "#ffffff",
+		yellow: "#ffff00"
+	};
+	var pickOne = function () {
+		var result;
+		var count = 0;
+		for (var prop in Colors.names)
+			if (Math.random() < 1 / ++count)
+				result = prop;
+		return { name: result, rgb: Colors.names[result] };
+	};
+	return {
+		pickOne: pickOne
+	}
+})();
 var NetworkNextMap = (function ($, window, document) {
 	'use strict';
 	const ROUTE_MAPSERVICE =
@@ -74,13 +133,18 @@ var NetworkNextMap = (function ($, window, document) {
 	// pass routes array to highlight those routes in color
 	// pass nothing to clear them off
 	//
-	var drawRoutes = function (/*[string]*/ routes, /*string*/layerId, /*bool*/zoom) {
+	var random_rgba = function () {
+		var o = Math.round, r = Math.random, s = 100;
+		return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
+	}
+	var drawRoutes = function (/*[string]*/ routes, /*bool*/zoom) {
 		zoom = typeof zoom !== 'undefined' ? zoom : false;
-		var routeLayer = MAP.getLayer(layerId);
-		if (!routeLayer) return;
+		MAP.graphics.clear();
+		// var routeLayer = MAP.getLayer('allRoutes');
+		// if (!routeLayer) return;
 
-		var routesQuery = [];
-		routesQuery[4] = '1=0';
+		// var routesQuery = [];
+		// routesQuery[4] = '1=0';
 		if (routes) {
 			routes = routes.filter(function (value, idx, arr) {
 				return value !== '906'; // remove 906 from list
@@ -93,17 +157,18 @@ var NetworkNextMap = (function ($, window, document) {
 				queryWhere += routes[i];
 			}
 			queryWhere += ')';
-			routesQuery[4] = queryWhere; // query for sublayer 4
-		}
-		routeLayer.setLayerDefinitions(routesQuery);
-		// route(s) should now be displaying
-		if (routes && zoom) {
+			// 	routesQuery[4] = queryWhere; // query for sublayer 4
+			// }
+			// routeLayer.setLayerDefinitions(routesQuery);
+			// let routeService = routeLayer.url;
+			let routeService = 'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/'
+			//if (routes && zoom) {
 			// This routine does nothing more than extract the line features for the
 			// requested routes and determine the extent of the features
 			// by unioning their extents and then it zooms to the extent
 			$.ajax({
 				type: 'get',
-				url: routeLayer.url + '/4/query',
+				url: routeService + '/4/query',
 				data: {
 					where: queryWhere,
 					returnGeometry: true,
@@ -114,21 +179,30 @@ var NetworkNextMap = (function ($, window, document) {
 			})
 				.done(function (result, status, xhr) {
 					if (result.features.length > 0) {
-						require(['esri/geometry/Polyline'], function (Polyline) {
+						require([
+							'esri/geometry/Polyline',
+							'esri/symbols/SimpleLineSymbol',
+							'esri/Color',
+							'esri/graphic'
+						], function (Polyline, SimpleLineSymbol, Color, Graphic) {
 							var extent;
-							for (
-								let i = 0, l = result.features.length;
-								i < l;
-								i++
-							) {
-								var g = new Polyline({
+							for (let i = 0, l = result.features.length; i < l; i++) {
+								let geom = new Polyline({
 									paths: result.features[i].geometry.paths,
 									spatialReference: result.spatialReference,
 								});
+								let line = new SimpleLineSymbol();
+								let color = randomColor.pickOne();
+								line.setColor(new Color(color.name));
+								line.setWidth(3);
+								let g = new Graphic();
+								g.setGeometry(geom);
+								g.setSymbol(line);
+								MAP.graphics.add(g);
 								if (i === 0) {
-									extent = g.getExtent();
+									extent = geom.getExtent();
 								} else {
-									extent = extent.union(g.getExtent());
+									extent = extent.union(geom.getExtent());
 								}
 							}
 							MAP.setExtent(extent, true);
@@ -167,14 +241,14 @@ var NetworkNextMap = (function ($, window, document) {
 		}
 		drawRoutes(ROUTESTOSHOW, 'currentRoutes', /*zoom*/ false);
 	}
-	var formatRouteList = function formatRouteList(/*string*/routeList) {
+	var formatPopUpList = function formatPopUpList(/*string*/routeList) {
 		var w = routeList;
 		if (typeof routeList === 'string') {
 			var routestring = '';
 			w = routeList.split(' ').sort(function (a, b) { return parseInt(a) - parseInt(b); });
 		}
 		if (w.length > 0) {
-			for (var i = 0, len = w.length; i < len; i++) {
+			for (let i = 0, len = w.length; i < len; i++) {
 				if (i > 0) { routestring += '<br/>'; }
 				var rt = w[i];
 				var rtName = '';
@@ -197,6 +271,7 @@ var NetworkNextMap = (function ($, window, document) {
 		//console.log(routestring);
 		return routestring;
 	};
+
 	var idMapRoutes = function (evt) {
 		require(['esri/tasks/query',
 			'esri/tasks/QueryTask',
@@ -237,7 +312,7 @@ var NetworkNextMap = (function ($, window, document) {
 							}
 							routes += atts.LINE_ID;
 						}
-						var content = formatRouteList(routes);
+						var content = formatPopUpList(routes);
 
 						MAP.infoWindow.setTitle('Route Service');
 						MAP.infoWindow.setContent(content);
@@ -273,12 +348,17 @@ var NetworkNextMap = (function ($, window, document) {
 				Query, QueryTask, SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton) {
 
 				var createRouteList = function () {
+					// this function creates two lists from one source:
+					// List 1: an object list have with the route number and description. This get used to show the
+					//         route description in the pop-up lists.
+					// List 2: is the route selection pull-down list to highlight a route on the map.
 					var query = new Query();
 					var queryTask = new QueryTask(
 						'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/4'
 					);
 					query.returnGeometry = false;
 					query.where = '1=1'; // extract them all
+					query.orderByFields = ['ROUTENUM'];
 					query.outFields = ['ROUTENUM', 'ROUTEDESCRIPTION'];
 					queryTask.execute(query);
 					queryTask.on('error', function (err) {
@@ -287,8 +367,11 @@ var NetworkNextMap = (function ($, window, document) {
 					});
 					queryTask.on('complete', function (fSet) {
 						if (fSet.featureSet.features.length > 0) {
-							ROUTENAMES = {};
-							// Outformat { "901": "METRO Blue Line" }
+							ROUTENAMES = {}; // Outformat { "901": "METRO Blue Line" }
+							let routedrop = $('#nnRoute');
+							routedrop.empty(); // clear the select list
+							routedrop.append($('<option selected/>').val('').text('Route'));
+
 							for (let i = 0, l = fSet.featureSet.features.length; i < l; i++) {
 								var route =
 									fSet.featureSet.features[i].attributes;
@@ -301,6 +384,11 @@ var NetworkNextMap = (function ($, window, document) {
 										' ' +
 										route.ROUTEDESCRIPTION;
 								}
+								routedrop.append(
+									$('<option/>')
+										.val(route.ROUTENUM)
+										.text(route.ROUTENUM + " - " + route.ROUTEDESCRIPTION)
+								);
 							}
 						}
 					});
@@ -533,6 +621,11 @@ var NetworkNextMap = (function ($, window, document) {
 					MAP.disableScrollWheel();
 
 					createRouteList();
+					// When route dropdown changes, draw it
+					$('#nnRoute').change(function () {
+						let routeId = this.value;
+						if (routeId !== '') drawRoutes([routeId], true);
+					});
 				});
 			});
 		}).promise();
@@ -560,6 +653,12 @@ var NetworkNextMap = (function ($, window, document) {
 				if ($('#networkNextMapLayer4').is(':checked')) {
 					MAP.getLayer('subRoutes').show();
 				}
+				break;
+			case 2: //
+				break;
+			case 3: //
+				break;
+			case 4: //
 				break;
 			default:
 				break;
@@ -596,6 +695,7 @@ var NetworkNextMap = (function ($, window, document) {
 		centerMarkerAtPoint: centerMarkerAtPoint,
 		toggleLayer: toggleLayer,
 		toggleRoute: toggleRoute,
+		drawRoutes: drawRoutes,
 		updateLayersByTime: updateLayersByTime,
 		updateLayersByType: updateLayersByType,
 		init: init
@@ -623,6 +723,7 @@ $(function () {
 				);
 			}
 		);
+
 		NetworkNextMap.init('networkNextInteractiveMap').then(function () {
 			console.log('Map loaded');
 		});

@@ -3,15 +3,24 @@
 		width: 2.5rem;
 		height: 2.5rem;
 	}
-	.map {
-		height: 100%;
-		width: 100%;
-	}
 	.map-container {
 		height: 600px;
 		width: 100%;
 	}
 
+	.select-route, .custom-select {
+			position: relative;
+			display: block;
+			height: 40px;
+			color: $gray-300;
+			@include font-size(18);
+			// padding: 0.75rem;
+
+			@include media-breakpoint-up(lg) {
+				height: 50px;
+				@include font-size(24);
+			}
+		}
 	.auto-complete-search-box {
 		.input-group {
 			.custom-width {
