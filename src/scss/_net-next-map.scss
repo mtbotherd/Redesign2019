@@ -135,4 +135,17 @@
 	.esriPopup .titleButton.maximize {
 		display: none;
 	}
+	.esriPopup .contentPane {
+		background-color: #fff;
+		line-height: 4px;
+		white-space: nowrap;
+		font-size: 1em;
+		@include media-breakpoint-up(md) {
+			font-size: 1.1em;
+		}
+	}
+
+	.esriPopup .contentPane input {
+		margin: 3px;
+	}
 }

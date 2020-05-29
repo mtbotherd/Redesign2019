@@ -1,62 +1,3 @@
-var randomColor = (function () {
-	const Colors = {};
-	Colors.names = {
-		aqua: "#00ffff",
-		azure: "#f0ffff",
-		beige: "#f5f5dc",
-		black: "#000000",
-		blue: "#0000ff",
-		brown: "#a52a2a",
-		cyan: "#00ffff",
-		darkblue: "#00008b",
-		darkcyan: "#008b8b",
-		darkgrey: "#a9a9a9",
-		darkgreen: "#006400",
-		darkkhaki: "#bdb76b",
-		darkmagenta: "#8b008b",
-		darkolivegreen: "#556b2f",
-		darkorange: "#ff8c00",
-		darkorchid: "#9932cc",
-		darkred: "#8b0000",
-		darksalmon: "#e9967a",
-		darkviolet: "#9400d3",
-		fuchsia: "#ff00ff",
-		gold: "#ffd700",
-		green: "#008000",
-		indigo: "#4b0082",
-		khaki: "#f0e68c",
-		lightblue: "#add8e6",
-		lightcyan: "#e0ffff",
-		lightgreen: "#90ee90",
-		lightgrey: "#d3d3d3",
-		lightpink: "#ffb6c1",
-		lightyellow: "#ffffe0",
-		lime: "#00ff00",
-		magenta: "#ff00ff",
-		maroon: "#800000",
-		navy: "#000080",
-		olive: "#808000",
-		orange: "#ffa500",
-		pink: "#ffc0cb",
-		purple: "#800080",
-		violet: "#800080",
-		red: "#ff0000",
-		silver: "#c0c0c0",
-		white: "#ffffff",
-		yellow: "#ffff00"
-	};
-	var pickOne = function () {
-		var result;
-		var count = 0;
-		for (var prop in Colors.names)
-			if (Math.random() < 1 / ++count)
-				result = prop;
-		return { name: result, rgb: Colors.names[result] };
-	};
-	return {
-		pickOne: pickOne
-	}
-})();
 var NetworkNextMap = (function ($, window, document) {
 	'use strict';
 	const ROUTE_MAPSERVICE =
@@ -133,23 +74,56 @@ var NetworkNextMap = (function ($, window, document) {
 	// pass routes array to highlight those routes in color
 	// pass nothing to clear them off
 	//
-	var random_rgba = function () {
-		var o = Math.round, r = Math.random, s = 100;
-		return 'rgba(' + o(r() * s) + ',' + o(r() * s) + ',' + o(r() * s) + ',' + r().toFixed(1) + ')';
-	}
+	const COLORS = [
+		'black',
+		'orangered',
+		'gold',
+		'royalblue',
+		'green',
+		'darkslategray',
+		'deeppink',
+		'rebeccapurple',
+		'teal',
+		'slateblue',
+		'indigo',
+		'darkblue',
+		'darkcyan',
+		'darkgrey',
+		'crimson',
+		'darkgreen',
+		'blueviolet',
+		'darkkhaki',
+		'darkmagenta',
+		'darkolivegreen',
+		'darkorange',
+		'darkorchid',
+		'aqua',
+		'azure',
+		'seagreen',
+		'blue',
+		'brown',
+		'cyan',
+		'sienna',
+		'darkred',
+		'darksalmon',
+		'darkviolet',
+		'firebrick',
+		'fuchsia',
+		'darkslateblue',
+		'midnightblue'
+	];
+
 	var drawRoutes = function (/*[string]*/ routes, /*bool*/zoom) {
 		zoom = typeof zoom !== 'undefined' ? zoom : false;
 		MAP.graphics.clear();
-		// var routeLayer = MAP.getLayer('allRoutes');
-		// if (!routeLayer) return;
-
 		// var routesQuery = [];
-		// routesQuery[4] = '1=0';
+		var queryWhere = '1=0';
+
 		if (routes) {
 			routes = routes.filter(function (value, idx, arr) {
 				return value !== '906'; // remove 906 from list
 			});
-			var queryWhere = 'ROUTENUMBER in (';
+			queryWhere = 'ROUTENUMBER in (';
 			for (let i = 0, l = routes.length; i < l; i++) {
 				if (i > 0) {
 					queryWhere += ',';
@@ -157,64 +131,84 @@ var NetworkNextMap = (function ($, window, document) {
 				queryWhere += routes[i];
 			}
 			queryWhere += ')';
-			// 	routesQuery[4] = queryWhere; // query for sublayer 4
-			// }
-			// routeLayer.setLayerDefinitions(routesQuery);
-			// let routeService = routeLayer.url;
-			let routeService = 'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/'
-			//if (routes && zoom) {
-			// This routine does nothing more than extract the line features for the
-			// requested routes and determine the extent of the features
-			// by unioning their extents and then it zooms to the extent
-			$.ajax({
-				type: 'get',
-				url: routeService + '/4/query',
-				data: {
-					where: queryWhere,
-					returnGeometry: true,
-					outFields: 'ROUTENUMBER',
-					f: 'json',
-				},
-				dataType: 'json',
-			})
-				.done(function (result, status, xhr) {
-					if (result.features.length > 0) {
-						require([
-							'esri/geometry/Polyline',
-							'esri/symbols/SimpleLineSymbol',
-							'esri/Color',
-							'esri/graphic'
-						], function (Polyline, SimpleLineSymbol, Color, Graphic) {
-							var extent;
-							for (let i = 0, l = result.features.length; i < l; i++) {
-								let geom = new Polyline({
-									paths: result.features[i].geometry.paths,
-									spatialReference: result.spatialReference,
-								});
-								let line = new SimpleLineSymbol();
-								let color = randomColor.pickOne();
-								line.setColor(new Color(color.name));
-								line.setWidth(3);
-								let g = new Graphic();
-								g.setGeometry(geom);
-								g.setSymbol(line);
-								MAP.graphics.add(g);
-								if (i === 0) {
-									extent = geom.getExtent();
-								} else {
-									extent = extent.union(geom.getExtent());
-								}
-							}
-							MAP.setExtent(extent, true);
-						});
-					}
-				})
-				.fail(function (err) {
-					console.warn(
-						'Routes fatal error fetching polylines: ' + err.Message
-					);
-				});
+
 		}
+		// ******************
+		// Here we set a query on a feature layer defined in the map
+		// rather than a direct query of any service to get a line geometry
+		// *****************
+		// routeLayer.setLayerDefinitions(routesQuery);
+		// let routeService = routeLayer.url;
+		// var routeLayer = MAP.getLayer('allRoutes');
+		// if (!routeLayer) return;
+		// 	routesQuery[4] = queryWhere; // query for sublayer 4
+
+		let routeService = 'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/'
+		$.ajax({
+			type: 'get',
+			url: routeService + '/4/query',
+			data: {
+				where: queryWhere,
+				returnGeometry: true,
+				outFields: 'ROUTENUMBER',
+				f: 'json',
+			},
+			dataType: 'json',
+		})
+			.done(function (result, status, xhr) {
+				if (result && result.features.length > 0) {
+					require([
+						'esri/geometry/Polyline',
+						'esri/symbols/SimpleLineSymbol',
+						'esri/symbols/TextSymbol',
+						'esri/symbols/Font',
+						'esri/Color',
+						'esri/graphic'
+					], function (Polyline, SimpleLineSymbol, TextSymbol, Font, Color, Graphic) {
+						var extent;
+						for (let i = 0, l = result.features.length; i < l; i++) {
+							let geom = new Polyline({
+								paths: result.features[i].geometry.paths,
+								spatialReference: result.spatialReference,
+							});
+							let line = new SimpleLineSymbol();
+							//line.setColor(new Color(COLORS[i]));
+							line.setColor(new Color('darkcyan'));
+							line.setWidth(3);
+							let g = new Graphic();
+							g.setGeometry(geom);
+							g.setSymbol(line);
+							MAP.graphics.add(g);
+
+							let font = new Font("18px",
+								Font.STYLE_NORMAL,
+								Font.VARIANT_NORMAL,
+								Font.WEIGHT_BOLD);
+							let text = result.features[i].attributes.ROUTENUMBER;
+							var textSymbol = new TextSymbol(
+								text,
+								font,
+								new Color([64, 128, 255]) // a light-blue
+								//new Color('darkcyan')
+							);
+							let labelPoint = geom.getExtent().getCenter().offset(0, 10);
+							let label = new Graphic(labelPoint, textSymbol);
+							MAP.graphics.add(label);
+							if (i === 0) {
+								extent = geom.getExtent();
+							} else {
+								extent = extent.union(geom.getExtent());
+							}
+						}
+						MAP.setExtent(extent, true);
+					});
+				}
+			})
+			.fail(function (err) {
+				console.warn(
+					'Routes fatal error fetching polylines: ' + err.Message
+				);
+			});
 	};
 	var toggleLayer = function (/*string*/ layer, /*int*/ zoomLevel) {
 		var l = MAP.getLayer(layer);
@@ -232,6 +226,83 @@ var NetworkNextMap = (function ($, window, document) {
 			console.warn('ToggleLayer: ' + layer + ' not found.');
 		}
 	};
+	var updateLayersByTime = function (/*int*/phase) {
+		// first hide all visible layers in the MAP
+		$.each(MAP.layerIds, function (idx, layerId) {
+			if (MAP.getLayer(layerId).visible && layerId !== 'layer0') {
+				MAP.getLayer(layerId).hide();
+			}
+		});
+		// then based on which Time period we're showing, turn on the layers
+		// as selected in the route set switches
+		switch (phase) {
+			case 1: // current
+				if ($('#networkNextMapLayer1').is(':checked')) {
+					MAP.getLayer('metroRoutes').show();
+				}
+				if ($('#networkNextMapLayer2').is(':checked')) {
+					MAP.getLayer('localRoutes').show();
+				}
+				if ($('#networkNextMapLayer3').is(':checked')) {
+					MAP.getLayer('expressRoutes').show();
+				}
+				if ($('#networkNextMapLayer4').is(':checked')) {
+					MAP.getLayer('subRoutes').show();
+				}
+				break;
+			case 2: //
+				break;
+			case 3: //
+				break;
+			case 4: //
+				break;
+			default:
+				break;
+		}
+
+	};
+	var updateLayersByType = function (/*int*/type) {
+		switch (type) {
+			case 1: // metro
+				if ($('#networkNextTimeSelect1').is(':checked')) {
+					toggleLayer('metroRoutes');
+				}
+				break;
+			case 2: // local
+				if ($('#networkNextTimeSelect1').is(':checked')) {
+					toggleLayer('localRoutes');
+				}
+				break;
+			case 3: // express
+				if ($('#networkNextTimeSelect1').is(':checked')) {
+					toggleLayer('expressRoutes');
+				}
+				break;
+			case 4: // express
+				if ($('#networkNextTimeSelect1').is(':checked')) {
+					toggleLayer('subRoutes');
+				}
+				break;
+			default: // turn all off
+				if ($('#networkNextMapLayer1').is(':checked')) {
+					toggleLayer('metroRoutes');
+					$('#networkNextMapLayer1').prop('checked', false);
+				}
+				if ($('#networkNextMapLayer2').is(':checked')) {
+					toggleLayer('localRoutes');
+					$('#networkNextMapLayer2').prop('checked', false);
+				}
+				if ($('#networkNextMapLayer3').is(':checked')) {
+					toggleLayer('expressRoutes');
+					$('#networkNextMapLayer3').prop('checked', false);
+				}
+				if ($('#networkNextMapLayer4').is(':checked')) {
+					toggleLayer('subRoutes');
+					$('#networkNextMapLayer4').prop('checked', false);
+				}
+				break;
+		}
+	};
 	var toggleRoute = function (/*string*/route) {
 		var i = ROUTESTOSHOW.indexOf(route); // check if the route already in the list
 		if (i === -1) {
@@ -239,15 +310,16 @@ var NetworkNextMap = (function ($, window, document) {
 		} else {
 			ROUTESTOSHOW.splice(i, 1);
 		}
-		drawRoutes(ROUTESTOSHOW, 'currentRoutes', /*zoom*/ false);
+		MAP.infoWindow.hide();
+		$('#nnRoute').val(''); // reset the route selection list
+		updateLayersByType(0); // reset the route selectors too
+		drawRoutes(ROUTESTOSHOW, /*zoom*/ true);
 	}
 	var formatPopUpList = function formatPopUpList(/*string*/routeList) {
-		var w = routeList;
-		if (typeof routeList === 'string') {
-			var routestring = '';
-			w = routeList.split(' ').sort(function (a, b) { return parseInt(a) - parseInt(b); });
-		}
-		if (w.length > 0) {
+		// routeList is a string with route numbers space-delimited
+		var routestring = '';
+		if (routeList.length > 0) {
+			let w = routeList.split(' ').sort(function (a, b) { return parseInt(a) - parseInt(b); });
 			for (let i = 0, len = w.length; i < len; i++) {
 				if (i > 0) { routestring += '<br/>'; }
 				var rt = w[i];
@@ -255,7 +327,7 @@ var NetworkNextMap = (function ($, window, document) {
 				if (ROUTENAMES) rtName = ROUTENAMES[rt];
 				var html = '<input id="cb' + rt + '"';
 				html += 'onclick="javascript: NetworkNextMap.toggleRoute(' + rt + '); return true; "';
-				html += 'type="checkbox"';
+				html += 'type="radio" name="routeSelect"';
 				var ix = ROUTESTOSHOW.indexOf(parseInt(rt)); // check if route already in the list
 				if (ix !== -1) {
 					html += ' checked="checked" ';
@@ -266,13 +338,18 @@ var NetworkNextMap = (function ($, window, document) {
 				routestring += html;
 			}
 		} else {
-			routestring = '<span style="font-size:larger;">No routes service here.</span>';
+			routestring = '<span style="font-size:large;"><br/>No routes service here.<br/><br/></span>';
 		}
-		//console.log(routestring);
+		// routestring += '<br/><br/>' +
+		// 	'<div class="btn-container center">' +
+		// 	'<a class="btn btn-secondary-ghost has-icon-right"' +
+		// 	'href="/network-next-comments">Send Us Your Comments</a></div>';
+		//<span style="font-size:larger;"><a href="#"><br /><br />Leave a comment, please!!</a>'
 		return routestring;
 	};
 
 	var idMapRoutes = function (evt) {
+		ROUTESTOSHOW = [];
 		require(['esri/tasks/query',
 			'esri/tasks/QueryTask',
 			'esri/geometry/Extent'
@@ -297,13 +374,10 @@ var NetworkNextMap = (function ($, window, document) {
 					console.warn('Bus Route Query Error: ' + err);
 				});
 				queryTask.on('complete', function (fSet) {
-
-					if (fSet.featureSet.features.length === 0) {
-						console.warn('No features to show');
-					}
-					else {
-						var features = fSet.featureSet.features;
-						var routes = '';
+					let routes = '';
+					let features = fSet.featureSet.features;
+					if (features && features.length > 0) {
+						routes = '';
 						for (var i = 0, len = features.length; i < len; i++) {
 							var f = features[i];
 							var atts = f.attributes;
@@ -312,11 +386,15 @@ var NetworkNextMap = (function ($, window, document) {
 							}
 							routes += atts.LINE_ID;
 						}
-						var content = formatPopUpList(routes);
+					}
+					let content = formatPopUpList(routes);
 
-						MAP.infoWindow.setTitle('Route Service');
-						MAP.infoWindow.setContent(content);
-						MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
+					MAP.infoWindow.resize(250, 300);
+					MAP.infoWindow.setTitle('Routes for this location:');
+					MAP.infoWindow.setContent(content);
+					MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
+					if (evt.screenX > 760) {
+						MAP.centerAt(evt.mapPoint);
 					}
 				});
 			});
@@ -370,7 +448,7 @@ var NetworkNextMap = (function ($, window, document) {
 							ROUTENAMES = {}; // Outformat { "901": "METRO Blue Line" }
 							let routedrop = $('#nnRoute');
 							routedrop.empty(); // clear the select list
-							routedrop.append($('<option selected/>').val('').text('Route'));
+							routedrop.append($('<option selected/>').val('').text('Pick a Route'));
 
 							for (let i = 0, l = fSet.featureSet.features.length; i < l; i++) {
 								var route =
@@ -470,7 +548,9 @@ var NetworkNextMap = (function ($, window, document) {
 						_layerErrorCount++
 					}
 				});
-
+				MAP.on('click', function (evt) {
+					idMapRoutes(evt);
+				});
 				var layerMetroRoutes = new ArcGISDynamicMapServiceLayer(
 					ROUTE_MAPSERVICE,
 					{
@@ -564,7 +644,6 @@ var NetworkNextMap = (function ($, window, document) {
 						outFields: ['*']
 					}
 				);
-				MAP.infoWindow.resize(300, 260);
 
 				allRoutesLayer.on('mouse-over', function () {
 					MAP.setMapCursor('pointer');
@@ -572,10 +651,9 @@ var NetworkNextMap = (function ($, window, document) {
 				allRoutesLayer.on('mouse-out', function () {
 					MAP.setMapCursor('default');
 				});
-				allRoutesLayer.on('click', function (evt) {
-					idMapRoutes(evt);
-				});
-
+				//allRoutesLayer.on('click', function (evt) {
+				//	idMapRoutes(evt);
+				//});
 				var mapLayers = [
 					layerMetroRoutes,
 					//layerHiFreqRoutes,
@@ -624,72 +702,12 @@ var NetworkNextMap = (function ($, window, document) {
 					// When route dropdown changes, draw it
 					$('#nnRoute').change(function () {
 						let routeId = this.value;
+						updateLayersByType(0); // reset the selector list
 						if (routeId !== '') drawRoutes([routeId], true);
 					});
 				});
 			});
 		}).promise();
-	};
-	var updateLayersByTime = function (/*int*/phase) {
-		// first hide all visible layers in the MAP
-		$.each(MAP.layerIds, function (idx, layerId) {
-			if (MAP.getLayer(layerId).visible && layerId !== 'layer0') {
-				MAP.getLayer(layerId).hide();
-			}
-		});
-		// then based on which Time period we're showing, turn on the layers
-		// as selected in the route set switches
-		switch (phase) {
-			case 1: // current
-				if ($('#networkNextMapLayer1').is(':checked')) {
-					MAP.getLayer('metroRoutes').show();
-				}
-				if ($('#networkNextMapLayer2').is(':checked')) {
-					MAP.getLayer('localRoutes').show();
-				}
-				if ($('#networkNextMapLayer3').is(':checked')) {
-					MAP.getLayer('expressRoutes').show();
-				}
-				if ($('#networkNextMapLayer4').is(':checked')) {
-					MAP.getLayer('subRoutes').show();
-				}
-				break;
-			case 2: //
-				break;
-			case 3: //
-				break;
-			case 4: //
-				break;
-			default:
-				break;
-		}
-
-	};
-	var updateLayersByType = function (/*int*/type) {
-		switch (type) {
-			case 1: // metro
-				if ($('#networkNextTimeSelect1').is(':checked')) {
-					toggleLayer('metroRoutes');
-				}
-				break;
-			case 2: // local
-				if ($('#networkNextTimeSelect1').is(':checked')) {
-					toggleLayer('localRoutes');
-				}
-				break;
-			case 3: // express
-				if ($('#networkNextTimeSelect1').is(':checked')) {
-					toggleLayer('expressRoutes');
-				}
-				break;
-			case 4: // express
-				if ($('#networkNextTimeSelect1').is(':checked')) {
-					toggleLayer('subRoutes');
-				}
-				break;
-			default:
-				break;
-		}
 	};
 	return {
 		centerMarkerAtPoint: centerMarkerAtPoint,

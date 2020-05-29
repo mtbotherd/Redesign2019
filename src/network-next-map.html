@@ -251,7 +251,7 @@
 									</div>
 									<div class="container">
 										<div class="row">
-											<div class="col-lg-2 mt-1">
+											<div class="col-lg-4 mt-1">
 												<fieldset>
 													<legend class="h4"></legend>
 													<div class="custom-control custom-radio d-sm-inline-flex mr-sm-5">
@@ -285,10 +285,10 @@
 												</fieldset>
 												<hr />
 												<fieldset>
-													<legend class="h4">Show Routes</legend>
+													<legend class="h4 mb-2">Show Routes</legend>
 
 
-													<div class="custom-control custom-switch d-sm-inline-flex mr-sm-5">
+													<div class="custom-control custom-switch d-sm-inline-flex mr-sm-3">
 
 														<input type="checkbox" class="custom-control-input"
 															id="networkNextMapLayer1" />
@@ -296,7 +296,7 @@
 															for="networkNextMapLayer1">Metro
 														</label>
 													</div>
-													<div class="custom-control custom-switch d-sm-inline-flex mr-sm-5">
+													<div class="custom-control custom-switch d-sm-inline-flex mr-sm-3">
 
 														<input type="checkbox" class="custom-control-input"
 															id="networkNextMapLayer2" checked />
@@ -304,7 +304,7 @@
 															for="networkNextMapLayer2">Core
 														</label>
 													</div>
-													<div class="custom-control custom-switch d-sm-inline-flex mr-sm-5">
+													<div class="custom-control custom-switch d-sm-inline-flex mr-sm-3">
 
 														<input type="checkbox" class="custom-control-input"
 															id="networkNextMapLayer3" />
@@ -312,7 +312,7 @@
 															for="networkNextMapLayer3">Express
 														</label>
 													</div>
-													<div class="custom-control custom-switch d-sm-inline-flex mr-sm-5">
+													<div class="custom-control custom-switch d-sm-inline-flex mr-sm-3">
 
 														<input type="checkbox" class="custom-control-input"
 															id="networkNextMapLayer4" />
@@ -326,15 +326,19 @@
 												<div class="select-route mt-3 mb-4">
 													<select id="nnRoute" name="nnRoute" class="custom-select"
 														onclick="this.setAttribute('value', this.value);" value="">
-														<option selected>Route</option>
+														<option selected>Pick a Route</option>
 													</select>
-													<label for="ntRoute" class="sr-only">Select route</label>
+													<label for="ntRoute" class="sr-only">Pick a Route</label>
+												</div>
+												<div class="btn-container center">
+													<a class="btn btn-secondary-ghost has-icon-right"
+														href="/network-next-comments">Send Us Your Comments</a>
 												</div>
 											</div>
-											<div class="col-lg-10">
-												<span class="small">Click on route line for more information about
+											<div class="col-lg-8">
+												<!-- <span class="small">Click on route line for more information about
 													planned changes.
-												</span>
+												</span> -->
 												<div id="networkNextInteractiveMap" class="map-container border"
 													aria-label="interactive map of proposed route changes">
 													<div id="networkNextMapLocate">&nbsp;</div>
