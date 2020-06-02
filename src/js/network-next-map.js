@@ -7,6 +7,8 @@ var NetworkNextMap = (function ($, window, document) {
 	var GEOLOCATE = null; // this is the locate button object
 	var ROUTENAMES = null; // an object with the route number as the key and route name as the data
 	var ROUTESTOSHOW = [];
+	var SELECTEDTYPE = 2;
+	var SELECTEDTIME = 1;
 
 	var _isEmpty = function _isEmpty(str) {
 		return !str || 0 === str.length;
@@ -115,13 +117,14 @@ var NetworkNextMap = (function ($, window, document) {
 
 	var drawRoutes = function (/*[string]*/ routes, /*bool*/zoom) {
 		zoom = typeof zoom !== 'undefined' ? zoom : false;
+
 		MAP.graphics.clear();
 		// var routesQuery = [];
 		var queryWhere = '1=0';
 
 		if (routes) {
 			routes = routes.filter(function (value, idx, arr) {
-				return value !== '906'; // remove 906 from list
+				return value !== '999'; // remove values from list
 			});
 			queryWhere = 'ROUTENUMBER in (';
 			for (let i = 0, l = routes.length; i < l; i++) {
@@ -180,7 +183,7 @@ var NetworkNextMap = (function ($, window, document) {
 							g.setSymbol(line);
 							MAP.graphics.add(g);
 
-							let font = new Font("18px",
+							let font = new Font("32px",
 								Font.STYLE_NORMAL,
 								Font.VARIANT_NORMAL,
 								Font.WEIGHT_BOLD);
@@ -227,6 +230,7 @@ var NetworkNextMap = (function ($, window, document) {
 		}
 	};
 	var updateLayersByTime = function (/*int*/phase) {
+		if (phase) SELECTEDTIME = phase;
 		// first hide all visible layers in the MAP
 		$.each(MAP.layerIds, function (idx, layerId) {
 			if (MAP.getLayer(layerId).visible && layerId !== 'layer0') {
@@ -259,9 +263,9 @@ var NetworkNextMap = (function ($, window, document) {
 			default:
 				break;
 		}
-
 	};
 	var updateLayersByType = function (/*int*/type) {
+		SELECTEDTYPE = type;
 		switch (type) {
 			case 1: // metro
 				if ($('#networkNextTimeSelect1').is(':checked')) {
@@ -303,30 +307,67 @@ var NetworkNextMap = (function ($, window, document) {
 				break;
 		}
 	};
-	var toggleRoute = function (/*string*/route) {
-		var i = ROUTESTOSHOW.indexOf(route); // check if the route already in the list
-		if (i === -1) {
-			ROUTESTOSHOW.push(route);
-		} else {
-			ROUTESTOSHOW.splice(i, 1);
+	var commentFormReset = function () {
+		$('#networkNextCommentForm').val('');
+		$('#nnCommentFormSubmitStatus').html('');
+	};
+	var setCommentLinkText = function () {
+		let m = 'For';
+		switch (SELECTEDTIME) {
+			case 1:
+				m += ' current ';
+				break;
+			case 2:
+				m += ' proposed 2030 ';
+				break;
+			case 3:
+				m += ' proposed 2040 ';
+				break;
+			case 4:
+				m += ' proposed 2040 ';
+				break;
+			default:
+				break;
 		}
+		if (ROUTESTOSHOW.length > 0) {
+			m += ' route ' + ROUTESTOSHOW[0] + ':';
+		} else {
+			m += ' routes:';
+		}
+		return m;
+	}
+	var toggleRoute = function (/*string*/route,/*boolean*/pulldownSelect) {
+		pulldownSelect = typeof pulldownSelect !== 'undefined' ? pulldownSelect : false;
+		// var i = ROUTESTOSHOW.indexOf(route); // check if the route already in the list
+		// if (i === -1) {
+		// 	ROUTESTOSHOW.push(route);
+		// } else {
+		// 	ROUTESTOSHOW.splice(i, 1);
+		// }
+		commentFormReset();
+		ROUTESTOSHOW = [];
+		ROUTESTOSHOW.push(route);
 		MAP.infoWindow.hide();
-		$('#nnRoute').val(''); // reset the route selection list
+		if (!pulldownSelect) { $('#nnRoute').val(''); } // reset the route pulldown list
 		updateLayersByType(0); // reset the route selectors too
 		drawRoutes(ROUTESTOSHOW, /*zoom*/ true);
+		let m = setCommentLinkText();
+		$('#networkNextCommentForm').val(m + '\n');
+		$('#networkNextCommentForm').focus();
 	}
 	var formatPopUpList = function formatPopUpList(/*string*/routeList) {
 		// routeList is a string with route numbers space-delimited
 		var routestring = '';
 		if (routeList.length > 0) {
 			let w = routeList.split(' ').sort(function (a, b) { return parseInt(a) - parseInt(b); });
+			routestring += '<span>PIck one to highlight.<br/><br/></span>';
 			for (let i = 0, len = w.length; i < len; i++) {
-				if (i > 0) { routestring += '<br/>'; }
+				routestring += '<br/>';
 				var rt = w[i];
 				var rtName = '';
 				if (ROUTENAMES) rtName = ROUTENAMES[rt];
 				var html = '<input id="cb' + rt + '"';
-				html += 'onclick="javascript: NetworkNextMap.toggleRoute(' + rt + '); return true; "';
+				html += 'onclick="javascript: NetworkNextMap.toggleRoute(' + rt + ');return true; "';
 				html += 'type="radio" name="routeSelect"';
 				var ix = ROUTESTOSHOW.indexOf(parseInt(rt)); // check if route already in the list
 				if (ix !== -1) {
@@ -400,7 +441,16 @@ var NetworkNextMap = (function ($, window, document) {
 			});
 	};
 
-
+	var commentFormSubmit = function () {
+		// determines current state of application and launches comment form 
+		let c = $('#networkNextCommentForm').val();
+		if (c) {
+			console.log("Submit form: " + c);
+			$('#nnCommentFormSubmitStatus').html('Comments sent successfully.');
+		} else {
+			alert('Provide some comments');
+		}
+	};
 	//@@@@@@@@@@@@@@@@@@@@
 	//@@@  I N I T @@@@@@@
 	//@@@@@@@@@@@@@@@@@@@@
@@ -651,9 +701,6 @@ var NetworkNextMap = (function ($, window, document) {
 				allRoutesLayer.on('mouse-out', function () {
 					MAP.setMapCursor('default');
 				});
-				//allRoutesLayer.on('click', function (evt) {
-				//	idMapRoutes(evt);
-				//});
 				var mapLayers = [
 					layerMetroRoutes,
 					//layerHiFreqRoutes,
@@ -702,8 +749,9 @@ var NetworkNextMap = (function ($, window, document) {
 					// When route dropdown changes, draw it
 					$('#nnRoute').change(function () {
 						let routeId = this.value;
-						updateLayersByType(0); // reset the selector list
-						if (routeId !== '') drawRoutes([routeId], true);
+						if (routeId !== '') {
+							toggleRoute(routeId, true);
+						}
 					});
 				});
 			});
@@ -716,6 +764,7 @@ var NetworkNextMap = (function ($, window, document) {
 		drawRoutes: drawRoutes,
 		updateLayersByTime: updateLayersByTime,
 		updateLayersByType: updateLayersByType,
+		commentFormSubmit: commentFormSubmit,
 		init: init
 	};
 })(jQuery, window, document);
