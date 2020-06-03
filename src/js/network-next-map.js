@@ -311,20 +311,20 @@ var NetworkNextMap = (function ($, window, document) {
 		$('#networkNextCommentForm').val('');
 		$('#nnCommentFormSubmitStatus').html('');
 	};
-	var setCommentLinkText = function () {
+	var setCommentText = function () {
 		let m = 'For';
 		switch (SELECTEDTIME) {
 			case 1:
-				m += ' current ';
+				m += ' current';
 				break;
 			case 2:
-				m += ' proposed 2030 ';
+				m += ' proposed 2030';
 				break;
 			case 3:
-				m += ' proposed 2040 ';
+				m += ' proposed 2040';
 				break;
 			case 4:
-				m += ' proposed 2040 ';
+				m += ' proposed 2040';
 				break;
 			default:
 				break;
@@ -347,11 +347,14 @@ var NetworkNextMap = (function ($, window, document) {
 		commentFormReset();
 		ROUTESTOSHOW = [];
 		ROUTESTOSHOW.push(route);
-		MAP.infoWindow.hide();
-		if (!pulldownSelect) { $('#nnRoute').val(''); } // reset the route pulldown list
-		updateLayersByType(0); // reset the route selectors too
+		if (pulldownSelect) {
+			MAP.infoWindow.hide();
+			updateLayersByType(0); // reset the route selectors too
+		} else {
+			$('#nnRoute').val(''); // reset the route pulldown list
+		}
 		drawRoutes(ROUTESTOSHOW, /*zoom*/ true);
-		let m = setCommentLinkText();
+		let m = setCommentText();
 		$('#networkNextCommentForm').val(m + '\n');
 		$('#networkNextCommentForm').focus();
 	}
@@ -381,21 +384,61 @@ var NetworkNextMap = (function ($, window, document) {
 		} else {
 			routestring = '<span style="font-size:large;"><br/>No routes service here.<br/><br/></span>';
 		}
-		// routestring += '<br/><br/>' +
-		// 	'<div class="btn-container center">' +
-		// 	'<a class="btn btn-secondary-ghost has-icon-right"' +
-		// 	'href="/network-next-comments">Send Us Your Comments</a></div>';
+		routestring += '<br/><br/>' +
+			'<div class="btn-container center">' +
+			'<a class="btn btn-secondary-ghost has-icon-right"' +
+			'href="/network-next-comments">Send Us Your Comments</a></div>';
 		//<span style="font-size:larger;"><a href="#"><br /><br />Leave a comment, please!!</a>'
 		return routestring;
 	};
 
-	var idMapRoutes = function (evt) {
+	var locateAddress = function (/*float*/longitude, /*float*/latitude) {
+		// return the street address of this Lat - Lng
+		var utmXY = [];
+		CoordinateConversion.LatLonToUTMXY(CoordinateConversion.DegToRad(latitude), CoordinateConversion.DegToRad(longitude), 15, utmXY);
+		//console.log('Result: ' + utmXY[0] + ' ' + utmXY[1]);
+		return $.Deferred(function (dfd) {
+			$.ajax({
+				type: 'get',
+				url: 'https://arcgis.metc.state.mn.us/ArcGIS/rest/services/metro_streets/GeocodeServer/reverseGeocode',
+				data: {
+					location: utmXY[0] + ',' + utmXY[1],
+					distance: 300,
+					outSR: 3857,
+					returnIntersection: false,
+					f: 'json'
+				},
+				dataType: 'json',
+			})
+				.done(function (result, status, xhr) {
+					console.dir(result);
+					if (result && result.error) {
+						console.warn('Error locateAddress: ' + result.error.message);
+						dfd.reject(result.error.message);
+					}
+					if (result && result.address) {
+						dfd.resolve(result.address.Match_addr);
+					}
+				})
+				.fail(function (result) {
+					console.warn('Fatal error locateAddress ' + result.error.Message);
+					dfd.reject(result.error.message);
+				});
+
+		}).promise();
+	}
+
+	var idMap = function (evt) {
 		ROUTESTOSHOW = [];
 		require(['esri/tasks/query',
 			'esri/tasks/QueryTask',
+			'esri/geometry/webMercatorUtils',
 			'esri/geometry/Extent'
 		],
-			function (Query, QueryTask, Extent) {
+			function (Query, QueryTask, webMercatorUtils, Extent) {
+				// convert 102100 Web Mercator to Lat/Lng coordinates
+				var mapPointLngLat = webMercatorUtils.xyToLngLat(evt.mapPoint.x, evt.mapPoint.y);
+
 				var query = new Query();
 				var queryTask = new QueryTask(
 					'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/4');
@@ -415,9 +458,10 @@ var NetworkNextMap = (function ($, window, document) {
 					console.warn('Bus Route Query Error: ' + err);
 				});
 				queryTask.on('complete', function (fSet) {
-					let routes = '';
+					let routes = null;
 					let features = fSet.featureSet.features;
 					if (features && features.length > 0) {
+						// we found some routes at the location of this map click
 						routes = '';
 						for (var i = 0, len = features.length; i < len; i++) {
 							var f = features[i];
@@ -427,8 +471,21 @@ var NetworkNextMap = (function ($, window, document) {
 							}
 							routes += atts.LINE_ID;
 						}
+					} else {
+						// didn't find any routes so we'll look up the street address of the map click
+						locateAddress(mapPointLngLat[0], mapPointLngLat[1])
+							.done(function (address) {
+								//console.log('Address: ' + address);
+							})
+							.fail(function (err) {
+								console.log('Error - unable to fetch address');
+							});
 					}
-					let content = formatPopUpList(routes);
+					if (routes) {
+						let content = formatPopUpList(routes);
+					} else {
+						// format address 
+					}
 
 					MAP.infoWindow.resize(250, 300);
 					MAP.infoWindow.setTitle('Routes for this location:');
@@ -471,9 +528,10 @@ var NetworkNextMap = (function ($, window, document) {
 				'esri/dijit/Popup',
 				'esri/dijit/PopupTemplate',
 				'esri/dijit/LocateButton',
+				"esri/dijit/BasemapToggle",
 				'dojo/domReady!'
 			], function (Map, esriBasemaps, Color, ArcGISDynamicMapServiceLayer, FeatureLayer,
-				Query, QueryTask, SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton) {
+				Query, QueryTask, SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton, BasemapToggle) {
 
 				var createRouteList = function () {
 					// this function creates two lists from one source:
@@ -553,7 +611,7 @@ var NetworkNextMap = (function ($, window, document) {
 					title: 'MetCouncil'
 				};
 				esriBasemaps.transitVector = {
-					title: 'TransitVector',
+					title: 'Basemap',
 					baseMapLayers: [{ url: '/js/basemapStylev3.json', type: 'VectorTile' }]
 				};
 
@@ -599,7 +657,7 @@ var NetworkNextMap = (function ($, window, document) {
 					}
 				});
 				MAP.on('click', function (evt) {
-					idMapRoutes(evt);
+					idMap(evt);
 				});
 				var layerMetroRoutes = new ArcGISDynamicMapServiceLayer(
 					ROUTE_MAPSERVICE,
@@ -743,6 +801,12 @@ var NetworkNextMap = (function ($, window, document) {
 					// );
 					// mapLegend.startup();
 
+					var toggle = new BasemapToggle({
+						map: MAP,
+						basemap: "satellite"
+					}, "nnBasemapToggle");
+					//toggle.startup();
+
 					MAP.disableScrollWheel();
 
 					createRouteList();
@@ -753,17 +817,37 @@ var NetworkNextMap = (function ($, window, document) {
 							toggleRoute(routeId, true);
 						}
 					});
+					$('#networkNextMapLayer1').click(function () {
+						updateLayersByType(1);
+					});
+					$('#networkNextMapLayer2').click(function () {
+						updateLayersByType(2);
+					});
+					$('#networkNextMapLayer3').click(function () {
+						updateLayersByType(3);
+					});
+					$('#networkNextMapLayer4').click(function () {
+						updateLayersByType(4);
+					});
+					$('#networkNextTimeSelect1').click(function () {
+						updateLayersByTime(1);
+					});
+					$('#networkNextTimeSelect2').click(function () {
+						updateLayersByTime(2);
+					});
+					$('#networkNextTimeSelect3').click(function () {
+						updateLayersByTime(3);
+					});
+					$('#networkNextTimeSelect4').click(function () {
+						updateLayersByTime(4);
+					});
 				});
 			});
 		}).promise();
 	};
 	return {
 		centerMarkerAtPoint: centerMarkerAtPoint,
-		toggleLayer: toggleLayer,
 		toggleRoute: toggleRoute,
-		drawRoutes: drawRoutes,
-		updateLayersByTime: updateLayersByTime,
-		updateLayersByType: updateLayersByType,
 		commentFormSubmit: commentFormSubmit,
 		init: init
 	};
@@ -793,30 +877,6 @@ $(function () {
 
 		NetworkNextMap.init('networkNextInteractiveMap').then(function () {
 			console.log('Map loaded');
-		});
-		$('#networkNextMapLayer1').click(function () {
-			NetworkNextMap.updateLayersByType(1);
-		});
-		$('#networkNextMapLayer2').click(function () {
-			NetworkNextMap.updateLayersByType(2);
-		});
-		$('#networkNextMapLayer3').click(function () {
-			NetworkNextMap.updateLayersByType(3);
-		});
-		$('#networkNextMapLayer4').click(function () {
-			NetworkNextMap.updateLayersByType(4);
-		});
-		$('#networkNextTimeSelect1').click(function () {
-			NetworkNextMap.updateLayersByTime(1);
-		});
-		$('#networkNextTimeSelect2').click(function () {
-			NetworkNextMap.updateLayersByTime(2);
-		});
-		$('#networkNextTimeSelect3').click(function () {
-			NetworkNextMap.updateLayersByTime(3);
-		});
-		$('#networkNextTimeSelect4').click(function () {
-			NetworkNextMap.updateLayersByTime(4);
 		});
 	}
 

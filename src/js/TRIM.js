@@ -1,4 +1,4 @@
-var CoordinateConversion = (function() {
+var CoordinateConversion = (function () {
 	/* Code found here: http://home.hiwaay.net/~taylorc/toolbox/geography/geoutm.html
        Copyright 1997-1998 by Charles L. Taylor 
     */
@@ -218,37 +218,37 @@ var CoordinateConversion = (function() {
 		xy[0] =
 			N * Math.cos(phi) * l +
 			(N / 6.0) *
-				Math.pow(Math.cos(phi), 3.0) *
-				l3coef *
-				Math.pow(l, 3.0) +
+			Math.pow(Math.cos(phi), 3.0) *
+			l3coef *
+			Math.pow(l, 3.0) +
 			(N / 120.0) *
-				Math.pow(Math.cos(phi), 5.0) *
-				l5coef *
-				Math.pow(l, 5.0) +
+			Math.pow(Math.cos(phi), 5.0) *
+			l5coef *
+			Math.pow(l, 5.0) +
 			(N / 5040.0) *
-				Math.pow(Math.cos(phi), 7.0) *
-				l7coef *
-				Math.pow(l, 7.0);
+			Math.pow(Math.cos(phi), 7.0) *
+			l7coef *
+			Math.pow(l, 7.0);
 
 		/* Calculate northing (y) */
 		xy[1] =
 			ArcLengthOfMeridian(phi) +
 			(t / 2.0) * N * Math.pow(Math.cos(phi), 2.0) * Math.pow(l, 2.0) +
 			(t / 24.0) *
-				N *
-				Math.pow(Math.cos(phi), 4.0) *
-				l4coef *
-				Math.pow(l, 4.0) +
+			N *
+			Math.pow(Math.cos(phi), 4.0) *
+			l4coef *
+			Math.pow(l, 4.0) +
 			(t / 720.0) *
-				N *
-				Math.pow(Math.cos(phi), 6.0) *
-				l6coef *
-				Math.pow(l, 6.0) +
+			N *
+			Math.pow(Math.cos(phi), 6.0) *
+			l6coef *
+			Math.pow(l, 6.0) +
 			(t / 40320.0) *
-				N *
-				Math.pow(Math.cos(phi), 8.0) *
-				l8coef *
-				Math.pow(l, 8.0);
+			N *
+			Math.pow(Math.cos(phi), 8.0) *
+			l8coef *
+			Math.pow(l, 8.0);
 
 		return;
 	}
@@ -395,7 +395,7 @@ var CoordinateConversion = (function() {
 	 *   The UTM zone used for calculating the values of x and y.
 	 *
 	 */
-	const LatLonToUTMXY = function(lat, lon, zone, xy) {
+	const LatLonToUTMXY = function (lat, lon, zone, xy) {
 		MapLatLonToXY(lat, lon, UTMCentralMeridian(zone), xy);
 
 		/* Adjust easting and northing for UTM system. */
@@ -426,7 +426,7 @@ var CoordinateConversion = (function() {
 	 *	The function does not return a value.
 	 *
 	 */
-	const UTMXYToLatLon = function(x, y, zone, southhemi, latlon) {
+	const UTMXYToLatLon = function (x, y, zone, southhemi, latlon) {
 		var cmeridian;
 		//console.log("X: " + x)
 		//console.log("Y: " + y)
@@ -454,7 +454,7 @@ var CoordinateConversion = (function() {
 	 * Converts degrees to radians.
 	 *
 	 */
-	const DegToRad = function(deg) {
+	const DegToRad = function (deg) {
 		return (deg / 180.0) * pi;
 	};
 	/*
@@ -463,7 +463,7 @@ var CoordinateConversion = (function() {
 	 * Converts radians to degrees.
 	 *
 	 */
-	const RadToDeg = function(rad) {
+	const RadToDeg = function (rad) {
 		return (rad / pi) * 180.0;
 	};
 	return {
@@ -474,14 +474,14 @@ var CoordinateConversion = (function() {
 	};
 })();
 
-var TRIM = (function($, window, document, undefined) {
+var TRIM = (function ($, window, document, undefined) {
 	'use strict';
 	var MAP = null; // this is the main MAP object
 	var GEOLOCATE = null; // this is the locate button object
 	const TRIM_MapServer =
 		'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer';
 
-	var _bubbleSort = function(inputArr) {
+	var _bubbleSort = function (inputArr) {
 		var swapped;
 		do {
 			swapped = false;
@@ -496,7 +496,7 @@ var TRIM = (function($, window, document, undefined) {
 		} while (swapped);
 		return inputArr;
 	};
-	var _isValue = function(x) {
+	var _isValue = function (x) {
 		// tests if value is NOT empty AND NOT blank and NOT NULL
 		var str = x.toString(); // this allows zero to test as a valid value
 		//console.write("test value is " + x)
@@ -505,15 +505,15 @@ var TRIM = (function($, window, document, undefined) {
 		}
 		return false;
 	};
-	var _isNumber = function(x) {
+	var _isNumber = function (x) {
 		// tests if value is any sort of number with +/- or decimals
 		if (_isValue(x)) {
 			return !isNaN(x - 0);
 		}
 		return false;
 	};
-	var zoomToBBox = function(/*string*/ parm) {
-		require(['esri/geometry/Extent'], function(Extent) {
+	var zoomToBBox = function (/*string*/ parm) {
+		require(['esri/geometry/Extent'], function (Extent) {
 			//console.log("zoomToBBox says: " + setBBoxURL_value);
 			if (parm) {
 				var newE;
@@ -556,10 +556,10 @@ var TRIM = (function($, window, document, undefined) {
 	 * ==============================================================================
 	 */
 	// this is the external call to have the map zoom to the user's location
-	var geoLocate = function() {
+	var geoLocate = function () {
 		GEOLOCATE.locate();
 	};
-	var centerMarkerAtPoint = function(
+	var centerMarkerAtPoint = function (
 		/*float*/ x,
 		/*float*/ y,
 		/*int*/ zoomLevel
@@ -571,7 +571,7 @@ var TRIM = (function($, window, document, undefined) {
 			'esri/graphic',
 			'esri/geometry/Point',
 			'esri/symbols/PictureMarkerSymbol',
-		], function(Graphic, Point, PictureMarkerSymbol) {
+		], function (Graphic, Point, PictureMarkerSymbol) {
 			var p = new Point(x, y);
 			var g = new Graphic();
 			g.setGeometry(p);
@@ -585,14 +585,14 @@ var TRIM = (function($, window, document, undefined) {
 			stopSymbol.setOffset(0, 15);
 			g.setSymbol(stopSymbol);
 			MAP.graphics.add(g);
-			MAP.centerAt(p).then(function() {
+			MAP.centerAt(p).then(function () {
 				if (level) {
 					MAP.setLevel(level);
 				}
 			});
 		});
 	};
-	var toggleLayer = function(/*string*/ layer, /*integer*/ zoomLevel) {
+	var toggleLayer = function (/*string*/ layer, /*integer*/ zoomLevel) {
 		var l = MAP.getLayer(layer);
 		if (l) {
 			if (l.visible) {
@@ -613,7 +613,7 @@ var TRIM = (function($, window, document, undefined) {
 	// Pass a route parameter to show the route(s) stops
 	// Pass nothing to clear them
 	//
-	var drawRouteStops = function(/*[string]*/ routes) {
+	var drawRouteStops = function (/*[string]*/ routes) {
 		var routeStopLayer = MAP.getLayer('routeStops');
 		if (!routeStopLayer) return;
 		// queries are defined as an array for layers in a service
@@ -646,7 +646,7 @@ var TRIM = (function($, window, document, undefined) {
 	// pass routes array to highlight those routes in color
 	// pass nothing to clear them off
 	//
-	var drawRoutes = function(/*[string]*/ routes, zoom) {
+	var drawRoutes = function (/*[string]*/ routes, zoom) {
 		zoom = typeof zoom !== 'undefined' ? zoom : false;
 		var routeLayer = MAP.getLayer('routes');
 		if (!routeLayer) return;
@@ -654,7 +654,7 @@ var TRIM = (function($, window, document, undefined) {
 		var routesQuery = [];
 		routesQuery[4] = '1=0';
 		if (routes) {
-			routes = routes.filter(function(value, idx, arr) {
+			routes = routes.filter(function (value, idx, arr) {
 				return value !== '906'; // remove 906 from list
 			});
 			var queryWhere = 'ROUTENUMBER in (';
@@ -684,9 +684,9 @@ var TRIM = (function($, window, document, undefined) {
 				},
 				dataType: 'json',
 			})
-				.done(function(result, status, xhr) {
+				.done(function (result, status, xhr) {
 					if (result.features.length > 0) {
-						require(['esri/geometry/Polyline'], function(Polyline) {
+						require(['esri/geometry/Polyline'], function (Polyline) {
 							var extent;
 							for (
 								let i = 0, l = result.features.length;
@@ -707,14 +707,14 @@ var TRIM = (function($, window, document, undefined) {
 						});
 					}
 				})
-				.fail(function(err) {
+				.fail(function (err) {
 					console.warn(
 						'Routes fatal error fetching polylines: ' + err.Message
 					);
 				});
 		}
 	};
-	var drawTrip = function(
+	var drawTrip = function (
 		/*int*/ tripToDraw,
 		/*object*/ tripPlan,
 		/*boolean*/ zoomToTripExtent
@@ -729,7 +729,7 @@ var TRIM = (function($, window, document, undefined) {
 			'esri/geometry/webMercatorUtils',
 			'esri/symbols/PictureMarkerSymbol',
 			'esri/symbols/CartographicLineSymbol',
-		], function(
+		], function (
 			Graphic,
 			InfoTemplate,
 			Color,
@@ -745,7 +745,7 @@ var TRIM = (function($, window, document, undefined) {
 			 * StopObj = StopID and StopLocation(LocationName, UTMx, UTMy)
 			 * stopGraphicType = "Transfer,Board,Exit"
 			 */
-			var drawTripStop = function(StopObj, /*string*/ stopGraphicType) {
+			var drawTripStop = function (StopObj, /*string*/ stopGraphicType) {
 				//console.log('Draw ' + stopGraphicType + ' ' + JSON.stringify(StopObj));
 				//var originMarker = new PictureMarkerSymbol('images/SVG/map-location-ring-green.svg', 24, 24);
 				var originMarker = new PictureMarkerSymbol(
@@ -1004,9 +1004,9 @@ var TRIM = (function($, window, document, undefined) {
 	function formatPopupDepartures(/*string*/ stop) {
 		$('#mapPopUpDepartures').html('');
 		$.get(window.serviceHostUrl + '/nextripv2/' + stop)
-			.done(function(result) {
+			.done(function (result) {
 				if (result.Departures.length > 0) {
-					let departures = result.Departures.sort(function(a, b) {
+					let departures = result.Departures.sort(function (a, b) {
 						a = new Date(a.DepartureTime);
 						b = new Date(b.DepartureTime);
 						return a < b ? -1 : a > b ? 1 : 0;
@@ -1049,7 +1049,7 @@ var TRIM = (function($, window, document, undefined) {
 					);
 				}
 			})
-			.fail(function() {
+			.fail(function () {
 				console.warn('Nextrip failed for stop ' + stop);
 			});
 	}
@@ -1058,10 +1058,10 @@ var TRIM = (function($, window, document, undefined) {
 	//@@@  I N I T @@@@@@@
 	//@@@@@@@@@@@@@@@@@@@@
 	//@@@@@@@@@@@@@@@@@@@@
-	var init = function(mapElementID) {
+	var init = function (mapElementID) {
 		var nexTrip_INTERVAL = null;
 
-		return $.Deferred(function(dfd) {
+		return $.Deferred(function (dfd) {
 			// mapType property on the <div>
 			var pType = document
 				.getElementById(mapElementID)
@@ -1089,9 +1089,9 @@ var TRIM = (function($, window, document, undefined) {
 				'esri/dijit/LocateButton',
 				'dojo/on',
 				'dojo/domReady!',
-			], function(Map, esriBasemaps, esriConfig, Graphic, Color, SpatialReference, Extent, Point, ArcGISDynamicMapServiceLayer, GraphicsLayer, Query, QueryTask, PictureMarkerSymbol, SimpleMarkerSymbol, Scalebar, Popup, LocateButton, on) {
+			], function (Map, esriBasemaps, esriConfig, Graphic, Color, SpatialReference, Extent, Point, ArcGISDynamicMapServiceLayer, GraphicsLayer, Query, QueryTask, PictureMarkerSymbol, SimpleMarkerSymbol, Scalebar, Popup, LocateButton, on) {
 				var ROUTENAMES = null;
-				var createRouteList = function() {
+				var createRouteList = function () {
 					var query = new Query();
 					var queryTask = new QueryTask(
 						'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/4'
@@ -1100,11 +1100,11 @@ var TRIM = (function($, window, document, undefined) {
 					query.where = '1=1'; // extract them all
 					query.outFields = ['ROUTENUM', 'ROUTEDESCRIPTION'];
 					queryTask.execute(query);
-					queryTask.on('error', function(err) {
+					queryTask.on('error', function (err) {
 						console.warn('createRouteList error');
 						console.dir(err);
 					});
-					queryTask.on('complete', function(fSet) {
+					queryTask.on('complete', function (fSet) {
 						if (fSet.featureSet.features.length > 0) {
 							ROUTENAMES = {};
 							// Outformat { "901": "METRO Blue Line" }
@@ -1128,14 +1128,14 @@ var TRIM = (function($, window, document, undefined) {
 						}
 					});
 				};
-				var drawNiceRides = function() {
+				var drawNiceRides = function () {
 					$.ajax({
 						type: 'get',
 						url:
 							'https://gbfs.niceridemn.com/gbfs/en/station_information.json',
 						dataType: 'json',
 					})
-						.done(function(result, status, xhr) {
+						.done(function (result, status, xhr) {
 							var stations = result.data.stations;
 							if (stations) {
 								var layer = MAP.getLayer('niceRides');
@@ -1168,11 +1168,11 @@ var TRIM = (function($, window, document, undefined) {
 								}
 							}
 						})
-						.fail(function(err) {
+						.fail(function (err) {
 							console.warn('NiceRide Station fetch failed' + err);
 						});
 				};
-				var formatRouteList = function(/*string*/ routeList) {
+				var formatRouteList = function (/*string*/ routeList) {
 					var routestring = '';
 					var workArray = routeList.split(' ');
 					if (workArray.length > 0) {
@@ -1211,8 +1211,8 @@ var TRIM = (function($, window, document, undefined) {
 					//console.log(routestring);
 					return routestring;
 				};
-				var idMap = function(evt) {
-					var showLocation = function(results2) {
+				var idMap = function (evt) {
+					var showLocation = function (results2) {
 						var title =
 							'Map Click<hr/>' +
 							'Location found: <br/>' +
@@ -1286,10 +1286,10 @@ var TRIM = (function($, window, document, undefined) {
 					MAP.infoWindow.hide();
 					MAP.getLayer('stops').clear();
 					queryTask.execute(query);
-					queryTask.on('error', function(err) {
+					queryTask.on('error', function (err) {
 						console.warn('Bus Stop Query Error: ' + err);
 					});
-					queryTask.on('complete', function(fSet) {
+					queryTask.on('complete', function (fSet) {
 						if (fSet.featureSet.features.length === 0) {
 							//if there are no features, do a generic reverse geocode.
 							//locateAddress();
@@ -1343,7 +1343,7 @@ var TRIM = (function($, window, document, undefined) {
 
 							formatPopupDepartures(atts.siteid);
 							clearInterval(nexTrip_INTERVAL);
-							nexTrip_INTERVAL = setInterval(function() {
+							nexTrip_INTERVAL = setInterval(function () {
 								formatPopupDepartures(atts.siteid);
 							}, 30000);
 							if (evt.screenX > 760) {
@@ -1431,7 +1431,7 @@ var TRIM = (function($, window, document, undefined) {
 					zoom: 14,
 				});
 
-				MAP.on('load', function() {
+				MAP.on('load', function () {
 					GEOLOCATE = new LocateButton(
 						{
 							map: MAP,
@@ -1440,8 +1440,8 @@ var TRIM = (function($, window, document, undefined) {
 						'trimLocate'
 					);
 					GEOLOCATE.startup();
-					GEOLOCATE.on('locate', function(result) {
-						on.once(MAP, 'click', function() {
+					GEOLOCATE.on('locate', function (result) {
+						on.once(MAP, 'click', function () {
 							GEOLOCATE.clear();
 						});
 					});
@@ -1464,7 +1464,7 @@ var TRIM = (function($, window, document, undefined) {
 					MAP.infoWindow.setContent($('#trimPopUp')[0]);
 				});
 
-				MAP.on('click', function(evt) {
+				MAP.on('click', function (evt) {
 					if (mapType === 'full') {
 						if (MAP.infoWindow.isShowing) {
 							MAP.infoWindow.hide();
@@ -1473,16 +1473,16 @@ var TRIM = (function($, window, document, undefined) {
 					}
 				});
 
-				MAP.on('resize', function(extent, width, height) {});
+				MAP.on('resize', function (extent, width, height) { });
 
-				MAP.on('update-start', function() {
+				MAP.on('update-start', function () {
 					$('.mapLoading').show();
 				});
-				MAP.on('update-end', function(err) {
+				MAP.on('update-end', function (err) {
 					$('.mapLoading').hide();
 				});
 
-				MAP.on('layers-add-result', function(result) {
+				MAP.on('layers-add-result', function (result) {
 					if (mapType === 'full') {
 						drawNiceRides();
 					}
@@ -1495,13 +1495,13 @@ var TRIM = (function($, window, document, undefined) {
 					dfd.resolve();
 					//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 				});
-				MAP.on('layer-add-result', function(result) {
+				MAP.on('layer-add-result', function (result) {
 					if (result.error) {
 						console.error(
 							'Layer add ' +
-								result.error +
-								' for ' +
-								result.layer.url
+							result.error +
+							' for ' +
+							result.layer.url
 						);
 					}
 				});
@@ -1614,9 +1614,9 @@ var TRIM = (function($, window, document, undefined) {
 			});
 		}).promise();
 	};
-	var findStop = function(stopID) {
+	var findStop = function (stopID) {
 		var queryWhere = 'siteid = ' + stopID;
-		return $.Deferred(function(dfd) {
+		return $.Deferred(function (dfd) {
 			$.ajax({
 				type: 'get',
 				url:
@@ -1630,7 +1630,7 @@ var TRIM = (function($, window, document, undefined) {
 				},
 				dataType: 'json',
 			})
-				.done(function(r) {
+				.done(function (r) {
 					if (r.error) {
 						console.warn('Stop lookup failed');
 						dfd.reject();
@@ -1654,7 +1654,7 @@ var TRIM = (function($, window, document, undefined) {
 						}
 					}
 				})
-				.fail(function() {
+				.fail(function () {
 					console.warn('Stop service failed');
 					dfd.reject();
 				});
@@ -1672,7 +1672,7 @@ var TRIM = (function($, window, document, undefined) {
 	// This page also directly as iMap/InteractiveMap.aspx?x=<longitude>&y=<latitude>
 	// to open the map as a particular point.
 	// ----------------------------------------------------------------
-	var fullPageSetup = function(mapDiv, route, stop, x, y, myType) {
+	var fullPageSetup = function (mapDiv, route, stop, x, y, myType) {
 		var t = typeof myType !== 'undefined' ? myType : null;
 		var h = $(window).height();
 		if (h > 1000) {
@@ -1680,18 +1680,18 @@ var TRIM = (function($, window, document, undefined) {
 		} else if (h > 500) {
 			$('.map').css({ height: h - 220 });
 		}
-		init(mapDiv).then(function() {
+		init(mapDiv).then(function () {
 			if (route) {
 				if (stop) {
 					drawRoutes([route], /*zoomToRoute*/ false);
 					drawRouteStops([route]);
 					findStop(stop)
-						.then(function(x, y, name) {
+						.then(function (x, y, name) {
 							let title = 'Stop ' + stop + ' / ' + name;
 							$('#page-title-text').html(title);
 							centerMarkerAtPoint(x, y, /*zoomLevel*/ 17);
 						})
-						.fail(function() {
+						.fail(function () {
 							console.warn(
 								'Requested stop ' + stop + ' not found.'
 							);
@@ -1704,12 +1704,12 @@ var TRIM = (function($, window, document, undefined) {
 			} else {
 				if (stop) {
 					findStop(stop)
-						.then(function(x, y, name) {
+						.then(function (x, y, name) {
 							let title = 'Stop ' + stop + ' / ' + name;
 							$('#page-title-text').html(title);
 							centerMarkerAtPoint(x, y, /*zoomLevel*/ 17);
 						})
-						.fail(function() {
+						.fail(function () {
 							console.warn(
 								'Requested stop ' + stop + ' not found.'
 							);
@@ -1742,7 +1742,7 @@ var TRIM = (function($, window, document, undefined) {
 			}
 		});
 	};
-	var mapDestroy = function() {
+	var mapDestroy = function () {
 		GEOLOCATE.destroy();
 		GEOLOCATE = null;
 		MAP.destroy();
@@ -1761,7 +1761,7 @@ var TRIM = (function($, window, document, undefined) {
 	};
 })(jQuery, window, document);
 
-var BOM = (function($, window, document, undefined) {
+var BOM = (function ($, window, document, undefined) {
 	/*
 	 * Buses On Map (BOM)
 	 *
@@ -1816,26 +1816,26 @@ var BOM = (function($, window, document, undefined) {
 	var _GEOLOCATE; // this is the locate button object
 	var _DEBUG = false;
 
-	var geoLocate = function() {
+	var geoLocate = function () {
 		_GEOLOCATE.locate();
 	};
-	var BOMStatus = function() {
+	var BOMStatus = function () {
 		return _BOMRUNNING;
 	};
-	var setTimeInterval = function(newInterval) {
+	var setTimeInterval = function (newInterval) {
 		_TIMEINTERVAL = newInterval;
 	};
-	var setTickStop = function(/*integer*/ newTickStop) {
+	var setTickStop = function (/*integer*/ newTickStop) {
 		if (newTickStop === 0) {
 			_TICKSTOP = null;
 		} else {
 			_TICKSTOP = newTickStop;
 		}
 	};
-	var clearMarkerAtPoint = function() {
+	var clearMarkerAtPoint = function () {
 		_MAP.getLayer('Markers').clear();
 	};
-	var drawMarkerAtPoint = function(/*Point*/ p) {
+	var drawMarkerAtPoint = function (/*Point*/ p) {
 		_MAP.getLayer('Markers').clear();
 		require([
 			'esri/graphic',
@@ -1843,7 +1843,7 @@ var BOM = (function($, window, document, undefined) {
 			'esri/symbols/PictureMarkerSymbol',
 			'esri/symbols/SimpleMarkerSymbol',
 			'esri/symbols/SimpleLineSymbol',
-		], function(
+		], function (
 			Graphic,
 			Color,
 			PictureMarkerSymbol,
@@ -1870,7 +1870,7 @@ var BOM = (function($, window, document, undefined) {
 			_MAP.getLayer('Markers').add(g);
 		});
 	};
-	var drawVehicleOnMap = function(
+	var drawVehicleOnMap = function (
 		/*Point*/ point,
 		/*string*/ route,
 		/*string*/ term,
@@ -1884,7 +1884,7 @@ var BOM = (function($, window, document, undefined) {
 			'esri/symbols/TextSymbol',
 			'esri/symbols/Font',
 			'esri/Color',
-		], function(Graphic, PictureMarkerSymbol, TextSymbol, Font, Color) {
+		], function (Graphic, PictureMarkerSymbol, TextSymbol, Font, Color) {
 			if (point) {
 				// Compute the last elapsed seconds since last update
 				//var elapsedSec = timeElapsedInSeconds(lastUpdate);
@@ -1983,7 +1983,7 @@ var BOM = (function($, window, document, undefined) {
 			}
 		});
 	};
-	var drawBuses = function(/*boolean*/ zoomOnce, /*function*/ callback) {
+	var drawBuses = function (/*boolean*/ zoomOnce, /*function*/ callback) {
 		if (_DEBUG)
 			console.log('+++   D R A W     B U S E S    ++ Zoom: ' + zoomOnce);
 
@@ -2025,22 +2025,22 @@ var BOM = (function($, window, document, undefined) {
 					url: reqURL,
 					dataType: 'json',
 				})
-					.done(function(result, status, xhr) {
+					.done(function (result, status, xhr) {
 						var ct = xhr.getResponseHeader('content-type') || '';
 						if (ct.indexOf('html') > -1) {
 							// not json response, so the service must be in error
 							console.warn(
 								'Location service failed for ' +
-									route +
-									': ' +
-									status
+								route +
+								': ' +
+								status
 							);
 						} else {
 							// json response
 							$.merge(response, result);
 						}
 					})
-					.fail(function() {
+					.fail(function () {
 						console.warn(
 							'Location service failed for route ' + route
 						);
@@ -2049,14 +2049,14 @@ var BOM = (function($, window, document, undefined) {
 		}
 		$.when
 			.apply($, promises)
-			.then(function() {
+			.then(function () {
 				_MAP.getLayer('BusesOnMap').clear();
 				var drawnCount = 0;
 				var d = 0; // total vehicles drawn on map extent that's visible
 				if (response.length > 0) {
 					// first draw all the buses
 
-					$.each(response, function() {
+					$.each(response, function () {
 						var pnt;
 						if (_ROUTESFORSTOP) {
 							// draw only buses for routes that match route AND terminal letter
@@ -2118,15 +2118,15 @@ var BOM = (function($, window, document, undefined) {
 						if (_DEBUG)
 							console.log(
 								i +
-									' xD = ' +
-									xDelta +
-									' yD = ' +
-									yDelta +
-									' z = ' +
-									z
+								' xD = ' +
+								xDelta +
+								' yD = ' +
+								yDelta +
+								' z = ' +
+								z
 							);
 
-						$.each(response, function() {
+						$.each(response, function () {
 							var p = newWMPointFromLatLong(
 								this.Latitude,
 								this.Longitude
@@ -2144,11 +2144,11 @@ var BOM = (function($, window, document, undefined) {
 						if (_DEBUG)
 							console.log(
 								'Level ' +
-									(_CURRENTLOD.level - i) +
-									' count ' +
-									d +
-									' of ' +
-									response.length
+								(_CURRENTLOD.level - i) +
+								' count ' +
+								d +
+								' of ' +
+								response.length
 							);
 						if (d > 0 && i > 0 && zoomOnce) {
 							_MAP.setLevel(_CURRENTLOD.level - i).then();
@@ -2170,13 +2170,13 @@ var BOM = (function($, window, document, undefined) {
 				if (typeof callback === 'function')
 					callback(d, response.length); // return buses showing and total buses
 			})
-			.fail(function(err) {
+			.fail(function (err) {
 				console.warn('DrawBuses call failed');
 				if (typeof callback === 'function') callback(null); // return an error and fail"
 			});
 	};
 
-	var showMapBanner = function(/*string*/ message, /*string*/ action) {
+	var showMapBanner = function (/*string*/ message, /*string*/ action) {
 		$('#bombanner').html(message);
 		$('.mapbanner').css('display', 'block');
 		if (action === 'fade') {
@@ -2185,14 +2185,14 @@ var BOM = (function($, window, document, undefined) {
 				.fadeOut(3000);
 		}
 	};
-	var hideMapBanner = function() {
+	var hideMapBanner = function () {
 		$('.mapbanner').css('display', 'none');
 	};
 	/*
 	 * stop the buses location service if we're checking for number of cycles
 	 * otherwise, just keep running indefinitely
 	 */
-	var stopBusesOnMap = function() {
+	var stopBusesOnMap = function () {
 		clearInterval(_TIMECLOCK);
 		_TICKS = 0;
 		_BOMRUNNING = false;
@@ -2211,7 +2211,7 @@ var BOM = (function($, window, document, undefined) {
 	 * - test the _TICKSTOP value -> if null, application continues to run
 	 *   even if nothing displays.
 	 */
-	var updateBusesOnMap = function(/*boolean*/ zoomFlag) {
+	var updateBusesOnMap = function (/*boolean*/ zoomFlag) {
 		hideMapBanner();
 		_BOMRUNNING = true;
 		if (_TICKSTOP) {
@@ -2222,30 +2222,30 @@ var BOM = (function($, window, document, undefined) {
 				stopBusesOnMap();
 				showMapBanner(
 					'Real-time locations are paused.</br>' +
-						_RESTARTACTIONVERB +
-						' the map to resume.'
+					_RESTARTACTIONVERB +
+					' the map to resume.'
 				);
 			}
 		}
 		var zoomOnce = typeof zoomFlag !== 'undefined' ? zoomFlag : false;
-		drawBuses(/*boolean*/ zoomOnce, function(busesShowing, busesTotal) {
+		drawBuses(/*boolean*/ zoomOnce, function (busesShowing, busesTotal) {
 			if (_DEBUG)
 				console.log(
 					'++ Buses Showing = ' +
-						busesShowing +
-						' Total = ' +
-						busesTotal
+					busesShowing +
+					' Total = ' +
+					busesTotal
 				);
 			if (busesShowing === null) {
 				// service failure
 				showMapBanner('Real-time locations unavailable at this time.');
 				if (_TICKSTOP) {
 					stopBusesOnMap();
-					setTimeout(function() {
+					setTimeout(function () {
 						showMapBanner(
 							'Real-time locations are paused.</br>' +
-								_RESTARTACTIONVERB +
-								' the map to resume.'
+							_RESTARTACTIONVERB +
+							' the map to resume.'
 						);
 					}, 10000);
 				}
@@ -2261,45 +2261,45 @@ var BOM = (function($, window, document, undefined) {
 		});
 		if (_DEBUG) console.log('Ticks: ' + _TICKS);
 	};
-	var drawBusesOnMap = function(/*boolean*/ zoomFlag) {
+	var drawBusesOnMap = function (/*boolean*/ zoomFlag) {
 		updateBusesOnMap(zoomFlag); // do this once
 		_TIMECLOCK = setInterval(updateBusesOnMap, _TIMEINTERVAL); // then do it again every tick of the TIMECLOCK
 	};
 
-	var showMapLayers = function() {
-		$.each(_MAP.layerIds, function(index, layer) {
+	var showMapLayers = function () {
+		$.each(_MAP.layerIds, function (index, layer) {
 			var c = _MAP.getLayer(layer);
 			var v = c.visible ? ' visible' : ' hidden';
 			console.log(
 				'Layer: ' +
-					c.id +
-					', ' +
-					v +
-					', opacity: ' +
-					c.opacity +
-					' ' +
-					c.url
+				c.id +
+				', ' +
+				v +
+				', opacity: ' +
+				c.opacity +
+				' ' +
+				c.url
 			);
 		});
-		$.each(_MAP.graphicsLayerIds, function(index, layer) {
+		$.each(_MAP.graphicsLayerIds, function (index, layer) {
 			var c = _MAP.getLayer(layer);
 			var v = c.visible ? ' visible' : ' hidden';
 			console.log(
 				'Graphics Layer: ' +
-					c.id +
-					', ' +
-					v +
-					', opacity: ' +
-					c.opacity +
-					' ' +
-					c.url
+				c.id +
+				', ' +
+				v +
+				', opacity: ' +
+				c.opacity +
+				' ' +
+				c.url
 			);
 		});
 	};
 	/*
 	 * This is a utility function used for DEBUGGING purposes
 	 */
-	var timeElapsedInSeconds = function(timestamp) {
+	var timeElapsedInSeconds = function (timestamp) {
 		// assumes timestamp format of string = '/Date(1470941196000-0500)/'
 		var s = null;
 		if (timestamp && timestamp.indexOf('(') > -1) {
@@ -2311,12 +2311,12 @@ var BOM = (function($, window, document, undefined) {
 		}
 		return s / 1000;
 	};
-	var newWMPointFromLatLong = function(/*string*/ lat, /*string*/ long) {
+	var newWMPointFromLatLong = function (/*string*/ lat, /*string*/ long) {
 		var p = null;
 		require([
 			'esri/geometry/Point',
 			'esri/geometry/webMercatorUtils',
-		], function(Point, webMercatorUtils) {
+		], function (Point, webMercatorUtils) {
 			p = new Point(
 				webMercatorUtils.lngLatToXY(long, lat),
 				_MAP.spatialReference
@@ -2324,16 +2324,16 @@ var BOM = (function($, window, document, undefined) {
 		});
 		return p;
 	};
-	var newPointFromLatLong = function(/*string*/ lat, /*string*/ long) {
+	var newPointFromLatLong = function (/*string*/ lat, /*string*/ long) {
 		var p = null;
-		require(['esri/geometry/Point'], function(Point) {
+		require(['esri/geometry/Point'], function (Point) {
 			p = new Point(parseFloat(long), parseFloat(lat));
 		});
 		return p;
 	};
-	var newPointFromXY = function(/*float*/ x, /*float*/ y) {
+	var newPointFromXY = function (/*float*/ x, /*float*/ y) {
 		var p = null;
-		require(['esri/geometry/Point'], function(Point) {
+		require(['esri/geometry/Point'], function (Point) {
 			var latlng = [0, 0];
 			CoordinateConversion.UTMXYToLatLon(x, y, 15, false, latlng);
 			p = new Point(
@@ -2344,8 +2344,8 @@ var BOM = (function($, window, document, undefined) {
 		return p;
 	};
 
-	var init = function(mapElementID) {
-		return $.Deferred(function(dfd) {
+	var init = function (mapElementID) {
+		return $.Deferred(function (dfd) {
 			// mapType property on the <div>
 			var pType = document
 				.getElementById(mapElementID)
@@ -2362,7 +2362,7 @@ var BOM = (function($, window, document, undefined) {
 				'esri/layers/ArcGISDynamicMapServiceLayer',
 				'dojo/on',
 				'dojo/domReady!',
-			], function(Map, esriConfig, esriBasemaps, Scalebar, LocateButton, GraphicsLayer, ArcGISDynamicMapServiceLayer, on) {
+			], function (Map, esriConfig, esriBasemaps, Scalebar, LocateButton, GraphicsLayer, ArcGISDynamicMapServiceLayer, on) {
 				esriConfig.defaults.map.panRate = 1;
 				esriConfig.defaults.map.panDuration = 1;
 
@@ -2398,7 +2398,7 @@ var BOM = (function($, window, document, undefined) {
 					zoom: 14,
 				});
 
-				_MAP.on('load', function() {
+				_MAP.on('load', function () {
 					_GEOLOCATE = new LocateButton(
 						{
 							map: _MAP,
@@ -2409,7 +2409,7 @@ var BOM = (function($, window, document, undefined) {
 					);
 					_GEOLOCATE.startup();
 					_GEOLOCATE.clearOnTrackingStop = true;
-					_GEOLOCATE.on('locate', function(result) {
+					_GEOLOCATE.on('locate', function (result) {
 						if (result.error) {
 							showMapBanner(
 								"We're unable to determine your location. Check your browser permissions.",
@@ -2424,31 +2424,31 @@ var BOM = (function($, window, document, undefined) {
 						scalebarUnit: 'english',
 					});
 				});
-				_MAP.on('layer-add-result', function(result) {
+				_MAP.on('layer-add-result', function (result) {
 					if (result.error) {
 						console.error(
 							'Layer load failed -  ' +
-								result.error +
-								' for ' +
-								result.layer.url
+							result.error +
+							' for ' +
+							result.layer.url
 						);
 					}
 				});
 
-				_MAP.on('layers-add-result', function(result) {
+				_MAP.on('layers-add-result', function (result) {
 					if (_DEBUG) showMapLayers();
 					dfd.resolve();
 					//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 				});
 
-				_MAP.on('extent-change', function(evt) {
+				_MAP.on('extent-change', function (evt) {
 					if (_DEBUG) console.log('extent-change fired');
 					_CURRENTLOD = evt.lod;
 					//if (_BOMRUNNING === false) {
 					//    drawBusesOnMap();
 					//}
 				});
-				_MAP.on('click', function(evt) {
+				_MAP.on('click', function (evt) {
 					if (_DEBUG) console.log('map clicked');
 					if (_BOMRUNNING === false) {
 						drawBusesOnMap(/*zoom*/ true);
@@ -2484,10 +2484,10 @@ var BOM = (function($, window, document, undefined) {
 	 * The return value is a deferred promise that has a return
 	 * parameter of all the routes that service that stop or station.
 	 */
-	var showStop = function(stopID) {
+	var showStop = function (stopID) {
 		var queryWhere = 'site_id = ' + stopID;
 		if (_DEBUG) console.log('ShowStop ' + queryWhere);
-		return $.Deferred(function(dfd) {
+		return $.Deferred(function (dfd) {
 			$.ajax({
 				type: 'get',
 				url: _STOPS_QUERY_LAYER + '/query',
@@ -2500,7 +2500,7 @@ var BOM = (function($, window, document, undefined) {
 				},
 				dataType: 'json',
 			})
-				.done(function(r) {
+				.done(function (r) {
 					var stopPoint = null;
 					if (r.error) {
 						console.warn('Stop lookup failed');
@@ -2534,7 +2534,7 @@ var BOM = (function($, window, document, undefined) {
 									work = feature.attributes[
 										'ROUTETERMDIRS'
 									].split(','); // from BOM_POINTS for stops
-									$.each(work, function(idx, v) {
+									$.each(work, function (idx, v) {
 										// strip off the direction
 										routesForStop.push(
 											v
@@ -2553,7 +2553,7 @@ var BOM = (function($, window, document, undefined) {
 						}
 					}
 				})
-				.fail(function() {
+				.fail(function () {
 					console.warn('Stop service failed');
 					dfd.reject();
 				});
@@ -2566,9 +2566,9 @@ var BOM = (function($, window, document, undefined) {
 	 * returns the extent of the route(s) requested
 	 * or else a failure signal.
 	 */
-	var showRoute = function(/*[string]*/ routes) {
+	var showRoute = function (/*[string]*/ routes) {
 		var routesQuery = [];
-		routes = routes.filter(function(value, idx, arr) {
+		routes = routes.filter(function (value, idx, arr) {
 			return value !== '906';
 		});
 		var queryWhere = 'ROUTENUMBER in (';
@@ -2583,7 +2583,7 @@ var BOM = (function($, window, document, undefined) {
 		routesQuery[_ROUTE_LAYER] = queryWhere;
 		_MAP.getLayer('Routes').setLayerDefinitions(routesQuery);
 
-		return $.Deferred(function(dfd) {
+		return $.Deferred(function (dfd) {
 			$.ajax({
 				type: 'get',
 				cache: false,
@@ -2592,18 +2592,18 @@ var BOM = (function($, window, document, undefined) {
 					where: queryWhere,
 					returnGeometry: true,
 					outFields: 'ROUTENUMBER',
-					f: 'json',
+					f: 'json'
 				},
-				dataType: 'json',
+				dataType: 'json'
 			}).then(
-				function(r) {
+				function (r) {
 					if (r.error) {
 						console.warn('Route lookup error ' + queryWhere);
 						dfd.reject();
 					} else {
 						if (r.features.length > 0) {
 							var extent = null;
-							require(['esri/geometry/Polyline'], function(
+							require(['esri/geometry/Polyline'], function (
 								Polyline
 							) {
 								for (
@@ -2632,7 +2632,7 @@ var BOM = (function($, window, document, undefined) {
 						}
 					}
 				},
-				function(err) {
+				function (err) {
 					console.warn('Route service failure');
 					dfd.reject();
 				}
@@ -2655,7 +2655,7 @@ var BOM = (function($, window, document, undefined) {
 	 *  }
 	 *
 	 */
-	var startBusesOnMap = function(/*object*/ parms) {
+	var startBusesOnMap = function (/*object*/ parms) {
 		_GEOLOCATE.clear();
 		_SHOWALLBUSES = false;
 		_ROUTEID = null;
@@ -2673,7 +2673,7 @@ var BOM = (function($, window, document, undefined) {
 		var stopPoint = null;
 		if (parms.stopID) {
 			$.when(showStop(parms.stopID))
-				.then(function(routenums, routesForStop, point) {
+				.then(function (routenums, routesForStop, point) {
 					if (point) stopPoint = point;
 					_ROUTESFORSHOW = routenums; // these have route number only
 					_ROUTESFORSTOP = routesForStop; // these have route and term letter (direction stripped)
@@ -2683,14 +2683,14 @@ var BOM = (function($, window, document, undefined) {
 						showRoute(routenums);
 					}
 				})
-				.then(function(extentOfRoutes) {
+				.then(function (extentOfRoutes) {
 					_MAP.centerAndZoom(stopPoint, parms.stopZoomLevel).then(
-						function() {
+						function () {
 							drawBusesOnMap(parms.zoomToNearestBus);
 						}
 					);
 				})
-				.fail(function() {
+				.fail(function () {
 					console.warn(
 						'Requested stop ' + parms.stopID + ' not found.'
 					);
@@ -2701,16 +2701,16 @@ var BOM = (function($, window, document, undefined) {
 				drawBusesOnMap(parms.zoomToNearestBus);
 			} else if (_ROUTEID) {
 				$.when(showRoute(_ROUTEID))
-					.then(function(extentOfRoutes) {
+					.then(function (extentOfRoutes) {
 						if (extentOfRoutes) {
 							_MAP.setExtent(extentOfRoutes, true).then(
-								function() {
+								function () {
 									drawBusesOnMap(parms.zoomToNearestBus);
 								}
 							);
 						}
 					})
-					.fail(function() {
+					.fail(function () {
 						console.warn(
 							'Requested route ' + parms.routeID + ' not found.'
 						);
@@ -2731,7 +2731,7 @@ var BOM = (function($, window, document, undefined) {
 	// show just the buses for the specified route, or busses for all
 	// routes that service that stop.
 	// ====================================================================
-	var fullPageBOM = function(
+	var fullPageBOM = function (
 		/*string*/ mapDiv,
 		/*string*/ stop,
 		/*string*/ route
@@ -2748,7 +2748,7 @@ var BOM = (function($, window, document, undefined) {
 			zoomToNearestBus: true,
 			stopZoomLevel: 16,
 		};
-		init(mapDiv).then(function() {
+		init(mapDiv).then(function () {
 			startBusesOnMap(parms);
 		});
 	};
@@ -2767,7 +2767,7 @@ var BOM = (function($, window, document, undefined) {
 	};
 })(jQuery, window, document);
 
-$(function() {
+$(function () {
 	// ----------------------------------------------------
 	// schedules-maps
 	// ----------------------------------------------------
@@ -2777,7 +2777,7 @@ $(function() {
 		AutocompleteAddress.init(
 			'interactiveMapSearch',
 			/*UTMout*/ false,
-			function() {
+			function () {
 				var choice = AutocompleteAddress.getChoice(
 					'interactiveMapSearch'
 				);
@@ -2788,16 +2788,16 @@ $(function() {
 				);
 			}
 		);
-		TRIM.init('TRIMap').then(function() {
+		TRIM.init('TRIMap').then(function () {
 			//TRIM.geoLocate();
 		});
-		$('#stopsStationsMapLayer').click(function() {
+		$('#stopsStationsMapLayer').click(function () {
 			TRIM.toggleLayer('allStops', /*zoomLevel*/ 14);
 		});
-		$('#parkRideMapLayer').click(function() {
+		$('#parkRideMapLayer').click(function () {
 			TRIM.toggleLayer('parkAndRides', /*zoomLevel*/ 10);
 		});
-		$('#niceRideMapLayer').click(function() {
+		$('#niceRideMapLayer').click(function () {
 			TRIM.toggleLayer('niceRides', /*zoomLevel*/ 14);
 		});
 	}
