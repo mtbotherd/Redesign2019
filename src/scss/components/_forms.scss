@@ -87,7 +87,8 @@ form {
 		}
 
 		.form-control,
-		.custom-select {
+		.custom-select,
+		.custom-file {
 			position: relative;
 			display: block;
 			height: 50px;
@@ -98,6 +99,35 @@ form {
 			@include media-breakpoint-up(lg) {
 				height: 60px;
 				@include font-size(23);
+			}
+		}
+
+		> .custom-file {
+
+			.custom-file-input {
+				height: 50px;
+
+				@include media-breakpoint-up(lg) {
+					height: 60px;
+				}
+			}
+
+			.custom-file-label {
+				@include font-size(18);
+				height: 50px;
+				padding: 0.75rem;
+				&::after {
+					height: 48px;
+					padding: 0.75rem;
+				}
+				@include media-breakpoint-up(lg) {
+					height: 60px;
+					@include font-size(23);
+
+					&::after {
+						height: 58px;
+					}
+				}
 			}
 		}
 
@@ -122,39 +152,39 @@ form {
 			border-right: none;
 		}
 
-		> .custom-file {
-			height: 50px;
+		// > .custom-file {
+		// 	height: 50px;
 
-			@include media-breakpoint-up(lg) {
-				height: 60px;
-			}
+		// 	@include media-breakpoint-up(lg) {
+		// 		height: 60px;
+		// 	}
 
-			.custom-file-input {
-				height: 50px;
+		// 	.custom-file-input {
+		// 		height: 50px;
 
-				@include media-breakpoint-up(lg) {
-					height: 60px;
-				}
-			}
+		// 		@include media-breakpoint-up(lg) {
+		// 			height: 60px;
+		// 		}
+		// 	}
 
-			.custom-file-label {
-				@include font-size(18);
-				height: 50px;
-				padding: 0.65rem 0.75rem;
-				&::after {
-					height: 48px;
-					padding: 0.65rem 0.75rem;
-				}
-				@include media-breakpoint-up(lg) {
-					height: 60px;
-					@include font-size(23);
+		// 	.custom-file-label {
+		// 		@include font-size(18);
+		// 		height: 50px;
+		// 		padding: 0.65rem 0.75rem;
+		// 		&::after {
+		// 			height: 48px;
+		// 			padding: 0.65rem 0.75rem;
+		// 		}
+		// 		@include media-breakpoint-up(lg) {
+		// 			height: 60px;
+		// 			@include font-size(23);
 
-					&::after {
-						height: 58px;
-					}
-				}
-			}
-		}
+		// 			&::after {
+		// 				height: 58px;
+		// 			}
+		// 		}
+		// 	}
+		// }
 
 		.input-group-append {
 			.btn-primary {
