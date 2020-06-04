@@ -236,7 +236,7 @@
 													aria-describedby="networkNextMapSearchInstr"
 													aria-owns="networkNextMapSearchSuggestions" aria-required="true"
 													role="combobox" onFocus="$(this).val('')" />
-												<label for="searchButton">Search...</label>
+												<label for="searchButton">Search for address...</label>
 											</div>
 											<div class="input-group-append">
 												<div class="input-group-text" id="searchIcon">
@@ -253,7 +253,7 @@
 										<div class="row">
 											<div class="col-xl-4">
 												<div>
-													<legend class="h4 mb-2">Show Future Route Scenarios</legend>
+													<legend class="h4 mb-2">Show Transit Route Scenarios</legend>
 													<div class="custom-control custom-radio d-sm-inline-flex mr-sm-5">
 														<input id="networkNextTimeSelect1" type="radio"
 															class="custom-control-input" name="selecttime" value="2020"
@@ -266,21 +266,21 @@
 															class="custom-control-input" name="selecttime" value="2025"
 															disabled />
 														<label for="networkNextTimeSelect2"
-															class="custom-control-label">2025</label>
+															class="custom-control-label">Year 2025</label>
 													</div>
 													<div class="custom-control custom-radio d-sm-inline-flex mr-sm-5">
 														<input id="networkNextTimeSelect3" type="radio"
 															class="custom-control-input" name="selecttime" value="2030"
 															disabled />
 														<label for="networkNextTimeSelect3"
-															class="custom-control-label">2030</label>
+															class="custom-control-label">Year 2030</label>
 													</div>
 													<div class="custom-control custom-radio d-sm-inline-flex mr-sm-5">
 														<input id="networkNextTimeSelect4" type="radio"
 															class="custom-control-input" name="selecttime" value="2040"
 															disabled />
 														<label for="networkNextTimeSelect4"
-															class="custom-control-label">2040</label>
+															class="custom-control-label">Year 2040</label>
 													</div>
 												</div>
 												<legend class="h4"></legend>
@@ -288,41 +288,41 @@
 												<div class="select-route mt-3 mb-4">
 													<select id="nnRoute" name="nnRoute" class="custom-select"
 														onclick="this.setAttribute('value', this.value);" value="">
-														<option selected>Pick a Route</option>
+														<option selected>Select a Route</option>
 													</select>
-													<label for="ntRoute" class="sr-only">Pick a Route</label>
+													<label for="ntRoute" class="sr-only">Select a Route</label>
 												</div>
 												<div class="mb-4">
-													<div class="custom-control custom-switch d-inline-flex mr-sm-3">
+													<div class="custom-control custom-switch d-md-inline-flex mr-lg-5">
 
 														<input type="checkbox" class="custom-control-input"
 															id="networkNextMapLayer1" />
 														<label class="custom-control-label"
-															for="networkNextMapLayer1">Metro
+															for="networkNextMapLayer1">Metro Routes
 														</label>
 													</div>
-													<div class="custom-control custom-switch d-inline-flex mr-sm-3">
+													<div class="custom-control custom-switch d-md-inline-flex mr-lg-5">
 
 														<input type="checkbox" class="custom-control-input"
 															id="networkNextMapLayer2" checked />
 														<label class="custom-control-label"
-															for="networkNextMapLayer2">Core
+															for="networkNextMapLayer2">Core Routes
 														</label>
 													</div>
-													<div class="custom-control custom-switch d-inline-flex mr-sm-3">
+													<div class="custom-control custom-switch d-md-inline-flex mr-lg-5">
 
 														<input type="checkbox" class="custom-control-input"
 															id="networkNextMapLayer3" />
 														<label class="custom-control-label"
-															for="networkNextMapLayer3">Express
+															for="networkNextMapLayer3">Express Routes
 														</label>
 													</div>
-													<div class="custom-control custom-switch d-inline-flex mr-sm-3">
+													<div class="custom-control custom-switch d-md-inline-flex mr-sm-3">
 
 														<input type="checkbox" class="custom-control-input"
 															id="networkNextMapLayer4" />
 														<label class="custom-control-label"
-															for="networkNextMapLayer4">Connecting
+															for="networkNextMapLayer4">Connecting Routes
 														</label>
 													</div>
 												</div>
@@ -331,14 +331,14 @@
 
 											</div>
 											<div class="col-xl-8">
-												<span class="small">Click the map to show routes that service the
-													location.
+												<span class="small">Click the map for additional information or to add a
+													comment to a particular location.
 												</span>
 												<div id="networkNextInteractiveMap" class="map-container border"
 													aria-label="interactive map of proposed route changes">
-													<div id="nnBasemapToggle">&nbsp;</div>
-													<div id="networkNextMapLocate">&nbsp;</div>
-													<div class="mapLoading">&nbsp;</div>
+													<div id="nnBasemapToggle"></div>
+													<div id="networkNextMapLocate"></div>
+													<div class="mapLoading"></div>
 												</div>
 											</div>
 										</div>

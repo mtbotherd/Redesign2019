@@ -344,16 +344,18 @@ var NetworkNextMap = (function ($, window, document) {
 		// } else {
 		// 	ROUTESTOSHOW.splice(i, 1);
 		// }
-		commentFormReset();
-		ROUTESTOSHOW = [];
-		ROUTESTOSHOW.push(route);
-		if (pulldownSelect) {
-			MAP.infoWindow.hide();
-			updateLayersByType(0); // reset the route selectors too
-		} else {
-			$('#nnRoute').val(''); // reset the route pulldown list
+		if (route) {
+			commentFormReset();
+			ROUTESTOSHOW = [];
+			ROUTESTOSHOW.push(route);
+			if (pulldownSelect) {
+				MAP.infoWindow.hide();
+				updateLayersByType(0); // reset the route selectors too
+			} else {
+				$('#nnRoute').val(''); // reset the route pulldown list
+			}
+			drawRoutes(ROUTESTOSHOW, /*zoom*/ true);
 		}
-		drawRoutes(ROUTESTOSHOW, /*zoom*/ true);
 		let m = setCommentText();
 		$('#networkNextCommentForm').val(m + '\n');
 		$('#networkNextCommentForm').focus();
@@ -385,9 +387,9 @@ var NetworkNextMap = (function ($, window, document) {
 			routestring = '<span style="font-size:large;"><br/>No routes service here.<br/><br/></span>';
 		}
 		routestring += '<br/><br/>' +
-			'<div class="btn-container center">' +
-			'<a class="btn btn-secondary-ghost has-icon-right"' +
-			'href="/network-next-comments">Send Us Your Comments</a></div>';
+			'<div>' +
+			'<a class="btn btn-sm btn-secondary-ghost" role="button"' +
+			'href="javascript: NetworkNextMap.toggleRoute();">Comments</a></div>';
 		//<span style="font-size:larger;"><a href="#"><br /><br />Leave a comment, please!!</a>'
 		return routestring;
 	};
@@ -459,6 +461,7 @@ var NetworkNextMap = (function ($, window, document) {
 				});
 				queryTask.on('complete', function (fSet) {
 					let routes = null;
+					let content = '';
 					let features = fSet.featureSet.features;
 					if (features && features.length > 0) {
 						// we found some routes at the location of this map click
@@ -482,9 +485,9 @@ var NetworkNextMap = (function ($, window, document) {
 							});
 					}
 					if (routes) {
-						let content = formatPopUpList(routes);
+						content = formatPopUpList(routes);
 					} else {
-						// format address 
+						content = 'Map clicked';
 					}
 
 					MAP.infoWindow.resize(250, 300);
@@ -529,9 +532,10 @@ var NetworkNextMap = (function ($, window, document) {
 				'esri/dijit/PopupTemplate',
 				'esri/dijit/LocateButton',
 				"esri/dijit/BasemapToggle",
+				'dojo/on',
 				'dojo/domReady!'
 			], function (Map, esriBasemaps, Color, ArcGISDynamicMapServiceLayer, FeatureLayer,
-				Query, QueryTask, SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton, BasemapToggle) {
+				Query, QueryTask, SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton, BasemapToggle, on) {
 
 				var createRouteList = function () {
 					// this function creates two lists from one source:
@@ -801,11 +805,31 @@ var NetworkNextMap = (function ($, window, document) {
 					// );
 					// mapLegend.startup();
 
-					var toggle = new BasemapToggle({
-						map: MAP,
-						basemap: "satellite"
-					}, "nnBasemapToggle");
-					//toggle.startup();
+					// var toggle = new BasemapToggle({
+					// 	map: MAP,
+					// 	basemap: "satellite"
+					// }, "nnBasemapToggle");
+					// toggle.startup();
+
+					require(['dijit/form/Button'], function (Button) {
+						var bImagery = new Button({
+							id: 'bImagery',
+							label: 'Aerials',
+							title: 'Click to toggle imagery',
+							'class': 'bImagery',
+							onClick: function () {
+								if (MAP.getBasemap() === 'hybrid') {
+									MAP.setBasemap('transitVector');
+									$('#bImagery').html('Aerials');
+								} else {
+									MAP.setBasemap('hybrid');
+									$('#bImagery').html('Basemap');
+								}
+							}
+						});
+						bImagery.placeAt($('#nnBasemapToggle')[0]);
+						bImagery.startup();
+					});
 
 					MAP.disableScrollWheel();
 
