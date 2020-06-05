@@ -1,0 +1,174 @@
+/**************************************************
+    Form validation styles
+**************************************************/
+form {
+  legend {
+      font-size: initial;
+  }
+
+  .custom-file-input:lang(en) ~ .custom-file-label::after {
+      //content: "\f574";
+      display: inline-block;
+      vertical-align: middle;
+      font-weight: 900;
+  }
+
+  .is-invalid {
+      position: relative;
+      .form-control,
+      .custom-select,
+      .custom-control-label::before {
+          border-color: $red !important;
+          border-right: 1px solid $red;
+      }
+
+      .form-control:focus,
+      .custom-select:focus,
+      .custom-control-label::before,
+      .custom-file-input:focus ~ .custom-file-label {
+          border-right: 1px solid $red;
+          box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25), 0 0 6px $red;
+          -webkit-box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25),
+              0 0 6px $red;
+      }
+
+      .custom-file-input:lang(en) ~ .custom-file-label::after {
+          border-left: 1px solid $red;
+      }
+
+      .custom-file-label {
+          border-color: $red !important;
+      }
+
+      &.has-feedback {
+          margin-bottom: 1rem;
+      }
+
+      .help-block {
+          color: $red;
+          font-style: italic;
+          position: relative;
+          padding-left: 1.5rem;
+
+          @include media-breakpoint-up(lg) {
+              padding-top: 0.25rem;
+              padding-left: 2rem;
+          }
+
+          &::before {
+              position: absolute;
+              content: "";
+              background-image: url("/img/svg/alert-red.svg");
+              background-repeat: no-repeat;
+              background-size: 1rem;
+              width: 1rem;
+              height: 1rem;
+              top: 0.25rem !important;
+              left: 0;
+              margin-right: 1rem;
+
+              @include media-breakpoint-up(lg) {
+                  background-size: 1.5rem;
+                  width: 1.5rem;
+                  height: 1.5rem;
+              }
+          }
+      }
+  }
+
+  .has-input-addon.is-invalid {
+      position: relative;
+      margin-bottom: 2rem;
+
+      @include media-breakpoint-up(lg) {
+          margin-bottom: 3rem;
+      }
+      .help-block {
+          position: absolute;
+          bottom: -1.5rem;
+          left: 0;
+
+          @include media-breakpoint-up(lg) {
+              bottom: -2rem;
+          }
+      }
+  }
+
+  .custom-control.is-invalid {
+      .help-block {
+          position: absolute;
+          top: 3.25rem;
+          left: 3rem;
+          color: $red;
+          font-style: italic;
+          line-height: 1;
+
+          @include media-breakpoint-up(lg) {
+              top: 2rem;
+              left: 3rem;
+          }
+      }
+  }
+
+  .is-valid {
+      .form-control,
+      .custom-select {
+          border-color: $green;
+          border-right: 1px solid $green;
+      }
+
+      .form-control:focus,
+      .custom-select:focus,
+      .custom-file-input:focus {
+          border-right: 1px solid $green;
+          box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25), 0 0 6px $green;
+          -webkit-box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25),
+              0 0 6px $green;
+      }
+
+      .custom-file-label {
+          border-color: $green !important;
+      }
+
+      .form-control-feedback {
+          // Default position of success icon inside input element.
+          display: none;
+          position: absolute;
+          top: 2.75rem;
+          right: 1.5rem;
+      }
+
+      .alert-red {
+          display: none;
+      }
+  }
+
+  .input-group.is-invalid {
+      p.is-invalid {
+          position: absolute;
+          bottom: -40px;
+          left: 0;
+      }
+      .form-control {
+          border-right: 2px solid $red;
+      }
+  }
+
+  .input-group.is-valid {
+      .form-control {
+          border-right: 2px solid $green;
+      }
+  }
+
+  // .input-group.is-invalid {
+  //     .alert-red {
+  //         position: absolute;
+  //         top: 2.75rem;
+  //         left: 0;
+
+  //         @include media-breakpoint-up(lg) {
+  //             top: 3.5rem;
+  //         }
+  //     }
+  // }
+}
