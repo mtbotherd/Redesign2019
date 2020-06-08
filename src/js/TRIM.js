@@ -1212,52 +1212,6 @@ var TRIM = (function ($, window, document, undefined) {
 					return routestring;
 				};
 				var idMap = function (evt) {
-					var showLocation = function (results2) {
-						var title =
-							'Map Click<hr/>' +
-							'Location found: <br/>' +
-							results2.address.address.Street +
-							'<br/>';
-
-						//$(".esriPopupMobile .sizer").css("height", "90px");
-						//$(".esriPopupMobile .titlePane").css("height", "90px");
-						MAP.infoWindow.setTitle(title);
-
-						var rsltScrPnt = MAP.toScreen(
-							results2.address.location
-						);
-						var num = MAP.height / 2;
-						var infoWindowOrigin;
-						var toppx = 0;
-						if (MAP.height / 2 < rsltScrPnt.y) {
-							//if click in the bottom half of the screen, change the click point by 50 pixels.
-							var curPoint = MAP.toScreen(
-								results2.address.location
-							);
-
-							curPoint.y = curPoint.y - 50;
-							infoWindowOrigin = curPoint;
-							//console.log("Click Y after adjustment1: " + curPoint.y);
-							if (
-								curPoint.y + 50 > MAP.height / 2 &&
-								MAP.height / 2 > curPoint.y
-							) {
-								//console.log("clicked in bottom half of map window, but adjustment moves it to top half");
-								//css top is supposed to be 104 pixels above (negative actually so less than, numerically) the map click, we're making the popup 50 pixels wider
-								toppx = curPoint.y - 54;
-								curPoint.y = curPoint.y + 50;
-								infoWindowOrigin = curPoint;
-							}
-						} else {
-							infoWindowOrigin = MAP.toScreen(
-								results2.address.location
-							);
-						}
-						MAP.infoWindow.show(MAP.toMap(infoWindowOrigin));
-						//if (toppx > 0) {
-						//    $(".esriPopupMobile").css("top", toppx + "px");
-						///}
-					};
 					var query = new Query();
 					var queryTask = new QueryTask(
 						'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/1'

@@ -115,27 +115,48 @@ var NetworkNextMap = (function ($, window, document) {
 		'midnightblue'
 	];
 
-	var drawRoutes = function (/*[string]*/ routes, /*bool*/zoom) {
+	var aliasRouteName = function (/*any*/route) {
+		route = parseInt(route);
+		var routeName = '';
+		switch (route) {
+			case 901:
+				routeName = 'Blue Line';
+				break;
+			case 902:
+				routeName = 'Green Line';
+				break;
+			case 903:
+				routeName = 'Red Line';
+				break;
+			case 904:
+				routeName = 'Gold Line';
+				break;
+			case 905:
+				routeName = 'Orange Line';
+				break;
+			case 906:
+				routeName = 'Airport Shuttle';
+				break;
+			case 921:
+				routeName = 'A Line';
+				break;
+			case 922:
+				routeName = 'B Line';
+				break;
+			case 923:
+				routeName = 'C Line';
+				break;
+			default:
+				routeName = route.toString();
+				break;
+		}
+		return routeName;
+	}
+	var drawRoute = function (/*string*/ route, /*bool*/zoom) {
 		zoom = typeof zoom !== 'undefined' ? zoom : false;
 
 		MAP.graphics.clear();
-		// var routesQuery = [];
-		var queryWhere = '1=0';
 
-		if (routes) {
-			routes = routes.filter(function (value, idx, arr) {
-				return value !== '999'; // remove values from list
-			});
-			queryWhere = 'ROUTENUMBER in (';
-			for (let i = 0, l = routes.length; i < l; i++) {
-				if (i > 0) {
-					queryWhere += ',';
-				}
-				queryWhere += routes[i];
-			}
-			queryWhere += ')';
-
-		}
 		// ******************
 		// Here we set a query on a feature layer defined in the map
 		// rather than a direct query of any service to get a line geometry
@@ -151,7 +172,7 @@ var NetworkNextMap = (function ($, window, document) {
 			type: 'get',
 			url: routeService + '/4/query',
 			data: {
-				where: queryWhere,
+				where: 'ROUTENUMBER = ' + route,
 				returnGeometry: true,
 				outFields: 'ROUTENUMBER',
 				f: 'json',
@@ -159,17 +180,23 @@ var NetworkNextMap = (function ($, window, document) {
 			dataType: 'json',
 		})
 			.done(function (result, status, xhr) {
-				if (result && result.features.length > 0) {
+				if (result.error) {
+					console.warn('drawRoute fatal error on lookup for route: ' + route);
+				}
+				if (result.features) {
 					require([
 						'esri/geometry/Polyline',
+						'esri/symbols/SimpleMarkerSymbol',
 						'esri/symbols/SimpleLineSymbol',
+						'esri/symbols/SimpleFillSymbol',
 						'esri/symbols/TextSymbol',
 						'esri/symbols/Font',
 						'esri/Color',
 						'esri/graphic'
-					], function (Polyline, SimpleLineSymbol, TextSymbol, Font, Color, Graphic) {
+					], function (Polyline, SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol, TextSymbol, Font, Color, Graphic) {
 						var extent;
 						for (let i = 0, l = result.features.length; i < l; i++) {
+							// draw a line for the route
 							let geom = new Polyline({
 								paths: result.features[i].geometry.paths,
 								spatialReference: result.spatialReference,
@@ -183,19 +210,27 @@ var NetworkNextMap = (function ($, window, document) {
 							g.setSymbol(line);
 							MAP.graphics.add(g);
 
-							let font = new Font("32px",
+							// add label for the route
+							let font = new Font("30px",
 								Font.STYLE_NORMAL,
 								Font.VARIANT_NORMAL,
 								Font.WEIGHT_BOLD);
-							let text = result.features[i].attributes.ROUTENUMBER;
+							let text = aliasRouteName(result.features[i].attributes.ROUTENUMBER);
 							var textSymbol = new TextSymbol(
 								text,
 								font,
 								new Color([64, 128, 255]) // a light-blue
 								//new Color('darkcyan')
 							);
-							let labelPoint = geom.getExtent().getCenter().offset(0, 10);
+							let labelPoint = geom.getExtent().getCenter();
+							//let offsetPoint = labelPoint.offset(0, -300);
+							var marker = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE, 60,
+								new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID,
+									new Color([0, 0, 0]), 1),
+								new Color([255, 255, 255, 1]));
+							//let m = new Graphic(labelPoint, marker);
 							let label = new Graphic(labelPoint, textSymbol);
+							//MAP.graphics.add(m);
 							MAP.graphics.add(label);
 							if (i === 0) {
 								extent = geom.getExtent();
@@ -206,11 +241,6 @@ var NetworkNextMap = (function ($, window, document) {
 						MAP.setExtent(extent, true);
 					});
 				}
-			})
-			.fail(function (err) {
-				console.warn(
-					'Routes fatal error fetching polylines: ' + err.Message
-				);
 			});
 	};
 	var toggleLayer = function (/*string*/ layer, /*int*/ zoomLevel) {
@@ -311,7 +341,7 @@ var NetworkNextMap = (function ($, window, document) {
 		$('#networkNextCommentForm').val('');
 		$('#nnCommentFormSubmitStatus').html('');
 	};
-	var setCommentText = function () {
+	var setCommentText = function (route) {
 		let m = 'For';
 		switch (SELECTEDTIME) {
 			case 1:
@@ -329,8 +359,9 @@ var NetworkNextMap = (function ($, window, document) {
 			default:
 				break;
 		}
-		if (ROUTESTOSHOW.length > 0) {
-			m += ' route ' + ROUTESTOSHOW[0] + ':';
+		if (route) {
+			let r = aliasRouteName(route);
+			m += ' route ' + r + ':';
 		} else {
 			m += ' routes:';
 		}
@@ -346,17 +377,18 @@ var NetworkNextMap = (function ($, window, document) {
 		// }
 		if (route) {
 			commentFormReset();
-			ROUTESTOSHOW = [];
-			ROUTESTOSHOW.push(route);
+			//ROUTESTOSHOW = [];
+			//ROUTESTOSHOW.push(route);
 			if (pulldownSelect) {
 				MAP.infoWindow.hide();
 				updateLayersByType(0); // reset the route selectors too
 			} else {
 				$('#nnRoute').val(''); // reset the route pulldown list
 			}
-			drawRoutes(ROUTESTOSHOW, /*zoom*/ true);
+			// drawRoutes(ROUTESTOSHOW, /*zoom*/ false);
+			drawRoute(route, /*zoom*/false);
 		}
-		let m = setCommentText();
+		let m = setCommentText(route);
 		$('#networkNextCommentForm').val(m + '\n');
 		$('#networkNextCommentForm').focus();
 	}
@@ -369,8 +401,14 @@ var NetworkNextMap = (function ($, window, document) {
 			for (let i = 0, len = w.length; i < len; i++) {
 				routestring += '<br/>';
 				var rt = w[i];
-				var rtName = '';
-				if (ROUTENAMES) rtName = ROUTENAMES[rt];
+				var rtName = rt;
+				var rtDesc;
+				if (ROUTENAMES) {
+					if (rt in ROUTENAMES) {
+						rtName = ROUTENAMES[rt].name;
+						rtDesc = ROUTENAMES[rt].description;
+					}
+				}
 				var html = '<input id="cb' + rt + '"';
 				html += 'onclick="javascript: NetworkNextMap.toggleRoute(' + rt + ');return true; "';
 				html += 'type="radio" name="routeSelect"';
@@ -380,17 +418,22 @@ var NetworkNextMap = (function ($, window, document) {
 				}
 				html += '/>';
 				//html += '<label for='cb' + rt + ''><a href='https://www.metrotransit.org/route/' + rt + '' target='_blank'>' + rtName + '</a></label>';
-				html += '<label for="cb' + rt + '">' + rtName + '</label>';
+				if (rtDesc) {
+					html += '<label for="cb' + rt + '">' + rtName + ' - ' + rtDesc + '</label>';
+				} else {
+					html += '<label for="cb' + rt + '">' + rtName + '</label>';
+				}
+
 				routestring += html;
 			}
 		} else {
 			routestring = '<span style="font-size:large;"><br/>No routes service here.<br/><br/></span>';
 		}
 		routestring += '<br/><br/>' +
-			'<div>' +
-			'<a class="btn btn-sm btn-secondary-ghost" role="button"' +
-			'href="javascript: NetworkNextMap.toggleRoute();">Comments</a></div>';
-		//<span style="font-size:larger;"><a href="#"><br /><br />Leave a comment, please!!</a>'
+			// '<div>' +
+			// '<a class="btn btn-sm btn-secondary-ghost" role="button"' +
+			// 'href="#">Comments</a></div>';
+			'<span style="font-size:larger;"><a href="#"><br /><br />Leave a comment, please!!</a>'
 		return routestring;
 	};
 
@@ -413,7 +456,7 @@ var NetworkNextMap = (function ($, window, document) {
 				dataType: 'json',
 			})
 				.done(function (result, status, xhr) {
-					console.dir(result);
+					//console.dir(result);
 					if (result && result.error) {
 						console.warn('Error locateAddress: ' + result.error.message);
 						dfd.reject(result.error.message);
@@ -421,12 +464,7 @@ var NetworkNextMap = (function ($, window, document) {
 					if (result && result.address) {
 						dfd.resolve(result.address.Match_addr);
 					}
-				})
-				.fail(function (result) {
-					console.warn('Fatal error locateAddress ' + result.error.Message);
-					dfd.reject(result.error.message);
 				});
-
 		}).promise();
 	}
 
@@ -477,11 +515,11 @@ var NetworkNextMap = (function ($, window, document) {
 					} else {
 						// didn't find any routes so we'll look up the street address of the map click
 						locateAddress(mapPointLngLat[0], mapPointLngLat[1])
-							.done(function (address) {
-								//console.log('Address: ' + address);
-							})
-							.fail(function (err) {
-								console.log('Error - unable to fetch address');
+							.done(function (result) {
+								if (result.error) {
+									console.log('locateAddress Error - unable to fetch address');
+								}
+								console.log('Address: ' + result.address);
 							});
 					}
 					if (routes) {
@@ -511,6 +549,7 @@ var NetworkNextMap = (function ($, window, document) {
 			alert('Provide some comments');
 		}
 	};
+
 	//@@@@@@@@@@@@@@@@@@@@
 	//@@@  I N I T @@@@@@@
 	//@@@@@@@@@@@@@@@@@@@@
@@ -542,6 +581,11 @@ var NetworkNextMap = (function ($, window, document) {
 					// List 1: an object list have with the route number and description. This get used to show the
 					//         route description in the pop-up lists.
 					// List 2: is the route selection pull-down list to highlight a route on the map.
+					let routedrop = $('#nnRoute');
+					routedrop.empty(); // clear the select list
+					routedrop.append($('<option selected/>').val('').text('Pick a Route'));
+					ROUTENAMES = {}; // Outformat { 901: { name: "METRO Blue Line", description: "" }
+
 					var query = new Query();
 					var queryTask = new QueryTask(
 						'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/4'
@@ -557,28 +601,32 @@ var NetworkNextMap = (function ($, window, document) {
 					});
 					queryTask.on('complete', function (fSet) {
 						if (fSet.featureSet.features.length > 0) {
-							ROUTENAMES = {}; // Outformat { "901": "METRO Blue Line" }
-							let routedrop = $('#nnRoute');
-							routedrop.empty(); // clear the select list
-							routedrop.append($('<option selected/>').val('').text('Pick a Route'));
-
 							for (let i = 0, l = fSet.featureSet.features.length; i < l; i++) {
-								var route =
+								let route =
 									fSet.featureSet.features[i].attributes;
-								if (route.ROUTENUM > 887) {
-									ROUTENAMES[route.ROUTENUM] =
-										route.ROUTEDESCRIPTION;
-								} else {
-									ROUTENAMES[route.ROUTENUM] =
-										route.ROUTENUM.toString() +
-										' ' +
-										route.ROUTEDESCRIPTION;
+								let routeName = aliasRouteName(route.ROUTENUM);
+								if (route.ROUTENUM > 890) {
+									ROUTENAMES[route.ROUTENUM] = { 'name': routeName, 'description': null };
+									routedrop.append(
+										$('<option/>')
+											.val(route.ROUTENUM.toString())
+											.text(routeName)
+									);
 								}
-								routedrop.append(
-									$('<option/>')
-										.val(route.ROUTENUM)
-										.text(route.ROUTENUM + " - " + route.ROUTEDESCRIPTION)
-								);
+							}
+							for (let i = 0, l = fSet.featureSet.features.length; i < l; i++) {
+								let route =
+									fSet.featureSet.features[i].attributes;
+								let routeName = aliasRouteName(route.ROUTENUM);
+								if (route.ROUTENUM < 890) {
+									ROUTENAMES[route.ROUTENUM] = { 'name': routeName, 'description': route.ROUTEDESCRIPTION };
+									routedrop.append(
+										$('<option/>')
+											.val(route.ROUTENUM.toString())
+											.text(routeName + " - " + route.ROUTEDESCRIPTION)
+									);
+								}
+
 							}
 						}
 					});
