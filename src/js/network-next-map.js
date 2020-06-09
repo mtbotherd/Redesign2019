@@ -238,7 +238,9 @@ var NetworkNextMap = (function ($, window, document) {
 								extent = extent.union(geom.getExtent());
 							}
 						}
-						MAP.setExtent(extent, true);
+						if (zoom) {
+							MAP.setExtent(extent, true);
+						}
 					});
 				}
 			});
@@ -392,12 +394,12 @@ var NetworkNextMap = (function ($, window, document) {
 		$('#networkNextCommentForm').val(m + '\n');
 		$('#networkNextCommentForm').focus();
 	}
-	var formatPopUpList = function formatPopUpList(/*string*/routeList) {
+	var formatPopUp = function (/*string*/routeList) {
 		// routeList is a string with route numbers space-delimited
 		var routestring = '';
-		if (routeList.length > 0) {
+		if (routeList) {
 			let w = routeList.split(' ').sort(function (a, b) { return parseInt(a) - parseInt(b); });
-			routestring += '<span>PIck one to highlight.<br/><br/></span>';
+			routestring += '<span>Pick one to highlight.<br/><br/></span>';
 			for (let i = 0, len = w.length; i < len; i++) {
 				routestring += '<br/>';
 				var rt = w[i];
@@ -427,13 +429,8 @@ var NetworkNextMap = (function ($, window, document) {
 				routestring += html;
 			}
 		} else {
-			routestring = '<span style="font-size:large;"><br/>No routes service here.<br/><br/></span>';
+			routestring = 'No routes service here.';
 		}
-		routestring += '<br/><br/>' +
-			// '<div>' +
-			// '<a class="btn btn-sm btn-secondary-ghost" role="button"' +
-			// 'href="#">Comments</a></div>';
-			'<span style="font-size:larger;"><a href="#"><br /><br />Leave a comment, please!!</a>'
 		return routestring;
 	};
 
@@ -476,18 +473,16 @@ var NetworkNextMap = (function ($, window, document) {
 			'esri/geometry/Extent'
 		],
 			function (Query, QueryTask, webMercatorUtils, Extent) {
-				// convert 102100 Web Mercator to Lat/Lng coordinates
-				var mapPointLngLat = webMercatorUtils.xyToLngLat(evt.mapPoint.x, evt.mapPoint.y);
-
 				var query = new Query();
 				var queryTask = new QueryTask(
 					'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/4');
-				var pixelWidth = MAP.extent.getWidth() / MAP.width;
-				var toleraceInMapCoords = 20 * pixelWidth;
 				query.returnGeometry = true;
 				query.spatialRelationship = Query.SPATIAL_REL_INTERSECTS;
 				query.where = '1=1';
 				query.outFields = ['LINE_ID', 'ROUTENUM', 'ROUTEDESCRIPTION'];
+				query.geometry = evt.mapPoint;
+				var pixelWidth = MAP.extent.getWidth() / MAP.width;
+				var toleraceInMapCoords = 20 * pixelWidth;
 				query.geometry = new Extent(evt.mapPoint.x - toleraceInMapCoords, evt.mapPoint.y - toleraceInMapCoords,
 					evt.mapPoint.x + toleraceInMapCoords,
 					evt.mapPoint.y + toleraceInMapCoords,
@@ -500,6 +495,7 @@ var NetworkNextMap = (function ($, window, document) {
 				queryTask.on('complete', function (fSet) {
 					let routes = null;
 					let content = '';
+					let locationAddress = null;
 					let features = fSet.featureSet.features;
 					if (features && features.length > 0) {
 						// we found some routes at the location of this map click
@@ -512,28 +508,39 @@ var NetworkNextMap = (function ($, window, document) {
 							}
 							routes += atts.LINE_ID;
 						}
-					} else {
-						// didn't find any routes so we'll look up the street address of the map click
-						locateAddress(mapPointLngLat[0], mapPointLngLat[1])
-							.done(function (result) {
-								if (result.error) {
-									console.log('locateAddress Error - unable to fetch address');
-								}
-								console.log('Address: ' + result.address);
-							});
 					}
 					if (routes) {
-						content = formatPopUpList(routes);
+						content = formatPopUp(routes);
+						content +=
+							// '<div>' +
+							// '<a class="btn btn-sm btn-secondary-ghost" role="button"' +
+							// 'href="#">Comments</a></div>';
+							'<span style="font-size:larger;"><br /><br /><a href="#">Leave a comment, please!!</a>'
+						MAP.infoWindow.setTitle('Routes for this location');
+						$('#nnMapPopUpLocation').html('Routes for this location:<br/><br/>');
+						$('#nnMapPopUpContent').html(content);
+						MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
+						if (evt.screenX > 760) {
+							MAP.centerAt(evt.mapPoint);
+						}
 					} else {
-						content = 'Map clicked';
-					}
+						var mapPointLngLat = webMercatorUtils.xyToLngLat(evt.mapPoint.x, evt.mapPoint.y);
+						locateAddress(mapPointLngLat[0], mapPointLngLat[1])
+							.done(function (address) {
+								content = '<br/><br/>No service at this location.';
+								content +=
+									// '<div>' +
+									// '<a class="btn btn-sm btn-secondary-ghost" role="button"' +
+									// 'href="#">Comments</a></div>';
+									'<span style="font-size:larger;"><br /><br /><a href="#">Leave a comment, please!!</a>'
 
-					MAP.infoWindow.resize(250, 300);
-					MAP.infoWindow.setTitle('Routes for this location:');
-					MAP.infoWindow.setContent(content);
-					MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
-					if (evt.screenX > 760) {
-						MAP.centerAt(evt.mapPoint);
+								$('#nnMapPopUpLocation').html(address);
+								$('#nnMapPopUpContent').html(content);
+								MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
+								if (evt.screenX > 760) {
+									MAP.centerAt(evt.mapPoint);
+								}
+							});
 					}
 				});
 			});
@@ -643,7 +650,6 @@ var NetworkNextMap = (function ($, window, document) {
 						anchor: 'auto',
 						pagingControls: false,
 						pagingInfo: false,
-						titleInBody: false,
 						markerSymbol: new SimpleMarkerSymbol(
 							'circle',
 							32,
@@ -694,7 +700,7 @@ var NetworkNextMap = (function ($, window, document) {
 					if (_layerErrorCount > 0) {
 						// If we encounter a service error, assume the page is broken, display an alert and
 						// replace the page contents with an error text.
-						$('#networkNextMapContainer').html('We are currently experiencing difficulties and are unable to display this page at this time.');
+						$('#networkNextMapContainer').html('&nbsp&nbsp We are currently experiencing difficulties and are unable to display this page at this time.');
 						alert('One or more geographic services needed for this map have failed to load properly.' +
 							'\n\nBecause of this, the map may not work as expected. \n\nWe are working to correct the probelm.');
 					}
@@ -835,11 +841,15 @@ var NetworkNextMap = (function ($, window, document) {
 							GEOLOCATE.clear();
 						});
 					});
+
 					var scalebar = new Scalebar({
 						map: MAP,
 						attachTo: 'bottom-left',
 						scalebarUnit: 'english'
 					});
+
+					$('nnMapPopUp').show();
+					MAP.infoWindow.setContent($('#nnMapPopUp')[0]);
 
 					// var layerInfo = [{ layer: routeLayer, title: ' ' }];
 					// var mapLegend = new Legend(

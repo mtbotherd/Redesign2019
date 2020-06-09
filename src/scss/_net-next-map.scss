@@ -149,15 +149,14 @@
 		overflow-x: hidden;
 		overflow-y: auto;
 		font-size: 1.1em;
-		max-height: 200px;
+		max-height: 400px;
 		background-color: #fff;
-		line-height: 4px;
 		white-space: nowrap;
 		@include media-breakpoint-up(md) {
 			font-size: 1.3em;
 		}
 		@include media-breakpoint-up(lg) {
-			max-height: 300px;
+			max-height: 600px;
 		}
 	}
 	.esriPopup .sizer {
