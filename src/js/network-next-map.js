@@ -7,6 +7,12 @@ var NetworkNextMap = (function ($, window, document) {
 	var GEOLOCATE = null; // this is the locate button object
 	var ROUTENAMES = null; // an object with the route number as the key and route name as the data
 	var ROUTESTOSHOW = [];
+	var CLICKPOINT = {
+		point: {},
+		latitude: 0,
+		longitude: 0,
+		address: null
+	}
 	var SELECTEDTYPE = 2;
 	var SELECTEDTIME = 1;
 
@@ -115,27 +121,48 @@ var NetworkNextMap = (function ($, window, document) {
 		'midnightblue'
 	];
 
-	var drawRoutes = function (/*[string]*/ routes, /*bool*/zoom) {
+	var aliasRouteName = function (/*any*/route) {
+		route = parseInt(route);
+		var routeName = '';
+		switch (route) {
+			case 901:
+				routeName = 'Blue Line';
+				break;
+			case 902:
+				routeName = 'Green Line';
+				break;
+			case 903:
+				routeName = 'Red Line';
+				break;
+			case 904:
+				routeName = 'Gold Line';
+				break;
+			case 905:
+				routeName = 'Orange Line';
+				break;
+			case 906:
+				routeName = 'Airport Shuttle';
+				break;
+			case 921:
+				routeName = 'A Line';
+				break;
+			case 922:
+				routeName = 'B Line';
+				break;
+			case 923:
+				routeName = 'C Line';
+				break;
+			default:
+				routeName = route.toString();
+				break;
+		}
+		return routeName;
+	}
+	var drawRoute = function (/*string*/ route, /*bool*/zoom) {
 		zoom = typeof zoom !== 'undefined' ? zoom : false;
 
 		MAP.graphics.clear();
-		// var routesQuery = [];
-		var queryWhere = '1=0';
 
-		if (routes) {
-			routes = routes.filter(function (value, idx, arr) {
-				return value !== '999'; // remove values from list
-			});
-			queryWhere = 'ROUTENUMBER in (';
-			for (let i = 0, l = routes.length; i < l; i++) {
-				if (i > 0) {
-					queryWhere += ',';
-				}
-				queryWhere += routes[i];
-			}
-			queryWhere += ')';
-
-		}
 		// ******************
 		// Here we set a query on a feature layer defined in the map
 		// rather than a direct query of any service to get a line geometry
@@ -151,7 +178,7 @@ var NetworkNextMap = (function ($, window, document) {
 			type: 'get',
 			url: routeService + '/4/query',
 			data: {
-				where: queryWhere,
+				where: 'ROUTENUMBER = ' + route,
 				returnGeometry: true,
 				outFields: 'ROUTENUMBER',
 				f: 'json',
@@ -159,17 +186,23 @@ var NetworkNextMap = (function ($, window, document) {
 			dataType: 'json',
 		})
 			.done(function (result, status, xhr) {
-				if (result && result.features.length > 0) {
+				if (result.error) {
+					console.warn('drawRoute fatal error on lookup for route: ' + route);
+				}
+				if (result.features) {
 					require([
 						'esri/geometry/Polyline',
+						'esri/symbols/SimpleMarkerSymbol',
 						'esri/symbols/SimpleLineSymbol',
+						'esri/symbols/SimpleFillSymbol',
 						'esri/symbols/TextSymbol',
 						'esri/symbols/Font',
 						'esri/Color',
 						'esri/graphic'
-					], function (Polyline, SimpleLineSymbol, TextSymbol, Font, Color, Graphic) {
+					], function (Polyline, SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol, TextSymbol, Font, Color, Graphic) {
 						var extent;
 						for (let i = 0, l = result.features.length; i < l; i++) {
+							// draw a line for the route
 							let geom = new Polyline({
 								paths: result.features[i].geometry.paths,
 								spatialReference: result.spatialReference,
@@ -183,19 +216,27 @@ var NetworkNextMap = (function ($, window, document) {
 							g.setSymbol(line);
 							MAP.graphics.add(g);
 
-							let font = new Font("32px",
+							// add label for the route
+							let font = new Font("30px",
 								Font.STYLE_NORMAL,
 								Font.VARIANT_NORMAL,
 								Font.WEIGHT_BOLD);
-							let text = result.features[i].attributes.ROUTENUMBER;
+							let text = aliasRouteName(result.features[i].attributes.ROUTENUMBER);
 							var textSymbol = new TextSymbol(
 								text,
 								font,
 								new Color([64, 128, 255]) // a light-blue
 								//new Color('darkcyan')
 							);
-							let labelPoint = geom.getExtent().getCenter().offset(0, 10);
+							let labelPoint = geom.getExtent().getCenter();
+							//let offsetPoint = labelPoint.offset(0, -300);
+							var marker = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE, 60,
+								new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID,
+									new Color([0, 0, 0]), 1),
+								new Color([255, 255, 255, 1]));
+							//let m = new Graphic(labelPoint, marker);
 							let label = new Graphic(labelPoint, textSymbol);
+							//MAP.graphics.add(m);
 							MAP.graphics.add(label);
 							if (i === 0) {
 								extent = geom.getExtent();
@@ -203,14 +244,11 @@ var NetworkNextMap = (function ($, window, document) {
 								extent = extent.union(geom.getExtent());
 							}
 						}
-						MAP.setExtent(extent, true);
+						if (zoom) {
+							MAP.setExtent(extent, true);
+						}
 					});
 				}
-			})
-			.fail(function (err) {
-				console.warn(
-					'Routes fatal error fetching polylines: ' + err.Message
-				);
 			});
 	};
 	var toggleLayer = function (/*string*/ layer, /*int*/ zoomLevel) {
@@ -311,7 +349,7 @@ var NetworkNextMap = (function ($, window, document) {
 		$('#networkNextCommentForm').val('');
 		$('#nnCommentFormSubmitStatus').html('');
 	};
-	var setCommentText = function () {
+	var setCommentText = function (route) {
 		let m = 'For';
 		switch (SELECTEDTIME) {
 			case 1:
@@ -329,8 +367,9 @@ var NetworkNextMap = (function ($, window, document) {
 			default:
 				break;
 		}
-		if (ROUTESTOSHOW.length > 0) {
-			m += ' route ' + ROUTESTOSHOW[0] + ':';
+		if (route) {
+			let r = aliasRouteName(route);
+			m += ' route ' + r + ':';
 		} else {
 			m += ' routes:';
 		}
@@ -344,31 +383,39 @@ var NetworkNextMap = (function ($, window, document) {
 		// } else {
 		// 	ROUTESTOSHOW.splice(i, 1);
 		// }
-		commentFormReset();
-		ROUTESTOSHOW = [];
-		ROUTESTOSHOW.push(route);
-		if (pulldownSelect) {
-			MAP.infoWindow.hide();
-			updateLayersByType(0); // reset the route selectors too
-		} else {
-			$('#nnRoute').val(''); // reset the route pulldown list
+		if (route) {
+			commentFormReset();
+			//ROUTESTOSHOW = [];
+			//ROUTESTOSHOW.push(route);
+			if (pulldownSelect) {
+				MAP.infoWindow.hide();
+				updateLayersByType(0); // reset the route selectors too
+			} else {
+				$('#nnRoute').val(''); // reset the route pulldown list
+			}
+			// drawRoutes(ROUTESTOSHOW, /*zoom*/ false);
+			drawRoute(route, /*zoom*/false);
 		}
-		drawRoutes(ROUTESTOSHOW, /*zoom*/ true);
-		let m = setCommentText();
+		let m = setCommentText(route);
 		$('#networkNextCommentForm').val(m + '\n');
 		$('#networkNextCommentForm').focus();
 	}
-	var formatPopUpList = function formatPopUpList(/*string*/routeList) {
+	var formatRouteList = function (/*string*/routeList) {
 		// routeList is a string with route numbers space-delimited
 		var routestring = '';
-		if (routeList.length > 0) {
+		if (routeList) {
 			let w = routeList.split(' ').sort(function (a, b) { return parseInt(a) - parseInt(b); });
-			routestring += '<span>PIck one to highlight.<br/><br/></span>';
 			for (let i = 0, len = w.length; i < len; i++) {
 				routestring += '<br/>';
 				var rt = w[i];
-				var rtName = '';
-				if (ROUTENAMES) rtName = ROUTENAMES[rt];
+				var rtName = rt;
+				var rtDesc;
+				if (ROUTENAMES) {
+					if (rt in ROUTENAMES) {
+						rtName = ROUTENAMES[rt].name;
+						rtDesc = ROUTENAMES[rt].description;
+					}
+				}
 				var html = '<input id="cb' + rt + '"';
 				html += 'onclick="javascript: NetworkNextMap.toggleRoute(' + rt + ');return true; "';
 				html += 'type="radio" name="routeSelect"';
@@ -378,17 +425,15 @@ var NetworkNextMap = (function ($, window, document) {
 				}
 				html += '/>';
 				//html += '<label for='cb' + rt + ''><a href='https://www.metrotransit.org/route/' + rt + '' target='_blank'>' + rtName + '</a></label>';
-				html += '<label for="cb' + rt + '">' + rtName + '</label>';
+				if (rtDesc) {
+					html += '<label for="cb' + rt + '">' + rtName + ' - ' + rtDesc + '</label>';
+				} else {
+					html += '<label for="cb' + rt + '">' + rtName + '</label>';
+				}
+
 				routestring += html;
 			}
-		} else {
-			routestring = '<span style="font-size:large;"><br/>No routes service here.<br/><br/></span>';
 		}
-		routestring += '<br/><br/>' +
-			'<div class="btn-container center">' +
-			'<a class="btn btn-secondary-ghost has-icon-right"' +
-			'href="/network-next-comments">Send Us Your Comments</a></div>';
-		//<span style="font-size:larger;"><a href="#"><br /><br />Leave a comment, please!!</a>'
 		return routestring;
 	};
 
@@ -411,7 +456,7 @@ var NetworkNextMap = (function ($, window, document) {
 				dataType: 'json',
 			})
 				.done(function (result, status, xhr) {
-					console.dir(result);
+					//console.dir(result);
 					if (result && result.error) {
 						console.warn('Error locateAddress: ' + result.error.message);
 						dfd.reject(result.error.message);
@@ -419,35 +464,33 @@ var NetworkNextMap = (function ($, window, document) {
 					if (result && result.address) {
 						dfd.resolve(result.address.Match_addr);
 					}
-				})
-				.fail(function (result) {
-					console.warn('Fatal error locateAddress ' + result.error.Message);
-					dfd.reject(result.error.message);
 				});
-
 		}).promise();
 	}
 
 	var idMap = function (evt) {
 		ROUTESTOSHOW = [];
+		CLICKPOINT.point = evt.mapPoint;
 		require(['esri/tasks/query',
 			'esri/tasks/QueryTask',
 			'esri/geometry/webMercatorUtils',
 			'esri/geometry/Extent'
 		],
 			function (Query, QueryTask, webMercatorUtils, Extent) {
-				// convert 102100 Web Mercator to Lat/Lng coordinates
 				var mapPointLngLat = webMercatorUtils.xyToLngLat(evt.mapPoint.x, evt.mapPoint.y);
+				CLICKPOINT.longitude = mapPointLngLat[0];
+				CLICKPOINT.latitude = mapPointLngLat[1];
 
 				var query = new Query();
 				var queryTask = new QueryTask(
 					'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/4');
-				var pixelWidth = MAP.extent.getWidth() / MAP.width;
-				var toleraceInMapCoords = 20 * pixelWidth;
 				query.returnGeometry = true;
 				query.spatialRelationship = Query.SPATIAL_REL_INTERSECTS;
 				query.where = '1=1';
 				query.outFields = ['LINE_ID', 'ROUTENUM', 'ROUTEDESCRIPTION'];
+				query.geometry = evt.mapPoint;
+				var pixelWidth = MAP.extent.getWidth() / MAP.width;
+				var toleraceInMapCoords = 20 * pixelWidth;
 				query.geometry = new Extent(evt.mapPoint.x - toleraceInMapCoords, evt.mapPoint.y - toleraceInMapCoords,
 					evt.mapPoint.x + toleraceInMapCoords,
 					evt.mapPoint.y + toleraceInMapCoords,
@@ -459,6 +502,8 @@ var NetworkNextMap = (function ($, window, document) {
 				});
 				queryTask.on('complete', function (fSet) {
 					let routes = null;
+					let content = '';
+					let locationAddress = null;
 					let features = fSet.featureSet.features;
 					if (features && features.length > 0) {
 						// we found some routes at the location of this map click
@@ -471,28 +516,34 @@ var NetworkNextMap = (function ($, window, document) {
 							}
 							routes += atts.LINE_ID;
 						}
-					} else {
-						// didn't find any routes so we'll look up the street address of the map click
-						locateAddress(mapPointLngLat[0], mapPointLngLat[1])
-							.done(function (address) {
-								//console.log('Address: ' + address);
-							})
-							.fail(function (err) {
-								console.log('Error - unable to fetch address');
-							});
 					}
 					if (routes) {
-						let content = formatPopUpList(routes);
+						// fomat a route list to show and allow a user selection to highlight one
+						MAP.infoWindow.setTitle('Routes for this location');
+						$('#nnMapPopUpLocation').html('Pick one to highlight:<br/><br/>');
+						$('#nnMapPopUpContent').html(formatRouteList(routes));
+						$('#nnMapPopUpAction').html(// '<div><a class="btn btn-sm btn-secondary-ghost" role="button" href="#">Comments</a></div>';
+							'<span style="font-size:larger;"><br /><br /><a href="javascript: NetworkNextMap.toggleRoute();">Leave a comment, please!!</a>'
+						);
+						MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
+						if (evt.screenX > 760) {
+							MAP.centerAt(evt.mapPoint);
+						}
 					} else {
-						// format address 
-					}
-
-					MAP.infoWindow.resize(250, 300);
-					MAP.infoWindow.setTitle('Routes for this location:');
-					MAP.infoWindow.setContent(content);
-					MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
-					if (evt.screenX > 760) {
-						MAP.centerAt(evt.mapPoint);
+						// no routes found so show a map location instead
+						locateAddress(mapPointLngLat[0], mapPointLngLat[1])
+							.done(function (address) {
+								CLICKPOINT.address = address;
+								$('#nnMapPopUpLocation').html(address + '<br/><br/>No service at this location.');
+								$('#nnMapPopUpContent').html('');
+								$('#nnMapPopUpAction').html(// '<div><a class="btn btn-sm btn-secondary-ghost" role="button" href="#">Comments</a></div>';
+									'<span style="font-size:larger;"><br /><br /><a href="javascript: NetworkNextMap.toggleRoute();">Leave a comment, please!!</a>'
+								);
+								MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
+								if (evt.screenX > 760) {
+									MAP.centerAt(evt.mapPoint);
+								}
+							});
 					}
 				});
 			});
@@ -500,6 +551,7 @@ var NetworkNextMap = (function ($, window, document) {
 
 	var commentFormSubmit = function () {
 		// determines current state of application and launches comment form 
+		// console.dir(CLICKPOINT);
 		let c = $('#networkNextCommentForm').val();
 		if (c) {
 			console.log("Submit form: " + c);
@@ -508,6 +560,7 @@ var NetworkNextMap = (function ($, window, document) {
 			alert('Provide some comments');
 		}
 	};
+
 	//@@@@@@@@@@@@@@@@@@@@
 	//@@@  I N I T @@@@@@@
 	//@@@@@@@@@@@@@@@@@@@@
@@ -529,15 +582,21 @@ var NetworkNextMap = (function ($, window, document) {
 				'esri/dijit/PopupTemplate',
 				'esri/dijit/LocateButton',
 				"esri/dijit/BasemapToggle",
+				'dojo/on',
 				'dojo/domReady!'
 			], function (Map, esriBasemaps, Color, ArcGISDynamicMapServiceLayer, FeatureLayer,
-				Query, QueryTask, SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton, BasemapToggle) {
+				Query, QueryTask, SimpleMarkerSymbol, Scalebar, Legend, Popup, PopupTemplate, LocateButton, BasemapToggle, on) {
 
 				var createRouteList = function () {
 					// this function creates two lists from one source:
 					// List 1: an object list have with the route number and description. This get used to show the
 					//         route description in the pop-up lists.
 					// List 2: is the route selection pull-down list to highlight a route on the map.
+					let routedrop = $('#nnRoute');
+					routedrop.empty(); // clear the select list
+					routedrop.append($('<option selected/>').val('').text('Pick a Route'));
+					ROUTENAMES = {}; // Outformat { 901: { name: "METRO Blue Line", description: "" }
+
 					var query = new Query();
 					var queryTask = new QueryTask(
 						'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/4'
@@ -553,28 +612,32 @@ var NetworkNextMap = (function ($, window, document) {
 					});
 					queryTask.on('complete', function (fSet) {
 						if (fSet.featureSet.features.length > 0) {
-							ROUTENAMES = {}; // Outformat { "901": "METRO Blue Line" }
-							let routedrop = $('#nnRoute');
-							routedrop.empty(); // clear the select list
-							routedrop.append($('<option selected/>').val('').text('Pick a Route'));
-
 							for (let i = 0, l = fSet.featureSet.features.length; i < l; i++) {
-								var route =
+								let route =
 									fSet.featureSet.features[i].attributes;
-								if (route.ROUTENUM > 887) {
-									ROUTENAMES[route.ROUTENUM] =
-										route.ROUTEDESCRIPTION;
-								} else {
-									ROUTENAMES[route.ROUTENUM] =
-										route.ROUTENUM.toString() +
-										' ' +
-										route.ROUTEDESCRIPTION;
+								let routeName = aliasRouteName(route.ROUTENUM);
+								if (route.ROUTENUM > 890) {
+									ROUTENAMES[route.ROUTENUM] = { 'name': routeName, 'description': null };
+									routedrop.append(
+										$('<option/>')
+											.val(route.ROUTENUM.toString())
+											.text(routeName)
+									);
 								}
-								routedrop.append(
-									$('<option/>')
-										.val(route.ROUTENUM)
-										.text(route.ROUTENUM + " - " + route.ROUTEDESCRIPTION)
-								);
+							}
+							for (let i = 0, l = fSet.featureSet.features.length; i < l; i++) {
+								let route =
+									fSet.featureSet.features[i].attributes;
+								let routeName = aliasRouteName(route.ROUTENUM);
+								if (route.ROUTENUM < 890) {
+									ROUTENAMES[route.ROUTENUM] = { 'name': routeName, 'description': route.ROUTEDESCRIPTION };
+									routedrop.append(
+										$('<option/>')
+											.val(route.ROUTENUM.toString())
+											.text(routeName + " - " + route.ROUTEDESCRIPTION)
+									);
+								}
+
 							}
 						}
 					});
@@ -591,7 +654,6 @@ var NetworkNextMap = (function ($, window, document) {
 						anchor: 'auto',
 						pagingControls: false,
 						pagingInfo: false,
-						titleInBody: false,
 						markerSymbol: new SimpleMarkerSymbol(
 							'circle',
 							32,
@@ -642,7 +704,7 @@ var NetworkNextMap = (function ($, window, document) {
 					if (_layerErrorCount > 0) {
 						// If we encounter a service error, assume the page is broken, display an alert and
 						// replace the page contents with an error text.
-						$('#networkNextMapContainer').html('We are currently experiencing difficulties and are unable to display this page at this time.');
+						$('#networkNextMapContainer').html('&nbsp&nbsp We are currently experiencing difficulties and are unable to display this page at this time.');
 						alert('One or more geographic services needed for this map have failed to load properly.' +
 							'\n\nBecause of this, the map may not work as expected. \n\nWe are working to correct the probelm.');
 					}
@@ -783,11 +845,15 @@ var NetworkNextMap = (function ($, window, document) {
 							GEOLOCATE.clear();
 						});
 					});
+
 					var scalebar = new Scalebar({
 						map: MAP,
 						attachTo: 'bottom-left',
 						scalebarUnit: 'english'
 					});
+
+					$('nnMapPopUp').show();
+					MAP.infoWindow.setContent($('#nnMapPopUp')[0]);
 
 					// var layerInfo = [{ layer: routeLayer, title: ' ' }];
 					// var mapLegend = new Legend(
@@ -801,11 +867,31 @@ var NetworkNextMap = (function ($, window, document) {
 					// );
 					// mapLegend.startup();
 
-					var toggle = new BasemapToggle({
-						map: MAP,
-						basemap: "satellite"
-					}, "nnBasemapToggle");
-					//toggle.startup();
+					// var toggle = new BasemapToggle({
+					// 	map: MAP,
+					// 	basemap: "satellite"
+					// }, "nnBasemapToggle");
+					// toggle.startup();
+
+					require(['dijit/form/Button'], function (Button) {
+						var bImagery = new Button({
+							id: 'bImagery',
+							label: 'Aerials',
+							title: 'Click to toggle imagery',
+							'class': 'bImagery',
+							onClick: function () {
+								if (MAP.getBasemap() === 'hybrid') {
+									MAP.setBasemap('transitVector');
+									$('#bImagery').html('Aerials');
+								} else {
+									MAP.setBasemap('hybrid');
+									$('#bImagery').html('Basemap');
+								}
+							}
+						});
+						bImagery.placeAt($('#nnBasemapToggle')[0]);
+						bImagery.startup();
+					});
 
 					MAP.disableScrollWheel();
 
@@ -849,6 +935,7 @@ var NetworkNextMap = (function ($, window, document) {
 		centerMarkerAtPoint: centerMarkerAtPoint,
 		toggleRoute: toggleRoute,
 		commentFormSubmit: commentFormSubmit,
+		commentFormReset: commentFormReset,
 		init: init
 	};
 })(jQuery, window, document);
