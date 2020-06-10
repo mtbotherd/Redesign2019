@@ -7,6 +7,12 @@ var NetworkNextMap = (function ($, window, document) {
 	var GEOLOCATE = null; // this is the locate button object
 	var ROUTENAMES = null; // an object with the route number as the key and route name as the data
 	var ROUTESTOSHOW = [];
+	var CLICKPOINT = {
+		point: {},
+		latitude: 0,
+		longitude: 0,
+		address: null
+	}
 	var SELECTEDTYPE = 2;
 	var SELECTEDTIME = 1;
 
@@ -394,12 +400,11 @@ var NetworkNextMap = (function ($, window, document) {
 		$('#networkNextCommentForm').val(m + '\n');
 		$('#networkNextCommentForm').focus();
 	}
-	var formatPopUp = function (/*string*/routeList) {
+	var formatRouteList = function (/*string*/routeList) {
 		// routeList is a string with route numbers space-delimited
 		var routestring = '';
 		if (routeList) {
 			let w = routeList.split(' ').sort(function (a, b) { return parseInt(a) - parseInt(b); });
-			routestring += '<span>Pick one to highlight.<br/><br/></span>';
 			for (let i = 0, len = w.length; i < len; i++) {
 				routestring += '<br/>';
 				var rt = w[i];
@@ -428,8 +433,6 @@ var NetworkNextMap = (function ($, window, document) {
 
 				routestring += html;
 			}
-		} else {
-			routestring = 'No routes service here.';
 		}
 		return routestring;
 	};
@@ -467,12 +470,17 @@ var NetworkNextMap = (function ($, window, document) {
 
 	var idMap = function (evt) {
 		ROUTESTOSHOW = [];
+		CLICKPOINT.point = evt.mapPoint;
 		require(['esri/tasks/query',
 			'esri/tasks/QueryTask',
 			'esri/geometry/webMercatorUtils',
 			'esri/geometry/Extent'
 		],
 			function (Query, QueryTask, webMercatorUtils, Extent) {
+				var mapPointLngLat = webMercatorUtils.xyToLngLat(evt.mapPoint.x, evt.mapPoint.y);
+				CLICKPOINT.longitude = mapPointLngLat[0];
+				CLICKPOINT.latitude = mapPointLngLat[1];
+
 				var query = new Query();
 				var queryTask = new QueryTask(
 					'https://arcgis.metc.state.mn.us/transit/rest/services/transit/TRIM/MapServer/4');
@@ -510,32 +518,27 @@ var NetworkNextMap = (function ($, window, document) {
 						}
 					}
 					if (routes) {
-						content = formatPopUp(routes);
-						content +=
-							// '<div>' +
-							// '<a class="btn btn-sm btn-secondary-ghost" role="button"' +
-							// 'href="#">Comments</a></div>';
-							'<span style="font-size:larger;"><br /><br /><a href="#">Leave a comment, please!!</a>'
+						// fomat a route list to show and allow a user selection to highlight one
 						MAP.infoWindow.setTitle('Routes for this location');
-						$('#nnMapPopUpLocation').html('Routes for this location:<br/><br/>');
-						$('#nnMapPopUpContent').html(content);
+						$('#nnMapPopUpLocation').html('Pick one to highlight:<br/><br/>');
+						$('#nnMapPopUpContent').html(formatRouteList(routes));
+						$('#nnMapPopUpAction').html(// '<div><a class="btn btn-sm btn-secondary-ghost" role="button" href="#">Comments</a></div>';
+							'<span style="font-size:larger;"><br /><br /><a href="javascript: NetworkNextMap.toggleRoute();">Leave a comment, please!!</a>'
+						);
 						MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
 						if (evt.screenX > 760) {
 							MAP.centerAt(evt.mapPoint);
 						}
 					} else {
-						var mapPointLngLat = webMercatorUtils.xyToLngLat(evt.mapPoint.x, evt.mapPoint.y);
+						// no routes found so show a map location instead
 						locateAddress(mapPointLngLat[0], mapPointLngLat[1])
 							.done(function (address) {
-								content = '<br/><br/>No service at this location.';
-								content +=
-									// '<div>' +
-									// '<a class="btn btn-sm btn-secondary-ghost" role="button"' +
-									// 'href="#">Comments</a></div>';
-									'<span style="font-size:larger;"><br /><br /><a href="#">Leave a comment, please!!</a>'
-
-								$('#nnMapPopUpLocation').html(address);
-								$('#nnMapPopUpContent').html(content);
+								CLICKPOINT.address = address;
+								$('#nnMapPopUpLocation').html(address + '<br/><br/>No service at this location.');
+								$('#nnMapPopUpContent').html('');
+								$('#nnMapPopUpAction').html(// '<div><a class="btn btn-sm btn-secondary-ghost" role="button" href="#">Comments</a></div>';
+									'<span style="font-size:larger;"><br /><br /><a href="javascript: NetworkNextMap.toggleRoute();">Leave a comment, please!!</a>'
+								);
 								MAP.infoWindow.show(evt.screenPoint, MAP.getInfoWindowAnchor(evt.screenPoint));
 								if (evt.screenX > 760) {
 									MAP.centerAt(evt.mapPoint);
@@ -548,6 +551,7 @@ var NetworkNextMap = (function ($, window, document) {
 
 	var commentFormSubmit = function () {
 		// determines current state of application and launches comment form 
+		// console.dir(CLICKPOINT);
 		let c = $('#networkNextCommentForm').val();
 		if (c) {
 			console.log("Submit form: " + c);
@@ -931,6 +935,7 @@ var NetworkNextMap = (function ($, window, document) {
 		centerMarkerAtPoint: centerMarkerAtPoint,
 		toggleRoute: toggleRoute,
 		commentFormSubmit: commentFormSubmit,
+		commentFormReset: commentFormReset,
 		init: init
 	};
 })(jQuery, window, document);
