@@ -157,7 +157,7 @@ var NexTrip = (function($, window, document, undefined) {
 		});
 
 		if (!showAll && departures.length > threshold) {
-			$('.more').show();
+			$('.more').show(); // Show
 		} else if (showAll && departures.length > threshold) {
 			$('.stop-departures .list-group-item').attr(
 				'style',
@@ -336,21 +336,27 @@ var NexTrip = (function($, window, document, undefined) {
 			}
 		});
 
-		$('.more').click(function() {
-			$('.stop-departures .list-group-item')
-				.slideDown()
-				.attr('style', 'display: flex !important');
-			$(this).hide();
-			$('.less').show();
-		});
-
-		$('.less').click(function() {
-			$('.stop-departures')
-				.children(':nth-child(n+' + (threshold + 1) + ')')
-				.slideUp('slow');
-			$(this).hide();
-			$('.more').show();
-			scrollToResult();
+		// Show more departures slider
+		$('.btn-toggle').click(function() {
+			if ($(this).hasClass('more')) {
+				$('.stop-departures .list-group-item')
+					.slideDown()
+					.attr('style', 'display: flex !important');
+				$(this).removeClass('more');
+				$(this)
+					.addClass('less')
+					.attr('aria-expanded', 'true');
+				$('.less span').html('Show less departures');
+			} else if ($(this).hasClass('less')) {
+				$('.stop-departures')
+					.children(':nth-child(n+' + (threshold + 1) + ')')
+					.slideUp();
+				$(this).removeClass('less');
+				$(this)
+					.addClass('more')
+					.attr('aria-expanded', 'false');
+				$('.more span').html('Show more departures');
+			}
 		});
 
 		if ($('#NexTripMap').attr('maptype') === 'BOM')
