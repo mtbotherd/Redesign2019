@@ -46,11 +46,42 @@ $(function() {
 			certificate: 'Please attach a valid certificate.',
 		},
 		errorPlacement: function(error, element) {
-			if (element.attr('name') == 'dob') {
-				error.insertAfter('.date-picker-all');
+			// Add the `help-block` class to the error element
+			error.addClass('help-block');
+
+			element
+				.parents('.form-group, .input-group, .custom-control')
+				.addClass('has-feedback');
+
+			if (
+				element.prop('type') === 'checkbox' ||
+				element.prop('type') === 'radio' ||
+				element.prop('type') === 'file'
+			) {
+				error.appendTo(element.parents('.custom-control'));
 			} else {
-				error.insertAfter(element);
+				error.appendTo(element.parents('.form-group, .input-group'));
 			}
+		},
+		highlight: function(element, errorClass, validClass) {
+			$(element)
+				.parents('.form-group, .input-group, .custom-control')
+				.addClass(errorClass)
+				.removeClass(validClass);
+
+			// Sets error icon.
+			$(element)
+				.next('.alert-red')
+				.show();
+		},
+		unhighlight: function(element, errorClass, validClass) {
+			$(element)
+				.parents('.form-group, .input-group, .custom-control')
+				.addClass(validClass)
+				.removeClass(errorClass);
+			$(element)
+				.next('.alert-red')
+				.remove();
 		},
 	});
 });

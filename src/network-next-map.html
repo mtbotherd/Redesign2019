@@ -226,7 +226,7 @@
 								<a id="skipMap" href="#networkNextMapCommentForm" class="skip-to-content">Skip to
 									comment form</a>
 							</div>
-							<section class="section full-width">
+							<section class="full-width section">
 								<div id="networkNextMapContainer">
 									<div class="auto-complete-search-box mb-4 mb-lg-5">
 										<div class="input-group">
@@ -236,7 +236,7 @@
 													aria-describedby="networkNextMapSearchInstr"
 													aria-owns="networkNextMapSearchSuggestions" aria-required="true"
 													role="combobox" onFocus="$(this).val('')" />
-												<label for="searchButton">Search...</label>
+												<label for="searchButton">Search for address...</label>
 											</div>
 											<div class="input-group-append">
 												<div class="input-group-text" id="searchIcon">
@@ -249,152 +249,126 @@
 												gestures.</span>
 										</div>
 									</div>
-									<!-- <div class="container">
-										<div class="row mb-4">
-											<div class="col-2"></div>
-											<div class="col-10">
-												<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-													<input type="checkbox" class="custom-control-input"
-														id="networkNextMapLayer1" checked />
-													<label class="custom-control-label"
-														for="networkNextMapLayer1">Proposed
-														Routes</label>
-												</div>
-											</div>
-										</div>
-									</div> -->
 									<div class="container">
 										<div class="row">
-											<div class="col-lg-3"></div>
-											<div class="col-lg-9 small">
-												<div>Click on map symbols for more information about planned changes.
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-lg-3">
-												<!-- <div class="mb-4">Show Times
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-														<input type="radio" class="custom-control-input"
-															id="networkNextTimeSelect1" checked />
-														<label class="custom-control-label"
-															for="networkNextMapLayer1">Current
-														</label>
-													</div>
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-														<input type="radio" class="custom-control-input"
-															id="networkNextTimeSelect2" />
-														<label class="custom-control-label"
-															for="networkNextMapLayer2">TBD1
-														</label>
-													</div>
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-														<input type="radio" class="custom-control-input"
-															id="networkNextTimeSelect3" />
-														<label class="custom-control-label"
-															for="networkNextMapLayer3">TBD2
-														</label>
-													</div>
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
-														<input type="radio" class="custom-control-input"
-															id="networkNextTimeSelect4" />
-														<label class="custom-control-label"
-															for="networkNextMapLayer4">2040
-														</label>
-													</div>
-												</div> -->
-												<fieldset>
-													<legend class="h4">Show Times</legend>
-													<div class="custom-control custom-radio">
+											<div class="col-xl-4">
+												<div>
+													<legend class="h4 mb-2">Show Transit Route Scenarios</legend>
+													<div class="custom-control custom-radio d-sm-inline-flex mr-sm-5">
 														<input id="networkNextTimeSelect1" type="radio"
 															class="custom-control-input" name="selecttime" value="2020"
 															checked />
 														<label for="networkNextTimeSelect1"
 															class="custom-control-label">Current</label>
 													</div>
-													<div class="custom-control custom-radio">
+													<div class="custom-control custom-radio d-sm-inline-flex mr-sm-5">
 														<input id="networkNextTimeSelect2" type="radio"
-															class="custom-control-input" name="selecttime"
-															value="2025" />
+															class="custom-control-input" name="selecttime" value="2025"
+															disabled />
 														<label for="networkNextTimeSelect2"
-															class="custom-control-label">2025</label>
+															class="custom-control-label">Year 2025</label>
 													</div>
-													<div class="custom-control custom-radio">
+													<div class="custom-control custom-radio d-sm-inline-flex mr-sm-5">
 														<input id="networkNextTimeSelect3" type="radio"
-															class="custom-control-input" name="selecttime"
-															value="2030" />
+															class="custom-control-input" name="selecttime" value="2030"
+															disabled />
 														<label for="networkNextTimeSelect3"
-															class="custom-control-label">2030</label>
+															class="custom-control-label">Year 2030</label>
 													</div>
-													<div class="custom-control custom-radio">
+													<div class="custom-control custom-radio d-sm-inline-flex mr-sm-5">
 														<input id="networkNextTimeSelect4" type="radio"
-															class="custom-control-input" name="selecttime"
-															value="2040" />
+															class="custom-control-input" name="selecttime" value="2040"
+															disabled />
 														<label for="networkNextTimeSelect4"
-															class="custom-control-label">2040</label>
+															class="custom-control-label">Year 2040</label>
 													</div>
-												</fieldset>
-												<hr />
-												<fieldset>
-													<legend class="h4">Show Routes</legend>
+												</div>
+												<legend class="h4"></legend>
 
-
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+												<div class="select-route mt-3 mb-4">
+													<select id="nnRoute" name="nnRoute" class="custom-select"
+														onclick="this.setAttribute('value', this.value);" value="">
+														<option selected>Select a Route</option>
+													</select>
+													<label for="ntRoute" class="sr-only">Select a Route</label>
+												</div>
+												<div class="mb-4">
+													<div class="custom-control custom-switch d-md-inline-flex mr-lg-5">
 
 														<input type="checkbox" class="custom-control-input"
-															id="networkNextMapLayer1" checked />
+															id="networkNextMapLayer1" />
 														<label class="custom-control-label"
-															for="networkNextMapLayer1">Metro
+															for="networkNextMapLayer1">Metro Routes
 														</label>
 													</div>
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+													<div class="custom-control custom-switch d-md-inline-flex mr-lg-5">
 
 														<input type="checkbox" class="custom-control-input"
-															id="networkNextMapLayer2" />
+															id="networkNextMapLayer2" checked />
 														<label class="custom-control-label"
-															for="networkNextMapLayer2">Core
+															for="networkNextMapLayer2">Core Routes
 														</label>
 													</div>
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+													<div class="custom-control custom-switch d-md-inline-flex mr-lg-5">
 
 														<input type="checkbox" class="custom-control-input"
 															id="networkNextMapLayer3" />
 														<label class="custom-control-label"
-															for="networkNextMapLayer3">Express
+															for="networkNextMapLayer3">Express Routes
 														</label>
 													</div>
-													<div class="custom-control custom-switch d-md-inline-flex mr-md-4">
+													<div class="custom-control custom-switch d-md-inline-flex mr-sm-3">
 
 														<input type="checkbox" class="custom-control-input"
 															id="networkNextMapLayer4" />
 														<label class="custom-control-label"
-															for="networkNextMapLayer4">Connecting
+															for="networkNextMapLayer4">Connecting Routes
 														</label>
 													</div>
-												</fieldset>
-												<div id="networkNextMapLegend"
-													aria-label="graphic display of symbols used in the map">&nbsp;</div>
-											</div>
-											<div class="col-lg-9 map-container">
-												<div id="networkNextInteractiveMap" class="map border"
-													aria-label="interactive map of proposed route changes">
-													<div id="networkNextMapLocate">&nbsp;</div>
-													<div class="mapLoading">&nbsp;</div>
 												</div>
+												<!-- <div id="networkNextMapLegend"
+													aria-label="graphic display of symbols used in the map">&nbsp;</div> -->
+
 											</div>
-										</div>
-										<div class="row">
-											<div class="col-lg-2"></div>
-											<div class="col-lg-10 small">
-												<div>For more information, link to <a
-														href="https://www.metrotransit.org/network-next">https://www.metrotransit.org/network-next</a>
+											<div class="col-xl-8">
+												<span class="small">Click the map for additional information or to add a
+													comment to a particular location.
+												</span>
+												<div id="networkNextInteractiveMap" class="map-container border"
+													aria-label="interactive map of proposed route changes">
+													<div id="nnBasemapToggle"></div>
+													<div id="networkNextMapLocate"></div>
+													<div class="mapLoading"></div>
+												</div>
+												<div id="nnMapPopUp">
+													<div id="nnMapPopUpLocation" class="nnMapPopUpLocation"></div>
+													<div id="nnMapPopUpContent" class="nnMapPopUpContent"></div>
+													<div id="nnMapPopUpAction" class="nnMapPopUpAction"></div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</section>
-							<div id="networkNextCommentForm" class="sr-only">&nbsp;</div>
+							<form>
+								<div class="form-group">
+									<label class="h4" for="networkNextCommentForm">Comment:</label>
+									<textarea id="networkNextCommentForm" class="form-control" rows=10 name="nnComments"
+										maxlength=1200
+										onclick="javascript:NetworkNextMap.commentFormReset();"></textarea>
+								</div>
+								<div class="btn-container center mb-5">
+									<button type="submit" class="btn btn-secondary-ghost has-icon-right" <a
+										id="networkNextCommentLink"
+										onclick="javascript:NetworkNextMap.commentFormSubmit();return false;">Send
+										Your Comments</a>
+									</button>
+									<span id="nnCommentFormSubmitStatus"></span>
+								</div>
+							</form>
+							<span class="small ">For more information, link to <a
+									href="https://www.metrotransit.org/network-next">https://www.metrotransit.org/network-next</a></span>
+
 						</div>
 					</div>
 				</div>

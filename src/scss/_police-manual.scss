@@ -1,0 +1,113 @@
+/***************************************************
+    MTPD Manual - July 2017
+    Updated to redesign - June 2020
+***************************************************/
+.mtpd-manual {
+	.mtpd-manual-menu {
+		ul {
+			list-style-type: none;
+			margin-bottom: 0;
+			padding-left: 0;
+
+			li {
+				display: block;
+				cursor: pointer;
+				margin: 0;
+                padding-left: 1.5em;
+                
+                &.plus-icon {
+                    content: '';
+                    background-image: url('../../../../../img/svg/circle-plus-blue.svg');
+                    background-repeat: no-repeat;
+                    background-position-y: 0.25rem;
+                }
+    
+                &.minus-icon {
+                    content: '';
+                    background-image: url('../../../../../img/svg/circle-minus-blue.svg');
+                    background-repeat: no-repeat;
+                    background-position-y: 0.25rem;
+                }
+
+				ul {
+					margin-top: 0;
+				}
+			}
+		}
+    }
+    
+	.chapter {
+		display: none;
+	}
+
+	h4 {
+		font-weight: 400;
+	}
+
+	ul {
+		list-style-type: initial;
+		margin-bottom: 1.5em;
+	}
+
+	ol.alpha {
+		list-style: lower-alpha;
+		margin-bottom: 1.5em;
+		padding-left: 1em;
+
+		li {
+			padding-left: 1em;
+		}
+	}
+
+	ol.decimal {
+		list-style: decimal;
+	}
+
+	img {
+		max-width: 100%;
+	}
+
+	.table {
+		border: 1px solid #ccc;
+		margin-bottom: 20px;
+
+		thead tr {
+			background-color: #ececec;
+			border: 2px solid #ccc;
+			border-bottom: 1px solid #ccc;
+
+			th {
+				border: 1px solid #ccc;
+				padding: 5px 10px;
+			}
+		}
+
+		tbody tr {
+			border-right: 2px solid #ccc;
+			border-left: 2px solid #ccc;
+
+			td {
+				border: 1px solid #ccc;
+				padding: 5px 10px;
+			}
+
+			&:last-child {
+				border-bottom: 2px solid #ccc;
+			}
+		}
+	}
+
+	.table.special {
+		tbody tr {
+			td {
+				text-align: center;
+
+				&:first-child {
+					background-color: #ececec;
+					font-weight: 700;
+					text-align: left;
+				}
+			}
+		}
+	}
+}

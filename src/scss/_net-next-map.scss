@@ -1,17 +1,62 @@
+#nnBasemapToggle {
+	.bImagery {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		z-index: 50;
+	}
+	.dijitOffScreen {
+		position: absolute !important;
+		left: -10000px !important;
+		top: -10000px !important;
+	}
+	.dijitToggleButtonIconChar {
+		display: none;
+	}
+	.bImagery .dijitButtonNode {
+		cursor: pointer;
+		padding: 0.3em;
+		font-size: 1.5em;
+		font-weight: 900;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		border: 1px solid #c0c0c0;
+		border-bottom: 2px solid #9b9b9b;
+		background: #fff;
+		outline:none;
+	}
+	.bImagery .dijitButtonNode:hover {
+		background: #0153A0;
+		color: #FFF;
+	}
+}
 #networkNextMap {
+	textarea {
+  		overflow: auto;
+	}
 	.icon {
 		width: 2.5rem;
 		height: 2.5rem;
-	}
-	.map {
-		height: 100%;
-		width: 100%;
 	}
 	.map-container {
 		height: 600px;
 		width: 100%;
 	}
 
+	.select-route, .custom-select {
+			position: relative;
+			display: block;
+			height: 40px;
+			color: $gray-300;
+			@include font-size(18);
+			// padding: 0.75rem;
+
+			@include media-breakpoint-up(lg) {
+				height: 50px;
+				@include font-size(24);
+			}
+		}
 	.auto-complete-search-box {
 		.input-group {
 			.custom-width {
@@ -63,35 +108,13 @@
 	}
 	.esriPopup .titlePane {
 		height: 21px;
-		font-size: 1.1em;
-	}
-
-	.esriPopup .contentPane {
-		overflow-x: hidden;
-		overflow-y: auto;
-		font-size: 1.1em;
-		background-color: $white;
-		max-height: 200px;
-
-		@include media-breakpoint-up(lg) {
-			max-height: 300px;
-		}
+		font-size: 1.2em;
 	}
 
 	.esriPopup .actionsPane {
 		display: none;
 	}
 
-	.esriPopup .sizer {
-		width: 200px;
-
-		@include media-breakpoint-up(md) {
-			width: 320px;
-		}
-		@include media-breakpoint-up(lg) {
-			width: 370px;
-		}
-	}
 	.esriPopup .container {
 		padding-left: 0;
 		padding-right: 0;
@@ -106,17 +129,12 @@
 		background-color: $white;
 	}
 
-	.esriPopup .nav-link {
-		font-size: large;
-		padding: 0.25rem 0.25rem;
-	}
-
 	.esriPopup a[href] {
 		text-decoration: none;
 	}
 	.esriPopup .titleButton.close {
 		background-image: url('../../../../../img/svg/close-gray.svg');
-		background-color: white;
+		background-color: $white;
 		background-repeat: no-repeat;
 		background-size: 1rem;
 		width: 1rem;
@@ -126,4 +144,65 @@
 	.esriPopup .titleButton.maximize {
 		display: none;
 	}
+	
+	.esriPopup .contentPane {
+		font-size: 1.1em;
+		padding: 10px;
+		background-color: $white;
+		white-space: nowrap;
+		max-height: 300px;
+		@include media-breakpoint-up(md) {
+			 max-height: 450px;
+		}
+		@include media-breakpoint-up(lg) {
+			 max-height: 600px;
+		}
+	}
+
+	.esriPopup .contentPane .nnMapPopUpContent {
+		line-height: 3px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		font-size: 1em;
+		max-height: 60px;
+		@include media-breakpoint-up(md) {
+			font-size: 1.2em;
+			max-height: 105px;
+		}
+		@include media-breakpoint-up(lg) {
+			max-height:250px;
+		}
+	}
+	.esriPopup .contentPane .nnMapPopUpContent input {
+		margin: 3px;
+	}
+
+	.esriPopup .contentPane .nnMapPopUpAction {
+		font-size: 1em;
+		line-height:.5em;
+		@include media-breakpoint-up(md) {
+			font-size: 1.2em;
+			line-height:.8em;
+		}
+	}
+	.esriPopup .contentPane .nnMapPopUpLocation {
+			font-size: 1em;
+			line-height:.5em;
+		@include media-breakpoint-up(md) {
+			font-size: 1.2em;
+			line-height: .8em;
+		}
+	}
+	
+	.esriPopup .sizer {
+		width: 200px;
+
+		@include media-breakpoint-up(md) {
+			width: 320px;
+		}
+		@include media-breakpoint-up(lg) {
+			width: 370px;
+		}
+	}
+
 }
