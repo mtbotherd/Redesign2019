@@ -82,7 +82,7 @@
 	}
 
 	#nextripDepartures {
-		display: none;
+		//display: none;
 
 		.stop-departures {
 			margin-bottom: 1rem;
@@ -91,11 +91,67 @@
 		.card {
 			background-color: $gray-100 !important;
 
-			.list-group-item {
-				display: flex;
-				margin-bottom: -0.8px !important;
-				&:nth-child(n + 4) {
-					display: none !important;
+			// .list-group-item {
+			// 	display: flex;
+			// 	margin-bottom: -0.8px !important;
+			// 	&:nth-child(n + 4) {
+			// 		display: none !important;
+			// 	}
+			// }
+
+			table {
+				margin-bottom: 0.5rem;
+
+				caption {
+					caption-side: top;
+					padding-bottom: 0;
+				}
+
+				th {
+					border-top: none;
+					border-bottom-color: $gray-300;
+				}
+				td {
+					border-color: $gray-300;
+				}
+
+				tr:last-child td {
+					border-bottom: 1px solid $gray-300;
+				}
+
+				tbody {
+					.route-number {
+						font-weight: $font-weight-bold;
+						width: 50px;
+
+						@include media-breakpoint-up(lg) {
+							width: 140px;
+						}
+					}
+
+					.route-name {
+						max-width: 218px;
+
+						@include media-breakpoint-up(md) {
+							max-width: 593px;
+						}
+
+						@include media-breakpoint-up(lg) {
+							max-width: 807px;
+						}
+
+						@include media-breakpoint-up(xl) {
+							width: 805px;
+						}
+					}
+
+					.depart-time {
+						font-weight: $font-weight-bold;
+					}
+				}
+
+				tbody tr td:last-child {
+					text-align: right;
 				}
 			}
 		}
@@ -170,34 +226,34 @@
 			}
 		}
 
-		.route-number {
-			font-weight: $font-weight-bold;
-			width: 50px;
+		// .route-number {
+		// 	font-weight: $font-weight-bold;
+		// 	width: 50px;
 
-			@include media-breakpoint-up(lg) {
-				width: 75px;
-			}
-		}
+		// 	@include media-breakpoint-up(lg) {
+		// 		width: 75px;
+		// 	}
+		// }
 
-		.route-name {
-			max-width: 218px;
+		// .route-name {
+		// 	max-width: 218px;
 
-			@include media-breakpoint-up(md) {
-				max-width: 593px;
-			}
+		// 	@include media-breakpoint-up(md) {
+		// 		max-width: 593px;
+		// 	}
 
-			@include media-breakpoint-up(lg) {
-				max-width: 807px;
-			}
+		// 	@include media-breakpoint-up(lg) {
+		// 		max-width: 807px;
+		// 	}
 
-			@include media-breakpoint-up(xl) {
-				max-width: 987px;
-			}
-		}
+		// 	@include media-breakpoint-up(xl) {
+		// 		max-width: 987px;
+		// 	}
+		// }
 
-		.depart-time {
-			font-weight: $font-weight-bold;
-		}
+		// .depart-time {
+		// 	font-weight: $font-weight-bold;
+		// }
 	}
 
 	.show-my-bus {

@@ -312,7 +312,46 @@
 									<div class="nextrip-stop-list"></div>
 									<div id="nextripDepartures" class="nextrip-departures">
 										<div class="card mb-3 p-2 p-md-4">
-											<h2 class="mb-2">
+											<h2 class="mb-2"><a name="nextriptop">Departures</a></h2>
+											<table class="table table-responsive">
+												<caption>
+													<div class="stop-description">
+														<p>Lyndale Ave S - 61st St W<br>Stop 3375</p>
+													</div>
+												</caption>
+												<thead>
+													<tr>
+														<th class="sr-only">Route number</th>
+														<th class="sr-only">Route name</th>
+														<th class="sr-only">Depart time</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="route-number mr-2">4</td>
+														<td class="route-name">Downtown / Via Lyndale</td>
+														<td class="depart-time ml-auto">
+															<img class="icon blink mr-1" src="/img/svg/broadcast-blue.svg">17 Min
+														</td>
+													</tr>
+													<tr>
+														<td>4</td>
+														<td>Downtown / Via Lyndale</td>
+														<td>
+															<img class="icon blink mr-1" src="/img/svg/broadcast-blue.svg">17 Min
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											<button type="button" class="btn btn-toggle show more">
+												<img class="icon" src="/img/svg/circle-plus-blue.svg">
+												<span class="h4">Show more departure times</span>
+											</button>
+											<button type="button" class="btn btn-toggle show less">
+												<img class="icon" src="/img/svg/circle-minus-blue.svg">
+												<span class="h4">Show fewer departure times</span>
+											</button>
+											<!-- <h2 class="mb-2">
 												<a name="nextriptop">Departures</a>
 											</h2>
 											<div class="stop-description"></div>
@@ -479,7 +518,7 @@
 	<script src="/js/autocomplete.js"></script>
 	<script src="/js/trip-planner.js"></script>
 	<script src="js/stops-stations.js"></script>
-	<script src="/js/nextrip.js"></script>
+	<script src="/js/nextrip-test.js"></script>
 	<script src="/js/scripts.js"></script>
 	<script>
 		$(function () {
